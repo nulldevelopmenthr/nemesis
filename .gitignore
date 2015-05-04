@@ -1,0 +1,14 @@
+/bin/
+/build/
+/vendor/
+/bin/
+/composer.phar
+
+#PHPStorm folder
+/.idea
+#backup files from unix editors
+*~
+#merge files
+*.orig
+#shell scripts in root
+/*.sh
