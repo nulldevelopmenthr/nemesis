@@ -1,0 +1,19 @@
+machine:
+  php:
+    version: 5.5.11
+dependencies:
+  pre:
+#    - sudo composer self-update --no-interaction
+  cache_directories:
+    - "bin"
+    - "vendor"
+test:
+  override:
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - ./bin/phpunit 
+    - sed -i 's/^/;/' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - ./bin/phpmd src/ text phpmd.xml
+    - ./bin/phpcs --standard=phpcs.xml src/ -n
+    - ./bin/php-cs-fixer fix src/ --dry-run --diff --level=symfony --fixers=short_array_syntax,-unused_use,-empty_return
+    - ./bin/php-cs-fixer fix tests/ --dry-run --diff --level=symfony --fixers=short_array_syntax,-unused_use,-empty_return
+#    - ./bin/coveralls
