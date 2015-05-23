@@ -5,8 +5,6 @@ build:
       ini:
          'date.timezone': 'UTC'
   dependencies:
-    before:
-      - 'sudo composer self-update'
   tests:
     override:
       -
