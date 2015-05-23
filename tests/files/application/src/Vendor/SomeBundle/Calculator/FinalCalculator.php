@@ -1,4 +1,5 @@
 <?php
+
 namespace Vendor\SomeBundle\Calculator;
 
 final class FinalCalculator

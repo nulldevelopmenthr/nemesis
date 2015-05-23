@@ -1,7 +1,8 @@
 <?php
+
 namespace Vendor\SomeBundle\Calculator;
 
-require "AbstractCalculator.php";
+require 'AbstractCalculator.php';
 
 class AdvancedCalculator extends AbstractCalculator
 {
