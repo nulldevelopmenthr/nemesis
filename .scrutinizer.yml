@@ -30,3 +30,7 @@ tools:
   php_analyzer: true
   sensiolabs_security_checker: true
   php_code_coverage: true
+checks:
+  php:
+    code_rating: true
+    duplication: true
