@@ -15,21 +15,66 @@ jobs:
           name: Composer install
           command: composer install --no-interaction
       - run:
-          name: PHPUnit
-          command: ./vendor/bin/phpunit --fail-on-warning
-      - run:
           name: PHPSpec
           command: ./vendor/bin/phpspec run --no-interaction
-      - run:
-          name: Check codestandards
-          command: ./vendor/bin/phing check-codestandards
-      - run:
-          name: Static analysis
-          command: ./vendor/bin/phing phpstan
       - save_cache:
           key: cache-v1-{{ checksum "composer.lock" }}
           paths:
             - /var/www/vendor
+
+  phpunit:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: PHPUnit
+          command: ./vendor/bin/phpunit --fail-on-warning
+
+  codestyle:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: Check codestandards
+          command: ./vendor/bin/phing check-codestandards
+
+  phpstan:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: Static analysis
+          command: ./vendor/bin/phing phpstan
 
   humbug:
     docker:
@@ -81,9 +126,15 @@ workflows:
   build-and-deploy:
     jobs:
       - build
+      - phpunit
+      - codestyle
+      - phpstan
       - humbug:
          requires:
-           - build
+           - phpunit
       - highest:
          requires:
            - build
+         filters:
+           branches:
+             only: master
