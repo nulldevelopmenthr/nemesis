@@ -1,0 +1,3 @@
+meld spec/NullDev/Skeleton/ /work/noob/generator/dev/spec/
+meld src/NullDev/Skeleton/ /work/noob/generator/dev/src/
+meld tests/NullDev/Skeleton/ /work/noob/generator/dev/tests/
