@@ -21,8 +21,13 @@ class CoversCommentTest extends PHPUnit_Framework_TestCase
         $this->coversComment = new CoversComment('className');
     }
 
-    public function testNothing(): void
+    public function testGetter(): void
     {
-        $this->markTestIncomplete('Auto generated using nemesis');
+        self::assertEquals('className', $this->coversComment->getClassName());
+    }
+
+    public function testCastToStringReturnsProperlyFormattedLineOfDocBlock(): void
+    {
+        self::assertEquals('* @covers \\className', (string) $this->coversComment);
     }
 }
