@@ -17,14 +17,14 @@ class PhpParserGeneratorTest extends BaseCodeGeneratorTest
      * @test
      * @dataProvider provideTestRenderData
      */
-    public function outputClass(ImprovedClassSource $classSource, string $outputName)
+    public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
         $generator = PhpParserGeneratorFactory::create();
 
         $this->assertSame($this->getFileContent($outputName), $generator->getOutput($classSource));
     }
 
-    public function provideTestRenderData()
+    public function provideTestRenderData(): array
     {
         return [
             [new ImprovedClassSource($this->provideClassType()), 'code/class'],
