@@ -38,17 +38,11 @@ class Psr4Path implements Path
         return false;
     }
 
-    /**
-     * @return string
-     */
     public function getPathBase(): string
     {
         return $this->pathBase;
     }
 
-    /**
-     * @return string
-     */
     public function getClassBase(): string
     {
         return $this->classBase;
@@ -69,12 +63,12 @@ class Psr4Path implements Path
 
     public function getFileNameFor(string $className): string
     {
-        if (!$this->belongsTo($className)) {
+        if (false === $this->belongsTo($className)) {
             throw new Exception('Err 58733211: Class name "'.$className.'" doesnt belong to this path!');
         }
 
         //If not empty class base, remove class base from class name.
-        if (!empty($this->classBase)) {
+        if (false === empty($this->classBase)) {
             $className = substr($className, strlen($this->classBase));
         }
 
