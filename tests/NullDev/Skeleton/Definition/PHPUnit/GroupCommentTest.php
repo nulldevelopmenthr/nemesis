@@ -21,8 +21,13 @@ class GroupCommentTest extends PHPUnit_Framework_TestCase
         $this->groupComment = new GroupComment('groupName');
     }
 
-    public function testNothing(): void
+    public function testGetter(): void
     {
-        $this->markTestIncomplete('Auto generated using nemesis');
+        self::assertEquals('groupName', $this->groupComment->getGroupName());
+    }
+
+    public function testCastToStringReturnsProperlyFormattedLineOfDocBlock(): void
+    {
+        self::assertEquals('* @group groupName', (string) $this->groupComment);
     }
 }
