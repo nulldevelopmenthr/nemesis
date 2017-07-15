@@ -19,7 +19,7 @@ class PhpParserSpecGeneratorTest extends BaseCodeGeneratorTest
      * @test
      * @dataProvider provideTestRenderData
      */
-    public function outputClass(ImprovedClassSource $classSource, string $outputName)
+    public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
         $generator = PhpParserGeneratorFactory::create();
 
@@ -30,7 +30,7 @@ class PhpParserSpecGeneratorTest extends BaseCodeGeneratorTest
         $this->assertSame($this->getFileContent($outputName), $generator->getOutput($specSource));
     }
 
-    public function provideTestRenderData()
+    public function provideTestRenderData(): array
     {
         return [
             [new ImprovedClassSource($this->provideClassType()), 'spec/class-spec'],
