@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis\Command;
 
-use NullDev\Nemesis\Xxx\PHPUnit\PHPUnit5TestGenerator;
+use NullDev\PHPUnitSkeleton\PHPUnit5TestGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
