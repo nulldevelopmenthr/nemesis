@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator;
 
-use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\SetUpGenerator;
-use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
+use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator;
+use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\CreateGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator;
