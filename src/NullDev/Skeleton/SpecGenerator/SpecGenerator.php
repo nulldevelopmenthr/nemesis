@@ -90,10 +90,10 @@ class SpecGenerator
 
         $skip = false;
 
-        if (true === $improvedClassSource->hasParent()) {
-            if ($improvedClassSource->getParent()->getFullName() === EventSourcingRepository::class) {
-                $skip = true;
-            }
+        if (true === $improvedClassSource->hasParent()
+            && $improvedClassSource->getParent()->getFullName() === EventSourcingRepository::class
+        ) {
+            $skip = true;
         }
 
         if (false === $skip) {

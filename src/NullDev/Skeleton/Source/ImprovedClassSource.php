@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Source;
 
+use NullDev\Skeleton\Definition\PHP\DocComment;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
@@ -20,6 +21,7 @@ use NullDev\Skeleton\Definition\PHP\Types\Type;
 class ImprovedClassSource
 {
     private $classType;
+    private $docComments = [];
     private $parent;
     private $interfaces = [];
     private $traits     = [];
@@ -66,6 +68,18 @@ class ImprovedClassSource
     public function getFullName(): string
     {
         return $this->classType->getFullName();
+    }
+
+    //-----   DocComments   -----
+
+    public function addDocComment(DocComment $comment)
+    {
+        $this->docComments[] = $comment;
+    }
+
+    public function getDocComments(): array
+    {
+        return $this->docComments;
     }
 
     //-----     Parent     -----
@@ -237,10 +251,8 @@ class ImprovedClassSource
 
     private function addImportIfEligible(Type $import)
     {
-        if ($import instanceof Importable) {
-            if (false === in_array($import, $this->imports)) {
-                $this->imports[] = $import;
-            }
+        if ($import instanceof Importable && false === in_array($import, $this->imports)) {
+            $this->imports[] = $import;
         }
     }
 

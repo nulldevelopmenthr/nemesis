@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator;
 
+use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\SetUpGenerator;
+use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\CreateGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator;
@@ -35,19 +37,23 @@ class PhpParserGeneratorFactory
                 new BuilderFactory()
             ),
             new MethodFactory(
-                new ConstructorGenerator(new BuilderFactory()),
-                new DeserializeGenerator(new BuilderFactory()),
-                new GetterGenerator(new BuilderFactory()),
-                new SerializeGenerator(new BuilderFactory()),
-                new ToStringGenerator(new BuilderFactory()),
-                new UuidCreateGenerator(new BuilderFactory()),
-                new CreateGenerator(new BuilderFactory()),
-                new AggregateRootIdGetterGenerator(new BuilderFactory()),
-                new RepositoryConstructorGenerator(new BuilderFactory()),
-                new ReadModelIdGetterGenerator(new BuilderFactory()),
-                new LetGenerator(new BuilderFactory()),
-                new InitializableGenerator(new BuilderFactory()),
-                new ExposeConstructorArgumentsAsGettersGenerator(new BuilderFactory())
+                [
+                    new ConstructorGenerator(new BuilderFactory()),
+                    new DeserializeGenerator(new BuilderFactory()),
+                    new GetterGenerator(new BuilderFactory()),
+                    new SerializeGenerator(new BuilderFactory()),
+                    new ToStringGenerator(new BuilderFactory()),
+                    new UuidCreateGenerator(new BuilderFactory()),
+                    new CreateGenerator(new BuilderFactory()),
+                    new AggregateRootIdGetterGenerator(new BuilderFactory()),
+                    new RepositoryConstructorGenerator(new BuilderFactory()),
+                    new ReadModelIdGetterGenerator(new BuilderFactory()),
+                    new LetGenerator(new BuilderFactory()),
+                    new InitializableGenerator(new BuilderFactory()),
+                    new ExposeConstructorArgumentsAsGettersGenerator(new BuilderFactory()),
+                    new SetUpGenerator(new BuilderFactory()),
+                    new TestNothingGenerator(new BuilderFactory()),
+                ]
             ),
             new PrettyPrinter\Standard()
         );

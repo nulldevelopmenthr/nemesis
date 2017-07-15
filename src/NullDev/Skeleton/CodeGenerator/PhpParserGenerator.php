@@ -50,6 +50,19 @@ class PhpParserGenerator
 
         $classCode = $this->classGenerator->generate($classSource);
 
+        if (false === empty($classSource->getDocComments())) {
+            $comments   = [];
+            $comments[] = '/**';
+
+            foreach ($classSource->getDocComments() as $docComment) {
+                $comments[] = (string) $docComment;
+            }
+
+            $comments[] = '*/';
+
+            $classCode->setDocComment(implode(PHP_EOL, $comments));
+        }
+
         foreach ($classSource->getMethods() as $method) {
             $result = $this->methodFactory->generate($method);
 

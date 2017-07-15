@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\SetUpGenerator;
+use NullDev\Nemesis\Xxx\PHPUnit\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\CreateGenerator;
 use NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator;
@@ -35,22 +37,28 @@ class MethodFactorySpec extends ObjectBehavior
         ReadModelIdGetterGenerator $readModelIdGetterGenerator,
         LetGenerator $letGenerator,
         InitializableGenerator $initializableGenerator,
-        ExposeConstructorArgumentsAsGettersGenerator $exposeConstructorArgumentsAsGettersGenerator
+        ExposeConstructorArgumentsAsGettersGenerator $exposeConstructorArgumentsAsGettersGenerator,
+        SetUpGenerator $setUpGenerator,
+        TestNothingGenerator $testNothingGenerator
     ) {
         $this->beConstructedWith(
-            $constructorGenerator,
-            $deserializeGenerator,
-            $getterGenerator,
-            $serializeGenerator,
-            $toStringGenerator,
-            $uuidCreateGenerator,
-            $createGenerator,
-            $aggregateRootIdGetterGenerator,
-            $repositoryConstructorGenerator,
-            $readModelIdGetterGenerator,
-            $letGenerator,
-            $initializableGenerator,
-            $exposeConstructorArgumentsAsGettersGenerator
+            [
+                $constructorGenerator,
+                $deserializeGenerator,
+                $getterGenerator,
+                $serializeGenerator,
+                $toStringGenerator,
+                $uuidCreateGenerator,
+                $createGenerator,
+                $aggregateRootIdGetterGenerator,
+                $repositoryConstructorGenerator,
+                $readModelIdGetterGenerator,
+                $letGenerator,
+                $initializableGenerator,
+                $exposeConstructorArgumentsAsGettersGenerator,
+                $setUpGenerator,
+                $testNothingGenerator,
+            ]
         );
     }
 

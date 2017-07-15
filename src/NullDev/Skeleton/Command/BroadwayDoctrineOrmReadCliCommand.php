@@ -45,7 +45,7 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         $this->input  = $input;
         $this->output = $output;
 
-        $this->io     = new SymfonyStyle($input, $output);
+        $this->io = new SymfonyStyle($input, $output);
 
         $this->handle();
     }
@@ -95,8 +95,8 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         }
 
         //Projector
-        $readProjectorClassType   = ClassType::create($className.'Projector');
-        $readProjectorClassSource = $this->getReadProjectorSource(
+        $readProjectorClassType    = ClassType::create($className.'Projector');
+        $readProjectorClassSource  = $this->getReadProjectorSource(
             $readProjectorClassType,
             $repositoryClassType,
             $factoryClassType

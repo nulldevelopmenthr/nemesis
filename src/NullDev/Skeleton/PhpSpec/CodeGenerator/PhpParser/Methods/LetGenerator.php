@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods;
 
+use NullDev\Skeleton\CodeGenerator\CodeGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
@@ -24,13 +25,18 @@ use PhpParser\Node\Scalar\String_;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class LetGenerator
+class LetGenerator implements CodeGenerator
 {
     private $builderFactory;
 
     public function __construct(BuilderFactory $builderFactory)
     {
         $this->builderFactory = $builderFactory;
+    }
+
+    public function supports($classMethod): bool
+    {
+        return $classMethod instanceof LetMethod;
     }
 
     public function generate(LetMethod $method)

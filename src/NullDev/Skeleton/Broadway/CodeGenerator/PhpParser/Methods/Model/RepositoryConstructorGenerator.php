@@ -7,6 +7,7 @@ namespace NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model;
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
+use NullDev\Skeleton\CodeGenerator\CodeGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
@@ -14,13 +15,18 @@ use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 
-class RepositoryConstructorGenerator
+class RepositoryConstructorGenerator implements CodeGenerator
 {
     private $builderFactory;
 
     public function __construct(BuilderFactory $builderFactory)
     {
         $this->builderFactory = $builderFactory;
+    }
+
+    public function supports($classMethod): bool
+    {
+        return $classMethod instanceof RepositoryConstructorMethod;
     }
 
     public function generate(RepositoryConstructorMethod $method)
