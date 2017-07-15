@@ -20,6 +20,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+ * @codeCoverageIgnore
  */
 class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
 {
