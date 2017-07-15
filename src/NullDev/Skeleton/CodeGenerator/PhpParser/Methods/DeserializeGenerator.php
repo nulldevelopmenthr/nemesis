@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
+use NullDev\Skeleton\CodeGenerator\CodeGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
@@ -11,13 +12,18 @@ use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 
-class DeserializeGenerator
+class DeserializeGenerator implements CodeGenerator
 {
     private $builderFactory;
 
     public function __construct(BuilderFactory $builderFactory)
     {
         $this->builderFactory = $builderFactory;
+    }
+
+    public function supports($classMethod): bool
+    {
+        return $classMethod instanceof DeserializeMethod;
     }
 
     public function generate(DeserializeMethod $method)

@@ -9,6 +9,79 @@ use Symfony\Component\Finder\Finder;
 
 class SourceCodePathReader
 {
+    public function getSourceClasses(array $paths): array
+    {
+        $list = [];
+        $iter = new ClassIterator($this->getPhpFiles2($paths));
+
+        foreach (array_keys($iter->getClassMap()) as $className) {
+            if (true === $this->isTestOrSpec($className)) {
+                continue;
+            }
+
+            try {
+                $reflection = new \ReflectionClass($className);
+            } catch (\Throwable $exception) {
+                echo $exception->getMessage();
+                continue;
+            }
+
+            if ($reflection->isAbstract() || $reflection->isTrait() || $reflection->isInterface()) {
+                continue;
+            }
+
+            $list[$className] = $className;
+        }
+
+        return $list;
+    }
+
+    public function getTestClasses(array $paths): array
+    {
+        $list = [];
+        $iter = new ClassIterator($this->getPhpFiles2($paths));
+
+        foreach (array_keys($iter->getClassMap()) as $className) {
+            if (substr($className, -4) !== 'Test') {
+                continue;
+            }
+
+            try {
+                $reflection = new \ReflectionClass($className);
+            } catch (\Throwable $exception) {
+                echo $exception->getMessage();
+                continue;
+            }
+
+            if ($reflection->isAbstract() || $reflection->isTrait() || $reflection->isInterface()) {
+                continue;
+            }
+
+            $list[$className] = $className;
+        }
+
+        return $list;
+    }
+
+    private function isTestOrSpec(string $className): bool
+    {
+        $skipSuffixes = ['Test', 'Spec'];
+        $classSuffix  = substr($className, -4);
+
+        if (true === in_array($classSuffix, $skipSuffixes)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /*
+     *
+     * Code from previous version.
+     *
+     *
+     */
+
     public function getExistingPaths(array $paths): array
     {
         $existingPaths = [];
@@ -97,17 +170,29 @@ class SourceCodePathReader
         return $list;
     }
 
-    protected function getDirectories($path)
+    private function getDirectories($path)
     {
         $finder = new Finder();
 
         return $finder->directories()->in($path);
     }
 
-    protected function getPhpFiles($path)
+    private function getPhpFiles($path)
     {
         $finder = new Finder();
 
         return $finder->files()->in($path)->name('*.php');
+    }
+
+    private function getPhpFiles2(array $paths)
+    {
+        $finder = new Finder();
+
+        $finder->files();
+        foreach ($paths as $path) {
+            $finder->in($path->getPathBase());
+        }
+
+        return $finder->name('*.php');
     }
 }

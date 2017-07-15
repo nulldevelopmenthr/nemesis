@@ -37,7 +37,7 @@ class BroadwayEventCliCommand extends BaseSkeletonGeneratorCommand
         $this->input  = $input;
         $this->output = $output;
 
-        $this->io     = new SymfonyStyle($input, $output);
+        $this->io = new SymfonyStyle($input, $output);
 
         $className = $this->handleClassNameInput();
         $fields    = $this->getConstuctorParameters();

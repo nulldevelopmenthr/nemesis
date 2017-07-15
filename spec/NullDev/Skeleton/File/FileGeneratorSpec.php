@@ -35,6 +35,6 @@ class FileGeneratorSpec extends ObjectBehavior
 
         $filesystem->dumpFile('filename.php', 'code')->shouldBeCalled();
 
-        $this->create($fileResource)->shouldReturn(true);
+        $this->generate($fileResource)->shouldReturn(true);
     }
 }

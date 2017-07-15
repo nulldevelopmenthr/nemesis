@@ -5,16 +5,22 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Broadway\CodeGenerator\PhpParser\Methods\Model;
 
 use NullDev\Skeleton\Broadway\Definition\PHP\Methods\Model\CreateMethod;
+use NullDev\Skeleton\CodeGenerator\CodeGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
 
-class CreateGenerator
+class CreateGenerator implements CodeGenerator
 {
     private $builderFactory;
 
     public function __construct(BuilderFactory $builderFactory)
     {
         $this->builderFactory = $builderFactory;
+    }
+
+    public function supports($classMethod): bool
+    {
+        return $classMethod instanceof CreateMethod;
     }
 
     public function generate(CreateMethod $method)

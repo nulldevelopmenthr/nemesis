@@ -161,7 +161,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
     {
         $fileGenerator = new FileGenerator(new Filesystem(), PhpParserGeneratorFactory::create());
 
-        $fileGenerator->create($fileResource);
+        $fileGenerator->generate($fileResource);
     }
 
     protected function createClassFromParameterClassName(string $name): Type

@@ -47,7 +47,7 @@ abstract class ConceptName implements Importable, Type
         return $this->namespace.'\\'.$this->name;
     }
 
-    public static function create(string $fullName)
+    public static function create(string $fullName): self
     {
         return static::createFromFullyQualified($fullName);
     }

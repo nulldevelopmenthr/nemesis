@@ -24,8 +24,6 @@ class ReadFactorySourceFactory implements SourceFactory
 
     public function create(ClassType $classType)
     {
-        $source = $this->sourceFactory->create($classType);
-
-        return $source;
+        return $this->sourceFactory->create($classType);
     }
 }
