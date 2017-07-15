@@ -16,6 +16,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @codeCoverageIgnore
  */
 class UuidIdentityCommand extends BaseSkeletonGeneratorCommand
 {
