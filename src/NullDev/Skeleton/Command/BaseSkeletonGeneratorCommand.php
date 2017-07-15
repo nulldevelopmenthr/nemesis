@@ -28,6 +28,7 @@ use Symfony\Component\Yaml\Yaml;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @codeCoverageIgnore
  */
 abstract class BaseSkeletonGeneratorCommand extends Command
 {
