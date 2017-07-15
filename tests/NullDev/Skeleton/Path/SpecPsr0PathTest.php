@@ -9,20 +9,22 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Path\SpecPsr0Path
- * @group nemesis
+ * @group unit
  */
 class SpecPsr0PathTest extends PHPUnit_Framework_TestCase
 {
     /** @var SpecPsr0Path */
-    private $specPsr0Path;
+    private $path;
 
     public function setUp(): void
     {
-        $this->specPsr0Path = new SpecPsr0Path('spec/', '');
+        $this->path = new SpecPsr0Path('spec/', '');
     }
 
-    public function testNothing(): void
+    public function testItIsSpecCode(): void
     {
-        $this->markTestIncomplete('Auto generated using nemesis');
+        self::assertTrue($this->path->isSpecCode());
+        self::assertFalse($this->path->isSourceCode());
+        self::assertFalse($this->path->isTestsCode());
     }
 }
