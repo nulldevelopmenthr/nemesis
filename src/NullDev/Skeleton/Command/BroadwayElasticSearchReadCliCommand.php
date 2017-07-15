@@ -23,6 +23,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  * @SuppressWarnings(PHPMD.NPathComplexity)
  * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+ * @codeCoverageIgnore
  */
 class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
 {
