@@ -1,0 +1,7 @@
+paths:
+  code:
+    "src/": ""
+#    "src/Miro/First/": "Miro\\First\\"
+#    "src/Miro/Second/": "Miro\\Second\\"
+  tests:
+    "tests/": "tests\\"
