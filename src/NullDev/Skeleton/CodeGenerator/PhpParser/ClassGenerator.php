@@ -20,6 +20,11 @@ class ClassGenerator
         $this->builderFactory = $builderFactory;
     }
 
+    public static function default(): self
+    {
+        return new self(new BuilderFactory());
+    }
+
     public function generate(ImprovedClassSource $classSource)
     {
         //Building class.

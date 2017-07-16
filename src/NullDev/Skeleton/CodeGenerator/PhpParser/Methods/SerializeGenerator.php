@@ -20,6 +20,11 @@ class SerializeGenerator implements CodeGenerator
         $this->builderFactory = $builderFactory;
     }
 
+    public static function default(): self
+    {
+        return new self(new BuilderFactory());
+    }
+
     public function supports($classMethod): bool
     {
         return $classMethod instanceof SerializeMethod;
