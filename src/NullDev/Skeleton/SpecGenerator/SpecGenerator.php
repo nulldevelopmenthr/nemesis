@@ -42,11 +42,12 @@ class SpecGenerator
      */
     public function generate(ImprovedClassSource $improvedClassSource)
     {
-        $specClassType = ClassType::create('spec\\'.$improvedClassSource->getFullName().'Spec');
+        $specClassType = ClassType::create('spec\\'.$improvedClassSource->getClassType()->getFullName().'Spec');
 
         $specSource = $this->factory->create($specClassType);
 
         foreach ($improvedClassSource->getImports() as $import) {
+            // Traits do not need to be imported from source class.
             if (false === $import instanceof TraitType) {
                 $specSource->addImport($import);
             }
