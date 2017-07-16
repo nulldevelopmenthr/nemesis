@@ -249,6 +249,13 @@ class ImprovedClassSource
 
     //-----     Import     -----
 
+    public function addImports(Type ...$imports)
+    {
+        foreach ($imports as $import) {
+            $this->addImportIfEligible($import);
+        }
+    }
+
     public function addImport(Type $import)
     {
         $this->addImportIfEligible($import);

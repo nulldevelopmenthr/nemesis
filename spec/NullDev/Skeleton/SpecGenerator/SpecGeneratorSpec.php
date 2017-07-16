@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\SpecGenerator;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethodFactory;
 use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethodFactory;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethodFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SpecGenerator\SpecGenerator;
@@ -14,9 +16,18 @@ use Prophecy\Argument;
 
 class SpecGeneratorSpec extends ObjectBehavior
 {
-    public function let(ClassSourceFactory $factory, InitializableMethodFactory $initializableMethodFactory)
-    {
-        $this->beConstructedWith($factory, $initializableMethodFactory);
+    public function let(
+        ClassSourceFactory $factory,
+        LetMethodFactory $letMethodFactory,
+        InitializableMethodFactory $initializableMethodFactory,
+        ExposeConstructorArgumentsAsGettersMethodFactory $exposeConstructorArgumentsAsGettersMethodFactory
+    ) {
+        $this->beConstructedWith(
+            $factory,
+            $letMethodFactory,
+            $initializableMethodFactory,
+            $exposeConstructorArgumentsAsGettersMethodFactory
+        );
     }
 
     public function it_is_initializable()
