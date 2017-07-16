@@ -103,9 +103,22 @@ class ImprovedClassSource
         return $this->parent;
     }
 
-    public function getParentName(): string
+    public function getParentName(): ?string
     {
+        if (false === $this->hasParent()) {
+            return null;
+        }
+
         return $this->getParent()->getName();
+    }
+
+    public function getParentFullName(): ?string
+    {
+        if (false === $this->hasParent()) {
+            return null;
+        }
+
+        return $this->getParent()->getFullName();
     }
 
     //-----     Interfaces     -----
