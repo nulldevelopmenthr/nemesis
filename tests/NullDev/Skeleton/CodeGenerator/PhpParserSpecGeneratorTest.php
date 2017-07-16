@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\CodeGenerator;
 
+use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SpecGenerator\SpecGenerator;
 
 /**
  * @group  FullCoverage

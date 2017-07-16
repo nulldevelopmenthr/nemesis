@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
+use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
@@ -14,7 +15,6 @@ use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Paths;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SpecGenerator\SpecGenerator;
 use PhpSpec\Exception\Example\PendingException;
 use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
