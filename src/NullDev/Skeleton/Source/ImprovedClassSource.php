@@ -246,7 +246,7 @@ class ImprovedClassSource
 
     public function addImport(Type $import)
     {
-        return $this->addImportIfEligible($import);
+        $this->addImportIfEligible($import);
     }
 
     private function addImportIfEligible(Type $import)
