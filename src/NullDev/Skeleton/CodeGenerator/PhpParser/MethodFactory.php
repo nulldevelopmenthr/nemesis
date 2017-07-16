@@ -16,7 +16,7 @@ class MethodFactory
     /** @var array */
     private $generators;
 
-    public function __construct(array $generators)
+    public function __construct(array $generators=[])
     {
         Assert::allImplementsInterface($generators, CodeGenerator::class);
         $this->generators = $generators;

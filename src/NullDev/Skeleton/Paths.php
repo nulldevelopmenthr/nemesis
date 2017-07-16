@@ -16,7 +16,7 @@ class Paths
 {
     private $list = [];
 
-    public function __construct(array $data)
+    public function __construct(array $data=[])
     {
         if ($data['phpspec']['enabled'] === true) {
             $this->processPhpSpec($data['phpspec']);
