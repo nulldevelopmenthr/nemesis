@@ -32,9 +32,6 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
     }
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function execute(InputInterface $input, OutputInterface $output)

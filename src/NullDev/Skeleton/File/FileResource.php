@@ -20,9 +20,6 @@ class FileResource
         $this->classSource = $classSource;
     }
 
-    /**
-     * @return ImprovedClassSource
-     */
     public function getClassSource(): ImprovedClassSource
     {
         return $this->classSource;
