@@ -33,26 +33,24 @@ class PhpParserGeneratorFactory
     {
         $generator = new PhpParserGenerator(
             new BuilderFactory(),
-            new ClassGenerator(
-                new BuilderFactory()
-            ),
+            ClassGenerator::default(),
             new MethodFactory(
                 [
-                    new ConstructorGenerator(new BuilderFactory()),
-                    new DeserializeGenerator(new BuilderFactory()),
-                    new GetterGenerator(new BuilderFactory()),
-                    new SerializeGenerator(new BuilderFactory()),
-                    new ToStringGenerator(new BuilderFactory()),
-                    new UuidCreateGenerator(new BuilderFactory()),
-                    new CreateGenerator(new BuilderFactory()),
-                    new AggregateRootIdGetterGenerator(new BuilderFactory()),
-                    new RepositoryConstructorGenerator(new BuilderFactory()),
-                    new ReadModelIdGetterGenerator(new BuilderFactory()),
-                    new LetGenerator(new BuilderFactory()),
-                    new InitializableGenerator(new BuilderFactory()),
-                    new ExposeConstructorArgumentsAsGettersGenerator(new BuilderFactory()),
-                    new SetUpGenerator(new BuilderFactory()),
-                    new TestNothingGenerator(new BuilderFactory()),
+                    ConstructorGenerator::default(),
+                    DeserializeGenerator::default(),
+                    GetterGenerator::default(),
+                    SerializeGenerator::default(),
+                    ToStringGenerator::default(),
+                    UuidCreateGenerator::default(),
+                    CreateGenerator::default(),
+                    AggregateRootIdGetterGenerator::default(),
+                    RepositoryConstructorGenerator::default(),
+                    ReadModelIdGetterGenerator::default(),
+                    LetGenerator::default(),
+                    InitializableGenerator::default(),
+                    ExposeConstructorArgumentsAsGettersGenerator::default(),
+                    SetUpGenerator::default(),
+                    TestNothingGenerator::default(),
                 ]
             ),
             new PrettyPrinter\Standard()
