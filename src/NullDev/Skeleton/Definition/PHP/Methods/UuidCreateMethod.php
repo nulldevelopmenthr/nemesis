@@ -10,11 +10,6 @@ class UuidCreateMethod implements Method
 {
     private $classToBuild;
 
-    /**
-     * UuidCreateMethod constructor.
-     *
-     * @param $classToBuild
-     */
     public function __construct(ClassType $classToBuild)
     {
         $this->classToBuild = $classToBuild;

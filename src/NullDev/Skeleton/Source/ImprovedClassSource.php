@@ -32,19 +32,11 @@ class ImprovedClassSource
 
     private $imports = [];
 
-    /**
-     * ImprovedClassSource constructor.
-     *
-     * @param ClassType $classType
-     */
     public function __construct(ClassType $classType)
     {
         $this->classType = $classType;
     }
 
-    /**
-     * @return ClassType
-     */
     public function getClassType(): ClassType
     {
         return $this->classType;

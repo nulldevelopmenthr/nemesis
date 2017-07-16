@@ -19,25 +19,16 @@ class Parameter
         $this->classType = $classType;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return Type
-     */
     public function getClassType(): Type
     {
         return $this->classType;
     }
 
-    /**
-     * @return string
-     */
     public function getClassShortName(): string
     {
         return $this->getClassType()->getName();
