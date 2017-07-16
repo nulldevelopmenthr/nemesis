@@ -42,7 +42,7 @@ class SpecGenerator
      */
     public function generate(ImprovedClassSource $improvedClassSource)
     {
-        $specClassType = ClassType::create('spec\\'.$improvedClassSource->getClassType()->getFullName().'Spec');
+        $specClassType = ClassType::create('spec\\'.$improvedClassSource->getFullName().'Spec');
 
         $specSource = $this->factory->create($specClassType);
 
