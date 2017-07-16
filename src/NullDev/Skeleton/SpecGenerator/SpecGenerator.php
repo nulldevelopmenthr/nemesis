@@ -14,7 +14,7 @@ use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
-use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethod;
+use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\InitializableMethodFactory;
 use NullDev\Skeleton\PhpSpec\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -22,63 +22,60 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 /**
+ * @see SpecGeneratorSpec
+ * @see SpecGeneratorTest
+ *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class SpecGenerator
 {
-    /**
-     * @var ClassSourceFactory
-     */
+    /** @var ClassSourceFactory */
     private $factory;
+    /** @var InitializableMethodFactory */
+    private $initializableMethodFactory;
 
-    public function __construct(ClassSourceFactory $factory)
+    public function __construct(ClassSourceFactory $factory, InitializableMethodFactory $initializableMethodFactory)
     {
-        $this->factory = $factory;
+        $this->factory                    = $factory;
+        $this->initializableMethodFactory = $initializableMethodFactory;
+    }
+
+    public static function default(): SpecGenerator
+    {
+        return new self(new ClassSourceFactory(), new InitializableMethodFactory());
     }
 
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    public function generate(ImprovedClassSource $improvedClassSource)
+    public function generate(ImprovedClassSource $classSource)
     {
-        $specClassType = ClassType::create('spec\\'.$improvedClassSource->getFullName().'Spec');
+        $specClassType = ClassType::create('spec\\'.$classSource->getFullName().'Spec');
 
         $specSource = $this->factory->create($specClassType);
 
-        foreach ($improvedClassSource->getImports() as $import) {
+        foreach ($classSource->getImports() as $import) {
             // Traits do not need to be imported from source class.
             if (false === $import instanceof TraitType) {
                 $specSource->addImport($import);
             }
         }
 
-        $specSource->addImport($improvedClassSource->getClassType());
+        $specSource->addImport($classSource->getClassType());
         $specSource->addImport(ClassType::create(Argument::class));
         $specSource->addParent(ClassType::create(ObjectBehavior::class));
 
-        $initializable = [
-            $improvedClassSource->getClassType(),
-        ];
+        $lets = $classSource->getConstructorParameters();
 
-        if ($improvedClassSource->hasParent()) {
-            $initializable[] = $improvedClassSource->getParent();
-        }
-
-        foreach ($improvedClassSource->getInterfaces() as $interface) {
-            $initializable[] = $interface;
-        }
-
-        $lets = $improvedClassSource->getConstructorParameters();
-
-        foreach ($improvedClassSource->getConstructorParameters() as $methodParameter) {
+        foreach ($classSource->getConstructorParameters() as $methodParameter) {
             if ($methodParameter->hasClass()) {
                 $specSource->addImport($methodParameter->getClassType());
             }
         }
 
         //@TODO:
-        foreach ($improvedClassSource->getMethods() as $method) {
+        foreach ($classSource->getMethods() as $method) {
             if ($method instanceof RepositoryConstructorMethod) {
                 $lets[] = new Parameter('eventStore', InterfaceType::create(EventStore::class));
                 $lets[] = new Parameter('eventBus', InterfaceType::create(EventBus::class));
@@ -87,12 +84,14 @@ class SpecGenerator
         }
 
         $specSource->addMethod(new LetMethod($lets));
-        $specSource->addMethod(new InitializableMethod($initializable));
+        $specSource->addMethod(
+            $this->initializableMethodFactory->create($classSource)
+        );
 
         $skip = false;
 
-        if (true === $improvedClassSource->hasParent()
-            && $improvedClassSource->getParent()->getFullName() === EventSourcingRepository::class
+        if (true === $classSource->hasParent()
+            && $classSource->getParent()->getFullName() === EventSourcingRepository::class
         ) {
             $skip = true;
         }

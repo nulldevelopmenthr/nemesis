@@ -13,7 +13,6 @@ use NullDev\Skeleton\File\FileGenerator;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Paths;
-use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SpecGenerator\SpecGenerator;
 use PhpSpec\Exception\Example\PendingException;
@@ -146,7 +145,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command
 
     protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
     {
-        $generator = new SpecGenerator(new ClassSourceFactory());
+        $generator = SpecGenerator::default();
 
         return $generator->generate($classSource);
     }

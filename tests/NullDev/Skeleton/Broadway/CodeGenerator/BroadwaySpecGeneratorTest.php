@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Broadway\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
-use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SpecGenerator\SpecGenerator;
 
@@ -23,7 +22,7 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
     {
         $generator = PhpParserGeneratorFactory::create();
 
-        $specGenerator = new SpecGenerator(new ClassSourceFactory());
+        $specGenerator = SpecGenerator::default();
 
         $specSource = $specGenerator->generate($classSource);
 
