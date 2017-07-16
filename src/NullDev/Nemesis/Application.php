@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis;
 
+use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\PHPParserMethodCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
@@ -23,10 +25,13 @@ final class Application extends BaseApplication
     public function __construct()
     {
         $this->container = new ContainerBuilder();
-        $this->container->addCompilerPass(new AutowirePass(true));
 
         $loader = new YamlFileLoader($this->container, new FileLocator(__DIR__));
         $loader->load('services.yml');
+
+        $this->container->addCompilerPass(new AutowirePass(true));
+        $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
+        $this->container->registerForAutoconfiguration(CodeGenerator::class)->addTag('skeleton.method_generator');
 
         parent::__construct('Nemesis', self::VERSION);
 
@@ -50,7 +55,7 @@ final class Application extends BaseApplication
     {
         $commands = [
            new HelpCommand(),
-           new ListCommand()
+           new ListCommand(),
         ];
 
         foreach (array_keys($this->container->findTaggedServiceIds('console.command')) as $commandId) {

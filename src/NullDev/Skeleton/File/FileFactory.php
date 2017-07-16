@@ -11,7 +11,7 @@ class FileFactory
     /** @var array */
     private $paths;
 
-    public function __construct(array $paths)
+    public function __construct(array $paths=[])
     {
         $this->paths = $paths;
     }
