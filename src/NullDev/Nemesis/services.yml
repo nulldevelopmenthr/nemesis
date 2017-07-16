@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDev\Skeleton\Path\Readers\SourceCodePathReader: ~
+
+  cli.command.help:
+    class: Symfony\Component\Console\Command\HelpCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.list:
+    class: Symfony\Component\Console\Command\ListCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.nemesis.index:
+    class: NullDev\Nemesis\Command\IndexCliCommand
+    tags:
+      - {name: console.command }
+

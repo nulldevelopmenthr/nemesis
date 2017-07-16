@@ -28,7 +28,7 @@ class IndexCliCommand extends BaseCliCommand
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $reader = new SourceCodePathReader();
+        $reader = $this->getContainer()->get(SourceCodePathReader::class);
 
         $sourceCodeClasses   = $reader->getSourceClasses($this->getConfig()->getSourceCodePaths());
         $existingTestClasses = $reader->getTestClasses($this->getConfig()->getTestPaths());
