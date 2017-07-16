@@ -8,6 +8,9 @@ use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRoot
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\CreateGenerator;
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator;
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\RepositoryConstructorGenerator;
+use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator;
+use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator;
+use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator;
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator;
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
@@ -17,9 +20,6 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
-use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator;
-use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\InitializableGenerator;
-use NullDev\Skeleton\PhpSpec\CodeGenerator\PhpParser\Methods\LetGenerator;
 use PhpSpec\ObjectBehavior;
 
 class MethodFactorySpec extends ObjectBehavior
