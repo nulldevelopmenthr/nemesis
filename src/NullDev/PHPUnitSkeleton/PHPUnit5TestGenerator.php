@@ -34,11 +34,11 @@ class PHPUnit5TestGenerator
 
     public function generate(ImprovedClassSource $improvedClassSource): ImprovedClassSource
     {
-        $testClassType = ClassType::create('tests\\'.$improvedClassSource->getClassType()->getFullName().'Test');
+        $testClassType = ClassType::create('tests\\'.$improvedClassSource->getFullName().'Test');
 
         $testSource = $this->factory->create($testClassType);
 
-        $testSource->addDocComment(new CoversComment($improvedClassSource->getClassType()->getFullName()));
+        $testSource->addDocComment(new CoversComment($improvedClassSource->getFullName()));
         $testSource->addDocComment(new GroupComment('nemesis'));
 
         $testSource->addParent(ClassType::create('PHPUnit_Framework_TestCase'));
