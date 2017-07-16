@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod;
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 
-class AggregateRootIdGetterGenerator implements CodeGenerator
+class AggregateRootIdGetterGenerator implements MethodGenerator
 {
     private $builderFactory;
 

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 
-class SerializeGenerator implements CodeGenerator
+class SerializeGenerator implements MethodGenerator
 {
     private $builderFactory;
 

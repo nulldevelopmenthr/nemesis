@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
@@ -24,7 +24,7 @@ use PhpParser\Node\Scalar\String_;
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class SetUpGenerator implements CodeGenerator
+class SetUpGenerator implements MethodGenerator
 {
     private $builderFactory;
 

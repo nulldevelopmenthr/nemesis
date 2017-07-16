@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\CreateMethod;
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
 
-class CreateGenerator implements CodeGenerator
+class CreateGenerator implements MethodGenerator
 {
     private $builderFactory;
 

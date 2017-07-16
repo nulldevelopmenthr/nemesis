@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 
-class ToStringGenerator implements CodeGenerator
+class ToStringGenerator implements MethodGenerator
 {
     private $builderFactory;
 

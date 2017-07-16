@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMethod;
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Cast\String_;
 
-class ReadModelIdGetterGenerator implements CodeGenerator
+class ReadModelIdGetterGenerator implements MethodGenerator
 {
     private $builderFactory;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use Webmozart\Assert\Assert;
 
@@ -18,7 +18,7 @@ class MethodFactory
 
     public function __construct(array $generators=[])
     {
-        Assert::allImplementsInterface($generators, CodeGenerator::class);
+        Assert::allImplementsInterface($generators, MethodGenerator::class);
         $this->generators = $generators;
     }
 
