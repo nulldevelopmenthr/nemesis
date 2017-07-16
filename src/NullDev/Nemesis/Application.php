@@ -7,6 +7,8 @@ namespace NullDev\Nemesis;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Command\HelpCommand;
+use Symfony\Component\Console\Command\ListCommand;
 use Symfony\Component\DependencyInjection\Compiler\AutowirePass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -46,7 +48,10 @@ final class Application extends BaseApplication
      */
     protected function getDefaultCommands()
     {
-        $commands = [];
+        $commands = [
+           new HelpCommand(),
+           new ListCommand()
+        ];
 
         foreach (array_keys($this->container->findTaggedServiceIds('console.command')) as $commandId) {
             $commands[] = $this->container->get($commandId);
