@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Name;
 
-class UuidCreateGenerator implements CodeGenerator
+class UuidCreateGenerator implements MethodGenerator
 {
     private $builderFactory;
 

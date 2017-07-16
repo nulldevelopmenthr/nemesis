@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
@@ -13,7 +13,7 @@ use PhpParser\Node;
 /**
  * @see ConstructorGeneratorSpec
  */
-class ConstructorGenerator implements CodeGenerator
+class ConstructorGenerator implements MethodGenerator
 {
     private $builderFactory;
 

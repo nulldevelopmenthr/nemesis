@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethod;
-use NullDev\Skeleton\CodeGenerator\CodeGenerator;
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 
-class InitializableGenerator implements CodeGenerator
+class InitializableGenerator implements MethodGenerator
 {
     private $builderFactory;
 
