@@ -21,11 +21,8 @@ if (is_file($autoload = __DIR__.'/../vendor/autoload.php')) {
     exit(1);
 }
 
-use Symfony\Component\Console\Application;
+use NullDev\Nemesis\Application;
 
 $application = new Application();
-
-// ... register commands
-$application->add(new \NullDev\Nemesis\Command\IndexCliCommand());
 
 $application->run();
