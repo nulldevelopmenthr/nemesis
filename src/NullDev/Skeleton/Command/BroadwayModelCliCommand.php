@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
-use NullDev\Skeleton\Broadway\SourceFactory\EventSourcedAggregateRootSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\EventSourcingRepositorySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

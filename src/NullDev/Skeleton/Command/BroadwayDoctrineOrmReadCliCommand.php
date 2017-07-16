@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
-use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory;
-use NullDev\Skeleton\Broadway\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
-use NullDev\Skeleton\Broadway\SourceFactory\CommandSourceFactory;
+use NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory;
 use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
