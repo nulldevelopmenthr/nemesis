@@ -39,7 +39,7 @@ class PHPUnit5TestGenerator
         $testSource = $this->factory->create($testClassType);
 
         $testSource->addDocComment(new CoversComment($improvedClassSource->getFullName()));
-        $testSource->addDocComment(new GroupComment('nemesis'));
+        $testSource->addDocComment(new GroupComment('todo'));
 
         $testSource->addParent(ClassType::create('PHPUnit_Framework_TestCase'));
 
