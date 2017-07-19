@@ -4,36 +4,9 @@ services:
     autoconfigure: true
     public: true
 
-  NullDev\Skeleton\Path\Readers\:
-    resource: '../Skeleton/Path/Readers/*'
-
-  NullDev\Skeleton\:
-    resource: '../Skeleton/*'
-    exclude: '../Skeleton/{Definition,File/FileResource*,File/MiroMiroMiro*,Path,Source}'
-
-  NullDev\PhpSpecSkeleton\:
-    resource: '../PhpSpecSkeleton/*'
-    exclude: '../PhpSpecSkeleton/{Definition}'
-
-  NullDev\PHPUnitSkeleton\:
-    resource: '../PHPUnitSkeleton/*'
-    exclude: '../PHPUnitSkeleton/{Definition}'
-
-  NullDev\BroadwaySkeleton\:
-    resource: '../BroadwaySkeleton/*'
-    exclude: '../BroadwaySkeleton/{Definition}'
-
-  PhpParser\BuilderFactory: ~
-
   cli.command.nemesis.index:
     class: NullDev\Nemesis\Command\IndexCliCommand
     tags:
       - {name: console.command }
-
-  PrettyPrinter\Standard: ~
-  PhpParser\PrettyPrinterAbstract: "@PrettyPrinter\\Standard"
-
-  Symfony\Component\Filesystem\Filesystem: ~
-
 
   

@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  PhpParser\BuilderFactory: ~
+
+  PrettyPrinter\Standard: ~
+
+  PhpParser\PrettyPrinterAbstract: "@PrettyPrinter\\Standard"
+
+
+
+
+
