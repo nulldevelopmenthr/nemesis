@@ -8,11 +8,7 @@
             "": "lib/"
         },
         "psr-4": {
-            "": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "": "src/",
             "spec\\": "spec/",
             "tests\\": "tests/"
         }
