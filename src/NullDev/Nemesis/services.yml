@@ -5,7 +5,7 @@ services:
     public: true
 
   cli.command.nemesis.index:
-    class: NullDev\Nemesis\Command\IndexCliCommand
+    class: NullDev\Nemesis\Command\GeneratePHPUnitTestsCliCommand
     tags:
       - {name: console.command }
 

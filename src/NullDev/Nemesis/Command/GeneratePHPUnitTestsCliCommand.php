@@ -16,12 +16,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @codeCoverageIgnore
  */
-class IndexCliCommand extends BaseCliCommand
+class GeneratePHPUnitTestsCliCommand extends BaseCliCommand
 {
     protected function configure()
     {
-        $this->setName('index')
-            ->setDescription('Index source files');
+        $this->setName('generate:phpunit:missing')
+            ->setDescription('Generate missing PHPUnit test files');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
