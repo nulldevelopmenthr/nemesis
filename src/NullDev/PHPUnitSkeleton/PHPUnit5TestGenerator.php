@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PHPUnitSkeleton;
 
+use NullDev\Nemesis\Config\Config;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -22,26 +23,36 @@ class PHPUnit5TestGenerator
     /** @var ClassSourceFactory */
     private $factory;
 
-    public function __construct(ClassSourceFactory $factory)
+    /** @var Config */
+    private $config;
+
+    public function __construct(ClassSourceFactory $factory, Config $config)
     {
         $this->factory = $factory;
+        $this->config  = $config;
     }
 
-    public static function default(): PHPUnit5TestGenerator
+    public static function default(Config $config): PHPUnit5TestGenerator
     {
-        return new self(new ClassSourceFactory());
+        return new self(new ClassSourceFactory(), $config);
     }
 
     public function generate(ImprovedClassSource $improvedClassSource): ImprovedClassSource
     {
-        $testClassType = ClassType::create('tests\\'.$improvedClassSource->getFullName().'Test');
+        $testClassName = $improvedClassSource->getFullName().'Test';
+
+        if ('' !== $this->config->getTestsNamespace()) {
+            $testClassName = $this->config->getTestsNamespace().'\\'.$testClassName;
+        }
+
+        $testClassType = ClassType::create($testClassName);
 
         $testSource = $this->factory->create($testClassType);
 
         $testSource->addDocComment(new CoversComment($improvedClassSource->getFullName()));
         $testSource->addDocComment(new GroupComment('todo'));
 
-        $testSource->addParent(ClassType::create('PHPUnit_Framework_TestCase'));
+        $testSource->addParent(ClassType::create($this->config->getBaseTestClassName()));
 
         $testSource->addImport($improvedClassSource->getClassType());
         $testSource->addImport(ClassType::create('Mockery'));
