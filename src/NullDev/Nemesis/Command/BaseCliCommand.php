@@ -5,17 +5,16 @@ declare(strict_types=1);
 namespace NullDev\Nemesis\Command;
 
 use NullDev\Nemesis\Application;
+use NullDev\Nemesis\Config\Config;
 use NullDev\Nemesis\Config\ConfigFactory;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileGenerator;
 use NullDev\Skeleton\File\FileResource;
-use NullDev\Skeleton\Paths;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -37,43 +36,13 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
     protected function getConfig()
     {
         if (null === $this->config) {
-            $configFactory = new ConfigFactory($this->loadConfigData());
-            $this->config  = $configFactory->create();
+            //$configFactory = new ConfigFactory($this->loadConfigData());
+            //$this->config  = $configFactory->create();
+            $this->config = $this->getContainer()->get(Config::class);
         }
 
         return $this->config;
     }
-
-    private function loadConfigData(): array
-    {
-        $path = getcwd().'/nemesis.yml';
-
-        if (false === is_file($path)) {
-            return $this->getDefaultConfig();
-        }
-
-        return Yaml::parse(file_get_contents($path));
-    }
-
-    private function getDefaultConfig()
-    {
-        return [
-            'paths' => [
-                'code'    => [
-                    'src/' => '',
-                ],
-                'tests' => [
-                    'tests/' => 'tests\\',
-                ],
-            ],
-        ];
-    }
-
-    ///
-    ///
-    ///
-    ///
-    ///
 
     protected function getFileResource(ImprovedClassSource $classSource): FileResource
     {

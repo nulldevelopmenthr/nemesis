@@ -56,7 +56,7 @@ class GeneratePHPUnitTestsCliCommand extends BaseCliCommand
 
     protected function createPhpUnit5Source(ImprovedClassSource $classSource): ImprovedClassSource
     {
-        $generator = PHPUnit5TestGenerator::default();
+        $generator = PHPUnit5TestGenerator::default($this->getConfig());
 
         return $generator->generate($classSource);
     }
