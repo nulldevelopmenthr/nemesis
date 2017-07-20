@@ -49,6 +49,11 @@ services:
   NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator: ~
   NullDev\PHPUnitSkeleton\PHPUnit5TestGenerator: ~
 
+  NullDev\Nemesis\Config\ConfigFactory: ~
+
+  NullDev\Nemesis\Config\Config:
+    class: NullDev\Nemesis\Config\Config
+    factory: ['@NullDev\Nemesis\Config\ConfigFactory', create]
 
   #NullDev\BroadwaySkeleton services (not cleaned up)
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator: ~

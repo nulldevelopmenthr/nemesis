@@ -6,6 +6,7 @@ namespace NullDev\Nemesis\Config;
 
 use NullDev\Skeleton\Path\Psr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
+use Symfony\Component\Yaml\Yaml;
 use Webmozart\Assert\Assert;
 
 /**
@@ -15,33 +16,64 @@ use Webmozart\Assert\Assert;
 class ConfigFactory
 {
     /** @var array */
-    private $input;
-    /** @var array */
     private $sourceCodePaths = [];
     /** @var array */
     private $testPaths = [];
+    /** @var string */
+    private $phpunitBaseNamespace;
+    /** @var string */
+    private $phpunitBaseTestClassName;
 
-    public function __construct(array $input)
+    public function __construct()
     {
-        Assert::isArray($input['paths']['code']);
-        Assert::isArray($input['paths']['tests']);
+        $path          = getcwd().'/nemesis.yml';
+        $defaultConfig = $this->getDefaultConfig();
 
-        $this->input = $input;
+        if (false === is_file($path)) {
+            $config = $defaultConfig;
+        } else {
+            $config = array_merge($defaultConfig, Yaml::parse(file_get_contents($path)));
+        }
 
-        foreach ($this->input['paths']['code'] as $path => $namespacePrefix) {
+        Assert::isArray($config['paths']['code']);
+        Assert::isArray($config['paths']['tests']);
+
+        foreach ($config['paths']['code'] as $path => $namespacePrefix) {
             $this->sourceCodePaths[] = new Psr4Path($path, $namespacePrefix);
         }
-        foreach ($this->input['paths']['tests'] as $path => $namespacePrefix) {
+        foreach ($config['paths']['tests'] as $path => $namespacePrefix) {
             $this->testPaths[] = new TestPsr4Path($path, $namespacePrefix);
         }
+        $this->phpunitBaseNamespace     = $config['phpunit']['base_namespace'];
+        $this->phpunitBaseTestClassName = $config['phpunit']['base_test_class_name'];
     }
 
     public function create(): Config
     {
         return new Config(
             $this->getSourceCodePaths(),
-            $this->getTestPaths()
+            $this->getTestPaths(),
+            $this->getPhpunitBaseNamespace(),
+            $this->getPhpunitBaseTestClassName()
         );
+    }
+
+    private function getDefaultConfig()
+    {
+        return [
+            'paths'   => [
+                'code'  => [
+                    'src/' => '',
+                ],
+                'tests' => [
+                    'tests/' => 'tests\\',
+                ],
+            ],
+            'phpunit' => [
+                'base_namespace'       => 'tests',
+                'base_test_class_name' => 'PHPUnit_Framework_TestCase',
+            ],
+        ];
     }
 
     private function getSourceCodePaths(): array
@@ -52,5 +84,15 @@ class ConfigFactory
     private function getTestPaths(): array
     {
         return $this->testPaths;
+    }
+
+    private function getPhpunitBaseNamespace(): string
+    {
+        return $this->phpunitBaseNamespace;
+    }
+
+    private function getPhpunitBaseTestClassName(): string
+    {
+        return $this->phpunitBaseTestClassName;
     }
 }

@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Nemesis\Config\ConfigFactory
- * @group nemesis
+ * @group  nemesis
  */
 class ConfigFactoryTest extends PHPUnit_Framework_TestCase
 {
@@ -18,16 +18,7 @@ class ConfigFactoryTest extends PHPUnit_Framework_TestCase
 
     public function setUp(): void
     {
-        $this->configFactory = new ConfigFactory([
-            'paths' => [
-                'code'    => [
-                    'src/' => '',
-                ],
-                'tests' => [
-                    'tests/' => 'tests\\',
-                ],
-            ],
-        ]);
+        $this->configFactory = new ConfigFactory();
     }
 
     public function testNothing(): void
