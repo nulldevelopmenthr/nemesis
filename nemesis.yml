@@ -4,4 +4,7 @@ paths:
 #    "src/Miro/First/": "Miro\\First\\"
 #    "src/Miro/Second/": "Miro\\Second\\"
   tests:
-    "tests/": "tests\\"
+    "tests/": tests\xx\
+phpunit:
+  base_namespace: tests\xx
+  base_test_class_name: Miro\MarkoTestCase
