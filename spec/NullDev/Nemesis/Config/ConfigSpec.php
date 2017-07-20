@@ -13,7 +13,7 @@ class ConfigSpec extends ObjectBehavior
 {
     public function let(Psr4Path $psr4Path, TestPsr4Path $testPsr4Path)
     {
-        $this->beConstructedWith([$psr4Path], [$testPsr4Path]);
+        $this->beConstructedWith([$psr4Path], [$testPsr4Path], 'tests', 'PHPUnit_Framework_TestCase');
     }
 
     public function it_is_initializable()

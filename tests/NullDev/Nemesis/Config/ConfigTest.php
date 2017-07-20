@@ -18,7 +18,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 
     public function setUp(): void
     {
-        $this->config = new Config([], []);
+        $this->config = new Config([], [], '', '');
     }
 
     public function testNothing(): void
