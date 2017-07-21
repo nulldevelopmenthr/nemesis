@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Command;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGeneratorFactory;
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\File\FileFactory;
@@ -14,56 +12,65 @@ use NullDev\Skeleton\File\FileGenerator;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @codeCoverageIgnore
  */
-abstract class BaseSkeletonGeneratorCommand extends Command implements ContainerAwareInterface
+abstract class SimpleSkeletonGeneratorCommand extends Command implements ContainerAwareInterface
 {
     use ContainerImplementingTrait;
 
-    /** @var InputInterface */
-    protected $input;
-    /** @var OutputInterface */
-    protected $output;
+    /** @var string name of the class we want to generate */
+    protected $className;
+
+    /** @var bool Should phpspec file(s) be generated as well? */
+    private $generatePhpSpecFile = true;
+
+    /** @var bool Should PHPUnit file(s) be generated as well? */
+    private $generatePhpUnitFile = true;
+
     /** @var SymfonyStyle */
     protected $io;
 
     private $existingNamespaces;
     private $existingClasses;
 
-    protected function getConstuctorParameters(): array
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        $fields = [];
-
-        while (true) {
-            $parameterClassName = $this->askForParameterClassName();
-
-            if (true === empty($parameterClassName)) {
-                break;
-            }
-            $parameterClassType = $this->createClassFromParameterClassName($parameterClassName);
-            $parameterName      = $this->askForParameterName(lcfirst($parameterClassType->getName()));
-
-            $fields[] = new Parameter($parameterName, $parameterClassType);
-        }
-
-        return $fields;
+        $this->className = str_replace('/', '\\', $input->getOption('className'));
+        $this->io        = new SymfonyStyle($input, $output);
     }
 
-    protected function handleClassNameInput()
+    /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
+    protected function interact(InputInterface $input, OutputInterface $output): void
     {
-        if (false === empty($this->input->getOption('className'))) {
-            return str_replace('/', '\\', $this->input->getOption('className'));
+        $this->className = $this->handleClassNameInput();
+
+        $this->generatePhpSpecFile = $this->io->confirm('Create phpspec file(s)?', true);
+        $this->generatePhpUnitFile = $this->io->confirm('Create PHPUnit file(s)?', true);
+    }
+
+    protected function shouldGeneratePhpSpecFile(): bool
+    {
+        return $this->generatePhpSpecFile;
+    }
+
+    protected function shouldGeneratePhpUnitFile(): bool
+    {
+        return $this->generatePhpUnitFile;
+    }
+
+    protected function handleClassNameInput(): string
+    {
+        if (null !== $this->className) {
+            return $this->className;
         }
         $this->io->section($this->getSectionMessage());
         $this->io->writeln($this->getIntroductionMessage());
@@ -73,40 +80,47 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     private $filesToGenerate = [];
 
-    protected function addFileResourceToBeGenerated(FileResource $fileResource)
+    protected function createSpecFile(ImprovedClassSource $classSource): void
+    {
+        $specSource   = $this->createSpecSource($classSource);
+        $specResource = $this->getFileResource($specSource);
+        $this->addFileResourceToBeGenerated($specResource);
+    }
+
+    protected function addFileResourceToBeGenerated(FileResource $fileResource): void
     {
         $this->filesToGenerate[] = $fileResource;
     }
 
-    protected function generateFileResources()
+    protected function generateFileResources(): void
     {
         foreach ($this->filesToGenerate as $fileResource) {
             $this->handleGeneratingFile($fileResource);
         }
     }
 
-    protected function handleGeneratingFile(FileResource $fileResource)
+    private function handleGeneratingFile(FileResource $fileResource): void
     {
         if ($this->fileNotExistsOrShouldBeOwerwritten($fileResource)) {
             $this->createFile($fileResource);
-            $this->output->writeln('File "'.$fileResource->getFileName().'" created.');
+            $this->io->writeln('Created "'.$fileResource->getFileName().'" file.');
         } else {
-            $this->output->writeln('No file created.');
+            $this->io->writeln('Skipped "'.$fileResource->getFileName().'" file.');
         }
     }
 
-    protected function fileNotExistsOrShouldBeOwerwritten(FileResource $fileResource): bool
+    private function fileNotExistsOrShouldBeOwerwritten(FileResource $fileResource): bool
     {
         if (false === file_exists($fileResource->getFileName())) {
             return true;
         }
 
-        return $this->askOverwriteConfirmationQuestion();
+        return $this->askOverwriteConfirmationQuestion($fileResource);
     }
 
-    protected function askForClassName(): string
+    private function askForClassName(): string
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter class name', ''));
+        $question = new Question('Enter class name');
         $question->setAutocompleterValues($this->getExistingNamespaces());
         $question->setValidator(
             function ($input) {
@@ -130,7 +144,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function askForParameterClassName()
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter parameter class name', ''));
+        $question = new Question('Enter parameter class name');
         $question->setAutocompleterValues($this->getExistingClasses());
         // Allow empty value so entering of parameters can end.
         $question->setValidator(
@@ -146,35 +160,31 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         return $this->io->askQuestion($question);
     }
 
-    protected function askForParameterName(string $suggestedName)
+    protected function askForParameterName(string $suggestedName): string
     {
         return $this->io->ask('Enter parameter name', $suggestedName);
     }
 
-    protected function askOverwriteConfirmationQuestion()
+    private function askOverwriteConfirmationQuestion(FileResource $fileResource): bool
     {
-        return $this->io->confirm('File exists, overwrite?', false);
+        $message = sprintf('File "%s" exists, overwrite?', $fileResource->getFileName());
+
+        return $this->io->confirm($message, false);
     }
 
-    protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
+    private function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
     {
-        $generator = SpecGenerator::default();
-
-        return $generator->generate($classSource);
+        return $this->getService(SpecGenerator::class)->generate($classSource);
     }
 
     protected function getFileResource(ImprovedClassSource $classSource): FileResource
     {
-        $factory = new FileFactory($this->getPaths());
-
-        return $factory->create($classSource);
+        return $this->getService(FileFactory::class)->create($classSource);
     }
 
-    protected function createFile(FileResource $fileResource)
+    protected function createFile(FileResource $fileResource): void
     {
-        $fileGenerator = new FileGenerator(new Filesystem(), PhpParserGeneratorFactory::create());
-
-        $fileGenerator->generate($fileResource);
+        $this->getService(FileGenerator::class)->generate($fileResource);
     }
 
     protected function createClassFromParameterClassName(string $name): Type
@@ -204,20 +214,9 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         return $this->existingClasses;
     }
 
-    protected function getPaths()
+    private function getPaths(): array
     {
         return $this->getConfig()->getPaths();
-    }
-
-    protected function getQuestionHelper()
-    {
-        $question = $this->getHelperSet()->get('question');
-        if (!$question || get_class($question) !== 'Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper') {
-            $question = new QuestionHelper();
-            $this->getHelperSet()->set($question);
-        }
-
-        return $question;
     }
 
     abstract protected function getSectionMessage(): string;

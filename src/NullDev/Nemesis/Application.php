@@ -33,6 +33,7 @@ final class Application extends BaseApplication
 
         $this->container->addCompilerPass(new AutowirePass(true));
         $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
+        //$this->container->addCompilerPass(new PHPParserFileCompilerPass());
         $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
 
         parent::__construct('Nemesis', self::VERSION);

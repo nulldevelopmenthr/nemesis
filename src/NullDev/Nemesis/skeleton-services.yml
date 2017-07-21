@@ -5,7 +5,7 @@ services:
     public: true
 
   #NullDev\Skeleton services (not cleaned up)
-  NullDev\Skeleton\CodeGenerator\MethodGenerator: ~
+  ##NullDev\Skeleton\CodeGenerator\MethodGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator: ~
@@ -23,8 +23,8 @@ services:
   NullDev\Skeleton\Command\BroadwayEventCliCommand: ~
   NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
 
-  cli.command.skeleton.uuid_identity:
-    class: NullDev\Skeleton\Command\UuidIdentityCommand
+  cli.command.skeleton.uuid4_identity:
+    class: NullDev\Skeleton\Command\Uuid4IdentityCommand
     tags:
       - {name: console.command }
 

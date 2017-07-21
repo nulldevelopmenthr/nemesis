@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\File;
 
+use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileFactory
@@ -11,9 +12,9 @@ class FileFactory
     /** @var array */
     private $paths;
 
-    public function __construct(array $paths=[])
+    public function __construct(Config $config)
     {
-        $this->paths = $paths;
+        $this->paths = $config->getPaths();
     }
 
     public function create(ImprovedClassSource $classSource): FileResource

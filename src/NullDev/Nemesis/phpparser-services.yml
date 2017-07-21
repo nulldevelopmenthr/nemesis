@@ -6,9 +6,9 @@ services:
 
   PhpParser\BuilderFactory: ~
 
-  PrettyPrinter\Standard: ~
+  PhpParser\PrettyPrinter\Standard: ~
 
-  PhpParser\PrettyPrinterAbstract: "@PrettyPrinter\\Standard"
+  PhpParser\PrettyPrinterAbstract: "@PhpParser\\PrettyPrinter\\Standard"
 
 
 
