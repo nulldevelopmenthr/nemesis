@@ -22,7 +22,12 @@ services:
   NullDev\Skeleton\Command\BroadwayElasticSearchReadCliCommand: ~
   NullDev\Skeleton\Command\BroadwayEventCliCommand: ~
   NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
-  NullDev\Skeleton\Command\UuidIdentityCommand: ~
+
+  cli.command.skeleton.uuid_identity:
+    class: NullDev\Skeleton\Command\UuidIdentityCommand
+    tags:
+      - {name: console.command }
+
   NullDev\Skeleton\Definition\PHP\DefinitionFactory: ~
   NullDev\Skeleton\Definition\PHP\Types\TypeFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
