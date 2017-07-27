@@ -9,6 +9,7 @@ use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Command\HelpCommand;
 use Symfony\Component\Console\Command\ListCommand;
+use Symfony\Component\DependencyInjection\Compiler\AutowirePass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
@@ -31,6 +32,7 @@ final class Application extends BaseApplication
         $loader->load('skeleton-services.yml');
         $loader->load('services.yml');
 
+        $this->container->addCompilerPass(new AutowirePass(true));
         parent::__construct('Nemesis', self::VERSION);
 
         $this->container->compile();
