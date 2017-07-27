@@ -11,3 +11,7 @@ code_coverage:
     html: build/phpspec/coverage
     clover: build/logs/clover.xml
     php: build/cov/coverage.cov
+  blacklist:
+    -  src/NullDev/Skeleton/CodeGenerator/PhpParser/Methods/
+  blacklist_files:
+    -  src/NullDev/Nemesis/Application.php
