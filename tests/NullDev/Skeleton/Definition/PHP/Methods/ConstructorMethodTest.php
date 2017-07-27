@@ -40,7 +40,7 @@ class ConstructorMethodTest extends PHPUnit_Framework_TestCase
     {
         $param1 = new Parameter('noType');
 
-        $type2  = ClassType::create('Namespace1\Namespace2\MyClass');
+        $type2  = ClassType::createFromFullyQualified('Namespace1\Namespace2\MyClass');
         $param2 = new Parameter('name', $type2);
 
         $method = new ConstructorMethod([$param1, $param2]);

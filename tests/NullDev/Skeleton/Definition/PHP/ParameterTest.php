@@ -16,7 +16,7 @@ class ParameterTest extends PHPUnit_Framework_TestCase
 {
     public function testItWorksWithType(): void
     {
-        $type = ClassType::create('Vendor\Namespace\MyClass');
+        $type = ClassType::createFromFullyQualified('Vendor\Namespace\MyClass');
 
         $parameter = new Parameter('name', $type);
 
