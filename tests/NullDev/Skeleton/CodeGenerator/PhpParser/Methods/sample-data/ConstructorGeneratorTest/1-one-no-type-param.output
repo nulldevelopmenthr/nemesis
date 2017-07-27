@@ -1,0 +1,6 @@
+<?php
+
+public function __construct($first)
+{
+    $this->first = $first;
+}

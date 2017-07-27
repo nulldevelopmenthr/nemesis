@@ -1,0 +1,8 @@
+<?php
+
+public function __construct($first, $second, $third)
+{
+    $this->first = $first;
+    $this->second = $second;
+    $this->third = $third;
+}
