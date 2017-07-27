@@ -36,7 +36,7 @@ class ClassTypeTest extends PHPUnit_Framework_TestCase
 
     public function testNamespacedInterfaceCanBeCreatedFromFullyQualifiedClassName(): void
     {
-        $interfaceType = ClassType::create('Namespace1\Namespace2\MyClass');
+        $interfaceType = ClassType::createFromFullyQualified('Namespace1\Namespace2\MyClass');
 
         self::assertEquals('MyClass', $interfaceType->getName());
         self::assertEquals('Namespace1\Namespace2\MyClass', $interfaceType->getFullName());
@@ -46,7 +46,7 @@ class ClassTypeTest extends PHPUnit_Framework_TestCase
 
     public function testNonNamespacedInterfaceCanBeCreatedFromFullyQualifiedClassName(): void
     {
-        $interfaceType = ClassType::create('MyClass');
+        $interfaceType = ClassType::createFromFullyQualified('MyClass');
 
         self::assertEquals('MyClass', $interfaceType->getName());
         self::assertEquals('MyClass', $interfaceType->getFullName());

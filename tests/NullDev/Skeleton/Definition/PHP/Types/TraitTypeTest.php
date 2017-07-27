@@ -36,7 +36,7 @@ class TraitTypeTest extends PHPUnit_Framework_TestCase
 
     public function testNamespacedTraitCanBeCreatedFromFullyQualifiedClassName(): void
     {
-        $traitType = TraitType::create('Namespace1\Namespace2\MyTrait');
+        $traitType = TraitType::createFromFullyQualified('Namespace1\Namespace2\MyTrait');
 
         self::assertEquals('MyTrait', $traitType->getName());
         self::assertEquals('Namespace1\Namespace2\MyTrait', $traitType->getFullName());
@@ -46,7 +46,7 @@ class TraitTypeTest extends PHPUnit_Framework_TestCase
 
     public function testNonNamespacedTraitCanBeCreatedFromFullyQualifiedClassName(): void
     {
-        $traitType = TraitType::create('MyTrait');
+        $traitType = TraitType::createFromFullyQualified('MyTrait');
 
         self::assertEquals('MyTrait', $traitType->getName());
         self::assertEquals('MyTrait', $traitType->getFullName());
