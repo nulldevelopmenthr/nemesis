@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis;
 
+use NullDev\Skeleton\CodeGenerator\MethodGenerator;
+use NullDev\Skeleton\PHPParserMethodCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
@@ -33,6 +35,9 @@ final class Application extends BaseApplication
         $loader->load('services.yml');
 
         $this->container->addCompilerPass(new AutowirePass(true));
+        $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
+        $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
+
         parent::__construct('Nemesis', self::VERSION);
 
         $this->container->compile();
