@@ -47,14 +47,6 @@ abstract class ConceptName implements Importable, Type
         return $this->namespace.self::NAMESPACE_SEPARATOR.$this->name;
     }
 
-    /**
-     * @deprecated Use createFromFullyQualified() directly
-     */
-    public static function create(string $fullName): self
-    {
-        return static::createFromFullyQualified($fullName);
-    }
-
     public static function createFromFullyQualified(string $fullName): self
     {
         $parts = explode(self::NAMESPACE_SEPARATOR, $fullName);
