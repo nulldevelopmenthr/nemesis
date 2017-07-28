@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use Mockery;
-use NullDev\Nemesis\Application;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -15,24 +14,19 @@ use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpParser\Builder\Method as PhpBuilderMethod;
-use PHPUnit_Framework_TestCase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory
- * @group  nemesis
+ * @group  integration
  */
-class MethodFactoryTest extends PHPUnit_Framework_TestCase
+class MethodFactoryTest extends ContainerSupportedTestCase
 {
     /** @var MethodFactory */
     private $methodFactory;
-    /** @var ContainerInterface */
-    private $container;
 
     public function setUp(): void
     {
-        $this->container = (new Application())->getContainer();
-
         $this->methodFactory = $this->getService(MethodFactory::class);
     }
 
@@ -65,15 +59,5 @@ class MethodFactoryTest extends PHPUnit_Framework_TestCase
         $methodMock = Mockery::mock(Method::class);
 
         $this->methodFactory->generate($methodMock);
-    }
-
-    public function getService(string $serviceName)
-    {
-        return $this->getContainer()->get($serviceName);
-    }
-
-    public function getContainer(): ContainerInterface
-    {
-        return $this->container;
     }
 }
