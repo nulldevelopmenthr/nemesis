@@ -8,6 +8,7 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Builder\Class_;
+use PhpParser\Builder\Property;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\TraitUse;
@@ -57,7 +58,7 @@ class ClassGenerator
         return new TraitUse([new Name($traitType->getName())]);
     }
 
-    private function createClassProperty(Parameter $property)
+    private function createClassProperty(Parameter $property): Property
     {
         return $this->builderFactory
             ->property($property->getName())
