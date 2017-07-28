@@ -8,7 +8,7 @@ abstract class ConceptName implements Importable, Type
 {
     const NAMESPACE_SEPARATOR = '\\';
 
-    /** @var string */
+    /** @var string|null */
     private $namespace;
     /** @var string */
     private $name;
