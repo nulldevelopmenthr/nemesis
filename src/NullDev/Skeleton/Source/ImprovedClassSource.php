@@ -110,7 +110,7 @@ class ImprovedClassSource
             return null;
         }
 
-        return $this->getParent()->getName();
+        return $this->parent->getName();
     }
 
     public function getParentFullName(): ?string
@@ -119,7 +119,7 @@ class ImprovedClassSource
             return null;
         }
 
-        return $this->getParent()->getFullName();
+        return $this->parent->getFullName();
     }
 
     //-----     Interfaces     -----
@@ -190,7 +190,7 @@ class ImprovedClassSource
         $this->constructor = $constructor;
 
         foreach ($constructor->getMethodParameters() as $parameter) {
-            if ($parameter->hasType()) {
+            if (true === $parameter->hasType()) {
                 $this->addImportIfEligible($parameter->getType());
             }
             $this->addProperty($parameter);
