@@ -14,11 +14,11 @@ use PHPUnit_Framework_TestCase;
 class ExposeConstructorArgumentsAsGettersMethodTest extends PHPUnit_Framework_TestCase
 {
     /** @var ExposeConstructorArgumentsAsGettersMethod */
-    private $exposeConstructorArgumentsAsGettersMethod;
+    private $method;
 
     public function setUp(): void
     {
-        $this->exposeConstructorArgumentsAsGettersMethod = new ExposeConstructorArgumentsAsGettersMethod([]);
+        $this->method = new ExposeConstructorArgumentsAsGettersMethod([]);
     }
 
     public function testNothing(): void

@@ -14,11 +14,11 @@ use PHPUnit_Framework_TestCase;
 class LetMethodTest extends PHPUnit_Framework_TestCase
 {
     /** @var LetMethod */
-    private $letMethod;
+    private $method;
 
     public function setUp(): void
     {
-        $this->letMethod = new LetMethod([]);
+        $this->method = new LetMethod([]);
     }
 
     public function testNothing(): void
