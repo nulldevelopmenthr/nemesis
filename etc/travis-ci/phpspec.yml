@@ -13,6 +13,7 @@ code_coverage:
     php: build/cov/coverage.cov
   blacklist:
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/Methods/
+    - src/NullDev/PhpSpecSkeleton/CodeGenerator/PhpParser/Methods/
   blacklist_files:
     - src/NullDev/Nemesis/Application.php
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/ClassGenerator.php
