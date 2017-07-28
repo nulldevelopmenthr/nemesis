@@ -10,4 +10,8 @@ namespace NullDev\Skeleton\Definition\PHP\Types;
  */
 class ClassType extends ConceptName
 {
+    public static function createFromFullyQualified(string $fullName): ClassType
+    {
+        return parent::createFromFullyQualified($fullName);
+    }
 }
