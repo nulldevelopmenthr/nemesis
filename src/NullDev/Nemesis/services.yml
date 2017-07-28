@@ -3,3 +3,10 @@ services:
     autowire: true
     autoconfigure: true
     public: true
+
+  NullDev\Nemesis\Config\ConfigFactory: ~
+
+  NullDev\Nemesis\Config\Config:
+    class: NullDev\Nemesis\Config\Config
+    factory: ['@NullDev\Nemesis\Config\ConfigFactory', create]
+
