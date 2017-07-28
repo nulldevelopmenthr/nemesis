@@ -4,26 +4,16 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\CodeGenerator;
 
-use NullDev\Nemesis\Application;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\CodeGenerator\PhpParserGenerator
  * @group  integration
  */
-class PhpParserGeneratorTest extends PHPUnit_Framework_TestCase
+class PhpParserGeneratorTest extends ContainerSupportedTestCase
 {
-    /** @var ContainerInterface */
-    private $container;
-
-    public function setUp(): void
-    {
-        $this->container = (new Application())->getContainer();
-    }
-
     /**
      * @test
      * @dataProvider provideTestRenderData
@@ -52,16 +42,6 @@ class PhpParserGeneratorTest extends PHPUnit_Framework_TestCase
             [$provider->provideSourceWithOneClasslessParamConstructor(), 'code/class-with-all-1-classless-param'],
             [$provider->provideSourceWithOneTypeDeclarationParamConstructor(), 'code/class-with-all-1-scalartypes-param'],
         ];
-    }
-
-    public function getService(string $serviceName)
-    {
-        return $this->getContainer()->get($serviceName);
-    }
-
-    public function getContainer(): ContainerInterface
-    {
-        return $this->container;
     }
 
     protected function getFileContent(string $fileName): string
