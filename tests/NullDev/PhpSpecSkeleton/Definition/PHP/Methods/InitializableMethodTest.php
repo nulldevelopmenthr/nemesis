@@ -14,11 +14,11 @@ use PHPUnit_Framework_TestCase;
 class InitializableMethodTest extends PHPUnit_Framework_TestCase
 {
     /** @var InitializableMethod */
-    private $initializableMethod;
+    private $method;
 
     public function setUp(): void
     {
-        $this->initializableMethod = new InitializableMethod([]);
+        $this->method = new InitializableMethod([]);
     }
 
     public function testNothing(): void
