@@ -48,7 +48,9 @@ class UuidCreateGenerator implements MethodGenerator
         $return = new Node\Stmt\Return_(
             new Node\Expr\New_(
                 new Name('self'),
-                [new Node\Expr\Variable('id')]
+                [
+                    new Node\Arg(new Node\Expr\Variable('id')),
+                ]
             )
         );
         $zzMethod->addStmt($factory);
