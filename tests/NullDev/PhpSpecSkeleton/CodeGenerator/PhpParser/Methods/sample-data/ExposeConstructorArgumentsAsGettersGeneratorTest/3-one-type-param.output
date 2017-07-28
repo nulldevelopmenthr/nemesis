@@ -1,0 +1,6 @@
+<?php
+
+public function it_should_expose_constructor_arguments_via_getters(FirstName $first)
+{
+    $this->getFirst()->shouldReturn($first);
+}

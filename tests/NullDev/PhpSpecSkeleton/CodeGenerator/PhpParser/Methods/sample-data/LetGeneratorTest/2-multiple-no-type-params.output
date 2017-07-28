@@ -1,0 +1,6 @@
+<?php
+
+public function let()
+{
+    $this->beConstructedWith($first = 'first', $second = 'second', $third = 'third');
+}

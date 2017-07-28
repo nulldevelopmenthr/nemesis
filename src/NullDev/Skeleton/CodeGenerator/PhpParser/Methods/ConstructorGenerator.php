@@ -8,6 +8,7 @@ use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\Builder\Method;
+use PhpParser\Builder\Param;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 
@@ -42,7 +43,7 @@ class ConstructorGenerator implements MethodGenerator
         return $constructor;
     }
 
-    private function createMethodParam(Parameter $param)
+    private function createMethodParam(Parameter $param): Param
     {
         $result = $this->builderFactory->param($param->getName());
 
@@ -53,7 +54,7 @@ class ConstructorGenerator implements MethodGenerator
         return $result;
     }
 
-    private function createConstructorMethodAssignment(Parameter $param)
+    private function createConstructorMethodAssignment(Parameter $param): Node\Expr\Assign
     {
         return new Node\Expr\Assign(
             new Node\Expr\Variable('this->'.$param->getName()),
