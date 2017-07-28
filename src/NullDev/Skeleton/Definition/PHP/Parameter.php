@@ -14,7 +14,7 @@ class Parameter
 {
     /** @var string */
     private $name;
-    /** @var Type */
+    /** @var Type|null */
     private $type;
 
     public function __construct(string $name, Type $type = null)
