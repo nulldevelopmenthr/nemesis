@@ -1,0 +1,6 @@
+<?php
+
+public function let(FirstName $first)
+{
+    $this->beConstructedWith($first);
+}

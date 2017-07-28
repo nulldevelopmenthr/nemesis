@@ -25,7 +25,7 @@ class ImprovedClassSourceTest extends PHPUnit_Framework_TestCase
         $classType           = ClassType::createFromFullyQualified('Vendor\Namespace\Name');
         $improvedClassSource = new ImprovedClassSource($classType);
 
-        self::assertSame($classType, $improvedClassSource->getClassType());
+        self::assertSame($classType, $improvedClassSource->getType());
         self::assertTrue($improvedClassSource->hasNamespace());
         self::assertEquals('Vendor\Namespace', $improvedClassSource->getNamespace());
         self::assertEquals('Name', $improvedClassSource->getName());
