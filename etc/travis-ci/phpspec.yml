@@ -17,3 +17,4 @@ code_coverage:
   blacklist_files:
     - src/NullDev/Nemesis/Application.php
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/ClassGenerator.php
+    - src/NullDev/PhpSpecSkeleton/SpecGenerator.php
