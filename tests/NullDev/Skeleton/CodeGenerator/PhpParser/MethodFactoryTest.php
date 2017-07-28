@@ -9,11 +9,12 @@ use NullDev\Nemesis\Application;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use PhpParser\Builder\Method;
+use PhpParser\Builder\Method as PhpBuilderMethod;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -42,7 +43,7 @@ class MethodFactoryTest extends PHPUnit_Framework_TestCase
     {
         $result = $this->methodFactory->generate($input);
 
-        self::assertInstanceOf(Method::class, $result);
+        self::assertInstanceOf(PhpBuilderMethod::class, $result);
     }
 
     public function provideMethods(): array
@@ -60,9 +61,10 @@ class MethodFactoryTest extends PHPUnit_Framework_TestCase
      */
     public function testItThrowsExceptionForUnsupportedMethod(): void
     {
-        $this->methodFactory->generate(
-            Mockery::mock('NullDev\Skeleton\Definition\PHP\Methods\Method')
-        );
+        /** @var Method */
+        $methodMock = Mockery::mock(Method::class);
+
+        $this->methodFactory->generate($methodMock);
     }
 
     public function getService(string $serviceName)
