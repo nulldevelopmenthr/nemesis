@@ -1,0 +1,27 @@
+<?php
+
+namespace tests\Developer;
+
+use Developer\Senior;
+use Mockery;
+use PHPUnit_Framework_TestCase;
+/**
+* @covers \Developer\Senior
+* @group todo
+*/
+class SeniorTest extends PHPUnit_Framework_TestCase
+{
+    /** @var string */
+    private $firstName;
+    /** @var Senior */
+    private $senior;
+    public function setUp()
+    {
+        $this->firstName = 'firstName';
+        $this->senior = new Senior($this->firstName);
+    }
+    public function testGetFirstName()
+    {
+        self::assertEquals($this->firstName, $this->senior->getFirstName());
+    }
+}
