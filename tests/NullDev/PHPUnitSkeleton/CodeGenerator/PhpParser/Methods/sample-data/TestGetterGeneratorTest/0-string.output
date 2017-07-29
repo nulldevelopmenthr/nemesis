@@ -1,0 +1,6 @@
+<?php
+
+public function testGetCurrencyCode()
+{
+    self::assertEquals($this->currencyCode, $this->money->getCurrencyCode());
+}

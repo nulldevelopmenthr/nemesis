@@ -1,0 +1,6 @@
+<?php
+
+public function testNothing()
+{
+    $this->markTestIncomplete('Auto generated using nemesis');
+}

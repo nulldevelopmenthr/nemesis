@@ -1,0 +1,6 @@
+<?php
+
+public function testGetAmount()
+{
+    self::assertEquals($this->amount, $this->money->getAmount());
+}

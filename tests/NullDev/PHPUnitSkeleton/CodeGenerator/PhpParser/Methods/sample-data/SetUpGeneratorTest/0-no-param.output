@@ -1,0 +1,6 @@
+<?php
+
+public function setUp()
+{
+    $this->senior = new Senior();
+}
