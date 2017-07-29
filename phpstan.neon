@@ -1,5 +1,4 @@
 parameters:
 	ignoreErrors:
 	    - '#Class Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage not found and could not be autoloaded.#'
-	    - '#Method NullDev\\Skeleton\\CodeGenerator\\PhpParser\\ClassGenerator::getType\(\) should return#'
 	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImportIfEligible\(\) expects#'

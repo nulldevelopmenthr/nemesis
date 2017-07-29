@@ -31,7 +31,13 @@ class ParameterTest extends PHPUnit_Framework_TestCase
         $parameter = new Parameter('name');
         self::assertEquals('name', $parameter->getName());
         self::assertNull($parameter->getType());
-        self::assertNull($parameter->getTypeShortName());
         self::assertFalse($parameter->hasType());
+    }
+
+    /** @expectedException \Throwable */
+    public function testItThrowsExceptionWithoutTypeOnCallingGetTypeShortName(): void
+    {
+        $parameter = new Parameter('name');
+        $parameter->getTypeShortName();
     }
 }
