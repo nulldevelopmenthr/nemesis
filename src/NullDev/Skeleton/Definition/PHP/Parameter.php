@@ -33,10 +33,10 @@ class Parameter
         return $this->type;
     }
 
-    public function getTypeShortName(): ?string
+    public function getTypeShortName(): string
     {
         if (null === $this->type) {
-            return null;
+            throw new \Exception();
         }
 
         return $this->type->getName();

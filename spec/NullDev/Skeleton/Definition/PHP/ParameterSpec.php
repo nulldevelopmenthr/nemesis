@@ -53,9 +53,9 @@ class ParameterSpec extends ObjectBehavior
         $this->hasType()->shouldReturn(false);
     }
 
-    public function it_will_return_null_for_class_short_name_if_no_type_defined()
+    public function it_will_throw_error_for_class_short_name_if_no_type_defined()
     {
         $this->beConstructedWith($name = 'param');
-        $this->getTypeShortName()->shouldReturn(null);
+        $this->shouldThrow(\Throwable::class)->duringGetTypeShortName();
     }
 }
