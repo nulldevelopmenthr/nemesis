@@ -14,6 +14,7 @@ code_coverage:
   blacklist:
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/Methods/
     - src/NullDev/PhpSpecSkeleton/CodeGenerator/PhpParser/Methods/
+    - src/NullDev/PHPUnitSkeleton/CodeGenerator/PhpParser/Methods/
   blacklist_files:
     - src/NullDev/Nemesis/Application.php
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/ClassGenerator.php
