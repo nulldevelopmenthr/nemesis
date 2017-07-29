@@ -15,7 +15,7 @@ class InitializableMethodFactory
     public function create(ImprovedClassSource $classSource): InitializableMethod
     {
         $data = [
-            $classSource->getType(),
+            $classSource->getClassType(),
         ];
 
         if ($classSource->hasParent()) {

@@ -78,7 +78,7 @@ class SpecGenerator
     private function getImports(ImprovedClassSource $classSource): array
     {
         $imports = [
-            $classSource->getType(),
+            $classSource->getClassType(),
             ClassType::createFromFullyQualified(Argument::class),
         ];
 
