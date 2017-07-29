@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -22,6 +23,8 @@ use tests\NullDev\ContainerSupportedTestCase;
  */
 class MethodFactoryTest extends ContainerSupportedTestCase
 {
+    use MockeryPHPUnitIntegration;
+
     /** @var MethodFactory */
     private $methodFactory;
 

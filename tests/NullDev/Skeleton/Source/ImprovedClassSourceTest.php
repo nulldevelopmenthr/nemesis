@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Source;
 
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
@@ -20,6 +21,8 @@ use PHPUnit_Framework_TestCase;
  */
 class ImprovedClassSourceTest extends PHPUnit_Framework_TestCase
 {
+    use MockeryPHPUnitIntegration;
+
     public function testDefaultGetters(): void
     {
         $classType           = ClassType::createFromFullyQualified('Vendor\Namespace\Name');
