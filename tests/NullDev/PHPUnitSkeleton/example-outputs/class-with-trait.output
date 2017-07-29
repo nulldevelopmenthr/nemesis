@@ -1,0 +1,20 @@
+<?php
+
+namespace tests\Developer;
+
+use Developer\Senior;
+use Mockery;
+use PHPUnit_Framework_TestCase;
+/**
+* @covers \Developer\Senior
+* @group todo
+*/
+class SeniorTest extends PHPUnit_Framework_TestCase
+{
+    /** @var Senior */
+    private $senior;
+    public function setUp()
+    {
+        $this->senior = new Senior();
+    }
+}

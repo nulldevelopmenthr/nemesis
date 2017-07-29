@@ -1,0 +1,36 @@
+<?php
+
+namespace tests\Developer;
+
+use Developer\Senior;
+use FirstName;
+use LastName;
+use Mockery;
+use PHPUnit_Framework_TestCase;
+/**
+* @covers \Developer\Senior
+* @group todo
+*/
+class SeniorTest extends PHPUnit_Framework_TestCase
+{
+    /** @var FirstName */
+    private $firstName;
+    /** @var LastName */
+    private $lastName;
+    /** @var Senior */
+    private $senior;
+    public function setUp()
+    {
+        $this->firstName = Mockery::mock(FirstName::class);
+        $this->lastName = Mockery::mock(LastName::class);
+        $this->senior = new Senior($this->firstName, $this->lastName);
+    }
+    public function testGetFirstName()
+    {
+        self::assertEquals($this->firstName, $this->senior->getFirstName());
+    }
+    public function testGetLastName()
+    {
+        self::assertEquals($this->lastName, $this->senior->getLastName());
+    }
+}
