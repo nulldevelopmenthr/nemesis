@@ -19,3 +19,4 @@ code_coverage:
     - src/NullDev/Nemesis/Application.php
     - src/NullDev/Skeleton/CodeGenerator/PhpParser/ClassGenerator.php
     - src/NullDev/PhpSpecSkeleton/SpecGenerator.php
+    - src/NullDev/PHPUnitSkeleton/PHPUnitTestGenerator.php
