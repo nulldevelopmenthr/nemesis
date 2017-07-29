@@ -38,7 +38,7 @@ class ImprovedClassSource
         $this->classType = $classType;
     }
 
-    public function getType(): ClassType
+    public function getClassType(): ClassType
     {
         return $this->classType;
     }

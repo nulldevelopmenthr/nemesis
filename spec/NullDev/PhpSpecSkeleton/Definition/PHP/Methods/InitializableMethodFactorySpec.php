@@ -27,7 +27,7 @@ class InitializableMethodFactorySpec extends ObjectBehavior
         ImprovedClassSource $classSource,
         ClassType $classType
     ) {
-        $classSource->getType()->shouldBeCalled()->willReturn($classType);
+        $classSource->getClassType()->shouldBeCalled()->willReturn($classType);
         $classSource->hasParent()->shouldBeCalled()->willReturn(false);
         $classSource->getInterfaces()->shouldBeCalled()->willReturn([]);
 
@@ -41,7 +41,7 @@ class InitializableMethodFactorySpec extends ObjectBehavior
         InterfaceType $interface1,
         InterfaceType $interface2
     ) {
-        $classSource->getType()->shouldBeCalled()->willReturn($classType);
+        $classSource->getClassType()->shouldBeCalled()->willReturn($classType);
         $classSource->hasParent()->shouldBeCalled()->willReturn(true);
         $classSource->getParent()->shouldBeCalled()->willReturn($parent);
         $classSource->getInterfaces()->shouldBeCalled()->willReturn([$interface1, $interface2]);
