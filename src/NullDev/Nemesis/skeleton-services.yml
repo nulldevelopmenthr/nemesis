@@ -14,6 +14,13 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
 
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator: ~
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethodFactory: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory: ~
+  NullDev\PhpSpecSkeleton\SpecGenerator: ~
 
   NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator: ~
   NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator: ~
