@@ -14,3 +14,7 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
 
+
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator: ~
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator: ~
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator: ~
