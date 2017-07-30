@@ -1,6 +1,8 @@
 paths:
   code:
     "src/": ""
+  spec:
+    "spec/": spec\
   tests:
     "tests/": tests\
 phpunit:

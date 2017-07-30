@@ -6,14 +6,15 @@ namespace spec\NullDev\Nemesis\Config;
 
 use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Path\Psr4Path;
+use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
 use PhpSpec\ObjectBehavior;
 
 class ConfigSpec extends ObjectBehavior
 {
-    public function let(Psr4Path $psr4Path, TestPsr4Path $testPsr4Path)
+    public function let(Psr4Path $psr4Path, SpecPsr4Path $specPsr4Path, TestPsr4Path $testPsr4Path)
     {
-        $this->beConstructedWith([$psr4Path], [$testPsr4Path], 'tests', 'PHPUnit_Framework_TestCase');
+        $this->beConstructedWith([$psr4Path], [$specPsr4Path], [$testPsr4Path], 'tests', 'PHPUnit_Framework_TestCase');
     }
 
     public function it_is_initializable()
@@ -25,6 +26,12 @@ class ConfigSpec extends ObjectBehavior
     {
         $this->getSourceCodePaths()
             ->shouldReturn([$psr4Path]);
+    }
+
+    public function it_exposes_spec_paths(SpecPsr4Path $specPsr4Path)
+    {
+        $this->getSpecPaths()
+            ->shouldReturn([$specPsr4Path]);
     }
 
     public function it_exposes_test_paths(TestPsr4Path $testPsr4Path)

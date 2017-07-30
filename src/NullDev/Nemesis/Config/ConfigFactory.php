@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Nemesis\Config;
 
 use NullDev\Skeleton\Path\Psr4Path;
+use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
 use Symfony\Component\Yaml\Yaml;
 use Webmozart\Assert\Assert;
@@ -17,6 +18,8 @@ class ConfigFactory
 {
     /** @var array */
     private $sourceCodePaths = [];
+    /** @var array */
+    private $specPaths = [];
     /** @var array */
     private $testPaths = [];
     /** @var string */
@@ -36,10 +39,14 @@ class ConfigFactory
         }
 
         Assert::isArray($config['paths']['code']);
+        Assert::isArray($config['paths']['spec']);
         Assert::isArray($config['paths']['tests']);
 
         foreach ($config['paths']['code'] as $path => $namespacePrefix) {
             $this->sourceCodePaths[] = new Psr4Path($path, $namespacePrefix);
+        }
+        foreach ($config['paths']['spec'] as $path => $namespacePrefix) {
+            $this->specPaths[] = new SpecPsr4Path($path, $namespacePrefix);
         }
         foreach ($config['paths']['tests'] as $path => $namespacePrefix) {
             $this->testPaths[] = new TestPsr4Path($path, $namespacePrefix);
@@ -52,6 +59,7 @@ class ConfigFactory
     {
         return new Config(
             $this->getSourceCodePaths(),
+            $this->getSpecPaths(),
             $this->getTestPaths(),
             $this->getPhpunitBaseNamespace(),
             $this->getPhpunitBaseTestClassName()
@@ -64,6 +72,9 @@ class ConfigFactory
             'paths'   => [
                 'code'  => [
                     'src/' => '',
+                ],
+                'spec' => [
+                    'spec/' => 'spec\\',
                 ],
                 'tests' => [
                     'tests/' => 'tests\\',
@@ -79,6 +90,11 @@ class ConfigFactory
     private function getSourceCodePaths(): array
     {
         return $this->sourceCodePaths;
+    }
+
+    private function getSpecPaths(): array
+    {
+        return $this->specPaths;
     }
 
     private function getTestPaths(): array

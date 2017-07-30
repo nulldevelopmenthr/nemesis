@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Nemesis\Config;
 
 use NullDev\Skeleton\Path\Psr4Path;
+use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
 use Webmozart\Assert\Assert;
 
@@ -18,6 +19,9 @@ class Config
     private $sourceCodePaths = [];
 
     /** @var array */
+    private $specPaths = [];
+
+    /** @var array */
     private $testPaths = [];
 
     /** @var string */
@@ -28,14 +32,17 @@ class Config
 
     public function __construct(
         array $sourceCodePaths,
+        array $specPaths,
         array $testPaths,
         string $testsNamespace,
         string $baseTestClassName
     ) {
         Assert::allIsInstanceOf($sourceCodePaths, Psr4Path::class);
+        Assert::allIsInstanceOf($specPaths, SpecPsr4Path::class);
         Assert::allIsInstanceOf($testPaths, TestPsr4Path::class);
 
         $this->sourceCodePaths   = $sourceCodePaths;
+        $this->specPaths         = $specPaths;
         $this->testPaths         = $testPaths;
         $this->testsNamespace    = $testsNamespace;
         $this->baseTestClassName = $baseTestClassName;
@@ -46,6 +53,11 @@ class Config
         return $this->sourceCodePaths;
     }
 
+    public function getSpecPaths(): array
+    {
+        return $this->specPaths;
+    }
+
     public function getTestPaths(): array
     {
         return $this->testPaths;
@@ -53,7 +65,7 @@ class Config
 
     public function getPaths(): array
     {
-        return array_merge($this->testPaths, $this->sourceCodePaths);
+        return array_merge($this->testPaths, $this->specPaths, $this->sourceCodePaths);
     }
 
     public function getTestsNamespace(): string
