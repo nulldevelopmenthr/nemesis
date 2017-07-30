@@ -16,4 +16,14 @@ class ClassSourceFactory
     {
         return new ImprovedClassSource($classType);
     }
+
+    public function createSpec(ClassType $classType): ImprovedSpecSource
+    {
+        return new ImprovedSpecSource($classType);
+    }
+
+    public function createTest(ClassType $classType): ImprovedTestSource
+    {
+        return new ImprovedTestSource($classType);
+    }
 }
