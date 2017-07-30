@@ -56,7 +56,7 @@ class SpecGenerator
     {
         $specClassType = ClassType::createFromFullyQualified('spec\\'.$classSource->getFullName().'Spec');
 
-        $specSource = $this->factory->create($specClassType);
+        $specSource = $this->factory->createSpec($specClassType);
 
         $specSource->addImports(...$this->getImports($classSource));
         $specSource->addParent(ClassType::createFromFullyQualified(ObjectBehavior::class));
