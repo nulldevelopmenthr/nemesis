@@ -6,6 +6,7 @@ namespace tests\NullDev\Nemesis\Config;
 
 use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Path\Psr4Path;
+use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
 use PHPUnit_Framework_TestCase;
 use tests\NullDev\ContainerSupportedTestCase;
@@ -33,6 +34,15 @@ class ConfigTest extends ContainerSupportedTestCase
         self::assertEquals($expected, $this->config->getSourceCodePaths());
     }
 
+    public function testGetSpecPaths(): void
+    {
+        $expected = [
+            new SpecPsr4Path('spec/', 'spec\\'),
+        ];
+
+        self::assertEquals($expected, $this->config->getSpecPaths());
+    }
+
     public function testGetTestPaths(): void
     {
         $expected = [
@@ -46,6 +56,7 @@ class ConfigTest extends ContainerSupportedTestCase
     {
         $expected = [
             new TestPsr4Path('tests/', 'tests\\'),
+            new SpecPsr4Path('spec/', 'spec\\'),
             new Psr4Path('src/', ''),
         ];
 
