@@ -49,7 +49,7 @@ class PHPUnitTestGenerator
 
         $testClassType = ClassType::createFromFullyQualified($testClassName);
 
-        $testSource = $this->factory->create($testClassType);
+        $testSource = $this->factory->createTest($testClassType);
 
         $testSource->addDocComment(new CoversComment($improvedClassSource->getFullName()));
         $testSource->addDocComment(new GroupComment('todo'));
