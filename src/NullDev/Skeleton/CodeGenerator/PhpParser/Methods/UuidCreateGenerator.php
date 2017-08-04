@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
-use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
+use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\Builder\Method;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;

@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\Definition\PHP\Methods;
+namespace NullDev\Skeleton\Uuid\Definition\PHP\Methods;
 
+use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
 /**
