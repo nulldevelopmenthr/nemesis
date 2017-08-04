@@ -11,8 +11,9 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
+
+  NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
 
   NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~

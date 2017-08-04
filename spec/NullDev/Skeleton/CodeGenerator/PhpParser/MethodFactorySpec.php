@@ -8,10 +8,9 @@ use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use PhpParser\Builder\Method as PhpBuilderMethod;
 use PhpSpec\ObjectBehavior;
 
@@ -20,15 +19,13 @@ class MethodFactorySpec extends ObjectBehavior
     public function let(
         ConstructorGenerator $constructorGenerator,
         GetterGenerator $getterGenerator,
-        ToStringGenerator $toStringGenerator,
-        UuidCreateGenerator $uuidCreateGenerator
+        ToStringGenerator $toStringGenerator
     ) {
         $this->beConstructedWith(
             [
                 $constructorGenerator,
                 $getterGenerator,
                 $toStringGenerator,
-                $uuidCreateGenerator,
             ]
         );
     }
@@ -53,30 +50,27 @@ class MethodFactorySpec extends ObjectBehavior
         ConstructorGenerator $constructorGenerator,
         GetterGenerator $getterGenerator,
         ToStringGenerator $toStringGenerator,
-        UuidCreateGenerator $uuidCreateGenerator,
-        UuidCreateMethod $uuidCreateMethod,
+        ToStringMethod $toStringMethod,
         PhpBuilderMethod $phpBuilderMethod
     ) {
-        $constructorGenerator->supports($uuidCreateMethod)->shouldBeCalled()->willReturn(false);
-        $getterGenerator->supports($uuidCreateMethod)->shouldBeCalled()->willReturn(false);
-        $toStringGenerator->supports($uuidCreateMethod)->shouldBeCalled()->willReturn(false);
-        $uuidCreateGenerator->supports($uuidCreateMethod)->shouldBeCalled()->willReturn(true);
-        $uuidCreateGenerator->generate($uuidCreateMethod)->shouldBeCalled()->willReturn($phpBuilderMethod);
+        $constructorGenerator->supports($toStringMethod)->shouldBeCalled()->willReturn(false);
+        $getterGenerator->supports($toStringMethod)->shouldBeCalled()->willReturn(false);
+        $toStringGenerator->supports($toStringMethod)->shouldBeCalled()->willReturn(true);
 
-        $this->generate($uuidCreateMethod)->shouldReturn($phpBuilderMethod);
+        $toStringGenerator->generate($toStringMethod)->shouldBeCalled()->willReturn($phpBuilderMethod);
+
+        $this->generate($toStringMethod)->shouldReturn($phpBuilderMethod);
     }
 
     public function it_will_throw_exception_if_method_not_supported_by_generator(
         ConstructorGenerator $constructorGenerator,
         GetterGenerator $getterGenerator,
         ToStringGenerator $toStringGenerator,
-        UuidCreateGenerator $uuidCreateGenerator,
         Method $randomMethod
     ) {
         $constructorGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
         $getterGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
         $toStringGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
-        $uuidCreateGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
 
         $this->shouldThrow(\Exception::class)->duringGenerate($randomMethod);
     }
