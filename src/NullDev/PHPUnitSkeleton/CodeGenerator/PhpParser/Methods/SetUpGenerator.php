@@ -17,12 +17,12 @@ use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Scalar\Encapsed;
 use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 
@@ -106,7 +106,7 @@ class SetUpGenerator implements MethodGenerator
         } elseif ($parameter->getType() instanceof FloatType) {
             return new Assign($variable, new DNumber(2.0));
         } elseif ($parameter->getType() instanceof BoolType) {
-            return new Assign($variable, new Encapsed([true]));
+            return new Assign($variable, new ConstFetch(new Name('true')));
         }
 
         return new Assign(

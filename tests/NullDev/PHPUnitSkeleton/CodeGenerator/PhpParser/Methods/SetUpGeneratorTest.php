@@ -6,6 +6,14 @@ namespace tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
@@ -14,6 +22,7 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator
  * @group  nemesis
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class SetUpGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -26,6 +35,7 @@ class SetUpGeneratorTest extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideParameters
+     * @dataProvider provideParameters2
      */
     public function testOutput(ImprovedClassSource $classSource, string $fileName): void
     {
@@ -51,5 +61,26 @@ class SetUpGeneratorTest extends PHPUnit_Framework_TestCase
             [$provider->provideSourceWithOneClasslessParamConstructor(), '1-no-type-one-param'],
             [$provider->provideSourceWithOneTypeDeclarationParamConstructor(), '1-no-type-one-param'],
         ];
+    }
+
+    public function provideParameters2(): \Generator
+    {
+        $classType = ClassType::createFromFullyQualified('BlaBla\Lol');
+
+        $source = new ImprovedClassSource($classType);
+        $source->addConstructorMethod(
+            new ConstructorMethod(
+                [
+                    new Parameter('id', new IntType()),
+                    new Parameter('name', new StringType()),
+                    new Parameter('price', new FloatType()),
+                    new Parameter('smart', new BoolType()),
+                    new Parameter('tags', new ArrayType()),
+                    new Parameter('randomValue'),
+                ]
+            )
+        );
+
+        yield [$source, '2-mix-of-parameters'];
     }
 }
