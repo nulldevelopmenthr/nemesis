@@ -17,8 +17,10 @@ use PhpParser\Builder\Param;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\DNumber;
 use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
@@ -104,7 +106,7 @@ class ExposeConstructorArgumentsAsGettersGenerator implements MethodGenerator
         } elseif ($parameter->getType() instanceof FloatType) {
             return new DNumber(2.0);
         } elseif ($parameter->getType() instanceof BoolType) {
-            return true;
+            return new ConstFetch(new Name('true'));
         }
 
         throw new \Exception('ERR 242342123123: Unhandled argument received.');
