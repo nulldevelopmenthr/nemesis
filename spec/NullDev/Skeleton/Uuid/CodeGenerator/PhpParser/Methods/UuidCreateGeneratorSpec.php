@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
+namespace spec\NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use PhpParser\BuilderFactory;
 use PhpSpec\ObjectBehavior;
 

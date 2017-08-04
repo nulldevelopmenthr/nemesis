@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
+namespace NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods;
 
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;

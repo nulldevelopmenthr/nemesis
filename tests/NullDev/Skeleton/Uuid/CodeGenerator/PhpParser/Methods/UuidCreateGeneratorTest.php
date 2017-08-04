@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
+namespace tests\NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
+use NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\BuilderFactory;
 
 /**
- * @covers \NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator
+ * @covers \NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator
  * @covers \NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod
  * @group  integration
  */
