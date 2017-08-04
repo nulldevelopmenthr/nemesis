@@ -8,6 +8,11 @@ use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArg
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -68,6 +73,17 @@ class ExposeConstructorArgumentsAsGettersGeneratorTest extends PHPUnit_Framework
                     new Parameter('last', ClassType::createFromFullyQualified('Vendor\Namespace\LastName')),
                 ],
                 '4-multiple-type-params',
+            ],
+            [
+                [
+                    new Parameter('id', new IntType()),
+                    new Parameter('name', new StringType()),
+                    new Parameter('price', new FloatType()),
+                    new Parameter('smart', new BoolType()),
+                    new Parameter('tags', new ArrayType()),
+                    new Parameter('randomValue'),
+                ],
+                '5-multiple-type-params',
             ],
         ];
     }
