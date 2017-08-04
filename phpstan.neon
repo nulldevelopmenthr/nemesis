@@ -3,3 +3,4 @@ parameters:
 	    - '#Class Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage not found and could not be autoloaded.#'
 	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImportIfEligible\(\) expects#'
 	    - '#Mockery\\MockInterface given#'
+	    - '#Call to an undefined method Symfony\\Component\\Console\\Application::getContainer\(\)#'
