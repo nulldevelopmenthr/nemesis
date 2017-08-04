@@ -12,20 +12,12 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
  */
 class CreateUuidClass
 {
-    /** @var string */
-    private $fileName;
     /** @var ClassType */
     private $classType;
 
-    public function __construct(string $fileName, ClassType $classType)
+    public function __construct(ClassType $classType)
     {
-        $this->fileName  = $fileName;
         $this->classType = $classType;
-    }
-
-    public function getFileName(): string
-    {
-        return $this->fileName;
     }
 
     public function getClassType(): ClassType

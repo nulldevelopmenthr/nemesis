@@ -12,7 +12,7 @@ class CreateUuidClassSpec extends ObjectBehavior
 {
     public function let(ClassType $classType)
     {
-        $this->beConstructedWith('/var/www/somewhere/src/Namespace/ClassName.php', $classType);
+        $this->beConstructedWith($classType);
     }
 
     public function it_is_initializable()
@@ -23,10 +23,5 @@ class CreateUuidClassSpec extends ObjectBehavior
     public function it_will_expose_class_type(ClassType $classType)
     {
         $this->getClassType()->shouldReturn($classType);
-    }
-
-    public function it_will_expose_fileName()
-    {
-        $this->getFileName()->shouldReturn('/var/www/somewhere/src/Namespace/ClassName.php');
     }
 }
