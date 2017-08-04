@@ -35,9 +35,7 @@ class Uuid4IdentityCommand extends SimpleSkeletonGeneratorCommand
 
         $generator = $this->getService(PhpParserGenerator::class);
 
-        $sources = $this->getSources(
-            new CreateUuidClass('', $classType)
-        );
+        $sources = $this->getSources(new CreateUuidClass($classType));
 
         foreach ($sources as $source) {
             $fileName = $this->getFilePath($source);
