@@ -8,7 +8,7 @@ use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
+use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
 use NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler;
 use PhpSpec\ObjectBehavior;
@@ -16,7 +16,7 @@ use PhpSpec\ObjectBehavior;
 class CreateUuidClassHandlerSpec extends ObjectBehavior
 {
     public function let(
-        UuidIdentitySourceFactory $sourceFactory,
+        Uuid4IdentitySourceFactory $sourceFactory,
         SpecGenerator $specGenerator,
         PHPUnitTestGenerator $testGenerator
     ) {
@@ -33,7 +33,7 @@ class CreateUuidClassHandlerSpec extends ObjectBehavior
         ClassType $classType,
         SpecGenerator $specGenerator,
         PHPUnitTestGenerator $testGenerator,
-        UuidIdentitySourceFactory $sourceFactory,
+        Uuid4IdentitySourceFactory $sourceFactory,
         ImprovedClassSource $classSource,
         ImprovedClassSource $specSource,
         ImprovedClassSource $testSource

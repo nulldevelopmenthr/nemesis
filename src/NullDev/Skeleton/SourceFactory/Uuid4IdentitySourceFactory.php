@@ -13,7 +13,7 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use Ramsey\Uuid\Uuid;
 
-class UuidIdentitySourceFactory implements SourceFactory
+class Uuid4IdentitySourceFactory implements SourceFactory
 {
     /** @var ClassSourceFactory */
     private $sourceFactory;
