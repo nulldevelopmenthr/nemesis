@@ -19,7 +19,6 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 /**
  * @covers \NullDev\PHPUnitSkeleton\PHPUnitTestGenerator
  * @group  codeGeneration
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
 {
