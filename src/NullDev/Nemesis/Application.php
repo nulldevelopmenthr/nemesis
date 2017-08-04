@@ -55,6 +55,10 @@ final class Application extends BaseApplication
             new ListCommand(),
         ];
 
+        foreach (array_keys($this->container->findTaggedServiceIds('console.command')) as $commandId) {
+            $commands[] = $this->container->get($commandId);
+        }
+
         return $commands;
     }
 

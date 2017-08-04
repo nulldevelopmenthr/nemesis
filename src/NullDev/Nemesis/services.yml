@@ -4,6 +4,11 @@ services:
     autoconfigure: true
     public: true
 
+  cli.command.nemesis.identity:
+    class: NullDev\Skeleton\Command\Uuid4IdentityCommand
+    tags:
+      - {name: console.command }
+
   NullDev\Nemesis\Config\ConfigFactory: ~
 
   NullDev\Nemesis\Config\Config:
