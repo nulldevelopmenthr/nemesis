@@ -1,0 +1,6 @@
+<?php
+
+public function let()
+{
+    $this->beConstructedWith($id = 1, $name = 'name', $price = 2.0, $smart = true, $tags = [], $randomValue = 'randomValue');
+}
