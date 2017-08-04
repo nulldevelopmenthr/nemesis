@@ -5,7 +5,7 @@ services:
     public: true
 
   cli.command.nemesis.identity:
-    class: NullDev\Skeleton\Command\Uuid4IdentityCommand
+    class: NullDev\Skeleton\Uuid\Cli\Uuid4IdentityCommand
     tags:
       - {name: console.command }
 
