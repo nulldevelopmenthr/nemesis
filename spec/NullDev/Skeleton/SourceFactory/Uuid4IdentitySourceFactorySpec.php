@@ -10,11 +10,11 @@ use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
+use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class UuidIdentitySourceFactorySpec extends ObjectBehavior
+class Uuid4IdentitySourceFactorySpec extends ObjectBehavior
 {
     public function let(ClassSourceFactory $sourceFactory)
     {
@@ -23,7 +23,7 @@ class UuidIdentitySourceFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(UuidIdentitySourceFactory::class);
+        $this->shouldHaveType(Uuid4IdentitySourceFactory::class);
     }
 
     public function it_will_create_source_from_given_class_type(

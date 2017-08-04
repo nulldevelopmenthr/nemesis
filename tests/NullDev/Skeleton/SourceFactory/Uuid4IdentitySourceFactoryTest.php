@@ -7,23 +7,23 @@ namespace tests\NullDev\Skeleton\SourceFactory;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
+use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory
+ * @covers \NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory
  * @group  integration
  */
-class UuidIdentitySourceFactoryTest extends ContainerSupportedTestCase
+class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
 {
-    /** @var UuidIdentitySourceFactory */
+    /** @var Uuid4IdentitySourceFactory */
     private $sourceFactory;
     /** @var PhpParserGenerator */
     private $codeGenerator;
 
     public function setUp(): void
     {
-        $this->sourceFactory = new UuidIdentitySourceFactory(new ClassSourceFactory());
+        $this->sourceFactory = new Uuid4IdentitySourceFactory(new ClassSourceFactory());
         $this->codeGenerator = $this->getService(PhpParserGenerator::class);
     }
 

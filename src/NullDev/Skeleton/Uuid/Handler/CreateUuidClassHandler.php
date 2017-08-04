@@ -6,7 +6,7 @@ namespace NullDev\Skeleton\Uuid\Handler;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
-use NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory;
+use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
 
 /**
@@ -15,7 +15,7 @@ use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
  */
 class CreateUuidClassHandler
 {
-    /** @var UuidIdentitySourceFactory */
+    /** @var Uuid4IdentitySourceFactory */
     private $sourceFactory;
 
     /** @var SpecGenerator */
@@ -25,7 +25,7 @@ class CreateUuidClassHandler
     private $testGenerator;
 
     public function __construct(
-        UuidIdentitySourceFactory $sourceFactory,
+        Uuid4IdentitySourceFactory $sourceFactory,
         SpecGenerator $specGenerator,
         PHPUnitTestGenerator $testGenerator
     ) {
