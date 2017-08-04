@@ -1,0 +1,12 @@
+<?php
+
+public function setUp()
+{
+    $this->id = 1;
+    $this->name = 'name';
+    $this->price = 2.0;
+    $this->smart = true;
+    $this->tags = [];
+    $this->randomValue = 'randomValue';
+    $this->lol = new Lol($this->id, $this->name, $this->price, $this->smart, $this->tags, $this->randomValue);
+}
