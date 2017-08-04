@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
+namespace spec\NullDev\Skeleton\Uuid\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpSpec\ObjectBehavior;
 
 class UuidCreateMethodSpec extends ObjectBehavior

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
+namespace tests\NullDev\Skeleton\Uuid\Definition\PHP\Methods;
 
-use NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @covers \NullDev\Skeleton\Definition\PHP\Methods\UuidCreateMethod
+ * @covers \NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod
  * @group  nemesis
  */
 class UuidCreateMethodTest extends PHPUnit_Framework_TestCase
