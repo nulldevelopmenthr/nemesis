@@ -15,3 +15,5 @@ services:
     class: NullDev\Nemesis\Config\Config
     factory: ['@NullDev\Nemesis\Config\ConfigFactory', create]
 
+
+  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
