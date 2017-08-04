@@ -7,10 +7,6 @@ namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 use PhpParser\PrettyPrinter\Standard;
 use PHPUnit_Framework_TestCase;
 
-/**
- * @covers \NullDev\Skeleton\CodeGenerator\PhpParser\Methods\UuidCreateGenerator
- * @group  nemesis
- */
 abstract class BaseOutputGeneratorTestCase extends PHPUnit_Framework_TestCase
 {
     /** @var Standard */
@@ -21,7 +17,7 @@ abstract class BaseOutputGeneratorTestCase extends PHPUnit_Framework_TestCase
         $this->printer = new Standard();
     }
 
-    public function assertOutputMatches($method, string $fileName): void
+    protected function assertOutputMatches($method, string $fileName): void
     {
         $generated = $this->getGenerator()->generate($method);
 
@@ -34,7 +30,7 @@ abstract class BaseOutputGeneratorTestCase extends PHPUnit_Framework_TestCase
         self::assertEquals($expected, $output);
     }
 
-    public function getBasePath(): string
+    protected function getBasePath(): string
     {
         $fullName = explode('\\', get_class($this));
 

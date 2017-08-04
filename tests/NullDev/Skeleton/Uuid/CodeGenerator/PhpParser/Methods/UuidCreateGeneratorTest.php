@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods;
 
-use NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\BuilderFactory;
+use tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
 
 /**
  * @covers \NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator
@@ -39,5 +40,14 @@ class UuidCreateGeneratorTest extends BaseOutputGeneratorTestCase
                 '0-type-param',
             ],
         ];
+    }
+
+    protected function getBasePath(): string
+    {
+        $fullName = explode('\\', get_class($this));
+
+        $currentTestClassName = array_pop($fullName);
+
+        return __DIR__.'/sample-data/'.$currentTestClassName;
     }
 }
