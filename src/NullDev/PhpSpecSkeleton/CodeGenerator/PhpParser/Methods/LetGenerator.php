@@ -16,10 +16,11 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Scalar\Encapsed;
 use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 
@@ -84,7 +85,7 @@ class LetGenerator implements MethodGenerator
         } elseif ($parameter->getType() instanceof FloatType) {
             return new Assign($variable, new DNumber(2.0));
         } elseif ($parameter->getType() instanceof BoolType) {
-            return new Assign($variable, new Encapsed([true]));
+            return new Assign($variable, new ConstFetch(new Name('true')));
         }
 
         throw new \Exception('ERR 90131234: Unhandled argument received.');
