@@ -12,13 +12,14 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * @see PHPParserMethodCompilerPassSpec
  * @see PHPParserMethodCompilerPassTest
+ *
+ * @codeCoverageIgnore
  */
 class PHPParserMethodCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        // always first check if the primary service is defined
-        if (!$container->has(MethodFactory::class)) {
+        if (false === $container->has(MethodFactory::class)) {
             return;
         }
 
