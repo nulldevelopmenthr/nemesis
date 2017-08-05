@@ -9,6 +9,14 @@ use Symfony\Component\Finder\Finder;
 
 class SourceCodePathReader
 {
+    /** @var FinderFactory */
+    private $finderFactory;
+
+    public function __construct(FinderFactory $finderFactory)
+    {
+        $this->finderFactory = $finderFactory;
+    }
+
     public function getSourceClasses(array $paths): array
     {
         $list = [];
@@ -161,21 +169,17 @@ class SourceCodePathReader
 
     private function getDirectories($path)
     {
-        $finder = new Finder();
-
-        return $finder->directories()->in($path);
+        return $this->getFinder()->directories()->in($path);
     }
 
     private function getPhpFiles($path)
     {
-        $finder = new Finder();
-
-        return $finder->files()->in($path)->name('*.php');
+        return $this->getFinder()->files()->in($path)->name('*.php');
     }
 
     private function getPhpFiles2(array $paths)
     {
-        $finder = new Finder();
+        $finder = $this->getFinder();
 
         $finder->files();
         foreach ($paths as $path) {
@@ -183,5 +187,10 @@ class SourceCodePathReader
         }
 
         return $finder->name('*.php');
+    }
+
+    private function getFinder(): Finder
+    {
+        return $this->finderFactory->create();
     }
 }
