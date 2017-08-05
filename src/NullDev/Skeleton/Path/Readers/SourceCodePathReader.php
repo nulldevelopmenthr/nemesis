@@ -5,16 +5,24 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Path\Readers;
 
 use hanneskod\classtools\Iterator\ClassIterator;
+use NullDev\Nemesis\Config\Config;
 use Symfony\Component\Finder\Finder;
 
+/**
+ * @see SourceCodePathReaderSpec
+ * @see SourceCodePathReaderTest
+ */
 class SourceCodePathReader
 {
     /** @var FinderFactory */
     private $finderFactory;
+    /** @var Config */
+    private $config;
 
-    public function __construct(FinderFactory $finderFactory)
+    public function __construct(FinderFactory $finderFactory, Config $config)
     {
         $this->finderFactory = $finderFactory;
+        $this->config        = $config;
     }
 
     public function getSourceClasses(array $paths): array
@@ -79,47 +87,74 @@ class SourceCodePathReader
      *
      */
 
-    public function getExistingPaths(array $paths): array
+    public function getExistingSourceCodeNamespaces(): array
     {
-        $existingPaths = [];
+        $namespaces = [];
 
-        foreach ($paths as $path) {
-            if (false === $path->isSourceCode()) {
+        foreach ($this->findAllTypeDeclarationNamesInSourceCode() as $typeDeclarationName) {
+            try {
+                $reflection = new \ReflectionClass($typeDeclarationName);
+            } catch (\Throwable $exception) {
                 continue;
             }
 
-            $list = $this->getDirectories($path->getPathBase());
+            if ($reflection->inNamespace()) {
+                $namespaceList = explode('\\', $reflection->getNamespaceName());
 
-            foreach ($list as $item) {
-                if (true === empty($path->getClassBase())) {
-                    $name = $item->getRelativePathname();
-                } else {
-                    $name = $path->getClassBase().$item->getRelativePathname();
+                $namespace = '';
+                foreach ($namespaceList as $namespacePart) {
+                    $namespace .= $namespacePart.'\\';
+
+                    if (false === array_key_exists($namespace, $namespaces)) {
+                        $namespaces[$namespace] = $namespace;
+                    }
                 }
-
-                $existingPaths[] = str_replace('/', '\\', $name);
             }
         }
 
-        return $existingPaths;
+        return $namespaces;
+    }
+
+    /**
+     * Returns all class, interface, trait names.
+     *
+     * @return array
+     */
+    protected function findAllTypeDeclarationNamesInSourceCode(): array
+    {
+        $names = [];
+
+        foreach ($this->config->getSourceCodePaths() as $path) {
+            $files = $this->getPhpFiles($path->getPathBase());
+
+            $foundNames = array_keys(
+                (new ClassIterator($files))->getClassMap()
+            );
+
+            $names = array_merge($names, $foundNames);
+        }
+
+        return $names;
     }
 
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    public function getExistingClasses(array $paths): array
+    public function getExistingSourceCodeClassNames(): array
     {
         $namespaceList = [];
         $classList     = [];
         $list          = [];
-        foreach ($paths as $path) {
-            if (false === $path->isSourceCode()) {
-                continue;
-            }
-            $iter = new ClassIterator($this->getPhpFiles($path->getPathBase()));
 
-            foreach (array_keys($iter->getClassMap()) as $classname) {
+        foreach ($this->config->getSourceCodePaths() as $path) {
+            $files = $this->getPhpFiles($path->getPathBase());
+
+            $foundNames = array_keys(
+                (new ClassIterator($files))->getClassMap()
+            );
+
+            foreach ($foundNames as $classname) {
                 if (in_array(substr($classname, -4), ['Test', 'Spec'])) {
                     continue;
                 }
@@ -165,11 +200,6 @@ class SourceCodePathReader
         $list = array_merge($list, $classList);
 
         return $list;
-    }
-
-    private function getDirectories($path)
-    {
-        return $this->getFinder()->directories()->in($path);
     }
 
     private function getPhpFiles($path)
