@@ -18,6 +18,8 @@ services:
   NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
 
+  NullDev\Skeleton\Path\Readers\FinderFactory: ~
+
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
