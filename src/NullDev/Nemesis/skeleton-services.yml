@@ -19,6 +19,7 @@ services:
   NullDev\Skeleton\File\FileFactory: ~
 
   NullDev\Skeleton\Path\Readers\FinderFactory: ~
+  NullDev\Skeleton\Path\Readers\SourceCodePathReader: ~
 
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~

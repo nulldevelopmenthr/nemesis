@@ -112,7 +112,7 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
     protected function getExistingNamespaces(): array
     {
         if (null === $this->existingNamespaces) {
-            $this->existingNamespaces = (new SourceCodePathReader())->getExistingPaths($this->getPaths());
+            $this->existingNamespaces = $this->getService(SourceCodePathReader::class)->getExistingPaths($this->getPaths());
         }
 
         return $this->existingNamespaces;
@@ -121,7 +121,7 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
     protected function getExistingClasses(): array
     {
         if (null === $this->existingClasses) {
-            $this->existingClasses = (new SourceCodePathReader())->getExistingClasses($this->getPaths());
+            $this->existingClasses = $this->getService(SourceCodePathReader::class)->getExistingClasses($this->getPaths());
         }
 
         return $this->existingClasses;
