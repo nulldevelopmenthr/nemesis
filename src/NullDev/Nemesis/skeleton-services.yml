@@ -21,6 +21,9 @@ services:
   NullDev\Skeleton\Path\Readers\FinderFactory: ~
   NullDev\Skeleton\Path\Readers\SourceCodePathReader: ~
 
+  NullDev\Skeleton\Suggestions\ClassSuggestions: ~
+  NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
+
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
