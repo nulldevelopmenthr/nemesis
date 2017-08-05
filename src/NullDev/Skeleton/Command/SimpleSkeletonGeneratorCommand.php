@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Command;
 
 use NullDev\Skeleton\File\FileFactory;
-use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDev\Skeleton\Suggestions\ClassSuggestions;
+use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,9 +29,6 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
 
     /** @var SymfonyStyle */
     protected $io;
-
-    private $existingNamespaces;
-    private $existingClasses;
 
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
@@ -111,25 +109,12 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
 
     protected function getExistingNamespaces(): array
     {
-        if (null === $this->existingNamespaces) {
-            $this->existingNamespaces = $this->getService(SourceCodePathReader::class)->getExistingPaths($this->getPaths());
-        }
-
-        return $this->existingNamespaces;
+        return $this->getService(NamespaceSuggestions::class)->suggest();
     }
 
     protected function getExistingClasses(): array
     {
-        if (null === $this->existingClasses) {
-            $this->existingClasses = $this->getService(SourceCodePathReader::class)->getExistingClasses($this->getPaths());
-        }
-
-        return $this->existingClasses;
-    }
-
-    private function getPaths(): array
-    {
-        return $this->getConfig()->getPaths();
+        return $this->getService(ClassSuggestions::class)->suggest();
     }
 
     abstract protected function getSectionMessage(): string;
