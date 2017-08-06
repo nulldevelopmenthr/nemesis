@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
@@ -26,10 +26,10 @@ use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 
 /**
- * @see ExposeConstructorArgumentsAsGettersGeneratorSpec
+ * @see ExposeGettersGeneratorSpec
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class ExposeConstructorArgumentsAsGettersGenerator implements MethodGenerator
+class ExposeGettersGenerator implements MethodGenerator
 {
     private $builderFactory;
 
@@ -45,10 +45,10 @@ class ExposeConstructorArgumentsAsGettersGenerator implements MethodGenerator
 
     public function supports($classMethod): bool
     {
-        return $classMethod instanceof ExposeConstructorArgumentsAsGettersMethod;
+        return $classMethod instanceof ExposeGettersMethod;
     }
 
-    public function generate(ExposeConstructorArgumentsAsGettersMethod $method)
+    public function generate(ExposeGettersMethod $method)
     {
         $node = $this->builderFactory
             ->method($method->getMethodName())

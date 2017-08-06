@@ -18,8 +18,7 @@ class UserProjectorSpec extends ObjectBehavior
         $this->shouldHaveType(UserProjector::class);
         $this->shouldHaveType(Projector::class);
     }
-    public function it_should_expose_constructor_arguments_via_getters(UserId $id)
+    public function it_should_expose_constructor_arguments_via_getters()
     {
-        $this->getId()->shouldReturn($id);
     }
 }

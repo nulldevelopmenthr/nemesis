@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\PhpSpecSkeleton;
 
-use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethodFactory;
+use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethodFactory;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory;
 use NullDev\PhpSpecSkeleton\SpecGenerator;
@@ -20,13 +20,13 @@ class SpecGeneratorSpec extends ObjectBehavior
         ClassSourceFactory $factory,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        ExposeConstructorArgumentsAsGettersMethodFactory $exposeConstructorArgumentsAsGettersMethodFactory
+        ExposeGettersMethodFactory $exposeGettersMethodFactory
     ) {
         $this->beConstructedWith(
             $factory,
             $letMethodFactory,
             $initializableMethodFactory,
-            $exposeConstructorArgumentsAsGettersMethodFactory
+            $exposeGettersMethodFactory
         );
     }
 

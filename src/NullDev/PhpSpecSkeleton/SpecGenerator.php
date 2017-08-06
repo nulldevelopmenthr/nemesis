@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\PhpSpecSkeleton;
 
 use Broadway\EventSourcing\EventSourcingRepository;
-use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethodFactory;
+use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethodFactory;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -27,14 +27,14 @@ class SpecGenerator
     private $letMethodFactory;
     /** @var InitializableMethodFactory */
     private $initializableMethodFactory;
-    /** @var ExposeConstructorArgumentsAsGettersMethodFactory */
+    /** @var ExposeGettersMethodFactory */
     private $exposeMethodFactory;
 
     public function __construct(
         ClassSourceFactory $factory,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        ExposeConstructorArgumentsAsGettersMethodFactory $exposeMethodFactory
+        ExposeGettersMethodFactory $exposeMethodFactory
     ) {
         $this->factory                    = $factory;
         $this->letMethodFactory           = $letMethodFactory;
@@ -48,7 +48,7 @@ class SpecGenerator
             new ClassSourceFactory(),
             new LetMethodFactory(),
             new InitializableMethodFactory(),
-            new ExposeConstructorArgumentsAsGettersMethodFactory()
+            new ExposeGettersMethodFactory()
         );
     }
 

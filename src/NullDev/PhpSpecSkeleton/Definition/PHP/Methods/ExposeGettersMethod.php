@@ -6,7 +6,7 @@ namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 
-class ExposeConstructorArgumentsAsGettersMethod implements Method
+class ExposeGettersMethod implements Method
 {
     private $params;
 

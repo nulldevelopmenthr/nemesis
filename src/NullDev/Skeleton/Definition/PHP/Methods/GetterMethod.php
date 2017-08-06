@@ -19,6 +19,11 @@ class GetterMethod implements Method
         $this->parameter = $parameter;
     }
 
+    public function getParameter(): Parameter
+    {
+        return $this->parameter;
+    }
+
     public function getPropertyName()
     {
         return $this->parameter->getName();
