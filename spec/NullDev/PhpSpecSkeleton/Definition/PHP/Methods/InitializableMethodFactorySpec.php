@@ -23,7 +23,7 @@ class InitializableMethodFactorySpec extends ObjectBehavior
         $this->shouldHaveType(InitializableMethodFactory::class);
     }
 
-    public function it_will_create_instance_of_initializable_method_witout_parent_or_interfaces(
+    public function it_will_create_instance_of_initializable_method_without_parent_or_interfaces(
         ImprovedClassSource $classSource,
         ClassType $classType
     ) {

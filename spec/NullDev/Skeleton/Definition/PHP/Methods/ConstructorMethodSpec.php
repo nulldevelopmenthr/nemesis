@@ -48,7 +48,7 @@ class ConstructorMethodSpec extends ObjectBehavior
         $this->hasMethodReturnType()->shouldReturn(false);
     }
 
-    public function it_throws_excpetion_if_trying_to_get_methods_return_type()
+    public function it_throws_exception_if_trying_to_get_methods_return_type()
     {
         $this->shouldThrow(\Exception::class)->duringGetMethodReturnType();
     }
