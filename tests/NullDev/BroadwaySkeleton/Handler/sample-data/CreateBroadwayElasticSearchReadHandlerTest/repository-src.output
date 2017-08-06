@@ -1,0 +1,8 @@
+<?php
+
+namespace Something;
+
+use Broadway\ReadModel\ElasticSearch\ElasticSearchRepository;
+class UserRepository extends ElasticSearchRepository
+{
+}

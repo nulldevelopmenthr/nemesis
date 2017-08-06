@@ -1,0 +1,6 @@
+<?php
+
+public function getId() : string
+{
+    return (string) $this->id;
+}

@@ -1,0 +1,46 @@
+<?php
+
+namespace Something;
+
+use Something\Company;
+class CreateUserCommand
+{
+    /** @var string */
+    private $name;
+    /** @var int */
+    private $age;
+    /** @var float */
+    private $height;
+    /** @var  */
+    private $about;
+    /** @var Company */
+    private $company;
+    public function __construct(string $name, int $age, float $height, $about, Company $company)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->height = $height;
+        $this->about = $about;
+        $this->company = $company;
+    }
+    public function getName() : string
+    {
+        return $this->name;
+    }
+    public function getAge() : int
+    {
+        return $this->age;
+    }
+    public function getHeight() : float
+    {
+        return $this->height;
+    }
+    public function getAbout()
+    {
+        return $this->about;
+    }
+    public function getCompany() : Company
+    {
+        return $this->company;
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+namespace spec\Something;
+
+use Broadway\Serializer\Serializable;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
+use Something\Company;
+use Something\UserCreated;
+class UserCreatedSpec extends ObjectBehavior
+{
+    public function let(Company $company)
+    {
+        $this->beConstructedWith($name = 'name', $age = 1, $height = 2.0, $about = 'about', $company);
+    }
+    public function it_is_initializable()
+    {
+        $this->shouldHaveType(UserCreated::class);
+        $this->shouldHaveType(Serializable::class);
+    }
+    public function it_should_expose_constructor_arguments_via_getters(Company $company)
+    {
+        $this->getName()->shouldReturn('name');
+        $this->getAge()->shouldReturn(1);
+        $this->getHeight()->shouldReturn(2.0);
+        $this->getAbout()->shouldReturn('about');
+        $this->getCompany()->shouldReturn($company);
+    }
+}

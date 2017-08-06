@@ -1,0 +1,56 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use PHPUnit_Framework_TestCase;
+use Something\Company;
+use Something\CreateUserCommand;
+/**
+* @covers \Something\CreateUserCommand
+* @group todo
+*/
+class CreateUserCommandTest extends PHPUnit_Framework_TestCase
+{
+    /** @var string */
+    private $name;
+    /** @var int */
+    private $age;
+    /** @var float */
+    private $height;
+    /** @var  */
+    private $about;
+    /** @var Company */
+    private $company;
+    /** @var CreateUserCommand */
+    private $createUserCommand;
+    public function setUp()
+    {
+        $this->name = 'name';
+        $this->age = 1;
+        $this->height = 2.0;
+        $this->about = 'about';
+        $this->company = Mockery::mock(Company::class);
+        $this->createUserCommand = new CreateUserCommand($this->name, $this->age, $this->height, $this->about, $this->company);
+    }
+    public function testGetName()
+    {
+        self::assertEquals($this->name, $this->createUserCommand->getName());
+    }
+    public function testGetAge()
+    {
+        self::assertEquals($this->age, $this->createUserCommand->getAge());
+    }
+    public function testGetHeight()
+    {
+        self::assertEquals($this->height, $this->createUserCommand->getHeight());
+    }
+    public function testGetAbout()
+    {
+        self::assertEquals($this->about, $this->createUserCommand->getAbout());
+    }
+    public function testGetCompany()
+    {
+        self::assertEquals($this->company, $this->createUserCommand->getCompany());
+    }
+}

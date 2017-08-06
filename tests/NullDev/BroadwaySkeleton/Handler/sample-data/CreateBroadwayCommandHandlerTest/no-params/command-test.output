@@ -1,0 +1,20 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use PHPUnit_Framework_TestCase;
+use Something\CreateUserCommand;
+/**
+* @covers \Something\CreateUserCommand
+* @group todo
+*/
+class CreateUserCommandTest extends PHPUnit_Framework_TestCase
+{
+    /** @var CreateUserCommand */
+    private $createUserCommand;
+    public function setUp()
+    {
+        $this->createUserCommand = new CreateUserCommand();
+    }
+}
