@@ -113,7 +113,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $this->shouldThrow(\Exception::class)->duringAddConstructorMethod($secondConstructorMethod);
     }
 
-    public function it_will_return_null_if_no_contructor()
+    public function it_will_return_null_if_no_constructor()
     {
         $this->hasConstructorMethod()->shouldReturn(false);
         $this->getConstructorMethod()->shouldReturn(null);

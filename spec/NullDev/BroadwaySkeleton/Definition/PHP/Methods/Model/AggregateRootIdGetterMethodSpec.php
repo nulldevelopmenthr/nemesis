@@ -58,7 +58,7 @@ class AggregateRootIdGetterMethodSpec extends ObjectBehavior
         $this->hasMethodReturnType()->shouldReturn(false);
     }
 
-    public function it_throws_error_on_trying_to_get_return_type_when_it_doesnt_exist($parameter)
+    public function it_throws_error_on_trying_to_get_return_type_when_it_does_not_exist($parameter)
     {
         $parameter->hasType()->willReturn(false);
         $parameter->getTypeShortName()->willReturn(null);
