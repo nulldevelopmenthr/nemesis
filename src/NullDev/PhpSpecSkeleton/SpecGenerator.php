@@ -42,16 +42,6 @@ class SpecGenerator
         $this->exposeMethodFactory        = $exposeMethodFactory;
     }
 
-    public static function default(): SpecGenerator
-    {
-        return new self(
-            new ClassSourceFactory(),
-            new LetMethodFactory(),
-            new InitializableMethodFactory(),
-            new ExposeGettersMethodFactory()
-        );
-    }
-
     public function generate(ImprovedClassSource $classSource)
     {
         $specClassType = ClassType::createFromFullyQualified('spec\\'.$classSource->getFullName().'Spec');

@@ -160,7 +160,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
     {
-        $generator = SpecGenerator::default();
+        $generator = $this->getService(SpecGenerator::class);
 
         return $generator->generate($classSource);
     }

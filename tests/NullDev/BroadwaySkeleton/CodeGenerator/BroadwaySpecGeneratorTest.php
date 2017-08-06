@@ -22,7 +22,7 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
     {
         $generator = $this->getService(PhpParserGenerator::class);
 
-        $specGenerator = SpecGenerator::default();
+        $specGenerator = $this->getService(SpecGenerator::class);
 
         $specSource = $specGenerator->generate($classSource);
 
