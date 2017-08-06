@@ -30,10 +30,10 @@ services:
   NullDev\Skeleton\Suggestions\ClassSuggestions: ~
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
 
-  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator: ~
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
   NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
-  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethodFactory: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethodFactory: ~
   NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory: ~
   NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory: ~
   NullDev\PhpSpecSkeleton\SpecGenerator: ~

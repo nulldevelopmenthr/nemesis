@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace spec\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
-use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use PhpSpec\ObjectBehavior;
 
-class ExposeConstructorArgumentsAsGettersMethodSpec extends ObjectBehavior
+class ExposeGettersMethodSpec extends ObjectBehavior
 {
     public function let()
     {
@@ -16,6 +16,6 @@ class ExposeConstructorArgumentsAsGettersMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(ExposeConstructorArgumentsAsGettersMethod::class);
+        $this->shouldHaveType(ExposeGettersMethod::class);
     }
 }

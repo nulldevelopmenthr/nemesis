@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace tests\NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
-use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator;
-use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeConstructorArgumentsAsGettersMethod;
+use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator;
+use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
@@ -17,16 +17,16 @@ use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeConstructorArgumentsAsGettersGenerator
+ * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator
  * @group  integration
  */
-class ExposeConstructorArgumentsAsGettersGeneratorTest extends PHPUnit_Framework_TestCase
+class ExposeGettersGeneratorTest extends PHPUnit_Framework_TestCase
 {
     use OutputGeneratorTestTrait;
 
-    public function getGenerator(): ExposeConstructorArgumentsAsGettersGenerator
+    public function getGenerator(): ExposeGettersGenerator
     {
-        return new ExposeConstructorArgumentsAsGettersGenerator(new BuilderFactory());
+        return new ExposeGettersGenerator(new BuilderFactory());
     }
 
     /**
@@ -34,7 +34,7 @@ class ExposeConstructorArgumentsAsGettersGeneratorTest extends PHPUnit_Framework
      */
     public function testOutput(array $parameters, string $fileName): void
     {
-        $method = new ExposeConstructorArgumentsAsGettersMethod($parameters);
+        $method = new ExposeGettersMethod($parameters);
 
         $this->assertOutputMatches($method, $fileName);
     }
