@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\Source;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -146,23 +145,12 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $this->getProperties()->shouldReturn([$param]);
     }
 
-    public function it_has_only_constructor_in_methods_if_no_constructor_params(ConstructorMethod $constructor)
+    public function it_has_only_constructor_in_methods(ConstructorMethod $constructor)
     {
         $constructor->getMethodParameters()->willReturn([]);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
         $this->getMethods()->shouldReturn([$constructor]);
-    }
-
-    public function it_has_constructor_and_getters_in_methods(ConstructorMethod $constructor, Parameter $param)
-    {
-        $constructor->getMethodParameters()->willReturn([$param]);
-        $param->hasType()->willReturn(false);
-
-        $this->addConstructorMethod($constructor)->shouldReturn($this);
-        $this->getMethods()->shouldHaveCount(2);
-        $this->getMethods()[0]->shouldReturn($constructor);
-        $this->getMethods()[1]->shouldReturnAnInstanceOf(GetterMethod::class);
     }
 
     public function it_supports_type_declaration_params_in_constructor(
@@ -175,7 +163,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $param->getType()->willReturn($typeDeclaration);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
-        $this->getMethods()->shouldHaveCount(2);
+        $this->getMethods()->shouldHaveCount(1);
     }
 
     public function it_will_not_show_type_declaration_params_from_constructor_in_imports(
@@ -199,7 +187,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $param->hasType()->willReturn(false);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
-        $this->getMethods()->shouldHaveCount(2);
+        $this->getMethods()->shouldHaveCount(1);
     }
 
     public function it_will_not_show_plain_params_from_constructor_in_imports(

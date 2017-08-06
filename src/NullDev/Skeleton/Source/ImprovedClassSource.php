@@ -197,11 +197,11 @@ class ImprovedClassSource
         }
 
         $this->addMethod($constructor);
-
-        foreach ($constructor->getMethodParameters() as $parameter) {
-            $this->addGetterMethod($parameter);
-        }
-
+        /*
+                foreach ($constructor->getMethodParameters() as $parameter) {
+                    $this->addGetterMethod($parameter);
+                }
+        */
         return $this;
     }
 
