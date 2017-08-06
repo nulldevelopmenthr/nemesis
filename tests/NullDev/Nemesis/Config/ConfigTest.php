@@ -8,7 +8,6 @@ use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Path\Psr4Path;
 use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
-use PHPUnit_Framework_TestCase;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
