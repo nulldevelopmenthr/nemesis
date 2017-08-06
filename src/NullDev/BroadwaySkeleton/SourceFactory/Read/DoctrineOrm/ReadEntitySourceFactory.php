@@ -31,6 +31,9 @@ class ReadEntitySourceFactory implements SourceFactory
 
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
+        foreach ($parameters as $parameter) {
+            $source->addGetterMethod($parameter);
+        }
         //Adds Broadway Identifiable.
         $source->addInterface(InterfaceType::createFromFullyQualified(Identifiable::class));
         //Adds Broadway Serializable.

@@ -12,8 +12,4 @@ class ProductReadProjector extends Projector
     {
         $this->repository = $repository;
     }
-    public function getRepository() : ProductReadRepository
-    {
-        return $this->repository;
-    }
 }

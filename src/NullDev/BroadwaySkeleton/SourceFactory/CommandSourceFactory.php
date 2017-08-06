@@ -28,6 +28,9 @@ class CommandSourceFactory implements SourceFactory
 
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
+        foreach ($parameters as $parameter) {
+            $source->addGetterMethod($parameter);
+        }
 
         return $source;
     }

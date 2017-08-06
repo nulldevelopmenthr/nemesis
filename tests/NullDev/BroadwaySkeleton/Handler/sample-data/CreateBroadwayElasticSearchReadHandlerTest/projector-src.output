@@ -12,8 +12,4 @@ class UserProjector extends Projector
     {
         $this->id = $id;
     }
-    public function getId() : UserId
-    {
-        return $this->id;
-    }
 }

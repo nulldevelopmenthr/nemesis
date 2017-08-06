@@ -16,12 +16,4 @@ class ProductReadProjector extends Projector
         $this->repository = $repository;
         $this->factory = $factory;
     }
-    public function getRepository() : ProductReadRepository
-    {
-        return $this->repository;
-    }
-    public function getFactory() : ProductReadFactory
-    {
-        return $this->factory;
-    }
 }

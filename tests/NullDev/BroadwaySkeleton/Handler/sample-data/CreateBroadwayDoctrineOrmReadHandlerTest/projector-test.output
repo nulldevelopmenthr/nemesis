@@ -21,8 +21,4 @@ class UserProjectorTest extends PHPUnit_Framework_TestCase
         $this->id = Mockery::mock(UserId::class);
         $this->userProjector = new UserProjector($this->id);
     }
-    public function testGetId()
-    {
-        self::assertEquals($this->id, $this->userProjector->getId());
-    }
 }
