@@ -1,0 +1,19 @@
+<?php
+
+namespace Something;
+
+use Broadway\Serializer\Serializable;
+class UserCreated implements Serializable
+{
+    public function __construct()
+    {
+    }
+    public function serialize() : array
+    {
+        return [];
+    }
+    public static function deserialize(array $data) : UserCreated
+    {
+        return new self();
+    }
+}

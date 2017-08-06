@@ -1,0 +1,28 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use PHPUnit_Framework_TestCase;
+use Something\UserId;
+use Something\UserProjector;
+/**
+* @covers \Something\UserProjector
+* @group todo
+*/
+class UserProjectorTest extends PHPUnit_Framework_TestCase
+{
+    /** @var UserId */
+    private $id;
+    /** @var UserProjector */
+    private $userProjector;
+    public function setUp()
+    {
+        $this->id = Mockery::mock(UserId::class);
+        $this->userProjector = new UserProjector($this->id);
+    }
+    public function testGetId()
+    {
+        self::assertEquals($this->id, $this->userProjector->getId());
+    }
+}

@@ -2,5 +2,6 @@ parameters:
 	ignoreErrors:
 	    - '#Class Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage not found and could not be autoloaded.#'
 	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImportIfEligible\(\) expects#'
+	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImport\(\) expects#'
 	    - '#Mockery\\MockInterface given#'
 	    - '#Call to an undefined method Symfony\\Component\\Console\\Application::getContainer\(\)#'

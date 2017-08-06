@@ -1,0 +1,28 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use PHPUnit_Framework_TestCase;
+use Something\UserEntity;
+use Something\UserId;
+/**
+* @covers \Something\UserEntity
+* @group todo
+*/
+class UserEntityTest extends PHPUnit_Framework_TestCase
+{
+    /** @var UserId */
+    private $id;
+    /** @var UserEntity */
+    private $userEntity;
+    public function setUp()
+    {
+        $this->id = Mockery::mock(UserId::class);
+        $this->userEntity = new UserEntity($this->id);
+    }
+    public function testGetId()
+    {
+        self::assertEquals($this->id, $this->userEntity->getId());
+    }
+}

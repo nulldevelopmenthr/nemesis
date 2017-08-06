@@ -1,0 +1,19 @@
+<?php
+
+namespace Something;
+
+use Broadway\ReadModel\Projector;
+use Something\UserId;
+class UserProjector extends Projector
+{
+    /** @var UserId */
+    private $id;
+    public function __construct(UserId $id)
+    {
+        $this->id = $id;
+    }
+    public function getId() : UserId
+    {
+        return $this->id;
+    }
+}

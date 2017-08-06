@@ -1,0 +1,20 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use PHPUnit_Framework_TestCase;
+use Something\UserCreated;
+/**
+* @covers \Something\UserCreated
+* @group todo
+*/
+class UserCreatedTest extends PHPUnit_Framework_TestCase
+{
+    /** @var UserCreated */
+    private $userCreated;
+    public function setUp()
+    {
+        $this->userCreated = new UserCreated();
+    }
+}

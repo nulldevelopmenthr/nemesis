@@ -12,10 +12,16 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
+  NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
+  NullDev\Skeleton\Command\BroadwayCommandCliCommand: ~
+  NullDev\Skeleton\Command\BroadwayDoctrineOrmReadCliCommand: ~
+  NullDev\Skeleton\Command\BroadwayElasticSearchReadCliCommand: ~
+  NullDev\Skeleton\Command\BroadwayEventCliCommand: ~
+  NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
 
   NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
 
-  NullDev\Skeleton\SourceFactory\UuidIdentitySourceFactory: ~
+  NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
 
   NullDev\Skeleton\Path\Readers\FinderFactory: ~
@@ -36,5 +42,31 @@ services:
   NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator: ~
   NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator: ~
   NullDev\PHPUnitSkeleton\PHPUnitTestGenerator: ~
+
+
+  #NullDev\BroadwaySkeleton services (not cleaned up)
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler: ~
+
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\CreateGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\RepositoryConstructorGenerator: ~
+  NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory: ~
 
   Symfony\Component\Filesystem\Filesystem: ~
