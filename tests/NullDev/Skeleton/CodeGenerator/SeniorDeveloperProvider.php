@@ -51,64 +51,110 @@ class SeniorDeveloperProvider
 
     public function provideSourceWithOneParamConstructor(): ImprovedClassSource
     {
-        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1Parameters());
+        $constructorParams = $this->provide1Parameter();
+
+        $source = $this->provideSourceWithAll()
+            ->addConstructorMethod(new ConstructorMethod($constructorParams));
+
+        foreach ($constructorParams as $constructorParam) {
+            $source->addGetterMethod($constructorParam);
+        }
+
+        return $source;
     }
 
     public function provideSourceWithTwoParamConstructor(): ImprovedClassSource
     {
-        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith2Parameters());
+        $constructorParams = $this->provide2Parameters();
+
+        $source = $this->provideSourceWithAll()
+            ->addConstructorMethod(new ConstructorMethod($constructorParams));
+
+        foreach ($constructorParams as $constructorParam) {
+            $source->addGetterMethod($constructorParam);
+        }
+
+        return $source;
     }
 
     public function provideSourceWithThreeParamConstructor(): ImprovedClassSource
     {
-        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith3Parameters());
+        $constructorParams = $this->provide3Parameters();
+
+        $source = $this->provideSourceWithAll()
+            ->addConstructorMethod(new ConstructorMethod($constructorParams));
+
+        foreach ($constructorParams as $constructorParam) {
+            $source->addGetterMethod($constructorParam);
+        }
+
+        return $source;
     }
 
     public function provideSourceWithOneClasslessParamConstructor(): ImprovedClassSource
     {
-        return $this->provideSourceWithAll()->addConstructorMethod($this->provideConstructorWith1ClasslessParameters());
+        $constructorParams = $this->provide1ParameterWithoutType();
+
+        $source = $this->provideSourceWithAll()
+            ->addConstructorMethod(new ConstructorMethod($constructorParams));
+
+        foreach ($constructorParams as $constructorParam) {
+            $source->addGetterMethod($constructorParam);
+        }
+
+        return $source;
     }
 
     public function provideSourceWithOneTypeDeclarationParamConstructor(): ImprovedClassSource
     {
-        return $this->provideSourceWithAll()
-            ->addConstructorMethod($this->provideConstructorWith1ScalarTypesParameters());
+        $constructorParams = $this->provide1ParameterWithScalarTypes();
+
+        $source = $this->provideSourceWithAll()
+            ->addConstructorMethod(new ConstructorMethod($constructorParams));
+
+        foreach ($constructorParams as $constructorParam) {
+            $source->addGetterMethod($constructorParam);
+        }
+
+        return $source;
     }
 
-    protected function provideConstructorWith1Parameters(): ConstructorMethod
+    private function provide1Parameter(): array
     {
-        return new ConstructorMethod([new Parameter('firstName', new ClassType('FirstName'))]);
+        return [
+            new Parameter('firstName', new ClassType('FirstName')),
+        ];
     }
 
-    protected function provideConstructorWith1ClasslessParameters(): ConstructorMethod
+    private function provide1ParameterWithoutType(): array
     {
-        return new ConstructorMethod([new Parameter('firstName')]);
+        return [
+            new Parameter('firstName'),
+        ];
     }
 
-    protected function provideConstructorWith1ScalarTypesParameters(): ConstructorMethod
+    private function provide1ParameterWithScalarTypes(): array
     {
-        return new ConstructorMethod([new Parameter('firstName', new StringType())]);
+        return [
+            new Parameter('firstName', new StringType()),
+        ];
     }
 
-    protected function provideConstructorWith2Parameters(): ConstructorMethod
+    private function provide2Parameters(): array
     {
-        $params = [
+        return [
             new Parameter('firstName', new ClassType('FirstName')),
             new Parameter('lastName', new ClassType('LastName')),
         ];
-
-        return new ConstructorMethod($params);
     }
 
-    protected function provideConstructorWith3Parameters(): ConstructorMethod
+    private function provide3Parameters(): array
     {
-        $params = [
+        return [
             new Parameter('firstName', new ClassType('FirstName')),
             new Parameter('lastName', new ClassType('LastName')),
             new Parameter('amount', new ClassType('Wage', 'HR\\Finances')),
         ];
-
-        return new ConstructorMethod($params);
     }
 
     public function provideClassType(): ClassType
@@ -116,27 +162,27 @@ class SeniorDeveloperProvider
         return new ClassType('Senior', 'Developer');
     }
 
-    protected function provideParentClassType(): ClassType
+    private function provideParentClassType(): ClassType
     {
         return new ClassType('Person', 'Human');
     }
 
-    protected function provideInterfaceType1(): InterfaceType
+    private function provideInterfaceType1(): InterfaceType
     {
         return new InterfaceType('Coder');
     }
 
-    protected function provideInterfaceType2(): InterfaceType
+    private function provideInterfaceType2(): InterfaceType
     {
         return new InterfaceType('Coder2');
     }
 
-    protected function provideTraitType1(): TraitType
+    private function provideTraitType1(): TraitType
     {
         return new TraitType('SomeTrait');
     }
 
-    protected function provideTraitType2(): TraitType
+    private function provideTraitType2(): TraitType
     {
         return new TraitType('SomeTrait2');
     }
