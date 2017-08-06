@@ -1,0 +1,6 @@
+<?php
+
+public function serialize() : array
+{
+    return ['firstName' => $this->firstName];
+}
