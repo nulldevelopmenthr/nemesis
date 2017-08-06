@@ -34,11 +34,6 @@ class PHPUnitTestGenerator
         $this->config  = $config;
     }
 
-    public static function default(Config $config): PHPUnitTestGenerator
-    {
-        return new self(new ClassSourceFactory(), $config);
-    }
-
     public function generate(ImprovedClassSource $improvedClassSource): ImprovedClassSource
     {
         $testClassName = $improvedClassSource->getFullName().'Test';

@@ -36,11 +36,6 @@ class LetGenerator implements MethodGenerator
         $this->builderFactory = $builderFactory;
     }
 
-    public static function default(): self
-    {
-        return new self(new BuilderFactory());
-    }
-
     public function supports($classMethod): bool
     {
         return $classMethod instanceof LetMethod;
