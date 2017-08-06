@@ -1,0 +1,6 @@
+<?php
+
+public function serialize() : array
+{
+    return ['id' => $this->id, 'name' => $this->name, 'price' => $this->price, 'smart' => $this->smart, 'tags' => $this->tags, 'randomValue' => $this->randomValue];
+}

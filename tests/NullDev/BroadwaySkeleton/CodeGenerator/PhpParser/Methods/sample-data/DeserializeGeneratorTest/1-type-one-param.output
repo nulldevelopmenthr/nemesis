@@ -1,0 +1,6 @@
+<?php
+
+public static function deserialize(array $data) : Senior
+{
+    return new self(new FirstName($data['firstName']));
+}
