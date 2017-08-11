@@ -125,6 +125,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($paramClassType);
 
@@ -138,6 +139,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($paramClassType);
 
@@ -159,6 +161,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         TypeDeclaration $typeDeclaration
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($typeDeclaration);
 
@@ -172,6 +175,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         TypeDeclaration $typeDeclaration
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($typeDeclaration);
 
@@ -184,6 +188,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         Parameter $param
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(false);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
@@ -195,6 +200,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         Parameter $param
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(false);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
