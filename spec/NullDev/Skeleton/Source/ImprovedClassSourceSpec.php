@@ -133,18 +133,16 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $this->getImports()->shouldReturn([$paramClassType]);
     }
 
-    public function it_has_constructor_params_are_in_properties(
+    public function it_will_not_put_constructor_parameters_as_class_properties(
         ConstructorMethod $constructor,
         Parameter $param,
         ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
-        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($paramClassType);
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
-        $this->getProperties()->shouldReturn([$param]);
     }
 
     public function it_has_only_constructor_in_methods(ConstructorMethod $constructor)

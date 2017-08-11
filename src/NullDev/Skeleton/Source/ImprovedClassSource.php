@@ -193,7 +193,7 @@ class ImprovedClassSource
             if (true === $parameter->hasType()) {
                 $this->addImportIfEligible($parameter->getType());
             }
-            $this->addProperty($parameter);
+            //$this->addProperty($parameter);
         }
 
         $this->addMethod($constructor);
