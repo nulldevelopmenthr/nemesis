@@ -30,6 +30,9 @@ class ReadProjectorSourceFactory implements SourceFactory
         //Adds Projector as parent.
         $source->addParent(ClassType::createFromFullyQualified(Projector::class));
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
+        foreach ($parameters as $parameter) {
+            $source->addProperty($parameter);
+        }
 
         return $source;
     }

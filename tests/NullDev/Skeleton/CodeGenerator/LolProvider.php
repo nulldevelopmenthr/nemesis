@@ -21,18 +21,19 @@ class LolProvider
         $classType = ClassType::createFromFullyQualified('BlaBla\Lol');
 
         $source = new ImprovedClassSource($classType);
-        $source->addConstructorMethod(
-            new ConstructorMethod(
-                [
-                    new Parameter('id', new IntType()),
-                    new Parameter('name', new StringType()),
-                    new Parameter('price', new FloatType()),
-                    new Parameter('smart', new BoolType()),
-                    new Parameter('tags', new ArrayType()),
-                    new Parameter('randomValue'),
-                ]
-            )
-        );
+
+        $parameters = [
+            new Parameter('id', new IntType()),
+            new Parameter('name', new StringType()),
+            new Parameter('price', new FloatType()),
+            new Parameter('smart', new BoolType()),
+            new Parameter('tags', new ArrayType()),
+            new Parameter('randomValue'),
+        ];
+        $source->addConstructorMethod(new ConstructorMethod($parameters));
+        foreach ($parameters as $parameter) {
+            $source->addProperty($parameter);
+        }
 
         return $source;
     }

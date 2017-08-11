@@ -58,6 +58,7 @@ class SeniorDeveloperProvider
 
         foreach ($constructorParams as $constructorParam) {
             $source->addGetterMethod($constructorParam);
+            $source->addProperty($constructorParam);
         }
 
         return $source;
@@ -72,6 +73,7 @@ class SeniorDeveloperProvider
 
         foreach ($constructorParams as $constructorParam) {
             $source->addGetterMethod($constructorParam);
+            $source->addProperty($constructorParam);
         }
 
         return $source;
@@ -86,6 +88,7 @@ class SeniorDeveloperProvider
 
         foreach ($constructorParams as $constructorParam) {
             $source->addGetterMethod($constructorParam);
+            $source->addProperty($constructorParam);
         }
 
         return $source;
@@ -100,6 +103,7 @@ class SeniorDeveloperProvider
 
         foreach ($constructorParams as $constructorParam) {
             $source->addGetterMethod($constructorParam);
+            $source->addProperty($constructorParam);
         }
 
         return $source;
@@ -114,6 +118,7 @@ class SeniorDeveloperProvider
 
         foreach ($constructorParams as $constructorParam) {
             $source->addGetterMethod($constructorParam);
+            $source->addProperty($constructorParam);
         }
 
         return $source;
