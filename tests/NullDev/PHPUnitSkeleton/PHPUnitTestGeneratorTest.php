@@ -14,6 +14,7 @@ use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PHPUnit_Framework_TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use tests\NullDev\AssertOutputTrait;
 use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
@@ -23,6 +24,8 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
+
     /** @var PHPUnitTestGenerator */
     private $testGenerator;
     /** @var PhpParserGenerator */
@@ -49,7 +52,8 @@ class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
     {
         $test = $this->testGenerator->generate($classSource);
 
-        $this->assertSame($this->getFileContent($outputName), $this->phpParserGenerator->getOutput($test));
+        $filePath = $this->getFilePath($outputName);
+        $this->assertOutputMatches($filePath, $test);
     }
 
     public function provideTestRenderData(): array
@@ -71,9 +75,9 @@ class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
         ];
     }
 
-    protected function getFileContent(string $fileName): string
+    private function getFilePath(string $exampleName): string
     {
-        return file_get_contents(__DIR__.'/example-outputs/'.$fileName.'.output');
+        return __DIR__.'/example-outputs/'.$exampleName.'.output';
     }
 
     public function getService(string $serviceName)
