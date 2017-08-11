@@ -223,12 +223,25 @@ class ImprovedClassSource
 
     public function addProperty(Parameter $property)
     {
-        $this->properties[] = $property;
+        if (false === $this->hasPropertyNamed($property->getName())) {
+            $this->properties[] = $property;
+        }
     }
 
     public function getProperties(): array
     {
         return $this->properties;
+    }
+
+    public function hasPropertyNamed(string $propertyName): bool
+    {
+        foreach ($this->properties as $property) {
+            if ($property->getName() === $propertyName) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     //-----     Methods     -----
