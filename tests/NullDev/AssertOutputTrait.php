@@ -19,8 +19,7 @@ trait AssertOutputTrait
         $generatedOutput = $this->getCodeGenerator()->getOutput($classSource);
 
         if (false === file_exists($expectedOutputFileName)) {
-            throw new \Exception('No file '.$expectedOutputFileName.' found');
-            //file_put_contents($expectedOutputFileName, $generatedOutput);
+            file_put_contents($expectedOutputFileName, $generatedOutput);
         } else {
             $expectedOutput = file_get_contents($expectedOutputFileName);
 
