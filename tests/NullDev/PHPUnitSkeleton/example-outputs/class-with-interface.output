@@ -4,6 +4,7 @@ namespace tests\Developer;
 
 use Developer\Senior;
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit_Framework_TestCase;
 /**
 * @covers \Developer\Senior
@@ -11,6 +12,7 @@ use PHPUnit_Framework_TestCase;
 */
 class SeniorTest extends PHPUnit_Framework_TestCase
 {
+    use MockeryPHPUnitIntegration;
     /** @var Senior */
     private $senior;
     public function setUp()

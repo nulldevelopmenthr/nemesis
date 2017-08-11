@@ -3,6 +3,7 @@
 namespace tests\Something;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit_Framework_TestCase;
 use Something\CreateUserCommand;
 /**
@@ -11,6 +12,7 @@ use Something\CreateUserCommand;
 */
 class CreateUserCommandTest extends PHPUnit_Framework_TestCase
 {
+    use MockeryPHPUnitIntegration;
     /** @var CreateUserCommand */
     private $createUserCommand;
     public function setUp()

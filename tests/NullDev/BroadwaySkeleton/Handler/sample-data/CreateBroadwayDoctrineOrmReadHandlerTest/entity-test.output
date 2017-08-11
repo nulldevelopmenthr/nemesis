@@ -3,6 +3,7 @@
 namespace tests\Something;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit_Framework_TestCase;
 use Something\UserEntity;
 use Something\UserId;
@@ -12,6 +13,7 @@ use Something\UserId;
 */
 class UserEntityTest extends PHPUnit_Framework_TestCase
 {
+    use MockeryPHPUnitIntegration;
     /** @var UserId */
     private $id;
     /** @var UserEntity */
