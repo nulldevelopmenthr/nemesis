@@ -32,6 +32,7 @@ class EventSourceFactory implements SourceFactory
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         foreach ($parameters as $parameter) {
             $source->addGetterMethod($parameter);
+            $source->addProperty($parameter);
         }
         //Adds Broadway Serializable.
         $source->addInterface(InterfaceType::createFromFullyQualified(Serializable::class));

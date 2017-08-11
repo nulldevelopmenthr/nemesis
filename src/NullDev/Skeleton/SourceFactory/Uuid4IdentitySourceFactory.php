@@ -30,6 +30,8 @@ class Uuid4IdentitySourceFactory implements SourceFactory
 
         //Add constructor method.
         $source->addConstructorMethod(new ConstructorMethod([$param]));
+        //Add constructor parameters as class properties.
+        $source->addProperty($param);
         //Add getter.
         $source->addGetterMethod($param);
         //Add __toString() method.

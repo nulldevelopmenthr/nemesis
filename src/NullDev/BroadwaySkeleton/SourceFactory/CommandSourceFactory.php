@@ -30,6 +30,7 @@ class CommandSourceFactory implements SourceFactory
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         foreach ($parameters as $parameter) {
             $source->addGetterMethod($parameter);
+            $source->addProperty($parameter);
         }
 
         return $source;
