@@ -3,6 +3,7 @@
 namespace tests\Something;
 
 use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit_Framework_TestCase;
 use Something\UserRepository;
 /**
@@ -11,6 +12,7 @@ use Something\UserRepository;
 */
 class UserRepositoryTest extends PHPUnit_Framework_TestCase
 {
+    use MockeryPHPUnitIntegration;
     /** @var UserRepository */
     private $userRepository;
     public function setUp()
