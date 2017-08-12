@@ -26,7 +26,7 @@ class CreateBroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCas
 
     public function setUp(): void
     {
-        $this->handler   = $this->getService(CreateBroadwayDoctrineOrmReadHandler::class);
+        $this->handler = $this->getService(CreateBroadwayDoctrineOrmReadHandler::class);
     }
 
     /**

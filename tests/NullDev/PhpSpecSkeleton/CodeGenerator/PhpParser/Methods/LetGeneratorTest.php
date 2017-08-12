@@ -18,7 +18,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator
- * @group integration
+ * @group  integration
  */
 class LetGeneratorTest extends PHPUnit_Framework_TestCase
 {

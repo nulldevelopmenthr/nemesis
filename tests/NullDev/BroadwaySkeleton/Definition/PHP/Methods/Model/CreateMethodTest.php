@@ -10,7 +10,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\CreateMethod
- * @group nemesis
+ * @group  nemesis
  */
 class CreateMethodTest extends PHPUnit_Framework_TestCase
 {

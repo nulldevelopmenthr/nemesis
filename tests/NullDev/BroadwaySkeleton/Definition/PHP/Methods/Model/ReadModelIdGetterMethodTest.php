@@ -12,7 +12,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMethod
- * @group nemesis
+ * @group  nemesis
  */
 class ReadModelIdGetterMethodTest extends PHPUnit_Framework_TestCase
 {

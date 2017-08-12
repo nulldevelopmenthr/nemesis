@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\DocComment
- * @group unit
+ * @group  unit
  */
 class DocCommentTest extends PHPUnit_Framework_TestCase
 {

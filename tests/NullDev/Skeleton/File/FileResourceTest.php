@@ -13,7 +13,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\File\FileResource
- * @group nemesis
+ * @group  nemesis
  */
 class FileResourceTest extends PHPUnit_Framework_TestCase
 {

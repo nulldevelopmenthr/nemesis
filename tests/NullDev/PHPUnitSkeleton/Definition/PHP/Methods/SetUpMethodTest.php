@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod
- * @group nemesis
+ * @group  nemesis
  */
 class SetUpMethodTest extends PHPUnit_Framework_TestCase
 {

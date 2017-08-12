@@ -44,7 +44,7 @@ class BroadwayEventCliCommand extends BaseSkeletonGeneratorCommand
         $className = $this->handleClassNameInput();
         $fields    = $this->getConstuctorParameters();
 
-        $classType    = ClassType::createFromFullyQualified($className);
+        $classType = ClassType::createFromFullyQualified($className);
 
         $command = new CreateBroadwayEvent($classType, $fields);
 

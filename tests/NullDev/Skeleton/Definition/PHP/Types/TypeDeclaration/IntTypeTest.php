@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType
- * @group unit
+ * @group  unit
  */
 class IntTypeTest extends PHPUnit_Framework_TestCase
 {

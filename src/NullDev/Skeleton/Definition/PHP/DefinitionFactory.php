@@ -60,7 +60,7 @@ class DefinitionFactory
         return new UuidCreateMethod($classType);
     }
 
-    public function createBroadwayModelCreateMethod(ClassType $classType, array  $parameters): CreateMethod
+    public function createBroadwayModelCreateMethod(ClassType $classType, array $parameters): CreateMethod
     {
         return new CreateMethod($classType, $parameters);
     }

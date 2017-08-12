@@ -35,11 +35,11 @@ class CreateBroadwayModelHandler
         SpecGenerator $specGenerator,
         PHPUnitTestGenerator $unitTestGenerator
     ) {
-        $this->uuid4IdentitySourceFactory             = $uuid4IdentitySourceFactory;
-        $this->aggregateRootSourceFactory             = $aggregateRootSourceFactory;
-        $this->repositorySourceFactory                = $repositorySourceFactory;
-        $this->specGenerator                          = $specGenerator;
-        $this->unitTestGenerator                      = $unitTestGenerator;
+        $this->uuid4IdentitySourceFactory = $uuid4IdentitySourceFactory;
+        $this->aggregateRootSourceFactory = $aggregateRootSourceFactory;
+        $this->repositorySourceFactory    = $repositorySourceFactory;
+        $this->specGenerator              = $specGenerator;
+        $this->unitTestGenerator          = $unitTestGenerator;
     }
 
     public function handle(CreateBroadwayModel $command): array

@@ -120,7 +120,7 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
         $parameters = [
             new Parameter('repository', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadRepository')),
         ];
-        $factory    = new ElasticSearch\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $factory = new ElasticSearch\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }
@@ -169,7 +169,7 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
             new Parameter('repository', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadRepository')),
             new Parameter('factory', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadFactory')),
         ];
-        $factory    = new DoctrineOrm\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $factory = new DoctrineOrm\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
         return $factory->create($classType, $parameters);
     }

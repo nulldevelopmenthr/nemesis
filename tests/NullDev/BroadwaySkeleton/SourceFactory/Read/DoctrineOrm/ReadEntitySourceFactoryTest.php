@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class ReadEntitySourceFactoryTest extends PHPUnit_Framework_TestCase
 {

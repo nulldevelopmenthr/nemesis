@@ -48,9 +48,9 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
 
         $generator = $this->getService(PhpParserGenerator::class);
 
-        $modelIdClassType       = ClassType::createFromFullyQualified($className.'Id');
-        $modelClassType         = ClassType::createFromFullyQualified($className.'Model');
-        $repositoryClassType    = ClassType::createFromFullyQualified($className.'Repository');
+        $modelIdClassType    = ClassType::createFromFullyQualified($className.'Id');
+        $modelClassType      = ClassType::createFromFullyQualified($className.'Model');
+        $repositoryClassType = ClassType::createFromFullyQualified($className.'Repository');
 
         $command = new CreateBroadwayModel($modelIdClassType, $modelClassType, $repositoryClassType);
 

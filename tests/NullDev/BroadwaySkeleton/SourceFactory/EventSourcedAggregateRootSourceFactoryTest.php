@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class EventSourcedAggregateRootSourceFactoryTest extends PHPUnit_Framework_TestCase
 {

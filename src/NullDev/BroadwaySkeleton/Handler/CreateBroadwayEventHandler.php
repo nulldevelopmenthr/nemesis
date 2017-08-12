@@ -27,9 +27,9 @@ class CreateBroadwayEventHandler
         SpecGenerator $specGenerator,
         PHPUnitTestGenerator $unitTestGenerator
     ) {
-        $this->eventSourceFactory   = $eventSourceFactory;
-        $this->specGenerator        = $specGenerator;
-        $this->unitTestGenerator    = $unitTestGenerator;
+        $this->eventSourceFactory = $eventSourceFactory;
+        $this->specGenerator      = $specGenerator;
+        $this->unitTestGenerator  = $unitTestGenerator;
     }
 
     public function handle(CreateBroadwayEvent $command): array

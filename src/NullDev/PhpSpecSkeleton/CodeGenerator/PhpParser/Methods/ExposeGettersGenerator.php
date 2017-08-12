@@ -65,7 +65,7 @@ class ExposeGettersGenerator implements MethodGenerator
                         ),
                         'shouldReturn',
                         [
-                        new Arg(new Variable($param->getName())),
+                            new Arg(new Variable($param->getName())),
                         ]
                     )
                 );

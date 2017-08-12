@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType
- * @group unit
+ * @group  unit
  */
 class BoolTypeTest extends PHPUnit_Framework_TestCase
 {
