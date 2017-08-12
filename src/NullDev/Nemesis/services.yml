@@ -49,3 +49,4 @@ services:
   NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
 
   NullDev\Nemesis\PhpParserSourceParser: ~
+  NullDev\Nemesis\ReflectionSourceParser: ~
