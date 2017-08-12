@@ -58,11 +58,7 @@ class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareIn
             $content = file_get_contents($sourceCodeFile->getRealPath());
 
             $classSource = $sourceParser->parse($content)[0];
-
-            //$classType = ClassType::createFromFullyQualified($sourceCodeClassName);
-            //$classSource = new ImprovedClassSource($classType);
-
-            $testSource = $this->createPhpUnit5Source($classSource);
+            $testSource  = $this->createPhpUnit5Source($classSource);
 
             if (false === array_key_exists($testSource->getFullName(), $existingTestClasses)) {
                 $generateTestClassSources[] = $testSource;
