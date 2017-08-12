@@ -139,6 +139,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
+        $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(true);
         $param->getType()->willReturn($paramClassType);
 
