@@ -19,4 +19,8 @@ class UserCreatedTest extends PHPUnit_Framework_TestCase
     {
         $this->userCreated = new UserCreated();
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }

@@ -23,4 +23,8 @@ class UserProjectorTest extends PHPUnit_Framework_TestCase
         $this->id = Mockery::mock(UserId::class);
         $this->userProjector = new UserProjector($this->id);
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }

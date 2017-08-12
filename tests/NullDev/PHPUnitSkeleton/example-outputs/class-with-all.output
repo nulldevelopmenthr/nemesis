@@ -19,4 +19,8 @@ class SeniorTest extends PHPUnit_Framework_TestCase
     {
         $this->senior = new Senior();
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }

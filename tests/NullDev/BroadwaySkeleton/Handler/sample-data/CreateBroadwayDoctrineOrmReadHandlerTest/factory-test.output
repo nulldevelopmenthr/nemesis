@@ -19,4 +19,8 @@ class UserFactoryTest extends PHPUnit_Framework_TestCase
     {
         $this->userFactory = new UserFactory();
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }

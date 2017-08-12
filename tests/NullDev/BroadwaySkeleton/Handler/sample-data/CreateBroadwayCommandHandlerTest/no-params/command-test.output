@@ -19,4 +19,8 @@ class CreateUserCommandTest extends PHPUnit_Framework_TestCase
     {
         $this->createUserCommand = new CreateUserCommand();
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }
