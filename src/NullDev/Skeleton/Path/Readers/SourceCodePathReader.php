@@ -81,12 +81,7 @@ class SourceCodePathReader
         return false;
     }
 
-    /*
-     *
-     * Code from previous version.
-     *
-     *
-     */
+    // Code from previous version.
 
     public function getExistingSourceCodeNamespaces(): array
     {
