@@ -1,0 +1,6 @@
+<?php
+
+public function testDoSomething()
+{
+    $this->markTestSkipped('Skipping');
+}
