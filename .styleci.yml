@@ -11,6 +11,7 @@ enabled:
 disabled:
   - unalign_double_arrow
   - unalign_equals
+  - blank_line_before_continue
 
 finder:
   path:
