@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser @reflection_source_parser
 Feature: Class name
   In order to parse source code correctly
   As a developer
@@ -8,15 +8,15 @@ Feature: Class name
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{}
+    class Something101{}
     """
     When I parse it
-    Then result is an instance of "MyVendor\Something"
+    Then result is an instance of "MyVendor\Something101"
 
   Scenario: Class doesnt have to be in a namespace
     Given source file contains:
     """
-    class Something{}
+    class Something102{}
     """
     When I parse it
-    Then result is an instance of "Something"
+    Then result is an instance of "Something102"

@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser @reflection_source_parser
 Feature: Methods
   In order to parse source code correctly
   As a developer
@@ -8,7 +8,7 @@ Feature: Methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{}
+    class Something501{}
     """
     When I parse it
     Then result has 0 methods
@@ -18,7 +18,7 @@ Feature: Methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something502{
       public function __construct(){}
     }
     """
@@ -29,7 +29,7 @@ Feature: Methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something503{
       public function getA(){}
     }
     """
@@ -40,7 +40,7 @@ Feature: Methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something504{
       private $a;
       public function isA(){}
     }
@@ -52,7 +52,7 @@ Feature: Methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something505{
       private $a;
       public function hasA(){}
     }
