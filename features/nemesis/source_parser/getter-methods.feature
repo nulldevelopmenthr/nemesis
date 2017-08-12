@@ -105,7 +105,7 @@ Feature: Getter methods
     namespace MyVendor;
     class Something308{
       private $a;
-      public function __constructor($a){}
+      public function __construct($a){}
       public function getA(){}
     }
     """
@@ -116,7 +116,7 @@ Feature: Getter methods
       |           | a            | getA       |
 
 
-  Scenario: Class with property and getter defined will be detected
+  Scenario: Class without property in constuctor will not be detected
     Given source file contains:
     """
     namespace MyVendor;
@@ -126,10 +126,7 @@ Feature: Getter methods
     }
     """
     When I parse it
-    Then result has 1 getter methods
-    Then result will have this getterMethods:
-      | className | propertyName | getterName |
-      |           | a            | getA       |
+    Then result has 0 getter methods
 
   Scenario: It will detect property type from getters return type
     Given source file contains:
@@ -139,6 +136,7 @@ Feature: Getter methods
       private $a;
       private $b;
       private $c;
+      public function __construct($a,$b,$c){}
       public function getA() : \DateTime{}
       public function isB() : bool{}
       public function hasC() : bool{}
@@ -183,9 +181,30 @@ Feature: Getter methods
     class Something312{
       private $a;
       private $b;
+      public function __construct(\DateTime $a, bool $b){}
       private function getA() : \DateTime{}
       protected function isB() : bool{}
     }
     """
     When I parse it
     Then result has 0 getter methods
+
+  Scenario: It skips getters for properties not set in constructor
+    Given source file contains:
+    """
+    namespace MyVendor;
+    class Something313{
+      private $a;
+      private $b;
+      private $c;
+      public function __construct(\DateTime $a){}
+      public function getA(){}
+      public function isB(){}
+      public function hasC(){}
+    }
+    """
+    When I parse it
+    Then result has 1 getter methods
+    Then result will have this getterMethods:
+      | className | propertyName | getterName |
+      | DateTime  | a            | getA       |

@@ -72,85 +72,82 @@ class ReflectionSourceParser implements SourceParser
             $results[] = new ImprovedClassSource(new ClassType($className, $this->namespace));
         }
 
+        $results2 = [];
         /** @var ImprovedClassSource $result */
         foreach ($results as $result) {
-            $reflection = new \ReflectionClass($result->getFullName());
+            $results2[] = $this->parseClass($result);
+        }
 
-            if (true === $reflection->hasMethod('__construct')) {
-                $reflectedConstructor = $reflection->getMethod('__construct');
+        return $results2;
+    }
 
-                $params = [];
+    public function parseClass(ImprovedClassSource $result): ImprovedClassSource
+    {
+        $reflection = new \ReflectionClass($result->getFullName());
 
-                foreach ($reflectedConstructor->getParameters() as $reflectionParameter) {
-                    $type = $this->createType($reflectionParameter);
+        if (true === $reflection->hasMethod('__construct')) {
+            $reflectedConstructor = $reflection->getMethod('__construct');
 
-                    $params[] = new Parameter($reflectionParameter->getName(), $type);
-                }
+            $params = [];
 
-                $constructorMethod = new ConstructorMethod($params);
+            foreach ($reflectedConstructor->getParameters() as $reflectionParameter) {
+                $type = $this->createType($reflectionParameter);
 
-                $result->addConstructorMethod($constructorMethod);
+                $params[] = new Parameter($reflectionParameter->getName(), $type);
             }
 
-            foreach ($reflection->getProperties() as $reflectionProperty) {
-                $found = false;
-                foreach ($result->getConstructorParameters() as $constructorParameter) {
-                    if ($constructorParameter->getName() === $reflectionProperty->getName()) {
-                        $found = true;
+            $constructorMethod = new ConstructorMethod($params);
 
-                        $result->addProperty($constructorParameter);
-                        break;
-                    }
-                }
+            $result->addConstructorMethod($constructorMethod);
+        }
 
-                if (false === $found) {
-                    $result->addProperty(new Parameter($reflectionProperty->getName()));
+        foreach ($reflection->getProperties() as $reflectionProperty) {
+            $found = false;
+            foreach ($result->getConstructorParameters() as $constructorParameter) {
+                if ($constructorParameter->getName() === $reflectionProperty->getName()) {
+                    $found = true;
+
+                    $result->addProperty($constructorParameter);
+                    break;
                 }
             }
 
-            ///
-            //methods
-            ///
+            if (false === $found) {
+                $result->addProperty(new Parameter($reflectionProperty->getName()));
+            }
+        }
 
-            foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $reflectionMethod) {
-                $methodName = $reflectionMethod->getName();
-                if ('__construct' === $methodName) {
-                    continue;
-                }
+        ///
+        //methods
+        ///
 
-                $paramName = $this->isNamedLikeGetterMethod($methodName);
+        foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $reflectionMethod) {
+            $methodName = $reflectionMethod->getName();
+            if ('__construct' === $methodName) {
+                continue;
+            }
 
-                if (null === $paramName) {
+            $paramName = $this->isNamedLikeGetterMethod($methodName);
+
+            if (null === $paramName) {
+                $result->addMethod(new GenericMethod($methodName, [], null));
+            } else {
+                if (false === $result->hasPropertyNamed($paramName)) {
+                    $result->addMethod(new GenericMethod($methodName, [], null));
+                } elseif (false === $result->hasConstructorParameterNamed($paramName)) {
                     $result->addMethod(new GenericMethod($methodName, [], null));
                 } else {
                     if (true === $reflectionMethod->hasReturnType()) {
-                        $result->addMethod(
-                            new GetterMethod(
-                                $methodName,
-                                new Parameter($paramName, $this->createType2($reflectionMethod->getReturnType()))
-                            )
-                        );
-                        continue;
-                    }
-
-                    $found = false;
-
-                    foreach ($result->getProperties() as $property) {
-                        if ($property->getName() === $paramName) {
-                            $result->addMethod(new GetterMethod($methodName, $property));
-
-                            $found = true;
-                            break;
-                        }
-                    }
-                    if (false === $found) {
-                        $result->addMethod(new GenericMethod($methodName, [], null));
+                        $param = new Parameter($paramName, $this->createType2($reflectionMethod->getReturnType()));
+                        $result->addMethod(new GetterMethod($methodName, $param));
+                    } else {
+                        $result->addMethod(new GetterMethod($methodName, $result->getPropertyNamed($paramName)));
                     }
                 }
             }
         }
 
-        return $results;
+        return $result;
     }
 
     private function isNamedLikeGetterMethod(string $methodName): ?string
