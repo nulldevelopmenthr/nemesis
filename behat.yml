@@ -9,8 +9,11 @@ default:
             contexts:
                 - NullDev\Nemesis\PhpParserSourceParserContext
             filters:
-                tags: "@source_parser"
+                tags: "@phpparser_source_parser"
+        reflection_source_parser:
+            contexts:
+                - NullDev\Nemesis\ReflectionSourceParserContext
             filters:
-                tags: "@source_parser"
+                tags: "@reflection_source_parser"
 
 
