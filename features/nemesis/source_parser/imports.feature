@@ -7,7 +7,6 @@ Feature: Imports
   Scenario: Single imported class is correctly parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{}
@@ -22,7 +21,6 @@ Feature: Imports
   Scenario: Multiple imported class is correctly parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     use AnotherNamespace\Money;
@@ -43,7 +41,6 @@ Feature: Imports
   Scenario: Imports will work for class without namespaces too
     Given source file contains:
     """
-    <?php
     use AnotherNamespace\MyValueObject;
     use DateTime;
     class Something{}
@@ -61,7 +58,6 @@ Feature: Imports
   Scenario: Import alias will be disregarded
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject as Money;
     class Something{}

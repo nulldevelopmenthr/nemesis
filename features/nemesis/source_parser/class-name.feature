@@ -7,7 +7,6 @@ Feature: Class name
   Scenario: Class inside namespace
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{}
     """
@@ -17,7 +16,6 @@ Feature: Class name
   Scenario: Class doesnt have to be in a namespace
     Given source file contains:
     """
-    <?php
     class Something{}
     """
     When I parse it

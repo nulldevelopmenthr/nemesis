@@ -7,7 +7,6 @@ Feature: Getter methods
   Scenario: Class without any methods
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{}
     """
@@ -18,7 +17,6 @@ Feature: Getter methods
   Scenario: Class constructor is not getter
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       public function __construct(){}
@@ -30,7 +28,6 @@ Feature: Getter methods
   Scenario: Some random function is not considered getter
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       public function doSomething(){}
@@ -42,7 +39,6 @@ Feature: Getter methods
   Scenario: "Get" getter will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -59,7 +55,6 @@ Feature: Getter methods
   Scenario: "Is" getter for booleans will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -76,7 +71,6 @@ Feature: Getter methods
   Scenario: "Has" getter for booleans will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -94,7 +88,6 @@ Feature: Getter methods
   Scenario: None of the getters will be detected as there are no properties matching getter names
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       public function getA(){}
@@ -109,7 +102,6 @@ Feature: Getter methods
   Scenario: Class with constructor argument, property and getter defined will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -127,7 +119,6 @@ Feature: Getter methods
   Scenario: Class with property and getter defined will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -143,7 +134,6 @@ Feature: Getter methods
   Scenario: It will detect property type from getters return type
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -166,7 +156,6 @@ Feature: Getter methods
   Scenario: It will detect property type from constructor
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;

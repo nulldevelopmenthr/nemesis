@@ -7,7 +7,6 @@ Feature: Properties
   Scenario: Class without properties
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{}
     """
@@ -18,7 +17,6 @@ Feature: Properties
   Scenario: Class with properties of all visibilities
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -37,7 +35,6 @@ Feature: Properties
   Scenario: Constructor arguments will not be added as property by default
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -54,7 +51,6 @@ Feature: Properties
   Scenario: Since there is a property and constructor argument of same name, add constructor argument as a property so we know the class
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;

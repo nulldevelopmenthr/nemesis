@@ -13,6 +13,6 @@ class PhpParserSourceParserContext extends SourceParserContext
     {
         $this->sourceParser = new PhpParserSourceParser();
 
-        $this->result = $this->sourceParser->parse($this->input);
+        $this->result = $this->sourceParser->parse('<?php '.$this->input);
     }
 }

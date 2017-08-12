@@ -7,7 +7,6 @@ Feature: Methods
   Scenario: Class without any methods
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{}
     """
@@ -18,7 +17,6 @@ Feature: Methods
   Scenario: Class with constructor will have 1 method
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       public function __construct(){}
@@ -30,7 +28,6 @@ Feature: Methods
   Scenario: Getter will be detected correctly
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       public function getA(){}
@@ -42,7 +39,6 @@ Feature: Methods
   Scenario: "Is" getter for booleans will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
@@ -55,7 +51,6 @@ Feature: Methods
   Scenario: "Has" getter for booleans will be detected
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     class Something{
       private $a;
