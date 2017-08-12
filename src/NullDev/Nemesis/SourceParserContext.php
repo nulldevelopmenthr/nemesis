@@ -108,6 +108,8 @@ class SourceParserContext implements Context
 
     /**
      * @Then result will have this constructor parameters:
+     *
+     * @param mixed $table
      */
     public function resultWillHaveThisConstructorParameters($table)
     {

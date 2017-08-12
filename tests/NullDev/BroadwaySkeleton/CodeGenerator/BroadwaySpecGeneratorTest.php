@@ -11,6 +11,7 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 /**
  * @group  FullCoverage
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @coversNothing
  */
 class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
 {

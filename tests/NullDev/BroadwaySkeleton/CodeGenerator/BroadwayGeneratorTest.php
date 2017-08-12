@@ -10,6 +10,7 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 /**
  * @group  FullCoverage
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @coversNothing
  */
 class BroadwayGeneratorTest extends BaseCodeGeneratorTest
 {

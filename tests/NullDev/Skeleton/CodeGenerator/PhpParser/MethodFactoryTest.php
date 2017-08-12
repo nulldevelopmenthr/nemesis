@@ -35,6 +35,8 @@ class MethodFactoryTest extends ContainerSupportedTestCase
 
     /**
      * @dataProvider provideMethods
+     *
+     * @param mixed $input
      */
     public function testAllGeneratorsLoaded($input): void
     {
