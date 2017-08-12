@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser
 Feature: Imports
   In order to parse source code correctly
   As a developer
@@ -9,7 +9,7 @@ Feature: Imports
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something{}
+    class Something401{}
     """
     When I parse it
     Then result has 1 import
@@ -26,7 +26,7 @@ Feature: Imports
     use AnotherNamespace\Money;
     use AnotherNamespace\Currency;
     use DateTime;
-    class Something{}
+    class Something402{}
     """
     When I parse it
     Then result has 4 imports
@@ -43,7 +43,7 @@ Feature: Imports
     """
     use AnotherNamespace\MyValueObject;
     use DateTime;
-    class Something{}
+    class Something403{}
     """
     When I parse it
     Then result has 2 imports
@@ -60,7 +60,7 @@ Feature: Imports
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject as Money;
-    class Something{}
+    class Something404{}
     """
     When I parse it
     Then result has 1 import

@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser @reflection_source_parser
 Feature: Properties
   In order to parse source code correctly
   As a developer
@@ -8,7 +8,7 @@ Feature: Properties
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{}
+    class Something605{}
     """
     When I parse it
     Then result has 0 properties
@@ -18,7 +18,7 @@ Feature: Properties
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something610{
       private $a;
       protected $b;
       public $c;
@@ -36,7 +36,7 @@ Feature: Properties
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something615{
       private $a;
       public function __construct(\DateTime $b){}
     }
@@ -52,7 +52,7 @@ Feature: Properties
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something620{
       private $a;
       public function __construct(\DateTime $a){}
     }

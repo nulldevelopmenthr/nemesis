@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser @reflection_source_parser
 Feature: Getter methods
   In order to parse source code correctly
   As a developer
@@ -8,7 +8,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{}
+    class Something301{}
     """
     When I parse it
     Then result has 0 getter methods
@@ -18,7 +18,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something302{
       public function __construct(){}
     }
     """
@@ -29,7 +29,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something303{
       public function doSomething(){}
     }
     """
@@ -40,7 +40,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something304{
       private $a;
       public function __construct($a){}
       public function getA(){}
@@ -56,7 +56,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something305{
       private $a;
       public function __construct($a){}
       public function isA(){}
@@ -72,7 +72,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something306{
       private $a;
       public function __construct($a){}
       public function hasA(){}
@@ -89,7 +89,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something307{
       public function getA(){}
       public function isB(){}
       public function hasC(){}
@@ -103,7 +103,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something308{
       private $a;
       public function __constructor($a){}
       public function getA(){}
@@ -120,7 +120,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something309{
       private $a;
       public function getA(){}
     }
@@ -135,7 +135,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something310{
       private $a;
       private $b;
       private $c;
@@ -157,7 +157,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something{
+    class Something311{
       private $a;
       private $b;
       private $c;

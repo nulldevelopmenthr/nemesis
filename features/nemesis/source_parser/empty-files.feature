@@ -1,4 +1,4 @@
-@source_parser
+@phpparser_source_parser @reflection_source_parser
 Feature: Empty files
   In order to parse source code correctly
   As a developer
