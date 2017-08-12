@@ -248,7 +248,7 @@ class ImprovedClassSource
 
     public function addGetterMethod(Parameter $parameter)
     {
-        $this->addMethod(new GetterMethod($parameter));
+        $this->addMethod(GetterMethod::create($parameter));
     }
 
     public function addMethod(Method $method)

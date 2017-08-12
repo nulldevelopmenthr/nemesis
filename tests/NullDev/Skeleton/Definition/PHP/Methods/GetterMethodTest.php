@@ -21,7 +21,7 @@ class GetterMethodTest extends PHPUnit_Framework_TestCase
     public function setUp(): void
     {
         $parameter    = new Parameter('firstName', ClassType::createFromFullyQualified('Vendor\User\FirstName'));
-        $this->method = new GetterMethod($parameter);
+        $this->method = GetterMethod::create($parameter);
     }
 
     public function testGetPropertyName()

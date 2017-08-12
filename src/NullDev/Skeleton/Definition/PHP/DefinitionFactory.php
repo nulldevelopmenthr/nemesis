@@ -42,7 +42,7 @@ class DefinitionFactory
 
     public function createGetterMethod(Parameter $parameter): GetterMethod
     {
-        return new GetterMethod($parameter);
+        return GetterMethod::create($parameter);
     }
 
     public function createSerializeMethod(ImprovedClassSource $classSource): SerializeMethod
