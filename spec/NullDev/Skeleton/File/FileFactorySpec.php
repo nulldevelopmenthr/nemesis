@@ -15,7 +15,7 @@ class FileFactorySpec extends ObjectBehavior
 {
     public function let(Config $config, Psr0Path $path1)
     {
-        $config->getPaths()->shouldBeCalled()->willReturn([$path1]);
+        $config->getPaths()->willReturn([$path1]);
         $this->beConstructedWith($config);
     }
 

@@ -9,12 +9,12 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileFactory
 {
-    /** @var array */
-    private $paths;
+    /** @var Config */
+    private $config;
 
     public function __construct(Config $config)
     {
-        $this->paths = $config->getPaths();
+        $this->config = $config;
     }
 
     public function create(ImprovedClassSource $classSource): FileResource
@@ -24,7 +24,7 @@ class FileFactory
 
     protected function getPathItBelongsTo(ImprovedClassSource $classSource)
     {
-        foreach ($this->paths as $path) {
+        foreach ($this->config->getPaths() as $path) {
             if ($path->belongsTo($classSource->getFullName())) {
                 return $path;
             }
