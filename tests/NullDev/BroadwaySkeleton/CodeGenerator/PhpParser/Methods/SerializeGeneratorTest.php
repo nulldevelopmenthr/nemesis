@@ -14,7 +14,7 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator
- * @group nemesis
+ * @group  nemesis
  */
 class SerializeGeneratorTest extends BaseOutputGeneratorTestCase
 {

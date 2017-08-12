@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod
- * @group nemesis
+ * @group  nemesis
  */
 class ExposeGettersMethodTest extends PHPUnit_Framework_TestCase
 {

@@ -73,7 +73,7 @@ class ConfigFactory
                 'code'  => [
                     'src/' => '',
                 ],
-                'spec' => [
+                'spec'  => [
                     'spec/' => 'spec\\',
                 ],
                 'tests' => [

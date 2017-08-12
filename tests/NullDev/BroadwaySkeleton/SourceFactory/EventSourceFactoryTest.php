@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class EventSourceFactoryTest extends PHPUnit_Framework_TestCase
 {

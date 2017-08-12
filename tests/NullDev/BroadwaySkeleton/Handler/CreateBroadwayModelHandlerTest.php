@@ -25,7 +25,7 @@ class CreateBroadwayModelHandlerTest extends ContainerSupportedTestCase
 
     public function setUp(): void
     {
-        $this->handler   = $this->getService(CreateBroadwayModelHandler::class);
+        $this->handler = $this->getService(CreateBroadwayModelHandler::class);
     }
 
     /**
@@ -33,9 +33,9 @@ class CreateBroadwayModelHandlerTest extends ContainerSupportedTestCase
      */
     public function testSourcesWillMatchExpectedOutput(string $className): void
     {
-        $modelIdClassType       = ClassType::createFromFullyQualified($className.'Id');
-        $modelClassType         = ClassType::createFromFullyQualified($className.'Model');
-        $repositoryClassType    = ClassType::createFromFullyQualified($className.'Repository');
+        $modelIdClassType    = ClassType::createFromFullyQualified($className.'Id');
+        $modelClassType      = ClassType::createFromFullyQualified($className.'Model');
+        $repositoryClassType = ClassType::createFromFullyQualified($className.'Repository');
 
         $command = new CreateBroadwayModel($modelIdClassType, $modelClassType, $repositoryClassType);
 

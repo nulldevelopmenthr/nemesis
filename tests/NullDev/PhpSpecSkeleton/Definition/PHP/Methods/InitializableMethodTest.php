@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethod
- * @group nemesis
+ * @group  nemesis
  */
 class InitializableMethodTest extends PHPUnit_Framework_TestCase
 {

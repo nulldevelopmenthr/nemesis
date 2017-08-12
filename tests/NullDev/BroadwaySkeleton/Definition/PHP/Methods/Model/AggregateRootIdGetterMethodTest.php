@@ -12,7 +12,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod
- * @group nemesis
+ * @group  nemesis
  */
 class AggregateRootIdGetterMethodTest extends PHPUnit_Framework_TestCase
 {

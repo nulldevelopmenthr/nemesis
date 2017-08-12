@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod
- * @group nemesis
+ * @group  nemesis
  */
 class TestNothingMethodTest extends PHPUnit_Framework_TestCase
 {

@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType
- * @group unit
+ * @group  unit
  */
 class FloatTypeTest extends PHPUnit_Framework_TestCase
 {

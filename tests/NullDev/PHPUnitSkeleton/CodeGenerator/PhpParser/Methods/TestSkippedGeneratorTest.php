@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator
- * @group nemesis
+ * @group  nemesis
  */
 class TestSkippedGeneratorTest extends PHPUnit_Framework_TestCase
 {

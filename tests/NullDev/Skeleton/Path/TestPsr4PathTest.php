@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Path\TestPsr4Path
- * @group unit
+ * @group  unit
  */
 class TestPsr4PathTest extends PHPUnit_Framework_TestCase
 {

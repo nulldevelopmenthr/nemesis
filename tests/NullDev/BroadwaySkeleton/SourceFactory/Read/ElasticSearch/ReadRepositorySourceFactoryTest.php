@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class ReadRepositorySourceFactoryTest extends PHPUnit_Framework_TestCase
 {

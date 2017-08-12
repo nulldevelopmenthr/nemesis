@@ -13,7 +13,7 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator
- * @group nemesis
+ * @group  nemesis
  */
 class TestNothingGeneratorTest extends PHPUnit_Framework_TestCase
 {

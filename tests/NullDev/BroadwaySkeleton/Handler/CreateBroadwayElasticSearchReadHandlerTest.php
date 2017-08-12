@@ -26,7 +26,7 @@ class CreateBroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestC
 
     public function setUp(): void
     {
-        $this->handler   = $this->getService(CreateBroadwayElasticSearchReadHandler::class);
+        $this->handler = $this->getService(CreateBroadwayElasticSearchReadHandler::class);
     }
 
     /**

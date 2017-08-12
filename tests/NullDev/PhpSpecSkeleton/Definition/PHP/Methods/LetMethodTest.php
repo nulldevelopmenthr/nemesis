@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod
- * @group nemesis
+ * @group  nemesis
  */
 class LetMethodTest extends PHPUnit_Framework_TestCase
 {

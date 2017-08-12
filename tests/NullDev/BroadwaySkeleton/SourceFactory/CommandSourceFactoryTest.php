@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class CommandSourceFactoryTest extends PHPUnit_Framework_TestCase
 {

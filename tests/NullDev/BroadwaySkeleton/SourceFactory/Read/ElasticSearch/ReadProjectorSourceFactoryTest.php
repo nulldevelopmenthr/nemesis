@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory
- * @group nemesis
+ * @group  nemesis
  */
 class ReadProjectorSourceFactoryTest extends PHPUnit_Framework_TestCase
 {

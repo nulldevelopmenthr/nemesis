@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType
- * @group unit
+ * @group  unit
  */
 class ArrayTypeTest extends PHPUnit_Framework_TestCase
 {

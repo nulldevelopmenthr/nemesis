@@ -16,7 +16,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator
- * @group nemesis
+ * @group  nemesis
  */
 class TestGetterGeneratorTest extends PHPUnit_Framework_TestCase
 {

@@ -10,7 +10,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\RepositoryConstructorMethod
- * @group nemesis
+ * @group  nemesis
  */
 class RepositoryConstructorMethodTest extends PHPUnit_Framework_TestCase
 {
