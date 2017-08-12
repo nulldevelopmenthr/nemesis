@@ -7,7 +7,10 @@ namespace NullDev\PHPUnitSkeleton;
 use NullDev\Nemesis\Config\Config;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestGetterMethod;
+use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
+use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -20,6 +23,8 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
 /**
  * @see PHPUnitTestGeneratorSpec
  * @see PHPUnitTestGeneratorTest
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class PHPUnitTestGenerator
 {
@@ -80,6 +85,8 @@ class PHPUnitTestGenerator
                 $testGetterMethod = new TestGetterMethod($method, lcfirst($improvedClassSource->getName()));
 
                 $testSource->addMethod($testGetterMethod);
+            } elseif ($method instanceof GenericMethod) {
+                $testSource->addMethod(new TestSkippedMethod($method->getMethodName()));
             } elseif ($method instanceof ConstructorMethod) {
                 continue;
             }
