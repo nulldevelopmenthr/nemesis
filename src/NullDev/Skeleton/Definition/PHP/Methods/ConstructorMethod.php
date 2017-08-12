@@ -70,4 +70,15 @@ class ConstructorMethod implements Method
 
         return $result;
     }
+
+    public function hasParameterNamed(string $parameterName): bool
+    {
+        foreach ($this->params as $parameter) {
+            if ($parameter->getName() === $parameterName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

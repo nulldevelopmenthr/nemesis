@@ -220,6 +220,15 @@ class ImprovedClassSource
         return $this->constructor->getMethodParameters();
     }
 
+    public function hasConstructorParameterNamed(string $parameterName): bool
+    {
+        if (null === $this->constructor) {
+            return false;
+        }
+
+        return $this->constructor->hasParameterNamed($parameterName);
+    }
+
     //-----     Properties     -----
 
     public function addProperty(Parameter $property)
@@ -243,6 +252,17 @@ class ImprovedClassSource
         }
 
         return false;
+    }
+
+    public function getPropertyNamed(string $propertyName): Parameter
+    {
+        foreach ($this->properties as $property) {
+            if ($property->getName() === $propertyName) {
+                return $property;
+            }
+        }
+
+        throw new \LogicException('No property named '.$propertyName.'found');
     }
 
     //-----     Methods     -----

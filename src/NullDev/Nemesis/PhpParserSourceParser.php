@@ -192,29 +192,29 @@ class PhpParserSourceParser implements SourceParser
 
     private function createGetterMethod(string $paramName, $classMethodStatement): Method
     {
-        foreach ($this->class->getProperties() as $property) {
-            if ($property->getName() === $paramName) {
-                if ($classMethodStatement->returnType instanceof NullableType) {
-                    $returnTypeName = (string) $classMethodStatement->returnType->type;
-                } else {
-                    $returnTypeName = (string) $classMethodStatement->returnType;
-                }
-
-                $type = $this->createType($returnTypeName);
-
-                if (null === $type) {
-                    $param = $property;
-                } else {
-                    $param = new Parameter($paramName, $type);
-                }
-
-                $method = new GetterMethod($classMethodStatement->name, $param);
-
-                return $method;
-            }
+        if (false === $this->class->hasPropertyNamed($paramName)) {
+            return new GenericMethod($classMethodStatement->name, [], null);
         }
 
-        $method = new GenericMethod($classMethodStatement->name, [], null);
+        if (false === $this->class->hasConstructorParameterNamed($paramName)) {
+            return new GenericMethod($classMethodStatement->name, [], null);
+        }
+
+        if ($classMethodStatement->returnType instanceof NullableType) {
+            $returnTypeName = (string) $classMethodStatement->returnType->type;
+        } else {
+            $returnTypeName = (string) $classMethodStatement->returnType;
+        }
+
+        $type = $this->createType($returnTypeName);
+
+        if (null === $type) {
+            $param = $this->class->getPropertyNamed($paramName);
+        } else {
+            $param = new Parameter($paramName, $type);
+        }
+
+        $method = new GetterMethod($classMethodStatement->name, $param);
 
         return $method;
     }
