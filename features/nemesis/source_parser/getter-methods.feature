@@ -175,3 +175,17 @@ Feature: Getter methods
       | bool      | b            | isB        |
       |           | c            | hasC       |
 
+
+  Scenario: It skips getter methods that are not public
+    Given source file contains:
+    """
+    namespace MyVendor;
+    class Something312{
+      private $a;
+      private $b;
+      private function getA() : \DateTime{}
+      protected function isB() : bool{}
+    }
+    """
+    When I parse it
+    Then result has 0 getter methods
