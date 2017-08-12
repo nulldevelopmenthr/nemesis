@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace NullDev\Nemesis\Command;
 
 use NullDev\Nemesis\Config\Config;
-use NullDev\Nemesis\SourceParser;
+use NullDev\Nemesis\PhpParserSourceParser;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -51,7 +50,7 @@ class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareIn
         $sourceCodeClasses   = $reader->getSourceClasses($this->getConfig()->getSourceCodePaths());
         $existingTestClasses = $reader->getTestClasses($this->getConfig()->getTestPaths());
         $generator           = $this->getService(PhpParserGenerator::class);
-        $sourceParser        = $this->getService(SourceParser::class);
+        $sourceParser        = $this->getService(PhpParserSourceParser::class);
 
         $generateTestClassSources = [];
 

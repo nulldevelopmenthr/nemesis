@@ -11,14 +11,14 @@ use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use Webmozart\Assert\Assert;
 
-class SourceParserContext implements Context
+abstract class SourceParserContext implements Context
 {
     /** @var SourceParser */
-    private $sourceParser;
+    protected $sourceParser;
     /** @var string */
-    private $input;
+    protected $input;
     /** @var array */
-    private $result;
+    protected $result;
 
     /**
      * @When source file contains:
@@ -26,16 +26,6 @@ class SourceParserContext implements Context
     public function sourceFileContains(PyStringNode $input)
     {
         $this->input = $input->getRaw();
-    }
-
-    /**
-     * @When I parse it
-     */
-    public function iParseIt()
-    {
-        $this->sourceParser = new SourceParser();
-
-        $this->result = $this->sourceParser->parse($this->input);
     }
 
     /**
