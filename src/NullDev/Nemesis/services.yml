@@ -4,6 +4,11 @@ services:
     autoconfigure: true
     public: true
 
+  cli.command.nemesis.index:
+    class: NullDev\Nemesis\Command\GeneratePHPUnitTestsCliCommand
+    tags:
+      - {name: console.command }
+
   cli.command.nemesis.identity:
     class: NullDev\Skeleton\Uuid\Cli\Uuid4IdentityCommand
     tags:
