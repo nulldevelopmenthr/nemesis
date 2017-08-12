@@ -3,3 +3,12 @@ default:
         pretty:
             verbose:  true
             paths:    false
+            snippets: false
+    suites:
+        source_parser:
+            contexts:
+                - NullDev\Nemesis\SourceParserContext
+            filters:
+                tags: "@source_parser"
+
+
