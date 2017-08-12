@@ -41,17 +41,17 @@ class TestGetterGeneratorTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                new GetterMethod(new Parameter('currencyCode', new StringType())),
+                GetterMethod::create(new Parameter('currencyCode', new StringType())),
                 'money',
                 '0-string',
             ],
             [
-                new GetterMethod(new Parameter('amount', new IntType())),
+                GetterMethod::create(new Parameter('amount', new IntType())),
                 'money',
                 '1-integer',
             ],
             [
-                new GetterMethod(new Parameter('currency', ClassType::createFromFullyQualified('Money\Currency'))),
+                GetterMethod::create(new Parameter('currency', ClassType::createFromFullyQualified('Money\Currency'))),
                 'money',
                 '10-currency-object',
             ],
