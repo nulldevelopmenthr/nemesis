@@ -42,3 +42,5 @@ services:
 
 
   NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
+
+  NullDev\Nemesis\SourceParser: ~
