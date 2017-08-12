@@ -30,7 +30,7 @@ class SourceCodePathReader
         $list = [];
         $iter = new ClassIterator($this->getPhpFiles2($paths));
 
-        foreach (array_keys($iter->getClassMap()) as $className) {
+        foreach ($iter->getClassMap() as $className => $path) {
             if (true === $this->isTestOrSpec($className)) {
                 continue;
             }
@@ -39,6 +39,7 @@ class SourceCodePathReader
                 $reflection = new \ReflectionClass($className);
             } catch (\Throwable $exception) {
                 echo $exception->getMessage();
+
                 continue;
             }
 
@@ -46,7 +47,7 @@ class SourceCodePathReader
                 continue;
             }
 
-            $list[$className] = $className;
+            $list[$className] = $path;
         }
 
         return $list;
