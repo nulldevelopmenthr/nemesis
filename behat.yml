@@ -5,9 +5,11 @@ default:
             paths:    false
             snippets: false
     suites:
-        source_parser:
+        phpparser_source_parser:
             contexts:
-                - NullDev\Nemesis\SourceParserContext
+                - NullDev\Nemesis\PhpParserSourceParserContext
+            filters:
+                tags: "@source_parser"
             filters:
                 tags: "@source_parser"
 
