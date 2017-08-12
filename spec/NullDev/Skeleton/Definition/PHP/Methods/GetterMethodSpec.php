@@ -13,13 +13,19 @@ class GetterMethodSpec extends ObjectBehavior
 {
     public function let(Parameter $parameter)
     {
-        $this->beConstructedWith($parameter);
+        $this->beConstructedWith('getValue', $parameter);
     }
 
     public function it_is_initializable()
     {
         $this->shouldHaveType(GetterMethod::class);
         $this->shouldHaveType(Method::class);
+    }
+
+    public function it_has_create_method(Parameter $parameter)
+    {
+        $parameter->getName()->willReturn('value');
+        $this->create($parameter)->shouldReturnAnInstanceOf(GetterMethod::class);
     }
 
     public function it_knows_its_public()

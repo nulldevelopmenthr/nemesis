@@ -12,11 +12,22 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
  */
 class GetterMethod implements Method
 {
+    /** @var string */
+    private $methodName;
+    /** @var Parameter */
     private $parameter;
 
-    public function __construct(Parameter $parameter)
+    public function __construct(string $methodName, Parameter $parameter)
     {
-        $this->parameter = $parameter;
+        $this->methodName = $methodName;
+        $this->parameter  = $parameter;
+    }
+
+    public static function create(Parameter $parameter): GetterMethod
+    {
+        $methodName = 'get'.ucfirst($parameter->getName());
+
+        return new self($methodName, $parameter);
     }
 
     public function getParameter(): Parameter
@@ -41,7 +52,7 @@ class GetterMethod implements Method
 
     public function getMethodName(): string
     {
-        return 'get'.ucfirst($this->parameter->getName());
+        return $this->methodName;
     }
 
     public function getMethodParameters(): array
