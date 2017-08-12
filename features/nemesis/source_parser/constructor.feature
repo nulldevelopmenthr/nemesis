@@ -7,7 +7,6 @@ Feature: Constructor
   Scenario: Class without defined constructor will have no constructor method defined
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{}
@@ -19,7 +18,6 @@ Feature: Constructor
   Scenario: Class with defined constructor will have constructor method defined
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -33,7 +31,6 @@ Feature: Constructor
   Scenario: Both constructor arguments without type will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -50,7 +47,6 @@ Feature: Constructor
   Scenario: Constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -67,7 +63,6 @@ Feature: Constructor
   Scenario: Nullable constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -85,7 +80,6 @@ Feature: Constructor
   Scenario: Scalar type constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -104,7 +98,6 @@ Feature: Constructor
   Scenario: Nullable scalar type constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -124,7 +117,6 @@ Feature: Constructor
   Scenario: Array constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
@@ -140,7 +132,6 @@ Feature: Constructor
   Scenario: Nullable array constructor arguments will be parsed
     Given source file contains:
     """
-    <?php
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
     class Something{
