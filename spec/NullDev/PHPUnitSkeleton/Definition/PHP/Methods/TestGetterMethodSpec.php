@@ -6,6 +6,7 @@ namespace spec\NullDev\PHPUnitSkeleton\Definition\PHP\Methods;
 
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
+use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use PhpSpec\ObjectBehavior;
 
 class TestGetterMethodSpec extends ObjectBehavior
@@ -18,6 +19,7 @@ class TestGetterMethodSpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(TestGetterMethod::class);
+        $this->shouldImplement(Method::class);
     }
 
     public function it_has_no_method_parameters()
