@@ -19,4 +19,8 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     {
         $this->userModel = new UserModel();
     }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
 }

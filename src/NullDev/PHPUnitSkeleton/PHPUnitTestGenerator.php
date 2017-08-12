@@ -85,6 +85,10 @@ class PHPUnitTestGenerator
             }
         }
 
+        if (1 === count($testSource->getMethods())) {
+            $testSource->addMethod(new TestNothingMethod($improvedClassSource));
+        }
+
         return $testSource;
     }
 }
