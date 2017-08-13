@@ -11,11 +11,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Node\NullableType;
 use PhpParser\Node\Stmt\Class_;
@@ -227,30 +223,22 @@ class PhpParserSourceParser implements SourceParser
             }
         }
 
-        $type = null;
-
         if ('' === $input) {
-            $type = null;
-        } elseif ('string' === $input) {
-            $type = new StringType();
-        } elseif ('int' === $input) {
-            $type = new IntType();
-        } elseif ('float' === $input) {
-            $type = new FloatType();
-        } elseif ('array' === $input) {
-            $type = new ArrayType();
-        } elseif ('bool' === $input) {
-            $type = new BoolType();
-        } else {
-            if (class_exists($input)) {
-                $type = ClassType::createFromFullyQualified($input);
-            } elseif (class_exists($this->namespace.'\\'.$input)) {
-                $type = ClassType::createFromFullyQualified($this->namespace.'\\'.$input);
-            } else {
-                throw new \Exception('Unknown class '.$input);
-            }
+            return null;
         }
 
-        return $type;
+        if (TypeFactory::isTypeDeclaration($input)) {
+            return TypeFactory::create($input);
+        }
+
+        if (class_exists($input)) {
+            return ClassType::createFromFullyQualified($input);
+        }
+
+        if (class_exists($this->namespace.'\\'.$input)) {
+            return ClassType::createFromFullyQualified($this->namespace.'\\'.$input);
+        }
+
+        throw new \Exception('Unknown class '.$input);
     }
 }
