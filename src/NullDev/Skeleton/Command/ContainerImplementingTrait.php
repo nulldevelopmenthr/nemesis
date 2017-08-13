@@ -13,9 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 trait ContainerImplementingTrait
 {
-    /**
-     * @var ContainerInterface|null
-     */
+    /** @var ContainerInterface|null */
     private $container;
 
     /**

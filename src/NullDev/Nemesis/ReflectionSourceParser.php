@@ -31,9 +31,7 @@ use ReflectionMethod;
  */
 class ReflectionSourceParser implements SourceParser
 {
-    /**
-     * @var Parser
-     */
+    /** @var Parser */
     private $parser;
     private $namespace;
 
