@@ -6,9 +6,7 @@ namespace NullDev\Nemesis;
 
 class ReflectionSourceParserContext extends SourceParserContext
 {
-    /**
-     * @When I parse it
-     */
+    /** @When I parse it */
     public function iParseIt()
     {
         $this->sourceParser = new ReflectionSourceParser();

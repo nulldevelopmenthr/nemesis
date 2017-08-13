@@ -6,9 +6,7 @@ namespace NullDev\Nemesis;
 
 class PhpParserSourceParserContext extends SourceParserContext
 {
-    /**
-     * @When I parse it
-     */
+    /** @When I parse it */
     public function iParseIt()
     {
         $this->sourceParser = new PhpParserSourceParser();
