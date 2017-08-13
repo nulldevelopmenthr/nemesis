@@ -19,9 +19,6 @@ use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
- * @SuppressWarnings(PHPMD.NPathComplexity)
- * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
  *
  * @codeCoverageIgnore
  */

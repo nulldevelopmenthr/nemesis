@@ -20,7 +20,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @codeCoverageIgnore
  */
 class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareInterface
