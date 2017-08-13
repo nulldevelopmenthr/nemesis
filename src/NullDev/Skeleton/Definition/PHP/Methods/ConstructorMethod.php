@@ -38,9 +38,7 @@ class ConstructorMethod implements Method
         return '__constructor';
     }
 
-    /**
-     * @return Parameter[]
-     */
+    /** @return Parameter[] */
     public function getMethodParameters(): array
     {
         return $this->params;
@@ -56,9 +54,7 @@ class ConstructorMethod implements Method
         throw new \Exception('Err 3221103: Method return type not supported on constructor.');
     }
 
-    /**
-     * @return Parameter[]
-     */
+    /** @return Parameter[] */
     public function getParamsAsClassTypes(): array
     {
         $result = [];

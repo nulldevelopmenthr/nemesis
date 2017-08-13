@@ -40,17 +40,13 @@ class Psr0PathTest extends PHPUnit_Framework_TestCase
         self::assertFalse($this->path->isTestsCode());
     }
 
-    /**
-     * @dataProvider provideClassNames
-     */
+    /** @dataProvider provideClassNames */
     public function testEverythingBelongsHere(string $className)
     {
         self::assertTrue($this->path->belongsTo($className));
     }
 
-    /**
-     * @dataProvider provideClassNames
-     */
+    /** @dataProvider provideClassNames */
     public function testFilenames(string $className, string $expectedFileName)
     {
         self::assertEquals($expectedFileName, $this->path->getFileNameFor($className));

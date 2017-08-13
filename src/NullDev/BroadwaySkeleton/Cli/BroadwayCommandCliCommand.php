@@ -29,9 +29,7 @@ class BroadwayCommandCliCommand extends BaseSkeletonGeneratorCommand
             ->addOption('className', null, InputOption::VALUE_REQUIRED, 'Class name');
     }
 
-    /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
+    /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->input  = $input;

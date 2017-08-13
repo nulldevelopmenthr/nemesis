@@ -16,12 +16,8 @@ trait ContainerImplementingTrait
     /** @var ContainerInterface|null */
     private $container;
 
-    /**
-     * @throws \LogicException
-     *
-     * @return ContainerInterface
-     */
-    protected function getContainer()
+    /** @throws \LogicException */
+    protected function getContainer(): ContainerInterface
     {
         if (null === $this->container) {
             /** @var Application $application */
@@ -32,9 +28,7 @@ trait ContainerImplementingTrait
         return $this->container;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    /** {@inheritdoc} */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;

@@ -21,15 +21,15 @@ class Psr4PathTest extends PHPUnit_Framework_TestCase
         $this->path = new Psr4Path('src/', 'Something\\');
     }
 
-    /** @expectedException \Exception */
     public function testPathBaseMustEndWithSlash()
     {
+        $this->expectException(\Exception::class);
         new Psr4Path('src', '');
     }
 
-    /** @expectedException \Exception */
     public function testClassBaseMustEndWithBackslash()
     {
+        $this->expectException(\Exception::class);
         new Psr4Path('src/', 'Something');
     }
 
@@ -58,12 +58,10 @@ class Psr4PathTest extends PHPUnit_Framework_TestCase
         self::assertEquals($expectedFileName, $this->path->getFileNameFor($className));
     }
 
-    /**
-     * @dataProvider provideClassNamesThatDoNotBelongHere
-     * @expectedException \Exception
-     */
+    /** @dataProvider provideClassNamesThatDoNotBelongHere */
     public function testFilenamesThatDontBelongHereThrowException(string $className)
     {
+        $this->expectException(\Exception::class);
         $this->path->getFileNameFor($className);
     }
 
