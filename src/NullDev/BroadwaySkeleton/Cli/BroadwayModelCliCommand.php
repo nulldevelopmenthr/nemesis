@@ -4,17 +4,13 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
+use League\Tactician\CommandBus;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\File\FileFactory;
-use NullDev\Skeleton\Source\ImprovedClassSource;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -45,7 +41,7 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
     {
         $className = $this->handleClassNameInput();
 
-        $generator = $this->getService(PhpParserGenerator::class);
+        $commandBus = $this->getService(CommandBus::class);
 
         $modelIdClassType    = ClassType::createFromFullyQualified($className.'Id');
         $modelClassType      = ClassType::createFromFullyQualified($className.'Model');
@@ -53,51 +49,13 @@ class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
 
         $command = new CreateBroadwayModel($modelIdClassType, $modelClassType, $repositoryClassType);
 
-        $sources = $this->getSources($command);
+        $outputResources = $commandBus->handle($command);
 
-        foreach ($sources as $source) {
-            $fileName = $this->getFilePath($source);
-
-            $output = $generator->getOutput($source);
-            $this->handleGeneratingFile2($fileName, $output);
+        foreach ($outputResources as $outputResource) {
+            $this->handleGeneratingFile($outputResource);
         }
 
         $this->io->writeln('DoNE');
-    }
-
-    protected function getSources(CreateBroadwayModel $command): array
-    {
-        return $this->getService(CreateBroadwayModelHandler::class)->handle($command);
-    }
-
-    protected function getFilePath(ImprovedClassSource $classSource): string
-    {
-        return $this->getService(FileFactory::class)->getPath($classSource);
-    }
-
-    protected function handleGeneratingFile2(string $fileName, string $output): void
-    {
-        if ($this->fileNotExistsOrShouldBeOwerwritten2($fileName)) {
-            $this->getService(Filesystem::class)->dumpFile($fileName, $output);
-
-            $this->io->writeln("Created '$fileName' file.");
-        } else {
-            $this->io->writeln("Skipped '$fileName' file.");
-        }
-    }
-
-    private function fileNotExistsOrShouldBeOwerwritten2(string $fileName): bool
-    {
-        if (false === file_exists($fileName)) {
-            return true;
-        }
-
-        return $this->askOverwriteConfirmationQuestion2($fileName);
-    }
-
-    private function askOverwriteConfirmationQuestion2(string $fileName): bool
-    {
-        return $this->io->confirm("File '$fileName' exists, overwrite?", false);
     }
 
     protected function getSectionMessage(): string
