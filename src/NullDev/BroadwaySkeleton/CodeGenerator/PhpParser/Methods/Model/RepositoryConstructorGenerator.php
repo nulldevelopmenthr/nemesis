@@ -14,9 +14,6 @@ use PhpParser\Node;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Name;
 
-/**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 class RepositoryConstructorGenerator implements MethodGenerator
 {
     private $builderFactory;
