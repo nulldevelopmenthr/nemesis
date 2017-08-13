@@ -31,9 +31,7 @@ use PhpParser\ParserFactory;
  */
 class PhpParserSourceParser implements SourceParser
 {
-    /**
-     * @var Parser
-     */
+    /** @var Parser */
     private $parser;
     private $namespace;
     private $class;
