@@ -20,25 +20,19 @@ abstract class SourceParserContext implements Context
     /** @var array */
     protected $result;
 
-    /**
-     * @When source file contains:
-     */
+    /** @When source file contains: */
     public function sourceFileContains(PyStringNode $input)
     {
         $this->input = $input->getRaw();
     }
 
-    /**
-     * @Then result is an empty array
-     */
+    /** @Then result is an empty array */
     public function resultIsAnEmptyArray()
     {
         Assert::isEmpty($this->result);
     }
 
-    /**
-     * @Then result is an instance of :className
-     */
+    /** @Then result is an instance of :className */
     public function resultIsAnInstanceOf(string $className)
     {
         Assert::eq($className, $this->getResult()->getFullName());
@@ -53,9 +47,7 @@ abstract class SourceParserContext implements Context
         Assert::count($this->getResult()->getImports(), $count);
     }
 
-    /**
-     * @Then result will have this imports:
-     */
+    /** @Then result will have this imports: */
     public function resultWillHaveThisImports(TableNode $table)
     {
         $imports = $this->getResult()->getImports();
@@ -72,36 +64,26 @@ abstract class SourceParserContext implements Context
         }
     }
 
-    /**
-     * @Then result has no constructor method defined
-     */
+    /** @Then result has no constructor method defined */
     public function resultHasNoConstructorMethodDefined()
     {
         Assert::false($this->getResult()->hasConstructorMethod());
     }
 
-    /**
-     * @Then result has constructor method defined
-     */
+    /** @Then result has constructor method defined */
     public function resultHasConstructorMethodDefined()
     {
         Assert::true($this->getResult()->hasConstructorMethod());
     }
 
-    /**
-     * @Then result has :count constructor parameters
-     */
+    /** @Then result has :count constructor parameters */
     public function resultHasConstructorParameters(int $count)
     {
         Assert::count($this->getResult()->getConstructorParameters(), $count);
     }
 
-    /**
-     * @Then result will have this constructor parameters:
-     *
-     * @param mixed $table
-     */
-    public function resultWillHaveThisConstructorParameters($table)
+    /** @Then result will have this constructor parameters: */
+    public function resultWillHaveThisConstructorParameters(TableNode $table)
     {
         $constructorParameters = $this->getResult()->getConstructorParameters();
 
@@ -118,17 +100,13 @@ abstract class SourceParserContext implements Context
         }
     }
 
-    /**
-     * @Then result has :count properties
-     */
+    /** @Then result has :count properties */
     public function resultHasProperties(int $count)
     {
         Assert::count($this->getResult()->getProperties(), $count);
     }
 
-    /**
-     * @Then result will have this properties:
-     */
+    /** @Then result will have this properties: */
     public function resultWillHaveThisProperties(TableNode $table)
     {
         $properties = $this->getResult()->getProperties();
@@ -146,17 +124,13 @@ abstract class SourceParserContext implements Context
         }
     }
 
-    /**
-     * @Then result has :count methods
-     */
+    /** @Then result has :count methods */
     public function resultHasMethods(int $count)
     {
         Assert::count($this->getResult()->getMethods(), $count);
     }
 
-    /**
-     * @Then result has :count getter methods
-     */
+    /** @Then result has :count getter methods */
     public function resultHasGetterMethods(int $count)
     {
         $getterMethods = array_filter(
@@ -172,9 +146,7 @@ abstract class SourceParserContext implements Context
         Assert::count($getterMethods, $count);
     }
 
-    /**
-     * @Then result will have this getterMethods:
-     */
+    /** @Then result will have this getterMethods: */
     public function resultWillHaveThisGettermethods(TableNode $table)
     {
         $getterMethods = array_filter(
