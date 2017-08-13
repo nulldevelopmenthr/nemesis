@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Uuid\Cli;
 
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
+use League\Tactician\CommandBus;
 use NullDev\Skeleton\Command\SimpleSkeletonGeneratorCommand;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
-use NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -30,23 +29,17 @@ class Uuid4IdentityCommand extends SimpleSkeletonGeneratorCommand
     {
         $classType = ClassType::createFromFullyQualified($this->className);
 
-        $generator = $this->getService(PhpParserGenerator::class);
+        $commandBus = $this->getService(CommandBus::class);
 
-        $sources = $this->getSources(new CreateUuidClass($classType));
+        $command = new CreateUuidClass($classType);
 
-        foreach ($sources as $source) {
-            $fileName = $this->getFilePath($source);
+        $outputResources = $commandBus->handle($command);
 
-            $output = $generator->getOutput($source);
-            $this->handleGeneratingFile($fileName, $output);
+        foreach ($outputResources as $outputResource) {
+            $this->handleGeneratingFile($outputResource);
         }
 
         $this->io->writeln('DoNE');
-    }
-
-    protected function getSources(CreateUuidClass $command): array
-    {
-        return $this->getService(CreateUuidClassHandler::class)->handle($command);
     }
 
     protected function getSectionMessage(): string

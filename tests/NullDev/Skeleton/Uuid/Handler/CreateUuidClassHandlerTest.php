@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Uuid\Handler;
 
+use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
 use NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler;
-use tests\NullDev\AssertOutputTrait;
+use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,30 +19,30 @@ use tests\NullDev\ContainerSupportedTestCase;
 class CreateUuidClassHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
+    use AssertOutputTrait2;
 
     /** @var CreateUuidClassHandler */
     private $handler;
-    /** @var PhpParserGenerator */
-    private $generator;
+    /** @var CommandBus */
+    private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler   = $this->getService(CreateUuidClassHandler::class);
-        $this->generator = $this->getService(PhpParserGenerator::class);
+        $this->handler    = $this->getService(CreateUuidClassHandler::class);
+        $this->commandBus = $this->getService(CommandBus::class);
     }
 
     public function testSourcesWillMatchExpectedOutput(): void
     {
         $command = new CreateUuidClass(ClassType::createFromFullyQualified('Something\CreateUserCommand'));
 
-        $sources = $this->handler->handle($command);
+        $result = $this->commandBus->handle($command);
 
-        self::assertCount(3, $sources);
+        self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-src'), $sources[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-spec'), $sources[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-test'), $sources[2]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-src'), $result[0]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-test'), $result[1]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('uuid4-spec'), $result[2]);
     }
 
     protected function getExpectedOutputPath(string $fileName): string
