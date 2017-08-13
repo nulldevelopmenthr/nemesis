@@ -77,7 +77,7 @@ class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
 
     private function getFilePath(string $exampleName): string
     {
-        return __DIR__.'/example-outputs/'.$exampleName.'.output';
+        return __DIR__.'/sample-output/'.$exampleName.'.output';
     }
 
     public function getService(string $serviceName)
