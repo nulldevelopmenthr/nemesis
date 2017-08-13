@@ -65,6 +65,6 @@ class CreateBroadwayModelHandlerTest extends ContainerSupportedTestCase
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-data/CreateBroadwayModelHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/CreateBroadwayModelHandlerTest/'.$fileName.'.output';
     }
 }

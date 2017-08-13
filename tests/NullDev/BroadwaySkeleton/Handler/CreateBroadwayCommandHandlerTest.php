@@ -76,6 +76,6 @@ class CreateBroadwayCommandHandlerTest extends ContainerSupportedTestCase
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-data/CreateBroadwayCommandHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/CreateBroadwayCommandHandlerTest/'.$fileName.'.output';
     }
 }

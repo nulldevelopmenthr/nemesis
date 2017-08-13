@@ -40,6 +40,6 @@ class AggregateRootIdGetterGeneratorTest extends BaseOutputGeneratorTestCase
 
         $currentTestClassName = array_pop($fullName);
 
-        return __DIR__.'/sample-data/'.$currentTestClassName;
+        return __DIR__.'/sample-output/'.$currentTestClassName;
     }
 }

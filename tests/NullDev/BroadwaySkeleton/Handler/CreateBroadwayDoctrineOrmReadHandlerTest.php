@@ -79,6 +79,6 @@ class CreateBroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCas
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-data/CreateBroadwayDoctrineOrmReadHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/CreateBroadwayDoctrineOrmReadHandlerTest/'.$fileName.'.output';
     }
 }

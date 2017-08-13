@@ -36,7 +36,7 @@ abstract class BaseOutputGeneratorTestCase extends PHPUnit_Framework_TestCase
 
         $currentTestClassName = array_pop($fullName);
 
-        return __DIR__.'/sample-data/'.$currentTestClassName;
+        return __DIR__.'/sample-output/'.$currentTestClassName;
     }
 
     abstract public function getGenerator();

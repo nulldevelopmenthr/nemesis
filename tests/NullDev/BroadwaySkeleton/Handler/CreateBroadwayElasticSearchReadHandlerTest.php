@@ -74,6 +74,6 @@ class CreateBroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestC
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-data/CreateBroadwayElasticSearchReadHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/CreateBroadwayElasticSearchReadHandlerTest/'.$fileName.'.output';
     }
 }
