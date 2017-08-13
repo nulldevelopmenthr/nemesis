@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\SourceFactory;
+namespace tests\NullDev\Skeleton\Uuid\SourceFactory;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
+use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory
+ * @covers \NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory
  * @group  integration
  */
 class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase

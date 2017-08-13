@@ -6,8 +6,8 @@ namespace NullDev\Skeleton\Uuid\Handler;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
-use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
+use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 
 /**
  * @see CreateUuidClassHandlerSpec
