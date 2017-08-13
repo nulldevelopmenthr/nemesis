@@ -9,8 +9,6 @@ use Broadway\EventStore\EventStore;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use PhpParser\BuilderFactory;
 use PhpParser\Node;
 use PhpParser\Node\Expr\ClassConstFetch;
@@ -41,18 +39,18 @@ class RepositoryConstructorGenerator implements MethodGenerator
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventStore', InterfaceType::createFromFullyQualified(EventStore::class))
+                Parameter::create('eventStore', EventStore::class)
             )
         );
 
         $constructor->addParam(
             $this->createMethodParam(
-                new Parameter('eventBus', InterfaceType::createFromFullyQualified(EventBus::class))
+                Parameter::create('eventBus', EventBus::class)
             )
         );
         $constructor->addParam(
             $this->createMethodParamWithDefaultValue(
-                new Parameter('eventStreamDecorators', new ArrayType()),
+                Parameter::create('eventStreamDecorators', 'array'),
                 []
             )
         );

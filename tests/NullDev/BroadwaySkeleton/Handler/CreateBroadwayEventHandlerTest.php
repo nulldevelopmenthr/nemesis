@@ -9,9 +9,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use tests\NullDev\AssertOutputTrait;
 use tests\NullDev\ContainerSupportedTestCase;
 
@@ -62,11 +59,11 @@ class CreateBroadwayEventHandlerTest extends ContainerSupportedTestCase
             [
                 ClassType::createFromFullyQualified('Something\UserCreated'),
                 [
-                    new Parameter('name', new StringType()),
-                    new Parameter('age', new IntType()),
-                    new Parameter('height', new FloatType()),
-                    new Parameter('about'),
-                    new Parameter('company', ClassType::createFromFullyQualified('Something\Company')),
+                    Parameter::create('name', 'string'),
+                    Parameter::create('age', 'int'),
+                    Parameter::create('height', 'float'),
+                    Parameter::create('about'),
+                    Parameter::create('company', 'Something\Company'),
                 ],
                 'mix-params',
             ],

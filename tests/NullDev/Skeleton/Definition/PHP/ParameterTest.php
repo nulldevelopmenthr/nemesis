@@ -28,7 +28,7 @@ class ParameterTest extends PHPUnit_Framework_TestCase
 
     public function testItWorksWithoutType(): void
     {
-        $parameter = new Parameter('name');
+        $parameter = Parameter::create('name');
         self::assertEquals('name', $parameter->getName());
         self::assertNull($parameter->getType());
         self::assertFalse($parameter->hasType());
@@ -37,7 +37,7 @@ class ParameterTest extends PHPUnit_Framework_TestCase
     /** @expectedException \Throwable */
     public function testItThrowsExceptionWithoutTypeOnCallingGetTypeShortName(): void
     {
-        $parameter = new Parameter('name');
+        $parameter = Parameter::create('name');
         $parameter->getTypeShortName();
     }
 }

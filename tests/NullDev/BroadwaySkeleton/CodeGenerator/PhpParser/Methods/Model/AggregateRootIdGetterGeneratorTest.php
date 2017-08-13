@@ -7,7 +7,6 @@ namespace tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpParser\BuilderFactory;
 use tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
 
@@ -24,7 +23,7 @@ class AggregateRootIdGetterGeneratorTest extends BaseOutputGeneratorTestCase
 
     public function testOutput(): void
     {
-        $zz     = new Parameter('id', ClassType::createFromFullyQualified('Something\\SomeId'));
+        $zz     = Parameter::create('id', 'Something\\SomeId');
         $method = new AggregateRootIdGetterMethod($zz);
 
         $this->assertOutputMatches($method, '0-no-param');

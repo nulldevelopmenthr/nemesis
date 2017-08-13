@@ -16,9 +16,6 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
@@ -44,8 +41,8 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('CreateProduct', 'MyShop\\Command');
         $parameters = [
-            new Parameter('productId', ClassType::createFromFullyQualified(Uuid::class)),
-            new Parameter('title', new StringType()),
+            Parameter::create('productId', Uuid::class),
+            Parameter::create('title', 'string'),
         ];
 
         $factory = new CommandSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -57,11 +54,11 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('ProductCreated', 'MyShop\\Event');
         $parameters = [
-            new Parameter('productId', ClassType::createFromFullyQualified(Uuid::class)),
-            new Parameter('title', new StringType()),
-            new Parameter('quantity', new IntType()),
-            new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::createFromFullyQualified(DateTime::class)),
+            Parameter::create('productId', Uuid::class),
+            Parameter::create('title', 'string'),
+            Parameter::create('quantity', 'int'),
+            Parameter::create('locationsAvailable', 'array'),
+            Parameter::create('createdAt', DateTime::class),
         ];
 
         $factory = new EventSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -72,7 +69,7 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     protected function provideBroadwayModel(): ImprovedClassSource
     {
         $classType = new ClassType('ProductModel', 'MyShop\\Model');
-        $parameter = new Parameter('productId', ClassType::createFromFullyQualified('MyShop\\Model\\ProductUuid'));
+        $parameter = Parameter::create('productId', 'MyShop\\Model\\ProductUuid');
 
         $factory = new EventSourcedAggregateRootSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
@@ -93,11 +90,11 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('productId', ClassType::createFromFullyQualified(Uuid::class)),
-            new Parameter('title', new StringType()),
-            new Parameter('quantity', new IntType()),
-            new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::createFromFullyQualified(DateTime::class)),
+            Parameter::create('productId', Uuid::class),
+            Parameter::create('title', 'string'),
+            Parameter::create('quantity', 'int'),
+            Parameter::create('locationsAvailable', 'array'),
+            Parameter::create('createdAt', DateTime::class),
         ];
 
         $factory = new ElasticSearch\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -118,7 +115,7 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('repository', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadRepository')),
+            Parameter::create('repository', 'MyShop\\ReadModel\\Product\\ProductReadRepository'),
         ];
         $factory = new ElasticSearch\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 
@@ -129,11 +126,11 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('productId', ClassType::createFromFullyQualified(Uuid::class)),
-            new Parameter('title', new StringType()),
-            new Parameter('quantity', new IntType()),
-            new Parameter('locationsAvailable', new ArrayType()),
-            new Parameter('createdAt', ClassType::createFromFullyQualified(DateTime::class)),
+            Parameter::create('productId', Uuid::class),
+            Parameter::create('title', 'string'),
+            Parameter::create('quantity', 'int'),
+            Parameter::create('locationsAvailable', 'array'),
+            Parameter::create('createdAt', DateTime::class),
         ];
 
         $factory = new DoctrineOrm\ReadEntitySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
@@ -162,8 +159,8 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
     {
         $classType  = new ClassType('ProductReadProjector', 'MyShop\\ReadModel\\Product');
         $parameters = [
-            new Parameter('repository', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadRepository')),
-            new Parameter('factory', ClassType::createFromFullyQualified('MyShop\\ReadModel\\Product\\ProductReadFactory')),
+            Parameter::create('repository', 'MyShop\\ReadModel\\Product\\ProductReadRepository'),
+            Parameter::create('factory', 'MyShop\\ReadModel\\Product\\ProductReadFactory'),
         ];
         $factory = new DoctrineOrm\ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
 

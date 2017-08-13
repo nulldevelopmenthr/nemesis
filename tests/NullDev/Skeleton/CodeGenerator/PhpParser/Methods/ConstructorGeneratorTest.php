@@ -7,7 +7,6 @@ namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpParser\BuilderFactory;
 
 /**
@@ -41,29 +40,29 @@ class ConstructorGeneratorTest extends BaseOutputGeneratorTestCase
             ],
             [
                 [
-                    new Parameter('first'),
+                    Parameter::create('first'),
                 ],
                 '1-one-no-type-param',
             ],
             [
                 [
-                    new Parameter('first'),
-                    new Parameter('second'),
-                    new Parameter('third'),
+                    Parameter::create('first'),
+                    Parameter::create('second'),
+                    Parameter::create('third'),
                 ],
                 '2-multiple-no-type-params',
             ],
             [
                 [
-                    new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
+                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
                 ],
                 '3-one-type-param',
             ],
             [
                 [
-                    new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
-                    new Parameter('second', ClassType::createFromFullyQualified('Vendor\Namespace\SecondName')),
-                    new Parameter('last', ClassType::createFromFullyQualified('Vendor\Namespace\LastName')),
+                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
+                    Parameter::create('second', 'Vendor\Namespace\SecondName'),
+                    Parameter::create('last', 'Vendor\Namespace\LastName'),
                 ],
                 '4-multiple-type-params',
             ],

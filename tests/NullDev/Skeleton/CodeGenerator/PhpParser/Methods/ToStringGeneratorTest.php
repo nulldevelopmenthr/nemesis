@@ -7,7 +7,6 @@ namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpParser\BuilderFactory;
 
 /**
@@ -36,11 +35,11 @@ class ToStringGeneratorTest extends BaseOutputGeneratorTestCase
     {
         return [
             [
-                new Parameter('first'),
+                Parameter::create('first'),
                 '0-no-type-param',
             ],
             [
-                new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
+                Parameter::create('first', 'Vendor\Namespace\FirstName'),
                 '1-type-param',
             ],
         ];
