@@ -130,6 +130,26 @@ abstract class SourceParserContext implements Context
         Assert::count($this->getResult()->getMethods(), $count);
     }
 
+    /** @Then result will have this methods: */
+    public function resultWillHaveThisMethods(TableNode $table)
+    {
+        $methods = $this->getResult()->getMethods();
+
+        foreach ($table as $key => $item) {
+            $method = $methods[$key];
+
+            Assert::eq($item['methodClass'], get_class($method));
+            Assert::eq($item['methodName'], $method->getMethodName());
+            /*
+            if (true === empty($item['className'])) {
+                Assert::false($getterMethod->getParameter()->hasType());
+            } else {
+                Assert::eq($item['className'], $getterMethod->getParameter()->getType()->getFullName());
+            }
+            */
+        }
+    }
+
     /** @Then result has :count getter methods */
     public function resultHasGetterMethods(int $count)
     {
