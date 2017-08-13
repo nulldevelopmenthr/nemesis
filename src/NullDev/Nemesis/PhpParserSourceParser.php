@@ -98,10 +98,12 @@ class PhpParserSourceParser implements SourceParser
         // Constructor parsing
         foreach ($classStatement->stmts as $parsedStatement) {
             if ($parsedStatement instanceof ClassMethod) {
-                $method = $this->parseMethod($parsedStatement);
+                if (true === $parsedStatement->isPublic()) {
+                    $method = $this->parseMethod($parsedStatement);
 
-                if ($method instanceof ConstructorMethod) {
-                    $this->class->addConstructorMethod($method);
+                    if ($method instanceof ConstructorMethod) {
+                        $this->class->addConstructorMethod($method);
+                    }
                 }
             }
         }

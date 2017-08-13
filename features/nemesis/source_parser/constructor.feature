@@ -27,6 +27,29 @@ Feature: Constructor
     When I parse it
     Then result has constructor method defined
 
+  Scenario: Class with private constructor will have no constructor method defined
+    Given source file contains:
+    """
+    namespace MyVendor;
+    use AnotherNamespace\MyValueObject;
+    class Something207{
+        private function __construct(){}
+    }
+    """
+    When I parse it
+    Then result has no constructor method defined
+
+  Scenario: Class with protected constructor will have no constructor method defined
+    Given source file contains:
+    """
+    namespace MyVendor;
+    use AnotherNamespace\MyValueObject;
+    class Something208{
+        protected function __construct(){}
+    }
+    """
+    When I parse it
+    Then result has no constructor method defined
 
   Scenario: Both constructor arguments without type will be parsed
     Given source file contains:

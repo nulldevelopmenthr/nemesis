@@ -82,17 +82,19 @@ class ReflectionSourceParser implements SourceParser
         if (true === $reflection->hasMethod('__construct')) {
             $reflectedConstructor = $reflection->getMethod('__construct');
 
-            $params = [];
+            if (true === $reflectedConstructor->isPublic()) {
+                $params = [];
 
-            foreach ($reflectedConstructor->getParameters() as $reflectionParameter) {
-                $type = $this->createType($reflectionParameter);
+                foreach ($reflectedConstructor->getParameters() as $reflectionParameter) {
+                    $type = $this->createType($reflectionParameter);
 
-                $params[] = new Parameter($reflectionParameter->getName(), $type);
+                    $params[] = new Parameter($reflectionParameter->getName(), $type);
+                }
+
+                $constructorMethod = new ConstructorMethod($params);
+
+                $result->addConstructorMethod($constructorMethod);
             }
-
-            $constructorMethod = new ConstructorMethod($params);
-
-            $result->addConstructorMethod($constructorMethod);
         }
 
         foreach ($reflection->getProperties() as $reflectionProperty) {
