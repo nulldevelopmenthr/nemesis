@@ -10,11 +10,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Namespace_;
@@ -163,47 +159,11 @@ class ReflectionSourceParser implements SourceParser
             return null;
         }
 
-        $type = null;
-
-        if (true === $input->isArray()) {
-            $type = new ArrayType();
-        } elseif ('string' === $input->getType()->__toString()) {
-            $type = new StringType();
-        } elseif ('int' === $input->getType()->__toString()) {
-            $type = new IntType();
-        } elseif ('float' === $input->getType()->__toString()) {
-            $type = new FloatType();
-        } elseif ('bool' === $input->getType()->__toString()) {
-            $type = new BoolType();
-        } else {
-            $type = ClassType::createFromFullyQualified($input->getType()->__toString());
-        }
-
-        return $type;
+        return TypeFactory::create($input->getType()->__toString());
     }
 
     protected function createType2(\ReflectionType $input): ?Type
     {
-        $input = $input->__toString();
-
-        $type = null;
-
-        if ('' === $input) {
-            $type = null;
-        } elseif ('string' === $input) {
-            $type = new StringType();
-        } elseif ('int' === $input) {
-            $type = new IntType();
-        } elseif ('float' === $input) {
-            $type = new FloatType();
-        } elseif ('array' === $input) {
-            $type = new ArrayType();
-        } elseif ('bool' === $input) {
-            $type = new BoolType();
-        } else {
-            $type = ClassType::createFromFullyQualified($input);
-        }
-
-        return $type;
+        return TypeFactory::create($input->__toString());
     }
 }
