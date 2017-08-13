@@ -6,10 +6,6 @@ namespace tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
 use tests\NullDev\ContainerSupportedTestCase;
 
-/**
- * @group  FullCoverage
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
 {
     protected function getFileContent(string $fileName): string
