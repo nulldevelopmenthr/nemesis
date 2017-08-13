@@ -21,7 +21,6 @@ use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 /**
  * @see DefinitionFactorySpec
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  */
 class DefinitionFactory
 {

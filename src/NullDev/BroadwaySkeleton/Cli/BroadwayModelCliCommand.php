@@ -18,7 +18,6 @@ use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  * @codeCoverageIgnore
  */
 class BroadwayModelCliCommand extends BaseSkeletonGeneratorCommand
