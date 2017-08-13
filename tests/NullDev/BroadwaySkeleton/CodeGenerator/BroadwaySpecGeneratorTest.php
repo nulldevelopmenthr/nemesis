@@ -16,7 +16,9 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
 {
     /**
      * @test
-     * @dataProvider provideTestRenderData
+     * @dataProvider provideModelData
+     * @dataProvider provideElasticsearchReadData
+     * @dataProvider provideDoctrineOrmReadData
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
@@ -29,21 +31,39 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
         $this->assertSame($this->getFileContent($outputName), $generator->getOutput($specSource));
     }
 
-    public function provideTestRenderData(): array
+    public function provideModelData(): array
     {
+        $provider = new BroadwayModelDataProvider();
+
         return [
-            [$this->provideUuidIdentifier(), 'spec/uuid-identifier-spec'],
-            [$this->provideBroadwayCommand(), 'spec/broadway-command-spec'],
-            [$this->provideBroadwayEvent(), 'spec/broadway-event-spec'],
-            [$this->provideBroadwayModel(), 'spec/broadway-model-spec'],
-            [$this->provideBroadwayModelRepository(), 'spec/broadway-model-repository-spec'],
-            [$this->provideBroadwayElasticSearchReadEntity(), 'spec/read/elasticsearch/entity-spec'],
-            [$this->provideBroadwayElasticSearchReadRepository(), 'spec/read/elasticsearch/repository-spec'],
-            [$this->provideBroadwayElasticSearchReadProjector(), 'spec/read/elasticsearch/projector-spec'],
-            [$this->provideBroadwayDoctrineOrmReadEntity(), 'spec/read/doctrine-orm/entity-spec'],
-            [$this->provideBroadwayDoctrineOrmReadFactory(), 'spec/read/doctrine-orm/factory-spec'],
-            [$this->provideBroadwayDoctrineOrmReadRepository(), 'spec/read/doctrine-orm/repository-spec'],
-            [$this->provideBroadwayDoctrineOrmReadProjector(), 'spec/read/doctrine-orm/projector-spec'],
+            [$provider->provideUuidIdentifier(), 'spec/uuid-identifier-spec'],
+            [$provider->provideBroadwayCommand(), 'spec/broadway-command-spec'],
+            [$provider->provideBroadwayEvent(), 'spec/broadway-event-spec'],
+            [$provider->provideBroadwayModel(), 'spec/broadway-model-spec'],
+            [$provider->provideBroadwayModelRepository(), 'spec/broadway-model-repository-spec'],
+        ];
+    }
+
+    public function provideElasticsearchReadData(): array
+    {
+        $provider = new BroadwayElasticsearchReadDataProvider();
+
+        return [
+            [$provider->provideBroadwayElasticSearchReadEntity(), 'spec/read/elasticsearch/entity-spec'],
+            [$provider->provideBroadwayElasticSearchReadRepository(), 'spec/read/elasticsearch/repository-spec'],
+            [$provider->provideBroadwayElasticSearchReadProjector(), 'spec/read/elasticsearch/projector-spec'],
+        ];
+    }
+
+    public function provideDoctrineOrmReadData(): array
+    {
+        $provider = new BroadwayDoctrineOrmReadDataProvider();
+
+        return [
+            [$provider->provideBroadwayDoctrineOrmReadEntity(), 'spec/read/doctrine-orm/entity-spec'],
+            [$provider->provideBroadwayDoctrineOrmReadFactory(), 'spec/read/doctrine-orm/factory-spec'],
+            [$provider->provideBroadwayDoctrineOrmReadRepository(), 'spec/read/doctrine-orm/repository-spec'],
+            [$provider->provideBroadwayDoctrineOrmReadProjector(), 'spec/read/doctrine-orm/projector-spec'],
         ];
     }
 }

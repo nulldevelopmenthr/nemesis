@@ -15,7 +15,9 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
 {
     /**
      * @test
-     * @dataProvider provideTestRenderData
+     * @dataProvider provideModelData
+     * @dataProvider provideElasticsearchReadData
+     * @dataProvider provideDoctrineOrmReadData
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
@@ -24,21 +26,39 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
         $this->assertSame($this->getFileContent($outputName), $generator->getOutput($classSource));
     }
 
-    public function provideTestRenderData(): array
+    public function provideModelData(): array
     {
+        $provider = new BroadwayModelDataProvider();
+
         return [
-            [$this->provideUuidIdentifier(), 'code/uuid-identifier'],
-            [$this->provideBroadwayCommand(), 'code/broadway-command'],
-            [$this->provideBroadwayEvent(), 'code/broadway-event'],
-            [$this->provideBroadwayModel(), 'code/broadway-model'],
-            [$this->provideBroadwayModelRepository(), 'code/broadway-model-repository'],
-            [$this->provideBroadwayElasticSearchReadEntity(), 'code/read/elasticsearch/entity'],
-            [$this->provideBroadwayElasticSearchReadRepository(), 'code/read/elasticsearch/repository'],
-            [$this->provideBroadwayElasticSearchReadProjector(), 'code/read/elasticsearch/projector'],
-            [$this->provideBroadwayDoctrineOrmReadEntity(), 'code/read/doctrine-orm/entity'],
-            [$this->provideBroadwayDoctrineOrmReadFactory(), 'code/read/doctrine-orm/factory'],
-            [$this->provideBroadwayDoctrineOrmReadRepository(), 'code/read/doctrine-orm/repository'],
-            [$this->provideBroadwayDoctrineOrmReadProjector(), 'code/read/doctrine-orm/projector'],
+            [$provider->provideUuidIdentifier(), 'code/uuid-identifier'],
+            [$provider->provideBroadwayCommand(), 'code/broadway-command'],
+            [$provider->provideBroadwayEvent(), 'code/broadway-event'],
+            [$provider->provideBroadwayModel(), 'code/broadway-model'],
+            [$provider->provideBroadwayModelRepository(), 'code/broadway-model-repository'],
+        ];
+    }
+
+    public function provideElasticsearchReadData(): array
+    {
+        $provider = new BroadwayElasticsearchReadDataProvider();
+
+        return [
+            [$provider->provideBroadwayElasticSearchReadEntity(), 'code/read/elasticsearch/entity'],
+            [$provider->provideBroadwayElasticSearchReadRepository(), 'code/read/elasticsearch/repository'],
+            [$provider->provideBroadwayElasticSearchReadProjector(), 'code/read/elasticsearch/projector'],
+        ];
+    }
+
+    public function provideDoctrineOrmReadData(): array
+    {
+        $provider = new BroadwayDoctrineOrmReadDataProvider();
+
+        return [
+            [$provider->provideBroadwayDoctrineOrmReadEntity(), 'code/read/doctrine-orm/entity'],
+            [$provider->provideBroadwayDoctrineOrmReadFactory(), 'code/read/doctrine-orm/factory'],
+            [$provider->provideBroadwayDoctrineOrmReadRepository(), 'code/read/doctrine-orm/repository'],
+            [$provider->provideBroadwayDoctrineOrmReadProjector(), 'code/read/doctrine-orm/projector'],
         ];
     }
 }
