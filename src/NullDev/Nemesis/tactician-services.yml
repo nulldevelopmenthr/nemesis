@@ -6,13 +6,15 @@ services:
 
   League\Tactician\CommandBus:
     arguments:
-      - ["@League\\Tactician\\Handler\\CommandHandlerMiddleware"]
+      - []
 
   League\Tactician\Handler\CommandHandlerMiddleware:
     arguments:
       - "@League\\Tactician\\Handler\\CommandNameExtractor\\ClassNameExtractor"
       - "@League\\Tactician\\Handler\\Locator\\InMemoryLocator"
       - "@League\\Tactician\\Handler\\MethodNameInflector\\HandleInflector"
+    tags:
+      - { name: tactician.middleware, priority: 1 }
 
 
 

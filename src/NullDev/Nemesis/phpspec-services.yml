@@ -11,3 +11,7 @@ services:
   NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory: ~
   NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory: ~
   NullDev\PhpSpecSkeleton\SpecGenerator: ~
+
+  NullDev\PhpSpecSkeleton\PhpSpecMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 51}
