@@ -144,6 +144,21 @@ jobs:
           name: Static analysis
           command: ./vendor/bin/phing phpstan
 
+  phar:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Composer install
+          command: composer install --no-interaction --no-dev
+      - run:
+          name: Build Phar
+          command: php -d phar.readonly=false box.phar build -v
+
 workflows:
   version: 2
   build-and-deploy:
@@ -168,6 +183,10 @@ workflows:
          filters:
            branches:
              ignore: building-phar
+      - phar:
+         filters:
+           branches:
+             only: building-phar
       - humbug:
          requires:
            - phpunit
