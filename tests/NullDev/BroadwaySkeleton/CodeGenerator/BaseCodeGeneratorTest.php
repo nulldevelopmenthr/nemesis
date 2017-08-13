@@ -210,6 +210,6 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
 
     protected function getFileContent(string $fileName): string
     {
-        return file_get_contents(__DIR__.'/sample-files/'.$fileName.'.output');
+        return file_get_contents(__DIR__.'/sample-output/'.$fileName.'.output');
     }
 }
