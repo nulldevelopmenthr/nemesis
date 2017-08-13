@@ -9,7 +9,7 @@ use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactor
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
-use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
+use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 
 /**
  * @see CreateBroadwayModelHandlerSpec

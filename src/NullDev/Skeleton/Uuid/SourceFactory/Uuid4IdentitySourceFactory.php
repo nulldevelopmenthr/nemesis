@@ -2,16 +2,21 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\SourceFactory;
+namespace NullDev\Skeleton\Uuid\SourceFactory;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
+use NullDev\Skeleton\SourceFactory\SourceFactory;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * @see Uuid4IdentitySourceFactorySpec
+ * @see Uuid4IdentitySourceFactoryTest
+ */
 class Uuid4IdentitySourceFactory implements SourceFactory
 {
     /** @var ClassSourceFactory */

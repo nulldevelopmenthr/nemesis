@@ -21,7 +21,7 @@ services:
   NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
 
 
-  NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory: ~
+  NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
 
   NullDev\Skeleton\Path\Readers\FinderFactory: ~

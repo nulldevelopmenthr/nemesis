@@ -18,7 +18,7 @@ use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory;
+use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 use Ramsey\Uuid\Uuid;
 use tests\NullDev\ContainerSupportedTestCase;
 
