@@ -125,10 +125,6 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
         return $factory->create($classType, $parameters);
     }
 
-    ///
-    ///--------------------------------------------------------------------------------------------------------------------
-    ///
-
     protected function provideBroadwayDoctrineOrmReadEntity(): ImprovedClassSource
     {
         $classType  = new ClassType('ProductReadEntity', 'MyShop\\ReadModel\\Product');
@@ -173,10 +169,6 @@ abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
 
         return $factory->create($classType, $parameters);
     }
-
-    ///
-    ///--------------------------------------------------------------------------------------------------------------------
-    ///
 
     protected function provideClassType(): ClassType
     {
