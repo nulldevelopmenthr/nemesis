@@ -45,9 +45,7 @@ class GenericMethod implements Method
         return $this->methodName;
     }
 
-    /**
-     * @return Parameter[]
-     */
+    /** @return Parameter[] */
     public function getMethodParameters(): array
     {
         return $this->params;
@@ -71,9 +69,7 @@ class GenericMethod implements Method
         return $this->returnType->getName();
     }
 
-    /**
-     * @return Parameter[]
-     */
+    /** @return Parameter[] */
     public function getParamsAsClassTypes(): array
     {
         $result = [];
