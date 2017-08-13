@@ -1,0 +1,26 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  League\Tactician\CommandBus:
+    arguments:
+      - ["@League\\Tactician\\Handler\\CommandHandlerMiddleware"]
+
+  League\Tactician\Handler\CommandHandlerMiddleware:
+    arguments:
+      - "@League\\Tactician\\Handler\\CommandNameExtractor\\ClassNameExtractor"
+      - "@League\\Tactician\\Handler\\Locator\\InMemoryLocator"
+      - "@League\\Tactician\\Handler\\MethodNameInflector\\HandleInflector"
+
+
+
+
+  League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor: ~
+  League\Tactician\Handler\Locator\InMemoryLocator:
+    arguments:
+      - []
+  League\Tactician\Handler\MethodNameInflector\HandleInflector: ~
+
+
