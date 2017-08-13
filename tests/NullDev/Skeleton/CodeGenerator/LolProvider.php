@@ -7,11 +7,6 @@ namespace tests\NullDev\Skeleton\CodeGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class LolProvider
@@ -23,12 +18,12 @@ class LolProvider
         $source = new ImprovedClassSource($classType);
 
         $parameters = [
-            new Parameter('id', new IntType()),
-            new Parameter('name', new StringType()),
-            new Parameter('price', new FloatType()),
-            new Parameter('smart', new BoolType()),
-            new Parameter('tags', new ArrayType()),
-            new Parameter('randomValue'),
+            Parameter::create('id', 'int'),
+            Parameter::create('name', 'string'),
+            Parameter::create('price', 'float'),
+            Parameter::create('smart', 'bool'),
+            Parameter::create('tags', 'array'),
+            Parameter::create('randomValue'),
         ];
         $source->addConstructorMethod(new ConstructorMethod($parameters));
         foreach ($parameters as $parameter) {

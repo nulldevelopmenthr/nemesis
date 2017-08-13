@@ -68,8 +68,8 @@ class ClassGeneratorTest extends PHPUnit_Framework_TestCase
     public function testClassWithProperties(): void
     {
         $input = new ImprovedClassSource(ClassType::createFromFullyQualified('MyCompany\Namespace\User'));
-        $input->addProperty(new Parameter('firstName'));
-        $input->addProperty(new Parameter('lastName', ClassType::createFromFullyQualified('LastName')));
+        $input->addProperty(Parameter::create('firstName'));
+        $input->addProperty(Parameter::create('lastName', 'LastName'));
         $result = $this->classGenerator->generate($input);
 
         self::assertInstanceOf(Class_::class, $result);

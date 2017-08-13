@@ -8,8 +8,6 @@ use Broadway\EventHandling\EventBus;
 use Broadway\EventSourcing\EventSourcingRepository;
 use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 /**
@@ -28,9 +26,9 @@ class LetMethodFactory
         $lets = $classSource->getConstructorParameters();
 
         if ($classSource->getParentFullName() === EventSourcingRepository::class) {
-            $lets[] = new Parameter('eventStore', InterfaceType::createFromFullyQualified(EventStore::class));
-            $lets[] = new Parameter('eventBus', InterfaceType::createFromFullyQualified(EventBus::class));
-            $lets[] = new Parameter('eventStreamDecorators', new ArrayType());
+            $lets[] = Parameter::create('eventStore', EventStore::class);
+            $lets[] = Parameter::create('eventBus', EventBus::class);
+            $lets[] = Parameter::create('eventStreamDecorators', 'array');
         }
 
         return $lets;

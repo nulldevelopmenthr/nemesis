@@ -6,7 +6,6 @@ namespace NullDev\BroadwaySkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class DeserializeMethod implements Method
@@ -40,7 +39,7 @@ class DeserializeMethod implements Method
 
     public function getMethodParameters(): array
     {
-        return [new Parameter('data', new ArrayType())];
+        return [Parameter::create('data', 'array')];
     }
 
     public function hasMethodReturnType(): bool

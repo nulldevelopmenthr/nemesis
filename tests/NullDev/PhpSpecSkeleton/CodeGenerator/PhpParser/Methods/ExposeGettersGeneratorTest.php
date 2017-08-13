@@ -7,12 +7,6 @@ namespace tests\NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -48,40 +42,40 @@ class ExposeGettersGeneratorTest extends PHPUnit_Framework_TestCase
             ],
             [
                 [
-                    new Parameter('first'),
+                    Parameter::create('first'),
                 ],
                 '1-one-no-type-param',
             ],
             [
                 [
-                    new Parameter('first'),
-                    new Parameter('second'),
-                    new Parameter('third'),
+                    Parameter::create('first'),
+                    Parameter::create('second'),
+                    Parameter::create('third'),
                 ],
                 '2-multiple-no-type-params',
             ],
             [
                 [
-                    new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
+                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
                 ],
                 '3-one-type-param',
             ],
             [
                 [
-                    new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
-                    new Parameter('second', ClassType::createFromFullyQualified('Vendor\Namespace\SecondName')),
-                    new Parameter('last', ClassType::createFromFullyQualified('Vendor\Namespace\LastName')),
+                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
+                    Parameter::create('second', 'Vendor\Namespace\SecondName'),
+                    Parameter::create('last', 'Vendor\Namespace\LastName'),
                 ],
                 '4-multiple-type-params',
             ],
             [
                 [
-                    new Parameter('id', new IntType()),
-                    new Parameter('name', new StringType()),
-                    new Parameter('price', new FloatType()),
-                    new Parameter('smart', new BoolType()),
-                    new Parameter('tags', new ArrayType()),
-                    new Parameter('randomValue'),
+                    Parameter::create('id', 'int'),
+                    Parameter::create('name', 'string'),
+                    Parameter::create('price', 'float'),
+                    Parameter::create('smart', 'bool'),
+                    Parameter::create('tags', 'array'),
+                    Parameter::create('randomValue'),
                 ],
                 '5-multiple-type-params',
             ],

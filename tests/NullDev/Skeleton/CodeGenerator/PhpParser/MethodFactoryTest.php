@@ -49,8 +49,8 @@ class MethodFactoryTest extends ContainerSupportedTestCase
     {
         return [
             [new ConstructorMethod([])],
-            [GetterMethod::create(new Parameter('paramName'))],
-            [new ToStringMethod(new Parameter('paramName'))],
+            [GetterMethod::create(Parameter::create('paramName'))],
+            [new ToStringMethod(Parameter::create('paramName'))],
             [new UuidCreateMethod(ClassType::createFromFullyQualified('Vendor\Namespace\SomeId'))],
         ];
     }

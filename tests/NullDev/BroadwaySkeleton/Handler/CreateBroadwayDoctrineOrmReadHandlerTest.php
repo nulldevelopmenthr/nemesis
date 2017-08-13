@@ -71,7 +71,7 @@ class CreateBroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCas
             [
                 'Something\User',
                 [
-                    new Parameter('id', ClassType::createFromFullyQualified('Something\UserId')),
+                    Parameter::create('id', 'Something\UserId'),
                 ],
             ],
         ];

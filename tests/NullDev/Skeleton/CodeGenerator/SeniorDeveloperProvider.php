@@ -9,7 +9,6 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class SeniorDeveloperProvider
@@ -127,38 +126,38 @@ class SeniorDeveloperProvider
     private function provide1Parameter(): array
     {
         return [
-            new Parameter('firstName', new ClassType('FirstName')),
+            Parameter::create('firstName', 'FirstName'),
         ];
     }
 
     private function provide1ParameterWithoutType(): array
     {
         return [
-            new Parameter('firstName'),
+            Parameter::create('firstName'),
         ];
     }
 
     private function provide1ParameterWithScalarTypes(): array
     {
         return [
-            new Parameter('firstName', new StringType()),
+            Parameter::create('firstName', 'string'),
         ];
     }
 
     private function provide2Parameters(): array
     {
         return [
-            new Parameter('firstName', new ClassType('FirstName')),
-            new Parameter('lastName', new ClassType('LastName')),
+            Parameter::create('firstName', 'FirstName'),
+            Parameter::create('lastName', 'LastName'),
         ];
     }
 
     private function provide3Parameters(): array
     {
         return [
-            new Parameter('firstName', new ClassType('FirstName')),
-            new Parameter('lastName', new ClassType('LastName')),
-            new Parameter('amount', new ClassType('Wage', 'HR\\Finances')),
+            Parameter::create('firstName', 'FirstName'),
+            Parameter::create('lastName', 'LastName'),
+            Parameter::create('amount', 'HR\Finances\Wage'),
         ];
     }
 

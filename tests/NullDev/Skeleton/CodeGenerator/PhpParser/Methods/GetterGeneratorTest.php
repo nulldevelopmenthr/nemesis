@@ -7,7 +7,6 @@ namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpParser\BuilderFactory;
 
 /**
@@ -35,11 +34,11 @@ class GetterGeneratorTest extends BaseOutputGeneratorTestCase
     {
         return [
             [
-                new Parameter('first'),
+                Parameter::create('first'),
                 '0-no-type-param',
             ],
             [
-                new Parameter('first', ClassType::createFromFullyQualified('Vendor\Namespace\FirstName')),
+                Parameter::create('first', 'Vendor\Namespace\FirstName'),
                 '1-type-param',
             ],
         ];

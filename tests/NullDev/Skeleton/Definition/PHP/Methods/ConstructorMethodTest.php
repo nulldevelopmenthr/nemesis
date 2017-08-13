@@ -38,7 +38,7 @@ class ConstructorMethodTest extends PHPUnit_Framework_TestCase
 
     public function testItCanReturnOnlyTypesUsedInConstructor(): void
     {
-        $param1 = new Parameter('noType');
+        $param1 = Parameter::create('noType');
 
         $type2  = ClassType::createFromFullyQualified('Namespace1\Namespace2\MyClass');
         $param2 = new Parameter('name', $type2);
