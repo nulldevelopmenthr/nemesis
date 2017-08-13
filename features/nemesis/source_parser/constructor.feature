@@ -9,7 +9,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something201{}
+    class Something200{}
     """
     When I parse it
     Then result has no constructor method defined
@@ -20,7 +20,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something202{
+    class Something205{
         public function __construct(){}
     }
     """
@@ -33,7 +33,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something203{
+    class Something210{
         public function __construct($param1,$param2){}
     }
     """
@@ -49,7 +49,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something204{
+    class Something215{
         public function __construct(\DateTime $param1, MyValueObject $param2){}
     }
     """
@@ -65,7 +65,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something205{
+    class Something220{
         public function __construct(?\DateTime $param1, ?MyValueObject $param2){}
     }
     """
@@ -82,7 +82,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something206{
+    class Something225{
         public function __construct(int $param1, string $param2, bool $param3, float $param4){}
     }
     """
@@ -100,7 +100,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something207{
+    class Something230{
         public function __construct(?int $param1, ?string $param2, ?bool $param3, ?float $param4){}
     }
     """
@@ -119,7 +119,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something208{
+    class Something235{
         public function __construct(array $param1){}
     }
     """
@@ -134,7 +134,7 @@ Feature: Constructor
     """
     namespace MyVendor;
     use AnotherNamespace\MyValueObject;
-    class Something209{
+    class Something240{
         public function __construct(?array $param1){}
     }
     """
