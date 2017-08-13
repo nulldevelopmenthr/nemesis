@@ -22,6 +22,12 @@ class NamespaceSuggestions
 
     public function suggest(): array
     {
-        return $this->pathReader->getExistingSourceCodeNamespaces();
+        $results = [];
+
+        foreach ($this->pathReader->getExistingSourceCodeNamespaces() as $item) {
+            $results[] = str_replace('\\', '/', $item);
+        }
+
+        return $results;
     }
 }

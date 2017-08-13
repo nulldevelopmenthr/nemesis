@@ -33,6 +33,12 @@ class NamespaceSuggestionsSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($input);
 
-        $this->suggest()->shouldReturn($input);
+        $expected = [
+            'Vendor/',
+            'Vendor/Namespace/',
+            'Vendor/Namespace/Product/',
+            'Vendor/Namespace/User/',
+        ];
+        $this->suggest()->shouldReturn($expected);
     }
 }
