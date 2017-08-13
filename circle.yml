@@ -148,11 +148,26 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build
-      - phpunit
-      - behat
-      - codestyle
-      - phpstan
+      - build:
+         filters:
+           branches:
+             ignore: building-phar
+      - phpunit:
+         filters:
+           branches:
+             ignore: building-phar
+      - behat:
+         filters:
+           branches:
+             ignore: building-phar
+      - codestyle:
+         filters:
+           branches:
+             ignore: building-phar
+      - phpstan:
+         filters:
+           branches:
+             ignore: building-phar
       - humbug:
          requires:
            - phpunit
