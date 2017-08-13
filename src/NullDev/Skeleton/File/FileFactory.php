@@ -19,7 +19,7 @@ class FileFactory
 
     public function create(ImprovedClassSource $classSource): FileResource
     {
-        return new FileResource($this->getPathItBelongsTo($classSource), $classSource);
+        return new FileResource($this->getPath($classSource), $classSource);
     }
 
     protected function getPathItBelongsTo(ImprovedClassSource $classSource)
