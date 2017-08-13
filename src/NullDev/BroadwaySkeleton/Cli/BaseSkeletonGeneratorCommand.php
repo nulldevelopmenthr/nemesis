@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileResource;
+use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
@@ -68,28 +67,12 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         return $this->askForClassName();
     }
 
-    private $filesToGenerate = [];
-
-    protected function addFileResourceToBeGenerated(FileResource $fileResource)
+    protected function handleGeneratingFile(OutputResource $outputResource): void
     {
-        $this->filesToGenerate[] = $fileResource;
-    }
+        $fileName = $outputResource->getFileName();
 
-    protected function generateFileResources()
-    {
-        foreach ($this->filesToGenerate as $fileResource) {
-            $this->handleGeneratingFile($fileResource);
-        }
-    }
-
-    protected function handleGeneratingFile(FileResource $fileResource)
-    {
-        $generator = $this->getService(PhpParserGenerator::class);
-        $fileName  = $fileResource->getFileName();
-
-        if ($this->fileNotExistsOrShouldBeOwerwritten($fileResource)) {
-            $output = $generator->getOutput($fileResource->getClassSource());
-            $this->getService(Filesystem::class)->dumpFile($fileName, $output);
+        if ($this->fileNotExistsOrShouldBeOwerwritten($fileName)) {
+            $this->getService(Filesystem::class)->dumpFile($fileName, $outputResource->getOutput());
 
             $this->io->writeln("Created '$fileName' file.");
         } else {
@@ -97,13 +80,13 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         }
     }
 
-    protected function fileNotExistsOrShouldBeOwerwritten(FileResource $fileResource): bool
+    private function fileNotExistsOrShouldBeOwerwritten(string $fileName): bool
     {
-        if (false === file_exists($fileResource->getFileName())) {
+        if (false === file_exists($fileName)) {
             return true;
         }
 
-        return $this->askOverwriteConfirmationQuestion();
+        return $this->askOverwriteConfirmationQuestion($fileName);
     }
 
     protected function askForClassName(): string
@@ -153,16 +136,9 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         return $this->io->ask('Enter parameter name', $suggestedName);
     }
 
-    protected function askOverwriteConfirmationQuestion()
+    private function askOverwriteConfirmationQuestion(string $fileName): bool
     {
-        return $this->io->confirm('File exists, overwrite?', false);
-    }
-
-    protected function createSpecSource(ImprovedClassSource $classSource): ImprovedClassSource
-    {
-        $generator = $this->getService(SpecGenerator::class);
-
-        return $generator->generate($classSource);
+        return $this->io->confirm("File '$fileName' exists, overwrite?", false);
     }
 
     protected function getFileResource(ImprovedClassSource $classSource): FileResource
@@ -180,12 +156,6 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function getExistingClasses(): array
     {
         return $this->getService(ClassSuggestions::class)->suggest();
-    }
-
-    protected function getPaths()
-    {
-        //@TODO: needed?
-        return $this->getConfig()->getPaths();
     }
 
     protected function getQuestionHelper()
