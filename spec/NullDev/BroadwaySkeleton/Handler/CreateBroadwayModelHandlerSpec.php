@@ -8,8 +8,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
-use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -21,16 +19,12 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
     public function let(
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
         EventSourcedAggregateRootSourceFactory $eventSourcedAggregateRootSourceFactory,
-        EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory,
-        SpecGenerator $specGenerator,
-        PHPUnitTestGenerator $unitTestGenerator
+        EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory
     ) {
         $this->beConstructedWith(
             $uuid4IdentitySourceFactory,
             $eventSourcedAggregateRootSourceFactory,
-            $eventSourcingRepositorySourceFactory,
-            $specGenerator,
-            $unitTestGenerator
+            $eventSourcingRepositorySourceFactory
         );
     }
 
@@ -44,21 +38,13 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
         EventSourcedAggregateRootSourceFactory $eventSourcedAggregateRootSourceFactory,
         EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory,
-        SpecGenerator $specGenerator,
-        PHPUnitTestGenerator $unitTestGenerator,
         ClassType $modelIdType,
         ClassType $modelType,
         ClassType $repositoryType,
         Parameter $modelIdParameter,
         ImprovedClassSource $modelIdClass,
         ImprovedClassSource $modelClass,
-        ImprovedClassSource $repositoryClass,
-        ImprovedClassSource $modelIdSpec,
-        ImprovedClassSource $modelSpec,
-        ImprovedClassSource $repositorySpec,
-        ImprovedClassSource $modelIdTest,
-        ImprovedClassSource $modelTest,
-        ImprovedClassSource $repositoryTest
+        ImprovedClassSource $repositoryClass
     ) {
         $command->getModelIdType()->shouldBeCalled()->willReturn($modelIdType);
         $command->getModelType()->shouldBeCalled()->willReturn($modelType);
@@ -68,14 +54,6 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         $uuid4IdentitySourceFactory->create($modelIdType)->shouldBeCalled()->willReturn($modelIdClass);
         $eventSourcedAggregateRootSourceFactory->create($modelType, $modelIdParameter)->shouldBeCalled()->willReturn($modelClass);
         $eventSourcingRepositorySourceFactory->create($repositoryType, $modelType)->shouldBeCalled()->willReturn($repositoryClass);
-
-        $specGenerator->generate($modelIdClass)->shouldBeCalled()->willReturn($modelIdSpec);
-        $specGenerator->generate($modelClass)->shouldBeCalled()->willReturn($modelSpec);
-        $specGenerator->generate($repositoryClass)->shouldBeCalled()->willReturn($repositorySpec);
-
-        $unitTestGenerator->generate($modelIdClass)->shouldBeCalled()->willReturn($modelIdTest);
-        $unitTestGenerator->generate($modelClass)->shouldBeCalled()->willReturn($modelTest);
-        $unitTestGenerator->generate($repositoryClass)->shouldBeCalled()->willReturn($repositoryTest);
 
         $this->handle($command)->shouldBeArray();
     }

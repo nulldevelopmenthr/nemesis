@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace tests\NullDev\BroadwaySkeleton\Handler;
 
+use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use tests\NullDev\AssertOutputTrait;
+use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,17 +20,17 @@ use tests\NullDev\ContainerSupportedTestCase;
 class CreateBroadwayCommandHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
+    use AssertOutputTrait2;
 
     /** @var CreateBroadwayCommandHandler */
     private $handler;
-    /** @var PhpParserGenerator */
-    private $generator;
+    /** @var CommandBus */
+    private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler   = $this->getService(CreateBroadwayCommandHandler::class);
-        $this->generator = $this->getService(PhpParserGenerator::class);
+        $this->handler    = $this->getService(CreateBroadwayCommandHandler::class);
+        $this->commandBus = $this->getService(CommandBus::class);
     }
 
     /**
@@ -40,13 +40,13 @@ class CreateBroadwayCommandHandlerTest extends ContainerSupportedTestCase
     {
         $command = new CreateBroadwayCommand($classType, $parameters);
 
-        $sources = $this->handler->handle($command);
+        $result = $this->commandBus->handle($command);
 
-        self::assertCount(3, $sources);
+        self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-src'), $sources[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-spec'), $sources[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-test'), $sources[2]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-src'), $result[0]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-test'), $result[1]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/command-spec'), $result[2]);
     }
 
     public function provideData(): array

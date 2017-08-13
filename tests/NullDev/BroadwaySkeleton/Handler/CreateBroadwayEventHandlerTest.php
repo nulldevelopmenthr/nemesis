@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace tests\NullDev\BroadwaySkeleton\Handler;
 
+use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use tests\NullDev\AssertOutputTrait;
+use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,14 +20,17 @@ use tests\NullDev\ContainerSupportedTestCase;
 class CreateBroadwayEventHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
+    use AssertOutputTrait2;
 
     /** @var CreateBroadwayEventHandler */
     private $handler;
+    /** @var CommandBus */
+    private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler = $this->getService(CreateBroadwayEventHandler::class);
+        $this->handler    = $this->getService(CreateBroadwayEventHandler::class);
+        $this->commandBus = $this->getService(CommandBus::class);
     }
 
     /**
@@ -39,13 +43,13 @@ class CreateBroadwayEventHandlerTest extends ContainerSupportedTestCase
     ): void {
         $command = new CreateBroadwayEvent($classType, $parameters);
 
-        $sources = $this->handler->handle($command);
+        $result = $this->commandBus->handle($command);
 
-        self::assertCount(3, $sources);
+        self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-src'), $sources[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-spec'), $sources[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-test'), $sources[2]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-src'), $result[0]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-test'), $result[1]);
+        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-spec'), $result[2]);
     }
 
     public function provideData(): array

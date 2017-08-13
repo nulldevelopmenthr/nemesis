@@ -10,8 +10,6 @@ use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFact
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
-use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -23,18 +21,9 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
         ReadEntitySourceFactory $readEntitySourceFactory,
         ReadRepositorySourceFactory $readRepositorySourceFactory,
         ReadFactorySourceFactory $readFactorySourceFactory,
-        ReadProjectorSourceFactory $readProjectorSourceFactory,
-        SpecGenerator $specGenerator,
-        PHPUnitTestGenerator $unitTestGenerator
+        ReadProjectorSourceFactory $readProjectorSourceFactory
     ) {
-        $this->beConstructedWith(
-            $readEntitySourceFactory,
-            $readRepositorySourceFactory,
-            $readFactorySourceFactory,
-            $readProjectorSourceFactory,
-            $specGenerator,
-            $unitTestGenerator
-        );
+        $this->beConstructedWith($readEntitySourceFactory, $readRepositorySourceFactory, $readFactorySourceFactory, $readProjectorSourceFactory);
     }
 
     public function it_is_initializable()
@@ -48,8 +37,6 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
         ReadRepositorySourceFactory $readRepositorySourceFactory,
         ReadFactorySourceFactory $readFactorySourceFactory,
         ReadProjectorSourceFactory $readProjectorSourceFactory,
-        SpecGenerator $specGenerator,
-        PHPUnitTestGenerator $unitTestGenerator,
         ClassType $entityType,
         Parameter $parameters,
         ClassType $repositoryType,
@@ -58,15 +45,7 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
         ImprovedClassSource $entityClass,
         ImprovedClassSource $repositoryClass,
         ImprovedClassSource $factoryClass,
-        ImprovedClassSource $projectorClass,
-        ImprovedClassSource $entitySpec,
-        ImprovedClassSource $repositorySpec,
-        ImprovedClassSource $factorySpec,
-        ImprovedClassSource $projectorSpec,
-        ImprovedClassSource $entityTest,
-        ImprovedClassSource $repositoryTest,
-        ImprovedClassSource $factoryTest,
-        ImprovedClassSource $projectorTest
+        ImprovedClassSource $projectorClass
     ) {
         $command->getEntityClassType()->shouldBeCalled()->willReturn($entityType);
         $command->getEntityParameters()->shouldBeCalled()->willReturn([$parameters]);
@@ -78,16 +57,6 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
         $readRepositorySourceFactory->create($repositoryType)->shouldBeCalled()->willReturn($repositoryClass);
         $readFactorySourceFactory->create($factoryType)->shouldBeCalled()->willReturn($factoryClass);
         $readProjectorSourceFactory->create($projectorType, [$parameters])->shouldBeCalled()->willReturn($projectorClass);
-
-        $specGenerator->generate($entityClass)->shouldBeCalled()->willReturn($entitySpec);
-        $specGenerator->generate($repositoryClass)->shouldBeCalled()->willReturn($repositorySpec);
-        $specGenerator->generate($factoryClass)->shouldBeCalled()->willReturn($factorySpec);
-        $specGenerator->generate($projectorClass)->shouldBeCalled()->willReturn($projectorSpec);
-
-        $unitTestGenerator->generate($entityClass)->shouldBeCalled()->willReturn($entityTest);
-        $unitTestGenerator->generate($repositoryClass)->shouldBeCalled()->willReturn($repositoryTest);
-        $unitTestGenerator->generate($factoryClass)->shouldBeCalled()->willReturn($factoryTest);
-        $unitTestGenerator->generate($projectorClass)->shouldBeCalled()->willReturn($projectorTest);
 
         $this->handle($command)->shouldBeArray();
     }
