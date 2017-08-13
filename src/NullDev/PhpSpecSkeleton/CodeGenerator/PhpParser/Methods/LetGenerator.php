@@ -6,27 +6,14 @@ namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\BuilderFactory;
-use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Name;
-use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Scalar\LNumber;
-use PhpParser\Node\Scalar\String_;
 
-/**
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 class LetGenerator implements MethodGenerator
 {
     private $builderFactory;
@@ -67,20 +54,8 @@ class LetGenerator implements MethodGenerator
     {
         $variable = new Variable($parameter->getName());
 
-        if (false === $parameter->hasType()) {
-            return new Assign($variable, new String_($parameter->getName()));
-        }
-
-        if ($parameter->getType() instanceof StringType) {
-            return new Assign($variable, new String_($parameter->getName()));
-        } elseif ($parameter->getType() instanceof IntType) {
-            return new Assign($variable, new LNumber(1));
-        } elseif ($parameter->getType() instanceof ArrayType) {
-            return new Assign($variable, new Array_([], ['kind' => Array_::KIND_SHORT]));
-        } elseif ($parameter->getType() instanceof FloatType) {
-            return new Assign($variable, new DNumber(2.0));
-        } elseif ($parameter->getType() instanceof BoolType) {
-            return new Assign($variable, new ConstFetch(new Name('true')));
+        if (false === $parameter->hasType() || $parameter->getType() instanceof TypeDeclaration) {
+            return new Assign($variable, ParameterValueGenerator::generate($parameter));
         }
 
         throw new \Exception('ERR 90131234: Unhandled argument received.');
