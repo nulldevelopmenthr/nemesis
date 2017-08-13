@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  cli.command.skeleton.uuid4:
+    class: NullDev\Skeleton\Uuid\Cli\Uuid4IdentityCommand
+    tags:
+      - {name: console.command }

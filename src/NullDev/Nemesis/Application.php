@@ -30,9 +30,20 @@ final class Application extends BaseApplication
         $this->container = new ContainerBuilder();
 
         $loader = new YamlFileLoader($this->container, new FileLocator(__DIR__));
-        $loader->load('phpparser-services.yml');
-        $loader->load('skeleton-services.yml');
         $loader->load('services.yml');
+        $loader->load('cli.yml');
+
+        $loader->load('skeleton-services.yml');
+        $loader->load('skeleton-cli.yml');
+
+        $loader->load('phpparser-services.yml');
+
+        $loader->load('phpspec-services.yml');
+
+        $loader->load('phpunit-services.yml');
+
+        $loader->load('broadway-services.yml');
+        $loader->load('broadway-cli.yml');
 
         $this->container->addCompilerPass(new AutowirePass(true));
         $this->container->addCompilerPass(new PHPParserMethodCompilerPass());

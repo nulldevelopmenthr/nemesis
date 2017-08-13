@@ -1,0 +1,32 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  cli.command.broadway.command:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayCommandCliCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.broadway.read.doctrine:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayDoctrineOrmReadCliCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.broadway.read.elastic:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayElasticSearchReadCliCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.broadway.event:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayEventCliCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.broadway.model:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayModelCliCommand
+    tags:
+      - {name: console.command }
+
+      

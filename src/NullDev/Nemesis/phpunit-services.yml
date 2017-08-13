@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator: ~
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator: ~
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator: ~
+  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator: ~
+  NullDev\PHPUnitSkeleton\PHPUnitTestGenerator: ~
+
