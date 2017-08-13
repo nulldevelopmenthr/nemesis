@@ -58,6 +58,6 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
 
     protected function getFileContent(string $fileName): string
     {
-        return file_get_contents(__DIR__.'/example-outputs/'.$fileName.'.output');
+        return file_get_contents(__DIR__.'/sample-output/'.$fileName.'.output');
     }
 }
