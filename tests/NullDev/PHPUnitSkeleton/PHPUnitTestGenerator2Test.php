@@ -69,6 +69,6 @@ class PHPUnitTestGenerator2Test extends ContainerSupportedTestCase
 
     private function getFilePath(string $className): string
     {
-        return __DIR__.'/sample-data/'.str_replace('\\', '_', $className).'.output';
+        return __DIR__.'/sample-output/'.str_replace('\\', '_', $className).'.output';
     }
 }
