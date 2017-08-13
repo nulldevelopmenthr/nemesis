@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * @codeCoverageIgnore
  */
-class TacticianCompilerPass implements CompilerPassInterface
+class TacticianHandlerRegistrationCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
@@ -34,19 +34,6 @@ class TacticianCompilerPass implements CompilerPassInterface
                 }
                 $definition->addMethodCall('addHandler', [new Reference($id), $attributes['command']]);
             }
-        }
-    }
-
-    /**
-     * @param string $id
-     * @param array  $busIds
-     *
-     * @throws InvalidArgumentException
-     */
-    protected function abortIfInvalidBusId($id, array $busIds)
-    {
-        if (!in_array($id, $busIds)) {
-            throw new InvalidArgumentException('Invalid bus id "'.$id.'". Valid buses are: '.implode(', ', $busIds));
         }
     }
 }

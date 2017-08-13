@@ -33,3 +33,8 @@ services:
   NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
   NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
 
+
+  NullDev\Skeleton\PhpParserGeneratorMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 100 }
+

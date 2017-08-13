@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis;
 
+use League\Tactician\Middleware;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\PHPParserMethodCompilerPass;
-use NullDev\Skeleton\TacticianCompilerPass;
+use NullDev\Skeleton\TacticianHandlerRegistrationCompilerPass;
+use NullDev\Skeleton\TacticianMiddlewareRegistrationCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
@@ -49,8 +51,10 @@ final class Application extends BaseApplication
 
         $this->container->addCompilerPass(new AutowirePass(true));
         $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
-        $this->container->addCompilerPass(new TacticianCompilerPass());
+        $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
+        $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
         $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
+        //$this->container->registerForAutoconfiguration(Middleware::class)->addTag('tactician.middleware');
 
         parent::__construct('Nemesis', self::VERSION);
 
