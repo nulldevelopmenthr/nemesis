@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton\Definition\PHP;
+namespace NullDev\BroadwaySkeleton\Definition\PHP;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod;
@@ -11,24 +11,12 @@ use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMetho
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
-use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
+use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 
-/**
- * @see DefinitionFactorySpec
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- */
 class DefinitionFactory
 {
-    public function createParameter(string $name, Type $type): Parameter
-    {
-        return new Parameter($name, $type);
-    }
-
     public function createConstructorMethod(array $params): ConstructorMethod
     {
         return new ConstructorMethod($params);
@@ -39,24 +27,9 @@ class DefinitionFactory
         return new DeserializeMethod($classSource);
     }
 
-    public function createGetterMethod(Parameter $parameter): GetterMethod
-    {
-        return GetterMethod::create($parameter);
-    }
-
     public function createSerializeMethod(ImprovedClassSource $classSource): SerializeMethod
     {
         return new SerializeMethod($classSource);
-    }
-
-    public function createToStringMethod(Parameter $parameter): ToStringMethod
-    {
-        return new ToStringMethod($parameter);
-    }
-
-    public function createUuidCreateMethod(ClassType $classType): UuidCreateMethod
-    {
-        return new UuidCreateMethod($classType);
     }
 
     public function createBroadwayModelCreateMethod(ClassType $classType, array $parameters): CreateMethod
