@@ -6,28 +6,17 @@ namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\Builder\Param;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Arg;
-use PhpParser\Node\Expr\Array_;
-use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\Variable;
-use PhpParser\Node\Name;
-use PhpParser\Node\Scalar\DNumber;
-use PhpParser\Node\Scalar\LNumber;
-use PhpParser\Node\Scalar\String_;
 
 /**
  * @see ExposeGettersGeneratorSpec
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class ExposeGettersGenerator implements MethodGenerator
 {
@@ -77,34 +66,13 @@ class ExposeGettersGenerator implements MethodGenerator
                             'get'.ucfirst($param->getName())
                         ),
                         'shouldReturn',
-                        [$this->createShouldReturn($param)]
+                        [ParameterValueGenerator::generate($param)]
                     )
                 );
             }
         }
 
         return $node;
-    }
-
-    private function createShouldReturn(Parameter $parameter)
-    {
-        if (false === $parameter->hasType()) {
-            return new String_($parameter->getName());
-        }
-
-        if ($parameter->getType() instanceof StringType) {
-            return new String_($parameter->getName());
-        } elseif ($parameter->getType() instanceof IntType) {
-            return new LNumber(1);
-        } elseif ($parameter->getType() instanceof ArrayType) {
-            return new Array_([], ['kind' => Array_::KIND_SHORT]);
-        } elseif ($parameter->getType() instanceof FloatType) {
-            return new DNumber(2.0);
-        } elseif ($parameter->getType() instanceof BoolType) {
-            return new ConstFetch(new Name('true'));
-        }
-
-        throw new \Exception('ERR 242342123123: Unhandled argument received.');
     }
 
     private function isParameterEligibleForMethodParameter(Parameter $parameter): bool
