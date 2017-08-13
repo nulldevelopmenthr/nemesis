@@ -221,6 +221,12 @@ class PhpParserSourceParser implements SourceParser
 
     protected function createType(string $input): ?Type
     {
+        foreach ($this->imports as $import) {
+            if ($import->getName() === $input) {
+                return $import;
+            }
+        }
+
         $type = null;
 
         if ('' === $input) {
@@ -236,12 +242,6 @@ class PhpParserSourceParser implements SourceParser
         } elseif ('bool' === $input) {
             $type = new BoolType();
         } else {
-            foreach ($this->imports as $import) {
-                if ($import->getName() === $input) {
-                    return $import;
-                }
-            }
-
             if (class_exists($input)) {
                 $type = ClassType::createFromFullyQualified($input);
             } elseif (class_exists($this->namespace.'\\'.$input)) {
