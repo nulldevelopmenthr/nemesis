@@ -208,3 +208,38 @@ Feature: Getter methods
     Then result will have this getterMethods:
       | className | propertyName | getterName |
       | DateTime  | a            | getA       |
+
+
+  Scenario: It skips getters when constructor is private
+    Given source file contains:
+    """
+    namespace MyVendor;
+    class Something365{
+      private $a;
+      private $b;
+      private $c;
+      private function __construct(\DateTime $a,$b,$c){}
+      public function getA(){}
+      public function isB(){}
+      public function hasC(){}
+    }
+    """
+    When I parse it
+    Then result has 0 getter methods
+
+  Scenario: It skips getters when constructor is protected
+    Given source file contains:
+    """
+    namespace MyVendor;
+    class Something375{
+      private $a;
+      private $b;
+      private $c;
+      private function __construct(\DateTime $a,$b,$c){}
+      public function getA(){}
+      public function isB(){}
+      public function hasC(){}
+    }
+    """
+    When I parse it
+    Then result has 0 getter methods
