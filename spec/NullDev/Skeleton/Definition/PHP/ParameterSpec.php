@@ -20,6 +20,21 @@ class ParameterSpec extends ObjectBehavior
         $this->shouldHaveType(Parameter::class);
     }
 
+    public function it_can_be_instantiated_via_factory_method_without_specifying_type()
+    {
+        $this->create('name')->shouldReturnAnInstanceOf(Parameter::class);
+    }
+
+    public function it_can_be_instantiated_via_factory_method_with_specificing_static_type()
+    {
+        $this->create('name', 'string')->shouldReturnAnInstanceOf(Parameter::class);
+    }
+
+    public function it_can_be_instantiated_via_factory_method_with_specifying_class_name()
+    {
+        $this->create('name', '\DateTime')->shouldReturnAnInstanceOf(Parameter::class);
+    }
+
     public function it_exposes_name()
     {
         $this->getName()->shouldReturn('param');

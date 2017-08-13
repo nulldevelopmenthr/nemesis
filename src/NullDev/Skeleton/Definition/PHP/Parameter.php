@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\Types\Type;
+use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 
 /**
  * @see ParameterSpec
@@ -21,6 +22,11 @@ class Parameter
     {
         $this->name = $name;
         $this->type = $type;
+    }
+
+    public static function create(string $name, ?string $type = null): Parameter
+    {
+        return new self($name, TypeFactory::create($type));
     }
 
     public function getName(): string
