@@ -47,7 +47,7 @@ class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
         foreach ($data as $className => $fileName) {
             yield [
                 ClassType::createFromFullyQualified($className),
-                file_get_contents(__DIR__.'/sample-data/'.$fileName.'.output'),
+                file_get_contents(__DIR__.'/sample-output/'.$fileName.'.output'),
             ];
         }
     }
