@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\File;
 
-use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class FileResource
 {
-    /** @var Path */
-    private $path;
+    /** @var string */
+    private $fileName;
     /** @var ImprovedClassSource */
     private $classSource;
 
-    public function __construct(Path $path, ImprovedClassSource $classSource)
+    public function __construct(string $fileName, ImprovedClassSource $classSource)
     {
-        $this->path        = $path;
+        $this->fileName    = $fileName;
         $this->classSource = $classSource;
     }
 
@@ -27,6 +26,6 @@ class FileResource
 
     public function getFileName(): string
     {
-        return $this->path->getFileNameFor($this->classSource->getFullName());
+        return $this->fileName;
     }
 }

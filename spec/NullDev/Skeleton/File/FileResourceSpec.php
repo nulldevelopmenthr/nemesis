@@ -5,17 +5,16 @@ declare(strict_types=1);
 namespace spec\NullDev\Skeleton\File;
 
 use NullDev\Skeleton\File\FileResource;
-use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 
 class FileResourceSpec extends ObjectBehavior
 {
-    public function let(Path $path, ImprovedClassSource $classSource)
+    public function let(ImprovedClassSource $classSource)
     {
-        $classSource->getFullName()->willReturn('Namespace\\ClassName');
+        $classSource->getFullName()->willReturn('MyCompany\ClassName');
 
-        $this->beConstructedWith($path, $classSource);
+        $this->beConstructedWith('/var/www/somewhere/src/MyCompany/ClassName.php', $classSource);
     }
 
     public function it_is_initializable()
@@ -23,9 +22,13 @@ class FileResourceSpec extends ObjectBehavior
         $this->shouldHaveType(FileResource::class);
     }
 
-    public function it_know_file_name($path)
+    public function it_exposes_file_name()
     {
-        $path->getFileNameFor('Namespace\\ClassName')->willReturn('/var/www/somewhere/src/Namespace/ClassName.php');
-        $this->getFileName()->shouldReturn('/var/www/somewhere/src/Namespace/ClassName.php');
+        $this->getFileName()->shouldReturn('/var/www/somewhere/src/MyCompany/ClassName.php');
+    }
+
+    public function it_exposes_class_source(ImprovedClassSource $classSource)
+    {
+        $this->getClassSource()->shouldReturn($classSource);
     }
 }

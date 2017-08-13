@@ -26,9 +26,21 @@ class FileFactorySpec extends ObjectBehavior
 
     public function it_will_create_file_resource(ImprovedClassSource $classSource, $path1)
     {
-        $classSource->getFullName()->willReturn('Namespace\\ClassName');
-        $path1->belongsTo('Namespace\\ClassName')->willReturn(true);
+        $classSource
+            ->getFullName()
+            ->shouldBeCalled()
+            ->willReturn('Namespace\\ClassName');
 
-        $this->create($classSource)->shouldReturnAnInstanceOf(FileResource::class);
+        $path1
+            ->belongsTo('Namespace\\ClassName')
+            ->shouldBeCalled()
+            ->willReturn(true);
+        $path1
+            ->getFileNameFor('Namespace\\ClassName')
+            ->shouldBeCalled()
+            ->willReturn('/var/www/somewhere/src/MyCompany/ClassName.php');
+
+        $this->create($classSource)
+            ->shouldReturnAnInstanceOf(FileResource::class);
     }
 }

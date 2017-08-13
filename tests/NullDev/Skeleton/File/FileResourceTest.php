@@ -24,7 +24,7 @@ class FileResourceTest extends PHPUnit_Framework_TestCase
 
     public function setUp(): void
     {
-        $this->fileResource = new FileResource(Mockery::mock(Path::class), Mockery::mock(ImprovedClassSource::class));
+        $this->fileResource = new FileResource('/path/something.php', Mockery::mock(ImprovedClassSource::class));
     }
 
     public function testNothing(): void
