@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace spec\NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
 
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMethod;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\SerializeMethod;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
 use DateTime;
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;

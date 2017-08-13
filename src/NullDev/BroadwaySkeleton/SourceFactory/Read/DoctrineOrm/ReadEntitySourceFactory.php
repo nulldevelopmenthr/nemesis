@@ -6,7 +6,7 @@ namespace NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
 
 use Broadway\ReadModel\Identifiable;
 use Broadway\Serializer\Serializable;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Source\ClassSourceFactory;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\SourceFactory;
 
 use Broadway\Serializer\Serializable;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Source\ClassSourceFactory;

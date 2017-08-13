@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
 
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
