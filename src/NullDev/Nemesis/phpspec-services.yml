@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator: ~
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
+  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethodFactory: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory: ~
+  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory: ~
+  NullDev\PhpSpecSkeleton\SpecGenerator: ~

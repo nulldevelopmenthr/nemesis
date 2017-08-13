@@ -4,40 +4,6 @@ services:
     autoconfigure: true
     public: true
 
-  cli.command.nemesis.index:
-    class: NullDev\Nemesis\Command\GeneratePHPUnitTestsCliCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.nemesis.identity:
-    class: NullDev\Skeleton\Uuid\Cli\Uuid4IdentityCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.broadway.command:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayCommandCliCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.broadway.read.doctrine:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayDoctrineOrmReadCliCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.broadway.read.elastic:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayElasticSearchReadCliCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.broadway.event:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayEventCliCommand
-    tags:
-      - {name: console.command }
-
-  cli.command.broadway.model:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayModelCliCommand
-    tags:
-      - {name: console.command }
 
   NullDev\Nemesis\Config\ConfigFactory: ~
 
@@ -46,7 +12,7 @@ services:
     factory: ['@NullDev\Nemesis\Config\ConfigFactory', create]
 
 
-  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
-
   NullDev\Nemesis\PhpParserSourceParser: ~
   NullDev\Nemesis\ReflectionSourceParser: ~
+
+  Symfony\Component\Filesystem\Filesystem: ~

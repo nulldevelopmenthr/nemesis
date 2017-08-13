@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler: ~
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler: ~
+
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\CreateGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\RepositoryConstructorGenerator: ~
+  NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory: ~
+  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory: ~

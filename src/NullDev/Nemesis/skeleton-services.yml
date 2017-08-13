@@ -12,6 +12,7 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator: ~
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
+
   NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
   NullDev\Skeleton\Command\BroadwayCommandCliCommand: ~
   NullDev\Skeleton\Command\BroadwayDoctrineOrmReadCliCommand: ~
@@ -19,7 +20,6 @@ services:
   NullDev\Skeleton\Command\BroadwayEventCliCommand: ~
   NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
 
-  NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
 
   NullDev\Skeleton\SourceFactory\Uuid4IdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
@@ -30,44 +30,6 @@ services:
   NullDev\Skeleton\Suggestions\ClassSuggestions: ~
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
 
-  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator: ~
-  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator: ~
-  NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator: ~
-  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethodFactory: ~
-  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethodFactory: ~
-  NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethodFactory: ~
-  NullDev\PhpSpecSkeleton\SpecGenerator: ~
+  NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
+  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
 
-  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator: ~
-  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator: ~
-  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator: ~
-  NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator: ~
-  NullDev\PHPUnitSkeleton\PHPUnitTestGenerator: ~
-
-
-  #NullDev\BroadwaySkeleton services (not cleaned up)
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler: ~
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler: ~
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler: ~
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler: ~
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler: ~
-
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator: ~
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator: ~
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator: ~
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\CreateGenerator: ~
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\ReadModelIdGetterGenerator: ~
-  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\RepositoryConstructorGenerator: ~
-  NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory: ~
-  NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory: ~
-
-  Symfony\Component\Filesystem\Filesystem: ~
