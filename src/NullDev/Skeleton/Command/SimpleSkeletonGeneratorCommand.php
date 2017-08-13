@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Command;
 
 use NullDev\Skeleton\File\FileFactory;
+use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
@@ -53,10 +54,12 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
         return $this->askForClassName();
     }
 
-    protected function handleGeneratingFile(string $fileName, string $output): void
+    protected function handleGeneratingFile(OutputResource $outputResource): void
     {
+        $fileName = $outputResource->getFileName();
+
         if ($this->fileNotExistsOrShouldBeOwerwritten($fileName)) {
-            $this->getService(Filesystem::class)->dumpFile($fileName, $output);
+            $this->getService(Filesystem::class)->dumpFile($fileName, $outputResource->getOutput());
 
             $this->io->writeln("Created '$fileName' file.");
         } else {

@@ -21,7 +21,6 @@ services:
   NullDev\Skeleton\Command\BroadwayModelCliCommand: ~
 
 
-  NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
   NullDev\Skeleton\File\FileFactory: ~
 
   NullDev\Skeleton\Path\Readers\FinderFactory: ~
@@ -31,7 +30,16 @@ services:
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
 
   NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
-  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler: ~
+  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\Skeleton\Uuid\Command\CreateUuidClass' }
+
+  NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
+
+
+  NullDev\Skeleton\PhpParserGeneratorMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 100 }
 
 
   NullDev\Skeleton\PhpParserGeneratorMiddleware:
