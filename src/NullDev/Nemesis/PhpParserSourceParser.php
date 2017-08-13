@@ -93,15 +93,11 @@ class PhpParserSourceParser implements SourceParser
         }
 
         return $results;
-
-        //die('TEMP DONE'.PHP_EOL.PHP_EOL.PHP_EOL);
     }
 
     private function parseClass(Class_ $classStatement, ?string $namespaceName): ImprovedClassSource
     {
         $className = (string) $classStatement->name;
-
-        //var_dump('classname:'.$className);
 
         $this->class = new ImprovedClassSource(new ClassType($className, $namespaceName));
 
@@ -153,8 +149,6 @@ class PhpParserSourceParser implements SourceParser
     private function parseMethod(ClassMethod $classMethodStatement): Method
     {
         $methodName = $classMethodStatement->name;
-
-        //var_dump('method:'.$methodName);
 
         if ('__construct' === $methodName) {
             $params = [];

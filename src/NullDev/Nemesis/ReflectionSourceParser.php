@@ -117,10 +117,6 @@ class ReflectionSourceParser implements SourceParser
             }
         }
 
-        ///
-        //methods
-        ///
-
         foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $reflectionMethod) {
             $methodName = $reflectionMethod->getName();
             if ('__construct' === $methodName) {
