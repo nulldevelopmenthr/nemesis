@@ -8,7 +8,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something301{}
+    class Something300{}
     """
     When I parse it
     Then result has 0 getter methods
@@ -18,7 +18,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something302{
+    class Something305{
       public function __construct(){}
     }
     """
@@ -29,7 +29,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something303{
+    class Something310{
       public function doSomething(){}
     }
     """
@@ -40,7 +40,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something304{
+    class Something315{
       private $a;
       public function __construct($a){}
       public function getA(){}
@@ -56,7 +56,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something305{
+    class Something320{
       private $a;
       public function __construct($a){}
       public function isA(){}
@@ -72,7 +72,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something306{
+    class Something325{
       private $a;
       public function __construct($a){}
       public function hasA(){}
@@ -89,7 +89,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something307{
+    class Something330{
       public function getA(){}
       public function isB(){}
       public function hasC(){}
@@ -103,7 +103,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something308{
+    class Something335{
       private $a;
       public function __construct($a){}
       public function getA(){}
@@ -120,7 +120,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something309{
+    class Something340{
       private $a;
       public function getA(){}
     }
@@ -132,7 +132,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something310{
+    class Something345{
       private $a;
       private $b;
       private $c;
@@ -155,7 +155,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something311{
+    class Something350{
       private $a;
       private $b;
       private $c;
@@ -178,7 +178,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something312{
+    class Something355{
       private $a;
       private $b;
       public function __construct(\DateTime $a, bool $b){}
@@ -193,7 +193,7 @@ Feature: Getter methods
     Given source file contains:
     """
     namespace MyVendor;
-    class Something313{
+    class Something360{
       private $a;
       private $b;
       private $c;
