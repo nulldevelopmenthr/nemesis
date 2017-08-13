@@ -102,7 +102,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
                 $className = str_replace('/', '\\', $input);
 
                 // Check there is namespace defined.
-                if (false === strpos($input, '\\')) {
+                if (false === strpos($className, '\\')) {
                     throw new \RuntimeException('No namespace, please enter it');
                 }
 
