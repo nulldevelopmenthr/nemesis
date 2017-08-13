@@ -37,4 +37,9 @@ class FileFactory
     {
         return $this->getPathItBelongsTo($classSource)->getFileNameFor($classSource->getFullName());
     }
+
+    public function createOutputResource(ImprovedClassSource $classSource, string $output): OutputResource
+    {
+        return new OutputResource($this->getPath($classSource), $classSource, $output);
+    }
 }
