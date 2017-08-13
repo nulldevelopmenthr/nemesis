@@ -1,0 +1,29 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use PHPUnit_Framework_TestCase;
+use Something\CreateUserCommand;
+/**
+* @covers \Something\CreateUserCommand
+* @group todo
+*/
+class CreateUserCommandTest extends PHPUnit_Framework_TestCase
+{
+    use MockeryPHPUnitIntegration;
+    /** @var string */
+    private $id;
+    /** @var CreateUserCommand */
+    private $createUserCommand;
+    public function setUp()
+    {
+        $this->id = 'id';
+        $this->createUserCommand = new CreateUserCommand($this->id);
+    }
+    public function testGetId()
+    {
+        self::assertEquals($this->id, $this->createUserCommand->getId());
+    }
+}
