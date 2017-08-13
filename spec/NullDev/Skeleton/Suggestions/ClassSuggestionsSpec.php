@@ -35,6 +35,15 @@ class ClassSuggestionsSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($input);
 
-        $this->suggest()->shouldReturn($input);
+        $expected = [
+            'Vendor/',
+            'Vendor/Namespace/',
+            'Vendor/Namespace/Product/Product',
+            'Vendor/Namespace/Product/ProductId',
+            'Vendor/Namespace/User/',
+            'Vendor/Namespace/User/User',
+        ];
+
+        $this->suggest()->shouldReturn($expected);
     }
 }

@@ -22,6 +22,12 @@ class ClassSuggestions
 
     public function suggest(): array
     {
-        return $this->pathReader->getExistingSourceCodeClassNames();
+        $results = [];
+
+        foreach ($this->pathReader->getExistingSourceCodeClassNames() as $item) {
+            $results[] = str_replace('\\', '/', $item);
+        }
+
+        return $results;
     }
 }
