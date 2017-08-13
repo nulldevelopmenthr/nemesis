@@ -17,6 +17,7 @@
         "php": ">=7.1.0",
         "friendsofphp/php-cs-fixer": "^2.4",
         "hanneskod/classtools": "^1.1",
+        "league/tactician": "^1.0",
         "nikic/php-parser": "^3.0",
         "symfony/config": "^3.3",
         "symfony/dependency-injection": "^3.3",
