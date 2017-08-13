@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace tests\NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch;
 
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use PHPUnit_Framework_TestCase;
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\SourceFactory;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use NullDev\Skeleton\Definition\PHP\DefinitionFactory;
+use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
