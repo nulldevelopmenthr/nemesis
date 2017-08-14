@@ -12,7 +12,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Theater\NamingStrategy\NamingStrategyFactory
- * @group  todo
+ * @group  integration
  */
 class NamingStrategyFactoryTest extends PHPUnit_Framework_TestCase
 {
