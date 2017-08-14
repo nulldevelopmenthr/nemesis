@@ -113,4 +113,20 @@ class BoundedContextConfig
     {
         return $this->eventClassNames;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'namespace' => $this->namespace->getValue(),
+            'classes'   => [
+                'id'         => $this->rootIdClassName->getFullName(),
+                'model'      => $this->modelClassName->getFullName(),
+                'repository' => $this->repositoryClassName->getFullName(),
+                'handler'    => $this->commandHanderClassName->getFullName(),
+                'entities'   => [],
+                'commands'   => [],
+                'events'     => [],
+            ],
+        ];
+    }
 }

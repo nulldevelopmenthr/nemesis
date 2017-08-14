@@ -127,4 +127,33 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
         $this->config->addEvent($event);
         self::assertEquals([$event], $this->config->getEventClassNames());
     }
+
+    public function testToArray()
+    {
+        $this->namespace->shouldReceive('getValue')
+            ->andReturn('MyCompany\Webshop\Buyers');
+        $this->rootIdClassName->shouldReceive('getFullName')
+            ->andReturn('MyCompany\Webshop\Buyers\Core\BuyerId');
+        $this->modelClassName->shouldReceive('getFullName')
+            ->andReturn('MyCompany\Webshop\Buyers\Domain\BuyerModel');
+        $this->repositoryClassName->shouldReceive('getFullName')
+            ->andReturn('MyCompany\Webshop\Buyers\Domain\BuyerRepository');
+        $this->commandHanderClassName->shouldReceive('getFullName')
+            ->andReturn('MyCompany\Webshop\Buyers\Application\BuyersCommandHandler');
+
+        $expected =[
+            'namespace' => 'MyCompany\Webshop\Buyers',
+            'classes'   => [
+                'id'         => 'MyCompany\Webshop\Buyers\Core\BuyerId',
+                'model'      => 'MyCompany\Webshop\Buyers\Domain\BuyerModel',
+                'repository' => 'MyCompany\Webshop\Buyers\Domain\BuyerRepository',
+                'handler'    => 'MyCompany\Webshop\Buyers\Application\BuyersCommandHandler',
+                'entities'   => [],
+                'commands'   => [],
+                'events'     => [],
+            ],
+        ];
+
+        self::assertEquals($expected, $this->config->toArray());
+    }
 }
