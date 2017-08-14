@@ -12,4 +12,8 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
  */
 class RootRepositoryClassName extends ClassType
 {
+    public static function create(string $fullName): self
+    {
+        return parent::createFromFullyQualified($fullName);
+    }
 }

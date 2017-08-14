@@ -12,4 +12,8 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
  */
 class RootModelClassName extends ClassType
 {
+    public static function create(string $fullName): self
+    {
+        return parent::createFromFullyQualified($fullName);
+    }
 }
