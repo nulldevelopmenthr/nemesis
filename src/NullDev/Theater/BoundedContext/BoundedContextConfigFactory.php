@@ -20,11 +20,8 @@ class BoundedContextConfigFactory
         $this->namingStrategyFactory = $namingStrategyFactory;
     }
 
-    public function create(string $name, string $namespace): BoundedContextConfig
+    public function create(ContextName $contextName, ContextNamespace $contextNamespace): BoundedContextConfig
     {
-        $contextName      = new ContextName($name);
-        $contextNamespace = new ContextNamespace($namespace);
-
         $namingStrategy = $this->namingStrategyFactory->theater($contextName, $contextNamespace);
 
         return new BoundedContextConfig(

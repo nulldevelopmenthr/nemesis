@@ -30,6 +30,8 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_bounded_context_configuration_from_given_strings(
+        ContextName $contextName,
+        ContextNamespace $contextNamespace,
         NamingStrategyFactory $namingStrategyFactory,
         TheaterNamingStrategy $namingStrategy,
         RootIdClassName $rootIdClassName,
@@ -37,7 +39,7 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
         RootRepositoryClassName $repositoryClassName,
         CommandHanderClassName $commandHanderClassName
     ) {
-        $namingStrategyFactory->theater(Argument::type(ContextName::class), Argument::type(ContextNamespace::class))
+        $namingStrategyFactory->theater($contextName, $contextNamespace)
             ->shouldBeCalled()
             ->willReturn($namingStrategy);
 
@@ -57,7 +59,9 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($commandHanderClassName);
 
-        $this->create('Buyer', 'MyCompany\Webshop\Buyers')
+        $this->create($contextName, $contextNamespace)
+            ->shouldReturnAnInstanceOf(BoundedContextConfig::class);
+    }
             ->shouldReturnAnInstanceOf(BoundedContextConfig::class);
     }
 }
