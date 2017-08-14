@@ -49,6 +49,8 @@ final class Application extends BaseApplication
         $loader->load('broadway-services.yml');
         $loader->load('broadway-cli.yml');
 
+        $loader->load('theater-services.yml');
+
         $this->container->addCompilerPass(new AutowirePass(true));
         $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
         $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
