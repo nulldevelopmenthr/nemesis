@@ -7,6 +7,8 @@ namespace tests\NullDev\Theater\BoundedContext;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
+use NullDev\Theater\BoundedContext\ContextName;
+use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -36,6 +38,28 @@ class BoundedContextConfigFactoryTest extends PHPUnit_Framework_TestCase
         self::assertInstanceOf(
             BoundedContextConfig::class,
             $this->boundedContextConfigFactory->create($name, $namespace)
+        );
+    }
+
+    public function testcreateFromArray()
+    {
+        $name      = 'Webshop';
+        $input     = [
+            'namespace' => 'MyCompany\Webshop\Buyers',
+            'classes'   => [
+                'id'         => 'MyCompany\Webshop\Buyers\Core\BuyerId',
+                'model'      => 'MyCompany\Webshop\Buyers\Domain\BuyerModel',
+                'repository' => 'MyCompany\Webshop\Buyers\Domain\BuyerRepository',
+                'handler'    => 'MyCompany\Webshop\Buyers\Application\BuyersCommandHandler',
+                'entities'   => [],
+                'commands'   => [],
+                'events'     => [],
+            ],
+        ];
+
+        self::assertInstanceOf(
+            BoundedContextConfig::class,
+            $this->boundedContextConfigFactory->createFromArray($name, $input)
         );
     }
 }
