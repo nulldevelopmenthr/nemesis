@@ -4,6 +4,11 @@ services:
     autoconfigure: true
     public: true
 
+  cli.command.broadway.bounded_context.add:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayAddBoundedContextCliCommand
+    tags:
+      - {name: console.command }
+
   cli.command.broadway.command:
     class: NullDev\BroadwaySkeleton\Cli\BroadwayCommandCliCommand
     tags:
