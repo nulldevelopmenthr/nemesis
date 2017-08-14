@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\BoundedContext;
 
+use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
+
 /**
  * @see BoundedContextConfigFactorySpec
  * @see BoundedContextConfigFactoryTest
  */
 class BoundedContextConfigFactory
 {
-    /**
-     * @var \NullDev\Theater\NamingStrategy\NamingStrategyFactory
-     */
+    /** @var NamingStrategyFactory */
     private $namingStrategyFactory;
 
-    public function __construct(\NullDev\Theater\NamingStrategy\NamingStrategyFactory $namingStrategyFactory)
+    public function __construct(NamingStrategyFactory $namingStrategyFactory)
     {
         $this->namingStrategyFactory = $namingStrategyFactory;
     }
