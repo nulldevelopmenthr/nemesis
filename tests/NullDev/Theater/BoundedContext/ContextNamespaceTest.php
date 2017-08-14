@@ -11,7 +11,7 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Theater\BoundedContext\ContextNamespace
- * @group todo
+ * @group  unit
  */
 class ContextNamespaceTest extends PHPUnit_Framework_TestCase
 {
