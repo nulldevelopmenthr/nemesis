@@ -23,7 +23,7 @@ class ContextNamespaceTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->namespace        = 'MyCompany\SecretProject\Namespace\\';
+        $this->namespace        = 'MyCompany\SecretProject\Namespace';
         $this->contextNamespace = new ContextNamespace($this->namespace);
     }
 
@@ -52,7 +52,7 @@ class ContextNamespaceTest extends PHPUnit_Framework_TestCase
     {
         return [
             ['', 'Namespace should not be empty.'],
-            ['Something\User', 'Namespace must end with \.'],
+            ['Something\User\\', 'Namespace must not end with \.'],
         ];
     }
 }

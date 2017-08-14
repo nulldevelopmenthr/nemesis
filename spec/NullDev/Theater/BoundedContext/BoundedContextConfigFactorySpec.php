@@ -57,7 +57,7 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($commandHanderClassName);
 
-        $this->create('Buyer', 'MyCompany\Webshop\Buyers\\')
+        $this->create('Buyer', 'MyCompany\Webshop\Buyers')
             ->shouldReturnAnInstanceOf(BoundedContextConfig::class);
     }
 }

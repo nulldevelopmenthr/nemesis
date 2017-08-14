@@ -31,7 +31,7 @@ class BoundedContextConfigFactoryTest extends PHPUnit_Framework_TestCase
     public function testCreate()
     {
         $name      = 'Webshop';
-        $namespace = 'MyCompany\Webshop\\';
+        $namespace = 'MyCompany\Webshop';
 
         self::assertInstanceOf(
             BoundedContextConfig::class,

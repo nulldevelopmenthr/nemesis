@@ -12,7 +12,7 @@ class ContextNamespaceSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith($namespace = 'MyCompany\User\\');
+        $this->beConstructedWith($namespace = 'MyCompany\User');
     }
 
     public function it_is_initializable()
@@ -22,19 +22,19 @@ class ContextNamespaceSpec extends ObjectBehavior
 
     public function it_exposes_namespace_via_get_value()
     {
-        $this->getValue()->shouldReturn('MyCompany\User\\');
+        $this->getValue()->shouldReturn('MyCompany\User');
     }
 
     public function it_can_be_converted_to_string()
     {
-        $this->__toString()->shouldReturn('MyCompany\User\\');
+        $this->__toString()->shouldReturn('MyCompany\User');
     }
 
     public function it_will_throw_exception_if_no_backslash_at_the_end_of_namespace()
     {
-        $expectedException = new Exception('Namespace must end with \\.');
+        $expectedException = new Exception('Namespace must not end with \\.');
 
-        $this->shouldThrow($expectedException)->during('__construct', ['MyCompany\User']);
+        $this->shouldThrow($expectedException)->during('__construct', ['MyCompany\User\\']);
     }
 
     public function it_will_throw_exception_if_empty_string_given()
