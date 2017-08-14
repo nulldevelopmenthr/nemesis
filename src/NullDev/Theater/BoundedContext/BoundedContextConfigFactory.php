@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\BoundedContext;
 
+use NullDev\Theater\Naming\Aggregate\EntityClassName;
+use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDev\Theater\Naming\Aggregate\RootModelClassName;
+use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
+use NullDev\Theater\Naming\CommandClassName;
+use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 
 /**
@@ -32,5 +39,32 @@ class BoundedContextConfigFactory
             $namingStrategy->aggregateRootRepository(),
             $namingStrategy->commandHandler()
         );
+    }
+
+    public function createFromArray(string $name, array $data): BoundedContextConfig
+    {
+        $contextName = new ContextName($name);
+
+        $config = new BoundedContextConfig(
+            $contextName,
+            new ContextNamespace($data['namespace']),
+            RootIdClassName::create($data['classes']['id']),
+            RootModelClassName::create($data['classes']['model']),
+            RootRepositoryClassName::create($data['classes']['repository']),
+            CommandHanderClassName::create($data['classes']['handler'])
+        );
+
+        foreach ($data['classes']['entities'] as $entity) {
+            $config->addEntity(EntityClassName::create($entity));
+        }
+
+        foreach ($data['classes']['commands'] as $command) {
+            $config->addCommand(CommandClassName::create($command));
+        }
+        foreach ($data['classes']['events'] as $event) {
+            $config->addEvent(EventClassName::create($event));
+        }
+
+        return $config;
     }
 }
