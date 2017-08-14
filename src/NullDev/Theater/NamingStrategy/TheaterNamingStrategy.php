@@ -87,17 +87,17 @@ class TheaterNamingStrategy implements NamingStrategy
 
     private function getCoreNamespace(): string
     {
-        return $this->getNamespace().'Core';
+        return $this->getNamespace().'\Core';
     }
 
     private function getDomainNamespace(): string
     {
-        return $this->getNamespace().'Domain';
+        return $this->getNamespace().'\Domain';
     }
 
     private function getApplicationNamespace(): string
     {
-        return $this->getNamespace().'Application';
+        return $this->getNamespace().'\Application';
     }
 
     private function getName(): string

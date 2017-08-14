@@ -32,7 +32,7 @@ class TheaterNamingStrategyTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->contextName           = new ContextName('Webshop');
-        $this->contextNamespace      = new ContextNamespace('MyCompany\Webshop\\');
+        $this->contextNamespace      = new ContextNamespace('MyCompany\Webshop');
         $this->theaterNamingStrategy = new TheaterNamingStrategy($this->contextName, $this->contextNamespace);
     }
 

@@ -28,7 +28,7 @@ class NamingStrategyFactoryTest extends PHPUnit_Framework_TestCase
     {
         self::assertInstanceOf(
             TheaterNamingStrategy::class,
-            $this->factory->theater(new ContextName('Webshop'), new ContextNamespace('MyCompany\Webshop\\'))
+            $this->factory->theater(new ContextName('Webshop'), new ContextNamespace('MyCompany\Webshop'))
         );
     }
 }

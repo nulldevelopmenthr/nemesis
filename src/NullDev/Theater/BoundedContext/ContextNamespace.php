@@ -19,7 +19,7 @@ class ContextNamespace
     {
         Assert::notEmpty($namespace, 'Namespace should not be empty.');
 
-        Assert::true(substr($namespace, -1) === '\\', 'Namespace must end with \\.');
+        Assert::false(substr($namespace, -1) === '\\', 'Namespace must not end with \\.');
 
         $this->namespace = $namespace;
     }
