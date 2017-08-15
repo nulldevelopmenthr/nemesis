@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis\Config;
 
+use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Path\Psr4Path;
 use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
@@ -48,21 +49,25 @@ class Config
         $this->baseTestClassName = $baseTestClassName;
     }
 
+    /** @return Path[]|array */
     public function getSourceCodePaths(): array
     {
         return $this->sourceCodePaths;
     }
 
+    /** @return Path[]|array */
     public function getSpecPaths(): array
     {
         return $this->specPaths;
     }
 
+    /** @return Path[]|array */
     public function getTestPaths(): array
     {
         return $this->testPaths;
     }
 
+    /** @return Path[]|array */
     public function getPaths(): array
     {
         return array_merge($this->testPaths, $this->specPaths, $this->sourceCodePaths);

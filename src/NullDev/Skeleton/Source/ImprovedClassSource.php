@@ -141,6 +141,7 @@ class ImprovedClassSource
         return true;
     }
 
+    /** @return InterfaceType[]|array */
     public function getInterfaces(): array
     {
         return $this->interfaces;
@@ -165,6 +166,7 @@ class ImprovedClassSource
         return true;
     }
 
+    /** @return TraitType[]|array */
     public function getTraits(): array
     {
         return $this->traits;
@@ -205,6 +207,7 @@ class ImprovedClassSource
         return $this->constructor;
     }
 
+    /** @return Parameter[]|array */
     public function getConstructorParameters(): array
     {
         if (false === $this->hasConstructorMethod()) {
@@ -232,6 +235,7 @@ class ImprovedClassSource
         }
     }
 
+    /** @return Parameter[]|array */
     public function getProperties(): array
     {
         return $this->properties;
@@ -271,6 +275,7 @@ class ImprovedClassSource
         $this->methods[] = $method;
     }
 
+    /** @return Method[]|array */
     public function getMethods(): array
     {
         return $this->methods;
@@ -297,6 +302,7 @@ class ImprovedClassSource
         }
     }
 
+    /** @return Type[]|array */
     public function getImports(): array
     {
         $sorter = function ($first, $second) {

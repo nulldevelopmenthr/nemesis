@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class SerializeMethod implements Method
@@ -16,6 +17,7 @@ class SerializeMethod implements Method
         $this->classSource = $classSource;
     }
 
+    /** @return Parameter[]|array */
     public function getProperties(): array
     {
         return $this->classSource->getProperties();
