@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis;
 
-use League\Tactician\Middleware;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\PHPParserMethodCompilerPass;
 use NullDev\Skeleton\TacticianHandlerRegistrationCompilerPass;
@@ -56,7 +55,6 @@ final class Application extends BaseApplication
         $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
         $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
         $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
-        //$this->container->registerForAutoconfiguration(Middleware::class)->addTag('tactician.middleware');
 
         parent::__construct('Nemesis', self::VERSION);
 
