@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Types\Type;
 
 class ExposeGettersMethod implements Method
 {
@@ -15,6 +17,7 @@ class ExposeGettersMethod implements Method
         $this->params = $params;
     }
 
+    /** @return Type[]|array */
     public function getParamsAsClassTypes(): array
     {
         $result = [];
@@ -42,6 +45,7 @@ class ExposeGettersMethod implements Method
         return 'it_should_expose_constructor_arguments_via_getters';
     }
 
+    /** @return Parameter[]|array */
     public function getMethodParameters(): array
     {
         return $this->params;
