@@ -15,7 +15,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use PHPUnit_Framework_TestCase;
 
@@ -36,26 +36,26 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
     private $modelClassName;
     /** @var MockInterface|RootRepositoryClassName */
     private $repositoryClassName;
-    /** @var MockInterface|CommandHanderClassName */
-    private $commandHanderClassName;
+    /** @var MockInterface|CommandHandlerClassName */
+    private $commandHandlerClassName;
     /** @var BoundedContextConfig */
     private $config;
 
     public function setUp()
     {
-        $this->name                   = Mockery::mock(ContextName::class);
-        $this->namespace              = Mockery::mock(ContextNamespace::class);
-        $this->rootIdClassName        = Mockery::mock(RootIdClassName::class);
-        $this->modelClassName         = Mockery::mock(RootModelClassName::class);
-        $this->repositoryClassName    = Mockery::mock(RootRepositoryClassName::class);
-        $this->commandHanderClassName = Mockery::mock(CommandHanderClassName::class);
-        $this->config                 = new BoundedContextConfig(
+        $this->name                    = Mockery::mock(ContextName::class);
+        $this->namespace               = Mockery::mock(ContextNamespace::class);
+        $this->rootIdClassName         = Mockery::mock(RootIdClassName::class);
+        $this->modelClassName          = Mockery::mock(RootModelClassName::class);
+        $this->repositoryClassName     = Mockery::mock(RootRepositoryClassName::class);
+        $this->commandHandlerClassName = Mockery::mock(CommandHandlerClassName::class);
+        $this->config                  = new BoundedContextConfig(
             $this->name,
             $this->namespace,
             $this->rootIdClassName,
             $this->modelClassName,
             $this->repositoryClassName,
-            $this->commandHanderClassName
+            $this->commandHandlerClassName
         );
     }
 
@@ -84,9 +84,9 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
         self::assertEquals($this->repositoryClassName, $this->config->getRepositoryClassName());
     }
 
-    public function testGetCommandHanderClassName()
+    public function testGetCommandHandlerClassName()
     {
-        self::assertEquals($this->commandHanderClassName, $this->config->getCommandHanderClassName());
+        self::assertEquals($this->commandHandlerClassName, $this->config->getCommandHandlerClassName());
     }
 
     public function testGetEntityClassNames()
@@ -138,7 +138,7 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
             ->andReturn('MyCompany\Webshop\Buyers\Domain\BuyerModel');
         $this->repositoryClassName->shouldReceive('getFullName')
             ->andReturn('MyCompany\Webshop\Buyers\Domain\BuyerRepository');
-        $this->commandHanderClassName->shouldReceive('getFullName')
+        $this->commandHandlerClassName->shouldReceive('getFullName')
             ->andReturn('MyCompany\Webshop\Buyers\Application\BuyersCommandHandler');
 
         $expected =[

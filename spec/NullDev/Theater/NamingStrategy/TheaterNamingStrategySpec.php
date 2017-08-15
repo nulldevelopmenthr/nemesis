@@ -11,7 +11,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\NamingStrategy;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
@@ -59,7 +59,7 @@ class TheaterNamingStrategySpec extends ObjectBehavior
     public function it_should_name_command_handler_from_given_context_name_and_namespace()
     {
         $this->commandHandler()
-            ->shouldReturnAnInstanceOf(CommandHanderClassName::class);
+            ->shouldReturnAnInstanceOf(CommandHandlerClassName::class);
     }
 
     public function it_should_name_command()

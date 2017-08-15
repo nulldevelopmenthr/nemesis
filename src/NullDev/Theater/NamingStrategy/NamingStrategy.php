@@ -9,7 +9,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 
 interface NamingStrategy
@@ -22,7 +22,7 @@ interface NamingStrategy
 
     public function aggregateEntity(string $entityName): EntityClassName;
 
-    public function commandHandler(): CommandHanderClassName;
+    public function commandHandler(): CommandHandlerClassName;
 
     public function command(string $commandName): CommandClassName;
 

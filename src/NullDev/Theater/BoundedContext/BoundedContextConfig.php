@@ -9,7 +9,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 
 /**
@@ -28,8 +28,8 @@ class BoundedContextConfig
     private $modelClassName;
     /** @var RootRepositoryClassName */
     private $repositoryClassName;
-    /** @var CommandHanderClassName */
-    private $commandHanderClassName;
+    /** @var CommandHandlerClassName */
+    private $commandHandlerClassName;
 
     /** @var EntityClassName[]|array */
     private $entityClassNames = [];
@@ -44,14 +44,14 @@ class BoundedContextConfig
         RootIdClassName $rootIdClassName,
         RootModelClassName $modelClassName,
         RootRepositoryClassName $repositoryClassName,
-        CommandHanderClassName $commandHanderClassName
+        CommandHandlerClassName $commandHandlerClassName
     ) {
-        $this->name                   = $name;
-        $this->namespace              = $namespace;
-        $this->rootIdClassName        = $rootIdClassName;
-        $this->modelClassName         = $modelClassName;
-        $this->repositoryClassName    = $repositoryClassName;
-        $this->commandHanderClassName = $commandHanderClassName;
+        $this->name                    = $name;
+        $this->namespace               = $namespace;
+        $this->rootIdClassName         = $rootIdClassName;
+        $this->modelClassName          = $modelClassName;
+        $this->repositoryClassName     = $repositoryClassName;
+        $this->commandHandlerClassName = $commandHandlerClassName;
     }
 
     public function addEntity(EntityClassName $entityClassName)
@@ -94,9 +94,9 @@ class BoundedContextConfig
         return $this->repositoryClassName;
     }
 
-    public function getCommandHanderClassName(): CommandHanderClassName
+    public function getCommandHandlerClassName(): CommandHandlerClassName
     {
-        return $this->commandHanderClassName;
+        return $this->commandHandlerClassName;
     }
 
     public function getEntityClassNames(): array
@@ -122,7 +122,7 @@ class BoundedContextConfig
                 'id'         => $this->rootIdClassName->getFullName(),
                 'model'      => $this->modelClassName->getFullName(),
                 'repository' => $this->repositoryClassName->getFullName(),
-                'handler'    => $this->commandHanderClassName->getFullName(),
+                'handler'    => $this->commandHandlerClassName->getFullName(),
                 'entities'   => [],
                 'commands'   => [],
                 'events'     => [],

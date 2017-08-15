@@ -12,7 +12,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use PhpSpec\ObjectBehavior;
 
@@ -24,7 +24,7 @@ class BoundedContextConfigSpec extends ObjectBehavior
         RootIdClassName $rootIdClassName,
         RootModelClassName $modelClassName,
         RootRepositoryClassName $repositoryClassName,
-        CommandHanderClassName $commandHanderClassName
+        CommandHandlerClassName $commandHandlerClassName
     ) {
         $this->beConstructedWith(
             $name,
@@ -32,7 +32,7 @@ class BoundedContextConfigSpec extends ObjectBehavior
             $rootIdClassName,
             $modelClassName,
             $repositoryClassName,
-            $commandHanderClassName
+            $commandHandlerClassName
         );
     }
 
@@ -47,14 +47,14 @@ class BoundedContextConfigSpec extends ObjectBehavior
         RootIdClassName $rootIdClassName,
         RootModelClassName $modelClassName,
         RootRepositoryClassName $repositoryClassName,
-        CommandHanderClassName $commandHanderClassName
+        CommandHandlerClassName $commandHandlerClassName
     ) {
         $this->getName()->shouldReturn($name);
         $this->getNamespace()->shouldReturn($namespace);
         $this->getRootIdClassName()->shouldReturn($rootIdClassName);
         $this->getModelClassName()->shouldReturn($modelClassName);
         $this->getRepositoryClassName()->shouldReturn($repositoryClassName);
-        $this->getCommandHanderClassName()->shouldReturn($commandHanderClassName);
+        $this->getCommandHandlerClassName()->shouldReturn($commandHandlerClassName);
     }
 
     public function it_has_collections_empty_by_default()
