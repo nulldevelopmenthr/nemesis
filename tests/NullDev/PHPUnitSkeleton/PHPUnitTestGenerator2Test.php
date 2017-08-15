@@ -36,7 +36,7 @@ class PHPUnitTestGenerator2Test extends ContainerSupportedTestCase
             file_put_contents($filePath, $result);
         }
 
-        self::assertEquals($result, file_get_contents($filePath));
+        self::assertStringEqualsFile($filePath, $result);
     }
 
     public function provideClasses(): array
