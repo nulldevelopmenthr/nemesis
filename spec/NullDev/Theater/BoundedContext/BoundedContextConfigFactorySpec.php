@@ -11,7 +11,7 @@ use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
 use PhpSpec\ObjectBehavior;
@@ -36,7 +36,7 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
         RootIdClassName $rootIdClassName,
         RootModelClassName $modelClassName,
         RootRepositoryClassName $repositoryClassName,
-        CommandHanderClassName $commandHanderClassName
+        CommandHandlerClassName $commandHandlerClassName
     ) {
         $namingStrategyFactory->theater($contextName, $contextNamespace)
             ->shouldBeCalled()
@@ -56,7 +56,7 @@ class BoundedContextConfigFactorySpec extends ObjectBehavior
 
         $namingStrategy->commandHandler()
             ->shouldBeCalled()
-            ->willReturn($commandHanderClassName);
+            ->willReturn($commandHandlerClassName);
 
         $this->create($contextName, $contextNamespace)
             ->shouldReturnAnInstanceOf(BoundedContextConfig::class);

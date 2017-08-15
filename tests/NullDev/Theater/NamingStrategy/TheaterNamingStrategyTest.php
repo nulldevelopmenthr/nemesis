@@ -11,7 +11,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
 use PHPUnit_Framework_TestCase;
@@ -76,7 +76,7 @@ class TheaterNamingStrategyTest extends PHPUnit_Framework_TestCase
     {
         $commandHandlerClassName = $this->theaterNamingStrategy->commandHandler();
 
-        self::assertInstanceOf(CommandHanderClassName::class, $commandHandlerClassName);
+        self::assertInstanceOf(CommandHandlerClassName::class, $commandHandlerClassName);
 
         self::assertEquals('MyCompany\Webshop\Application\WebshopCommandHandler', $commandHandlerClassName->getFullName());
     }

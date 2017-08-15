@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace spec\NullDev\Theater\Naming;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use PhpSpec\ObjectBehavior;
 
-class CommandHanderClassNameSpec extends ObjectBehavior
+class CommandHandlerClassNameSpec extends ObjectBehavior
 {
     public function let()
     {
@@ -17,7 +17,7 @@ class CommandHanderClassNameSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CommandHanderClassName::class);
+        $this->shouldHaveType(CommandHandlerClassName::class);
         $this->shouldHaveType(ClassType::class);
     }
 }

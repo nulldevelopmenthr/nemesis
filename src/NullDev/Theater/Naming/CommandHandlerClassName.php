@@ -7,10 +7,10 @@ namespace NullDev\Theater\Naming;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
 /**
- * @see CommandHanderClassNameSpec
- * @see CommandHanderClassNameTest
+ * @see CommandHandlerClassNameSpec
+ * @see CommandHandlerClassNameTest
  */
-class CommandHanderClassName extends ClassType
+class CommandHandlerClassName extends ClassType
 {
     public static function create(string $fullName): self
     {

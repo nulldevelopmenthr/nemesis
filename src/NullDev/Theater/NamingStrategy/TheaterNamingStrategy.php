@@ -11,7 +11,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 
 /**
@@ -63,12 +63,12 @@ class TheaterNamingStrategy implements NamingStrategy
         return new EntityClassName($className, $namespace);
     }
 
-    public function commandHandler(): CommandHanderClassName
+    public function commandHandler(): CommandHandlerClassName
     {
         $namespace = $this->getApplicationNamespace();
         $className = $this->getName().'CommandHandler';
 
-        return new CommandHanderClassName($className, $namespace);
+        return new CommandHandlerClassName($className, $namespace);
     }
 
     public function command(string $commandName): CommandClassName

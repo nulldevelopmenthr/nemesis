@@ -9,7 +9,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandClassName;
-use NullDev\Theater\Naming\CommandHanderClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 
@@ -51,7 +51,7 @@ class BoundedContextConfigFactory
             RootIdClassName::create($data['classes']['id']),
             RootModelClassName::create($data['classes']['model']),
             RootRepositoryClassName::create($data['classes']['repository']),
-            CommandHanderClassName::create($data['classes']['handler'])
+            CommandHandlerClassName::create($data['classes']['handler'])
         );
 
         foreach ($data['classes']['entities'] as $entity) {
