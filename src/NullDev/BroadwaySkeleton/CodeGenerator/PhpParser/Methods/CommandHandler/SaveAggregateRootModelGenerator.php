@@ -41,7 +41,7 @@ class SaveAggregateRootModelGenerator implements MethodGenerator
                 [
                     new Node\Arg(new Node\Expr\Variable('model')),
                 ]
-        );
+            );
         $saveMethod->addStmt($repoSaveCall);
         $saveMethod->addParam($this->createMethodParam($method->getMethodParameters()[0]));
 

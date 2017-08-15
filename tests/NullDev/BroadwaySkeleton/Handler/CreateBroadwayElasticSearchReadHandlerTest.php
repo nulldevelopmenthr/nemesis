@@ -70,7 +70,7 @@ class CreateBroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestC
             [
                 'Something\User',
                 [
-                     Parameter::create('id', 'Something\UserId'),
+                    Parameter::create('id', 'Something\UserId'),
                 ],
             ],
         ];

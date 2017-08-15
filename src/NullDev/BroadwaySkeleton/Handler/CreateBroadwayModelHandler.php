@@ -47,7 +47,8 @@ class CreateBroadwayModelHandler
                 $command->getCommandHandlerClassName(),
                 $command->getRepositoryClassName(),
                 $command->getRootIdClassName(),
-                $command->getModelClassName()),
+                $command->getModelClassName()
+            ),
         ];
 
         return $classes;
