@@ -40,7 +40,7 @@ class SaveAggregateRootModelMethodSpec extends ObjectBehavior
 
     public function it_can_return_method_parameters(RootModelClassName $modelClassName)
     {
-        $result= $this->getMethodParameters();
+        $result = $this->getMethodParameters();
 
         $result->shouldBeArray();
         $result->shouldHaveCount(1);

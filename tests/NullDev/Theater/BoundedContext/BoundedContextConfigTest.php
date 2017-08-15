@@ -141,7 +141,7 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
         $this->commandHandlerClassName->shouldReceive('getFullName')
             ->andReturn('MyCompany\Webshop\Buyers\Application\BuyersCommandHandler');
 
-        $expected =[
+        $expected = [
             'namespace' => 'MyCompany\Webshop\Buyers',
             'classes'   => [
                 'id'         => 'MyCompany\Webshop\Buyers\Core\BuyerId',

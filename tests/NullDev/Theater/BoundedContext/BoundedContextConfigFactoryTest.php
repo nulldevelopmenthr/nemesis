@@ -43,8 +43,8 @@ class BoundedContextConfigFactoryTest extends PHPUnit_Framework_TestCase
 
     public function testcreateFromArray()
     {
-        $name      = 'Webshop';
-        $input     = [
+        $name  = 'Webshop';
+        $input = [
             'namespace' => 'MyCompany\Webshop\Buyers',
             'classes'   => [
                 'id'         => 'MyCompany\Webshop\Buyers\Core\BuyerId',
