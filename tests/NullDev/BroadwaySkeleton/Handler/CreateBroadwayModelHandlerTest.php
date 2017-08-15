@@ -49,17 +49,20 @@ class CreateBroadwayModelHandlerTest extends ContainerSupportedTestCase
 
         $result = $this->commandBus->handle($command);
 
-        self::assertCount(9, $result);
+        self::assertCount(12, $result);
 
         $this->assertOutputMatches($this->getExpectedOutputPath('id-src'), $result[0]);
         $this->assertOutputMatches($this->getExpectedOutputPath('model-src'), $result[1]);
         $this->assertOutputMatches($this->getExpectedOutputPath('repository-src'), $result[2]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('id-test'), $result[3]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('model-test'), $result[4]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('repository-test'), $result[5]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('id-spec'), $result[6]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('model-spec'), $result[7]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('repository-spec'), $result[8]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('handler-src'), $result[3]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('id-test'), $result[4]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('model-test'), $result[5]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('repository-test'), $result[6]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('handler-test'), $result[7]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('id-spec'), $result[8]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('model-spec'), $result[9]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('repository-spec'), $result[10]);
+        $this->assertOutputMatches($this->getExpectedOutputPath('handler-spec'), $result[11]);
     }
 
     public function provideData(): array

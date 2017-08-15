@@ -6,6 +6,7 @@ namespace spec\NullDev\BroadwaySkeleton\Handler;
 
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
+use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -14,6 +15,7 @@ use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use PhpSpec\ObjectBehavior;
 
 class CreateBroadwayModelHandlerSpec extends ObjectBehavior
@@ -21,12 +23,14 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
     public function let(
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
         EventSourcedAggregateRootSourceFactory $eventSourcedAggregateRootSourceFactory,
-        EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory
+        EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory,
+        CommandHandlerSourceFactory $commandHandlerSourceFactory
     ) {
         $this->beConstructedWith(
             $uuid4IdentitySourceFactory,
             $eventSourcedAggregateRootSourceFactory,
-            $eventSourcingRepositorySourceFactory
+            $eventSourcingRepositorySourceFactory,
+            $commandHandlerSourceFactory
         );
     }
 
@@ -40,13 +44,16 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
         EventSourcedAggregateRootSourceFactory $eventSourcedAggregateRootSourceFactory,
         EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory,
+        CommandHandlerSourceFactory $commandHandlerSourceFactory,
         RootIdClassName $rootIdClassName,
         RootModelClassName $modelClassName,
         RootRepositoryClassName $repositoryClassName,
+        CommandHandlerClassName $handlerClassName,
         Parameter $modelIdParameter,
         ImprovedClassSource $modelIdClass,
         ImprovedClassSource $modelClass,
-        ImprovedClassSource $repositoryClass
+        ImprovedClassSource $repositoryClass,
+        ImprovedClassSource $handlerClass
     ) {
         $command->getRootIdClassName()
             ->shouldBeCalled()
@@ -57,6 +64,9 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         $command->getRepositoryClassName()
             ->shouldBeCalled()
             ->willReturn($repositoryClassName);
+        $command->getCommandHandlerClassName()
+            ->shouldBeCalled()
+            ->willReturn($handlerClassName);
         $command->getRootIdAsParameter()
             ->shouldBeCalled()
             ->willReturn($modelIdParameter);
@@ -70,6 +80,9 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         $eventSourcingRepositorySourceFactory->create($repositoryClassName, $modelClassName)
             ->shouldBeCalled()
             ->willReturn($repositoryClass);
+        $commandHandlerSourceFactory->create($handlerClassName, $repositoryClassName, $rootIdClassName, $modelClassName)
+            ->shouldBeCalled()
+            ->willReturn($handlerClass);
 
         $this->handleCreateBroadwayModel($command)->shouldBeArray();
     }
