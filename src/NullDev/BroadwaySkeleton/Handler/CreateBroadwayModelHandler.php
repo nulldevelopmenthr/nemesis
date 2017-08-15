@@ -35,9 +35,9 @@ class CreateBroadwayModelHandler
     public function handleCreateBroadwayModel(CreateBroadwayModel $command): array
     {
         $classes = [
-            $this->uuid4IdentitySourceFactory->create($command->getModelIdType()),
-            $this->aggregateRootSourceFactory->create($command->getModelType(), $command->getModelIdAsParameter()),
-            $this->repositorySourceFactory->create($command->getRepositoryType(), $command->getModelType()),
+            $this->uuid4IdentitySourceFactory->create($command->getRootIdClassName()),
+            $this->aggregateRootSourceFactory->create($command->getModelClassName(), $command->getRootIdAsParameter()),
+            $this->repositorySourceFactory->create($command->getRepositoryClassName(), $command->getModelClassName()),
         ];
 
         return $classes;

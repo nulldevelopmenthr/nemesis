@@ -8,7 +8,10 @@ use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
 use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDev\Theater\Naming\Aggregate\RootModelClassName;
+use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
@@ -37,11 +40,12 @@ class CreateBroadwayModelHandlerTest extends ContainerSupportedTestCase
      */
     public function testSourcesWillMatchExpectedOutput(string $className): void
     {
-        $modelIdClassType    = ClassType::createFromFullyQualified($className.'Id');
-        $modelClassType      = ClassType::createFromFullyQualified($className.'Model');
-        $repositoryClassType = ClassType::createFromFullyQualified($className.'Repository');
+        $modelIdClassName        = RootIdClassName::create($className.'Id');
+        $modelClassName          = RootModelClassName::create($className.'Model');
+        $repositoryClassName     = RootRepositoryClassName::create($className.'Repository');
+        $commandHandlerClassName = CommandHandlerClassName::create($className.'CommandHandler');
 
-        $command = new CreateBroadwayModel($modelIdClassType, $modelClassType, $repositoryClassType);
+        $command = new CreateBroadwayModel($modelIdClassName, $modelClassName, $repositoryClassName, $commandHandlerClassName);
 
         $result = $this->commandBus->handle($command);
 

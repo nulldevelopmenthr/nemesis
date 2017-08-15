@@ -5,14 +5,22 @@ declare(strict_types=1);
 namespace spec\NullDev\BroadwaySkeleton\Command;
 
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDev\Theater\Naming\Aggregate\RootModelClassName;
+use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 use PhpSpec\ObjectBehavior;
 
 class CreateBroadwayModelSpec extends ObjectBehavior
 {
-    public function let(ClassType $modelIdType, ClassType $modelType, ClassType $repositoryType)
-    {
-        $this->beConstructedWith($modelIdType, $modelType, $repositoryType);
+    public function let(
+        RootIdClassName $rootIdClassName,
+        RootModelClassName $modelClassName,
+        RootRepositoryClassName $repositoryClassName,
+        CommandHandlerClassName $commandHandlerClassName
+    ) {
+        $this->beConstructedWith($rootIdClassName, $modelClassName, $repositoryClassName, $commandHandlerClassName);
     }
 
     public function it_is_initializable()
@@ -20,18 +28,29 @@ class CreateBroadwayModelSpec extends ObjectBehavior
         $this->shouldHaveType(CreateBroadwayModel::class);
     }
 
-    public function it_will_expose_model_id_type(ClassType $modelIdType)
+    public function it_will_expose_root_id_class_name(RootIdClassName $rootIdClassName)
     {
-        $this->getModelIdType()->shouldReturn($modelIdType);
+        $this->getRootIdClassName()->shouldReturn($rootIdClassName);
     }
 
-    public function it_will_expose_model_type(ClassType $modelType)
+    public function it_will_expose_model_class_name(RootModelClassName $modelClassName)
     {
-        $this->getModelType()->shouldReturn($modelType);
+        $this->getModelClassName()->shouldReturn($modelClassName);
     }
 
-    public function it_will_expose_repository_type(ClassType $repositoryType)
+    public function it_will_expose_repository_class_name(RootRepositoryClassName $repositoryClassName)
     {
-        $this->getRepositoryType()->shouldReturn($repositoryType);
+        $this->getRepositoryClassName()->shouldReturn($repositoryClassName);
+    }
+
+    public function it_will_expose_command_handler_class_name(CommandHandlerClassName $commandHandlerClassName)
+    {
+        $this->getCommandHandlerClassName()->shouldReturn($commandHandlerClassName);
+    }
+
+    public function it_will_expose_root_id_as_parameter(RootIdClassName $rootIdClassName)
+    {
+        $rootIdClassName->getName()->shouldBeCalled()->willReturn('Vendor\Namespace\Core\SomeId');
+        $this->getRootIdAsParameter()->shouldReturnAnInstanceOf(Parameter::class);
     }
 }
