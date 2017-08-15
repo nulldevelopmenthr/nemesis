@@ -20,7 +20,12 @@ services:
   NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent' }
+  NullDev\BroadwaySkeleton\Handler\CreateBroadwayHandlerHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler' }
 
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler\LoadAggregateRootModelGenerator: ~
+  NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler\SaveAggregateRootModelGenerator: ~
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator: ~
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\SerializeGenerator: ~
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator: ~
