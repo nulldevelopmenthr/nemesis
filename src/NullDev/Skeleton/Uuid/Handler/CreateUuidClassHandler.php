@@ -21,7 +21,7 @@ class CreateUuidClassHandler
         $this->sourceFactory = $sourceFactory;
     }
 
-    public function handle(CreateUuidClass $command): array
+    public function handleCreateUuidClass(CreateUuidClass $command): array
     {
         $classSource = $this->sourceFactory->create($command->getClassType());
 

@@ -55,6 +55,6 @@ class CreateBroadwayHandlerHandlerSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($handlerClass);
 
-        $this->handle($command)->shouldReturn([$handlerClass]);
+        $this->handleCreateBroadwayHandler($command)->shouldReturn([$handlerClass]);
     }
 }

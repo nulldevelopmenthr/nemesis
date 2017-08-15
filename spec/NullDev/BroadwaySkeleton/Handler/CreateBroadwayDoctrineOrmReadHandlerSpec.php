@@ -58,6 +58,6 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
         $readFactorySourceFactory->create($factoryType)->shouldBeCalled()->willReturn($factoryClass);
         $readProjectorSourceFactory->create($projectorType, [$parameters])->shouldBeCalled()->willReturn($projectorClass);
 
-        $this->handle($command)->shouldBeArray();
+        $this->handleCreateBroadwayDoctrineOrmRead($command)->shouldBeArray();
     }
 }

@@ -21,7 +21,7 @@ class CreateBroadwayEventHandler
         $this->eventSourceFactory = $eventSourceFactory;
     }
 
-    public function handle(CreateBroadwayEvent $command): array
+    public function handleCreateBroadwayEvent(CreateBroadwayEvent $command): array
     {
         $class = $this->eventSourceFactory->create($command->getClassType(), $command->getParameters());
 

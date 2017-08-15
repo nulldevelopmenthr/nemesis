@@ -23,7 +23,7 @@ class CreateBroadwayHandlerHandler
         $this->commandHandlerSourceFactory = $commandHandlerSourceFactory;
     }
 
-    public function handle(CreateBroadwayHandler $command)
+    public function handleCreateBroadwayHandler(CreateBroadwayHandler $command)
     {
         $classes = [
             $this->commandHandlerSourceFactory->create(

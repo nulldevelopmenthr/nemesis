@@ -55,6 +55,6 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         $eventSourcedAggregateRootSourceFactory->create($modelType, $modelIdParameter)->shouldBeCalled()->willReturn($modelClass);
         $eventSourcingRepositorySourceFactory->create($repositoryType, $modelType)->shouldBeCalled()->willReturn($repositoryClass);
 
-        $this->handle($command)->shouldBeArray();
+        $this->handleCreateBroadwayModel($command)->shouldBeArray();
     }
 }

@@ -32,7 +32,7 @@ class CreateBroadwayElasticSearchReadHandler
         $this->readProjectorSourceFactory  = $readProjectorSourceFactory;
     }
 
-    public function handle(CreateBroadwayElasticSearchRead $command): array
+    public function handleCreateBroadwayElasticSearchRead(CreateBroadwayElasticSearchRead $command): array
     {
         $classes = [
             $this->readEntitySourceFactory->create($command->getEntityClassType(), $command->getEntityParameters()),
