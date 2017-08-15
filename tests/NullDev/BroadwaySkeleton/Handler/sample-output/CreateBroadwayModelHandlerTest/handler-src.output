@@ -1,0 +1,24 @@
+<?php
+
+namespace Something;
+
+use Something\UserId;
+use Something\UserModel;
+use Something\UserRepository;
+class UserCommandHandler
+{
+    /** @var UserRepository */
+    private $repository;
+    public function __construct(UserRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+    private function load(UserId $id) : UserModel
+    {
+        return $this->repository->load($id);
+    }
+    private function save(UserModel $model)
+    {
+        $this->repository->save($model);
+    }
+}

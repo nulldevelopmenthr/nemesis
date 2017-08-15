@@ -1,0 +1,30 @@
+<?php
+
+namespace tests\Something;
+
+use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use PHPUnit_Framework_TestCase;
+use Something\UserCommandHandler;
+use Something\UserRepository;
+/**
+* @covers \Something\UserCommandHandler
+* @group todo
+*/
+class UserCommandHandlerTest extends PHPUnit_Framework_TestCase
+{
+    use MockeryPHPUnitIntegration;
+    /** @var UserRepository */
+    private $repository;
+    /** @var UserCommandHandler */
+    private $userCommandHandler;
+    public function setUp()
+    {
+        $this->repository = Mockery::mock(UserRepository::class);
+        $this->userCommandHandler = new UserCommandHandler($this->repository);
+    }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
+}
