@@ -9,9 +9,11 @@ use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
+use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDev\Theater\Naming\Aggregate\RootModelClassName;
+use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use PhpSpec\ObjectBehavior;
 
 class CreateBroadwayModelHandlerSpec extends ObjectBehavior
@@ -38,22 +40,36 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
         EventSourcedAggregateRootSourceFactory $eventSourcedAggregateRootSourceFactory,
         EventSourcingRepositorySourceFactory $eventSourcingRepositorySourceFactory,
-        ClassType $modelIdType,
-        ClassType $modelType,
-        ClassType $repositoryType,
+        RootIdClassName $rootIdClassName,
+        RootModelClassName $modelClassName,
+        RootRepositoryClassName $repositoryClassName,
         Parameter $modelIdParameter,
         ImprovedClassSource $modelIdClass,
         ImprovedClassSource $modelClass,
         ImprovedClassSource $repositoryClass
     ) {
-        $command->getModelIdType()->shouldBeCalled()->willReturn($modelIdType);
-        $command->getModelType()->shouldBeCalled()->willReturn($modelType);
-        $command->getRepositoryType()->shouldBeCalled()->willReturn($repositoryType);
-        $command->getModelIdAsParameter()->shouldBeCalled()->willReturn($modelIdParameter);
+        $command->getRootIdClassName()
+            ->shouldBeCalled()
+            ->willReturn($rootIdClassName);
+        $command->getModelClassName()
+            ->shouldBeCalled()
+            ->willReturn($modelClassName);
+        $command->getRepositoryClassName()
+            ->shouldBeCalled()
+            ->willReturn($repositoryClassName);
+        $command->getRootIdAsParameter()
+            ->shouldBeCalled()
+            ->willReturn($modelIdParameter);
 
-        $uuid4IdentitySourceFactory->create($modelIdType)->shouldBeCalled()->willReturn($modelIdClass);
-        $eventSourcedAggregateRootSourceFactory->create($modelType, $modelIdParameter)->shouldBeCalled()->willReturn($modelClass);
-        $eventSourcingRepositorySourceFactory->create($repositoryType, $modelType)->shouldBeCalled()->willReturn($repositoryClass);
+        $uuid4IdentitySourceFactory->create($rootIdClassName)
+            ->shouldBeCalled()
+            ->willReturn($modelIdClass);
+        $eventSourcedAggregateRootSourceFactory->create($modelClassName, $modelIdParameter)
+            ->shouldBeCalled()
+            ->willReturn($modelClass);
+        $eventSourcingRepositorySourceFactory->create($repositoryClassName, $modelClassName)
+            ->shouldBeCalled()
+            ->willReturn($repositoryClass);
 
         $this->handleCreateBroadwayModel($command)->shouldBeArray();
     }

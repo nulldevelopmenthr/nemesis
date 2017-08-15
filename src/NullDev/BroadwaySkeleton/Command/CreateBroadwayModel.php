@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Command;
 
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDev\Theater\Naming\Aggregate\RootModelClassName;
+use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
+use NullDev\Theater\Naming\CommandHandlerClassName;
 
 /**
  * @see CreateBroadwayModelSpec
@@ -13,37 +16,49 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
  */
 class CreateBroadwayModel
 {
-    /** @var ClassType */
-    private $modelIdType;
-    /** @var ClassType */
-    private $modelType;
-    /** @var ClassType */
-    private $repositoryType;
+    /** @var RootIdClassName */
+    private $rootIdClassName;
+    /** @var RootModelClassName */
+    private $modelClassName;
+    /** @var RootRepositoryClassName */
+    private $repositoryClassName;
+    /** @var CommandHandlerClassName */
+    private $commandHandlerClassName;
 
-    public function __construct(ClassType $modelIdType, ClassType $modelType, ClassType $repositoryType)
-    {
-        $this->modelIdType    = $modelIdType;
-        $this->modelType      = $modelType;
-        $this->repositoryType = $repositoryType;
+    public function __construct(
+        RootIdClassName $rootIdClassName,
+        RootModelClassName $modelClassName,
+        RootRepositoryClassName $repositoryClassName,
+        CommandHandlerClassName $commandHandlerClassName
+    ) {
+        $this->rootIdClassName         = $rootIdClassName;
+        $this->modelClassName          = $modelClassName;
+        $this->repositoryClassName     = $repositoryClassName;
+        $this->commandHandlerClassName = $commandHandlerClassName;
     }
 
-    public function getModelIdType(): ClassType
+    public function getRootIdClassName(): RootIdClassName
     {
-        return $this->modelIdType;
+        return $this->rootIdClassName;
     }
 
-    public function getModelType(): ClassType
+    public function getModelClassName(): RootModelClassName
     {
-        return $this->modelType;
+        return $this->modelClassName;
     }
 
-    public function getRepositoryType(): ClassType
+    public function getRepositoryClassName(): RootRepositoryClassName
     {
-        return $this->repositoryType;
+        return $this->repositoryClassName;
     }
 
-    public function getModelIdAsParameter(): Parameter
+    public function getCommandHandlerClassName(): CommandHandlerClassName
     {
-        return new Parameter(lcfirst($this->modelIdType->getName()), $this->modelIdType);
+        return $this->commandHandlerClassName;
+    }
+
+    public function getRootIdAsParameter(): Parameter
+    {
+        return new Parameter(lcfirst($this->rootIdClassName->getName()), $this->rootIdClassName);
     }
 }
