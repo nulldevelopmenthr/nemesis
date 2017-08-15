@@ -51,6 +51,6 @@ class CreateBroadwayElasticSearchReadHandlerSpec extends ObjectBehavior
         $readRepositorySourceFactory->create($repositoryType)->shouldBeCalled()->willReturn($repositoryClass);
         $readProjectorSourceFactory->create($projectorType, [$parameters])->shouldBeCalled()->willReturn($projectorClass);
 
-        $this->handle($command)->shouldBeArray();
+        $this->handleCreateBroadwayElasticSearchRead($command)->shouldBeArray();
     }
 }

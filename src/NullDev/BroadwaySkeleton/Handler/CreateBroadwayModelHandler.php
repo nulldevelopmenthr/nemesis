@@ -32,7 +32,7 @@ class CreateBroadwayModelHandler
         $this->repositorySourceFactory    = $repositorySourceFactory;
     }
 
-    public function handle(CreateBroadwayModel $command): array
+    public function handleCreateBroadwayModel(CreateBroadwayModel $command): array
     {
         $classes = [
             $this->uuid4IdentitySourceFactory->create($command->getModelIdType()),

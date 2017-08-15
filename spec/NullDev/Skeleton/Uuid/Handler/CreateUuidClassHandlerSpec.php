@@ -37,6 +37,6 @@ class CreateUuidClassHandlerSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($classSource);
 
-        $this->handle($command)->shouldReturn([$classSource]);
+        $this->handleCreateUuidClass($command)->shouldReturn([$classSource]);
     }
 }

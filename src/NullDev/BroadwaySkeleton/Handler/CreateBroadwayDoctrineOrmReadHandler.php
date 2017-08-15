@@ -37,7 +37,7 @@ class CreateBroadwayDoctrineOrmReadHandler
         $this->readProjectorSourceFactory  = $readProjectorSourceFactory;
     }
 
-    public function handle(CreateBroadwayDoctrineOrmRead $command): array
+    public function handleCreateBroadwayDoctrineOrmRead(CreateBroadwayDoctrineOrmRead $command): array
     {
         $classes = [
             $this->readEntitySourceFactory->create($command->getEntityClassType(), $command->getEntityParameters()),

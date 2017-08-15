@@ -21,7 +21,7 @@ class CreateBroadwayCommandHandler
         $this->commandSourceFactory = $commandSourceFactory;
     }
 
-    public function handle(CreateBroadwayCommand $command): array
+    public function handleCreateBroadwayCommand(CreateBroadwayCommand $command): array
     {
         $class = $this->commandSourceFactory->create($command->getClassType(), $command->getParameters());
 
