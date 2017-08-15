@@ -1,0 +1,24 @@
+<?php
+
+namespace MyCompany\Webshop\Buyers\Application;
+
+use MyCompany\Webshop\Buyers\Core\BuyerId;
+use MyCompany\Webshop\Buyers\Domain\BuyerModel;
+use MyCompany\Webshop\Buyers\Domain\BuyerRepository;
+class BuyersCommandHandler
+{
+    /** @var BuyerRepository */
+    private $repository;
+    public function __construct(BuyerRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+    private function load(BuyerId $id) : BuyerModel
+    {
+        return $this->repository->load($id);
+    }
+    private function save(BuyerModel $model)
+    {
+        $this->repository->save($model);
+    }
+}

@@ -1,0 +1,30 @@
+<?php
+
+namespace tests\MyCompany\Webshop\Buyers\Application;
+
+use Mockery;
+use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use MyCompany\Webshop\Buyers\Application\BuyersCommandHandler;
+use MyCompany\Webshop\Buyers\Domain\BuyerRepository;
+use PHPUnit_Framework_TestCase;
+/**
+* @covers \MyCompany\Webshop\Buyers\Application\BuyersCommandHandler
+* @group todo
+*/
+class BuyersCommandHandlerTest extends PHPUnit_Framework_TestCase
+{
+    use MockeryPHPUnitIntegration;
+    /** @var BuyerRepository */
+    private $repository;
+    /** @var BuyersCommandHandler */
+    private $buyersCommandHandler;
+    public function setUp()
+    {
+        $this->repository = Mockery::mock(BuyerRepository::class);
+        $this->buyersCommandHandler = new BuyersCommandHandler($this->repository);
+    }
+    public function testNothing()
+    {
+        $this->markTestIncomplete('Auto generated using nemesis');
+    }
+}
