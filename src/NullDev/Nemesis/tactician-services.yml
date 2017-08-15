@@ -12,7 +12,7 @@ services:
     arguments:
       - "@League\\Tactician\\Handler\\CommandNameExtractor\\ClassNameExtractor"
       - "@League\\Tactician\\Handler\\Locator\\InMemoryLocator"
-      - "@League\\Tactician\\Handler\\MethodNameInflector\\HandleInflector"
+      - "@League\\Tactician\\Handler\\MethodNameInflector\\HandleClassNameInflector"
     tags:
       - { name: tactician.middleware, priority: 1 }
 
@@ -23,6 +23,6 @@ services:
   League\Tactician\Handler\Locator\InMemoryLocator:
     arguments:
       - []
-  League\Tactician\Handler\MethodNameInflector\HandleInflector: ~
+  League\Tactician\Handler\MethodNameInflector\HandleClassNameInflector: ~
 
 
