@@ -20,7 +20,7 @@ services:
   NullDev\BroadwaySkeleton\Handler\BroadwayEventHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent' }
-  NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandlerHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler' }
 
