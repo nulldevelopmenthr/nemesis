@@ -7,7 +7,7 @@ namespace tests\NullDev\BroadwaySkeleton\Handler;
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
-use NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandlerHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
@@ -16,22 +16,22 @@ use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler
+ * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandlerHandler
  * @group  codeGeneration
  */
-class BroadwayHandlerHandlerTest extends ContainerSupportedTestCase
+class BroadwayCommandHandlerHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait2;
 
-    /** @var BroadwayHandlerHandler */
+    /** @var BroadwayCommandHandlerHandler */
     private $handler;
     /** @var CommandBus */
     private $commandBus;
 
     public function setUp()
     {
-        $this->handler    = $this->getService(BroadwayHandlerHandler::class);
+        $this->handler    = $this->getService(BroadwayCommandHandlerHandler::class);
         $this->commandBus = $this->getService(CommandBus::class);
     }
 
@@ -69,6 +69,6 @@ class BroadwayHandlerHandlerTest extends ContainerSupportedTestCase
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-output/BroadwayHandlerHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/BroadwayCommandHandlerHandlerTest/'.$fileName.'.output';
     }
 }
