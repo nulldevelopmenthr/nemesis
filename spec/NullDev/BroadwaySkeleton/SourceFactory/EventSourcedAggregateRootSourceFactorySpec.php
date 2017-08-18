@@ -36,6 +36,8 @@ class EventSourcedAggregateRootSourceFactorySpec extends ObjectBehavior
         CreateMethod $createMethod,
         AggregateRootIdGetterMethod $aggregateRootIdGetterMethod
     ) {
+        $parameter->getName()->shouldBeCalled()->willReturn('paramName');
+
         $parameter
             ->hasType()
             ->shouldBeCalled()

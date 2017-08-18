@@ -43,6 +43,11 @@ class CommandSourceFactorySpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($constructorMethod);
 
+        $parameter1->getName()->shouldBeCalled()->willReturn('param1name');
+        $parameter2->getName()->shouldBeCalled()->willReturn('param2name');
+        $parameter1->getType()->shouldBeCalled()->willReturn(null);
+        $parameter2->getType()->shouldBeCalled()->willReturn(null);
+
         $this->create($classType, [$parameter1, $parameter2])
             ->shouldReturn($classSource);
     }

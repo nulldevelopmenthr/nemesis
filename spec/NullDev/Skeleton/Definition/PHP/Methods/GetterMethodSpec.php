@@ -6,14 +6,14 @@ namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use PhpSpec\ObjectBehavior;
 
 class GetterMethodSpec extends ObjectBehavior
 {
-    public function let(Parameter $parameter)
+    public function let(Property $property)
     {
-        $this->beConstructedWith('getValue', $parameter);
+        $this->beConstructedWith('getValue', $property);
     }
 
     public function it_is_initializable()
@@ -22,10 +22,10 @@ class GetterMethodSpec extends ObjectBehavior
         $this->shouldHaveType(Method::class);
     }
 
-    public function it_has_create_method(Parameter $parameter)
+    public function it_has_create_method(Property $property)
     {
-        $parameter->getName()->willReturn('value');
-        $this->create($parameter)->shouldReturnAnInstanceOf(GetterMethod::class);
+        $property->getName()->willReturn('value');
+        $this->create($property)->shouldReturnAnInstanceOf(GetterMethod::class);
     }
 
     public function it_knows_its_public()
@@ -38,15 +38,15 @@ class GetterMethodSpec extends ObjectBehavior
         $this->isStatic()->shouldReturn(false);
     }
 
-    public function it_returns_property_name(Parameter $parameter)
+    public function it_returns_property_name(Property $property)
     {
-        $parameter->getName()->willReturn('value');
+        $property->getName()->willReturn('value');
         $this->getPropertyName()->shouldReturn('value');
     }
 
-    public function it_can_return_method_name($parameter)
+    public function it_can_return_method_name(Property $property)
     {
-        $parameter->getName()->willReturn('value');
+        $property->getName()->willReturn('value');
         $this->getMethodName()->shouldReturn('getValue');
     }
 
@@ -55,26 +55,26 @@ class GetterMethodSpec extends ObjectBehavior
         $this->getMethodParameters()->shouldReturn([]);
     }
 
-    public function it_knows_if_return_type_defined($parameter)
+    public function it_knows_if_return_type_defined(Property $property)
     {
-        $parameter->hasType()->willReturn(true);
-        $parameter->getTypeShortName()->willReturn('SomeClass');
+        $property->hasType()->willReturn(true);
+        $property->getTypeShortName()->willReturn('SomeClass');
 
         $this->hasMethodReturnType()->shouldReturn(true);
 
         $this->getMethodReturnType()->shouldReturn('SomeClass');
     }
 
-    public function it_has_no_return_type_if_property_it_gets_has_no_class($parameter)
+    public function it_has_no_return_type_if_property_it_gets_has_no_class(Property $property)
     {
-        $parameter->hasType()->willReturn(false);
+        $property->hasType()->willReturn(false);
         $this->hasMethodReturnType()->shouldReturn(false);
     }
 
-    public function it_throws_error_on_trying_to_get_return_type_when_it_does_not_exist($parameter)
+    public function it_throws_error_on_trying_to_get_return_type_when_it_does_not_exist(Property $property)
     {
-        $parameter->hasType()->willReturn(false);
-        $parameter->getTypeShortName()->willReturn(null);
+        $property->hasType()->willReturn(false);
+        $property->getTypeShortName()->willReturn(null);
         $this->shouldThrow(\TypeError::class)->duringGetMethodReturnType();
     }
 }

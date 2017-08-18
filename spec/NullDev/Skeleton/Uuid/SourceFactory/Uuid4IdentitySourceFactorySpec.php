@@ -6,6 +6,8 @@ namespace spec\NullDev\Skeleton\Uuid\SourceFactory;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -34,6 +36,8 @@ class Uuid4IdentitySourceFactorySpec extends ObjectBehavior
         $sourceFactory->create($classType)->willReturn($classSource);
 
         $classSource->addConstructorMethod(Argument::type(ConstructorMethod::class));
+        $classSource->addProperty(Argument::type(Property::class));
+        $classSource->addGetterMethod(Argument::type(Parameter::class));
         $classSource->addMethod(Argument::type(ToStringMethod::class));
         $classSource->addMethod(Argument::type(UuidCreateMethod::class));
         $classSource->addImport(Argument::type(ClassType::class));

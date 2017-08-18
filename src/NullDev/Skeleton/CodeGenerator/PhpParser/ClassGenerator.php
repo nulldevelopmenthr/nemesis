@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use PhpParser\Builder;
 use PhpParser\Builder\Class_;
-use PhpParser\Builder\Property;
 use PhpParser\BuilderFactory;
 use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\TraitUse;
@@ -58,7 +58,7 @@ class ClassGenerator
         return new TraitUse([new Name($traitType->getName())]);
     }
 
-    private function createClassProperty(Parameter $property): Property
+    private function createClassProperty(Property $property): Builder\Property
     {
         return $this->builderFactory
             ->property($property->getName())
@@ -66,7 +66,7 @@ class ClassGenerator
             ->setDocComment('/** @var '.$this->getType($property).' */');
     }
 
-    private function getType(Parameter $property): string
+    private function getType(Property $property): string
     {
         if (true === $property->hasType()) {
             return $property->getTypeShortName();

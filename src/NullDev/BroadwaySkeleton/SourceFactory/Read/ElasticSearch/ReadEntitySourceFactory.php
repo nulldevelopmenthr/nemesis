@@ -7,6 +7,7 @@ namespace NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch;
 use Broadway\ReadModel\Identifiable;
 use Broadway\Serializer\Serializable;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
@@ -32,8 +33,9 @@ class ReadEntitySourceFactory implements SourceFactory
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         foreach ($parameters as $parameter) {
-            $source->addGetterMethod($parameter);
-            $source->addProperty($parameter);
+            $property = Property::createFromParameter($parameter);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
         //Adds Broadway Identifiable.
         $source->addInterface(InterfaceType::createFromFullyQualified(Identifiable::class));

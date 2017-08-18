@@ -7,6 +7,7 @@ namespace NullDev\BroadwaySkeleton\SourceFactory;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 
@@ -30,7 +31,7 @@ class EventSourcedAggregateRootSourceFactory
         $source->addParent(ClassType::createFromFullyQualified(EventSourcedAggregateRoot::class));
 
         //Add aggregate root id as property.
-        $source->addProperty($parameter);
+        $source->addProperty(Property::createFromParameter($parameter));
         if (true === $parameter->hasType()) {
             $source->addImport($parameter->getType());
         }

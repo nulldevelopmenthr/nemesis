@@ -9,15 +9,16 @@ use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Node\NullableType;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Namespace_;
-use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\Use_;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
@@ -109,16 +110,16 @@ class PhpParserSourceParser implements SourceParser
         }
 
         foreach ($classStatement->stmts as $parsedStatement) {
-            if ($parsedStatement instanceof Property) {
+            if ($parsedStatement instanceof Stmt\Property) {
                 $propertyName = $parsedStatement->props[0]->name;
 
-                $property = new Parameter($propertyName);
+                $property = new Property($propertyName);
 
                 // If constructor has param of same name, add that one as property since it has a class defined!
                 if (true === $this->class->hasConstructorMethod()) {
                     foreach ($this->class->getConstructorParameters() as $constructorParameter) {
                         if ($constructorParameter->getName() === $propertyName) {
-                            $property = $constructorParameter;
+                            $property = Property::createFromParameter($constructorParameter);
                         }
                     }
                 }
@@ -201,7 +202,7 @@ class PhpParserSourceParser implements SourceParser
         if (null === $type) {
             $param = $this->class->getPropertyNamed($paramName);
         } else {
-            $param = new Parameter($paramName, $type);
+            $param = new Property($paramName, $type);
         }
 
         $method = new GetterMethod($classMethodStatement->name, $param);

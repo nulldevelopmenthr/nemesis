@@ -15,16 +15,16 @@ class ExposeGettersMethodFactory
 {
     public function create(ImprovedClassSource $classSource): ExposeGettersMethod
     {
-        return new ExposeGettersMethod($this->getGetterMethods($classSource));
+        return new ExposeGettersMethod($this->getPropertiesExposedViaGetters($classSource));
     }
 
-    private function getGetterMethods(ImprovedClassSource $classSource): array
+    private function getPropertiesExposedViaGetters(ImprovedClassSource $classSource): array
     {
         $lets = [];
 
         foreach ($classSource->getMethods() as $method) {
             if ($method instanceof GetterMethod) {
-                $lets[] = $method->getParameter();
+                $lets[] = $method->getProperty();
             }
         }
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\SourceFactory;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\SourceFactory\SourceFactory;
@@ -29,8 +30,9 @@ class CommandSourceFactory implements SourceFactory
         //Add constructor method.
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         foreach ($parameters as $parameter) {
-            $source->addGetterMethod($parameter);
-            $source->addProperty($parameter);
+            $property = Property::createFromParameter($parameter);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;

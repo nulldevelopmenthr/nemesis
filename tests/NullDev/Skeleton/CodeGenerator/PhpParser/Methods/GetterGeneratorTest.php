@@ -6,7 +6,7 @@ namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use PhpParser\BuilderFactory;
 
 /**
@@ -24,9 +24,9 @@ class GetterGeneratorTest extends BaseOutputGeneratorTestCase
     /**
      * @dataProvider provideParameters
      */
-    public function testOutput(Parameter $parameter, string $fileName): void
+    public function testOutput(Property $property, string $fileName): void
     {
-        $method = GetterMethod::create($parameter);
+        $method = GetterMethod::create($property);
         $this->assertOutputMatches($method, $fileName);
     }
 
@@ -34,11 +34,11 @@ class GetterGeneratorTest extends BaseOutputGeneratorTestCase
     {
         return [
             [
-                Parameter::create('first'),
+                Property::create('first'),
                 '0-no-type-param',
             ],
             [
-                Parameter::create('first', 'Vendor\Namespace\FirstName'),
+                Property::create('first', 'Vendor\Namespace\FirstName'),
                 '1-type-param',
             ],
         ];

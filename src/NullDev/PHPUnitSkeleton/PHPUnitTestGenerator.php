@@ -12,7 +12,7 @@ use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Definition\PHPUnit\CoversComment;
@@ -64,12 +64,12 @@ class PHPUnitTestGenerator
 
         foreach ($improvedClassSource->getConstructorParameters() as $constructorParameter) {
             $testSource->addProperty(
-                new Parameter(lcfirst($constructorParameter->getName()), $constructorParameter->getType())
+                new Property(lcfirst($constructorParameter->getName()), $constructorParameter->getType())
             );
         }
 
         $testSource->addProperty(
-            new Parameter(lcfirst($improvedClassSource->getName()), $improvedClassSource->getClassType())
+            new Property(lcfirst($improvedClassSource->getName()), $improvedClassSource->getClassType())
         );
 
         $setUpMethod = new SetUpMethod($improvedClassSource);
