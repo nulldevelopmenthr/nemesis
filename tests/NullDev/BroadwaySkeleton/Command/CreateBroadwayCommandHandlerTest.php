@@ -7,7 +7,7 @@ namespace tests\NullDev\BroadwaySkeleton\Command;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
@@ -15,10 +15,10 @@ use NullDev\Theater\Naming\CommandHandlerClassName;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @covers \NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler
+ * @covers \NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler
  * @group  unit
  */
-class CreateBroadwayHandlerTest extends PHPUnit_Framework_TestCase
+class CreateBroadwayCommandHandlerTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|CommandHandlerClassName */
@@ -29,8 +29,8 @@ class CreateBroadwayHandlerTest extends PHPUnit_Framework_TestCase
     private $idClassName;
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
-    /** @var CreateBroadwayHandler */
-    private $createBroadwayHandler;
+    /** @var CreateBroadwayCommandHandler */
+    private $CreateBroadwayCommandHandler;
 
     public function setUp()
     {
@@ -39,7 +39,7 @@ class CreateBroadwayHandlerTest extends PHPUnit_Framework_TestCase
         $this->idClassName         = Mockery::mock(RootIdClassName::class);
         $this->modelClassName      = Mockery::mock(RootModelClassName::class);
 
-        $this->createBroadwayHandler = new CreateBroadwayHandler(
+        $this->CreateBroadwayCommandHandler = new CreateBroadwayCommandHandler(
             $this->handlerClassName,
             $this->repositoryClassName,
             $this->idClassName,
@@ -49,11 +49,11 @@ class CreateBroadwayHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testGetHandlerClassName()
     {
-        self::assertEquals($this->handlerClassName, $this->createBroadwayHandler->getHandlerClassName());
+        self::assertEquals($this->handlerClassName, $this->CreateBroadwayCommandHandler->getHandlerClassName());
     }
 
     public function testGetRepositoryClassName()
     {
-        self::assertEquals($this->repositoryClassName, $this->createBroadwayHandler->getRepositoryClassName());
+        self::assertEquals($this->repositoryClassName, $this->CreateBroadwayCommandHandler->getRepositoryClassName());
     }
 }
