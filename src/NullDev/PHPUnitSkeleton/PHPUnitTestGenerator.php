@@ -9,12 +9,14 @@ use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestGetterMethod;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;
+use NullDev\PHPUnitSkeleton\Definition\PHP\MockedProperty;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use NullDev\Skeleton\Definition\PHPUnit\CoversComment;
 use NullDev\Skeleton\Definition\PHPUnit\GroupComment;
 use NullDev\Skeleton\Source\ClassSourceFactory;
@@ -25,6 +27,7 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
  * @see PHPUnitTestGeneratorTest
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.CyclomaticComplexity)
  */
 class PHPUnitTestGenerator
 {
@@ -63,9 +66,15 @@ class PHPUnitTestGenerator
         $testSource->addTrait(TraitType::createFromFullyQualified('Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration'));
 
         foreach ($improvedClassSource->getConstructorParameters() as $constructorParameter) {
-            $testSource->addProperty(
-                new Property(lcfirst($constructorParameter->getName()), $constructorParameter->getType())
-            );
+            if (true === $constructorParameter->hasType() && false === ($constructorParameter->getType() instanceof TypeDeclaration)) {
+                $testSource->addImport(ClassType::createFromFullyQualified('Mockery\MockInterface'));
+
+                $property = new MockedProperty(lcfirst($constructorParameter->getName()), $constructorParameter->getType());
+            } else {
+                $property = new Property(lcfirst($constructorParameter->getName()), $constructorParameter->getType());
+            }
+
+            $testSource->addProperty($property);
         }
 
         $testSource->addProperty(

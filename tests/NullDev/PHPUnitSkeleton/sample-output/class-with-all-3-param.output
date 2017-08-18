@@ -8,6 +8,7 @@ use HR\Finances\Wage;
 use LastName;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery\MockInterface;
 use PHPUnit_Framework_TestCase;
 /**
 * @covers \Developer\Senior
@@ -16,11 +17,11 @@ use PHPUnit_Framework_TestCase;
 class SeniorTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var FirstName */
+    /** @var MockInterface|FirstName */
     private $firstName;
-    /** @var LastName */
+    /** @var MockInterface|LastName */
     private $lastName;
-    /** @var Wage */
+    /** @var MockInterface|Wage */
     private $amount;
     /** @var Senior */
     private $senior;

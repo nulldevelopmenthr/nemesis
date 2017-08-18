@@ -4,6 +4,7 @@ namespace tests\MyCompany\Webshop\Buyers\Application;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery\MockInterface;
 use MyCompany\Webshop\Buyers\Application\BuyersCommandHandler;
 use MyCompany\Webshop\Buyers\Domain\BuyerRepository;
 use PHPUnit_Framework_TestCase;
@@ -14,7 +15,7 @@ use PHPUnit_Framework_TestCase;
 class BuyersCommandHandlerTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var BuyerRepository */
+    /** @var MockInterface|BuyerRepository */
     private $repository;
     /** @var BuyersCommandHandler */
     private $buyersCommandHandler;

@@ -63,15 +63,6 @@ class ClassGenerator
         return $this->builderFactory
             ->property($property->getName())
             ->makePrivate()
-            ->setDocComment('/** @var '.$this->getType($property).' */');
-    }
-
-    private function getType(Property $property): string
-    {
-        if (true === $property->hasType()) {
-            return $property->getTypeShortName();
-        }
-
-        return '';
+            ->setDocComment('/** @var '.$property->getTypeForDocBlock().' */');
     }
 }
