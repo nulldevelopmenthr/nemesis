@@ -5,9 +5,9 @@ services:
     public: true
 
 
-  NullDev\BroadwaySkeleton\Handler\BroadwayModelHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootIdHandler:
     tags:
-      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayModel' }
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootId' }
   NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand' }
