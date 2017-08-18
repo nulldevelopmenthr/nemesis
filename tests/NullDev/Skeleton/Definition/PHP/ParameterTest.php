@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PHPUnit_Framework_TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Parameter
- * @group  integration
+ * @group  unit
  */
 class ParameterTest extends PHPUnit_Framework_TestCase
 {
@@ -39,5 +40,24 @@ class ParameterTest extends PHPUnit_Framework_TestCase
     {
         $parameter = Parameter::create('name');
         $parameter->getTypeShortName();
+    }
+
+    /** @dataProvider provideProperties */
+    public function testItCanCreateParameterFromProperty(Property $property)
+    {
+        $parameter = Parameter::createFromProperty($property);
+
+        self::assertInstanceOf(Parameter::class, $parameter);
+        self::assertEquals($property->getName(), $parameter->getName());
+        self::assertEquals($property->getType(), $parameter->getType());
+    }
+
+    public function provideProperties(): array
+    {
+        return [
+            [Property::create('name')],
+            [Property::create('name', 'string')],
+            [Property::create('name', 'DateTime')],
+        ];
     }
 }

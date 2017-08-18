@@ -29,6 +29,11 @@ class Parameter
         return new self($name, TypeFactory::create($type));
     }
 
+    public static function createFromProperty(Property $property): Parameter
+    {
+        return new self($property->getName(), $property->getType());
+    }
+
     public function getName(): string
     {
         return $this->name;
