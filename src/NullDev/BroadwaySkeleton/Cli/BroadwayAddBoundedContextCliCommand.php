@@ -83,7 +83,6 @@ class BroadwayAddBoundedContextCliCommand extends Command implements ContainerAw
             $message = sprintf('Bounded context with that name already exists');
 
             $this->io->error($message);
-            //die;
         }
 
         $newContext = $this->getService(BoundedContextConfigFactory::class)->create($this->name, $this->namespace);
@@ -93,14 +92,6 @@ class BroadwayAddBoundedContextCliCommand extends Command implements ContainerAw
 
         $this->io->writeln('DoNE');
     }
-
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
-    ///
 
     private function getTheaterConfig(): TheaterConfig
     {
