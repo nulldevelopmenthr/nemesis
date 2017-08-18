@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace spec\NullDev\BroadwaySkeleton\Command;
 
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use PhpSpec\ObjectBehavior;
 
-class CreateBroadwayHandlerSpec extends ObjectBehavior
+class CreateBroadwayCommandHandlerSpec extends ObjectBehavior
 {
     public function let(
         CommandHandlerClassName $handlerClassName,
@@ -24,7 +24,7 @@ class CreateBroadwayHandlerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CreateBroadwayHandler::class);
+        $this->shouldHaveType(CreateBroadwayCommandHandler::class);
     }
 
     public function it_exposes_handler_class_name(CommandHandlerClassName $handlerClassName)

@@ -10,10 +10,10 @@ use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 
 /**
- * @see CreateBroadwayHandlerSpec
- * @see CreateBroadwayHandlerTest
+ * @see CreateBroadwayCommandHandlerSpec
+ * @see CreateBroadwayCommandHandlerTest
  */
-class CreateBroadwayHandler
+class CreateBroadwayCommandHandler
 {
     /** @var CommandHandlerClassName */
     private $handlerClassName;
