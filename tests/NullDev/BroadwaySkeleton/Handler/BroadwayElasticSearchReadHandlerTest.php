@@ -7,29 +7,29 @@ namespace tests\NullDev\BroadwaySkeleton\Handler;
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticSearchRead;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayElasticSearchReadHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler
+ * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayElasticSearchReadHandler
  * @group  nemesis
  */
-class CreateBroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestCase
+class BroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait2;
 
-    /** @var CreateBroadwayElasticSearchReadHandler */
+    /** @var BroadwayElasticSearchReadHandler */
     private $handler;
     /** @var CommandBus */
     private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler    = $this->getService(CreateBroadwayElasticSearchReadHandler::class);
+        $this->handler    = $this->getService(BroadwayElasticSearchReadHandler::class);
         $this->commandBus = $this->getService(CommandBus::class);
     }
 
@@ -78,6 +78,6 @@ class CreateBroadwayElasticSearchReadHandlerTest extends ContainerSupportedTestC
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-output/CreateBroadwayElasticSearchReadHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/BroadwayElasticSearchReadHandlerTest/'.$fileName.'.output';
     }
 }

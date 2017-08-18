@@ -8,10 +8,10 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory;
 
 /**
- * @see CreateBroadwayCommandHandlerSpec
- * @see CreateBroadwayCommandHandlerTest
+ * @see BroadwayCommandHandlerSpec
+ * @see BroadwayCommandHandlerTest
  */
-class CreateBroadwayCommandHandler
+class BroadwayCommandHandler
 {
     /** @var CommandSourceFactory */
     private $commandSourceFactory;

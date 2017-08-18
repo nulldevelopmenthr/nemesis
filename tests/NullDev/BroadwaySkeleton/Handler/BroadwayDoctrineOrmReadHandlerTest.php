@@ -7,29 +7,29 @@ namespace tests\NullDev\BroadwaySkeleton\Handler;
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmRead;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler
+ * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadHandler
  * @group  nemesis
  */
-class CreateBroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCase
+class BroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait2;
 
-    /** @var CreateBroadwayDoctrineOrmReadHandler */
+    /** @var BroadwayDoctrineOrmReadHandler */
     private $handler;
     /** @var CommandBus */
     private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler    = $this->getService(CreateBroadwayDoctrineOrmReadHandler::class);
+        $this->handler    = $this->getService(BroadwayDoctrineOrmReadHandler::class);
         $this->commandBus = $this->getService(CommandBus::class);
     }
 
@@ -83,6 +83,6 @@ class CreateBroadwayDoctrineOrmReadHandlerTest extends ContainerSupportedTestCas
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-output/CreateBroadwayDoctrineOrmReadHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/BroadwayDoctrineOrmReadHandlerTest/'.$fileName.'.output';
     }
 }

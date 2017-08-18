@@ -7,29 +7,29 @@ namespace tests\NullDev\BroadwaySkeleton\Handler;
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use tests\NullDev\AssertOutputTrait2;
 use tests\NullDev\ContainerSupportedTestCase;
 
 /**
- * @covers \NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler
+ * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler
  * @group  nemesis
  */
-class CreateBroadwayCommandHandlerTest extends ContainerSupportedTestCase
+class BroadwayCommandHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait2;
 
-    /** @var CreateBroadwayCommandHandler */
+    /** @var BroadwayCommandHandler */
     private $handler;
     /** @var CommandBus */
     private $commandBus;
 
     public function setUp(): void
     {
-        $this->handler    = $this->getService(CreateBroadwayCommandHandler::class);
+        $this->handler    = $this->getService(BroadwayCommandHandler::class);
         $this->commandBus = $this->getService(CommandBus::class);
     }
 
@@ -73,6 +73,6 @@ class CreateBroadwayCommandHandlerTest extends ContainerSupportedTestCase
 
     protected function getExpectedOutputPath(string $fileName): string
     {
-        return __DIR__.'/sample-output/CreateBroadwayCommandHandlerTest/'.$fileName.'.output';
+        return __DIR__.'/sample-output/BroadwayCommandHandlerTest/'.$fileName.'.output';
     }
 }

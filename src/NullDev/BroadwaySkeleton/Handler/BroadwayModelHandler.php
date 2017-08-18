@@ -11,10 +11,10 @@ use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
 use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
 
 /**
- * @see CreateBroadwayModelHandlerSpec
- * @see CreateBroadwayModelHandlerTest
+ * @see BroadwayModelHandlerSpec
+ * @see BroadwayModelHandlerTest
  */
-class CreateBroadwayModelHandler
+class BroadwayModelHandler
 {
     /** @var Uuid4IdentitySourceFactory */
     private $uuid4IdentitySourceFactory;

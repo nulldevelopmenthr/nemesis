@@ -11,10 +11,10 @@ use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceF
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadRepositorySourceFactory;
 
 /**
- * @see CreateBroadwayDoctrineOrmReadHandlerSpec
- * @see CreateBroadwayDoctrineOrmReadHandlerTest
+ * @see BroadwayDoctrineOrmReadHandlerSpec
+ * @see BroadwayDoctrineOrmReadHandlerTest
  */
-class CreateBroadwayDoctrineOrmReadHandler
+class BroadwayDoctrineOrmReadHandler
 {
     /** @var ReadEntitySourceFactory */
     private $readEntitySourceFactory;

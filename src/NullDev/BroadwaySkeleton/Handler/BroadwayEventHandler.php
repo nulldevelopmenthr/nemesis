@@ -8,10 +8,10 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory;
 
 /**
- * @see CreateBroadwayEventHandlerSpec
- * @see CreateBroadwayEventHandlerTest
+ * @see BroadwayEventHandlerSpec
+ * @see BroadwayEventHandlerTest
  */
-class CreateBroadwayEventHandler
+class BroadwayEventHandler
 {
     /** @var EventSourceFactory */
     private $eventSourceFactory;
