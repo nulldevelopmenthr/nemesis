@@ -17,10 +17,12 @@ use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Name;
+use Webmozart\Assert\Assert;
 
 /**
  * @see SetUpGeneratorSpec
  * @see SetUpGeneratorTest
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class SetUpGenerator implements MethodGenerator
 {
@@ -63,8 +65,10 @@ class SetUpGenerator implements MethodGenerator
         return $node;
     }
 
+    /** @param Parameter[]|array $paramz */
     private function createConstructorParams(array $paramz): array
     {
+        Assert::allIsInstanceOf($paramz, Parameter::class);
         $constructorParams = [];
 
         foreach ($paramz as $parameter) {

@@ -6,6 +6,7 @@ namespace NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use Webmozart\Assert\Assert;
 
 /**
  * @see GenericMethodSpec
@@ -15,16 +16,16 @@ class GenericMethod implements Method
 {
     /** @var string */
     private $methodName;
-    /** @var array|Parameter[] */
+    /** @var Parameter[]|array */
     private $params;
     /** @var null|ClassType */
     private $returnType;
 
-    /**
-     * @param Parameter[] $params
-     */
+    /** @param Parameter[] $params */
     public function __construct(string $methodName, array $params, ?ClassType $returnType)
     {
+        Assert::allIsInstanceOf($params, Parameter::class);
+
         $this->methodName = $methodName;
         $this->params     = $params;
         $this->returnType = $returnType;
