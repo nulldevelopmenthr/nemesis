@@ -11,6 +11,9 @@ services:
   NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootModelHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootRepositoryHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository' }
   NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand' }
