@@ -6,28 +6,16 @@ namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\Type;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 
 class ExposeGettersMethod implements Method
 {
-    private $params;
+    /** @var Parameter[]|array */
+    private $properties;
 
-    public function __construct(array $params)
+    public function __construct(array $properties)
     {
-        $this->params = $params;
-    }
-
-    /** @return Type[]|array */
-    public function getParamsAsClassTypes(): array
-    {
-        $result = [];
-        foreach ($this->params as $param) {
-            if ($param->hasType()) {
-                $result[] = $param->getType();
-            }
-        }
-
-        return $result;
+        $this->properties = $properties;
     }
 
     public function getVisibility(): string
@@ -48,7 +36,14 @@ class ExposeGettersMethod implements Method
     /** @return Parameter[]|array */
     public function getMethodParameters(): array
     {
-        return $this->params;
+        $params = [];
+        foreach ($this->properties as $property) {
+            if (true === $this->isPropertyEligibleForMethodParameter($property)) {
+                $params[] = $property;
+            }
+        }
+
+        return $params;
     }
 
     public function hasMethodReturnType(): bool
@@ -59,5 +54,23 @@ class ExposeGettersMethod implements Method
     public function getMethodReturnType(): string
     {
         throw new \Exception('Err 2342341: PhpSpec expose doesnt use return types.');
+    }
+
+    public function getProperties(): array
+    {
+        return $this->properties;
+    }
+
+    private function isPropertyEligibleForMethodParameter(Parameter $parameter): bool
+    {
+        if (false === $parameter->hasType()) {
+            return false;
+        }
+
+        if ($parameter->getType() instanceof TypeDeclaration) {
+            return false;
+        }
+
+        return true;
     }
 }

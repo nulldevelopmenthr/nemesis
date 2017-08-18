@@ -44,17 +44,17 @@ class ExposeGettersGenerator implements MethodGenerator
             }
         }
 
-        foreach ($method->getMethodParameters() as $param) {
-            if (true === $this->isParameterEligibleForMethodParameter($param)) {
+        foreach ($method->getProperties() as $property) {
+            if (true === $this->isParameterEligibleForMethodParameter($property)) {
                 $node->addStmt(
                     new MethodCall(
                         new MethodCall(
                             new Variable('this'),
-                            'get'.ucfirst($param->getName())
+                            'get'.ucfirst($property->getName())
                         ),
                         'shouldReturn',
                         [
-                            new Arg(new Variable($param->getName())),
+                            new Arg(new Variable($property->getName())),
                         ]
                     )
                 );
@@ -63,10 +63,10 @@ class ExposeGettersGenerator implements MethodGenerator
                     new MethodCall(
                         new MethodCall(
                             new Variable('this'),
-                            'get'.ucfirst($param->getName())
+                            'get'.ucfirst($property->getName())
                         ),
                         'shouldReturn',
-                        [ParameterValueGenerator::generate($param)]
+                        [ParameterValueGenerator::generate($property)]
                     )
                 );
             }
