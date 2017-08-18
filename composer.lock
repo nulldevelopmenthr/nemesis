@@ -2655,7 +2655,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-08-17T13:00:06+00:00"
+            "time": "2017-08-17 13:00:06"
         },
         {
             "name": "myclabs/deep-copy",
