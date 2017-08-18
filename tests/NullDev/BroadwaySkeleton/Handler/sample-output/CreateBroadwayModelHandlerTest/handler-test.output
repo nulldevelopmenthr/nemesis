@@ -4,6 +4,7 @@ namespace tests\Something;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery\MockInterface;
 use PHPUnit_Framework_TestCase;
 use Something\UserCommandHandler;
 use Something\UserRepository;
@@ -14,7 +15,7 @@ use Something\UserRepository;
 class UserCommandHandlerTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var UserRepository */
+    /** @var MockInterface|UserRepository */
     private $repository;
     /** @var UserCommandHandler */
     private $userCommandHandler;

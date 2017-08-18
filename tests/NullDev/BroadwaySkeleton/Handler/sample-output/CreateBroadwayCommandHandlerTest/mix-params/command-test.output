@@ -4,6 +4,7 @@ namespace tests\Something;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Mockery\MockInterface;
 use PHPUnit_Framework_TestCase;
 use Something\Company;
 use Something\CreateUserCommand;
@@ -22,7 +23,7 @@ class CreateUserCommandTest extends PHPUnit_Framework_TestCase
     private $height;
     /** @var  */
     private $about;
-    /** @var Company */
+    /** @var MockInterface|Company */
     private $company;
     /** @var CreateUserCommand */
     private $createUserCommand;
