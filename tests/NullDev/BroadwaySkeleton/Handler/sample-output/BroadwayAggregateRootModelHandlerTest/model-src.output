@@ -1,0 +1,18 @@
+<?php
+
+namespace Something;
+
+use Broadway\EventSourcing\EventSourcedAggregateRoot;
+use Something\UserId;
+class UserModel extends EventSourcedAggregateRoot
+{
+    /** @var UserId */
+    private $userId;
+    public static function create(UserId $userId) : UserModel
+    {
+    }
+    public function getAggregateRootId() : UserId
+    {
+        return $this->userId;
+    }
+}
