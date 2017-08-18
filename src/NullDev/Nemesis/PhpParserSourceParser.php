@@ -35,7 +35,9 @@ class PhpParserSourceParser implements SourceParser
     /** @var Parser */
     private $parser;
     private $namespace;
+    /** @var ImprovedClassSource */
     private $class;
+    /** @var Type[]|array */
     private $imports;
 
     public function __construct()
