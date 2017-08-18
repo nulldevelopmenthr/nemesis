@@ -6,7 +6,7 @@ namespace NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\TestValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\BuilderFactory;
@@ -79,7 +79,7 @@ class SetUpGenerator implements MethodGenerator
         $variable = new Variable('this->'.lcfirst($parameter->getName()));
 
         if (false === $parameter->hasType() || $parameter->getType() instanceof TypeDeclaration) {
-            return new Assign($variable, ParameterValueGenerator::generate($parameter));
+            return new Assign($variable, TestValueGenerator::generate($parameter));
         }
 
         return new Assign(

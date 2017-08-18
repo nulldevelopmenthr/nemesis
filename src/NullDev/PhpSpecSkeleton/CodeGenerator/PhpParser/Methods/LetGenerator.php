@@ -6,7 +6,7 @@ namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\TestValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\BuilderFactory;
@@ -55,7 +55,7 @@ class LetGenerator implements MethodGenerator
         $variable = new Variable($parameter->getName());
 
         if (false === $parameter->hasType() || $parameter->getType() instanceof TypeDeclaration) {
-            return new Assign($variable, ParameterValueGenerator::generate($parameter));
+            return new Assign($variable, TestValueGenerator::generate($parameter));
         }
 
         throw new \Exception('ERR 90131234: Unhandled argument received.');

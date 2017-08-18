@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
@@ -18,23 +17,22 @@ use PhpParser\Node\Scalar\LNumber;
 use PhpParser\Node\Scalar\String_;
 
 /**
- * @see ParameterValueGeneratorSpec
- * @see ParameterValueGeneratorTest
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @see TestValueGeneratorSpec
+ * @see TestValueGeneratorTest
  */
-class ParameterValueGenerator
+class TestValueGenerator
 {
-    public static function generate(Parameter $parameter)
+    public static function generate($value)
     {
-        if (false === $parameter->hasType() || $parameter->getType() instanceof StringType) {
-            return new String_($parameter->getName());
-        } elseif ($parameter->getType() instanceof IntType) {
+        if (false === $value->hasType() || $value->getType() instanceof StringType) {
+            return new String_($value->getName());
+        } elseif ($value->getType() instanceof IntType) {
             return new LNumber(1);
-        } elseif ($parameter->getType() instanceof ArrayType) {
+        } elseif ($value->getType() instanceof ArrayType) {
             return new Array_([], ['kind' => Array_::KIND_SHORT]);
-        } elseif ($parameter->getType() instanceof FloatType) {
+        } elseif ($value->getType() instanceof FloatType) {
             return new DNumber(2.0);
-        } elseif ($parameter->getType() instanceof BoolType) {
+        } elseif ($value->getType() instanceof BoolType) {
             return new ConstFetch(new Name('true'));
         }
 
