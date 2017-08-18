@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Handler;
 
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 
 /**
@@ -23,7 +23,7 @@ class BroadwayHandlerHandler
         $this->commandHandlerSourceFactory = $commandHandlerSourceFactory;
     }
 
-    public function handleCreateBroadwayHandler(CreateBroadwayHandler $command)
+    public function handleCreateBroadwayCommandHandler(CreateBroadwayCommandHandler $command)
     {
         $classes = [
             $this->commandHandlerSourceFactory->create(

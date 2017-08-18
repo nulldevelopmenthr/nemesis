@@ -22,7 +22,7 @@ services:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent' }
   NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler:
     tags:
-      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler' }
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler' }
 
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler\LoadAggregateRootModelGenerator: ~
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler\SaveAggregateRootModelGenerator: ~

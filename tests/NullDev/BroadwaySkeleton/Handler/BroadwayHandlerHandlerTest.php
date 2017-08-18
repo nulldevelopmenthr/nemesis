@@ -6,7 +6,7 @@ namespace tests\NullDev\BroadwaySkeleton\Handler;
 
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
@@ -44,7 +44,7 @@ class BroadwayHandlerHandlerTest extends ContainerSupportedTestCase
         RootIdClassName $idClassName,
         RootModelClassName $modelClassName
     ): void {
-        $command = new CreateBroadwayHandler($handlerClassName, $repositoryClassName, $idClassName, $modelClassName);
+        $command = new CreateBroadwayCommandHandler($handlerClassName, $repositoryClassName, $idClassName, $modelClassName);
 
         $result = $this->commandBus->handle($command);
 
