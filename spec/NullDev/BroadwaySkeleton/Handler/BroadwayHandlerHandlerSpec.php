@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\BroadwaySkeleton\Handler;
 
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
@@ -27,7 +27,7 @@ class BroadwayHandlerHandlerSpec extends ObjectBehavior
     }
 
     public function it_will_handler_creating_broadway_command_handler(
-        CreateBroadwayHandler $command,
+        CreateBroadwayCommandHandler $command,
         CommandHandlerSourceFactory $commandHandlerSourceFactory,
         CommandHandlerClassName $handlerClassName,
         RootRepositoryClassName $repositoryClassName,
@@ -55,6 +55,6 @@ class BroadwayHandlerHandlerSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($handlerClass);
 
-        $this->handleCreateBroadwayHandler($command)->shouldReturn([$handlerClass]);
+        $this->handleCreateBroadwayCommandHandler($command)->shouldReturn([$handlerClass]);
     }
 }
