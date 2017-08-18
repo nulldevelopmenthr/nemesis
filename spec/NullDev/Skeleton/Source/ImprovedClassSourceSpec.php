@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Source;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
@@ -36,7 +38,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     {
         $this->addParent($parent)->shouldReturn($this);
 
-        $this->shouldThrow(\Exception::class)->duringAddParent($secondParent);
+        $this->shouldThrow(Exception::class)->duringAddParent($secondParent);
     }
 
     public function it_will_return_null_if_no_parent()
@@ -105,12 +107,14 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $this->getConstructorMethod()->shouldReturn($constructor);
     }
 
-    public function it_can_not_have_more_then_one_constructor(ConstructorMethod $constructor, ConstructorMethod $secondConstructorMethod)
-    {
+    public function it_can_not_have_more_then_one_constructor(
+        ConstructorMethod $constructor,
+        ConstructorMethod $secondConstructorMethod
+    ) {
         $constructor->getMethodParameters()->willReturn([]);
         $this->addConstructorMethod($constructor)->shouldReturn($this);
 
-        $this->shouldThrow(\Exception::class)->duringAddConstructorMethod($secondConstructorMethod);
+        $this->shouldThrow(Exception::class)->duringAddConstructorMethod($secondConstructorMethod);
     }
 
     public function it_will_return_null_if_no_constructor()
@@ -204,5 +208,45 @@ class ImprovedClassSourceSpec extends ObjectBehavior
 
         $this->addConstructorMethod($constructor)->shouldReturn($this);
         $this->getImports()->shouldReturn([]);
+    }
+
+    ///
+    /// Properties
+    ///
+
+    public function it_has_no_properties_by_default()
+    {
+        $this->getProperties()->shouldReturn([]);
+    }
+
+    public function it_accepts_add_new_properties(Property $property)
+    {
+        $property->getName()->shouldBeCalled()->willReturn('amount');
+        $this->addProperty($property);
+        $this->getProperties()->shouldReturn([$property]);
+    }
+
+    public function it_knows_if_property_exists_by_name(Property $property)
+    {
+        $property->getName()->shouldBeCalled()->willReturn('amount');
+        $this->addProperty($property);
+        $this->hasPropertyNamed('amount')->shouldReturn(true);
+    }
+
+    public function it_knows_it_has_no_property_with_that_name()
+    {
+        $this->hasPropertyNamed('amount')->shouldReturn(false);
+    }
+
+    public function it_can_return_property_by_name(Property $property)
+    {
+        $property->getName()->shouldBeCalled()->willReturn('amount');
+        $this->addProperty($property);
+        $this->getPropertyNamed('amount')->shouldReturn($property);
+    }
+
+    public function it_will_throw_exception_if_asking_for_non_existant_property_by_name()
+    {
+        $this->shouldThrow(Exception::class)->duringGetPropertyNamed('amount');
     }
 }
