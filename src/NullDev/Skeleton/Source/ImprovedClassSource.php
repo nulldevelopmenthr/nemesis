@@ -9,6 +9,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Importable;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
@@ -228,14 +229,14 @@ class ImprovedClassSource
 
     //-----     Properties     -----
 
-    public function addProperty(Parameter $property)
+    public function addProperty(Property $property)
     {
         if (false === $this->hasPropertyNamed($property->getName())) {
             $this->properties[] = $property;
         }
     }
 
-    /** @return Parameter[]|array */
+    /** @return Property[]|array */
     public function getProperties(): array
     {
         return $this->properties;
@@ -252,7 +253,7 @@ class ImprovedClassSource
         return false;
     }
 
-    public function getPropertyNamed(string $propertyName): Parameter
+    public function getPropertyNamed(string $propertyName): Property
     {
         foreach ($this->properties as $property) {
             if ($property->getName() === $propertyName) {
