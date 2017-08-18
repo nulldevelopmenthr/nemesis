@@ -6,7 +6,6 @@ namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\Type;
 
 class ExposeGettersMethod implements Method
 {
@@ -15,19 +14,6 @@ class ExposeGettersMethod implements Method
     public function __construct(array $params)
     {
         $this->params = $params;
-    }
-
-    /** @return Type[]|array */
-    public function getParamsAsClassTypes(): array
-    {
-        $result = [];
-        foreach ($this->params as $param) {
-            if ($param->hasType()) {
-                $result[] = $param->getType();
-            }
-        }
-
-        return $result;
     }
 
     public function getVisibility(): string
