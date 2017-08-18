@@ -23,16 +23,26 @@ use NullDev\Skeleton\Definition\PHP\Types\Type;
  */
 class ImprovedClassSource
 {
+    /** @var ClassType */
     private $classType;
+    /** @var DocComment[]|array */
     private $docComments = [];
+    /** @var null|ClassType */
     private $parent;
+    /** @var InterfaceType[]|array */
     private $interfaces = [];
+    /** @var TraitType[]|array */
     private $traits     = [];
+    /** @var null|ConstructorMethod */
     private $constructor;
 
+    /** @var Property[]|array */
     private $properties = [];
+
+    /** @var Method[]|array */
     private $methods    = [];
 
+    /** @var Type[]|array */
     private $imports = [];
 
     public function __construct(ClassType $classType)
@@ -52,7 +62,7 @@ class ImprovedClassSource
 
     public function getNamespace(): string
     {
-        return $this->classType->getNamespace();
+        return (string) $this->classType->getNamespace();
     }
 
     public function getName(): string
@@ -108,7 +118,7 @@ class ImprovedClassSource
 
     public function getParentName(): ?string
     {
-        if (false === $this->hasParent()) {
+        if (null === $this->parent) {
             return null;
         }
 
@@ -117,7 +127,7 @@ class ImprovedClassSource
 
     public function getParentFullName(): ?string
     {
-        if (false === $this->hasParent()) {
+        if (null === $this->parent) {
             return null;
         }
 
@@ -212,7 +222,7 @@ class ImprovedClassSource
     /** @return Parameter[]|array */
     public function getConstructorParameters(): array
     {
-        if (false === $this->hasConstructorMethod()) {
+        if (null === $this->constructor) {
             return [];
         }
 
