@@ -6,6 +6,7 @@ namespace NullDev\BroadwaySkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 class DeserializeMethod implements Method
@@ -17,6 +18,7 @@ class DeserializeMethod implements Method
         $this->classSource = $classSource;
     }
 
+    /** @return Property[]|array */
     public function getProperties(): array
     {
         return $this->classSource->getProperties();

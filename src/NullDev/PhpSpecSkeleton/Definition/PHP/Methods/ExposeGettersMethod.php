@@ -57,6 +57,7 @@ class ExposeGettersMethod implements Method
         throw new \Exception('Err 2342341: PhpSpec expose doesnt use return types.');
     }
 
+    /** @return Property[]|array */
     public function getProperties(): array
     {
         return $this->properties;
