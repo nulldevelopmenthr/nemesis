@@ -6,6 +6,7 @@ namespace tests\NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
@@ -56,8 +57,9 @@ class SeniorDeveloperProvider
             ->addConstructorMethod(new ConstructorMethod($constructorParams));
 
         foreach ($constructorParams as $constructorParam) {
-            $source->addGetterMethod($constructorParam);
-            $source->addProperty($constructorParam);
+            $property = Property::createFromParameter($constructorParam);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;
@@ -71,8 +73,9 @@ class SeniorDeveloperProvider
             ->addConstructorMethod(new ConstructorMethod($constructorParams));
 
         foreach ($constructorParams as $constructorParam) {
-            $source->addGetterMethod($constructorParam);
-            $source->addProperty($constructorParam);
+            $property = Property::createFromParameter($constructorParam);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;
@@ -86,8 +89,9 @@ class SeniorDeveloperProvider
             ->addConstructorMethod(new ConstructorMethod($constructorParams));
 
         foreach ($constructorParams as $constructorParam) {
-            $source->addGetterMethod($constructorParam);
-            $source->addProperty($constructorParam);
+            $property = Property::createFromParameter($constructorParam);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;
@@ -101,8 +105,9 @@ class SeniorDeveloperProvider
             ->addConstructorMethod(new ConstructorMethod($constructorParams));
 
         foreach ($constructorParams as $constructorParam) {
-            $source->addGetterMethod($constructorParam);
-            $source->addProperty($constructorParam);
+            $property = Property::createFromParameter($constructorParam);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;
@@ -116,8 +121,9 @@ class SeniorDeveloperProvider
             ->addConstructorMethod(new ConstructorMethod($constructorParams));
 
         foreach ($constructorParams as $constructorParam) {
-            $source->addGetterMethod($constructorParam);
-            $source->addProperty($constructorParam);
+            $property = Property::createFromParameter($constructorParam);
+            $source->addGetterMethod($property);
+            $source->addProperty($property);
         }
 
         return $source;
