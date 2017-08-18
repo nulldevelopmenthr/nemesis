@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Parameter;
 
 class LetMethod implements Method
 {
@@ -42,6 +43,7 @@ class LetMethod implements Method
         return 'let';
     }
 
+    /** @return Parameter[]|array */
     public function getMethodParameters(): array
     {
         return $this->params;
