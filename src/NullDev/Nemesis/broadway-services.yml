@@ -5,22 +5,22 @@ services:
     public: true
 
 
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayModelHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayModel' }
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayCommandHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand' }
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmRead' }
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayElasticSearchReadHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticSearchRead' }
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayEventHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayEventHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent' }
-  NullDev\BroadwaySkeleton\Handler\CreateBroadwayHandlerHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayHandlerHandler:
     tags:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayHandler' }
 
