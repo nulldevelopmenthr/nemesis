@@ -6,7 +6,7 @@ namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
+use NullDev\Skeleton\CodeGenerator\PhpParser\TestValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
@@ -65,7 +65,7 @@ class ExposeGettersGenerator implements MethodGenerator
                             'get'.ucfirst($property->getName())
                         ),
                         'shouldReturn',
-                        [ParameterValueGenerator::generate($property)]
+                        [TestValueGenerator::generate($property)]
                     )
                 );
             }
