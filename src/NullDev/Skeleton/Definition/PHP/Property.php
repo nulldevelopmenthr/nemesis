@@ -61,4 +61,13 @@ class Property
 
         return true;
     }
+
+    public function getTypeForDocBlock(): string
+    {
+        if (null === $this->type) {
+            return '';
+        }
+
+        return $this->type->getName();
+    }
 }
