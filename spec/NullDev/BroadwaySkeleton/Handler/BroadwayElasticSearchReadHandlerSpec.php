@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\BroadwaySkeleton\Handler;
 
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticSearchRead;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayElasticSearchReadHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayElasticSearchReadHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
@@ -14,7 +14,7 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 
-class CreateBroadwayElasticSearchReadHandlerSpec extends ObjectBehavior
+class BroadwayElasticSearchReadHandlerSpec extends ObjectBehavior
 {
     public function let(
         ReadEntitySourceFactory $readEntitySourceFactory,
@@ -26,7 +26,7 @@ class CreateBroadwayElasticSearchReadHandlerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CreateBroadwayElasticSearchReadHandler::class);
+        $this->shouldHaveType(BroadwayElasticSearchReadHandler::class);
     }
 
     public function it_will_handle_creating_broadway_elastic_search_read_side(

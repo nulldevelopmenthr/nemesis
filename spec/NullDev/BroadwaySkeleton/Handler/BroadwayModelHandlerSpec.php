@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\BroadwaySkeleton\Handler;
 
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayModel;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayModelHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayModelHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcedAggregateRootSourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourcingRepositorySourceFactory;
@@ -18,7 +18,7 @@ use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use PhpSpec\ObjectBehavior;
 
-class CreateBroadwayModelHandlerSpec extends ObjectBehavior
+class BroadwayModelHandlerSpec extends ObjectBehavior
 {
     public function let(
         Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory,
@@ -36,7 +36,7 @@ class CreateBroadwayModelHandlerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CreateBroadwayModelHandler::class);
+        $this->shouldHaveType(BroadwayModelHandler::class);
     }
 
     public function it_will_handler_creating_broadway_model(

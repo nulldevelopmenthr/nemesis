@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDev\BroadwaySkeleton\Handler;
 
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmRead;
-use NullDev\BroadwaySkeleton\Handler\CreateBroadwayDoctrineOrmReadHandler;
+use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadHandler;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadEntitySourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadProjectorSourceFactory;
@@ -15,7 +15,7 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpSpec\ObjectBehavior;
 
-class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
+class BroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
 {
     public function let(
         ReadEntitySourceFactory $readEntitySourceFactory,
@@ -28,7 +28,7 @@ class CreateBroadwayDoctrineOrmReadHandlerSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CreateBroadwayDoctrineOrmReadHandler::class);
+        $this->shouldHaveType(BroadwayDoctrineOrmReadHandler::class);
     }
 
     public function it_will_handle_creating_broadway_doctrine_orm_read_side(

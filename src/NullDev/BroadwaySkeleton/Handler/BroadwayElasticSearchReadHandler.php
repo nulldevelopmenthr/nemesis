@@ -10,10 +10,10 @@ use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadProjectorSourc
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadRepositorySourceFactory;
 
 /**
- * @see CreateBroadwayElasticSearchReadHandlerSpec
- * @see CreateBroadwayElasticSearchReadHandlerTest
+ * @see BroadwayElasticSearchReadHandlerSpec
+ * @see BroadwayElasticSearchReadHandlerTest
  */
-class CreateBroadwayElasticSearchReadHandler
+class BroadwayElasticSearchReadHandler
 {
     /** @var ReadEntitySourceFactory */
     private $readEntitySourceFactory;
