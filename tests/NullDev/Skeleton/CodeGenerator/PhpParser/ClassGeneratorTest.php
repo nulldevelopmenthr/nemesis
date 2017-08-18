@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
@@ -68,8 +68,8 @@ class ClassGeneratorTest extends PHPUnit_Framework_TestCase
     public function testClassWithProperties(): void
     {
         $input = new ImprovedClassSource(ClassType::createFromFullyQualified('MyCompany\Namespace\User'));
-        $input->addProperty(Parameter::create('firstName'));
-        $input->addProperty(Parameter::create('lastName', 'LastName'));
+        $input->addProperty(Property::create('firstName'));
+        $input->addProperty(Property::create('lastName', 'LastName'));
         $result = $this->classGenerator->generate($input);
 
         self::assertInstanceOf(Class_::class, $result);

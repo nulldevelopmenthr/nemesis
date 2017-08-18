@@ -7,6 +7,7 @@ namespace NullDev\Skeleton\Uuid\SourceFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\SourceFactory\SourceFactory;
@@ -29,15 +30,16 @@ class Uuid4IdentitySourceFactory implements SourceFactory
 
     public function create(ClassType $classType)
     {
-        $source = $this->sourceFactory->create($classType);
-        $param  = Parameter::create('id', 'string');
+        $source   = $this->sourceFactory->create($classType);
+        $param    = Parameter::create('id', 'string');
+        $property = Property::create('id', 'string');
 
         //Add constructor method.
         $source->addConstructorMethod(new ConstructorMethod([$param]));
         //Add constructor parameters as class properties.
-        $source->addProperty($param);
+        $source->addProperty($property);
         //Add getter.
-        $source->addGetterMethod($param);
+        $source->addGetterMethod($property);
         //Add __toString() method.
         $source->addMethod(new ToStringMethod($param));
         //Add static create() method.

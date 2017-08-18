@@ -19,6 +19,7 @@ use NullDev\Skeleton\Definition\PHP\Types\Type;
 /**
  * @see ImprovedClassSourceSpec
  * @see ImprovedClassSourceTest
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class ImprovedClassSource
 {
@@ -266,9 +267,9 @@ class ImprovedClassSource
 
     //-----     Methods     -----
 
-    public function addGetterMethod(Parameter $parameter)
+    public function addGetterMethod(Property $property)
     {
-        $this->addMethod(GetterMethod::create($parameter));
+        $this->addMethod(GetterMethod::create($property));
     }
 
     public function addMethod(Method $method)

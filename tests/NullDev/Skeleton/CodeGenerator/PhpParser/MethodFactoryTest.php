@@ -12,6 +12,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\Builder\Method as PhpBuilderMethod;
@@ -49,7 +50,7 @@ class MethodFactoryTest extends ContainerSupportedTestCase
     {
         return [
             [new ConstructorMethod([])],
-            [GetterMethod::create(Parameter::create('paramName'))],
+            [GetterMethod::create(Property::create('paramName'))],
             [new ToStringMethod(Parameter::create('paramName'))],
             [new UuidCreateMethod(ClassType::createFromFullyQualified('Vendor\Namespace\SomeId'))],
         ];

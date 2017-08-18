@@ -8,6 +8,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
@@ -103,13 +104,13 @@ class ReflectionSourceParser implements SourceParser
                 if ($constructorParameter->getName() === $reflectionProperty->getName()) {
                     $found = true;
 
-                    $result->addProperty($constructorParameter);
+                    $result->addProperty(Property::createFromParameter($constructorParameter));
                     break;
                 }
             }
 
             if (false === $found) {
-                $result->addProperty(new Parameter($reflectionProperty->getName()));
+                $result->addProperty(new Property($reflectionProperty->getName()));
             }
         }
 
@@ -130,8 +131,8 @@ class ReflectionSourceParser implements SourceParser
                     $result->addMethod(new GenericMethod($methodName, [], null));
                 } else {
                     if (true === $reflectionMethod->hasReturnType()) {
-                        $param = new Parameter($paramName, $this->createType2($reflectionMethod->getReturnType()));
-                        $result->addMethod(new GetterMethod($methodName, $param));
+                        $property = new Property($paramName, $this->createType2($reflectionMethod->getReturnType()));
+                        $result->addMethod(new GetterMethod($methodName, $property));
                     } else {
                         $result->addMethod(new GetterMethod($methodName, $result->getPropertyNamed($paramName)));
                     }

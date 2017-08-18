@@ -6,7 +6,7 @@ namespace tests\NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -42,40 +42,40 @@ class ExposeGettersGeneratorTest extends PHPUnit_Framework_TestCase
             ],
             [
                 [
-                    Parameter::create('first'),
+                    Property::create('first'),
                 ],
                 '1-one-no-type-param',
             ],
             [
                 [
-                    Parameter::create('first'),
-                    Parameter::create('second'),
-                    Parameter::create('third'),
+                    Property::create('first'),
+                    Property::create('second'),
+                    Property::create('third'),
                 ],
                 '2-multiple-no-type-params',
             ],
             [
                 [
-                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
+                    Property::create('first', 'Vendor\Namespace\FirstName'),
                 ],
                 '3-one-type-param',
             ],
             [
                 [
-                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
-                    Parameter::create('second', 'Vendor\Namespace\SecondName'),
-                    Parameter::create('last', 'Vendor\Namespace\LastName'),
+                    Property::create('first', 'Vendor\Namespace\FirstName'),
+                    Property::create('second', 'Vendor\Namespace\SecondName'),
+                    Property::create('last', 'Vendor\Namespace\LastName'),
                 ],
                 '4-multiple-type-params',
             ],
             [
                 [
-                    Parameter::create('id', 'int'),
-                    Parameter::create('name', 'string'),
-                    Parameter::create('price', 'float'),
-                    Parameter::create('smart', 'bool'),
-                    Parameter::create('tags', 'array'),
-                    Parameter::create('randomValue'),
+                    Property::create('id', 'int'),
+                    Property::create('name', 'string'),
+                    Property::create('price', 'float'),
+                    Property::create('smart', 'bool'),
+                    Property::create('tags', 'array'),
+                    Property::create('randomValue'),
                 ],
                 '5-multiple-type-params',
             ],

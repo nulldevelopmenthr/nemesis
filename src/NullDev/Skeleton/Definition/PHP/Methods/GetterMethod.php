@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Definition\PHP\Methods;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 
 /**
  * @see GetterMethodSpec
@@ -14,30 +14,30 @@ class GetterMethod implements Method
 {
     /** @var string */
     private $methodName;
-    /** @var Parameter */
-    private $parameter;
+    /** @var Property */
+    private $property;
 
-    public function __construct(string $methodName, Parameter $parameter)
+    public function __construct(string $methodName, Property $property)
     {
         $this->methodName = $methodName;
-        $this->parameter  = $parameter;
+        $this->property   = $property;
     }
 
-    public static function create(Parameter $parameter): GetterMethod
+    public static function create(Property $property): GetterMethod
     {
-        $methodName = 'get'.ucfirst($parameter->getName());
+        $methodName = 'get'.ucfirst($property->getName());
 
-        return new self($methodName, $parameter);
+        return new self($methodName, $property);
     }
 
-    public function getParameter(): Parameter
+    public function getProperty(): Property
     {
-        return $this->parameter;
+        return $this->property;
     }
 
     public function getPropertyName()
     {
-        return $this->parameter->getName();
+        return $this->property->getName();
     }
 
     public function getVisibility(): string
@@ -62,11 +62,11 @@ class GetterMethod implements Method
 
     public function hasMethodReturnType(): bool
     {
-        return $this->parameter->hasType();
+        return $this->property->hasType();
     }
 
     public function getMethodReturnType(): string
     {
-        return $this->parameter->getTypeShortName();
+        return $this->property->getTypeShortName();
     }
 }

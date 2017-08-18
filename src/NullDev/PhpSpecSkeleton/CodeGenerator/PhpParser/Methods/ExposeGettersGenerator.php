@@ -8,6 +8,7 @@ use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\ParameterValueGenerator;
 use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\TypeDeclaration;
 use PhpParser\Builder\Param;
 use PhpParser\BuilderFactory;
@@ -39,22 +40,20 @@ class ExposeGettersGenerator implements MethodGenerator
             ->makePublic();
 
         foreach ($method->getMethodParameters() as $param) {
-            if (true === $this->isParameterEligibleForMethodParameter($param)) {
-                $node->addParam($this->createMethodParam($param));
-            }
+            $node->addParam($this->createMethodParam($param));
         }
 
-        foreach ($method->getMethodParameters() as $param) {
-            if (true === $this->isParameterEligibleForMethodParameter($param)) {
+        foreach ($method->getProperties() as $property) {
+            if (true === $this->isParameterEligibleForMethodParameter($property)) {
                 $node->addStmt(
                     new MethodCall(
                         new MethodCall(
                             new Variable('this'),
-                            'get'.ucfirst($param->getName())
+                            'get'.ucfirst($property->getName())
                         ),
                         'shouldReturn',
                         [
-                            new Arg(new Variable($param->getName())),
+                            new Arg(new Variable($property->getName())),
                         ]
                     )
                 );
@@ -63,10 +62,10 @@ class ExposeGettersGenerator implements MethodGenerator
                     new MethodCall(
                         new MethodCall(
                             new Variable('this'),
-                            'get'.ucfirst($param->getName())
+                            'get'.ucfirst($property->getName())
                         ),
                         'shouldReturn',
-                        [ParameterValueGenerator::generate($param)]
+                        [ParameterValueGenerator::generate($property)]
                     )
                 );
             }
@@ -75,13 +74,13 @@ class ExposeGettersGenerator implements MethodGenerator
         return $node;
     }
 
-    private function isParameterEligibleForMethodParameter(Parameter $parameter): bool
+    private function isParameterEligibleForMethodParameter(Property $property): bool
     {
-        if (false === $parameter->hasType()) {
+        if (false === $property->hasType()) {
             return false;
         }
 
-        if ($parameter->getType() instanceof TypeDeclaration) {
+        if ($property->getType() instanceof TypeDeclaration) {
             return false;
         }
 

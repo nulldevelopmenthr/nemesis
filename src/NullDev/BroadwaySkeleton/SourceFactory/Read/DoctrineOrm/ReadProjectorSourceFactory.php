@@ -6,6 +6,7 @@ namespace NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
 
 use Broadway\ReadModel\Projector;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\SourceFactory\SourceFactory;
@@ -31,7 +32,7 @@ class ReadProjectorSourceFactory implements SourceFactory
         $source->addParent(ClassType::createFromFullyQualified(Projector::class));
         $source->addConstructorMethod($this->definitionFactory->createConstructorMethod($parameters));
         foreach ($parameters as $parameter) {
-            $source->addProperty($parameter);
+            $source->addProperty(Property::createFromParameter($parameter));
         }
 
         return $source;

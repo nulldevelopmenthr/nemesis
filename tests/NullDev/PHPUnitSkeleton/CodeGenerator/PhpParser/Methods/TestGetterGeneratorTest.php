@@ -7,7 +7,7 @@ namespace tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use PhpParser\BuilderFactory;
 use PHPUnit_Framework_TestCase;
 
@@ -38,17 +38,17 @@ class TestGetterGeneratorTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                GetterMethod::create(Parameter::create('currencyCode', 'string')),
+                GetterMethod::create(Property::create('currencyCode', 'string')),
                 'money',
                 '0-string',
             ],
             [
-                GetterMethod::create(Parameter::create('amount', 'int')),
+                GetterMethod::create(Property::create('amount', 'int')),
                 'money',
                 '1-integer',
             ],
             [
-                GetterMethod::create(Parameter::create('currency', 'Money\Currency')),
+                GetterMethod::create(Property::create('currency', 'Money\Currency')),
                 'money',
                 '10-currency-object',
             ],

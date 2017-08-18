@@ -42,6 +42,9 @@ class ReadProjectorSourceFactorySpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($constructorMethod);
 
+        $parameter->getName()->shouldBeCalled()->willReturn('paramName');
+        $parameter->getType()->shouldBeCalled()->willReturn(null);
+
         $this->create($classType, [$parameter])
             ->shouldReturn($classSource);
     }

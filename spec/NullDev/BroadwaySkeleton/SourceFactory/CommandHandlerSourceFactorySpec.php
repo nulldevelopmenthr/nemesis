@@ -9,7 +9,7 @@ use NullDev\BroadwaySkeleton\Definition\PHP\Methods\CommandHandler\LoadAggregate
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\CommandHandler\SaveAggregateRootModelMethod;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
@@ -52,7 +52,7 @@ class CommandHandlerSourceFactorySpec extends ObjectBehavior
 
         $classSource->addConstructorMethod($constructorMethod)
             ->shouldBeCalled();
-        $classSource->addProperty(Argument::type(Parameter::class))
+        $classSource->addProperty(Argument::type(Property::class))
             ->shouldBeCalled();
         $classSource->addMethod(Argument::type(LoadAggregateRootModelMethod::class))
             ->shouldBeCalled();

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
-use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Property;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -19,8 +19,8 @@ class GetterMethodTest extends PHPUnit_Framework_TestCase
 
     public function setUp(): void
     {
-        $parameter    = Parameter::create('firstName', 'Vendor\User\FirstName');
-        $this->method = GetterMethod::create($parameter);
+        $property     = Property::create('firstName', 'Vendor\User\FirstName');
+        $this->method = GetterMethod::create($property);
     }
 
     public function testGetPropertyName()
