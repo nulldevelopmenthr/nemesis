@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Types\Type;
+use Webmozart\Assert\Assert;
 
 class InitializableMethod implements Method
 {
@@ -12,9 +14,11 @@ class InitializableMethod implements Method
 
     public function __construct(array $shouldHaveTypes)
     {
+        Assert::allIsInstanceOf($shouldHaveTypes, Type::class);
         $this->shouldHaveTypes = $shouldHaveTypes;
     }
 
+    /** @return Type[]|array */
     public function getShouldHaveTypes(): array
     {
         return $this->shouldHaveTypes;
