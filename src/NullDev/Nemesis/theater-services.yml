@@ -7,5 +7,6 @@ services:
   NullDev\Theater\Config\TheaterConfigFactory: ~
   NullDev\Theater\BoundedContext\BoundedContextConfigFactory: ~
   NullDev\Theater\NamingStrategy\NamingStrategyFactory: ~
+  NullDev\Theater\ReadSide\ReadSideConfigFactory: ~
 
 
