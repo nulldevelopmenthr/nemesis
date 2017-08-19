@@ -8,13 +8,13 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
+use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use NullDev\Theater\Naming\CommandClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use PHPUnit_Framework_TestCase;
@@ -94,9 +94,9 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
         self::assertEmpty($this->config->getEntityClassNames());
     }
 
-    public function testGetCommandClassNames()
+    public function testGetCommands()
     {
-        self::assertEmpty($this->config->getCommandClassNames());
+        self::assertEmpty($this->config->getCommands());
     }
 
     public function testGetEventClassNames()
@@ -114,10 +114,10 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
 
     public function testAddCommand()
     {
-        $command = Mockery::mock(CommandClassName::class);
+        $command = Mockery::mock(CommandConfig::class);
 
         $this->config->addCommand($command);
-        self::assertEquals([$command], $this->config->getCommandClassNames());
+        self::assertEquals([$command], $this->config->getCommands());
     }
 
     public function testAddEvent()

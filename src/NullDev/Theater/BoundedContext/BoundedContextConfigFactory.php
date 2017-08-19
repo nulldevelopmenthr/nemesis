@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\BoundedContext;
 
+use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
@@ -16,6 +17,7 @@ use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 /**
  * @see BoundedContextConfigFactorySpec
  * @see BoundedContextConfigFactoryTest
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class BoundedContextConfigFactory
 {
@@ -58,8 +60,20 @@ class BoundedContextConfigFactory
             $config->addEntity(EntityClassName::create($entity));
         }
 
-        foreach ($data['classes']['commands'] as $command) {
-            $config->addCommand(CommandClassName::create($command));
+        foreach ($data['classes']['commands'] as $name => $command) {
+            $className = $command['className'];
+
+            $parameters = [];
+            foreach ($command['parameters'] as $parameterName => $parameterType) {
+                $parameters[] = Parameter::create($parameterName, $parameterType);
+            }
+
+            $config->addCommand(
+                new CommandConfig(
+                    $name,
+                    CommandClassName::create($className), $parameters
+                )
+            );
         }
         foreach ($data['classes']['events'] as $event) {
             $config->addEvent(EventClassName::create($event));
