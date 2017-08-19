@@ -19,6 +19,11 @@ services:
     tags:
       - {name: console.command }
 
+  cli.command.broadway.event.add:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayAddEventCliCommand
+    tags:
+      - {name: console.command }
+
   cli.command.broadway.read.doctrine:
     class: NullDev\BroadwaySkeleton\Cli\BroadwayDoctrineOrmReadCliCommand
     tags:
