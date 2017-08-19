@@ -8,7 +8,9 @@ use League\Tactician\CommandBus;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootId;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\ContextName;
@@ -65,6 +67,14 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
                 CreateBroadwayAggregateRootRepository::create($context),
                 CreateBroadwayCommandHandler::create($context),
             ];
+
+            foreach ($context->getCommands() as $commandConfig) {
+                $commands[] = new CreateBroadwayCommand($commandConfig->getCommandClassName(), $commandConfig->getParameters());
+            }
+
+            foreach ($context->getEvents() as $eventConfig) {
+                $commands[] = new CreateBroadwayEvent($eventConfig->getEventClassName(), $eventConfig->getParameters());
+            }
 
             $outputResources = [];
 
