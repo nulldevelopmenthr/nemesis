@@ -178,7 +178,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function getTheaterConfig(): TheaterConfig
     {
-        $path = getcwd().'/theater.yml';
+        $path = $this->getTheaterConfigFilePath();
 
         if (false === file_exists($path)) {
             $config = new TheaterConfig([]);
@@ -195,9 +195,14 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function writeTheaterConfig(TheaterConfig $config)
     {
-        $path = getcwd().'/theater.yml';
+        $path = $this->getTheaterConfigFilePath();
         $yaml = Yaml::dump($config->toArray(), 4, 2);
         file_put_contents($path, $yaml);
+    }
+
+    private function getTheaterConfigFilePath(): string
+    {
+        return getcwd().'/theater.yml';
     }
 
     ///
