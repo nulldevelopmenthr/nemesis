@@ -14,6 +14,7 @@ class SetUpMethodSpec extends ObjectBehavior
 {
     public function let(ImprovedClassSource $subjectUnderTest)
     {
+        $subjectUnderTest->getParentFullName()->willReturn('');
         $subjectUnderTest->getConstructorParameters()->willReturn([]);
 
         $this->beConstructedWith($subjectUnderTest);

@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace NullDev\PHPUnitSkeleton\Definition\PHP\Methods;
 
+use Broadway\EventHandling\EventBus;
+use Broadway\EventSourcing\EventSourcingRepository;
+use Broadway\EventStore\EventStore;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 /**
@@ -38,7 +44,15 @@ class SetUpMethod extends SimpleTestMethod implements Method
 
     public function getSubjectUnderTestConstuctorParameters(): array
     {
-        return $this->subjectUnderTest->getConstructorParameters();
+        $params = $this->subjectUnderTest->getConstructorParameters();
+
+        if ($this->subjectUnderTest->getParentFullName() === EventSourcingRepository::class) {
+            $params[] = Parameter::create('eventStore', EventStore::class);
+            $params[] = Parameter::create('eventBus', EventBus::class);
+            $params[] = Parameter::create('eventStreamDecorators', 'array');
+        }
+
+        return $params;
     }
 
     public function getSubjectUnderTestConstuctorParametersAsClassTypes(): array
@@ -48,6 +62,12 @@ class SetUpMethod extends SimpleTestMethod implements Method
             if (true === $param->hasType()) {
                 $result[] = $param->getType();
             }
+        }
+
+        if ($this->subjectUnderTest->getParentFullName() === EventSourcingRepository::class) {
+            $result[] = ClassType::createFromFullyQualified(EventStore::class);
+            $result[] = ClassType::createFromFullyQualified(EventBus::class);
+            $result[] = new ArrayType();
         }
 
         return $result;
