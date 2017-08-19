@@ -7,6 +7,7 @@ namespace NullDev\Theater\Config;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\ReadSide\ReadSideConfig;
+use NullDev\Theater\ReadSide\ReadSideName;
 use Webmozart\Assert\Assert;
 
 /**
@@ -80,6 +81,46 @@ class TheaterConfig
         foreach ($this->contexts as $key => $existingContext) {
             if ($existingContext->getName() == $context->getName()) {
                 $this->contexts[$key] = $context;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function addReadSide(ReadSideConfig $readSideConfig)
+    {
+        $this->reads[] = $readSideConfig;
+    }
+
+    public function hasReadSideByName(ReadSideName $readSideName): bool
+    {
+        foreach ($this->reads as $readSide) {
+            if ($readSide->getName() == $readSideName) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getReadSideByName(ReadSideName $readSideName): ?ReadSideConfig
+    {
+        foreach ($this->reads as $readSide) {
+            if ($readSide->getName() == $readSideName) {
+                return $readSide;
+            }
+        }
+
+        return null;
+    }
+
+    public function replaceReadSide(ReadSideConfig $readSide)
+    {
+        foreach ($this->reads as $key => $existingReadSide) {
+            if ($existingReadSide->getName() == $readSide->getName()) {
+                $this->reads[$key] = $readSide;
 
                 return true;
             }
