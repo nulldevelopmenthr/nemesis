@@ -14,7 +14,6 @@ services:
   NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
 
   NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
-  NullDev\Skeleton\Command\BroadwayCommandCliCommand: ~
   NullDev\Skeleton\Command\BroadwayDoctrineOrmReadCliCommand: ~
   NullDev\Skeleton\Command\BroadwayElasticSearchReadCliCommand: ~
   NullDev\Skeleton\Command\BroadwayEventCliCommand: ~

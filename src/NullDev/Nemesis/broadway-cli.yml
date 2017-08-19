@@ -19,11 +19,6 @@ services:
     tags:
       - {name: console.command }
 
-  cli.command.broadway.command:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayCommandCliCommand
-    tags:
-      - {name: console.command }
-
   cli.command.broadway.read.doctrine:
     class: NullDev\BroadwaySkeleton\Cli\BroadwayDoctrineOrmReadCliCommand
     tags:
