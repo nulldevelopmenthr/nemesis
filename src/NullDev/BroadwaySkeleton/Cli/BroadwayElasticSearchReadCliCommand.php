@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Cli;
 
 use League\Tactician\CommandBus;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticSearchRead;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadEntity;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadRepository;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\Exception\Example\PendingException;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,14 +51,17 @@ class BroadwayElasticSearchReadCliCommand extends BaseSkeletonGeneratorCommand
         $repositoryClassType    = ClassType::createFromFullyQualified($className.'Repository');
         $readProjectorClassType = ClassType::createFromFullyQualified($className.'Projector');
 
-        $command = new CreateBroadwayElasticSearchRead(
-            $readEntityClassType,
-            $readEntityProperties,
-            $repositoryClassType,
-            $readProjectorClassType
-        );
+        $commands = [
+            new CreateBroadwayElasticsearchReadEntity($readEntityClassType, $readEntityProperties),
+            new CreateBroadwayElasticsearchReadProjector($readProjectorClassType, $readEntityProperties),
+            new CreateBroadwayElasticsearchReadRepository($repositoryClassType),
+        ];
 
-        $outputResources = $commandBus->handle($command);
+        $outputResources = [];
+
+        foreach ($commands as $command) {
+            $outputResources = array_merge($outputResources, $commandBus->handle($command));
+        }
 
         foreach ($outputResources as $outputResource) {
             $this->handleGeneratingFile($outputResource);
