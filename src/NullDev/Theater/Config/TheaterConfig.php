@@ -59,6 +59,19 @@ class TheaterConfig
         return null;
     }
 
+    public function replaceContext(BoundedContextConfig $context)
+    {
+        foreach ($this->contexts as $key => $existingContext) {
+            if ($existingContext->getName() == $context->getName()) {
+                $this->contexts[$key] = $context;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function toArray(): array
     {
         $contexts = [];
