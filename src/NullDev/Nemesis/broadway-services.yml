@@ -26,12 +26,28 @@ services:
       - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler' }
 
 
-  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadHandler:
+  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadEntityHandler:
     tags:
-      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmRead' }
-  NullDev\BroadwaySkeleton\Handler\BroadwayElasticSearchReadHandler:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadRepositoryHandler:
     tags:
-      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticSearchRead' }
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadRepository' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadFactoryHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadProjectorHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector' }
+
+  NullDev\BroadwaySkeleton\Handler\BroadwayElasticsearchReadEntityHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadEntity' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayElasticsearchReadRepositoryHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadRepository' }
+  NullDev\BroadwaySkeleton\Handler\BroadwayElasticsearchReadProjectorHandler:
+    tags:
+      - { name: tactician.handler, command: 'NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector' }
 
 
   NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler\LoadAggregateRootModelGenerator: ~
