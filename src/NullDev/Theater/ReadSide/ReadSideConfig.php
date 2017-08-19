@@ -79,8 +79,12 @@ class ReadSideConfig
         return $this->readProjector;
     }
 
-    public function getReadFactory(): ?ClassType
+    public function getReadFactory(): ClassType
     {
+        if (null === $this->readFactory) {
+            throw new \Exception('Err 98098351231: No read factory defined!');
+        }
+
         return $this->readFactory;
     }
 
