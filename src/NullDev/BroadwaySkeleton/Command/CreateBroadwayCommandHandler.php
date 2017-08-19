@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Command;
 
+use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
@@ -34,6 +35,16 @@ class CreateBroadwayCommandHandler
         $this->repositoryClassName = $repositoryClassName;
         $this->idClassName         = $idClassName;
         $this->modelClassName      = $modelClassName;
+    }
+
+    public static function create(BoundedContextConfig $config): CreateBroadwayCommandHandler
+    {
+        return new self(
+            $config->getCommandHandlerClassName(),
+            $config->getRepositoryClassName(),
+            $config->getRootIdClassName(),
+            $config->getModelClassName()
+        );
     }
 
     public function getHandlerClassName(): CommandHandlerClassName
