@@ -29,9 +29,3 @@ services:
     tags:
       - {name: console.command }
 
-  cli.command.broadway.model:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayModelCliCommand
-    tags:
-      - {name: console.command }
-
-      
