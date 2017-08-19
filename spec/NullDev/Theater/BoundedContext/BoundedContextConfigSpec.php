@@ -8,12 +8,12 @@ use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
+use NullDev\Theater\BoundedContext\EventConfig;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use NullDev\Theater\Naming\EventClassName;
 use PhpSpec\ObjectBehavior;
 
 class BoundedContextConfigSpec extends ObjectBehavior
@@ -61,7 +61,7 @@ class BoundedContextConfigSpec extends ObjectBehavior
     {
         $this->getEntityClassNames()->shouldReturn([]);
         $this->getCommands()->shouldReturn([]);
-        $this->getEventClassNames()->shouldReturn([]);
+        $this->getEvents()->shouldReturn([]);
     }
 
     public function it_can_add_aggregate_entity(EntityClassName $entityClassName)
@@ -78,10 +78,10 @@ class BoundedContextConfigSpec extends ObjectBehavior
         $this->getCommands()->shouldReturn([$commandConfig]);
     }
 
-    public function it_can_add_event(EventClassName $eventClassName)
+    public function it_can_add_event(EventConfig $eventConfig)
     {
-        $this->addEvent($eventClassName);
+        $this->addEvent($eventConfig);
 
-        $this->getEventClassNames()->shouldReturn([$eventClassName]);
+        $this->getEvents()->shouldReturn([$eventConfig]);
     }
 }

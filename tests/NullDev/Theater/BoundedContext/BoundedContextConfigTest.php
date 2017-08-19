@@ -11,12 +11,12 @@ use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
+use NullDev\Theater\BoundedContext\EventConfig;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use NullDev\Theater\Naming\EventClassName;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -99,9 +99,9 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
         self::assertEmpty($this->config->getCommands());
     }
 
-    public function testGetEventClassNames()
+    public function testGetEvents()
     {
-        self::assertEmpty($this->config->getEventClassNames());
+        self::assertEmpty($this->config->getEvents());
     }
 
     public function testAddEntity()
@@ -122,10 +122,10 @@ class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
 
     public function testAddEvent()
     {
-        $event = Mockery::mock(EventClassName::class);
+        $event = Mockery::mock(EventConfig::class);
 
         $this->config->addEvent($event);
-        self::assertEquals([$event], $this->config->getEventClassNames());
+        self::assertEquals([$event], $this->config->getEvents());
     }
 
     public function testToArray()
