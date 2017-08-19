@@ -102,11 +102,13 @@ class BoundedContextConfig
         return $this->entityClassNames;
     }
 
+    /** @return CommandConfig[] */
     public function getCommands(): array
     {
         return $this->commands;
     }
 
+    /** @return EventConfig[] */
     public function getEvents(): array
     {
         return $this->events;
