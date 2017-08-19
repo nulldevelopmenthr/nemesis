@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace spec\NullDev\Theater\BoundedContext;
 
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
+use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use NullDev\Theater\Naming\CommandClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use PhpSpec\ObjectBehavior;
@@ -60,7 +60,7 @@ class BoundedContextConfigSpec extends ObjectBehavior
     public function it_has_collections_empty_by_default()
     {
         $this->getEntityClassNames()->shouldReturn([]);
-        $this->getCommandClassNames()->shouldReturn([]);
+        $this->getCommands()->shouldReturn([]);
         $this->getEventClassNames()->shouldReturn([]);
     }
 
@@ -71,11 +71,11 @@ class BoundedContextConfigSpec extends ObjectBehavior
         $this->getEntityClassNames()->shouldReturn([$entityClassName]);
     }
 
-    public function it_can_add_command(CommandClassName $commandClassName)
+    public function it_can_add_command(CommandConfig $commandConfig)
     {
-        $this->addCommand($commandClassName);
+        $this->addCommand($commandConfig);
 
-        $this->getCommandClassNames()->shouldReturn([$commandClassName]);
+        $this->getCommands()->shouldReturn([$commandConfig]);
     }
 
     public function it_can_add_event(EventClassName $eventClassName)

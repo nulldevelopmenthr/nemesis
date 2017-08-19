@@ -8,7 +8,6 @@ use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use NullDev\Theater\Naming\CommandClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 
@@ -33,8 +32,8 @@ class BoundedContextConfig
 
     /** @var EntityClassName[]|array */
     private $entityClassNames = [];
-    /** @var CommandClassName[]|array */
-    private $commandClassNames = [];
+    /** @var CommandConfig[]|array */
+    private $commands = [];
     /** @var EventClassName[]|array */
     private $eventClassNames = [];
 
@@ -59,9 +58,9 @@ class BoundedContextConfig
         $this->entityClassNames[] = $entityClassName;
     }
 
-    public function addCommand(CommandClassName $commandClassName)
+    public function addCommand(CommandConfig $commandConfig)
     {
-        $this->commandClassNames[] = $commandClassName;
+        $this->commands[] = $commandConfig;
     }
 
     public function addEvent(EventClassName $eventClassName)
@@ -104,9 +103,9 @@ class BoundedContextConfig
         return $this->entityClassNames;
     }
 
-    public function getCommandClassNames(): array
+    public function getCommands(): array
     {
-        return $this->commandClassNames;
+        return $this->commands;
     }
 
     public function getEventClassNames(): array
@@ -116,6 +115,22 @@ class BoundedContextConfig
 
     public function toArray(): array
     {
+        $commands = [];
+
+        foreach ($this->commands as $commandConfig) {
+            $parameters = [];
+
+            foreach ($commandConfig->getParameters() as $parameter) {
+                $parameters[$parameter->getName()] = $parameter->getTypeFullName();
+            }
+
+            $commands[$commandConfig->getName()] =
+                [
+                    'className'  => $commandConfig->getCommandClassName()->getFullName(),
+                    'parameters' => $parameters,
+                ];
+        }
+
         return [
             'namespace' => $this->namespace->getValue(),
             'classes'   => [
@@ -124,7 +139,7 @@ class BoundedContextConfig
                 'repository' => $this->repositoryClassName->getFullName(),
                 'handler'    => $this->commandHandlerClassName->getFullName(),
                 'entities'   => [],
-                'commands'   => [],
+                'commands'   => $commands,
                 'events'     => [],
             ],
         ];
