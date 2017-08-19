@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Cli;
 
 use League\Tactician\CommandBus;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmRead;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadRepository;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\Exception\Example\PendingException;
 use Symfony\Component\Console\Input\InputInterface;
@@ -51,15 +54,18 @@ class BroadwayDoctrineOrmReadCliCommand extends BaseSkeletonGeneratorCommand
         $factoryClassType       = ClassType::createFromFullyQualified($className.'Factory');
         $readProjectorClassType = ClassType::createFromFullyQualified($className.'Projector');
 
-        $command = new CreateBroadwayDoctrineOrmRead(
-            $readEntityClassType,
-            $readEntityProperties,
-            $repositoryClassType,
-            $factoryClassType,
-            $readProjectorClassType
-        );
+        $commands = [
+            new CreateBroadwayDoctrineOrmReadEntity($readEntityClassType, $readEntityProperties),
+            new CreateBroadwayDoctrineOrmReadFactory($factoryClassType),
+            new CreateBroadwayDoctrineOrmReadProjector($readProjectorClassType, $readEntityProperties),
+            new CreateBroadwayDoctrineOrmReadRepository($repositoryClassType),
+        ];
 
-        $outputResources = $commandBus->handle($command);
+        $outputResources = [];
+
+        foreach ($commands as $command) {
+            $outputResources = array_merge($outputResources, $commandBus->handle($command));
+        }
 
         foreach ($outputResources as $outputResource) {
             $this->handleGeneratingFile($outputResource);
