@@ -24,13 +24,7 @@ services:
     tags:
       - {name: console.command }
 
-  cli.command.broadway.read.doctrine:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayDoctrineOrmReadCliCommand
+  cli.command.broadway.read.add:
+    class: NullDev\BroadwaySkeleton\Cli\BroadwayAddReadSideCliCommand
     tags:
       - {name: console.command }
-
-  cli.command.broadway.read.elastic:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayElasticSearchReadCliCommand
-    tags:
-      - {name: console.command }
-
