@@ -14,15 +14,12 @@ use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
-use NullDev\Theater\Config\TheaterConfig;
-use NullDev\Theater\Config\TheaterConfigFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @codeCoverageIgnore
@@ -117,30 +114,6 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
         }
 
         $this->io->writeln('DoNE');
-    }
-
-    private function getTheaterConfig(): TheaterConfig
-    {
-        $path = getcwd().'/theater.yml';
-
-        if (false === file_exists($path)) {
-            $config = new TheaterConfig([]);
-
-            $this->writeTheaterConfig($config);
-        } else {
-            $configData = Yaml::parse(file_get_contents($path));
-
-            $config = $this->getService(TheaterConfigFactory::class)->createFromArray($configData);
-        }
-
-        return $config;
-    }
-
-    private function writeTheaterConfig(TheaterConfig $config)
-    {
-        $path = getcwd().'/theater.yml';
-        $yaml = Yaml::dump($config->toArray(), 4, 2);
-        file_put_contents($path, $yaml);
     }
 
     protected function handleNameInput()

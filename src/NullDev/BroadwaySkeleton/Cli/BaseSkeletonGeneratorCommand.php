@@ -13,6 +13,8 @@ use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
+use NullDev\Theater\Config\TheaterConfig;
+use NullDev\Theater\Config\TheaterConfigFactory;
 use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,6 +23,7 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -168,6 +171,38 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
         return $question;
     }
+
+    ///
+    ///
+    ///
+
+    protected function getTheaterConfig(): TheaterConfig
+    {
+        $path = getcwd().'/theater.yml';
+
+        if (false === file_exists($path)) {
+            $config = new TheaterConfig([]);
+
+            $this->writeTheaterConfig($config);
+        } else {
+            $configData = Yaml::parse(file_get_contents($path));
+
+            $config = $this->getService(TheaterConfigFactory::class)->createFromArray($configData);
+        }
+
+        return $config;
+    }
+
+    protected function writeTheaterConfig(TheaterConfig $config)
+    {
+        $path = getcwd().'/theater.yml';
+        $yaml = Yaml::dump($config->toArray(), 4, 2);
+        file_put_contents($path, $yaml);
+    }
+
+    ///
+    ///
+    ///
 
     abstract protected function getSectionMessage(): string;
 
