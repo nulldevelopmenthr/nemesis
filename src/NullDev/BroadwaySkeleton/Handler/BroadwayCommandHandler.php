@@ -23,8 +23,8 @@ class BroadwayCommandHandler
 
     public function handleCreateBroadwayCommand(CreateBroadwayCommand $command): array
     {
-        $class = $this->commandSourceFactory->create($command->getClassType(), $command->getParameters());
-
-        return [$class];
+        return [
+            $this->commandSourceFactory->create($command->getClassType(), $command->getParameters()),
+        ];
     }
 }

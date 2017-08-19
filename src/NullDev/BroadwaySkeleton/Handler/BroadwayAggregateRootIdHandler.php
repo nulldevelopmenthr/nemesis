@@ -23,10 +23,8 @@ class BroadwayAggregateRootIdHandler
 
     public function handleCreateBroadwayAggregateRootId(CreateBroadwayAggregateRootId $command): array
     {
-        $classes = [
+        return [
             $this->uuid4IdentitySourceFactory->create($command->getRootIdClassName()),
         ];
-
-        return $classes;
     }
 }
