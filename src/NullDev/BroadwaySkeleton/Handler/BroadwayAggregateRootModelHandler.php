@@ -26,10 +26,8 @@ class BroadwayAggregateRootModelHandler
     {
         $rootIdParam = new Parameter(lcfirst($command->getRootIdClassName()->getName()), $command->getRootIdClassName());
 
-        $classes = [
+        return  [
             $this->aggregateRootSourceFactory->create($command->getModelClassName(), $rootIdParam),
         ];
-
-        return $classes;
     }
 }

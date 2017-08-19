@@ -25,7 +25,7 @@ class BroadwayCommandHandlerHandler
 
     public function handleCreateBroadwayCommandHandler(CreateBroadwayCommandHandler $command)
     {
-        $classes = [
+        return [
             $this->commandHandlerSourceFactory->create(
                 $command->getHandlerClassName(),
                 $command->getRepositoryClassName(),
@@ -33,7 +33,5 @@ class BroadwayCommandHandlerHandler
                 $command->getModelClassName()
             ),
         ];
-
-        return $classes;
     }
 }

@@ -34,12 +34,10 @@ class BroadwayElasticSearchReadHandler
 
     public function handleCreateBroadwayElasticSearchRead(CreateBroadwayElasticSearchRead $command): array
     {
-        $classes = [
+        return [
             $this->readEntitySourceFactory->create($command->getEntityClassType(), $command->getEntityParameters()),
             $this->readRepositorySourceFactory->create($command->getRepositoryClassType()),
             $this->readProjectorSourceFactory->create($command->getProjectorClassType(), $command->getEntityParameters()),
         ];
-
-        return $classes;
     }
 }

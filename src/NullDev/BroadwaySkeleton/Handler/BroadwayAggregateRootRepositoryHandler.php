@@ -23,10 +23,8 @@ class BroadwayAggregateRootRepositoryHandler
 
     public function handleCreateBroadwayAggregateRootRepository(CreateBroadwayAggregateRootRepository $command): array
     {
-        $classes = [
+        return [
             $this->repositorySourceFactory->create($command->getRepositoryClassName(), $command->getModelClassName()),
         ];
-
-        return $classes;
     }
 }
