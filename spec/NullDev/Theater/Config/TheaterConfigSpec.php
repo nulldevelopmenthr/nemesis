@@ -7,15 +7,22 @@ namespace spec\NullDev\Theater\Config;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\Config\TheaterConfig;
+use NullDev\Theater\ReadSide\ReadSideConfig;
+use NullDev\Theater\ReadSide\ReadSideName;
 use PhpSpec\ObjectBehavior;
 
 class TheaterConfigSpec extends ObjectBehavior
 {
-    public function let(BoundedContextConfig $boundedContextConfig, ContextName $name)
-    {
+    public function let(
+        BoundedContextConfig $boundedContextConfig,
+        ReadSideConfig $readSideConfig,
+        ContextName $name,
+        ReadSideName $readSideName
+    ) {
         $boundedContextConfig->getName()->willReturn($name);
+        $readSideConfig->getName()->willReturn($readSideName);
 
-        $this->beConstructedWith($contexts = [$boundedContextConfig]);
+        $this->beConstructedWith($contexts = [$boundedContextConfig], $reads = [$readSideConfig]);
     }
 
     public function it_is_initializable()
@@ -23,17 +30,36 @@ class TheaterConfigSpec extends ObjectBehavior
         $this->shouldHaveType(TheaterConfig::class);
     }
 
-    public function it_throws_an_exception_if_contexts_are_not_instances_of_expected_class(\DateTime $wrongObject)
-    {
+    public function it_throws_an_exception_if_contexts_are_not_instances_of_expected_class(
+        \DateTime $wrongObject,
+        ReadSideConfig $readSideConfig
+    ) {
         $contexts = [$wrongObject];
+        $reads    = [$readSideConfig];
 
         $this->shouldThrow(new \Exception('Contexts should be instances of BoundedContextConfig'))
-            ->during('__construct', [$contexts]);
+            ->during('__construct', [$contexts, $reads]);
+    }
+
+    public function it_throws_an_exception_if_reads_are_not_instances_of_expected_class(
+        BoundedContextConfig $boundedContextConfig,
+        \DateTime $wrongObject
+    ) {
+        $contexts = [$boundedContextConfig];
+        $reads    = [$wrongObject];
+
+        $this->shouldThrow(new \Exception('Read sides should be instances of ReadSideConfig'))
+            ->during('__construct', [$contexts, $reads]);
     }
 
     public function it_exposes_all_contexts(BoundedContextConfig $boundedContextConfig)
     {
         $this->getContexts()->shouldReturn([$boundedContextConfig]);
+    }
+
+    public function it_exposes_all_reads(ReadSideConfig $readSideConfig)
+    {
+        $this->getReads()->shouldReturn([$readSideConfig]);
     }
 
     public function it_knows_if_a_context_exists(ContextName $name)

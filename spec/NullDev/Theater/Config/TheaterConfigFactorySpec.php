@@ -8,13 +8,16 @@ use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Config\TheaterConfigFactory;
+use NullDev\Theater\ReadSide\ReadSideConfigFactory;
 use PhpSpec\ObjectBehavior;
 
 class TheaterConfigFactorySpec extends ObjectBehavior
 {
-    public function let(BoundedContextConfigFactory $boundedContextConfigFactory)
-    {
-        $this->beConstructedWith($boundedContextConfigFactory);
+    public function let(
+        BoundedContextConfigFactory $boundedContextConfigFactory,
+        ReadSideConfigFactory $readSideConfigFactory
+    ) {
+        $this->beConstructedWith($boundedContextConfigFactory, $readSideConfigFactory);
     }
 
     public function it_is_initializable()
@@ -42,6 +45,8 @@ class TheaterConfigFactorySpec extends ObjectBehavior
         $input = [
             'contexts' => [
                 'Buyer' => $buyerContextData,
+            ],
+            'reads' => [
             ],
         ];
 
