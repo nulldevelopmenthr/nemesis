@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\ReadSide;
 
+use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
 /**
@@ -15,7 +16,8 @@ class ReadSideConfigFactory
     public function create(
         ReadSideName $name,
         ReadSideNamespace $namespace,
-        ReadSideImplementation $implementation
+        ReadSideImplementation $implementation,
+        array $properties
     ): ReadSideConfig {
         $base = $namespace->getValue().'\\'.$name->getValue();
 
@@ -26,7 +28,8 @@ class ReadSideConfigFactory
             ClassType::createFromFullyQualified($base.'Entity'),
             ClassType::createFromFullyQualified($base.'Repository'),
             ClassType::createFromFullyQualified($base.'Projector'),
-            ClassType::createFromFullyQualified($base.'Factory')
+            ClassType::createFromFullyQualified($base.'Factory'),
+            $properties
         );
     }
 
@@ -38,6 +41,11 @@ class ReadSideConfigFactory
             $factory = ClassType::createFromFullyQualified($data['classes']['factory']);
         }
 
+        $properties = [];
+        foreach ($data['properties'] as $propertyName => $propertyType) {
+            $properties[] = Parameter::create($propertyName, $propertyType);
+        }
+
         $config = new ReadSideConfig(
             new ReadSideName($name),
             new ReadSideNamespace($data['namespace']),
@@ -45,7 +53,8 @@ class ReadSideConfigFactory
             ClassType::createFromFullyQualified($data['classes']['entity']),
             ClassType::createFromFullyQualified($data['classes']['repository']),
             ClassType::createFromFullyQualified($data['classes']['projector']),
-            $factory
+            $factory,
+            $properties
         );
 
         return $config;
