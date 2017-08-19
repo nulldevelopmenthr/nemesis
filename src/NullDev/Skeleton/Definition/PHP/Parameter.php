@@ -44,6 +44,15 @@ class Parameter
         return $this->type;
     }
 
+    public function getTypeFullName(): string
+    {
+        if (null === $this->type) {
+            return '';
+        }
+
+        return $this->type->getFullName();
+    }
+
     public function getTypeShortName(): string
     {
         if (null === $this->type) {
