@@ -2,6 +2,8 @@
 
 namespace tests\Something;
 
+use Broadway\EventHandling\EventBus;
+use Broadway\EventStore\EventStore;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit_Framework_TestCase;
@@ -17,7 +19,10 @@ class UserRepositoryTest extends PHPUnit_Framework_TestCase
     private $userRepository;
     public function setUp()
     {
-        $this->userRepository = new UserRepository();
+        $this->eventStore = Mockery::mock(EventStore::class);
+        $this->eventBus = Mockery::mock(EventBus::class);
+        $this->eventStreamDecorators = [];
+        $this->userRepository = new UserRepository($this->eventStore, $this->eventBus, $this->eventStreamDecorators);
     }
     public function testNothing()
     {
