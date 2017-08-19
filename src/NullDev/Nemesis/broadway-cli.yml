@@ -34,8 +34,3 @@ services:
     tags:
       - {name: console.command }
 
-  cli.command.broadway.event:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayEventCliCommand
-    tags:
-      - {name: console.command }
-

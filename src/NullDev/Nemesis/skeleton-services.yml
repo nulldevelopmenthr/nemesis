@@ -16,8 +16,6 @@ services:
   NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
   NullDev\Skeleton\Command\BroadwayDoctrineOrmReadCliCommand: ~
   NullDev\Skeleton\Command\BroadwayElasticSearchReadCliCommand: ~
-  NullDev\Skeleton\Command\BroadwayEventCliCommand: ~
-
 
   NullDev\Skeleton\File\FileFactory: ~
 
