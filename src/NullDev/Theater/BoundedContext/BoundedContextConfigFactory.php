@@ -60,7 +60,7 @@ class BoundedContextConfigFactory
             $config->addEntity(EntityClassName::create($entity));
         }
 
-        foreach ($data['classes']['commands'] as $name => $command) {
+        foreach ($data['classes']['commands'] as $commandName => $command) {
             $className = $command['className'];
 
             $parameters = [];
@@ -70,13 +70,27 @@ class BoundedContextConfigFactory
 
             $config->addCommand(
                 new CommandConfig(
-                    $name,
-                    CommandClassName::create($className), $parameters
+                    $commandName,
+                    CommandClassName::create($className),
+                    $parameters
                 )
             );
         }
-        foreach ($data['classes']['events'] as $event) {
-            $config->addEvent(EventClassName::create($event));
+        foreach ($data['classes']['events'] as $eventName => $event) {
+            $className = $event['className'];
+
+            $parameters = [];
+            foreach ($event['parameters'] as $parameterName => $parameterType) {
+                $parameters[] = Parameter::create($parameterName, $parameterType);
+            }
+
+            $config->addEvent(
+                new EventConfig(
+                    $eventName,
+                    EventClassName::create($className),
+                    $parameters
+                )
+            );
         }
 
         return $config;
