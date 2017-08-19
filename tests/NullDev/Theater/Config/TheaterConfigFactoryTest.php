@@ -63,6 +63,10 @@ class TheaterConfigFactoryTest extends PHPUnit_Framework_TestCase
                         'projector'  => 'MyCompany\Webshop\Buyers\BuyerReadProjector',
                         'factory'    => 'MyCompany\Webshop\Buyers\BuyerReadFactory',
                     ],
+                    'properties' => [
+                        'firstName' => 'string',
+                        'createdAt' => 'DateTime',
+                    ],
                 ],
                 'SecondHandRead' => [
                     'namespace'      => 'MyCompany\Webshop\SecondHand',
@@ -71,6 +75,9 @@ class TheaterConfigFactoryTest extends PHPUnit_Framework_TestCase
                         'entity'     => 'MyCompany\Webshop\SecondHand\SecondHandReadEntity',
                         'repository' => 'MyCompany\Webshop\SecondHand\SecondHandReadRepository',
                         'projector'  => 'MyCompany\Webshop\SecondHand\SecondHandReadProjector',
+                    ],
+                    'properties' => [
+                        'age'       => 'int',
                     ],
                 ],
             ],

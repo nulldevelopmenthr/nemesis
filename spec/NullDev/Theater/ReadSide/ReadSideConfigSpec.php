@@ -29,7 +29,8 @@ class ReadSideConfigSpec extends ObjectBehavior
             $readEntity,
             $readRepository,
             $readProjector,
-            $readFactory
+            $readFactory,
+            $properties = []
         );
     }
 
@@ -41,10 +42,19 @@ class ReadSideConfigSpec extends ObjectBehavior
     public function it_will_expose_constructor_arguments(
         ReadSideName $name,
         ReadSideNamespace $namespace,
-        ReadSideImplementation $implementation
+        ReadSideImplementation $implementation,
+        ClassType $readEntity,
+        ClassType $readRepository,
+        ClassType $readProjector,
+        ClassType $readFactory
     ) {
         $this->getName()->shouldReturn($name);
         $this->getNamespace()->shouldReturn($namespace);
         $this->getImplementation()->shouldReturn($implementation);
+        $this->getReadEntity()->shouldReturn($readEntity);
+        $this->getReadRepository()->shouldReturn($readRepository);
+        $this->getReadProjector()->shouldReturn($readProjector);
+        $this->getReadFactory()->shouldReturn($readFactory);
+        $this->getProperties()->shouldReturn([]);
     }
 }

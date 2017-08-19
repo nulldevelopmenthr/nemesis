@@ -30,8 +30,9 @@ class ReadSideConfigFactorySpec extends ObjectBehavior
     ) {
         $readSideName->getValue()->shouldBeCalled()->willReturn('CounterX');
         $readSideNamespace->getValue()->shouldBeCalled()->willReturn('MyCompany\Statistics');
+        $parameters=[];
 
-        $this->create($readSideName, $readSideNamespace, $readSideImplementation)
+        $this->create($readSideName, $readSideNamespace, $readSideImplementation, $parameters)
             ->shouldReturnAnInstanceOf(ReadSideConfig::class);
     }
 
@@ -46,6 +47,11 @@ class ReadSideConfigFactorySpec extends ObjectBehavior
                 'repository' => 'MyCompany\Statistics\CounterXRepository',
                 'projector'  => 'MyCompany\Statistics\CounterXProjector',
                 'factory'    => 'MyCompany\Statistics\CounterXFactory',
+            ],
+            'properties' => [
+                'firstName' => 'string',
+                'age'       => 'int',
+                'createdAt' => 'DateTime',
             ],
         ];
 

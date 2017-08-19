@@ -26,6 +26,8 @@ class ReadSideConfig
     private $readProjector;
     /** @var ClassType|null */
     private $readFactory;
+    /** @var array */
+    private $properties;
 
     public function __construct(
         ReadSideName $name,
@@ -34,7 +36,8 @@ class ReadSideConfig
         ClassType $readEntity,
         ClassType $readRepository,
         ClassType $readProjector,
-        ?ClassType $readFactory
+        ?ClassType $readFactory,
+        array $properties
     ) {
         $this->name           = $name;
         $this->namespace      = $namespace;
@@ -43,6 +46,7 @@ class ReadSideConfig
         $this->readRepository = $readRepository;
         $this->readProjector  = $readProjector;
         $this->readFactory    = $readFactory;
+        $this->properties     = $properties;
     }
 
     public function getName(): ReadSideName
@@ -80,8 +84,19 @@ class ReadSideConfig
         return $this->readFactory;
     }
 
+    public function getProperties(): array
+    {
+        return $this->properties;
+    }
+
     public function toArray(): array
     {
+        $properties = [];
+
+        foreach ($this->properties as $property) {
+            $properties[$property->getName()] = $property->getTypeFullName();
+        }
+
         $data = [
             'namespace'      => $this->namespace->getValue(),
             'implementation' => $this->implementation->getValue(),
@@ -90,6 +105,7 @@ class ReadSideConfig
                 'repository' => $this->readRepository->getFullName(),
                 'projector'  => $this->readProjector->getFullName(),
             ],
+            'properties'     => $properties,
         ];
 
         if (null !== $this->readFactory) {
