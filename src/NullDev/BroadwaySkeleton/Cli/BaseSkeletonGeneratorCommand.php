@@ -6,7 +6,7 @@ namespace NullDev\BroadwaySkeleton\Cli;
 
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\File\OutputResource;
@@ -50,8 +50,14 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
             if (true === empty($parameterClassName)) {
                 break;
             }
-            $parameterClassType = ClassType::createFromFullyQualified($parameterClassName);
-            $parameterName      = $this->askForParameterName(lcfirst($parameterClassType->getName()));
+            $parameterClassType = TypeFactory::create(str_replace('/', '\\', $parameterClassName));
+
+            $suggestedName = '';
+            if (null !== $parameterClassType) {
+                $suggestedName = lcfirst($parameterClassType->getName());
+            }
+
+            $parameterName = $this->askForParameterName($suggestedName);
 
             $fields[] = new Parameter($parameterName, $parameterClassType);
         }
@@ -196,7 +202,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function writeTheaterConfig(TheaterConfig $config)
     {
         $path = $this->getTheaterConfigFilePath();
-        $yaml = Yaml::dump($config->toArray(), 4, 2);
+        $yaml = Yaml::dump($config->toArray(), 7, 2);
         file_put_contents($path, $yaml);
     }
 
