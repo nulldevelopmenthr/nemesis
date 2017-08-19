@@ -23,8 +23,8 @@ class CreateBroadwayAggregateRootRepository
         RootRepositoryClassName $repositoryClassName,
         RootModelClassName $modelClassName
     ) {
-        $this->repositoryClassName     = $repositoryClassName;
-        $this->modelClassName          = $modelClassName;
+        $this->repositoryClassName = $repositoryClassName;
+        $this->modelClassName      = $modelClassName;
     }
 
     public static function create(BoundedContextConfig $config): CreateBroadwayAggregateRootRepository

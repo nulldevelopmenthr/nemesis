@@ -18,7 +18,7 @@ class BroadwayDoctrineOrmReadFactoryHandler
 
     public function __construct(ReadFactorySourceFactory $readFactorySourceFactory)
     {
-        $this->readFactorySourceFactory    = $readFactorySourceFactory;
+        $this->readFactorySourceFactory = $readFactorySourceFactory;
     }
 
     public function handleCreateBroadwayDoctrineOrmReadFactory(CreateBroadwayDoctrineOrmReadFactory $command): array

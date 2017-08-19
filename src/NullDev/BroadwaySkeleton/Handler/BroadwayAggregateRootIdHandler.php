@@ -18,7 +18,7 @@ class BroadwayAggregateRootIdHandler
 
     public function __construct(Uuid4IdentitySourceFactory $uuid4IdentitySourceFactory)
     {
-        $this->uuid4IdentitySourceFactory  = $uuid4IdentitySourceFactory;
+        $this->uuid4IdentitySourceFactory = $uuid4IdentitySourceFactory;
     }
 
     public function handleCreateBroadwayAggregateRootId(CreateBroadwayAggregateRootId $command): array

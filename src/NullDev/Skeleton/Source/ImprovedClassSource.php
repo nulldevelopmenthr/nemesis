@@ -32,7 +32,7 @@ class ImprovedClassSource
     /** @var InterfaceType[]|array */
     private $interfaces = [];
     /** @var TraitType[]|array */
-    private $traits     = [];
+    private $traits = [];
     /** @var null|ConstructorMethod */
     private $constructor;
 
@@ -40,7 +40,7 @@ class ImprovedClassSource
     private $properties = [];
 
     /** @var Method[]|array */
-    private $methods    = [];
+    private $methods = [];
 
     /** @var Type[]|array */
     private $imports = [];

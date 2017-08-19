@@ -18,7 +18,7 @@ class BroadwayElasticsearchReadEntityHandler
 
     public function __construct(ReadEntitySourceFactory $readEntitySourceFactory)
     {
-        $this->readEntitySourceFactory     = $readEntitySourceFactory;
+        $this->readEntitySourceFactory = $readEntitySourceFactory;
     }
 
     public function handleCreateBroadwayElasticsearchReadEntity(CreateBroadwayElasticsearchReadEntity $command): array

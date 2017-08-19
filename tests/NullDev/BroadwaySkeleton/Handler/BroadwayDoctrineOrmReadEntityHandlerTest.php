@@ -38,7 +38,7 @@ class BroadwayDoctrineOrmReadEntityHandlerTest extends ContainerSupportedTestCas
      */
     public function testSourcesWillMatchExpectedOutput(string $className, array $parameters): void
     {
-        $readEntityClassType    = ClassType::createFromFullyQualified($className.'Entity');
+        $readEntityClassType = ClassType::createFromFullyQualified($className.'Entity');
 
         $command = new CreateBroadwayDoctrineOrmReadEntity($readEntityClassType, $parameters);
 

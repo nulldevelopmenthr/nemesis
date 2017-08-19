@@ -19,8 +19,8 @@ class CreateBroadwayDoctrineOrmReadEntity
 
     public function __construct(ClassType $entityClassType, array $entityParameters)
     {
-        $this->entityClassType     = $entityClassType;
-        $this->entityParameters    = $entityParameters;
+        $this->entityClassType  = $entityClassType;
+        $this->entityParameters = $entityParameters;
     }
 
     public function getEntityClassType(): ClassType

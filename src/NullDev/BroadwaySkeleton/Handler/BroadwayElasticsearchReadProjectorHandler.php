@@ -18,7 +18,7 @@ class BroadwayElasticsearchReadProjectorHandler
 
     public function __construct(ReadProjectorSourceFactory $readProjectorSourceFactory)
     {
-        $this->readProjectorSourceFactory  = $readProjectorSourceFactory;
+        $this->readProjectorSourceFactory = $readProjectorSourceFactory;
     }
 
     public function handleCreateBroadwayElasticsearchReadProjector(CreateBroadwayElasticsearchReadProjector $command): array

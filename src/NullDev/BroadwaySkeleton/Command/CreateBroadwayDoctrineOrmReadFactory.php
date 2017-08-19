@@ -17,7 +17,7 @@ class CreateBroadwayDoctrineOrmReadFactory
 
     public function __construct(ClassType $factoryClassType)
     {
-        $this->factoryClassType    = $factoryClassType;
+        $this->factoryClassType = $factoryClassType;
     }
 
     public function getFactoryClassType(): ClassType

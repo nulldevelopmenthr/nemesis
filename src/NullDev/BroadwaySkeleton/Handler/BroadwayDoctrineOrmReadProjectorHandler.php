@@ -18,7 +18,7 @@ class BroadwayDoctrineOrmReadProjectorHandler
 
     public function __construct(ReadProjectorSourceFactory $readProjectorSourceFactory)
     {
-        $this->readProjectorSourceFactory  = $readProjectorSourceFactory;
+        $this->readProjectorSourceFactory = $readProjectorSourceFactory;
     }
 
     public function handleCreateBroadwayDoctrineOrmReadProjector(CreateBroadwayDoctrineOrmReadProjector $command): array
