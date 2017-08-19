@@ -9,6 +9,7 @@ use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Config\TheaterConfigFactory;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
+use NullDev\Theater\ReadSide\ReadSideConfigFactory;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -20,13 +21,19 @@ class TheaterConfigFactoryTest extends PHPUnit_Framework_TestCase
     use MockeryPHPUnitIntegration;
     /** @var BoundedContextConfigFactory */
     private $boundedContextConfigFactory;
+    /** @var ReadSideConfigFactory */
+    private $readSideConfigFactory;
     /** @var TheaterConfigFactory */
     private $theaterConfigFactory;
 
     public function setUp()
     {
         $this->boundedContextConfigFactory = new BoundedContextConfigFactory(new NamingStrategyFactory());
-        $this->theaterConfigFactory        = new TheaterConfigFactory($this->boundedContextConfigFactory);
+        $this->readSideConfigFactory       = new ReadSideConfigFactory();
+        $this->theaterConfigFactory        = new TheaterConfigFactory(
+            $this->boundedContextConfigFactory,
+            $this->readSideConfigFactory
+        );
     }
 
     public function testCreateFromArray()
@@ -43,6 +50,27 @@ class TheaterConfigFactoryTest extends PHPUnit_Framework_TestCase
                         'entities'   => [],
                         'commands'   => [],
                         'events'     => [],
+                    ],
+                ],
+            ],
+            'reads'    => [
+                'BuyerRead' => [
+                    'namespace'      => 'MyCompany\Webshop\Buyers',
+                    'implementation' => 'DoctrineORM',
+                    'classes'        => [
+                        'entity'     => 'MyCompany\Webshop\Buyers\BuyerReadEntity',
+                        'repository' => 'MyCompany\Webshop\Buyers\BuyerReadRepository',
+                        'projector'  => 'MyCompany\Webshop\Buyers\BuyerReadProjector',
+                        'factory'    => 'MyCompany\Webshop\Buyers\BuyerReadFactory',
+                    ],
+                ],
+                'SecondHandRead' => [
+                    'namespace'      => 'MyCompany\Webshop\SecondHand',
+                    'implementation' => 'Elasticsearch',
+                    'classes'        => [
+                        'entity'     => 'MyCompany\Webshop\SecondHand\SecondHandReadEntity',
+                        'repository' => 'MyCompany\Webshop\SecondHand\SecondHandReadRepository',
+                        'projector'  => 'MyCompany\Webshop\SecondHand\SecondHandReadProjector',
                     ],
                 ],
             ],

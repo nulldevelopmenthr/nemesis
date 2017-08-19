@@ -187,7 +187,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         $path = $this->getTheaterConfigFilePath();
 
         if (false === file_exists($path)) {
-            $config = new TheaterConfig([]);
+            $config = new TheaterConfig([], []);
 
             $this->writeTheaterConfig($config);
         } else {

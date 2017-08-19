@@ -6,6 +6,7 @@ namespace NullDev\Theater\Config;
 
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\ContextName;
+use NullDev\Theater\ReadSide\ReadSideConfig;
 use Webmozart\Assert\Assert;
 
 /**
@@ -16,20 +17,35 @@ class TheaterConfig
 {
     /** @var BoundedContextConfig[]|array */
     private $contexts;
+    /** @var ReadSideConfig[]|array */
+    private $reads;
 
-    public function __construct(array $contexts)
+    public function __construct(array $contexts, array $reads)
     {
         Assert::allIsInstanceOf(
             $contexts,
             BoundedContextConfig::class,
             'Contexts should be instances of BoundedContextConfig'
         );
+
+        Assert::allIsInstanceOf(
+            $reads,
+            ReadSideConfig::class,
+            'Read sides should be instances of ReadSideConfig'
+        );
+
         $this->contexts = $contexts;
+        $this->reads    = $reads;
     }
 
     public function getContexts(): array
     {
         return $this->contexts;
+    }
+
+    public function getReads(): array
+    {
+        return $this->reads;
     }
 
     public function addContext(BoundedContextConfig $config)
@@ -75,11 +91,19 @@ class TheaterConfig
     public function toArray(): array
     {
         $contexts = [];
+        $reads    = [];
 
         foreach ($this->contexts as $context) {
             $contexts[$context->getName()->getValue()] = $context->toArray();
         }
 
-        return ['contexts' => $contexts];
+        foreach ($this->reads as $read) {
+            $reads[$read->getName()->getValue()] = $read->toArray();
+        }
+
+        return [
+            'contexts' => $contexts,
+            'reads'    => $reads,
+        ];
     }
 }
