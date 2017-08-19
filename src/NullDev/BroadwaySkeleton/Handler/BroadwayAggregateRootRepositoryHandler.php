@@ -18,7 +18,7 @@ class BroadwayAggregateRootRepositoryHandler
 
     public function __construct(EventSourcingRepositorySourceFactory $repositorySourceFactory)
     {
-        $this->repositorySourceFactory     = $repositorySourceFactory;
+        $this->repositorySourceFactory = $repositorySourceFactory;
     }
 
     public function handleCreateBroadwayAggregateRootRepository(CreateBroadwayAggregateRootRepository $command): array

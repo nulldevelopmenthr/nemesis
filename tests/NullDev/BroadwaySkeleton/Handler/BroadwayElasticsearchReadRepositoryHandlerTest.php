@@ -37,7 +37,7 @@ class BroadwayElasticsearchReadRepositoryHandlerTest extends ContainerSupportedT
      */
     public function testSourcesWillMatchExpectedOutput(string $className): void
     {
-        $repositoryClassType    = ClassType::createFromFullyQualified($className.'Repository');
+        $repositoryClassType = ClassType::createFromFullyQualified($className.'Repository');
 
         $command = new CreateBroadwayElasticsearchReadRepository($repositoryClassType);
 

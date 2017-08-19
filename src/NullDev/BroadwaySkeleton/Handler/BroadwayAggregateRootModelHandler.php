@@ -19,14 +19,14 @@ class BroadwayAggregateRootModelHandler
 
     public function __construct(EventSourcedAggregateRootSourceFactory $aggregateRootSourceFactory)
     {
-        $this->aggregateRootSourceFactory  = $aggregateRootSourceFactory;
+        $this->aggregateRootSourceFactory = $aggregateRootSourceFactory;
     }
 
     public function handleCreateBroadwayAggregateRootModel(CreateBroadwayAggregateRootModel $command): array
     {
         $rootIdParam = new Parameter(lcfirst($command->getRootIdClassName()->getName()), $command->getRootIdClassName());
 
-        return  [
+        return [
             $this->aggregateRootSourceFactory->create($command->getModelClassName(), $rootIdParam),
         ];
     }
