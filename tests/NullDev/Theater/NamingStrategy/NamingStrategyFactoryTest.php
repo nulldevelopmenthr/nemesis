@@ -6,6 +6,7 @@ namespace tests\NullDev\Theater\NamingStrategy;
 
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
+use NullDev\Theater\NamingStrategy\DevboardNamingStrategy;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
 use PHPUnit_Framework_TestCase;
@@ -29,6 +30,14 @@ class NamingStrategyFactoryTest extends PHPUnit_Framework_TestCase
         self::assertInstanceOf(
             TheaterNamingStrategy::class,
             $this->factory->theater(new ContextName('Webshop'), new ContextNamespace('MyCompany\Webshop'))
+        );
+    }
+
+    public function testDevboard()
+    {
+        self::assertInstanceOf(
+            DevboardNamingStrategy::class,
+            $this->factory->devboard(new ContextName('Webshop'), new ContextNamespace('MyCompany\Webshop'))
         );
     }
 }
