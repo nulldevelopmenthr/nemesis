@@ -17,4 +17,9 @@ class NamingStrategyFactory
     {
         return new TheaterNamingStrategy($contextName, $contextNamespace);
     }
+
+    public function devboard(ContextName $contextName, ContextNamespace $contextNamespace): DevboardNamingStrategy
+    {
+        return new DevboardNamingStrategy($contextName, $contextNamespace);
+    }
 }

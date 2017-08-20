@@ -6,6 +6,7 @@ namespace spec\NullDev\Theater\NamingStrategy;
 
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
+use NullDev\Theater\NamingStrategy\DevboardNamingStrategy;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
 use PhpSpec\ObjectBehavior;
@@ -28,5 +29,13 @@ class NamingStrategyFactorySpec extends ObjectBehavior
     ) {
         $this->theater($contextName, $contextNamespace)
             ->shouldReturnAnInstanceOf(TheaterNamingStrategy::class);
+    }
+
+    public function it_will_create_devboard_naming_strategy_instance(
+        ContextName $contextName,
+        ContextNamespace $contextNamespace
+    ) {
+        $this->devboard($contextName, $contextNamespace)
+            ->shouldReturnAnInstanceOf(DevboardNamingStrategy::class);
     }
 }
