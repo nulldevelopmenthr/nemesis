@@ -10,11 +10,19 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadRepository;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadEntity;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector;
+use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadRepository;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
+use NullDev\Theater\ReadSide\ReadSideConfig;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -57,8 +65,9 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
     /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $commandBus = $this->getService(CommandBus::class);
-        $config     = $this->getTheaterConfig();
+        $commandBus      = $this->getService(CommandBus::class);
+        $config          = $this->getTheaterConfig();
+        $outputResources = [];
 
         foreach ($config->getContexts() as $context) {
             $commands = [
@@ -76,20 +85,51 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
                 $commands[] = new CreateBroadwayEvent($eventConfig->getEventClassName(), $eventConfig->getParameters());
             }
 
-            $outputResources = [];
+            foreach ($commands as $command) {
+                $outputResources = array_merge($outputResources, $commandBus->handle($command));
+            }
+        }
+
+        foreach ($config->getReads() as $read) {
+            $commands = $this->getReadCommands($read);
 
             foreach ($commands as $command) {
                 $outputResources = array_merge($outputResources, $commandBus->handle($command));
             }
-
-            foreach ($outputResources as $outputResource) {
-                if (false === file_exists($outputResource->getFileName())) {
-                    $this->handleGeneratingFile($outputResource);
-                }
-            }
         }
 
+        foreach ($outputResources as $outputResource) {
+            if (false === file_exists($outputResource->getFileName())) {
+                $this->handleGeneratingFile($outputResource);
+            }
+        }
         $this->io->writeln('DoNE');
+    }
+
+    protected function getReadCommands(ReadSideConfig $read): array
+    {
+        if ('DoctrineORM' === $read->getImplementation()->getValue()) {
+            return [
+                new CreateBroadwayDoctrineOrmReadEntity($read->getReadEntity(), $read->getProperties()),
+                new CreateBroadwayDoctrineOrmReadFactory($read->getReadFactory()),
+                new CreateBroadwayDoctrineOrmReadProjector(
+                    $read->getReadProjector(),
+                    $read->getProperties()
+                ),
+                new CreateBroadwayDoctrineOrmReadRepository($read->getReadRepository()),
+            ];
+        } elseif ('Elasticsearch' === $read->getImplementation()->getValue()) {
+            return [
+                new CreateBroadwayElasticsearchReadEntity($read->getReadEntity(), $read->getProperties()),
+                new CreateBroadwayElasticsearchReadProjector(
+                    $read->getReadProjector(),
+                    $read->getProperties()
+                ),
+                new CreateBroadwayElasticsearchReadRepository($read->getReadRepository()),
+            ];
+        }
+
+        throw new \LogicException('Err 2324125090: Unsupported implementation');
     }
 
     protected function handleNameInput()
