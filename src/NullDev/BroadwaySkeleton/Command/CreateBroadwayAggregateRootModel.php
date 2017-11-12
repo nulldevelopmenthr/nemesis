@@ -25,7 +25,7 @@ class CreateBroadwayAggregateRootModel
         $this->rootIdClassName = $rootIdClassName;
     }
 
-    public static function create(BoundedContextConfig $config): CreateBroadwayAggregateRootModel
+    public static function create(BoundedContextConfig $config): self
     {
         return new self($config->getModelClassName(), $config->getRootIdClassName());
     }

@@ -19,7 +19,7 @@ class ReadSideNamespace
     {
         Assert::notEmpty($namespace, 'Namespace should not be empty.');
 
-        Assert::false(substr($namespace, -1) === '\\', 'Namespace must not end with \\.');
+        Assert::false('\\' === substr($namespace, -1), 'Namespace must not end with \\.');
 
         $this->namespace = $namespace;
     }

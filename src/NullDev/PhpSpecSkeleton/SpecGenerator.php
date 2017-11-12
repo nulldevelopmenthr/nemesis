@@ -58,7 +58,7 @@ class SpecGenerator
             $this->initializableMethodFactory->create($classSource)
         );
 
-        if ($classSource->getParentFullName() !== EventSourcingRepository::class) {
+        if (EventSourcingRepository::class !== $classSource->getParentFullName()) {
             $specSource->addMethod($this->exposeMethodFactory->create($classSource));
         }
 

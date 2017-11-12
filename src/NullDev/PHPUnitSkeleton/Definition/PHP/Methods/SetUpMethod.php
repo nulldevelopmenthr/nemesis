@@ -46,7 +46,7 @@ class SetUpMethod extends SimpleTestMethod implements Method
     {
         $params = $this->subjectUnderTest->getConstructorParameters();
 
-        if ($this->subjectUnderTest->getParentFullName() === EventSourcingRepository::class) {
+        if (EventSourcingRepository::class === $this->subjectUnderTest->getParentFullName()) {
             $params[] = Parameter::create('eventStore', EventStore::class);
             $params[] = Parameter::create('eventBus', EventBus::class);
             $params[] = Parameter::create('eventStreamDecorators', 'array');
@@ -64,7 +64,7 @@ class SetUpMethod extends SimpleTestMethod implements Method
             }
         }
 
-        if ($this->subjectUnderTest->getParentFullName() === EventSourcingRepository::class) {
+        if (EventSourcingRepository::class === $this->subjectUnderTest->getParentFullName()) {
             $result[] = ClassType::createFromFullyQualified(EventStore::class);
             $result[] = ClassType::createFromFullyQualified(EventBus::class);
             $result[] = new ArrayType();

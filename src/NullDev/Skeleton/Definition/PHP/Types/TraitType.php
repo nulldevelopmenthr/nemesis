@@ -10,7 +10,7 @@ namespace NullDev\Skeleton\Definition\PHP\Types;
  */
 class TraitType extends ConceptName
 {
-    public static function createFromFullyQualified(string $fullName): TraitType
+    public static function createFromFullyQualified(string $fullName): self
     {
         return parent::createFromFullyQualified($fullName);
     }

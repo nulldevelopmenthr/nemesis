@@ -13,10 +13,10 @@ class Psr4Path implements Path
 
     public function __construct(string $pathBase, string $classBase)
     {
-        if (!empty($classBase) && substr($classBase, -1) !== '\\') {
+        if (!empty($classBase) && '\\' !== substr($classBase, -1)) {
             throw new Exception('Err 58734376: Class base must finish with "\\" ');
         }
-        if (substr($pathBase, -1) !== '/') {
+        if ('/' !== substr($pathBase, -1)) {
             throw new Exception('Err 5873433: Path base must finish with "/" ');
         }
         $this->pathBase  = $pathBase;
@@ -50,7 +50,7 @@ class Psr4Path implements Path
 
     public function belongsTo(string $className): bool
     {
-        if ($this->classBase === '') {
+        if ('' === $this->classBase) {
             return true;
         }
 

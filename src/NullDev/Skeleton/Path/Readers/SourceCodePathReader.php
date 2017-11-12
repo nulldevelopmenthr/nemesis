@@ -59,7 +59,7 @@ class SourceCodePathReader
         $iter = new ClassIterator($this->getPhpFiles2($paths));
 
         foreach (array_keys($iter->getClassMap()) as $className) {
-            if (substr($className, -4) !== 'Test') {
+            if ('Test' !== substr($className, -4)) {
                 continue;
             }
 
@@ -170,7 +170,7 @@ class SourceCodePathReader
 
                     $namespace = '';
                     foreach ($namespaces as $key => $namespacePart) {
-                        if ($namespace !== '') {
+                        if ('' !== $namespace) {
                             $namespace .= '/';
                         }
                         $namespace .= $namespacePart;

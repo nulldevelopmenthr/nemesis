@@ -170,7 +170,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function getQuestionHelper()
     {
         $question = $this->getHelperSet()->get('question');
-        if (!$question || get_class($question) !== 'Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper') {
+        if (!$question || 'Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper' !== get_class($question)) {
             $question = new QuestionHelper();
             $this->getHelperSet()->set($question);
         }
