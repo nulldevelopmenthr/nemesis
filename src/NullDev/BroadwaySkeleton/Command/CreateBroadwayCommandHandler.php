@@ -37,7 +37,7 @@ class CreateBroadwayCommandHandler
         $this->modelClassName      = $modelClassName;
     }
 
-    public static function create(BoundedContextConfig $config): CreateBroadwayCommandHandler
+    public static function create(BoundedContextConfig $config): self
     {
         return new self(
             $config->getCommandHandlerClassName(),

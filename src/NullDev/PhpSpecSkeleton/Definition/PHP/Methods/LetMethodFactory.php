@@ -25,7 +25,7 @@ class LetMethodFactory
     {
         $lets = $classSource->getConstructorParameters();
 
-        if ($classSource->getParentFullName() === EventSourcingRepository::class) {
+        if (EventSourcingRepository::class === $classSource->getParentFullName()) {
             $lets[] = Parameter::create('eventStore', EventStore::class);
             $lets[] = Parameter::create('eventBus', EventBus::class);
             $lets[] = Parameter::create('eventStreamDecorators', 'array');

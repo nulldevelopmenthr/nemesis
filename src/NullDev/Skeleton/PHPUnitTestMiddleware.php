@@ -28,7 +28,7 @@ class PHPUnitTestMiddleware implements Middleware
         $tests = [];
 
         foreach ($returnValue as $item) {
-            if (get_class($item) === ImprovedClassSource::class) {
+            if (ImprovedClassSource::class === get_class($item)) {
                 $tests[] = $this->testGenerator->generate($item);
             }
         }

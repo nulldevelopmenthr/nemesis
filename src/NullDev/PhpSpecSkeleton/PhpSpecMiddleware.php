@@ -28,7 +28,7 @@ class PhpSpecMiddleware implements Middleware
         $specs = [];
 
         foreach ($returnValue as $item) {
-            if (get_class($item) === ImprovedClassSource::class) {
+            if (ImprovedClassSource::class === get_class($item)) {
                 $specs[] = $this->specGenerator->generate($item);
             }
         }

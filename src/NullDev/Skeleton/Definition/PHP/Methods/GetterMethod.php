@@ -23,7 +23,7 @@ class GetterMethod implements Method
         $this->property   = $property;
     }
 
-    public static function create(Property $property): GetterMethod
+    public static function create(Property $property): self
     {
         $methodName = 'get'.ucfirst($property->getName());
 

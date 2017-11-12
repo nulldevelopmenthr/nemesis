@@ -24,12 +24,12 @@ class Parameter
         $this->type = $type;
     }
 
-    public static function create(string $name, ?string $type = null): Parameter
+    public static function create(string $name, ?string $type = null): self
     {
         return new self($name, TypeFactory::create($type));
     }
 
-    public static function createFromProperty(Property $property): Parameter
+    public static function createFromProperty(Property $property): self
     {
         return new self($property->getName(), $property->getType());
     }

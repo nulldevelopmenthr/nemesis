@@ -10,7 +10,7 @@ namespace NullDev\Skeleton\Definition\PHP\Types;
  */
 class InterfaceType extends ConceptName
 {
-    public static function createFromFullyQualified(string $fullName): InterfaceType
+    public static function createFromFullyQualified(string $fullName): self
     {
         return parent::createFromFullyQualified($fullName);
     }

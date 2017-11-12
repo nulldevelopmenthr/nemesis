@@ -27,7 +27,7 @@ class CreateBroadwayAggregateRootRepository
         $this->modelClassName      = $modelClassName;
     }
 
-    public static function create(BoundedContextConfig $config): CreateBroadwayAggregateRootRepository
+    public static function create(BoundedContextConfig $config): self
     {
         return new self($config->getRepositoryClassName(), $config->getModelClassName());
     }
