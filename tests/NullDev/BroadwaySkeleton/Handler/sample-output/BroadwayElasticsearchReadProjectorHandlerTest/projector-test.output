@@ -6,8 +6,9 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use PHPUnit_Framework_TestCase;
-use Something\UserId;
+use Something\UserFactory;
 use Something\UserProjector;
+use Something\UserRepository;
 /**
 * @covers \Something\UserProjector
 * @group todo
@@ -15,14 +16,17 @@ use Something\UserProjector;
 class UserProjectorTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var MockInterface|UserId */
-    private $id;
+    /** @var MockInterface|UserRepository */
+    private $repository;
+    /** @var MockInterface|UserFactory */
+    private $factory;
     /** @var UserProjector */
     private $userProjector;
     public function setUp()
     {
-        $this->id = Mockery::mock(UserId::class);
-        $this->userProjector = new UserProjector($this->id);
+        $this->repository = Mockery::mock(UserRepository::class);
+        $this->factory = Mockery::mock(UserFactory::class);
+        $this->userProjector = new UserProjector($this->repository, $this->factory);
     }
     public function testNothing()
     {

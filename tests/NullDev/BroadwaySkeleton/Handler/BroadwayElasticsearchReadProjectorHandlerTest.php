@@ -57,7 +57,8 @@ class BroadwayElasticsearchReadProjectorHandlerTest extends ContainerSupportedTe
             [
                 'Something\User',
                 [
-                    Parameter::create('id', 'Something\UserId'),
+                    Parameter::create('repository', 'Something\UserRepository'),
+                    Parameter::create('factory', 'Something\UserFactory'),
                 ],
             ],
         ];
