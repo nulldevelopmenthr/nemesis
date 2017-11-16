@@ -111,7 +111,10 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
                 new CreateBroadwayDoctrineOrmReadFactory($newReadSide->getReadFactory()),
                 new CreateBroadwayDoctrineOrmReadProjector(
                     $newReadSide->getReadProjector(),
-                    $newReadSide->getProperties()
+                    [
+                        new Parameter('repository', $newReadSide->getReadRepository()),
+                        new Parameter('factory', $newReadSide->getReadFactory()),
+                    ]
                 ),
                 new CreateBroadwayDoctrineOrmReadRepository($newReadSide->getReadRepository()),
             ];
@@ -120,7 +123,10 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
                 new CreateBroadwayElasticsearchReadEntity($newReadSide->getReadEntity(), $newReadSide->getProperties()),
                 new CreateBroadwayElasticsearchReadProjector(
                     $newReadSide->getReadProjector(),
-                    $newReadSide->getProperties()
+                    [
+                        new Parameter('repository', $newReadSide->getReadRepository()),
+                        new Parameter('factory', $newReadSide->getReadFactory()),
+                    ]
                 ),
                 new CreateBroadwayElasticsearchReadRepository($newReadSide->getReadRepository()),
             ];

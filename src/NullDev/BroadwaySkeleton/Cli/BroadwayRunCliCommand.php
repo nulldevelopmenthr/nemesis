@@ -19,6 +19,7 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadRepository;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
+use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
@@ -78,7 +79,10 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
             ];
 
             foreach ($context->getCommands() as $commandConfig) {
-                $commands[] = new CreateBroadwayCommand($commandConfig->getCommandClassName(), $commandConfig->getParameters());
+                $commands[] = new CreateBroadwayCommand(
+                    $commandConfig->getCommandClassName(),
+                    $commandConfig->getParameters()
+                );
             }
 
             foreach ($context->getEvents() as $eventConfig) {
@@ -114,7 +118,10 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
                 new CreateBroadwayDoctrineOrmReadFactory($read->getReadFactory()),
                 new CreateBroadwayDoctrineOrmReadProjector(
                     $read->getReadProjector(),
-                    $read->getProperties()
+                    [
+                        new Parameter('repository', $read->getReadRepository()),
+                        new Parameter('factory', $read->getReadFactory()),
+                    ]
                 ),
                 new CreateBroadwayDoctrineOrmReadRepository($read->getReadRepository()),
             ];
@@ -123,7 +130,10 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
                 new CreateBroadwayElasticsearchReadEntity($read->getReadEntity(), $read->getProperties()),
                 new CreateBroadwayElasticsearchReadProjector(
                     $read->getReadProjector(),
-                    $read->getProperties()
+                    [
+                        new Parameter('repository', $read->getReadRepository()),
+                        new Parameter('factory', $read->getReadFactory()),
+                    ]
                 ),
                 new CreateBroadwayElasticsearchReadRepository($read->getReadRepository()),
             ];
