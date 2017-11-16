@@ -5,13 +5,14 @@ namespace spec\Something;
 use Broadway\ReadModel\Projector;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Something\UserId;
+use Something\UserFactory;
 use Something\UserProjector;
+use Something\UserRepository;
 class UserProjectorSpec extends ObjectBehavior
 {
-    public function let(UserId $id)
+    public function let(UserRepository $repository, UserFactory $factory)
     {
-        $this->beConstructedWith($id);
+        $this->beConstructedWith($repository, $factory);
     }
     public function it_is_initializable()
     {

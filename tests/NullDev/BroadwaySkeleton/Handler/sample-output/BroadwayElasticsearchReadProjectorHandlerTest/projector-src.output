@@ -3,13 +3,17 @@
 namespace Something;
 
 use Broadway\ReadModel\Projector;
-use Something\UserId;
+use Something\UserFactory;
+use Something\UserRepository;
 class UserProjector extends Projector
 {
-    /** @var UserId */
-    private $id;
-    public function __construct(UserId $id)
+    /** @var UserRepository */
+    private $repository;
+    /** @var UserFactory */
+    private $factory;
+    public function __construct(UserRepository $repository, UserFactory $factory)
     {
-        $this->id = $id;
+        $this->repository = $repository;
+        $this->factory = $factory;
     }
 }
