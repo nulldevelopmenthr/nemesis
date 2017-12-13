@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Cli;
 
 use League\Tactician\CommandBus;
+use LogicException;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootId;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
@@ -139,7 +140,7 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
             ];
         }
 
-        throw new \LogicException('Err 2324125090: Unsupported implementation');
+        throw new LogicException('Err 2324125090: Unsupported implementation');
     }
 
     protected function handleNameInput()

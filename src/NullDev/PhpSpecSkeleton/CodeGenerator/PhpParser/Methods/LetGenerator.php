@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods;
 
+use Exception;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\TestValueGenerator;
@@ -58,7 +59,7 @@ class LetGenerator implements MethodGenerator
             return new Assign($variable, TestValueGenerator::generate($parameter));
         }
 
-        throw new \Exception('ERR 90131234: Unhandled argument received.');
+        throw new Exception('ERR 90131234: Unhandled argument received.');
     }
 
     private function isParameterEligibleForLetParameter(Parameter $parameter)

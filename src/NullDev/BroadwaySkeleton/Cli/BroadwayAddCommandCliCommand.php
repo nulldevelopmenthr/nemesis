@@ -11,6 +11,7 @@ use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Naming\CommandClassName;
+use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
@@ -99,14 +100,14 @@ class BroadwayAddCommandCliCommand extends BaseSkeletonGeneratorCommand
         $question->setValidator(
             function ($input) {
                 if (true === empty($input)) {
-                    throw new \RuntimeException('No command name, please enter it');
+                    throw new RuntimeException('No command name, please enter it');
                 }
 
                 $name = str_replace('/', '\\', $input);
 
                 // Check there is namespace defined.
                 if (false !== strpos($name, '\\')) {
-                    throw new \RuntimeException('Command names are generated without namespace!');
+                    throw new RuntimeException('Command names are generated without namespace!');
                 }
 
                 return $name;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Definition\PHP;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 
@@ -47,7 +48,7 @@ class Property
     public function getTypeShortName(): string
     {
         if (null === $this->type) {
-            throw new \Exception();
+            throw new Exception();
         }
 
         return $this->type->getName();

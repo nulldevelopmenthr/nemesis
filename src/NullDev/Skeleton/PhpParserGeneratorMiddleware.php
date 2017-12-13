@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton;
 
+use Exception;
 use League\Tactician\Middleware;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\File\FileFactory;
@@ -32,7 +33,7 @@ class PhpParserGeneratorMiddleware implements Middleware
             if ($item instanceof ImprovedClassSource) {
                 $outputs[] = $this->fileFactory->createOutputResource($item, $this->codeGenerator->getOutput($item));
             } else {
-                throw new \Exception('ERR 32242398: Got '.get_class($item).' expected instance of ImprovedClassSource');
+                throw new Exception('ERR 32242398: Got '.get_class($item).' expected instance of ImprovedClassSource');
             }
         }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
@@ -31,7 +32,7 @@ class ConstructorMethodTest extends PHPUnit_Framework_TestCase
     {
         $method = new ConstructorMethod([]);
 
-        self::expectException(\Exception::class);
+        self::expectException(Exception::class);
 
         $method->getMethodReturnType();
     }

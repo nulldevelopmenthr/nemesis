@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
@@ -50,7 +51,7 @@ class ConstructorMethodSpec extends ObjectBehavior
 
     public function it_throws_exception_if_trying_to_get_methods_return_type()
     {
-        $this->shouldThrow(\Exception::class)->duringGetMethodReturnType();
+        $this->shouldThrow(Exception::class)->duringGetMethodReturnType();
     }
 
     public function it_returns_only_parameters_with_defined_types_as_class_types(

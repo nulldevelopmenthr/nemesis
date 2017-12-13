@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\BroadwaySkeleton\Cli;
 
 use League\Tactician\CommandBus;
+use LogicException;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector;
@@ -132,7 +133,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
             ];
         }
 
-        throw new \LogicException('Err 2324125090: Unsupported implementation');
+        throw new LogicException('Err 2324125090: Unsupported implementation');
     }
 
     protected function handleNameInput()

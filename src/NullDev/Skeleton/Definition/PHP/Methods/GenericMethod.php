@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use Webmozart\Assert\Assert;
@@ -64,7 +65,7 @@ class GenericMethod implements Method
     public function getMethodReturnType(): string
     {
         if (null === $this->returnType) {
-            throw new \Exception('Err 3415125125124: No return type defined');
+            throw new Exception('Err 3415125125124: No return type defined');
         }
 
         return $this->returnType->getName();

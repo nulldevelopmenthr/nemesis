@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Types\Type;
 use Webmozart\Assert\Assert;
@@ -51,6 +52,6 @@ class InitializableMethod implements Method
 
     public function getMethodReturnType(): string
     {
-        throw new \Exception('Err 543545: PhpSpec InitializableMethod doesnt use return types.');
+        throw new Exception('Err 543545: PhpSpec InitializableMethod doesnt use return types.');
     }
 }

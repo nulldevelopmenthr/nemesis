@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Theater\Config;
 
+use DateTime;
+use Exception;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\Config\TheaterConfig;
@@ -31,24 +33,24 @@ class TheaterConfigSpec extends ObjectBehavior
     }
 
     public function it_throws_an_exception_if_contexts_are_not_instances_of_expected_class(
-        \DateTime $wrongObject,
+        DateTime $wrongObject,
         ReadSideConfig $readSideConfig
     ) {
         $contexts = [$wrongObject];
         $reads    = [$readSideConfig];
 
-        $this->shouldThrow(new \Exception('Contexts should be instances of BoundedContextConfig'))
+        $this->shouldThrow(new Exception('Contexts should be instances of BoundedContextConfig'))
             ->during('__construct', [$contexts, $reads]);
     }
 
     public function it_throws_an_exception_if_reads_are_not_instances_of_expected_class(
         BoundedContextConfig $boundedContextConfig,
-        \DateTime $wrongObject
+        DateTime $wrongObject
     ) {
         $contexts = [$boundedContextConfig];
         $reads    = [$wrongObject];
 
-        $this->shouldThrow(new \Exception('Read sides should be instances of ReadSideConfig'))
+        $this->shouldThrow(new Exception('Read sides should be instances of ReadSideConfig'))
             ->during('__construct', [$contexts, $reads]);
     }
 

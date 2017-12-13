@@ -6,7 +6,9 @@ namespace NullDev\Skeleton\Path\Readers;
 
 use hanneskod\classtools\Iterator\ClassIterator;
 use NullDev\Nemesis\Config\Config;
+use ReflectionClass;
 use Symfony\Component\Finder\Finder;
+use Throwable;
 
 /**
  * @see SourceCodePathReaderSpec
@@ -36,8 +38,8 @@ class SourceCodePathReader
             }
 
             try {
-                $reflection = new \ReflectionClass($className);
-            } catch (\Throwable $exception) {
+                $reflection = new ReflectionClass($className);
+            } catch (Throwable $exception) {
                 echo $exception->getMessage();
 
                 continue;
@@ -89,8 +91,8 @@ class SourceCodePathReader
 
         foreach ($this->findAllTypeDeclarationNamesInSourceCode() as $typeDeclarationName) {
             try {
-                $reflection = new \ReflectionClass($typeDeclarationName);
-            } catch (\Throwable $exception) {
+                $reflection = new ReflectionClass($typeDeclarationName);
+            } catch (Throwable $exception) {
                 continue;
             }
 
@@ -156,8 +158,8 @@ class SourceCodePathReader
                 }
 
                 try {
-                    $reflection = new \ReflectionClass($classname);
-                } catch (\Throwable $exception) {
+                    $reflection = new ReflectionClass($classname);
+                } catch (Throwable $exception) {
                     continue;
                 }
 

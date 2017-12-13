@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Property;
@@ -54,7 +55,7 @@ class ExposeGettersMethod implements Method
 
     public function getMethodReturnType(): string
     {
-        throw new \Exception('Err 2342341: PhpSpec expose doesnt use return types.');
+        throw new Exception('Err 2342341: PhpSpec expose doesnt use return types.');
     }
 
     /** @return Property[]|array */

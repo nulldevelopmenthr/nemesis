@@ -9,6 +9,7 @@ use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
+use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -82,14 +83,14 @@ abstract class SimpleSkeletonGeneratorCommand extends Command implements Contain
         $question->setValidator(
             function ($input) {
                 if (true === empty($input)) {
-                    throw new \RuntimeException('No class name, please enter it');
+                    throw new RuntimeException('No class name, please enter it');
                 }
 
                 $className = str_replace('/', '\\', $input);
 
                 // Check there is namespace defined.
                 if (false === strpos($input, '\\')) {
-                    throw new \RuntimeException('No namespace, please enter it');
+                    throw new RuntimeException('No namespace, please enter it');
                 }
 
                 return $className;

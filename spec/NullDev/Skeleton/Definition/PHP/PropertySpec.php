@@ -8,6 +8,7 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use PhpSpec\ObjectBehavior;
+use Throwable;
 
 class PropertySpec extends ObjectBehavior
 {
@@ -79,6 +80,6 @@ class PropertySpec extends ObjectBehavior
     public function it_will_throw_error_for_class_short_name_if_no_type_defined()
     {
         $this->beConstructedWith($name = 'property');
-        $this->shouldThrow(\Throwable::class)->duringGetTypeShortName();
+        $this->shouldThrow(Throwable::class)->duringGetTypeShortName();
     }
 }
