@@ -18,11 +18,11 @@ class BuyersCommandHandlerTest extends TestCase
     /** @var MockInterface|BuyerRepository */
     private $repository;
     /** @var BuyersCommandHandler */
-    private $buyersCommandHandler;
+    private $sut;
     public function setUp()
     {
         $this->repository = Mockery::mock(BuyerRepository::class);
-        $this->buyersCommandHandler = new BuyersCommandHandler($this->repository);
+        $this->sut = new BuyersCommandHandler($this->repository);
     }
     public function testNothing()
     {

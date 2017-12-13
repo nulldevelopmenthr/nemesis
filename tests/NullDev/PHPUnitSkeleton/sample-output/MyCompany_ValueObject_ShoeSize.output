@@ -16,14 +16,14 @@ class ShoeSizeTest extends TestCase
     /** @var int */
     private $value;
     /** @var ShoeSize */
-    private $shoeSize;
+    private $sut;
     public function setUp()
     {
         $this->value = 1;
-        $this->shoeSize = new ShoeSize($this->value);
+        $this->sut = new ShoeSize($this->value);
     }
     public function testGetValue()
     {
-        self::assertEquals($this->value, $this->shoeSize->getValue());
+        self::assertEquals($this->value, $this->sut->getValue());
     }
 }

@@ -8,5 +8,5 @@ public function setUp()
     $this->smart = true;
     $this->tags = [];
     $this->randomValue = 'randomValue';
-    $this->lol = new Lol($this->id, $this->name, $this->price, $this->smart, $this->tags, $this->randomValue);
+    $this->sut = new Lol($this->id, $this->name, $this->price, $this->smart, $this->tags, $this->randomValue);
 }

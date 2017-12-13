@@ -2,5 +2,5 @@
 
 public function testGetAmount()
 {
-    self::assertEquals($this->amount, $this->money->getAmount());
+    self::assertEquals($this->amount, $this->sut->getAmount());
 }

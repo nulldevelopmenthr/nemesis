@@ -14,10 +14,10 @@ class SeniorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var Senior */
-    private $senior;
+    private $sut;
     public function setUp()
     {
-        $this->senior = new Senior();
+        $this->sut = new Senior();
     }
     public function testNothing()
     {

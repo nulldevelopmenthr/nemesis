@@ -14,10 +14,10 @@ class UserModelTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserModel */
-    private $userModel;
+    private $sut;
     public function setUp()
     {
-        $this->userModel = new UserModel();
+        $this->sut = new UserModel();
     }
     public function testNothing()
     {

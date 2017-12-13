@@ -14,10 +14,10 @@ class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var CreateUserCommand */
-    private $createUserCommand;
+    private $sut;
     public function setUp()
     {
-        $this->createUserCommand = new CreateUserCommand();
+        $this->sut = new CreateUserCommand();
     }
     public function testNothing()
     {

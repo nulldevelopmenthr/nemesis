@@ -26,7 +26,7 @@ class UserCreatedTest extends TestCase
     /** @var MockInterface|Company */
     private $company;
     /** @var UserCreated */
-    private $userCreated;
+    private $sut;
     public function setUp()
     {
         $this->name = 'name';
@@ -34,26 +34,26 @@ class UserCreatedTest extends TestCase
         $this->height = 2.0;
         $this->about = 'about';
         $this->company = Mockery::mock(Company::class);
-        $this->userCreated = new UserCreated($this->name, $this->age, $this->height, $this->about, $this->company);
+        $this->sut = new UserCreated($this->name, $this->age, $this->height, $this->about, $this->company);
     }
     public function testGetName()
     {
-        self::assertEquals($this->name, $this->userCreated->getName());
+        self::assertEquals($this->name, $this->sut->getName());
     }
     public function testGetAge()
     {
-        self::assertEquals($this->age, $this->userCreated->getAge());
+        self::assertEquals($this->age, $this->sut->getAge());
     }
     public function testGetHeight()
     {
-        self::assertEquals($this->height, $this->userCreated->getHeight());
+        self::assertEquals($this->height, $this->sut->getHeight());
     }
     public function testGetAbout()
     {
-        self::assertEquals($this->about, $this->userCreated->getAbout());
+        self::assertEquals($this->about, $this->sut->getAbout());
     }
     public function testGetCompany()
     {
-        self::assertEquals($this->company, $this->userCreated->getCompany());
+        self::assertEquals($this->company, $this->sut->getCompany());
     }
 }

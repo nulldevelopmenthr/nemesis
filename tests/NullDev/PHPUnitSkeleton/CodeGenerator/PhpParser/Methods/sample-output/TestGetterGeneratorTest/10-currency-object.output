@@ -2,5 +2,5 @@
 
 public function testGetCurrency()
 {
-    self::assertEquals($this->currency, $this->money->getCurrency());
+    self::assertEquals($this->currency, $this->sut->getCurrency());
 }

@@ -16,14 +16,14 @@ class CreateUserCommandTest extends TestCase
     /** @var string */
     private $id;
     /** @var CreateUserCommand */
-    private $createUserCommand;
+    private $sut;
     public function setUp()
     {
         $this->id = 'id';
-        $this->createUserCommand = new CreateUserCommand($this->id);
+        $this->sut = new CreateUserCommand($this->id);
     }
     public function testGetId()
     {
-        self::assertEquals($this->id, $this->createUserCommand->getId());
+        self::assertEquals($this->id, $this->sut->getId());
     }
 }

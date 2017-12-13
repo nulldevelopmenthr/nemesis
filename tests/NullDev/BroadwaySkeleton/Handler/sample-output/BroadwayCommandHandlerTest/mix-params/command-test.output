@@ -26,7 +26,7 @@ class CreateUserCommandTest extends TestCase
     /** @var MockInterface|Company */
     private $company;
     /** @var CreateUserCommand */
-    private $createUserCommand;
+    private $sut;
     public function setUp()
     {
         $this->name = 'name';
@@ -34,26 +34,26 @@ class CreateUserCommandTest extends TestCase
         $this->height = 2.0;
         $this->about = 'about';
         $this->company = Mockery::mock(Company::class);
-        $this->createUserCommand = new CreateUserCommand($this->name, $this->age, $this->height, $this->about, $this->company);
+        $this->sut = new CreateUserCommand($this->name, $this->age, $this->height, $this->about, $this->company);
     }
     public function testGetName()
     {
-        self::assertEquals($this->name, $this->createUserCommand->getName());
+        self::assertEquals($this->name, $this->sut->getName());
     }
     public function testGetAge()
     {
-        self::assertEquals($this->age, $this->createUserCommand->getAge());
+        self::assertEquals($this->age, $this->sut->getAge());
     }
     public function testGetHeight()
     {
-        self::assertEquals($this->height, $this->createUserCommand->getHeight());
+        self::assertEquals($this->height, $this->sut->getHeight());
     }
     public function testGetAbout()
     {
-        self::assertEquals($this->about, $this->createUserCommand->getAbout());
+        self::assertEquals($this->about, $this->sut->getAbout());
     }
     public function testGetCompany()
     {
-        self::assertEquals($this->company, $this->createUserCommand->getCompany());
+        self::assertEquals($this->company, $this->sut->getCompany());
     }
 }
