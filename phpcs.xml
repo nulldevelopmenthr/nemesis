@@ -2,6 +2,8 @@
 <ruleset name="pcsg-generated-ruleset">
 <description>Created with the PHP Coding Standard Generator. http://edorian.github.com/php-coding-standard-generator/
 </description>
+    <config name="installed_paths" value="../../slevomat/coding-standard"/><!-- relative path from PHPCS source location -->
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly"/>
 <exclude-pattern>*/cache/prod/*</exclude-pattern>
 <exclude-pattern>*/cache/dev/*</exclude-pattern>
 <exclude-pattern>*/cache/test/*</exclude-pattern>
