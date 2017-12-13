@@ -30,8 +30,8 @@
     },
     "require-dev": {
         "behat/behat": "^3.3",
-        "broadway/broadway": "^1.0",
-        "broadway/read-model-elasticsearch": "^0.2.0",
+        "broadway/broadway": "^2.0",
+        "broadway/read-model-elasticsearch": "^0.3.0",
         "ciaranmcnulty/phpspec-typehintedmethods": "~2",
         "codeclimate/php-test-reporter": "^0.4.4",
         "henrikbjorn/phpspec-code-coverage": "~3",
