@@ -18,14 +18,14 @@ class UserEntityTest extends TestCase
     /** @var MockInterface|UserId */
     private $id;
     /** @var UserEntity */
-    private $userEntity;
+    private $sut;
     public function setUp()
     {
         $this->id = Mockery::mock(UserId::class);
-        $this->userEntity = new UserEntity($this->id);
+        $this->sut = new UserEntity($this->id);
     }
     public function testGetId()
     {
-        self::assertEquals($this->id, $this->userEntity->getId());
+        self::assertEquals($this->id, $this->sut->getId());
     }
 }

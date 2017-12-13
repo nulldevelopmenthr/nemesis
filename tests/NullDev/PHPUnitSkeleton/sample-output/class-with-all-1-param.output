@@ -18,14 +18,14 @@ class SeniorTest extends TestCase
     /** @var MockInterface|FirstName */
     private $firstName;
     /** @var Senior */
-    private $senior;
+    private $sut;
     public function setUp()
     {
         $this->firstName = Mockery::mock(FirstName::class);
-        $this->senior = new Senior($this->firstName);
+        $this->sut = new Senior($this->firstName);
     }
     public function testGetFirstName()
     {
-        self::assertEquals($this->firstName, $this->senior->getFirstName());
+        self::assertEquals($this->firstName, $this->sut->getFirstName());
     }
 }

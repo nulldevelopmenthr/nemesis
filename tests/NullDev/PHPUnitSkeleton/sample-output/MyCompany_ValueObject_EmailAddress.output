@@ -16,14 +16,14 @@ class EmailAddressTest extends TestCase
     /** @var string */
     private $email;
     /** @var EmailAddress */
-    private $emailAddress;
+    private $sut;
     public function setUp()
     {
         $this->email = 'email';
-        $this->emailAddress = new EmailAddress($this->email);
+        $this->sut = new EmailAddress($this->email);
     }
     public function testGetEmail()
     {
-        self::assertEquals($this->email, $this->emailAddress->getEmail());
+        self::assertEquals($this->email, $this->sut->getEmail());
     }
 }

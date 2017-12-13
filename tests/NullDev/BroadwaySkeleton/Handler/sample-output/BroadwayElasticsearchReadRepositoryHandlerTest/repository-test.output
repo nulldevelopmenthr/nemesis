@@ -14,10 +14,10 @@ class UserRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserRepository */
-    private $userRepository;
+    private $sut;
     public function setUp()
     {
-        $this->userRepository = new UserRepository();
+        $this->sut = new UserRepository();
     }
     public function testNothing()
     {

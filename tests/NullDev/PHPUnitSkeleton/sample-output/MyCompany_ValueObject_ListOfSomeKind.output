@@ -16,14 +16,14 @@ class ListOfSomeKindTest extends TestCase
     /** @var array */
     private $list;
     /** @var ListOfSomeKind */
-    private $listOfSomeKind;
+    private $sut;
     public function setUp()
     {
         $this->list = [];
-        $this->listOfSomeKind = new ListOfSomeKind($this->list);
+        $this->sut = new ListOfSomeKind($this->list);
     }
     public function testGetList()
     {
-        self::assertEquals($this->list, $this->listOfSomeKind->getList());
+        self::assertEquals($this->list, $this->sut->getList());
     }
 }

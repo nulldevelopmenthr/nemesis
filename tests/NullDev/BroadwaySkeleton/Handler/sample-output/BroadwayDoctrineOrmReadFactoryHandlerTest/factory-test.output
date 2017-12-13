@@ -14,10 +14,10 @@ class UserFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserFactory */
-    private $userFactory;
+    private $sut;
     public function setUp()
     {
-        $this->userFactory = new UserFactory();
+        $this->sut = new UserFactory();
     }
     public function testNothing()
     {

@@ -14,10 +14,10 @@ class UserCreatedTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserCreated */
-    private $userCreated;
+    private $sut;
     public function setUp()
     {
-        $this->userCreated = new UserCreated();
+        $this->sut = new UserCreated();
     }
     public function testNothing()
     {

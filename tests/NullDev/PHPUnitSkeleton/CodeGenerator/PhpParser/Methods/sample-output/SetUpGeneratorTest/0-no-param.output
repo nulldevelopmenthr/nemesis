@@ -2,5 +2,5 @@
 
 public function setUp()
 {
-    $this->senior = new Senior();
+    $this->sut = new Senior();
 }

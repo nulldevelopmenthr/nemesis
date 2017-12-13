@@ -16,13 +16,13 @@ class UserRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserRepository */
-    private $userRepository;
+    private $sut;
     public function setUp()
     {
         $this->eventStore = Mockery::mock(EventStore::class);
         $this->eventBus = Mockery::mock(EventBus::class);
         $this->eventStreamDecorators = [];
-        $this->userRepository = new UserRepository($this->eventStore, $this->eventBus, $this->eventStreamDecorators);
+        $this->sut = new UserRepository($this->eventStore, $this->eventBus, $this->eventStreamDecorators);
     }
     public function testNothing()
     {

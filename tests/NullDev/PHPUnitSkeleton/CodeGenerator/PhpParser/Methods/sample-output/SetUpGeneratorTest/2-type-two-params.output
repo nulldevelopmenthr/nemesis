@@ -4,5 +4,5 @@ public function setUp()
 {
     $this->firstName = Mockery::mock(FirstName::class);
     $this->lastName = Mockery::mock(LastName::class);
-    $this->senior = new Senior($this->firstName, $this->lastName);
+    $this->sut = new Senior($this->firstName, $this->lastName);
 }

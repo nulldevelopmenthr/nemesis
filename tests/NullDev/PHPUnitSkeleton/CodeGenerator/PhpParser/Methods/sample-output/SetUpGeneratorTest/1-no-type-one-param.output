@@ -3,5 +3,5 @@
 public function setUp()
 {
     $this->firstName = 'firstName';
-    $this->senior = new Senior($this->firstName);
+    $this->sut = new Senior($this->firstName);
 }
