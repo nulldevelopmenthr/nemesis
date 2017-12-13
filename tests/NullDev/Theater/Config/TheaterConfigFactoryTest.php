@@ -10,13 +10,13 @@ use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Config\TheaterConfigFactory;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use NullDev\Theater\ReadSide\ReadSideConfigFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Config\TheaterConfigFactory
  * @group  integration
  */
-class TheaterConfigFactoryTest extends PHPUnit_Framework_TestCase
+class TheaterConfigFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var BoundedContextConfigFactory */

@@ -6,13 +6,13 @@ namespace tests\NullDev\Skeleton\Path;
 
 use Exception;
 use NullDev\Skeleton\Path\Psr4Path;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Path\Psr4Path
  * @group  unit
  */
-class Psr4PathTest extends PHPUnit_Framework_TestCase
+class Psr4PathTest extends TestCase
 {
     /** @var Psr4Path */
     private $path;

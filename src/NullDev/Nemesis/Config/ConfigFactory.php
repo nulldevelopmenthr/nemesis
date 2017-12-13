@@ -82,7 +82,7 @@ class ConfigFactory
             ],
             'phpunit' => [
                 'base_namespace'       => 'tests',
-                'base_test_class_name' => 'PHPUnit_Framework_TestCase',
+                'base_test_class_name' => 'PHPUnit\Framework\TestCase',
             ],
         ];
     }

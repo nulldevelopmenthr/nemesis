@@ -9,13 +9,13 @@ use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Definition\PHP\Types\InterfaceType;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\InitializableGenerator
  * @group  integration
  */
-class InitializableGeneratorTest extends PHPUnit_Framework_TestCase
+class InitializableGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

@@ -7,13 +7,13 @@ namespace tests\NullDev\Theater\BoundedContext;
 use Exception;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Theater\BoundedContext\ContextName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\BoundedContext\ContextName
  * @group  unit
  */
-class ContextNameTest extends PHPUnit_Framework_TestCase
+class ContextNameTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var string */

@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace tests\NullDev\Nemesis;
 
 use NullDev\Nemesis\Application;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * @covers \NullDev\Nemesis\Application
  * @group  integration
  */
-class ApplicationTest extends PHPUnit_Framework_TestCase
+class ApplicationTest extends TestCase
 {
     /** @var Application */
     private $application;

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType
  * @group  unit
  */
-class IntTypeTest extends PHPUnit_Framework_TestCase
+class IntTypeTest extends TestCase
 {
     /** @var IntType */
     private $type;

@@ -5,12 +5,12 @@ namespace tests\MyCompany\ValueObject;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\ValueObject\ShoeSize;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 /**
 * @covers \MyCompany\ValueObject\ShoeSize
 * @group todo
 */
-class ShoeSizeTest extends PHPUnit_Framework_TestCase
+class ShoeSizeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var int */

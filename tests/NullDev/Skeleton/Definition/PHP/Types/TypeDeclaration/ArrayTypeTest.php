@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType
  * @group  unit
  */
-class ArrayTypeTest extends PHPUnit_Framework_TestCase
+class ArrayTypeTest extends TestCase
 {
     /** @var ArrayType */
     private $type;

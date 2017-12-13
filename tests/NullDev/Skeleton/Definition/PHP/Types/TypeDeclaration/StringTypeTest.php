@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType
  * @group  unit
  */
-class StringTypeTest extends PHPUnit_Framework_TestCase
+class StringTypeTest extends TestCase
 {
     /** @var StringType */
     private $type;

@@ -6,13 +6,13 @@ namespace tests\NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\RepositoryConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\RepositoryConstructorMethod
  * @group  nemesis
  */
-class RepositoryConstructorMethodTest extends PHPUnit_Framework_TestCase
+class RepositoryConstructorMethodTest extends TestCase
 {
     /** @var RepositoryConstructorMethod */
     private $repositoryConstructorMethod;

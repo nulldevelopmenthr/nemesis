@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\ClassType
  * @covers \NullDev\Skeleton\Definition\PHP\Types\ConceptName
  * @group  unit
  */
-class ClassTypeTest extends PHPUnit_Framework_TestCase
+class ClassTypeTest extends TestCase
 {
     public function testNamespacedInterface(): void
     {

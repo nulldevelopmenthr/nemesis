@@ -8,13 +8,13 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\ReadModelIdGetterMethod
  * @group  nemesis
  */
-class ReadModelIdGetterMethodTest extends PHPUnit_Framework_TestCase
+class ReadModelIdGetterMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 

@@ -7,12 +7,12 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use MyCompany\Webshop\Buyers\Application\BuyersCommandHandler;
 use MyCompany\Webshop\Buyers\Domain\BuyerRepository;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 /**
 * @covers \MyCompany\Webshop\Buyers\Application\BuyersCommandHandler
 * @group todo
 */
-class BuyersCommandHandlerTest extends PHPUnit_Framework_TestCase
+class BuyersCommandHandlerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|BuyerRepository */

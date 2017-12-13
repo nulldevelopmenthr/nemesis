@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Theater\Naming\Aggregate;
 
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Naming\Aggregate\EntityClassName
  * @group  unit
  */
-class EntityClassNameTest extends PHPUnit_Framework_TestCase
+class EntityClassNameTest extends TestCase
 {
     /** @var string */
     private $name;

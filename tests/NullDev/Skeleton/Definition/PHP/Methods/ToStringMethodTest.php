@@ -6,13 +6,13 @@ namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod
  * @group  nemesis
  */
-class ToStringMethodTest extends PHPUnit_Framework_TestCase
+class ToStringMethodTest extends TestCase
 {
     /** @var ToStringMethod */
     private $method;

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod
  * @group  nemesis
  */
-class LetMethodTest extends PHPUnit_Framework_TestCase
+class LetMethodTest extends TestCase
 {
     /** @var LetMethod */
     private $method;

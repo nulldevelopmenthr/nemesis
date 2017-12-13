@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType
  * @group  unit
  */
-class BoolTypeTest extends PHPUnit_Framework_TestCase
+class BoolTypeTest extends TestCase
 {
     /** @var BoolType */
     private $type;

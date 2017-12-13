@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP;
 
 use NullDev\Skeleton\Definition\PHP\DocComment;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\DocComment
  * @group  unit
  */
-class DocCommentTest extends PHPUnit_Framework_TestCase
+class DocCommentTest extends TestCase
 {
     /** @var DocComment */
     private $docComment;

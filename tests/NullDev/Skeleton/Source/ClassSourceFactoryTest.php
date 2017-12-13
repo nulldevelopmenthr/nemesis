@@ -7,13 +7,13 @@ namespace tests\NullDev\Skeleton\Source;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Source\ImprovedClassSource
  * @group  nemesis
  */
-class ClassSourceFactoryTest extends PHPUnit_Framework_TestCase
+class ClassSourceFactoryTest extends TestCase
 {
     public function testCreate(): void
     {

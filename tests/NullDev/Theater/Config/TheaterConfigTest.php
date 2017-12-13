@@ -12,13 +12,13 @@ use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\ReadSide\ReadSideConfig;
 use NullDev\Theater\ReadSide\ReadSideName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Config\TheaterConfig
  * @group  unit
  */
-class TheaterConfigTest extends PHPUnit_Framework_TestCase
+class TheaterConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|BoundedContextConfig */

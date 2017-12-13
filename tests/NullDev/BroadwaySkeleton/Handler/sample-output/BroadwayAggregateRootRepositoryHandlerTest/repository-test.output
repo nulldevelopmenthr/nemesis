@@ -6,13 +6,13 @@ use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\EventStore;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Something\UserRepository;
 /**
 * @covers \Something\UserRepository
 * @group todo
 */
-class UserRepositoryTest extends PHPUnit_Framework_TestCase
+class UserRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserRepository */

@@ -9,13 +9,13 @@ use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\NamingStrategy\DevboardNamingStrategy;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
 use NullDev\Theater\NamingStrategy\TheaterNamingStrategy;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\NamingStrategy\NamingStrategyFactory
  * @group  integration
  */
-class NamingStrategyFactoryTest extends PHPUnit_Framework_TestCase
+class NamingStrategyFactoryTest extends TestCase
 {
     /** @var NamingStrategyFactory */
     private $factory;

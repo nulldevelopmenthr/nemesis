@@ -9,13 +9,13 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\File\FileResource;
 use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\File\FileResource
  * @group  nemesis
  */
-class FileResourceTest extends PHPUnit_Framework_TestCase
+class FileResourceTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 

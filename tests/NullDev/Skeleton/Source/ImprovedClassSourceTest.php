@@ -13,13 +13,13 @@ use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\IntType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\StringType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Source\ImprovedClassSource
  * @group  nemesis
  */
-class ImprovedClassSourceTest extends PHPUnit_Framework_TestCase
+class ImprovedClassSourceTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 

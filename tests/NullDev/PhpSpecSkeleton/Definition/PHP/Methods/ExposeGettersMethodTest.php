@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod
  * @group  nemesis
  */
-class ExposeGettersMethodTest extends PHPUnit_Framework_TestCase
+class ExposeGettersMethodTest extends TestCase
 {
     /** @var ExposeGettersMethod */
     private $method;

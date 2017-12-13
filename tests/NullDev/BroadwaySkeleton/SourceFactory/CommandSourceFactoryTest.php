@@ -7,13 +7,13 @@ namespace tests\NullDev\BroadwaySkeleton\SourceFactory;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory
  * @group  nemesis
  */
-class CommandSourceFactoryTest extends PHPUnit_Framework_TestCase
+class CommandSourceFactoryTest extends TestCase
 {
     /** @var CommandSourceFactory */
     private $commandSourceFactory;

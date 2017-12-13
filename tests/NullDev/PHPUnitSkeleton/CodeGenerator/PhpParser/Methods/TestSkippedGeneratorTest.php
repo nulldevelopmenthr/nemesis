@@ -7,13 +7,13 @@ namespace tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator
  * @group  nemesis
  */
-class TestSkippedGeneratorTest extends PHPUnit_Framework_TestCase
+class TestSkippedGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

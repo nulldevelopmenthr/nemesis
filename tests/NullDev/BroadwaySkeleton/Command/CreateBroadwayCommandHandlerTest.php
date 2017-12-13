@@ -12,13 +12,13 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler
  * @group  unit
  */
-class CreateBroadwayCommandHandlerTest extends PHPUnit_Framework_TestCase
+class CreateBroadwayCommandHandlerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|CommandHandlerClassName */

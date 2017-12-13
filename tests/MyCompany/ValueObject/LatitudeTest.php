@@ -6,13 +6,13 @@ namespace tests\MyCompany\ValueObject;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\ValueObject\Latitude;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \MyCompany\ValueObject\Latitude
  * @group  todo
  */
-class LatitudeTest extends PHPUnit_Framework_TestCase
+class LatitudeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var float */

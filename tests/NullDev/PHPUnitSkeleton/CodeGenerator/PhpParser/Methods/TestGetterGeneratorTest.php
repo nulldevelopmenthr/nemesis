@@ -9,13 +9,13 @@ use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Property;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestGetterGenerator
  * @group  nemesis
  */
-class TestGetterGeneratorTest extends PHPUnit_Framework_TestCase
+class TestGetterGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

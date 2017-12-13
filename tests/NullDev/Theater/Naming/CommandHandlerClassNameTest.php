@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Theater\Naming;
 
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Naming\CommandHandlerClassName
  * @group  unit
  */
-class CommandHandlerClassNameTest extends PHPUnit_Framework_TestCase
+class CommandHandlerClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
