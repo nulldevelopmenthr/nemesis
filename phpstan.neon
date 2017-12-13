@@ -1,7 +1,10 @@
 parameters:
 	ignoreErrors:
-	    - '#Class Symfony\\Component\\ExpressionLanguage\\ExpressionLanguage not found and could not be autoloaded.#'
 	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImportIfEligible\(\) expects#'
 	    - '#of method NullDev\\Skeleton\\Source\\ImprovedClassSource::addImport\(\) expects#'
 	    - '#Mockery\\MockInterface given#'
 	    - '#Call to an undefined method Symfony\\Component\\Console\\Application::getContainer\(\)#'
+	    - '#Call to an undefined method Mockery\\MockInterface#'
+	    - '#Call to an undefined method Mockery\\ExpectationInterface#'
+	    - '#Argument of an invalid type array<PhpParser\\Node>|null supplied for foreach, only iterables are supported.#'
+	    - '#Method NullDev\\Nemesis\\Application\:\:getDefaultCommands\(\) should return array<Symfony\\Component\\Console\\Command\\Command> but returns array<object>.#'
