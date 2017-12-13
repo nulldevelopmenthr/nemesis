@@ -53,7 +53,7 @@ class SetUpGenerator implements MethodGenerator
         $node->addStmt(
             new Assign(
                 new Variable(
-                    'this->'.lcfirst($method->getSubjectUnderTestName())
+                    'this->sut'
                 ),
                 new New_(
                     new Name($method->getSubjectUnderTestName()),
