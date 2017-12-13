@@ -18,35 +18,39 @@ class Config
 {
     /** @var array */
     private $sourceCodePaths = [];
-
     /** @var array */
     private $specPaths = [];
-
     /** @var array */
     private $testPaths = [];
-
     /** @var string */
     private $testsNamespace;
-
     /** @var string */
     private $baseTestClassName;
+    /** @var array */
+    private $testIgnoreInstancesOf = [];
+    /** @var array */
+    private $testIgnoreIterfaces = [];
 
     public function __construct(
         array $sourceCodePaths,
         array $specPaths,
         array $testPaths,
         string $testsNamespace,
-        string $baseTestClassName
+        string $baseTestClassName,
+        array $testIgnoreInstancesOf,
+        array $testIgnoreIterfaces
     ) {
         Assert::allIsInstanceOf($sourceCodePaths, Psr4Path::class);
         Assert::allIsInstanceOf($specPaths, SpecPsr4Path::class);
         Assert::allIsInstanceOf($testPaths, TestPsr4Path::class);
 
-        $this->sourceCodePaths   = $sourceCodePaths;
-        $this->specPaths         = $specPaths;
-        $this->testPaths         = $testPaths;
-        $this->testsNamespace    = $testsNamespace;
-        $this->baseTestClassName = $baseTestClassName;
+        $this->sourceCodePaths       = $sourceCodePaths;
+        $this->specPaths             = $specPaths;
+        $this->testPaths             = $testPaths;
+        $this->testsNamespace        = $testsNamespace;
+        $this->baseTestClassName     = $baseTestClassName;
+        $this->testIgnoreInstancesOf = $testIgnoreInstancesOf;
+        $this->testIgnoreIterfaces   = $testIgnoreIterfaces;
     }
 
     /** @return Path[]|array */
@@ -81,5 +85,15 @@ class Config
     public function getBaseTestClassName(): string
     {
         return $this->baseTestClassName;
+    }
+
+    public function getPhpUnitIgnoreInstancesOfList(): array
+    {
+        return $this->testIgnoreInstancesOf;
+    }
+
+    public function getPhpUnitIgnoreInterfacesList(): array
+    {
+        return $this->testIgnoreIterfaces;
     }
 }

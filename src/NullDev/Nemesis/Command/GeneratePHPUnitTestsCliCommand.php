@@ -12,6 +12,7 @@ use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use Roave\BetterReflection\BetterReflection;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -21,6 +22,7 @@ use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareInterface
 {
@@ -54,14 +56,18 @@ class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareIn
 
         $generateTestClassSources = [];
 
-        foreach ($sourceCodeClasses as /*$sourceCodeClassName =>*/ $sourceCodeFile) {
+        foreach ($sourceCodeClasses as $sourceCodeFile) {
             $content = file_get_contents($sourceCodeFile->getRealPath());
 
             $classSource = $sourceParser->parse($content)[0];
             $testSource  = $this->createPhpUnit5Source($classSource);
 
             if (false === array_key_exists($testSource->getFullName(), $existingTestClasses)) {
-                $generateTestClassSources[] = $testSource;
+                if (false === $this->shouldBeIgnored($classSource->getClassType()->getFullName())) {
+                    $generateTestClassSources[] = $testSource;
+                } else {
+                    $this->io->writeln('Ignoring '.$classSource->getClassType()->getFullName());
+                }
             }
         }
 
@@ -73,6 +79,35 @@ class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareIn
         }
 
         $this->io->writeln('Done!');
+    }
+
+    private function shouldBeIgnored(string $className): bool
+    {
+        $ignoreInstancesOf = $this->getConfig()->getPhpUnitIgnoreInstancesOfList();
+        $ignoreInterfaces  = $this->getConfig()->getPhpUnitIgnoreInterfacesList();
+
+        if (true === in_array($className, $ignoreInstancesOf)) {
+            return true;
+        }
+
+        $classInfo = (new BetterReflection())
+            ->classReflector()
+            ->reflect($className);
+
+        while ($parent = $classInfo->getParentClass()) {
+            if (true === in_array($parent->getName(), $ignoreInstancesOf)) {
+                return true;
+            }
+            $classInfo = $parent;
+        }
+
+        foreach ($classInfo->getInterfaceNames() as $interfaceName) {
+            if (true === in_array($interfaceName, $ignoreInterfaces)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function createPhpUnit5Source(ImprovedClassSource $classSource): ImprovedClassSource

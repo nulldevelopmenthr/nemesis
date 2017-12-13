@@ -14,7 +14,15 @@ class ConfigSpec extends ObjectBehavior
 {
     public function let(Psr4Path $psr4Path, SpecPsr4Path $specPsr4Path, TestPsr4Path $testPsr4Path)
     {
-        $this->beConstructedWith([$psr4Path], [$specPsr4Path], [$testPsr4Path], 'tests', 'PHPUnit_Framework_TestCase');
+        $this->beConstructedWith(
+            [$psr4Path],
+            [$specPsr4Path],
+            [$testPsr4Path],
+            'tests',
+            'PHPUnit\Framework\TestCase',
+            ['Class\To\Ignore'],
+            ['Interface\To\Ignore']
+        );
     }
 
     public function it_is_initializable()
@@ -38,5 +46,17 @@ class ConfigSpec extends ObjectBehavior
     {
         $this->getTestPaths()
             ->shouldReturn([$testPsr4Path]);
+    }
+
+    public function it_exposes_clases_to_ignore()
+    {
+        $this->getPhpUnitIgnoreInstancesOfList()
+            ->shouldReturn(['Class\To\Ignore']);
+    }
+
+    public function it_exposes_interfaces_to_ignore()
+    {
+        $this->getPhpUnitIgnoreInterfacesList()
+            ->shouldReturn(['Interface\To\Ignore']);
     }
 }
