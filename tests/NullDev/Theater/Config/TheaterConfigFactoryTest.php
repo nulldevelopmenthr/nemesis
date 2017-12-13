@@ -54,7 +54,7 @@ class TheaterConfigFactoryTest extends TestCase
                 ],
             ],
             'reads'    => [
-                'BuyerRead' => [
+                'BuyerRead'      => [
                     'namespace'      => 'MyCompany\Webshop\Buyers',
                     'implementation' => 'DoctrineORM',
                     'classes'        => [
@@ -63,7 +63,7 @@ class TheaterConfigFactoryTest extends TestCase
                         'projector'  => 'MyCompany\Webshop\Buyers\BuyerReadProjector',
                         'factory'    => 'MyCompany\Webshop\Buyers\BuyerReadFactory',
                     ],
-                    'properties' => [
+                    'properties'     => [
                         'firstName' => 'string',
                         'createdAt' => 'DateTime',
                     ],
@@ -76,8 +76,8 @@ class TheaterConfigFactoryTest extends TestCase
                         'repository' => 'MyCompany\Webshop\SecondHand\SecondHandReadRepository',
                         'projector'  => 'MyCompany\Webshop\SecondHand\SecondHandReadProjector',
                     ],
-                    'properties' => [
-                        'age'       => 'int',
+                    'properties'     => [
+                        'age' => 'int',
                     ],
                 ],
             ],
