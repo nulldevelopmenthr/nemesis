@@ -44,6 +44,7 @@ class GeneratePHPUnitTestsCliCommand extends Command implements ContainerAwareIn
     {
         $this->io = new SymfonyStyle($input, $output);
 
+        /** @var SourceCodePathReader $reader */
         $reader = $this->getContainer()->get(SourceCodePathReader::class);
 
         $sourceCodeClasses   = $reader->getSourceClasses($this->getConfig()->getSourceCodePaths());
