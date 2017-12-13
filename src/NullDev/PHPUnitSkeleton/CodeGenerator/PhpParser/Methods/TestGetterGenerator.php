@@ -48,7 +48,7 @@ class TestGetterGenerator implements MethodGenerator
                     ),
                     new Arg(
                         new MethodCall(
-                            new Variable('this->'.$method->getSubjectUnderTestPropertyName()),
+                            new Variable('this->sut'),
                             $method->getGetterMethodName()
                         )
                     ),

@@ -78,7 +78,7 @@ class PHPUnitTestGenerator
         }
 
         $testSource->addProperty(
-            new Property(lcfirst($improvedClassSource->getName()), $improvedClassSource->getClassType())
+            new Property('sut', $improvedClassSource->getClassType())
         );
 
         $setUpMethod = new SetUpMethod($improvedClassSource);
