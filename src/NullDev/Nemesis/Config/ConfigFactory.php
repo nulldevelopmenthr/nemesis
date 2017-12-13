@@ -26,6 +26,10 @@ class ConfigFactory
     private $phpunitBaseNamespace;
     /** @var string */
     private $phpunitBaseTestClassName;
+    /** @var array */
+    private $phpunitIgnoreInstancesOfList = [];
+    /** @var array */
+    private $phpunitIgnoreInterfacesList = [];
 
     public function __construct()
     {
@@ -51,8 +55,10 @@ class ConfigFactory
         foreach ($config['paths']['tests'] as $path => $namespacePrefix) {
             $this->testPaths[] = new TestPsr4Path($path, $namespacePrefix);
         }
-        $this->phpunitBaseNamespace     = $config['phpunit']['base_namespace'];
-        $this->phpunitBaseTestClassName = $config['phpunit']['base_test_class_name'];
+        $this->phpunitBaseNamespace         = $config['phpunit']['base_namespace'];
+        $this->phpunitBaseTestClassName     = $config['phpunit']['base_test_class_name'];
+        $this->phpunitIgnoreInstancesOfList = $config['phpunit']['ignore_instances_of'];
+        $this->phpunitIgnoreInterfacesList  = $config['phpunit']['ignore_interfaces'];
     }
 
     public function create(): Config
@@ -62,7 +68,9 @@ class ConfigFactory
             $this->getSpecPaths(),
             $this->getTestPaths(),
             $this->getPhpunitBaseNamespace(),
-            $this->getPhpunitBaseTestClassName()
+            $this->getPhpunitBaseTestClassName(),
+            $this->getPhpunitIgnoreInstancesOfList(),
+            $this->getPhpunitIgnoreInterfacesList()
         );
     }
 
@@ -83,6 +91,13 @@ class ConfigFactory
             'phpunit' => [
                 'base_namespace'       => 'tests',
                 'base_test_class_name' => 'PHPUnit\Framework\TestCase',
+                'ignore_instances_of'  => [
+                    'Symfony\Component\Console\Command\Command',
+                ],
+                'ignore_interfaces'    => [
+                    'Behat\Behat\Context\Context',
+                    'Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface',
+                ],
             ],
         ];
     }
@@ -110,5 +125,15 @@ class ConfigFactory
     private function getPhpunitBaseTestClassName(): string
     {
         return $this->phpunitBaseTestClassName;
+    }
+
+    public function getPhpunitIgnoreInstancesOfList(): array
+    {
+        return $this->phpunitIgnoreInstancesOfList;
+    }
+
+    public function getPhpunitIgnoreInterfacesList(): array
+    {
+        return $this->phpunitIgnoreInterfacesList;
     }
 }

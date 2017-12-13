@@ -8,3 +8,8 @@ paths:
 phpunit:
   base_namespace: tests
   base_test_class_name: PHPUnit\Framework\TestCase
+  ignore_instances_of:
+    - Symfony\Component\Console\Command\Command
+  ignore_interfaces:
+    - Behat\Behat\Context\Context
+    - Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface
