@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 
@@ -56,6 +57,6 @@ class LetMethod implements Method
 
     public function getMethodReturnType(): string
     {
-        throw new \Exception('Err 543534: PhpSpec LetMethod doesnt use return types.');
+        throw new Exception('Err 543534: PhpSpec LetMethod doesnt use return types.');
     }
 }

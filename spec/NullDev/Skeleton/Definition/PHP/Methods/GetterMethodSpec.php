@@ -8,6 +8,7 @@ use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Property;
 use PhpSpec\ObjectBehavior;
+use TypeError;
 
 class GetterMethodSpec extends ObjectBehavior
 {
@@ -75,6 +76,6 @@ class GetterMethodSpec extends ObjectBehavior
     {
         $property->hasType()->willReturn(false);
         $property->getTypeShortName()->willReturn(null);
-        $this->shouldThrow(\TypeError::class)->duringGetMethodReturnType();
+        $this->shouldThrow(TypeError::class)->duringGetMethodReturnType();
     }
 }

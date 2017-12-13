@@ -8,6 +8,7 @@ use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterM
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpSpec\ObjectBehavior;
+use TypeError;
 
 class AggregateRootIdGetterMethodSpec extends ObjectBehavior
 {
@@ -62,6 +63,6 @@ class AggregateRootIdGetterMethodSpec extends ObjectBehavior
     {
         $parameter->hasType()->willReturn(false);
         $parameter->getTypeShortName()->willReturn(null);
-        $this->shouldThrow(\TypeError::class)->duringGetMethodReturnType();
+        $this->shouldThrow(TypeError::class)->duringGetMethodReturnType();
     }
 }

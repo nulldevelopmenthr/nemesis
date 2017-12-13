@@ -17,7 +17,10 @@ use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\Parser;
 use PhpParser\ParserFactory;
+use ReflectionClass;
 use ReflectionMethod;
+use ReflectionParameter;
+use ReflectionType;
 
 /**
  * @see SourceParserSpec
@@ -78,7 +81,7 @@ class ReflectionSourceParser implements SourceParser
 
     public function parseClass(ImprovedClassSource $result): ImprovedClassSource
     {
-        $reflection = new \ReflectionClass($result->getFullName());
+        $reflection = new ReflectionClass($result->getFullName());
 
         if (true === $reflection->hasMethod('__construct')) {
             $reflectedConstructor = $reflection->getMethod('__construct');
@@ -156,7 +159,7 @@ class ReflectionSourceParser implements SourceParser
         return null;
     }
 
-    protected function createType(\ReflectionParameter $input): ?Type
+    protected function createType(ReflectionParameter $input): ?Type
     {
         if (false === $input->hasType()) {
             return null;
@@ -165,7 +168,7 @@ class ReflectionSourceParser implements SourceParser
         return TypeFactory::create($input->getType()->__toString());
     }
 
-    protected function createType2(\ReflectionType $input): ?Type
+    protected function createType2(ReflectionType $input): ?Type
     {
         return TypeFactory::create($input->__toString());
     }

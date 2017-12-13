@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MyCompany\Entity;
 
+use DateTime;
+
 /**
  * Represents class with getters and setters.
  */
@@ -36,12 +38,12 @@ class TransactionEntity
         $this->amount = $amount;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreatedAt(DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }

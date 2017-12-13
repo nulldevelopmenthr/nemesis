@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Path;
 
+use Exception;
 use NullDev\Skeleton\Path\Psr4Path;
 use PHPUnit_Framework_TestCase;
 
@@ -23,13 +24,13 @@ class Psr4PathTest extends PHPUnit_Framework_TestCase
 
     public function testPathBaseMustEndWithSlash()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         new Psr4Path('src', '');
     }
 
     public function testClassBaseMustEndWithBackslash()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         new Psr4Path('src/', 'Something');
     }
 
@@ -61,7 +62,7 @@ class Psr4PathTest extends PHPUnit_Framework_TestCase
     /** @dataProvider provideClassNamesThatDoNotBelongHere */
     public function testFilenamesThatDontBelongHereThrowException(string $className)
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->path->getFileNameFor($className);
     }
 

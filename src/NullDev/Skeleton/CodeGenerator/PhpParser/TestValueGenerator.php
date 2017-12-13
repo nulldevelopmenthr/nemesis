@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\ArrayType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
@@ -36,6 +37,6 @@ class TestValueGenerator
             return new ConstFetch(new Name('true'));
         }
 
-        throw new \Exception('ERR 12313: Unhandled argument received.');
+        throw new Exception('ERR 12313: Unhandled argument received.');
     }
 }

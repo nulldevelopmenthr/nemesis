@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Source;
 
+use Exception;
+use LogicException;
 use NullDev\Skeleton\Definition\PHP\DocComment;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -92,7 +94,7 @@ class ImprovedClassSource
     public function addParent(ClassType $parent)
     {
         if ($this->hasParent()) {
-            throw new \Exception('Err 1000100: Class already has parent!');
+            throw new Exception('Err 1000100: Class already has parent!');
         }
 
         $this->parent = $parent;
@@ -198,7 +200,7 @@ class ImprovedClassSource
     public function addConstructorMethod(ConstructorMethod $constructor)
     {
         if ($this->hasConstructorMethod()) {
-            throw new \Exception('Err 1000200: Class already has constructor!');
+            throw new Exception('Err 1000200: Class already has constructor!');
         }
 
         $this->constructor = $constructor;
@@ -272,7 +274,7 @@ class ImprovedClassSource
             }
         }
 
-        throw new \LogicException('No property named '.$propertyName.'found');
+        throw new LogicException('No property named '.$propertyName.'found');
     }
 
     //-----     Methods     -----

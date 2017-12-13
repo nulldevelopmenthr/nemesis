@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Skeleton\CodeGenerator\PhpParser;
 
+use Exception;
 use NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
@@ -72,6 +73,6 @@ class MethodFactorySpec extends ObjectBehavior
         $getterGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
         $toStringGenerator->supports($randomMethod)->shouldBeCalled()->willReturn(false);
 
-        $this->shouldThrow(\Exception::class)->duringGenerate($randomMethod);
+        $this->shouldThrow(Exception::class)->duringGenerate($randomMethod);
     }
 }

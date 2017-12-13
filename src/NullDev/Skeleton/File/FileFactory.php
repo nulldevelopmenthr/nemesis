@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\File;
 
+use Exception;
 use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
@@ -30,7 +31,7 @@ class FileFactory
             }
         }
 
-        throw new \Exception('Err 912123132: Cant find path that "'.$classSource->getFullName().'" would belong to!');
+        throw new Exception('Err 912123132: Cant find path that "'.$classSource->getFullName().'" would belong to!');
     }
 
     public function getPath(ImprovedClassSource $classSource)

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev\Skeleton\Uuid\SourceFactory;
 
+use Generator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
@@ -38,7 +39,7 @@ class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
         self::assertEquals($expected, $output);
     }
 
-    public function provideData(): \Generator
+    public function provideData(): Generator
     {
         $data = [
             'Vendor\Namespace\SomeId' => 'SomeId',

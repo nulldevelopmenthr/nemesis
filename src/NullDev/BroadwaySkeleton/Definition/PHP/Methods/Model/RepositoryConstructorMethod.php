@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
@@ -61,6 +62,6 @@ class RepositoryConstructorMethod implements Method
 
     public function getMethodReturnType(): string
     {
-        throw new \Exception('Err 43212311: Method return type not supported on constructor.');
+        throw new Exception('Err 43212311: Method return type not supported on constructor.');
     }
 }

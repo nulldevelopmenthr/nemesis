@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\ReadSide;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 
 /**
@@ -82,7 +83,7 @@ class ReadSideConfig
     public function getReadFactory(): ClassType
     {
         if (null === $this->readFactory) {
-            throw new \Exception('Err 98098351231: No read factory defined!');
+            throw new Exception('Err 98098351231: No read factory defined!');
         }
 
         return $this->readFactory;

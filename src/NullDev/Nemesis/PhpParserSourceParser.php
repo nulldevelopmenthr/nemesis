@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Nemesis;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
@@ -236,6 +237,6 @@ class PhpParserSourceParser implements SourceParser
             return ClassType::createFromFullyQualified($this->namespace.'\\'.$input);
         }
 
-        throw new \Exception('Unknown class '.$input);
+        throw new Exception('Unknown class '.$input);
     }
 }

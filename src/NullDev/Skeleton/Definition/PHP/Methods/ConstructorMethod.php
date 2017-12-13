@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 
 /**
@@ -51,7 +52,7 @@ class ConstructorMethod implements Method
 
     public function getMethodReturnType(): string
     {
-        throw new \Exception('Err 3221103: Method return type not supported on constructor.');
+        throw new Exception('Err 3221103: Method return type not supported on constructor.');
     }
 
     /** @return Parameter[] */

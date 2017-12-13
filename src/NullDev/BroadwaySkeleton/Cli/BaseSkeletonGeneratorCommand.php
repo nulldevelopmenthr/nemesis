@@ -15,6 +15,7 @@ use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Config\TheaterConfigFactory;
+use RuntimeException;
 use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -105,14 +106,14 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         $question->setValidator(
             function ($input) {
                 if (true === empty($input)) {
-                    throw new \RuntimeException('No class name, please enter it');
+                    throw new RuntimeException('No class name, please enter it');
                 }
 
                 $className = str_replace('/', '\\', $input);
 
                 // Check there is namespace defined.
                 if (false === strpos($className, '\\')) {
-                    throw new \RuntimeException('No namespace, please enter it');
+                    throw new RuntimeException('No namespace, please enter it');
                 }
 
                 return $className;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDev\PHPUnitSkeleton\Definition\PHP\Methods;
 
+use Exception;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\Method;
 use PhpSpec\ObjectBehavior;
@@ -44,7 +45,7 @@ class TestSkippedMethodSpec extends ObjectBehavior
 
     public function it_throws_exception_if_asked_for_method_return_type()
     {
-        $this->shouldThrow(\Exception::class)->duringGetMethodReturnType();
+        $this->shouldThrow(Exception::class)->duringGetMethodReturnType();
     }
 
     public function it_exposes_method_name()
