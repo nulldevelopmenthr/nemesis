@@ -54,6 +54,15 @@ class Property
         return $this->type->getName();
     }
 
+    public function getTypeFullName(): string
+    {
+        if (null === $this->type) {
+            return '';
+        }
+
+        return $this->type->getFullName();
+    }
+
     public function hasType(): bool
     {
         if (null === $this->type) {
