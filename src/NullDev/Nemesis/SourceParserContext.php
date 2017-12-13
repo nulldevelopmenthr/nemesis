@@ -93,7 +93,7 @@ abstract class SourceParserContext implements Context
             if (true === empty($item['className'])) {
                 Assert::false($param->hasType());
             } else {
-                Assert::eq($item['className'], $param->getType()->getFullName());
+                Assert::eq($item['className'], $param->getTypeFullName());
             }
 
             Assert::eq($item['name'], $param->getName());
@@ -117,7 +117,7 @@ abstract class SourceParserContext implements Context
             if (true === empty($item['className'])) {
                 Assert::false($param->hasType());
             } else {
-                Assert::eq($item['className'], $param->getType()->getFullName());
+                Assert::eq($item['className'], $param->getTypeFullName());
             }
 
             Assert::eq($item['name'], $param->getName());
