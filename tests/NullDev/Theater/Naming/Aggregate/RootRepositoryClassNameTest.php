@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Theater\Naming\Aggregate;
 
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Naming\Aggregate\RootRepositoryClassName
  * @group  unit
  */
-class RootRepositoryClassNameTest extends PHPUnit_Framework_TestCase
+class RootRepositoryClassNameTest extends TestCase
 {
     /** @var string */
     private $name;

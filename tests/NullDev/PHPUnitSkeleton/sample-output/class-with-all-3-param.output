@@ -9,12 +9,12 @@ use LastName;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 /**
 * @covers \Developer\Senior
 * @group todo
 */
-class SeniorTest extends PHPUnit_Framework_TestCase
+class SeniorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|FirstName */

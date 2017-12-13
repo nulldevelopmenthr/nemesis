@@ -8,14 +8,14 @@ use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator
  * @group  nemesis
  */
-class TestNothingGeneratorTest extends PHPUnit_Framework_TestCase
+class TestNothingGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

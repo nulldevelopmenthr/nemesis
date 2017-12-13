@@ -7,13 +7,13 @@ namespace tests\NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\Read\DoctrineOrm\ReadFactorySourceFactory
  * @group  nemesis
  */
-class ReadFactorySourceFactoryTest extends PHPUnit_Framework_TestCase
+class ReadFactorySourceFactoryTest extends TestCase
 {
     /** @var ReadFactorySourceFactory */
     private $readFactorySourceFactory;

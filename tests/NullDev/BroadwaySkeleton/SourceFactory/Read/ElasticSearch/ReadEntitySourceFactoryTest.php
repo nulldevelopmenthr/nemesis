@@ -7,13 +7,13 @@ namespace tests\NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\Read\ElasticSearch\ReadEntitySourceFactory
  * @group  nemesis
  */
-class ReadEntitySourceFactoryTest extends PHPUnit_Framework_TestCase
+class ReadEntitySourceFactoryTest extends TestCase
 {
     /** @var ReadEntitySourceFactory */
     private $readEntitySourceFactory;

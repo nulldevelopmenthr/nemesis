@@ -17,13 +17,13 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\BoundedContext\BoundedContextConfig
  * @group  unit
  */
-class BoundedContextConfigTest extends PHPUnit_Framework_TestCase
+class BoundedContextConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|ContextName */

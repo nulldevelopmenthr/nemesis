@@ -10,13 +10,13 @@ use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\BoundedContext\BoundedContextConfigFactory
  * @group  integration
  */
-class BoundedContextConfigFactoryTest extends PHPUnit_Framework_TestCase
+class BoundedContextConfigFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var NamingStrategyFactory */

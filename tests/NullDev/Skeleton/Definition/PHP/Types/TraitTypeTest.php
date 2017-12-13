@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types;
 
 use NullDev\Skeleton\Definition\PHP\Types\TraitType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TraitType
  * @covers \NullDev\Skeleton\Definition\PHP\Types\ConceptName
  * @group  unit
  */
-class TraitTypeTest extends PHPUnit_Framework_TestCase
+class TraitTypeTest extends TestCase
 {
     public function testNamespacedTrait(): void
     {

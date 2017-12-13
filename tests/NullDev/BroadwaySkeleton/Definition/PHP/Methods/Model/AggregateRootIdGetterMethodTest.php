@@ -8,13 +8,13 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod
  * @group  nemesis
  */
-class AggregateRootIdGetterMethodTest extends PHPUnit_Framework_TestCase
+class AggregateRootIdGetterMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 

@@ -12,13 +12,13 @@ use NullDev\Skeleton\Definition\PHP\Types\TraitType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\Builder\Class_;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator
  * @group  nemesis
  */
-class ClassGeneratorTest extends PHPUnit_Framework_TestCase
+class ClassGeneratorTest extends TestCase
 {
     /** @var ClassGenerator */
     private $classGenerator;

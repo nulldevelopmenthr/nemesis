@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Path;
 
 use NullDev\Skeleton\Path\SpecPsr0Path;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Path\SpecPsr0Path
  * @group  unit
  */
-class SpecPsr0PathTest extends PHPUnit_Framework_TestCase
+class SpecPsr0PathTest extends TestCase
 {
     /** @var SpecPsr0Path */
     private $path;

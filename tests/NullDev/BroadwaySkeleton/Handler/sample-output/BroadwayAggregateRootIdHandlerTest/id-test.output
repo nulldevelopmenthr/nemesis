@@ -4,13 +4,13 @@ namespace tests\Something;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Something\UserId;
 /**
 * @covers \Something\UserId
 * @group todo
 */
-class UserIdTest extends PHPUnit_Framework_TestCase
+class UserIdTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var string */

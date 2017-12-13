@@ -7,13 +7,13 @@ namespace tests\NullDev\PHPUnitSkeleton\Definition\PHP\Methods;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod
  * @group  nemesis
  */
-class TestNothingMethodTest extends PHPUnit_Framework_TestCase
+class TestNothingMethodTest extends TestCase
 {
     /** @var TestNothingMethod */
     private $testNothingMethod;

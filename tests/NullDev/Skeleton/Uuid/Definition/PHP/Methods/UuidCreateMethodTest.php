@@ -6,13 +6,13 @@ namespace tests\NullDev\Skeleton\Uuid\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod
  * @group  nemesis
  */
-class UuidCreateMethodTest extends PHPUnit_Framework_TestCase
+class UuidCreateMethodTest extends TestCase
 {
     /** @var UuidCreateMethod */
     private $method;

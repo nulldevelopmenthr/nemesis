@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Theater\Naming;
 
 use NullDev\Theater\Naming\EventClassName;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\Naming\EventClassName
  * @group  unit
  */
-class EventClassNameTest extends PHPUnit_Framework_TestCase
+class EventClassNameTest extends TestCase
 {
     /** @var string */
     private $name;

@@ -7,13 +7,13 @@ namespace tests\NullDev\Skeleton\Definition\PHP;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Property
  * @group  unit
  */
-class PropertyTest extends PHPUnit_Framework_TestCase
+class PropertyTest extends TestCase
 {
     public function testItWorksWithType(): void
     {

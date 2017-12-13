@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\FloatType
  * @group  unit
  */
-class FloatTypeTest extends PHPUnit_Framework_TestCase
+class FloatTypeTest extends TestCase
 {
     /** @var FloatType */
     private $type;

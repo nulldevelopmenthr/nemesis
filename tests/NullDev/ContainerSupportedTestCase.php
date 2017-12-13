@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace tests\NullDev;
 
 use NullDev\Nemesis\Application;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-abstract class ContainerSupportedTestCase extends PHPUnit_Framework_TestCase
+abstract class ContainerSupportedTestCase extends TestCase
 {
     /** @var ContainerInterface */
     private static $container;

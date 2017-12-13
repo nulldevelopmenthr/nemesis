@@ -4,13 +4,13 @@ namespace tests\Something;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Something\UserFactory;
 /**
 * @covers \Something\UserFactory
 * @group todo
 */
-class UserFactoryTest extends PHPUnit_Framework_TestCase
+class UserFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserFactory */

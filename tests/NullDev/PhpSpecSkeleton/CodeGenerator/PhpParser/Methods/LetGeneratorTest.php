@@ -8,13 +8,13 @@ use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator;
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\LetMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\LetGenerator
  * @group  integration
  */
-class LetGeneratorTest extends PHPUnit_Framework_TestCase
+class LetGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

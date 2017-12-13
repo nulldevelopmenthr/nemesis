@@ -6,13 +6,13 @@ namespace tests\MyCompany\ValueObject;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\ValueObject\ListOfSomeKind;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \MyCompany\ValueObject\ListOfSomeKind
  * @group  todo
  */
-class ListOfSomeKindTest extends PHPUnit_Framework_TestCase
+class ListOfSomeKindTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var array */

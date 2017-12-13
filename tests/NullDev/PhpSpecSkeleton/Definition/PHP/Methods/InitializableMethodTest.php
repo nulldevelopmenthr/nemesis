@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace tests\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethod;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\Definition\PHP\Methods\InitializableMethod
  * @group  nemesis
  */
-class InitializableMethodTest extends PHPUnit_Framework_TestCase
+class InitializableMethodTest extends TestCase
 {
     /** @var InitializableMethod */
     private $method;

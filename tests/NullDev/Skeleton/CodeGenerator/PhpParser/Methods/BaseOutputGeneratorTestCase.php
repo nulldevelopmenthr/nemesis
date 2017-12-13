@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use PhpParser\PrettyPrinter\Standard;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-abstract class BaseOutputGeneratorTestCase extends PHPUnit_Framework_TestCase
+abstract class BaseOutputGeneratorTestCase extends TestCase
 {
     /** @var Standard */
     private $printer;

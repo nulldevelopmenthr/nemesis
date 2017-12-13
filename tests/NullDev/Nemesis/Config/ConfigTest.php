@@ -69,6 +69,6 @@ class ConfigTest extends ContainerSupportedTestCase
 
     public function testGetBaseTestClassName(): void
     {
-        self::assertEquals('PHPUnit_Framework_TestCase', $this->config->getBaseTestClassName());
+        self::assertEquals('PHPUnit\Framework\TestCase', $this->config->getBaseTestClassName());
     }
 }

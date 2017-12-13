@@ -6,13 +6,13 @@ namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Definition\PHP\Property;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Methods\GetterMethod
  * @group  nemesis
  */
-class GetterMethodTest extends PHPUnit_Framework_TestCase
+class GetterMethodTest extends TestCase
 {
     /** @var GetterMethod */
     private $method;

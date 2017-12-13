@@ -5,7 +5,7 @@ namespace tests\Something;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Something\UserFactory;
 use Something\UserProjector;
 use Something\UserRepository;
@@ -13,7 +13,7 @@ use Something\UserRepository;
 * @covers \Something\UserProjector
 * @group todo
 */
-class UserProjectorTest extends PHPUnit_Framework_TestCase
+class UserProjectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|UserRepository */

@@ -8,7 +8,7 @@ use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\SetUpMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use tests\NullDev\Skeleton\CodeGenerator\LolProvider;
 use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
@@ -16,7 +16,7 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\SetUpGenerator
  * @group  nemesis
  */
-class SetUpGeneratorTest extends PHPUnit_Framework_TestCase
+class SetUpGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

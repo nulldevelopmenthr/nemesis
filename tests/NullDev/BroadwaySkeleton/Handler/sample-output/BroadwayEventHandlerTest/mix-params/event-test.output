@@ -5,14 +5,14 @@ namespace tests\Something;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Something\Company;
 use Something\UserCreated;
 /**
 * @covers \Something\UserCreated
 * @group todo
 */
-class UserCreatedTest extends PHPUnit_Framework_TestCase
+class UserCreatedTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var string */

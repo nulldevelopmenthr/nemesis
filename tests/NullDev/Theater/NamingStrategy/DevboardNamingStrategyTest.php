@@ -14,13 +14,13 @@ use NullDev\Theater\Naming\CommandClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\DevboardNamingStrategy;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Theater\NamingStrategy\DevboardNamingStrategy
  * @group  unit
  */
-class DevboardNamingStrategyTest extends PHPUnit_Framework_TestCase
+class DevboardNamingStrategyTest extends TestCase
 {
     /** @var DevboardNamingStrategy */
     private $theaterNamingStrategy;

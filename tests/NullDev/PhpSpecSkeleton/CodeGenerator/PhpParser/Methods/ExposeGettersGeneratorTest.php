@@ -8,13 +8,13 @@ use NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerat
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use NullDev\Skeleton\Definition\PHP\Property;
 use PhpParser\BuilderFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\CodeGenerator\PhpParser\Methods\ExposeGettersGenerator
  * @group  integration
  */
-class ExposeGettersGeneratorTest extends PHPUnit_Framework_TestCase
+class ExposeGettersGeneratorTest extends TestCase
 {
     use OutputGeneratorTestTrait;
 

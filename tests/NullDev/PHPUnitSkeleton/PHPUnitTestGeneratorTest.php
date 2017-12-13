@@ -12,7 +12,7 @@ use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use tests\NullDev\AssertOutputTrait;
 use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
@@ -21,7 +21,7 @@ use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
  * @covers \NullDev\PHPUnitSkeleton\PHPUnitTestGenerator
  * @group  codeGeneration
  */
-class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
+class PHPUnitTestGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
@@ -39,7 +39,7 @@ class PHPUnitTestGeneratorTest extends PHPUnit_Framework_TestCase
 
         $config = m::mock(Config::class);
         $config->shouldReceive('getTestsNamespace')->andReturn('tests');
-        $config->shouldReceive('getBaseTestClassName')->andReturn('PHPUnit_Framework_TestCase');
+        $config->shouldReceive('getBaseTestClassName')->andReturn('PHPUnit\Framework\TestCase');
 
         $this->testGenerator      = new PHPUnitTestGenerator(new ClassSourceFactory(), $config);
         $this->phpParserGenerator = $this->getService(PhpParserGenerator::class);

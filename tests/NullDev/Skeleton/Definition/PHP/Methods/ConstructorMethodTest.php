@@ -8,13 +8,13 @@ use Exception;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod
  * @group  unit
  */
-class ConstructorMethodTest extends PHPUnit_Framework_TestCase
+class ConstructorMethodTest extends TestCase
 {
     public function testDefaultGetters(): void
     {

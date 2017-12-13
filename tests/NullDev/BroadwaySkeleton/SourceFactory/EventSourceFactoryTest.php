@@ -7,13 +7,13 @@ namespace tests\NullDev\BroadwaySkeleton\SourceFactory;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\EventSourceFactory
  * @group  nemesis
  */
-class EventSourceFactoryTest extends PHPUnit_Framework_TestCase
+class EventSourceFactoryTest extends TestCase
 {
     /** @var EventSourceFactory */
     private $eventSourceFactory;

@@ -10,13 +10,13 @@ use Mockery\MockInterface;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory;
 use NullDev\Skeleton\Source\ClassSourceFactory;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\SourceFactory\CommandHandlerSourceFactory
  * @group  todo
  */
-class CommandHandlerSourceFactoryTest extends PHPUnit_Framework_TestCase
+class CommandHandlerSourceFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|ClassSourceFactory */
