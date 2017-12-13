@@ -8,7 +8,7 @@
 
     <target name="test" depends="phpspec,phpunit,behat,fix-codestandards,phpstan"/>
 
-    <target name="fix-codestandards" depends="php-cs-fixer-fix,phpmd,phpcs"/>
+    <target name="fix-codestandards" depends="phpcbf,php-cs-fixer-fix,phpmd,phpcs"/>
     <target name="check-codestandards" depends="php-cs-fixer-check,phpmd,phpcs"/>
 
     <target name="php-cs-fixer-fix" description="Run php-cs-fixer fix">
@@ -57,11 +57,32 @@
         </parallel>
     </target>
 
+    <target name="phpcbf" description="Run phpcbf">
+        <retry retrycount="3">
+            <phingcall target="phpcbf-task">
+                <property name="path" value="src"/>
+            </phingcall>
+        </retry>
+        <retry retrycount="3">
+            <phingcall target="phpcbf-task">
+                <property name="path" value="tests"/>
+            </phingcall>
+        </retry>
+        <retry retrycount="3">
+            <phingcall target="phpcbf-task">
+                <property name="path" value="spec"/>
+            </phingcall>
+        </retry>
+    </target>
+
     <target name="phpmd-task" description="Run php mess detector">
         <exec command="vendor/bin/phpmd ${path} text phpmd.xml" passthru="true" checkreturn="true"/>
     </target>
     <target name="phpcs-task" description="Run php code sniffer">
         <exec command="vendor/bin/phpcs --standard=phpcs.xml ${path} -n" passthru="true" checkreturn="true"/>
+    </target>
+    <target name="phpcbf-task" description="Run php code sniffer fixer">
+        <exec command="./vendor/bin/phpcbf --standard=phpcs.xml ${path} -n" passthru="true" checkreturn="true"/>
     </target>
 
 </project>
