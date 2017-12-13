@@ -15,4 +15,6 @@ interface Path
     public function belongsTo(string $className): bool;
 
     public function getFileNameFor(string $className): string;
+
+    public function getPathBase(): string;
 }
