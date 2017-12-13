@@ -37,6 +37,9 @@ jobs:
       - run:
           name: PHPUnit
           command: ./vendor/bin/phpunit --fail-on-warning --log-junit build/phpunit/junit.xml
+      - run:
+          name: Ship codecoverage to codecov.io
+          command: bash <(curl -s https://codecov.io/bash)
       - type: artifacts-store
         path: build
         destination: build
