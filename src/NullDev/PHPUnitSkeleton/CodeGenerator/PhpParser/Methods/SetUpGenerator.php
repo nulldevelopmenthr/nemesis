@@ -46,7 +46,7 @@ class SetUpGenerator implements MethodGenerator
 
         foreach ($method->getSubjectUnderTestConstuctorParameters() as $methodParameter) {
             $node->addStmt(
-                $this->createParamffffff($methodParameter)
+                $this->createExample($methodParameter)
             );
         }
 
@@ -78,7 +78,7 @@ class SetUpGenerator implements MethodGenerator
         return $constructorParams;
     }
 
-    private function createParamffffff(Parameter $parameter)
+    private function createExample(Parameter $parameter)
     {
         $variable = new Variable('this->'.lcfirst($parameter->getName()));
 
