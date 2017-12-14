@@ -31,12 +31,12 @@ services:
   NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
 
 
-  NullDev\Skeleton\PhpParserGeneratorMiddleware:
+  NullDev\Skeleton\PHPParserGeneratorMiddleware:
     tags:
       - { name: tactician.middleware , priority: 100 }
 
 
-  NullDev\Skeleton\PhpParserGeneratorMiddleware:
+  NullDev\Skeleton\PHPParserGeneratorMiddleware:
     tags:
       - { name: tactician.middleware , priority: 100 }
 
