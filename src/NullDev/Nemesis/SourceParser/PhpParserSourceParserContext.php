@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Nemesis;
+namespace NullDev\Nemesis\SourceParser;
 
 class PhpParserSourceParserContext extends SourceParserContext
 {

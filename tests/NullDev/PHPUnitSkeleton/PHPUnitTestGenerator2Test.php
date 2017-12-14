@@ -7,7 +7,7 @@ namespace tests\NullDev\PHPUnitSkeleton;
 use MyCompany\Entity;
 use MyCompany\SecretProject;
 use MyCompany\ValueObject;
-use NullDev\Nemesis\ReflectionSourceParser;
+use NullDev\Nemesis\SourceParser\ReflectionSourceParser;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
