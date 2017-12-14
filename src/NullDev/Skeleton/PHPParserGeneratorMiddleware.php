@@ -10,7 +10,7 @@ use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
-class PhpParserGeneratorMiddleware implements Middleware
+class PHPParserGeneratorMiddleware implements Middleware
 {
     /** @var PhpParserGenerator */
     private $codeGenerator;
