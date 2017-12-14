@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace tests\NullDev;
 
-use NullDev\Nemesis\Application;
+use App\Application;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

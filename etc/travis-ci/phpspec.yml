@@ -15,7 +15,7 @@ extensions:
       - src/NullDev/PhpSpecSkeleton/CodeGenerator/PhpParser/Methods/
       - src/NullDev/PHPUnitSkeleton/CodeGenerator/PhpParser/Methods/
     blacklist_files:
-      - src/NullDev/Nemesis/Application.php
+      - src/App/Application.php
       - src/NullDev/Skeleton/CodeGenerator/PhpParser/ClassGenerator.php
       - src/NullDev/PhpSpecSkeleton/SpecGenerator.php
       - src/NullDev/PHPUnitSkeleton/PHPUnitTestGenerator.php
