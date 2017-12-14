@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Nemesis;
+namespace App;
 
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use NullDev\Skeleton\PHPParserMethodCompilerPass;
