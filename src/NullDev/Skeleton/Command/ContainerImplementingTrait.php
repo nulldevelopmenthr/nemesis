@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\Command;
 
-use NullDev\Nemesis\Application;
+use App\Application;
 use NullDev\Nemesis\Config\Config;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 

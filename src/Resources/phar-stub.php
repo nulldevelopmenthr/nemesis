@@ -21,7 +21,7 @@ require_once 'phar://nemesis.phar/vendor/autoload.php';
 
 require __DIR__.'/vendor/autoload.php';
 
-use NullDev\Nemesis\Application;
+use App\Application;
 
 $application = new Application();
 $application->run();

@@ -7,7 +7,7 @@ if (is_file($autoload = getcwd().'/vendor/autoload.php')) {
     require $autoload;
 }
 
-use NullDev\Nemesis\Application;
+use App\Application;
 
 $application = new Application();
 

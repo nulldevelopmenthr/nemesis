@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace tests\NullDev\PHPUnitSkeleton;
 
+use App\Application;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery as m;
-use NullDev\Nemesis\Application;
 use NullDev\Nemesis\Config\Config;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
