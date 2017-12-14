@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Nemesis\Command;
 
 use NullDev\Nemesis\Config\Config;
-use NullDev\Nemesis\ReflectionSourceParser;
+use NullDev\Nemesis\SourceParser\ReflectionSourceParser;
 use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;

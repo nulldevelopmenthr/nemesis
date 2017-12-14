@@ -1,13 +1,13 @@
 <?php
 
-namespace tests\NullDev\Nemesis;
+namespace tests\NullDev\Nemesis\SourceParser;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use NullDev\Nemesis\PhpParserSourceParser;
+use NullDev\Nemesis\SourceParser\PhpParserSourceParser;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \NullDev\Nemesis\PhpParserSourceParser
+ * @covers \NullDev\Nemesis\SourceParser\PhpParserSourceParser
  * @group  todo
  */
 class PhpParserSourceParserTest extends TestCase

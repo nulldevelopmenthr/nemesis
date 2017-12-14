@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Nemesis;
+namespace NullDev\Nemesis\SourceParser;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use NullDev\Nemesis\SourceParser;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use Webmozart\Assert\Assert;

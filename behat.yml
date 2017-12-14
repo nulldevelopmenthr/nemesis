@@ -7,12 +7,12 @@ default:
     suites:
         phpparser_source_parser:
             contexts:
-                - NullDev\Nemesis\PhpParserSourceParserContext
+                - NullDev\Nemesis\SourceParser\PhpParserSourceParserContext
             filters:
                 tags: "@phpparser_source_parser"
         reflection_source_parser:
             contexts:
-                - NullDev\Nemesis\ReflectionSourceParserContext
+                - NullDev\Nemesis\SourceParser\ReflectionSourceParserContext
             filters:
                 tags: "@reflection_source_parser"
 

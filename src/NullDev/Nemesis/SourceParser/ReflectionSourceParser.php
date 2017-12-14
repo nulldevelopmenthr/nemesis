@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Nemesis;
+namespace NullDev\Nemesis\SourceParser;
 
+use NullDev\Nemesis\SourceParser;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GenericMethod;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
