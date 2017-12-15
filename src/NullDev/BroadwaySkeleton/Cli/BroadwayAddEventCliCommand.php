@@ -95,7 +95,7 @@ class BroadwayAddEventCliCommand extends BaseSkeletonGeneratorCommand
 
     protected function askForEventName(): string
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter event name', ''));
+        $question = new Question('Enter event name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
         $question->setValidator(
             function ($input) {

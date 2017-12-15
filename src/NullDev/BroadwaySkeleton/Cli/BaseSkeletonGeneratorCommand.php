@@ -16,7 +16,6 @@ use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Config\TheaterConfigFactory;
 use RuntimeException;
-use Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -101,7 +100,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function askForClassName(): string
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter class name', ''));
+        $question = new Question('Enter class name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
         $question->setValidator(
             function ($input) {
@@ -125,7 +124,7 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     protected function askForParameterClassName()
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter parameter class name', ''));
+        $question = new Question('Enter parameter class name', '');
         $question->setAutocompleterValues($this->getExistingClasses());
         // Allow empty value so entering of parameters can end.
         $question->setValidator(
@@ -166,17 +165,6 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function getExistingClasses(): array
     {
         return $this->getService(ClassSuggestions::class)->suggest();
-    }
-
-    protected function getQuestionHelper()
-    {
-        $question = $this->getHelperSet()->get('question');
-        if (!$question || 'Sensio\Bundle\GeneratorBundle\Command\Helper\QuestionHelper' !== get_class($question)) {
-            $question = new QuestionHelper();
-            $this->getHelperSet()->set($question);
-        }
-
-        return $question;
     }
 
     ///
