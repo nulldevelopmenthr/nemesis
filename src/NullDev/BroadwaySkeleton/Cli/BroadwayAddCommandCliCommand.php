@@ -95,7 +95,7 @@ class BroadwayAddCommandCliCommand extends BaseSkeletonGeneratorCommand
 
     protected function askForCommandName(): string
     {
-        $question = new Question($this->getQuestionHelper()->getQuestion('Enter command name', ''));
+        $question = new Question('Enter command name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
         $question->setValidator(
             function ($input) {
