@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\CompilerPass\TacticianHandlerRegistrationCompilerPass;
+use App\CompilerPass\TacticianMiddlewareRegistrationCompilerPass;
 use NullDev\Skeleton\CodeGenerator\MethodGenerator;
-use NullDev\Skeleton\PHPParserMethodCompilerPass;
-use NullDev\Skeleton\TacticianHandlerRegistrationCompilerPass;
-use NullDev\Skeleton\TacticianMiddlewareRegistrationCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
@@ -16,6 +15,7 @@ use Symfony\Component\Console\Command\ListCommand;
 use Symfony\Component\DependencyInjection\Compiler\AutowirePass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * @see ApplicationTest
@@ -29,32 +29,35 @@ final class Application extends BaseApplication
 
     public function __construct()
     {
+        $path       = getcwd().'/nemesis.yml';
+        $extensions = $this->getDefaultExtensions();
+        if (is_file($path)) {
+            $configAsArray = Yaml::parse(file_get_contents($path));
+
+            $extensions = array_merge($extensions, $configAsArray['extensions']);
+        }
+
         $this->container = new ContainerBuilder();
 
         $loader = new YamlFileLoader($this->container, new FileLocator(__DIR__));
         $loader->load('services.yml');
         $loader->load('cli.yml');
 
-        $loader->load('skeleton-services.yml');
-        $loader->load('skeleton-cli.yml');
-
         $loader->load('phpparser-services.yml');
         $loader->load('tactician-services.yml');
 
-        $loader->load('phpspec-services.yml');
-
-        $loader->load('phpunit-services.yml');
-
-        $loader->load('broadway-services.yml');
-        $loader->load('broadway-cli.yml');
-
-        $loader->load('theater-services.yml');
-
         $this->container->addCompilerPass(new AutowirePass(true));
-        $this->container->addCompilerPass(new PHPParserMethodCompilerPass());
         $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
         $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
         $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
+
+        foreach ($extensions as $extensionClass => $extensionSettings) {
+            if (null === $extensionSettings) {
+                $extensionSettings = [];
+            }
+            $extensionInstance = new $extensionClass();
+            $extensionInstance->load($extensionSettings, $this->container);
+        }
 
         parent::__construct('Nemesis', self::VERSION);
 
@@ -78,6 +81,17 @@ final class Application extends BaseApplication
         }
 
         return $commands;
+    }
+
+    private function getDefaultExtensions()
+    {
+        return [
+            'NullDev\Skeleton\SkeletonExtension'                 => null,
+            'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension' => null,
+            'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'   => null,
+            'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'   => null,
+            'NullDev\Theater\TheaterExtension'                   => null,
+        ];
     }
 
     public function getContainer(): ContainerBuilder

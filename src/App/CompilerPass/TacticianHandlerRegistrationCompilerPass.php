@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton;
+namespace App\CompilerPass;
 
 use InvalidArgumentException;
 use League\Tactician\Handler\Locator\InMemoryLocator;
