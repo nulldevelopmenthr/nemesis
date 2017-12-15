@@ -10,6 +10,13 @@ phpunit:
   base_test_class_name: PHPUnit\Framework\TestCase
   ignore_instances_of:
     - Symfony\Component\Console\Command\Command
+    - Symfony\Component\DependencyInjection\Extension\Extension
   ignore_interfaces:
     - Behat\Behat\Context\Context
     - Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface
+extensions:
+  NullDev\Skeleton\SkeletonExtension: ~
+  NullDev\BroadwaySkeleton\BroadwaySkeletonExtension: ~
+  NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension: ~
+  NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension: ~
+  NullDev\Theater\TheaterExtension: ~

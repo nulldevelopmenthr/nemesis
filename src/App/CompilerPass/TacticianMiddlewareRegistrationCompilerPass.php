@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDev\Skeleton;
+namespace App\CompilerPass;
 
 use Exception;
 use League\Tactician\CommandBus;
