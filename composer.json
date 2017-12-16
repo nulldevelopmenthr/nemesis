@@ -18,6 +18,7 @@
         "friendsofphp/php-cs-fixer": "^2.4",
         "hanneskod/classtools": "^1.1",
         "league/tactician": "^1.0",
+        "myclabs/php-enum": "^1.5",
         "nette/php-generator": "^3",
         "nikic/php-parser": "^3.0",
         "roave/better-reflection": "^2.0",
