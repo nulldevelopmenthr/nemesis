@@ -6,5 +6,9 @@ namespace NullDevelopment\PhpStructure\Behaviour;
 
 interface Method
 {
+    public function getName(): string;
+
     public function getParameters(): array;
+
+    public function getReturnType(): ?string;
 }

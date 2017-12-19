@@ -23,9 +23,19 @@ class ConstructorMethod implements Method
         $this->parameters = $parameters;
     }
 
+    public function getName(): string
+    {
+        return '__construct';
+    }
+
     /** @return MethodParameter[] */
     public function getParameters(): array
     {
         return $this->parameters;
+    }
+
+    public function getReturnType(): ?string
+    {
+        return null;
     }
 }
