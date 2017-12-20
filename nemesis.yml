@@ -23,3 +23,5 @@ extensions:
   NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension: ~
   NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension: ~
   NullDev\Theater\TheaterExtension: ~
+  NullDevelopment\Skeleton\SkeletonExtension: ~
+  NullDevelopment\SkeletonNetteGenerator\SkeletonNetteGeneratorExtension: ~
