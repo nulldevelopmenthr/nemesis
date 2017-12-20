@@ -1,0 +1,12 @@
+definition:
+  type: SimpleIdentifier
+  instanceOf: MyVendor\Product\ProductId
+  parent: ~
+  interfaces: []
+  traits: []
+  constructor:
+    id:
+      instanceOf: int
+      nullable: false
+      hasDefault: false
+      default: ~
