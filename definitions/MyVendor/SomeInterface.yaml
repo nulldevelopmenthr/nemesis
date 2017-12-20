@@ -1,0 +1,6 @@
+definition:
+  type: Interface
+  instanceOf: MyVendor\SomeInterface
+  parent: ~
+  constants: []
+  methods: []

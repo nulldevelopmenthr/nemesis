@@ -80,6 +80,10 @@ services:
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\TraitDefinition' }
 
+  NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator\SimpleInterfaceNetteGenerator:
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\InterfaceDefinition' }
+
 
   NullDevelopment\SkeletonNetteGenerator\PhpUnit\PHPUnitTestMiddleware:
     tags:
