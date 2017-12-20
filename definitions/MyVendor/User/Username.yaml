@@ -1,0 +1,12 @@
+definition:
+  type: SimpleValueObject
+  instanceOf: MyVendor\User\Username
+  parent: ~
+  interfaces: []
+  traits: []
+  constructor:
+    value:
+      instanceOf: string
+      nullable: false
+      hasDefault: false
+      default: ~

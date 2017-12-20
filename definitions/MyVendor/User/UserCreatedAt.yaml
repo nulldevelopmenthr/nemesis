@@ -1,0 +1,7 @@
+definition:
+  type: DateTimeValueObject
+  instanceOf: MyVendor\User\UserCreatedAt
+  parent: DateTime
+  interfaces: []
+  traits: []
+  constructor: ~
