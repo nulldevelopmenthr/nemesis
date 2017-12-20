@@ -3,3 +3,8 @@ services:
     autowire: true
     autoconfigure: true
     public: true
+
+  cli.command.skeleton.missing:
+    class: NullDevelopment\SkeletonNetteGenerator\Command\GenerateFilesFromDefinitionCliCommand
+    tags:
+      - {name: console.command }
