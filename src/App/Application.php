@@ -46,11 +46,6 @@ final class Application extends BaseApplication
         $loader->load('phpparser-services.yml');
         $loader->load('tactician-services.yml');
 
-        $this->container->addCompilerPass(new AutowirePass(true));
-        $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
-        $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
-        $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
-
         foreach ($extensions as $extensionClass => $extensionSettings) {
             if (null === $extensionSettings) {
                 $extensionSettings = [];
@@ -58,6 +53,11 @@ final class Application extends BaseApplication
             $extensionInstance = new $extensionClass();
             $extensionInstance->load($extensionSettings, $this->container);
         }
+
+        $this->container->addCompilerPass(new AutowirePass(true));
+        $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
+        $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
+        $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
 
         parent::__construct('Nemesis', self::VERSION);
 
