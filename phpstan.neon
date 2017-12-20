@@ -9,3 +9,4 @@ parameters:
 	    - '#Argument of an invalid type array<PhpParser\\Node>|null supplied for foreach, only iterables are supported.#'
 	    - '#Method App\\Application\:\:getDefaultCommands\(\) should return array<Symfony\\Component\\Console\\Command\\Command> but returns array<object>.#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getParentClass\(\).#'
+	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getConstructor\(\).#'
