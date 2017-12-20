@@ -48,7 +48,7 @@ class TraitDefinitionConfigurationLoaderSpec extends ObjectBehavior
     ) {
         $input = [
             'type'       => 'Trait',
-            'name'       => 'MyCompany\\SomeTrait',
+            'instanceOf' => 'MyCompany\\SomeTrait',
             'traits'     => [],
             'constants'  => [],
             'properties' => [],
@@ -68,7 +68,7 @@ class TraitDefinitionConfigurationLoaderSpec extends ObjectBehavior
         $this->getDefaultValues()->shouldReturn(
             [
                 'type'       => 'Trait',
-                'name'       => null,
+                'instanceOf' => null,
                 'traits'     => [],
                 'constants'  => [],
                 'properties' => [],

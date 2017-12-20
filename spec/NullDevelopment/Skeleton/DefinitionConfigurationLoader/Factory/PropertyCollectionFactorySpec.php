@@ -25,20 +25,20 @@ class PropertyCollectionFactorySpec extends ObjectBehavior
     {
         $input = [
             'id'        => [
-                'name' => 'integer',
+                'instanceOf' => 'integer',
             ],
             'name'      => [
-                'name' => 'string',
+                'instanceOf' => 'string',
             ],
             'something' => [
-                'name'       => 'integer',
+                'instanceOf' => 'integer',
                 'nullable'   => true,
                 'hasDefault' => false,
                 'default'    => null,
                 'visibility' => Visibility::PRIVATE,
             ],
             'another'   => [
-                'name'       => 'integer',
+                'instanceOf' => 'integer',
                 'nullable'   => false,
                 'hasDefault' => true,
                 'default'    => 7,

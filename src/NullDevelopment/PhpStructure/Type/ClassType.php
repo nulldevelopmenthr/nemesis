@@ -191,7 +191,7 @@ class ClassType
 
         $items = [
             'type'        => $this->getCurrentType(),
-            'name'        => $this->getFullClassName(),
+            'instanceOf'  => $this->getFullClassName(),
             'parent'      => $parent,
             'interfaces'  => $interfaces,
             'traits'      => $traits,
@@ -200,7 +200,7 @@ class ClassType
 
         foreach ($this->getConstructorParameters() as $constructorParameter) {
             $items['constructor'][$constructorParameter->getName()] = [
-                'name'       => $constructorParameter->getInstanceFullName(),
+                'instanceOf' => $constructorParameter->getInstanceFullName(),
                 'nullable'   => $constructorParameter->isNullable(),
                 'hasDefault' => $constructorParameter->hasDefaultValue(),
                 'default'    => $constructorParameter->getDefaultValue(),

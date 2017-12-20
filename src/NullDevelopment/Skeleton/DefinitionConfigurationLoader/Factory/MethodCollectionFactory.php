@@ -26,11 +26,11 @@ class MethodCollectionFactory
     protected function getDefaultValues()
     {
         return [
-            'name'       => 'integer',
-            'nullable'   => false,
-            'hasDefault' => false,
-            'default'    => null,
-            'visibility' => Visibility::PUBLIC,
+            'instanceOf'       => 'int',
+            'nullable'         => false,
+            'hasDefault'       => false,
+            'default'          => null,
+            'visibility'       => Visibility::PUBLIC,
         ];
     }
 }

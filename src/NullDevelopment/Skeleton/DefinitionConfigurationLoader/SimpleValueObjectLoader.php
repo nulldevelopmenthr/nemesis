@@ -59,7 +59,7 @@ class SimpleValueObjectLoader implements DefinitionConfigurationLoader
         $properties        = $this->propertyCollectionFactory->create($data['constructor']);
 
         return new SimpleValueObject(
-            ClassName::create($data['className']),
+            ClassName::create($data['instanceOf']),
             $parent,
             $interfaces,
             $traits,
@@ -71,13 +71,13 @@ class SimpleValueObjectLoader implements DefinitionConfigurationLoader
     public function getDefaultValues(): array
     {
         return [
-            'type'        => 'SimpleValueObject',
-            'className'   => null,
-            'parent'      => null,
-            'interfaces'  => [],
-            'traits'      => [],
-            'constructor' => [],
-            'properties'  => [],
+            'type'         => 'SimpleValueObject',
+            'instanceOf'   => null,
+            'parent'       => null,
+            'interfaces'   => [],
+            'traits'       => [],
+            'constructor'  => [],
+            'properties'   => [],
         ];
     }
 

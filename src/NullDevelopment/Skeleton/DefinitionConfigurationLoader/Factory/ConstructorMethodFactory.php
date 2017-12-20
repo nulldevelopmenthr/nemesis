@@ -27,7 +27,7 @@ class ConstructorMethodFactory
 
             $parameters[] = new MethodParameter(
                 $name,
-                ClassName::create($parameter['className']),
+                ClassName::create($parameter['instanceOf']),
                 $parameter['nullable'],
                 $parameter['hasDefault'],
                 $parameter['default']
@@ -40,10 +40,10 @@ class ConstructorMethodFactory
     private function getDefaultParameterValues()
     {
         return [
-            'className'  => 'integer',
-            'nullable'   => false,
-            'hasDefault' => false,
-            'default'    => null,
+            'instanceOf'  => 'int',
+            'nullable'    => false,
+            'hasDefault'  => false,
+            'default'     => null,
         ];
     }
 }
