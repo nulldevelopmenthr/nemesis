@@ -76,6 +76,10 @@ services:
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\Skeleton\Definition\SimpleCollection' }
 
+  NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator\SimpleTraitNetteGenerator:
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\TraitDefinition' }
+
 
   NullDevelopment\SkeletonNetteGenerator\PhpUnit\PHPUnitTestMiddleware:
     tags:
