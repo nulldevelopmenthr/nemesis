@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\Skeleton\ObjectConfigurationLoaderCollection: ~
+
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\InterfaceDefinitionConfigurationLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\TraitDefinitionConfigurationLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleValueObjectLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleIdentifierLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleCollectionLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\DateTimeValueObjectLoader: ~
+  NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleEntityLoader: ~
