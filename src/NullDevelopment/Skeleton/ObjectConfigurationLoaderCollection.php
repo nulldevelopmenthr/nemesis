@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton;
 
-use NullDevelopment\PhpStructure\Type\ClassType;
 use Webmozart\Assert\Assert;
 
 class ObjectConfigurationLoaderCollection
@@ -23,7 +22,7 @@ class ObjectConfigurationLoaderCollection
         return $this->loaders;
     }
 
-    public function findAndLoad(array $config): ClassType
+    public function findAndLoad(array $config): SourceCode
     {
         foreach ($this->loaders as $loader) {
             if (true === $loader->supports($config)) {
