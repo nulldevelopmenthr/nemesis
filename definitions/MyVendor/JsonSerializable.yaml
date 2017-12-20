@@ -1,0 +1,7 @@
+definition:
+  type: Trait
+  instanceOf: MyVendor\JsonSerializable
+  traits: []
+  constants: []
+  properties: []
+  methods: []
