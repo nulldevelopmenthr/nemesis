@@ -10,7 +10,6 @@ use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDevelopment\Skeleton\ObjectConfigurationLoaderCollection;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\SplFileInfo;
-use Symfony\Component\Yaml\Yaml;
 use tests\TestCase\SfTestCase;
 
 /**
