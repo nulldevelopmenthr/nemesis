@@ -1,9 +1,12 @@
 paths:
   code:
+    "lib/src/MyVendor/": "MyVendor\\"
     "src/": ""
   spec:
+    "lib/spec/MyVendor/": spec\MyVendor\
     "spec/": spec\
   tests:
+    "lib/tests/MyVendor/": Tests\MyVendor\
     "tests/": tests\
 phpunit:
   base_namespace: tests

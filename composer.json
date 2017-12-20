@@ -4,13 +4,13 @@
     "license": "proprietary",
     "type": "project",
     "autoload": {
-        "psr-0": {
-            "": "lib/"
-        },
         "psr-4": {
             "": "src/",
             "spec\\": "spec/",
-            "tests\\": "tests/"
+            "tests\\": "tests/",
+            "MyVendor\\":"lib/src/MyVendor/",
+            "spec\\MyVendor\\": "lib/spec/MyVendor/",
+            "Tests\\MyVendor\\": "lib/tests/MyVendor/"
         }
     },
     "require": {
