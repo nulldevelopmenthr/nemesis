@@ -7,13 +7,14 @@ namespace NullDevelopment\PhpStructure\Type;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
+use NullDevelopment\Skeleton\SourceCode;
 use Webmozart\Assert\Assert;
 
 /**
  * @see InterfaceDefinitionSpec
  * @see InterfaceDefinitionTest
  */
-class InterfaceDefinition
+class InterfaceDefinition implements SourceCode
 {
     /** @var InterfaceName */
     private $name;
@@ -44,15 +45,60 @@ class InterfaceDefinition
         return $this->name;
     }
 
+    public function getNamespace(): ?string
+    {
+        return $this->name->getNamespace();
+    }
+
+    /**
+     * @TODO: this name is totally WRONG!
+     */
+    public function getClassName(): string
+    {
+        return $this->name->getName();
+    }
+
+    public function getFullName(): string
+    {
+        return $this->name->getFullName();
+    }
+
+    public function hasParent(): bool
+    {
+        if (null === $this->parentName) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function getParentName(): ?InterfaceName
     {
         return $this->parentName;
+    }
+
+    public function hasConstants(): bool
+    {
+        if (true === empty($this->constants)) {
+            return false;
+        }
+
+        return true;
     }
 
     /** @return Constant[] */
     public function getConstants(): array
     {
         return $this->constants;
+    }
+
+    public function hasMethods(): bool
+    {
+        if (true === empty($this->methods)) {
+            return false;
+        }
+
+        return true;
     }
 
     /** @return Method[] */
