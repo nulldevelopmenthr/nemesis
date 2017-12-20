@@ -58,7 +58,7 @@ class SimpleValueObjectLoaderTest extends TestCase
     {
         $expected = [
             'type'        => 'SimpleValueObject',
-            'className'   => null,
+            'instanceOf'  => null,
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
@@ -75,10 +75,10 @@ class SimpleValueObjectLoaderTest extends TestCase
             [
                 [
                     'type'        => 'SimpleValueObject',
-                    'className'   => 'MyCompany\User\UserName',
+                    'instanceOf'  => 'MyCompany\User\UserName',
                     'constructor' => [
                         'name' => [
-                            'className'  => 'string',
+                            'instanceOf' => 'string',
                         ],
                     ],
                 ],
@@ -86,13 +86,13 @@ class SimpleValueObjectLoaderTest extends TestCase
             [
                 [
                     'type'        => 'SimpleValueObject',
-                    'className'   => 'MyCompany\User\UserName',
+                    'instanceOf'  => 'MyCompany\User\UserName',
                     'parent'      => null,
                     'interfaces'  => [],
                     'traits'      => [],
                     'constructor' => [
                         'name' => [
-                            'className'  => 'string',
+                            'instanceOf' => 'string',
                             'nullable'   => false,
                             'hasDefault' => false,
                             'default'    => null,

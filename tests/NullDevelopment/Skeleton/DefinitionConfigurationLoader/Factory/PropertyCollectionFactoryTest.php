@@ -27,24 +27,24 @@ class PropertyCollectionFactoryTest extends TestCase
     {
         $input = [
             'id'        => [
-                'name' => 'integer',
+                'instanceOf' => 'int',
             ],
             'name'      => [
-                'name' => 'string',
+                'instanceOf' => 'string',
             ],
             'something' => [
-                'name'       => 'integer',
-                'nullable'   => true,
-                'hasDefault' => false,
-                'default'    => null,
-                'visibility' => Visibility::PRIVATE,
+                'instanceOf'  => 'int',
+                'nullable'    => true,
+                'hasDefault'  => false,
+                'default'     => null,
+                'visibility'  => Visibility::PRIVATE,
             ],
             'another'   => [
-                'name'       => 'integer',
-                'nullable'   => false,
-                'hasDefault' => true,
-                'default'    => 7,
-                'visibility' => Visibility::PRIVATE,
+                'instanceOf'  => 'int',
+                'nullable'    => false,
+                'hasDefault'  => true,
+                'default'     => 7,
+                'visibility'  => Visibility::PRIVATE,
             ],
         ];
 

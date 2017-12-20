@@ -58,7 +58,7 @@ class TraitDefinitionConfigurationLoader implements DefinitionConfigurationLoade
         $methods    = $this->methodCollectionFactory->create($input['methods']);
 
         return new TraitDefinition(
-            TraitName::create($data['name']), $traits, $constants, $properties, $methods
+            TraitName::create($data['instanceOf']), $traits, $constants, $properties, $methods
         );
     }
 
@@ -66,7 +66,7 @@ class TraitDefinitionConfigurationLoader implements DefinitionConfigurationLoade
     {
         return [
             'type'       => 'Trait',
-            'name'       => null,
+            'instanceOf' => null,
             'traits'     => [],
             'constants'  => [],
             'properties' => [],

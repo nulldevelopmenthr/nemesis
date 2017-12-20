@@ -28,7 +28,7 @@ class PropertyCollectionFactory
 
             $result[] = new Property(
                 $name,
-                ClassName::create($data['name']),
+                ClassName::create($data['instanceOf']),
                 $data['nullable'],
                 $data['hasDefault'],
                 $data['default'],
@@ -42,11 +42,11 @@ class PropertyCollectionFactory
     private function getDefaultValues()
     {
         return [
-            'name'       => 'integer',
-            'nullable'   => false,
-            'hasDefault' => false,
-            'default'    => null,
-            'visibility' => Visibility::PRIVATE,
+            'instanceOf'       => 'int',
+            'nullable'         => false,
+            'hasDefault'       => false,
+            'default'          => null,
+            'visibility'       => Visibility::PRIVATE,
         ];
     }
 }

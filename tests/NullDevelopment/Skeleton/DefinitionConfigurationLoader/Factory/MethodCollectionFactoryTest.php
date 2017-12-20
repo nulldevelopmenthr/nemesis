@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\Skeleton\DefinitionConfigurationLoader\Factory\MethodCollectionFactory
- * @group todo
+ * @group  todo
  */
 class MethodCollectionFactoryTest extends TestCase
 {

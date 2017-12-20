@@ -46,11 +46,11 @@ class InterfaceDefinitionConfigurationLoaderTest extends TestCase
     public function testGetDefaultValues()
     {
         $expected = [
-            'type'      => 'Interface',
-            'name'      => null,
-            'parent'    => null,
-            'constants' => [],
-            'methods'   => [],
+            'type'       => 'Interface',
+            'instanceOf' => null,
+            'parent'     => null,
+            'constants'  => [],
+            'methods'    => [],
         ];
 
         $this->assertEquals($expected, $this->sut->getDefaultValues());
@@ -61,20 +61,20 @@ class InterfaceDefinitionConfigurationLoaderTest extends TestCase
         return [
             [
                 [
-                    'type'      => 'Interface',
-                    'name'      => 'MyCompany\\SomeInterface',
-                    'parent'    => null,
-                    'constants' => [],
-                    'methods'   => [],
+                    'type'       => 'Interface',
+                    'instanceOf' => 'MyCompany\\SomeInterface',
+                    'parent'     => null,
+                    'constants'  => [],
+                    'methods'    => [],
                 ],
             ],
             [
                 [
-                    'type'      => 'Interface',
-                    'name'      => 'MyCompany\\SomeInterface',
-                    'parent'    => 'MyCompany\\BaseInterface',
-                    'constants' => [],
-                    'methods'   => [],
+                    'type'       => 'Interface',
+                    'instanceOf' => 'MyCompany\\SomeInterface',
+                    'parent'     => 'MyCompany\\BaseInterface',
+                    'constants'  => [],
+                    'methods'    => [],
                 ],
             ],
         ];

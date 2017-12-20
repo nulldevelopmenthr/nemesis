@@ -51,17 +51,17 @@ class InterfaceDefinitionConfigurationLoader implements DefinitionConfigurationL
         $constants = $this->constantCollectionFactory->create($input['constants']);
         $methods   = $this->methodCollectionFactory->create($input['methods']);
 
-        return new InterfaceDefinition(InterfaceName::create($data['name']), $parent, $constants, $methods);
+        return new InterfaceDefinition(InterfaceName::create($data['instanceOf']), $parent, $constants, $methods);
     }
 
     public function getDefaultValues(): array
     {
         return [
-            'type'      => 'Interface',
-            'name'      => null,
-            'parent'    => null,
-            'constants' => [],
-            'methods'   => [],
+            'type'       => 'Interface',
+            'instanceOf' => null,
+            'parent'     => null,
+            'constants'  => [],
+            'methods'    => [],
         ];
     }
 }

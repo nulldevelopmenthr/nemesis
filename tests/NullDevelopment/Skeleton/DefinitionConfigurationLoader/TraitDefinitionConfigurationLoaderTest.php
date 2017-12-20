@@ -58,7 +58,7 @@ class TraitDefinitionConfigurationLoaderTest extends TestCase
     {
         $expected = [
             'type'       => 'Trait',
-            'name'       => null,
+            'instanceOf' => null,
             'traits'     => [],
             'constants'  => [],
             'properties' => [],
@@ -74,7 +74,7 @@ class TraitDefinitionConfigurationLoaderTest extends TestCase
             [
                 [
                     'type'       => 'Trait',
-                    'name'       => 'MyCompany\\SomeTrait',
+                    'instanceOf' => 'MyCompany\\SomeTrait',
                     'traits'     => [],
                     'constants'  => [],
                     'properties' => [],

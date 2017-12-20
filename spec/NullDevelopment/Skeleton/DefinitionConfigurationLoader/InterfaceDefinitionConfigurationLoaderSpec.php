@@ -36,11 +36,11 @@ class InterfaceDefinitionConfigurationLoaderSpec extends ObjectBehavior
         MethodCollectionFactory $methodCollectionFactory
     ) {
         $input = [
-            'type'      => 'Interface',
-            'name'      => 'MyCompany\\SomeInterface',
-            'parent'    => null,
-            'constants' => [],
-            'methods'   => [],
+            'type'       => 'Interface',
+            'instanceOf' => 'MyCompany\\SomeInterface',
+            'parent'     => null,
+            'constants'  => [],
+            'methods'    => [],
         ];
 
         $constantCollectionFactory->create([])->shouldBeCalled()->willReturn([]);
@@ -53,11 +53,11 @@ class InterfaceDefinitionConfigurationLoaderSpec extends ObjectBehavior
     {
         $this->getDefaultValues()->shouldReturn(
             [
-                'type'      => 'Interface',
-                'name'      => null,
-                'parent'    => null,
-                'constants' => [],
-                'methods'   => [],
+                'type'       => 'Interface',
+                'instanceOf' => null,
+                'parent'     => null,
+                'constants'  => [],
+                'methods'    => [],
             ]
         );
     }
