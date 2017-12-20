@@ -27,6 +27,7 @@ class ConfigTest extends ContainerSupportedTestCase
     public function testGetSourceCodePaths(): void
     {
         $expected = [
+            new Psr4Path('lib/src/MyVendor/', 'MyVendor\\'),
             new Psr4Path('src/', ''),
         ];
 
@@ -36,6 +37,7 @@ class ConfigTest extends ContainerSupportedTestCase
     public function testGetSpecPaths(): void
     {
         $expected = [
+            new SpecPsr4Path('lib/spec/MyVendor/', 'spec\\MyVendor\\'),
             new SpecPsr4Path('spec/', 'spec\\'),
         ];
 
@@ -45,6 +47,7 @@ class ConfigTest extends ContainerSupportedTestCase
     public function testGetTestPaths(): void
     {
         $expected = [
+            new TestPsr4Path('lib/tests/MyVendor/', 'Tests\\MyVendor\\'),
             new TestPsr4Path('tests/', 'tests\\'),
         ];
 
@@ -54,8 +57,11 @@ class ConfigTest extends ContainerSupportedTestCase
     public function testGetPaths(): void
     {
         $expected = [
+            new TestPsr4Path('lib/tests/MyVendor/', 'Tests\\MyVendor\\'),
             new TestPsr4Path('tests/', 'tests\\'),
+            new SpecPsr4Path('lib/spec/MyVendor/', 'spec\\MyVendor\\'),
             new SpecPsr4Path('spec/', 'spec\\'),
+            new Psr4Path('lib/src/MyVendor/', 'MyVendor\\'),
             new Psr4Path('src/', ''),
         ];
 
