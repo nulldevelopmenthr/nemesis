@@ -67,6 +67,7 @@ class LetMiddleware implements PartialCodeGeneratorMiddleware
             if (true === $definition->hasInterfaces()) {
                 foreach ($definition->getInterfaces() as $interface) {
                     $initializableMethod->addBody('$this->shouldImplement('.$interface->getName().'::class);');
+                    $namespace->addUse($interface->getFullName());
                 }
             }
         }
