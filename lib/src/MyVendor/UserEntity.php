@@ -33,66 +33,57 @@ class UserEntity
     /** @var DateTime */
     private $updatedAt;
 
-
     public function __construct(UserId $id, string $firstName, string $lastName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
-        $this->id = $id;
+        $this->id        = $id;
         $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->username = $username;
+        $this->lastName  = $lastName;
+        $this->username  = $username;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }
-
 
     public function getId(): UserId
     {
         return $this->id;
     }
 
-
     public function getFirstName(): string
     {
         return $this->firstName;
     }
-
 
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
-
     public function getUsername(): Username
     {
         return $this->username;
     }
-
 
     public function getCreatedAt(): UserCreatedAt
     {
         return $this->createdAt;
     }
 
-
     public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }
 
-
     public function serialize(): array
     {
         return [
-            'id' => $this->id->serialize(),
+            'id'        => $this->id->serialize(),
             'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
-            'username' => $this->username->serialize(),
+            'lastName'  => $this->lastName,
+            'username'  => $this->username->serialize(),
             'createdAt' => $this->createdAt->serialize(),
-            'updatedAt' => $this->updatedAt->format('c')
+            'updatedAt' => $this->updatedAt->format('c'),
         ];
     }
-
 
     public static function deserialize(array $data): self
     {

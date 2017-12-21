@@ -17,7 +17,6 @@ class UserCreatedAt extends DateTime
         return $this->format('c');
     }
 
-
     public static function createFromFormat($format, $time, $object = null): self
     {
         $date = parent::createFromFormat($format, $time, $object);
@@ -25,12 +24,10 @@ class UserCreatedAt extends DateTime
         return new self($date->format('c'));
     }
 
-
     public function serialize(): string
     {
         return $this->__toString();
     }
-
 
     public static function deserialize(string $value): self
     {
