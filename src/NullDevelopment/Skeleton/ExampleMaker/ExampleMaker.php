@@ -78,7 +78,10 @@ class ExampleMaker
         return new InstanceExample($variable->getInstanceName(), $arguments);
     }
 
-    /** @SuppressWarnings(PHPMD.CyclomaticComplexity) */
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
     public function value(Variable $variable): Example
     {
         switch ($variable->getInstanceFullName()) {
@@ -111,12 +114,28 @@ class ExampleMaker
         $arguments = [];
         foreach ($refl->getConstructor()->getParameters() as $parameter) {
             if (null !== $parameter->getType()) {
+                if (count($parameter->getDocBlockTypes()) > 0) {
+                    $docBlockClassName = $parameter->getDocBlockTypeStrings()[0];
+
+                    if ('[]' === substr($docBlockClassName, -2, 2)) {
+                        $class = substr($docBlockClassName, 0, -2);
+
+                        $paramAsVar = new SimpleVariable(
+                            $parameter->getName(),
+                            ClassName::create($class)
+                        );
+
+                        $arguments[] = new ArrayExample([$this->value($paramAsVar)]);
+                        continue;
+                    }
+                }
+
                 $paramAsVar = new SimpleVariable(
                     $variable->getName(),
                     ClassName::create($parameter->getType()->__toString())
                 );
 
-                $arguments[] = $this->value($paramAsVar);
+                $arguments[$parameter->getName()] = $this->value($paramAsVar);
             } else {
                 //var_dump($parameter);
                 throw new Exception('Err xxx2: Ha? No type on param?');
@@ -124,7 +143,7 @@ class ExampleMaker
         }
 
         if (count($arguments) > 1) {
-            return new ArrayExample($arguments);
+            return new ArrayExample2($arguments);
         } elseif (1 === count($arguments)) {
             return new SimpleExample(array_pop($arguments));
         }
