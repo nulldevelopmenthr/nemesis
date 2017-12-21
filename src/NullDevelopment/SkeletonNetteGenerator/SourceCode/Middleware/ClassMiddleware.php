@@ -23,7 +23,7 @@ class ClassMiddleware implements PartialCodeGeneratorMiddleware
 
         if (true === $definition->hasInterfaces()) {
             foreach ($definition->getInterfaces() as $interface) {
-                $class->addImplement($interface->getName());
+                $class->addImplement($interface->getFullName());
                 $namespace->addUse($interface->getFullName());
             }
         }
