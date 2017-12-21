@@ -31,7 +31,7 @@ class SpecToStringMiddleware implements PartialCodeGeneratorMiddleware
             foreach ($definition->getProperties() as $property) {
                 $value = $this->exampleMaker->value($property);
 
-                if (true === in_array($property->getInstanceFullName(), ['int', 'float'])) {
+                if (true === in_array($property->getInstanceFullName(), ['int', 'float', 'bool'])) {
                     $value = "'".$value."'";
                 }
 
