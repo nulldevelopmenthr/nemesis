@@ -47,37 +47,31 @@ class GenerateFilesFromDefinitionCliCommand extends Command implements Container
         $yamls      = $this->getService(FinderFactory::class)->create()->files()->in($path)->name('*.yaml');
         $loaders    = $this->getService(ObjectConfigurationLoaderCollection::class);
         $commandBus = $this->getService(CommandBus::class);
+        $fileSystem = $this->getService(Filesystem::class);
 
         /** @var SplFileInfo $yaml */
         foreach ($yamls as $yaml) {
+            $this->io->writeln('Loading '.$yaml->getFilename());
             $config = $this->loadDefinitionYaml($yaml->getFilename(), $yaml->getPath());
 
             $classDefinition = $loaders->findAndLoad($config);
 
             try {
                 $results = $commandBus->handle($classDefinition);
-
                 // Assert
                 foreach ($results as $result) {
-                    if (false === $this->fileExists($result->getFileName())) {
-                        $this->getService(Filesystem::class)->dumpFile($result->getFileName(), $result->getOutput());
+                    if (false === $fileSystem->exists($result->getFileName())) {
+                        $fileSystem->dumpFile($result->getFileName(), $result->getOutput());
+                    } else {
+                        $this->io->writeln('Skipping '.$result->getFileName().' as it already exists');
                     }
                 }
             } catch (Exception $e) {
-                echo $e->getMessage();
+                $this->io->writeln($e->getMessage());
             }
         }
 
         $this->io->writeln('Done!');
-    }
-
-    private function fileExists(string $fileName): bool
-    {
-        if (false === file_exists($fileName)) {
-            return true;
-        }
-
-        return false;
     }
 
     protected function loadDefinitionYaml(string $fileName, ?string $path = null): array
