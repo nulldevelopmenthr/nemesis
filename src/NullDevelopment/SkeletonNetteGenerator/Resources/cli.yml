@@ -5,6 +5,6 @@ services:
     public: true
 
   cli.command.skeleton.missing:
-    class: NullDevelopment\SkeletonNetteGenerator\Command\GenerateFilesFromDefinitionCliCommand
+    class: NullDevelopment\SkeletonNetteGenerator\Command\GenerateMissingFilesFromDefinitionCliCommand
     tags:
       - {name: console.command }
