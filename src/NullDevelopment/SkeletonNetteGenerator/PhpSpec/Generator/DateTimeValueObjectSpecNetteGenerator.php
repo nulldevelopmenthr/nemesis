@@ -74,7 +74,7 @@ class DateTimeValueObjectSpecNetteGenerator extends BaseNetteGenerator
 
             $class->addMethod('it_is_deserializable')
                 ->addBody(
-                    '$this->deserialize(\'2018-01-01T11:22:33+00:00\')->shouldReturnAnInstanceOf(UserCreatedAt::class);'
+                    '$this->deserialize(\'2018-01-01T11:22:33+00:00\')->shouldReturnAnInstanceOf('.$definition->getClassName().'::class);'
                 );
         }
 
