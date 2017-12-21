@@ -8,10 +8,11 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Something\UserEntity;
 use Something\UserId;
+
 /**
-* @covers \Something\UserEntity
-* @group todo
-*/
+ * @covers \Something\UserEntity
+ * @group todo
+ */
 class UserEntityTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
@@ -19,11 +20,13 @@ class UserEntityTest extends TestCase
     private $id;
     /** @var UserEntity */
     private $sut;
+
     public function setUp()
     {
-        $this->id = Mockery::mock(UserId::class);
+        $this->id  = Mockery::mock(UserId::class);
         $this->sut = new UserEntity($this->id);
     }
+
     public function testGetId()
     {
         self::assertEquals($this->id, $this->sut->getId());

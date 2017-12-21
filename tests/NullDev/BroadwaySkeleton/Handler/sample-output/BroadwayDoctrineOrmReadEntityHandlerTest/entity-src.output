@@ -4,28 +4,33 @@ namespace Something;
 
 use Broadway\ReadModel\Identifiable;
 use Broadway\Serializer\Serializable;
-use Something\UserId;
+
 class UserEntity implements Identifiable, Serializable
 {
     /** @var UserId */
     private $id;
+
     public function __construct(UserId $id)
     {
         $this->id = $id;
     }
-    public function getId() : UserId
+
+    public function getId(): UserId
     {
         return $this->id;
     }
-    public function serialize() : array
+
+    public function serialize(): array
     {
         return ['id' => (string) $this->id];
     }
-    public static function deserialize(array $data) : UserEntity
+
+    public static function deserialize(array $data): self
     {
         return new self(new UserId($data['id']));
     }
-    public function getId() : string
+
+    public function getId(): string
     {
         return (string) $this->id;
     }

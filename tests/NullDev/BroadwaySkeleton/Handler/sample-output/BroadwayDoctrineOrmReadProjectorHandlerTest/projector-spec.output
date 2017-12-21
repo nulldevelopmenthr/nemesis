@@ -4,21 +4,23 @@ namespace spec\Something;
 
 use Broadway\ReadModel\Projector;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Something\UserFactory;
 use Something\UserProjector;
 use Something\UserRepository;
+
 class UserProjectorSpec extends ObjectBehavior
 {
     public function let(UserRepository $repository, UserFactory $factory)
     {
         $this->beConstructedWith($repository, $factory);
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(UserProjector::class);
         $this->shouldHaveType(Projector::class);
     }
+
     public function it_should_expose_constructor_arguments_via_getters()
     {
     }

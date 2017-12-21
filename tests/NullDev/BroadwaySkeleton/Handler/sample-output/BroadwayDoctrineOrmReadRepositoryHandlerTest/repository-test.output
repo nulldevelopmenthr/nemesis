@@ -2,23 +2,25 @@
 
 namespace tests\Something;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Something\UserRepository;
+
 /**
-* @covers \Something\UserRepository
-* @group todo
-*/
+ * @covers \Something\UserRepository
+ * @group todo
+ */
 class UserRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var UserRepository */
     private $sut;
+
     public function setUp()
     {
         $this->sut = new UserRepository();
     }
+
     public function testNothing()
     {
         $this->markTestIncomplete('Auto generated using nemesis');

@@ -3,7 +3,7 @@
 namespace Something;
 
 use Broadway\Serializer\Serializable;
-use Something\Company;
+
 class UserCreated implements Serializable
 {
     /** @var string */
@@ -16,39 +16,47 @@ class UserCreated implements Serializable
     private $about;
     /** @var Company */
     private $company;
+
     public function __construct(string $name, int $age, float $height, $about, Company $company)
     {
-        $this->name = $name;
-        $this->age = $age;
-        $this->height = $height;
-        $this->about = $about;
+        $this->name    = $name;
+        $this->age     = $age;
+        $this->height  = $height;
+        $this->about   = $about;
         $this->company = $company;
     }
-    public function getName() : string
+
+    public function getName(): string
     {
         return $this->name;
     }
-    public function getAge() : int
+
+    public function getAge(): int
     {
         return $this->age;
     }
-    public function getHeight() : float
+
+    public function getHeight(): float
     {
         return $this->height;
     }
+
     public function getAbout()
     {
         return $this->about;
     }
-    public function getCompany() : Company
+
+    public function getCompany(): Company
     {
         return $this->company;
     }
-    public function serialize() : array
+
+    public function serialize(): array
     {
         return ['name' => $this->name, 'age' => $this->age, 'height' => $this->height, 'about' => $this->about, 'company' => (string) $this->company];
     }
-    public static function deserialize(array $data) : UserCreated
+
+    public static function deserialize(array $data): self
     {
         return new self($data['name'], $data['age'], $data['height'], $data['about'], new Company($data['company']));
     }

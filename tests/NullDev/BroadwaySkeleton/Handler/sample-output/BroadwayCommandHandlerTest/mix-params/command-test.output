@@ -8,10 +8,11 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 use Something\Company;
 use Something\CreateUserCommand;
+
 /**
-* @covers \Something\CreateUserCommand
-* @group todo
-*/
+ * @covers \Something\CreateUserCommand
+ * @group todo
+ */
 class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
@@ -27,31 +28,37 @@ class CreateUserCommandTest extends TestCase
     private $company;
     /** @var CreateUserCommand */
     private $sut;
+
     public function setUp()
     {
-        $this->name = 'name';
-        $this->age = 1;
-        $this->height = 2.0;
-        $this->about = 'about';
+        $this->name    = 'name';
+        $this->age     = 1;
+        $this->height  = 2.0;
+        $this->about   = 'about';
         $this->company = Mockery::mock(Company::class);
-        $this->sut = new CreateUserCommand($this->name, $this->age, $this->height, $this->about, $this->company);
+        $this->sut     = new CreateUserCommand($this->name, $this->age, $this->height, $this->about, $this->company);
     }
+
     public function testGetName()
     {
         self::assertEquals($this->name, $this->sut->getName());
     }
+
     public function testGetAge()
     {
         self::assertEquals($this->age, $this->sut->getAge());
     }
+
     public function testGetHeight()
     {
         self::assertEquals($this->height, $this->sut->getHeight());
     }
+
     public function testGetAbout()
     {
         self::assertEquals($this->about, $this->sut->getAbout());
     }
+
     public function testGetCompany()
     {
         self::assertEquals($this->company, $this->sut->getCompany());

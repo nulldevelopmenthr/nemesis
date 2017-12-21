@@ -2,23 +2,25 @@
 
 namespace tests\Something;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Something\CreateUserCommand;
+
 /**
-* @covers \Something\CreateUserCommand
-* @group todo
-*/
+ * @covers \Something\CreateUserCommand
+ * @group todo
+ */
 class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var CreateUserCommand */
     private $sut;
+
     public function setUp()
     {
         $this->sut = new CreateUserCommand();
     }
+
     public function testNothing()
     {
         $this->markTestIncomplete('Auto generated using nemesis');

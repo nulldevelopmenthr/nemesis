@@ -3,16 +3,19 @@
 namespace Something;
 
 use Broadway\Serializer\Serializable;
+
 class UserCreated implements Serializable
 {
     public function __construct()
     {
     }
-    public function serialize() : array
+
+    public function serialize(): array
     {
         return [];
     }
-    public static function deserialize(array $data) : UserCreated
+
+    public static function deserialize(array $data): self
     {
         return new self();
     }
