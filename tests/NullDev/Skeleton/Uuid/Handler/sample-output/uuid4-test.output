@@ -2,14 +2,14 @@
 
 namespace tests\Something;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Something\CreateUserCommand;
+
 /**
-* @covers \Something\CreateUserCommand
-* @group todo
-*/
+ * @covers \Something\CreateUserCommand
+ * @group todo
+ */
 class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
@@ -17,11 +17,13 @@ class CreateUserCommandTest extends TestCase
     private $id;
     /** @var CreateUserCommand */
     private $sut;
+
     public function setUp()
     {
-        $this->id = 'id';
+        $this->id  = 'id';
         $this->sut = new CreateUserCommand($this->id);
     }
+
     public function testGetId()
     {
         self::assertEquals($this->id, $this->sut->getId());

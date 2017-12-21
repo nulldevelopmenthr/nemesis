@@ -3,6 +3,7 @@
 namespace Something;
 
 use NullDev\Theater\DoctrineOrm\EntityRepository;
+
 class UserRepository extends EntityRepository
 {
 }

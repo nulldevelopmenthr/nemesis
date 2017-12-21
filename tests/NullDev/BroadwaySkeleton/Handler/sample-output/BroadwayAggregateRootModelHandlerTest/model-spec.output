@@ -4,20 +4,21 @@ namespace spec\Something;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Something\UserId;
 use Something\UserModel;
+
 class UserModelSpec extends ObjectBehavior
 {
     public function let()
     {
         $this->beConstructedWith();
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(UserModel::class);
         $this->shouldHaveType(EventSourcedAggregateRoot::class);
     }
+
     public function it_should_expose_constructor_arguments_via_getters()
     {
     }

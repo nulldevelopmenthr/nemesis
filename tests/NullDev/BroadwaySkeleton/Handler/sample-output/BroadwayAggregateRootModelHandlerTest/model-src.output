@@ -3,15 +3,17 @@
 namespace Something;
 
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
-use Something\UserId;
+
 class UserModel extends EventSourcedAggregateRoot
 {
     /** @var UserId */
     private $userId;
-    public static function create(UserId $userId) : UserModel
+
+    public static function create(UserId $userId): self
     {
     }
-    public function getAggregateRootId() : UserId
+
+    public function getAggregateRootId(): UserId
     {
         return $this->userId;
     }

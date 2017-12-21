@@ -4,19 +4,21 @@ namespace spec\Something;
 
 use Broadway\Serializer\Serializable;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Something\UserCreated;
+
 class UserCreatedSpec extends ObjectBehavior
 {
     public function let()
     {
         $this->beConstructedWith();
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(UserCreated::class);
         $this->shouldHaveType(Serializable::class);
     }
+
     public function it_should_expose_constructor_arguments_via_getters()
     {
     }

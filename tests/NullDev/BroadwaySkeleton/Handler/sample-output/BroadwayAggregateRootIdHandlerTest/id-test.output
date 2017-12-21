@@ -2,14 +2,14 @@
 
 namespace tests\Something;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Something\UserId;
+
 /**
-* @covers \Something\UserId
-* @group todo
-*/
+ * @covers \Something\UserId
+ * @group todo
+ */
 class UserIdTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
@@ -17,11 +17,13 @@ class UserIdTest extends TestCase
     private $id;
     /** @var UserId */
     private $sut;
+
     public function setUp()
     {
-        $this->id = 'id';
+        $this->id  = 'id';
         $this->sut = new UserId($this->id);
     }
+
     public function testGetId()
     {
         self::assertEquals($this->id, $this->sut->getId());
