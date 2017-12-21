@@ -48,7 +48,7 @@ class ConfigTest extends ContainerSupportedTestCase
     {
         $expected = [
             new TestPsr4Path('lib/tests/MyVendor/', 'Tests\\MyVendor\\'),
-            new TestPsr4Path('tests/', 'tests\\'),
+            new TestPsr4Path('tests/', 'Tests\\'),
         ];
 
         self::assertEquals($expected, $this->config->getTestPaths());
@@ -58,7 +58,7 @@ class ConfigTest extends ContainerSupportedTestCase
     {
         $expected = [
             new TestPsr4Path('lib/tests/MyVendor/', 'Tests\\MyVendor\\'),
-            new TestPsr4Path('tests/', 'tests\\'),
+            new TestPsr4Path('tests/', 'Tests\\'),
             new SpecPsr4Path('lib/spec/MyVendor/', 'spec\\MyVendor\\'),
             new SpecPsr4Path('spec/', 'spec\\'),
             new Psr4Path('lib/src/MyVendor/', 'MyVendor\\'),
