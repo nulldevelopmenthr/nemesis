@@ -35,8 +35,3 @@ services:
     tags:
       - { name: tactician.middleware , priority: 100 }
 
-
-  NullDev\Skeleton\PHPParserGeneratorMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 100 }
-
