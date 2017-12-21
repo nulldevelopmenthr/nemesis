@@ -7,7 +7,7 @@ paths:
     "spec/": spec\
   tests:
     "lib/tests/MyVendor/": Tests\MyVendor\
-    "tests/": tests\
+    "tests/": Tests\
 phpunit:
   base_namespace: tests
   base_test_class_name: PHPUnit\Framework\TestCase

@@ -8,6 +8,7 @@
             "": "src/",
             "spec\\": "spec/",
             "tests\\": "tests/",
+            "Tests\\": "tests/",
             "MyVendor\\":"lib/src/MyVendor/",
             "spec\\MyVendor\\": "lib/spec/MyVendor/",
             "Tests\\MyVendor\\": "lib/tests/MyVendor/"
