@@ -19,31 +19,26 @@ class UsernameTest extends TestCase
     /** @var Username */
     private $sut;
 
-
     public function setUp()
     {
         $this->value = 'value';
-        $this->sut = new Username($this->value);
+        $this->sut   = new Username($this->value);
     }
-
 
     public function testGetValue()
     {
         self::assertSame($this->value, $this->sut->getValue());
     }
 
-
     public function testToString()
     {
         self::assertSame($this->value, $this->sut->__toString());
     }
 
-
     public function testSerialize()
     {
         self::assertEquals($this->value, $this->sut->serialize());
     }
-
 
     public function testDeserialize()
     {

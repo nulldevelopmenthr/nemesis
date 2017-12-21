@@ -19,31 +19,26 @@ class ProductWeightTest extends TestCase
     /** @var ProductWeight */
     private $sut;
 
-
     public function setUp()
     {
         $this->weight = 1;
-        $this->sut = new ProductWeight($this->weight);
+        $this->sut    = new ProductWeight($this->weight);
     }
-
 
     public function testGetWeight()
     {
         self::assertSame($this->weight, $this->sut->getWeight());
     }
 
-
     public function testToString()
     {
         self::assertSame((string) $this->weight, $this->sut->__toString());
     }
 
-
     public function testSerialize()
     {
         self::assertEquals($this->weight, $this->sut->serialize());
     }
-
 
     public function testDeserialize()
     {

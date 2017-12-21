@@ -16,7 +16,6 @@ class ProductCollection
     /** @var array|ProductEntity[] */
     private $elements;
 
-
     /**
      * @param ProductEntity[] $elements
      */
@@ -26,12 +25,10 @@ class ProductCollection
         $this->elements = $elements;
     }
 
-
     public function add(ProductEntity $element)
     {
         $this->elements[] = $element;
     }
-
 
     public function has(ProductId $id): bool
     {
@@ -40,9 +37,9 @@ class ProductCollection
                 return true;
             }
         }
+
         return false;
     }
-
 
     public function get(ProductId $id)
     {
@@ -51,21 +48,19 @@ class ProductCollection
                 return $element;
             }
         }
+
         return null;
     }
-
 
     public function toArray(): array
     {
         return $this->elements;
     }
 
-
     public function count(): int
     {
         return count($this->elements);
     }
-
 
     public function serialize(): array
     {
@@ -73,9 +68,9 @@ class ProductCollection
         foreach ($this->elements as $element) {
             $data[] = $element->serialize();
         }
+
         return $data;
     }
-
 
     public static function deserialize(array $data): self
     {
@@ -83,6 +78,7 @@ class ProductCollection
         foreach ($data as $item) {
             $elements[] = ProductEntity::deserialize($item);
         }
+
         return new self($elements);
     }
 }

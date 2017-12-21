@@ -6,7 +6,6 @@ namespace spec\MyVendor\User;
 
 use MyVendor\User\UserId;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class UserIdSpec extends ObjectBehavior
 {
@@ -15,30 +14,25 @@ class UserIdSpec extends ObjectBehavior
         $this->beConstructedWith($id = 1);
     }
 
-
     public function it_is_initializable()
     {
         $this->shouldHaveType(UserId::class);
     }
-
 
     public function it_exposes_id()
     {
         $this->getId()->shouldReturn(1);
     }
 
-
     public function it_is_castable_to_string()
     {
         $this->__toString()->shouldReturn('1');
     }
 
-
     public function it_is_serializable()
     {
         $this->serialize()->shouldReturn(1);
     }
-
 
     public function it_is_deserializable()
     {

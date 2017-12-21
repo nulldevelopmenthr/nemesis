@@ -29,70 +29,62 @@ class ProductEntity
     /** @var DateTime */
     private $updatedAt;
 
-
     public function __construct(ProductId $id, string $title, ?string $description, ?ProductWeight $weight, DateTime $updatedAt)
     {
-        $this->id = $id;
-        $this->title = $title;
+        $this->id          = $id;
+        $this->title       = $title;
         $this->description = $description;
-        $this->weight = $weight;
-        $this->updatedAt = $updatedAt;
+        $this->weight      = $weight;
+        $this->updatedAt   = $updatedAt;
     }
-
 
     public function getId(): ProductId
     {
         return $this->id;
     }
 
-
     public function getTitle(): string
     {
         return $this->title;
     }
-
 
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-
     public function getWeight(): ?ProductWeight
     {
         return $this->weight;
     }
-
 
     public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
     }
 
-
     public function serialize(): array
     {
-        if(null === $this->weight){
+        if (null === $this->weight) {
             $weight = null;
-        }else{
+        } else {
             $weight = $this->weight->serialize();
         }
 
         return [
-            'id' => $this->id->serialize(),
-            'title' => $this->title,
+            'id'          => $this->id->serialize(),
+            'title'       => $this->title,
             'description' => $this->description,
-            'weight' => $weight,
-            'updatedAt' => $this->updatedAt->format('c')
+            'weight'      => $weight,
+            'updatedAt'   => $this->updatedAt->format('c'),
         ];
     }
 
-
     public static function deserialize(array $data): self
     {
-        if(null === $data['weight']){
+        if (null === $data['weight']) {
             $weight = null;
-        }else{
+        } else {
             $weight = ProductWeight::deserialize($data['weight']);
         }
 
