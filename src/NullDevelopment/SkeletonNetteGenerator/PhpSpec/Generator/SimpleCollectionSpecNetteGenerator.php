@@ -53,8 +53,9 @@ class SimpleCollectionSpecNetteGenerator extends BaseNetteGenerator
             $variableName = lcfirst($definition->getCollectionOf()->getClassName()->getName());
             $variableType = $definition->getCollectionOf()->getClassName()->getFullName();
 
-            $idName = lcfirst($definition->getCollectionOf()->getHas()->getName());
-            $idType = $definition->getCollectionOf()->getHas()->getFullName();
+            $idName   = lcfirst($definition->getCollectionOf()->getHas()->getName());
+            $idType   = $definition->getCollectionOf()->getHas()->getFullName();
+            $accessor = $definition->getCollectionOf()->getAccessor();
 
             ///
             // Let
@@ -104,7 +105,7 @@ class SimpleCollectionSpecNetteGenerator extends BaseNetteGenerator
             // Has
 
             $hasMethod = $class->addMethod('it_knows_if_element_is_in_collection')
-                ->addBody(sprintf('$%s->getId()->shouldBeCalled()->willReturn($%s);', $variableName, $idName))
+                ->addBody(sprintf('$%s->%s()->shouldBeCalled()->willReturn($%s);', $variableName, $accessor, $idName))
                 //->addBody(sprintf('$%s->getId()->shouldBeCalled()->willReturn(1);', $idName))
                 ->addBody(sprintf('$this->has($%s)->shouldReturn(true);', $idName));
 
@@ -117,7 +118,7 @@ class SimpleCollectionSpecNetteGenerator extends BaseNetteGenerator
             // Get
 
             $getMethod = $class->addMethod('it_can_return_element_from_collection_by_given_id')
-                ->addBody(sprintf('$%s->getId()->shouldBeCalled()->willReturn($%s);', $variableName, $idName))
+                ->addBody(sprintf('$%s->%s()->shouldBeCalled()->willReturn($%s);', $variableName, $accessor, $idName))
                 //->addBody(sprintf('$%s->getId()->shouldBeCalled()->willReturn(1);', $idName))
                 ->addBody(sprintf('$this->get($%s)->shouldReturn($%s);', $idName, $variableName));
 
