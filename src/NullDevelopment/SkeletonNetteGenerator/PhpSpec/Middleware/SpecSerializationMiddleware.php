@@ -56,11 +56,7 @@ class SpecSerializationMiddleware implements PartialCodeGeneratorMiddleware
                 ->addBody($deserializeBody);
 
             foreach ($definition->getProperties() as $property) {
-                if (false === in_array(
-                        $property->getInstanceFullName(),
-                        ['int', 'string', 'float', 'bool', 'array', 'DateTime']
-                    )
-                ) {
+                if (false === in_array($property->getInstanceFullName(), ['int', 'string', 'float', 'bool', 'array', 'DateTime'])) {
                     $namespace->addUse($property->getInstanceFullName());
 
                     $serializeMethod->addParameter($property->getName())
