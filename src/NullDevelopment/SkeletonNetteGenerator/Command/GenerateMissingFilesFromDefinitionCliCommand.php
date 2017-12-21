@@ -21,7 +21,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * @codeCoverageIgnore
  */
-class GenerateFilesFromDefinitionCliCommand extends Command implements ContainerAwareInterface
+class GenerateMissingFilesFromDefinitionCliCommand extends Command implements ContainerAwareInterface
 {
     use ContainerImplementingTrait;
 
