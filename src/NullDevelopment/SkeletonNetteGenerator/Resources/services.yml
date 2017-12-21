@@ -92,3 +92,10 @@ services:
   NullDevelopment\SkeletonNetteGenerator\PhpSpec\PHPSpecMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
+
+
+  NullDevelopment\SkeletonNetteGenerator\CsFixer\CsFixerMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 101 }
+
+
