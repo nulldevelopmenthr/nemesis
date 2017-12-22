@@ -217,4 +217,9 @@ class ClassType
 
         return array_pop($exploded);
     }
+
+    public function getGenerationPriority(): int
+    {
+        return 30;
+    }
 }

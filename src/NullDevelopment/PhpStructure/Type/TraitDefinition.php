@@ -123,4 +123,9 @@ class TraitDefinition implements SourceCode
     {
         return $this->methods;
     }
+
+    public function getGenerationPriority(): int
+    {
+        return 20;
+    }
 }

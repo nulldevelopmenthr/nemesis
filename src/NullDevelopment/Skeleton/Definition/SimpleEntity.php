@@ -15,4 +15,8 @@ use NullDevelopment\Skeleton\SourceCode;
  */
 class SimpleEntity extends ClassType implements SourceCode
 {
+    public function getGenerationPriority(): int
+    {
+        return 50;
+    }
 }
