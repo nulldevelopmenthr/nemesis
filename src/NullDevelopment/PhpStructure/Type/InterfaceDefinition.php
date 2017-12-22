@@ -106,4 +106,9 @@ class InterfaceDefinition implements SourceCode
     {
         return $this->methods;
     }
+
+    public function getGenerationPriority(): int
+    {
+        return 10;
+    }
 }

@@ -51,4 +51,9 @@ class SimpleCollection extends ClassType implements SourceCode
 
         return $data;
     }
+
+    public function getGenerationPriority(): int
+    {
+        return 90;
+    }
 }
