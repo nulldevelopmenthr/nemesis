@@ -25,7 +25,7 @@ final class Application extends BaseApplication
     /** @var ContainerBuilder */
     protected $container;
 
-    const VERSION = '0';
+    const VERSION = '0.1.0';
 
     public function __construct()
     {
