@@ -19,7 +19,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_order' => true,
         'php_unit_test_class_requires_covers' => true,
         'phpdoc_add_missing_param_annotation' => true,
-        'psr4' => true,
+        'psr4' => false,
         'single_line_comment_style' => true,
         'align_multiline_comment' => true,
         'doctrine_annotation_array_assignment' => true,
