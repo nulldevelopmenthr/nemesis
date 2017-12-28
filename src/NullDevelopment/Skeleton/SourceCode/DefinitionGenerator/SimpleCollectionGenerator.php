@@ -7,7 +7,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Visibility;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\Result;
@@ -18,7 +18,7 @@ use NullDevelopment\Skeleton\SourceCode\Result;
  */
 class SimpleCollectionGenerator implements DefinitionGenerator
 {
-    public function supports(ClassType $definition): bool
+    public function supports(Definition $definition): bool
     {
         if ($definition instanceof SimpleCollection) {
             return true;
@@ -34,7 +34,7 @@ class SimpleCollectionGenerator implements DefinitionGenerator
         ];
     }
 
-    public function generateAsString(ClassType $definition): string
+    public function generateAsString(Definition $definition): string
     {
         $code = $this->generate($definition);
 
@@ -46,7 +46,7 @@ class SimpleCollectionGenerator implements DefinitionGenerator
      * @SuppressWarnings(PHPMD.NPathComplexity)
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
-    public function generate(ClassType $definition): PhpNamespace
+    public function generate(Definition $definition): PhpNamespace
     {
         if (null === $definition->getNamespace()) {
             $namespace = new PhpNamespace('');

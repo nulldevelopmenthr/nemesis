@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
@@ -23,9 +23,9 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
         $this->methodGenerators = $methodGenerators;
     }
 
-    abstract public function supports(ClassType $definition): bool;
+    abstract public function supports(Definition $definition): bool;
 
-    public function generateAsString(ClassType $definition): string
+    public function generateAsString(Definition $definition): string
     {
         $code = $this->generate($definition);
 
@@ -36,7 +36,7 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    public function generate(ClassType $definition): PhpNamespace
+    public function generate(Definition $definition): PhpNamespace
     {
         if (null === $definition->getNamespace()) {
             $namespace = new PhpNamespace('');

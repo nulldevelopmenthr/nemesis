@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\SourceCode;
 
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\Definition;
 
 interface DefinitionGenerator
 {
-    public function supports(ClassType $definition): bool;
+    public function supports(Definition $definition): bool;
 
-    public function generate(ClassType $definition);
+    public function generate(Definition $definition);
 
-    public function generateAsString(ClassType $definition): string;
+    public function generateAsString(Definition $definition): string;
 }
