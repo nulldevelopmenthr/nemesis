@@ -12,6 +12,7 @@ use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\OutputResource2;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\SourceCode\Result;
 
 class PHPParserGeneratorMiddleware implements Middleware
 {
@@ -46,6 +47,14 @@ class PHPParserGeneratorMiddleware implements Middleware
                         $zz
                     );
                 }
+            } elseif ($item instanceof Result) {
+                $zz    = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace("\t", '    ', $item->getGenerated());
+
+                $outputs[] = new OutputResource2(
+                    $this->fileFactory->getPath2($item->getClassType()->getName()),
+                    $item->getClassType()->getName(),
+                    $zz
+                );
             } else {
                 throw new Exception('ERR 32242398: Got '.get_class($item).' expected instance of ImprovedClassSource');
             }

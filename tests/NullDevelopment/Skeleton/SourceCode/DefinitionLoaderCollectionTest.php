@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\Skeleton\SourceCode;
 
 use Generator;
-use NullDevelopment\Skeleton\Path\Readers\FinderFactory;
+use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDevelopment\Skeleton\SourceCode;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoaderCollection;
 use SplFileInfo;

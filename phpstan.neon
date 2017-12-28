@@ -10,3 +10,13 @@ parameters:
 	    - '#Method App\\Application\:\:getDefaultCommands\(\) should return array<Symfony\\Component\\Console\\Command\\Command> but returns array<object>.#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getParentClass\(\).#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getConstructor\(\).#'
+	    - '#Method NullDevelopment\\PhpStructure\\Type\\ClassType\:\:getConstructorParameters\(\) should return#'
+	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\ClassType\:\:getCollectionOf\(\)#'
+	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\ClassType\:\:getSubjectUnderTest\(\).#'
+	includes:
+	    - vendor/phpstan/phpstan-phpunit/extension.neon
+	    - vendor/phpstan/phpstan-phpunit/rules.neon
+
+
+
+
