@@ -47,6 +47,6 @@ class TestSimpleIdentifierFactory
         }
         $properties[] = new Property('sut', $definition->getName(), false, false, null, new Visibility('private'));
 
-        return new TestSimpleIdentifier($testClassName, $testParentName, [], [], $properties, $methods);
+        return new TestSimpleIdentifier($testClassName, $testParentName, [], [], $properties, $methods, $definition->getName());
     }
 }

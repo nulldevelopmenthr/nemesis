@@ -68,7 +68,7 @@ class TestSimpleIdentifierGeneratorTest extends SfTestCase
 
         return [
             [
-                new TestSimpleIdentifier($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue]),
+                new TestSimpleIdentifier($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue], $sutClass),
                 'simple_identifier.empty.output',
             ],
         ];

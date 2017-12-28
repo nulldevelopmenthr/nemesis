@@ -68,7 +68,7 @@ class TestSimpleEntityGeneratorTest extends SfTestCase
 
         return [
             [
-                new TestSimpleEntity($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue]),
+                new TestSimpleEntity($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue], $sutClass),
                 'simple_entity.empty.output',
             ],
         ];

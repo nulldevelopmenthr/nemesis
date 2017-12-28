@@ -20,7 +20,8 @@ class TestSingleValueObjectSpec extends ObjectBehavior
         InterfaceName $interfaceName1,
         TraitName $traitName1,
         Property $property1,
-        SetUpMethod $setUpMethod
+        SetUpMethod $setUpMethod,
+        ClassName $subjectUnderTest
     ) {
         $this->beConstructedWith(
             $name,
@@ -28,7 +29,8 @@ class TestSingleValueObjectSpec extends ObjectBehavior
             [$interfaceName1],
             [$traitName1],
             [$property1],
-            [$setUpMethod]
+            [$setUpMethod],
+            $subjectUnderTest
         );
     }
 

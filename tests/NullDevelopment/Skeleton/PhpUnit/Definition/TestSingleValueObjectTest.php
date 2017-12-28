@@ -37,6 +37,8 @@ class TestSingleValueObjectTest extends TestCase
     private $properties;
     /** @var Method[]|array */
     private $methods;
+    /** @var MockInterface|ClassName */
+    private $subjectUnderTest;
     /** @var TestSingleValueObject */
     private $sut;
 
@@ -55,13 +57,15 @@ class TestSingleValueObjectTest extends TestCase
             new TestGetterMethod('testGetFirstName', 'getFistName', $firstName),
             new TestGetterMethod('testGetValue', 'getValue', $firstName),
         ];
-        $this->sut = new TestSingleValueObject(
+        $this->subjectUnderTest = Mockery::mock(ClassName::class);
+        $this->sut              = new TestSingleValueObject(
             $this->name,
             $this->parent,
             $this->interfaces,
             $this->traits,
             $this->properties,
-            $this->methods
+            $this->methods,
+            $this->subjectUnderTest
         );
     }
 
