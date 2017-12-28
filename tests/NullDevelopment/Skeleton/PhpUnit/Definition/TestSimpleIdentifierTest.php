@@ -34,6 +34,8 @@ class TestSimpleIdentifierTest extends TestCase
     private $properties;
     /** @var Method[]|array */
     private $methods;
+    /** @var MockInterface|ClassName */
+    private $subjectUnderTest;
     /** @var TestSimpleIdentifier */
     private $sut;
 
@@ -46,13 +48,15 @@ class TestSimpleIdentifierTest extends TestCase
         $this->constructorMethod = Mockery::mock(ConstructorMethod::class);
         $this->properties        = [];
         $this->methods           = [];
+        $this->subjectUnderTest  = Mockery::mock(ClassName::class);
         $this->sut               = new TestSimpleIdentifier(
             $this->name,
             $this->parent,
             $this->interfaces,
             $this->traits,
             $this->properties,
-            $this->methods
+            $this->methods,
+            $this->subjectUnderTest
         );
     }
 

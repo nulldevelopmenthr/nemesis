@@ -68,7 +68,7 @@ class TestSingleValueObjectGeneratorTest extends SfTestCase
 
         return [
             [
-                new TestSingleValueObject($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue]),
+                new TestSingleValueObject($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue], $sutClass),
                 'single_value_object.empty.output',
             ],
         ];
