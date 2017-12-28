@@ -3,14 +3,14 @@
 $finder = PhpCsFixer\Finder::create()
     ->in('spec')
     ->in('src')
-    ->in('tests')
-    ->notName('*.xml');
+    ->in('tests');
 
 return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
     ->setRules(array(
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'declare_strict_types' => true,
         'binary_operator_spaces' => [
             'align_double_arrow' => true,
             'align_equals' => true
@@ -29,5 +29,6 @@ return PhpCsFixer\Config::create()
         'no_useless_return' => true,
 
     ))
+    ->setCacheFile(__DIR__.'/vendor/.php_cs.cache')
     ->setFinder($finder)
 ;
