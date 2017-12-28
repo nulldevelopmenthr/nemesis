@@ -37,8 +37,11 @@ services:
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\DateTimeValueObjectLoader: ~
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleEntityLoader: ~
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\TraitLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\InterfaceLoader: ~
 
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory: ~
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory: ~
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory: ~
   NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory: ~

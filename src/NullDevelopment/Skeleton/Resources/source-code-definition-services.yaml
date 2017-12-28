@@ -51,6 +51,20 @@ services:
       - { name: tactician.handler, command: 'NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection' }
 
 
+  NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\TraitGenerator:
+    arguments:
+      $methodGenerators: []
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\TraitDefinition' }
+
+
+  NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\InterfaceGenerator:
+    arguments:
+      $methodGenerators: []
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\InterfaceDefinition' }
+
+
 
   NullDevelopment\Skeleton\SourceCode\DefinitionLoaderCollection:
     arguments:
@@ -60,6 +74,8 @@ services:
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\DateTimeValueObjectLoader'
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleEntityLoader'
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader'
+        - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\TraitLoader'
+        - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\InterfaceLoader'
 
 
 
