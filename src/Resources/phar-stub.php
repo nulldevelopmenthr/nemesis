@@ -14,12 +14,12 @@ set_error_handler(function ($severity, $message, $file, $line) {
         throw new ErrorException($message, 0, $severity, $file, $line);
     }
 });
+require __DIR__.'/vendor/autoload.php';
 
 Phar::mapPhar('nemesis.phar');
 
 require_once 'phar://nemesis.phar/vendor/autoload.php';
 
-require __DIR__.'/vendor/autoload.php';
 
 use App\Application;
 
