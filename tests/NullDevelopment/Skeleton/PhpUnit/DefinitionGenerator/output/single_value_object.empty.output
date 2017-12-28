@@ -4,6 +4,10 @@ use MyVendor\UserEntity;
 use MyVendor\User\UserFirstName;
 use PhpUnit\ObjectBehavior;
 
+/**
+ * @covers \MyVendor\UserEntity
+ * @group  todo
+ */
 class UserEntityTest extends ObjectBehavior
 {
 	public function setUp()

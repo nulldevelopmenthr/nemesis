@@ -3,6 +3,10 @@ namespace spec\MyVendor;
 use DateTime;
 use PhpUnit\ObjectBehavior;
 
+/**
+ * @covers \MyVendor\UserCreatedAt
+ * @group  todo
+ */
 class UserCreatedAtTest extends ObjectBehavior
 {
 	public function testToString()
