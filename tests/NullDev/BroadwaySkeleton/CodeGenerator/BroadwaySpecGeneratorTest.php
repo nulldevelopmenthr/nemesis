@@ -28,7 +28,18 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
 
         $specSource = $specGenerator->generate($classSource);
 
-        $this->assertSame($this->getFileContent($outputName), $generator->getOutput($specSource));
+        $outputFilePath = $this->getFileName($outputName);
+
+        $output = $generator->getOutput($specSource);
+
+        if (false === file_exists($outputFilePath)) {
+            file_put_contents($outputFilePath, $output);
+            $this->markTestSkipped('Generating output to '.$outputFilePath);
+        } else {
+            $expected = file_get_contents($outputFilePath);
+
+            self::assertEquals($expected, $output);
+        }
     }
 
     public function provideModelData(): array

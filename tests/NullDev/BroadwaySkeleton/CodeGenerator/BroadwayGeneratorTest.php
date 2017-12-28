@@ -23,7 +23,18 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
     {
         $generator = $this->getService(PhpParserGenerator::class);
 
-        $this->assertSame($this->getFileContent($outputName), $generator->getOutput($classSource));
+        $outputFilePath = $this->getFileName($outputName);
+
+        $output = $generator->getOutput($classSource);
+
+        if (false === file_exists($outputFilePath)) {
+            file_put_contents($outputFilePath, $output);
+            $this->markTestSkipped('Generating output to '.$outputFilePath);
+        } else {
+            $expected = file_get_contents($outputFilePath);
+
+            self::assertEquals($expected, $output);
+        }
     }
 
     public function provideModelData(): array

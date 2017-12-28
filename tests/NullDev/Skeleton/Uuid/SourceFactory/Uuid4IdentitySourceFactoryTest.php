@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Tests\NullDev\Skeleton\Uuid\SourceFactory;
 
 use Generator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -17,26 +17,24 @@ use Tests\NullDev\ContainerSupportedTestCase;
  */
 class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
 {
+    use AssertOutputTrait;
+
     /** @var Uuid4IdentitySourceFactory */
     private $sourceFactory;
-    /** @var PhpParserGenerator */
-    private $codeGenerator;
 
     public function setUp(): void
     {
         $this->sourceFactory = new Uuid4IdentitySourceFactory(new ClassSourceFactory());
-        $this->codeGenerator = $this->getService(PhpParserGenerator::class);
     }
 
     /**
      * @dataProvider provideData
      */
-    public function testOutput(ClassType $inputClassType, string $expected): void
+    public function testOutput(ClassType $inputClassType, string $fileName): void
     {
         $source = $this->sourceFactory->create($inputClassType);
-        $output = $this->codeGenerator->getOutput($source);
 
-        self::assertEquals($expected, $output);
+        $this->assertOutputMatches($fileName, $source);
     }
 
     public function provideData(): Generator
@@ -48,7 +46,7 @@ class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
         foreach ($data as $className => $fileName) {
             yield [
                 ClassType::createFromFullyQualified($className),
-                file_get_contents(__DIR__.'/sample-output/'.$fileName.'.output'),
+                __DIR__.'/sample-output/'.$fileName.'.output',
             ];
         }
     }
