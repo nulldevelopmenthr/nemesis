@@ -56,6 +56,13 @@ class SimpleCollectionGenerator implements DefinitionGenerator
 
         $code = $namespace->addClass($definition->getClassName());
 
+        $code->addComment(
+            '@see \\spec\\'.$definition->getFullClassName().'Spec'
+        );
+        $code->addComment(
+            '@see \\Tests\\'.$definition->getFullClassName().'Test'
+        );
+
         if (true === $definition->hasParent()) {
             $code->setExtends($definition->getParentFullClassName());
             $namespace->addUse($definition->getParentFullClassName());
