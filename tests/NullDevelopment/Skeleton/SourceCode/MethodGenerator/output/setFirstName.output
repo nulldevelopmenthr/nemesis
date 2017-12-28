@@ -1,0 +1,4 @@
+public function setFirstName(MyVendor\User\UserFirstName $firstName)
+{
+	$this->firstName = $firstName;
+}

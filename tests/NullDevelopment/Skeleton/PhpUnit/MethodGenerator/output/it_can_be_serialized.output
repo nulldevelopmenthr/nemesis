@@ -1,0 +1,4 @@
+public function testSerialize()
+{
+	self::assertEquals($this->firstName->serialize(), $this->sut->serialize());
+}

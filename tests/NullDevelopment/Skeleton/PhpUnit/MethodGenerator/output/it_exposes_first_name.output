@@ -1,0 +1,4 @@
+public function it_exposes_first_name()
+{
+	self::assertSame($this->firstName, $this->sut->getFirstName());
+}

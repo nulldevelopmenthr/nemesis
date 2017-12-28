@@ -1,0 +1,4 @@
+public function getFirstName(): MyVendor\User\UserFirstName
+{
+	return $this->firstName;
+}

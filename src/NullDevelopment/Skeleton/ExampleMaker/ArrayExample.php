@@ -20,10 +20,10 @@ class ArrayExample implements Example
 
     public function __toString(): string
     {
-        $results =[];
+        $results = [];
 
         foreach ($this->values as $value) {
-            $results[]= $value->__toString();
+            $results[] = $value->__toString();
         }
 
         return '['.implode(', ', $results).']';

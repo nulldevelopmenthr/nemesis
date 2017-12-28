@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\PhpStructure\DataType\SimpleVariable
- * @group todo
+ * @group  todo
  */
 class SimpleVariableTest extends TestCase
 {

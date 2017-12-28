@@ -9,7 +9,7 @@ definition:
       instanceOf: array
       nullable: false
       hasDefault: true
-      default: '[]'
+      default: []
   collectionOf:
     instanceOf: MyVendor\ProductEntity
     accessor: getId

@@ -9,7 +9,6 @@ use Exception;
 use NullDevelopment\PhpStructure\DataType\SimpleVariable;
 use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use ReflectionClass;
 use Roave\BetterReflection\BetterReflection;
 
 /**
@@ -36,11 +35,9 @@ class ExampleMaker
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
 
-        //$refl = new ReflectionClass($variable->getInstanceFullName());
-
         while ($parent = $refl->getParentClass()) {
             if (DateTime::class === $parent->getName()) {
-                return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01 00:01:00')]);
+                return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
             }
         }
 
@@ -70,7 +67,6 @@ class ExampleMaker
 
                 $arguments[] = $this->instance($paramAsVar);
             } else {
-                //var_dump($parameter);
                 throw new Exception('Err xxx1: Ha? No type on param?');
             }
         }
@@ -96,18 +92,16 @@ class ExampleMaker
             case 'array':
                 return new ArrayExample([new SimpleExample('data')]);
             case 'DateTime':
-                return new SimpleExample('2018-01-01 00:01:00');
+                return new SimpleExample('2018-01-01T00:01:00+00:00');
         }
 
         $refl = (new BetterReflection())
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
 
-        //$refl = new ReflectionClass($variable->getInstanceFullName());
-
         while ($parent = $refl->getParentClass()) {
             if (DateTime::class === $parent->getName()) {
-                return new SimpleExample('2018-01-01 00:01:00');
+                return new SimpleExample('2018-01-01T00:01:00+00:00');
             }
         }
 
@@ -131,13 +125,12 @@ class ExampleMaker
                 }
 
                 $paramAsVar = new SimpleVariable(
-                    $variable->getName(),
+                    $parameter->getName(),
                     ClassName::create($parameter->getType()->__toString())
                 );
 
                 $arguments[$parameter->getName()] = $this->value($paramAsVar);
             } else {
-                //var_dump($parameter);
                 throw new Exception('Err xxx2: Ha? No type on param?');
             }
         }

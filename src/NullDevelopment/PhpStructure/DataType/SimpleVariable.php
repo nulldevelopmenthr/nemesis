@@ -19,8 +19,8 @@ class SimpleVariable implements Variable
 
     public function __construct(string $name, ContractName $contractName)
     {
-        $this->name          = $name;
-        $this->contractName  = $contractName;
+        $this->name         = $name;
+        $this->contractName = $contractName;
     }
 
     public function getName(): string

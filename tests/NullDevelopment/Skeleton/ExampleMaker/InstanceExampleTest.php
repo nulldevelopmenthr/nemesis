@@ -26,7 +26,11 @@ class InstanceExampleTest extends TestCase
     public function provideSimpleInputs(): array
     {
         return [
-            [new ClassName('DateTime'), [new SimpleExample('2018-01-01 00:01:00')], "new DateTime('2018-01-01 00:01:00')"],
+            [
+                new ClassName('DateTime'),
+                [new SimpleExample('2018-01-01 00:01:00')],
+                "new DateTime('2018-01-01 00:01:00')",
+            ],
         ];
     }
 }

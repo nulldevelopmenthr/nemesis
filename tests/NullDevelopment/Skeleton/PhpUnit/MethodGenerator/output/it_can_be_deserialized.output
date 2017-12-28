@@ -1,0 +1,5 @@
+public function testDeserialize()
+{
+	$serialized = json_encode($this->sut->serialize());
+	self::assertEquals($this->sut, User::deserialize(json_decode($serialized,true)));
+}

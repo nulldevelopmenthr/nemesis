@@ -1,0 +1,4 @@
+public static function deserialize(string $firstName): self
+{
+	return new self(UserFirstName::deserialize($firstName));
+}

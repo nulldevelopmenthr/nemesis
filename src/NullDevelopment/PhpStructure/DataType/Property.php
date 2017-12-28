@@ -51,6 +51,11 @@ class Property implements Variable
         return $this->structureName;
     }
 
+    public function getInstanceNameAsString(): string
+    {
+        return $this->structureName->getName();
+    }
+
     public function getInstanceFullName(): string
     {
         return $this->structureName->getFullName();
@@ -74,5 +79,14 @@ class Property implements Variable
     public function getVisibility(): Visibility
     {
         return $this->visibility;
+    }
+
+    public function isObject(): bool
+    {
+        if (true === in_array($this->getInstanceFullName(), ['int', 'string', 'float', 'bool', 'array'])) {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -1,5 +1,5 @@
 definition:
-  type: SimpleValueObject
+  type: SingleValueObject
   instanceOf: MyVendor\Product\ProductWeight
   parent: ~
   interfaces: []

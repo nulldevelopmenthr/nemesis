@@ -1,0 +1,4 @@
+public function serialize(): string
+{
+	return $this->name;
+}

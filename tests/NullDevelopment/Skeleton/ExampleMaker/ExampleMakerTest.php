@@ -76,7 +76,7 @@ class ExampleMakerTest extends TestCase
         $parameter->expects('getInstanceFullName')->twice()->andReturn('DateTime');
 
         self::assertEquals(
-            new InstanceExample(new ClassName('DateTime'), [new SimpleExample('2018-01-01 00:01:00')]),
+            new InstanceExample(new ClassName('DateTime'), [new SimpleExample('2018-01-01T00:01:00+00:00')]),
             $this->exampleMaker->instance($parameter)
         );
     }

@@ -66,4 +66,13 @@ class MethodParameter implements Variable
     {
         return $this->defaultValue;
     }
+
+    public function isObject(): bool
+    {
+        if (true === in_array($this->getInstanceFullName(), ['int', 'string', 'float', 'bool', 'array'])) {
+            return false;
+        }
+
+        return true;
+    }
 }

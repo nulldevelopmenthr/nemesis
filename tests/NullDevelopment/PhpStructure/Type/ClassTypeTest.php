@@ -7,12 +7,12 @@ namespace Tests\NullDevelopment\PhpStructure\Type;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use NullDevelopment\PhpStructure\Behaviour\Method\ConstructorMethod;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -34,6 +34,8 @@ class ClassTypeTest extends TestCase
     private $constructorMethod;
     /** @var array */
     private $properties;
+    /** @var array */
+    private $methods;
     /** @var ClassType */
     private $sut;
 
@@ -51,13 +53,16 @@ class ClassTypeTest extends TestCase
         $this->properties        = [
             Mockery::mock(Property::class),
         ];
+        $this->methods = [
+            $this->constructorMethod,
+        ];
         $this->sut = new ClassType(
             $this->name,
             $this->parent,
             $this->interfaces,
             $this->traits,
-            $this->constructorMethod,
-            $this->properties
+            $this->properties,
+            $this->methods
         );
     }
 
