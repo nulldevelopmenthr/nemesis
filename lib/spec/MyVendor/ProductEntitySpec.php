@@ -42,21 +42,21 @@ class ProductEntitySpec extends ObjectBehavior
         $this->getWeight()->shouldReturn($weight);
     }
 
-    public function it_exposes_updatedAt(DateTime $updatedAt)
+    public function it_exposes_updated_at(DateTime $updatedAt)
     {
         $this->getUpdatedAt()->shouldReturn($updatedAt);
     }
 
-    public function it_is_serializable(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
+    public function it_can_be_serialized(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
     {
         $id->serialize()->shouldBeCalled()->willReturn(1);
         $weight->serialize()->shouldBeCalled()->willReturn(1);
-        $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01 00:01:00');
-        $this->serialize()->shouldReturn(['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01 00:01:00']);
+        $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
+        $this->serialize()->shouldReturn(['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01T00:01:00+00:00']);
     }
 
-    public function it_is_deserializable()
+    public function it_can_be_deserialized(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
     {
-        $this->deserialize(['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01 00:01:00'])->shouldReturnAnInstanceOf(ProductEntity::class);
+        $this->deserialize(['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01T00:01:00+00:00'])->shouldReturnAnInstanceOf(ProductEntity::class);
     }
 }

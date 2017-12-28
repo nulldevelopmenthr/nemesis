@@ -8,8 +8,7 @@ use MyVendor\Product\ProductId;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MyVendor\Product\ProductId
- * @group  todo
+ * @coversNothing
  */
 class ProductIdTest extends TestCase
 {

@@ -23,6 +23,11 @@ class ProductWeight
         return $this->weight;
     }
 
+    public function getValue(): int
+    {
+        return $this->weight;
+    }
+
     public function __toString(): string
     {
         return (string) $this->weight;

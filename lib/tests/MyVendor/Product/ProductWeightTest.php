@@ -8,8 +8,7 @@ use MyVendor\Product\ProductWeight;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MyVendor\Product\ProductWeight
- * @group  todo
+ * @coversNothing
  */
 class ProductWeightTest extends TestCase
 {
@@ -28,6 +27,11 @@ class ProductWeightTest extends TestCase
     public function testGetWeight()
     {
         self::assertSame($this->weight, $this->sut->getWeight());
+    }
+
+    public function testGetValue()
+    {
+        self::assertSame($this->weight, $this->sut->getValue());
     }
 
     public function testToString()

@@ -8,8 +8,7 @@ use MyVendor\User\UserId;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MyVendor\User\UserId
- * @group  todo
+ * @coversNothing
  */
 class UserIdTest extends TestCase
 {

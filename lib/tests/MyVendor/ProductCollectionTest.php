@@ -12,20 +12,19 @@ use MyVendor\ProductEntity;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MyVendor\ProductCollection
- * @group  todo
+ * @coversNothing
  */
 class ProductCollectionTest extends TestCase
 {
     /** @var array */
-    private $elements;
+    private $elements = [];
 
     /** @var ProductCollection */
     private $sut;
 
     public function setUp()
     {
-        $this->elements = [new ProductEntity(new ProductId(1), 'title', 'description', new ProductWeight(1), new DateTime('2018-01-01 00:01:00'))];
+        $this->elements = [new ProductEntity(new ProductId(1), 'title', 'description', new ProductWeight(1), new DateTime('2018-01-01T00:01:00+00:00'))];
         $this->sut      = new ProductCollection($this->elements);
     }
 

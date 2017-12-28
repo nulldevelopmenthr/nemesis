@@ -29,12 +29,12 @@ class UserIdSpec extends ObjectBehavior
         $this->__toString()->shouldReturn('1');
     }
 
-    public function it_is_serializable()
+    public function it_can_be_serialized()
     {
         $this->serialize()->shouldReturn(1);
     }
 
-    public function it_is_deserializable()
+    public function it_can_be_deserialized()
     {
         $this->deserialize(1)->shouldReturnAnInstanceOf(UserId::class);
     }
