@@ -14,6 +14,7 @@ disabled:
   - blank_line_before_continue
   - blank_line_before_break
   - property_separation
+  - const_separation
 
 finder:
   path:
