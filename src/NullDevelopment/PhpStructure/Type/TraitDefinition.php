@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\PhpStructure\Type;
 
+use Exception;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
@@ -39,6 +40,31 @@ class TraitDefinition implements SourceCode, Definition
         $this->constants  = $constants;
         $this->properties = $properties;
         $this->methods    = $methods;
+    }
+
+    public function getFullClassName()
+    {
+        throw new Exception('ERR 325236: @TODO');
+    }
+
+    public function hasParent(): bool
+    {
+        return false;
+    }
+
+    public function getParentClassName()
+    {
+        return null;
+    }
+
+    public function getParentFullClassName()
+    {
+        return null;
+    }
+
+    public function getInterfaces(): array
+    {
+        return [];
     }
 
     public function getName(): TraitName

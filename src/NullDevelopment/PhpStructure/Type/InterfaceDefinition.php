@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\PhpStructure\Type;
 
+use Exception;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -38,6 +39,49 @@ class InterfaceDefinition implements SourceCode, Definition
         $this->parentName = $parentName;
         $this->constants  = $constants;
         $this->methods    = $methods;
+    }
+
+    public function getFullClassName()
+    {
+        throw new Exception('ERR 235352: @TODO');
+    }
+
+    public function getParentClassName()
+    {
+        if (null === $this->parentName) {
+            return null;
+        }
+
+        return $this->parentName->getName();
+    }
+
+    public function getParentFullClassName()
+    {
+        if (null === $this->parentName) {
+            return null;
+        }
+
+        return $this->parentName->getFullName();
+    }
+
+    public function getInterfaces(): array
+    {
+        return [];
+    }
+
+    public function getProperties(): array
+    {
+        return [];
+    }
+
+    public function hasTraits(): bool
+    {
+        return false;
+    }
+
+    public function getTraits(): array
+    {
+        return [];
     }
 
     public function getName(): InterfaceName
