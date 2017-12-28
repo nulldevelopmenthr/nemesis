@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyCompany\Webshop\Buyers\Application;
 
 use MyCompany\Webshop\Buyers\Core\BuyerId;
