@@ -17,7 +17,7 @@ abstract class BaseOutputGeneratorTestCase extends TestCase
         $this->printer = new Standard();
     }
 
-    protected function assertOutputMatches($method, string $fileName): void
+    protected function assertMethodOutputMatches($method, string $fileName): void
     {
         $generated = $this->getGenerator()->generate($method);
 

@@ -9,7 +9,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadRepository;
 use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadRepositoryHandler;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,7 +19,7 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayDoctrineOrmReadRepositoryHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait2;
+    use AssertOutputTrait;
 
     /** @var BroadwayDoctrineOrmReadRepositoryHandler */
     private $handler;
@@ -45,9 +45,9 @@ class BroadwayDoctrineOrmReadRepositoryHandlerTest extends ContainerSupportedTes
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath('repository-src'), $result[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('repository-test'), $result[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('repository-spec'), $result[2]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-src'), $result[0]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-test'), $result[1]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-spec'), $result[2]);
     }
 
     public function provideData(): array

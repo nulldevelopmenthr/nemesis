@@ -29,7 +29,7 @@ class UuidCreateGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new UuidCreateMethod($classType);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

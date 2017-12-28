@@ -31,7 +31,7 @@ class InitializableGeneratorTest extends TestCase
     {
         $method = new InitializableMethod($parameters);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

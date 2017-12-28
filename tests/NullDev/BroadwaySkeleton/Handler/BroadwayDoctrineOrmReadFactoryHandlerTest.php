@@ -9,7 +9,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory;
 use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadFactoryHandler;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,7 +19,7 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayDoctrineOrmReadFactoryHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait2;
+    use AssertOutputTrait;
 
     /** @var BroadwayDoctrineOrmReadFactoryHandler */
     private $handler;
@@ -45,9 +45,9 @@ class BroadwayDoctrineOrmReadFactoryHandlerTest extends ContainerSupportedTestCa
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath('factory-src'), $result[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('factory-test'), $result[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('factory-spec'), $result[2]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('factory-src'), $result[0]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('factory-test'), $result[1]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('factory-spec'), $result[2]);
     }
 
     public function provideData(): array

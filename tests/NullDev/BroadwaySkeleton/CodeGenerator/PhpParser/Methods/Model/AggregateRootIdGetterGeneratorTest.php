@@ -26,7 +26,7 @@ class AggregateRootIdGetterGeneratorTest extends BaseOutputGeneratorTestCase
         $zz     = Parameter::create('id', 'Something\\SomeId');
         $method = new AggregateRootIdGetterMethod($zz);
 
-        $this->assertOutputMatches($method, '0-no-param');
+        $this->assertMethodOutputMatches($method, '0-no-param');
     }
 
     public function provideParameters(): array

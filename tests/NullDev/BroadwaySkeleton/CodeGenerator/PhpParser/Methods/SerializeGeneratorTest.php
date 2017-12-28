@@ -31,7 +31,7 @@ class SerializeGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new SerializeMethod($classSource);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

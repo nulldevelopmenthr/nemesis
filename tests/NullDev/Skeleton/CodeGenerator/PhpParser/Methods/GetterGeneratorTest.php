@@ -27,7 +27,7 @@ class GetterGeneratorTest extends BaseOutputGeneratorTestCase
     public function testOutput(Property $property, string $fileName): void
     {
         $method = GetterMethod::create($property);
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

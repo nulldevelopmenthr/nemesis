@@ -31,7 +31,7 @@ class TestNothingGeneratorTest extends TestCase
     {
         $method = new TestNothingMethod($classSource);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array
