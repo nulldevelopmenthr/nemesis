@@ -6,6 +6,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\Skeleton\SourceCode;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use Webmozart\Assert\Assert;
@@ -44,6 +45,15 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
         }
 
         $code = $namespace->addClass($definition->getClassName());
+
+        if($definition instanceof SourceCode){
+            $code->addComment(
+              '@see \\spec\\'.$definition->getFullClassName().'Spec'
+            );
+            $code->addComment(
+                '@see \\Tests\\'.$definition->getFullClassName().'Test'
+            );
+        }
 
         if (true === $definition->hasParent()) {
             $code->setExtends($definition->getParentFullClassName());
