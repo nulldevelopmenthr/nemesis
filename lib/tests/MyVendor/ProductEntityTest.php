@@ -11,7 +11,8 @@ use MyVendor\ProductEntity;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversNothing
+ * @covers \MyVendor\ProductEntity
+ * @group  todo
  */
 class ProductEntityTest extends TestCase
 {
