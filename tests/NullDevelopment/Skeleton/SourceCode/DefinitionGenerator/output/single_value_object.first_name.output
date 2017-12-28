@@ -2,6 +2,10 @@ namespace MyVendor;
 
 use MyVendor\User\UserFirstName;
 
+/**
+ * @see \spec\MyVendor\UserEntitySpec
+ * @see \Tests\MyVendor\UserEntityTest
+ */
 class UserEntity
 {
 	/** @var UserFirstName */
