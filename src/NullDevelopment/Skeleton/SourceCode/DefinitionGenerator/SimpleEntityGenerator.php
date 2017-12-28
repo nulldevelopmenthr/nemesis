@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity;
 use NullDevelopment\Skeleton\SourceCode\Result;
 
@@ -14,7 +14,7 @@ use NullDevelopment\Skeleton\SourceCode\Result;
  */
 class SimpleEntityGenerator extends BaseDefinitionGenerator
 {
-    public function supports(ClassType $definition): bool
+    public function supports(Definition $definition): bool
     {
         if ($definition instanceof SimpleEntity) {
             return true;
