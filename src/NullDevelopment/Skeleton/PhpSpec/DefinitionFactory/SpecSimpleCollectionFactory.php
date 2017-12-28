@@ -45,8 +45,8 @@ class SpecSimpleCollectionFactory
             [],
             [],
             $methods,
-            $definition->getCollectionOf(),
-            $definition->getName()
+            $definition->getName(),
+            $definition->getCollectionOf()
         );
     }
 }
