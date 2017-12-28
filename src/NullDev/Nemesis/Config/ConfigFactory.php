@@ -107,7 +107,6 @@ class ConfigFactory
                 'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'                       => null,
                 'NullDev\Theater\TheaterExtension'                                       => null,
                 'NullDevelopment\Skeleton\SkeletonExtension'                             => null,
-                'NullDevelopment\SkeletonNetteGenerator\SkeletonNetteGeneratorExtension' => null,
             ],
         ];
     }
