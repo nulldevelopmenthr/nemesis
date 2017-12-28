@@ -1,2 +1,12 @@
-contexts: {  }
+contexts:
+  Miro:
+    namespace: Nesto
+    classes:
+      id: Nesto\Core\MiroId
+      model: Nesto\Domain\MiroModel
+      repository: Nesto\Domain\MiroRepository
+      handler: Nesto\Application\MiroCommandHandler
+      entities: {  }
+      commands: {  }
+      events: {  }
 reads: {  }

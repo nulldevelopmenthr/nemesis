@@ -2,37 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Tests\Something;
+namespace tests\Nesto\Domain;
 
 use Broadway\EventHandling\EventBus;
 use Broadway\EventStore\EventStore;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use PHPUnit\Framework\TestCase;
-use Something\UserRepository;
+use Nesto\Domain\MiroRepository;
+use PHPUnit_Framework_TestCase;
 
 /**
- * @covers \Something\UserRepository
+ * @covers \Nesto\Domain\MiroRepository
  * @group todo
  */
-class UserRepositoryTest extends TestCase
+class MiroRepositoryTest extends PHPUnit_Framework_TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var EventStore */
-    private $eventStore;
-    /** @var EventBus */
-    private $eventBus;
-    /** @var array */
-    private $eventStreamDecorators;
-    /** @var UserRepository */
-    private $sut;
+    /** @var MiroRepository */
+    private $miroRepository;
 
     public function setUp()
     {
         $this->eventStore            = Mockery::mock(EventStore::class);
         $this->eventBus              = Mockery::mock(EventBus::class);
         $this->eventStreamDecorators = [];
-        $this->sut                   = new UserRepository($this->eventStore, $this->eventBus, $this->eventStreamDecorators);
+        $this->miroRepository        = new MiroRepository($this->eventStore, $this->eventBus, $this->eventStreamDecorators);
     }
 
     public function testNothing()
