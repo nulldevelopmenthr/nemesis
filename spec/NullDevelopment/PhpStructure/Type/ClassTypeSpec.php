@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\PhpStructure\Type;
 
-use NullDevelopment\PhpStructure\Behaviour\Method\ConstructorMethod;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use PhpSpec\ObjectBehavior;
 
 class ClassTypeSpec extends ObjectBehavior
@@ -22,7 +22,7 @@ class ClassTypeSpec extends ObjectBehavior
         ConstructorMethod $constructorMethod,
         Property $property1
     ) {
-        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], $constructorMethod, [$property1]);
+        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], [$property1],[$constructorMethod]);
     }
 
     public function it_is_initializable()
