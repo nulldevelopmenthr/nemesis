@@ -20,7 +20,6 @@ Phar::mapPhar('nemesis.phar');
 
 require_once 'phar://nemesis.phar/vendor/autoload.php';
 
-
 use App\Application;
 
 $application = new Application();
