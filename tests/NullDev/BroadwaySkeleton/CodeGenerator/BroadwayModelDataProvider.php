@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\CodeGenerator;
+namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
 use DateTime;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;

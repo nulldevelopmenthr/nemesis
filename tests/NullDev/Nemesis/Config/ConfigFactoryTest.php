@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Nemesis\Config;
+namespace Tests\NullDev\Nemesis\Config;
 
 use NullDev\Nemesis\Config\Config;
 use NullDev\Nemesis\Config\ConfigFactory;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Nemesis\Config\ConfigFactory

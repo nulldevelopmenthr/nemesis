@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator\SimpleTraitNetteGenerator;

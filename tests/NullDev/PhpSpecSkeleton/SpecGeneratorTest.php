@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PhpSpecSkeleton;
+namespace Tests\NullDev\PhpSpecSkeleton;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use tests\NullDev\ContainerSupportedTestCase;
-use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
+use Tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\PhpSpecSkeleton\SpecGenerator

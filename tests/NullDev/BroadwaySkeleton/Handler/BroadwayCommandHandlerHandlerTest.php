@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\Handler;
+namespace Tests\NullDev\BroadwaySkeleton\Handler;
 
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -12,8 +12,8 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use tests\NullDev\AssertOutputTrait2;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandlerHandler

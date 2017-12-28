@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
+namespace Tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
 
 use NullDevelopment\Skeleton\Definition\SimpleEntity;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleEntityLoader;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @group  application

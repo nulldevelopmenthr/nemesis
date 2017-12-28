@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\PhpStructure\Behaviour\Method;
+namespace Tests\NullDevelopment\PhpStructure\Behaviour\Method;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\Behaviour\Method\ConstructorMethod;

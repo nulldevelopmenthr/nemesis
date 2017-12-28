@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\NamingStrategy;
+namespace Tests\NullDev\Theater\NamingStrategy;
 
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;

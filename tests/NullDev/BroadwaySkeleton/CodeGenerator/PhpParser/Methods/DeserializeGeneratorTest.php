@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods;
+namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\DeserializeMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
-use tests\NullDev\Skeleton\CodeGenerator\LolProvider;
-use tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
-use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
+use Tests\NullDev\Skeleton\CodeGenerator\LolProvider;
+use Tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
+use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\DeserializeGenerator

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Definition\PHP\Methods;
+namespace Tests\NullDev\Skeleton\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Methods\ToStringMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;

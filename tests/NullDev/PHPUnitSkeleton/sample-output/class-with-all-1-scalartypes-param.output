@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Developer;
+namespace Tests\Developer;
 
 use Developer\Senior;
 use Mockery;

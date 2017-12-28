@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PHPUnitSkeleton;
+namespace Tests\NullDev\PHPUnitSkeleton;
 
 use App\Application;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -14,8 +14,8 @@ use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use tests\NullDev\AssertOutputTrait;
-use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
+use Tests\NullDev\AssertOutputTrait;
+use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\PHPUnitTestGenerator

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
+namespace Tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestSkippedGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestSkippedMethod;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\MyCompany\ValueObject;
+namespace Tests\MyCompany\ValueObject;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\ValueObject\EmailAddress;

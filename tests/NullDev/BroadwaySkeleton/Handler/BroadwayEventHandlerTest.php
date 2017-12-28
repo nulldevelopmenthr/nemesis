@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\Handler;
+namespace Tests\NullDev\BroadwaySkeleton\Handler;
 
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -10,8 +10,8 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\BroadwaySkeleton\Handler\BroadwayEventHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use tests\NullDev\AssertOutputTrait2;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\Handler\BroadwayEventHandler

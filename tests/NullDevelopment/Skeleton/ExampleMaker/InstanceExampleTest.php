@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\ExampleMaker;
+namespace Tests\NullDevelopment\Skeleton\ExampleMaker;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\ExampleMaker\InstanceExample;

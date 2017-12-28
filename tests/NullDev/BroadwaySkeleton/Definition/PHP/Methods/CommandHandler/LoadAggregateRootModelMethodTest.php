@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\Definition\PHP\Methods\CommandHandler;
+namespace Tests\NullDev\BroadwaySkeleton\Definition\PHP\Methods\CommandHandler;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

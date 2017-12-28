@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Nemesis\Config;
+namespace Tests\NullDev\Nemesis\Config;
 
 use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Path\Psr4Path;
 use NullDev\Skeleton\Path\SpecPsr4Path;
 use NullDev\Skeleton\Path\TestPsr4Path;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Nemesis\Config\Config

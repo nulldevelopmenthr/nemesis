@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\PhpStructure\DataType;
+namespace Tests\NullDevelopment\PhpStructure\DataType;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use PHPUnit\Framework\TestCase;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev;
+namespace Tests\NullDev;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;

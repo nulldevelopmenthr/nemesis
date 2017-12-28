@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator;
+namespace Tests\NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\CodeGenerator\PhpParserGenerator

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Definition\PHPUnit;
+namespace Tests\NullDev\Skeleton\Definition\PHPUnit;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHPUnit\GroupComment;

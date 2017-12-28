@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\MyCompany\ValueObject;
+namespace Tests\MyCompany\ValueObject;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

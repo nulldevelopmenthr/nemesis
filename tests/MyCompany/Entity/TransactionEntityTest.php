@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\MyCompany\Entity;
+namespace Tests\MyCompany\Entity;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\Entity\TransactionEntity;

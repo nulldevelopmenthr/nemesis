@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
+namespace Tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator;
 use NullDev\PHPUnitSkeleton\Definition\PHP\Methods\TestNothingMethod;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PhpParser\BuilderFactory;
 use PHPUnit\Framework\TestCase;
-use tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
+use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
 /**
  * @covers \NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods\TestNothingGenerator

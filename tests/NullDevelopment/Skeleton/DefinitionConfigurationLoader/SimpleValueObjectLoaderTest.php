@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
+namespace Tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
 
 use NullDevelopment\Skeleton\Definition\SimpleValueObject;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\Factory\ConstructorMethodFactory;

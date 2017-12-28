@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
+namespace Tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -16,7 +16,7 @@ use NullDev\Skeleton\Definition\PHP\Property;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;
 use PhpParser\Builder\Method as PhpBuilderMethod;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory

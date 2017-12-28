@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\SourceFactory;
+namespace Tests\NullDev\BroadwaySkeleton\SourceFactory;
 
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;
 use NullDev\BroadwaySkeleton\SourceFactory\CommandSourceFactory;

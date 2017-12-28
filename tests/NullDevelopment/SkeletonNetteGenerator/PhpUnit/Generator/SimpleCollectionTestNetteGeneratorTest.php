@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\PhpUnit\Generator;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\PhpUnit\Generator;
 
 use League\Tactician\CommandBus;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleCollectionLoader;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonNetteGenerator\PhpUnit\Generator\SimpleCollectionTestNetteGenerator;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonNetteGenerator\PhpUnit\Generator\SimpleCollectionTestNetteGenerator

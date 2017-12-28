@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\PhpSpec\Generator;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\PhpSpec\Generator;
 
 use League\Tactician\CommandBus;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\DateTimeValueObjectLoader;
 use NullDevelopment\SkeletonNetteGenerator\PhpSpec\Generator\DateTimeValueObjectSpecNetteGenerator;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonNetteGenerator\PhpSpec\Generator\DateTimeValueObjectSpecNetteGenerator

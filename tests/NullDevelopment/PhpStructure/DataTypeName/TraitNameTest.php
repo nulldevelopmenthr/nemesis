@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\PhpStructure\DataTypeName;
+namespace Tests\NullDevelopment\PhpStructure\DataTypeName;
 
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use PHPUnit\Framework\TestCase;

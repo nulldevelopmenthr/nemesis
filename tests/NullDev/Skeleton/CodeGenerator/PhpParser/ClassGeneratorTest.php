@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
+namespace Tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator;
 use NullDev\Skeleton\Definition\PHP\Property;
