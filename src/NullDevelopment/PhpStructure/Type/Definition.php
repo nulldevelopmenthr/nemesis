@@ -20,6 +20,10 @@ interface Definition
 
     public function getParentFullClassName();
 
+    public function hasTraits(): bool;
+
+    public function getTraits(): array;
+
     public function getInterfaces(): array;
 
     public function getProperties(): array;

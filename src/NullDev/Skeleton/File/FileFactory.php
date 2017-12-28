@@ -7,7 +7,7 @@ namespace NullDev\Skeleton\File;
 use Exception;
 use NullDev\Nemesis\Config\Config;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 
 class FileFactory
 {
@@ -45,7 +45,7 @@ class FileFactory
         return new OutputResource($this->getPath($classSource), $classSource, $output);
     }
 
-    protected function getPathItBelongsTo2(ClassName $className)
+    protected function getPathItBelongsTo2(AbstractDataTypeName $className)
     {
         foreach ($this->config->getPaths() as $path) {
             if ($path->belongsTo($className->getFullName())) {
@@ -56,7 +56,7 @@ class FileFactory
         throw new Exception('Err 235235235235235: Cant find path that "'.$className->getFullName().'" would belong to!');
     }
 
-    public function getPath2(ClassName $className)
+    public function getPath2(AbstractDataTypeName $className)
     {
         return $this->getPathItBelongsTo2($className)->getFileNameFor($className->getFullName());
     }

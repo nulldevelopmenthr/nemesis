@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace NullDev\Skeleton\File;
 
-use NullDevelopment\PhpStructure\DataTypeName\ContractName;
+use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 
 class OutputResource2
 {
     /** @var string */
     private $fileName;
-    /** @var ContractName */
+    /** @var AbstractDataTypeName */
     private $className;
     /** @var string */
     private $output;
 
-    public function __construct(string $fileName, ContractName $className, string $output)
+    public function __construct(string $fileName, AbstractDataTypeName $className, string $output)
     {
         $this->fileName    = $fileName;
         $this->className   = $className;
@@ -27,7 +27,7 @@ class OutputResource2
         return $this->fileName;
     }
 
-    public function getClassName(): ContractName
+    public function getClassName(): AbstractDataTypeName
     {
         return $this->className;
     }

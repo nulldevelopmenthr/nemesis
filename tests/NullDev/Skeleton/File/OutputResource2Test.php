@@ -8,7 +8,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDev\Skeleton\File\OutputResource2;
-use NullDevelopment\PhpStructure\DataTypeName\ContractName;
+use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,7 +20,7 @@ class OutputResource2Test extends TestCase
     use MockeryPHPUnitIntegration;
     /** @var string */
     private $fileName;
-    /** @var MockInterface|ContractName */
+    /** @var MockInterface|AbstractDataTypeName */
     private $className;
     /** @var string */
     private $output;
@@ -30,7 +30,7 @@ class OutputResource2Test extends TestCase
     public function setUp()
     {
         $this->fileName  = 'fileName';
-        $this->className = Mockery::mock(ContractName::class);
+        $this->className = Mockery::mock(AbstractDataTypeName::class);
         $this->output    = 'output';
         $this->sut       = new OutputResource2($this->fileName, $this->className, $this->output);
     }
