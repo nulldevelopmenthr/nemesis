@@ -70,7 +70,7 @@ class ConfigTest extends ContainerSupportedTestCase
 
     public function testGetTestsNamespace(): void
     {
-        self::assertEquals('tests', $this->config->getTestsNamespace());
+        self::assertEquals('Tests', $this->config->getTestsNamespace());
     }
 
     public function testGetBaseTestClassName(): void
