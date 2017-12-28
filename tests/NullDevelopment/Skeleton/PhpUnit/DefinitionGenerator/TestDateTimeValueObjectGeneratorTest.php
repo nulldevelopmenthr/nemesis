@@ -12,6 +12,7 @@ use NullDevelopment\Skeleton\PhpUnit\Method\TestDateTimeCreateFromFormatMethod;
 use NullDevelopment\Skeleton\PhpUnit\Method\TestDateTimeDeserializeMethod;
 use NullDevelopment\Skeleton\PhpUnit\Method\TestDateTimeSerializeMethod;
 use NullDevelopment\Skeleton\PhpUnit\Method\TestDateTimeToStringMethod;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\SfTestCase;
 
 /**
@@ -20,6 +21,7 @@ use Tests\TestCase\SfTestCase;
  */
 class TestDateTimeValueObjectGeneratorTest extends SfTestCase
 {
+    use AssertOutputTrait;
     /** @var TestDateTimeValueObjectGenerator */
     private $sut;
 
@@ -38,17 +40,10 @@ class TestDateTimeValueObjectGeneratorTest extends SfTestCase
     /** @dataProvider provideTestDateTimeValueObject */
     public function testGenerateAsString(TestDateTimeValueObject $definition, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($definition);
 
-        $result = $this->sut->generateAsString($definition);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     /** @dataProvider provideTestDateTimeValueObject */

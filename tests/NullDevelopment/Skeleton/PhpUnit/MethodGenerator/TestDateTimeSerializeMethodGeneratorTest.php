@@ -8,6 +8,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeSerializeMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeSerializeMethodGenerator
@@ -16,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 class TestDateTimeSerializeMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
     /** @var ExampleMaker */
     private $exampleMaker;
     /** @var TestDateTimeSerializeMethodGenerator */

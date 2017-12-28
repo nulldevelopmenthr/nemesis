@@ -9,6 +9,7 @@ use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\Skeleton\PhpSpec\Method\InitializableMethod;
 use NullDevelopment\Skeleton\PhpSpec\MethodGenerator\InitializableMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\Skeleton\PhpSpec\MethodGenerator\InitializableMethodGenerator
@@ -16,6 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class InitializableMethodGeneratorTest extends TestCase
 {
+    use AssertOutputTrait;
     /** @var InitializableMethodGenerator */
     private $sut;
 
@@ -33,17 +35,10 @@ class InitializableMethodGeneratorTest extends TestCase
     /** @dataProvider provideMethods */
     public function testGenerateAsString(InitializableMethod $method, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
 
-        $result = $this->sut->generateAsString($method);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     public function provideMethods(): array

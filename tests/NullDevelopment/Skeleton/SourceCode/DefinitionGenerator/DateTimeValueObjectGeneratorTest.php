@@ -12,6 +12,7 @@ use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeSerializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeToStringMethod;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\SfTestCase;
 
 /**
@@ -22,6 +23,7 @@ use Tests\TestCase\SfTestCase;
  */
 class DateTimeValueObjectGeneratorTest extends SfTestCase
 {
+    use AssertOutputTrait;
     /** @var DateTimeValueObjectGenerator */
     private $sut;
 
@@ -40,17 +42,10 @@ class DateTimeValueObjectGeneratorTest extends SfTestCase
     /** @dataProvider provideDateTimeValueObject */
     public function testGenerateAsString(DateTimeValueObject $definition, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($definition);
 
-        $result = $this->sut->generateAsString($definition);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     /** @dataProvider provideDateTimeValueObject */

@@ -12,6 +12,7 @@ use NullDevelopment\Skeleton\PhpSpec\Method\SpecDateTimeCreateFromFormatMethod;
 use NullDevelopment\Skeleton\PhpSpec\Method\SpecDateTimeDeserializeMethod;
 use NullDevelopment\Skeleton\PhpSpec\Method\SpecDateTimeSerializeMethod;
 use NullDevelopment\Skeleton\PhpSpec\Method\SpecDateTimeToStringMethod;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\SfTestCase;
 
 /**
@@ -20,6 +21,7 @@ use Tests\TestCase\SfTestCase;
  */
 class SpecDateTimeValueObjectGeneratorTest extends SfTestCase
 {
+    use AssertOutputTrait;
     /** @var SpecDateTimeValueObjectGenerator */
     private $sut;
 
@@ -38,17 +40,10 @@ class SpecDateTimeValueObjectGeneratorTest extends SfTestCase
     /** @dataProvider provideSpecDateTimeValueObject */
     public function testGenerateAsString(SpecDateTimeValueObject $definition, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($definition);
 
-        $result = $this->sut->generateAsString($definition);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     /** @dataProvider provideSpecDateTimeValueObject */

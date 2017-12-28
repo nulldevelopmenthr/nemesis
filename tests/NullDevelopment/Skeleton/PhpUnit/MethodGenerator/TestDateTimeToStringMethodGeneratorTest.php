@@ -8,6 +8,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeToStringMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeToStringMethodGenerator
@@ -16,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 class TestDateTimeToStringMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
     /** @var ExampleMaker */
     private $exampleMaker;
     /** @var TestDateTimeToStringMethodGenerator */

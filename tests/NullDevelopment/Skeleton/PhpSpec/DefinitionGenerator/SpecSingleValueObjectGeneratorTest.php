@@ -11,6 +11,7 @@ use NullDevelopment\Skeleton\PhpSpec\DefinitionGenerator\SpecSingleValueObjectGe
 use NullDevelopment\Skeleton\PhpSpec\Method\GetterSpecMethod;
 use NullDevelopment\Skeleton\PhpSpec\Method\InitializableMethod;
 use NullDevelopment\Skeleton\PhpSpec\Method\LetMethod;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 use Tests\TestCase\SfTestCase;
 
@@ -20,6 +21,7 @@ use Tests\TestCase\SfTestCase;
  */
 class SpecSingleValueObjectGeneratorTest extends SfTestCase
 {
+    use AssertOutputTrait;
     /** @var SpecSingleValueObjectGenerator */
     private $sut;
 
@@ -38,17 +40,10 @@ class SpecSingleValueObjectGeneratorTest extends SfTestCase
     /** @dataProvider provideSpecSingleValueObject */
     public function testGenerateAsString(SpecSingleValueObject $definition, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($definition);
 
-        $result = $this->sut->generateAsString($definition);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     /** @dataProvider provideSpecSingleValueObject */

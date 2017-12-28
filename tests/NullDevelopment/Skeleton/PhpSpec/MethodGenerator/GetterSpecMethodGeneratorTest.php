@@ -9,6 +9,7 @@ use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\PhpSpec\Method\GetterSpecMethod;
 use NullDevelopment\Skeleton\PhpSpec\MethodGenerator\GetterSpecMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 
 /**
@@ -18,6 +19,7 @@ use Tests\TestCase\Fixtures;
 class GetterSpecMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
     /** @var ExampleMaker */
     private $exampleMaker;
     /** @var GetterSpecMethodGenerator */
@@ -38,17 +40,10 @@ class GetterSpecMethodGeneratorTest extends TestCase
     /** @dataProvider provideMethods */
     public function testGenerateAsString(GetterSpecMethod $method, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
 
-        $result = $this->sut->generateAsString($method);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     public function provideMethods(): array
