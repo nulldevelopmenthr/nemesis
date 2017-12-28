@@ -4,6 +4,10 @@ use MyVendor\User\UserId;
 use MyVendor\User\Username;
 use Webmozart\Assert\Assert;
 
+/**
+ * @see \spec\MyVendor\UserEntitySpec
+ * @see \Tests\MyVendor\UserEntityTest
+ */
 class UserEntity
 {
 	/** @var int|Username[] */

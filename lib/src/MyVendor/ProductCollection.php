@@ -7,6 +7,10 @@ namespace MyVendor;
 use MyVendor\Product\ProductId;
 use Webmozart\Assert\Assert;
 
+/**
+ * @see \spec\MyVendor\ProductCollectionSpec
+ * @see \Tests\MyVendor\ProductCollectionTest
+ */
 class ProductCollection
 {
     /** @var array|ProductEntity[] */
