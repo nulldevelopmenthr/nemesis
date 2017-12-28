@@ -15,6 +15,7 @@ use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 use Tests\TestCase\SfTestCase;
 
@@ -26,6 +27,7 @@ use Tests\TestCase\SfTestCase;
  */
 class SingleValueObjectGeneratorTest extends SfTestCase
 {
+    use AssertOutputTrait;
     /** @var SingleValueObjectGenerator */
     private $sut;
 
@@ -44,17 +46,10 @@ class SingleValueObjectGeneratorTest extends SfTestCase
     /** @dataProvider provideSingleValueObject */
     public function testGenerateAsString(SingleValueObject $definition, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($definition);
 
-        $result = $this->sut->generateAsString($definition);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     /** @dataProvider provideSingleValueObject */

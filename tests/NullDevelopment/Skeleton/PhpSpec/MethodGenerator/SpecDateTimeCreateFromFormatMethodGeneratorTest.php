@@ -7,6 +7,7 @@ namespace Tests\NullDevelopment\Skeleton\PhpSpec\MethodGenerator;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator
@@ -15,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class SpecDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
     /** @var SpecDateTimeCreateFromFormatMethodGenerator */
     private $sut;
 

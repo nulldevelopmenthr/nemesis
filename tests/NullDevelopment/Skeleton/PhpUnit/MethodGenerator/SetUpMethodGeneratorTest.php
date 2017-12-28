@@ -8,6 +8,7 @@ use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\PhpUnit\Method\SetUpMethod;
 use NullDevelopment\Skeleton\PhpUnit\MethodGenerator\SetUpMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 
 /**
@@ -16,6 +17,7 @@ use Tests\TestCase\Fixtures;
  */
 class SetUpMethodGeneratorTest extends TestCase
 {
+    use AssertOutputTrait;
     /** @var ExampleMaker */
     private $exampleMaker;
     /** @var SetUpMethodGenerator */
@@ -36,17 +38,10 @@ class SetUpMethodGeneratorTest extends TestCase
     /** @dataProvider provideMethods */
     public function testGenerateAsString(SetUpMethod $method, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
 
-        $result = $this->sut->generateAsString($method);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     public function provideMethods(): array

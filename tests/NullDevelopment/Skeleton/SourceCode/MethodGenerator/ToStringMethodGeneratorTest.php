@@ -8,6 +8,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator\ToStringMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 
 /**
@@ -17,6 +18,7 @@ use Tests\TestCase\Fixtures;
 class ToStringMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+    use AssertOutputTrait;
     /** @var ToStringMethodGenerator */
     private $sut;
 
@@ -34,17 +36,10 @@ class ToStringMethodGeneratorTest extends TestCase
     /** @dataProvider provideMethods */
     public function testGenerateAsString(ToStringMethod $method, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
 
-        $result = $this->sut->generateAsString($method);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     public function provideMethods(): array

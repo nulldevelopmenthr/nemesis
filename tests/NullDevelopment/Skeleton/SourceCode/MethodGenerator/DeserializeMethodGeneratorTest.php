@@ -7,6 +7,7 @@ namespace Tests\NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator\DeserializeMethodGenerator;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 
 /**
@@ -15,6 +16,7 @@ use Tests\TestCase\Fixtures;
  */
 class DeserializeMethodGeneratorTest extends TestCase
 {
+    use AssertOutputTrait;
     /** @var DeserializeMethodGenerator */
     private $sut;
 
@@ -32,17 +34,10 @@ class DeserializeMethodGeneratorTest extends TestCase
     /** @dataProvider provideMethods */
     public function testGenerateAsString(DeserializeMethod $method, string $fileName)
     {
-        $fileName = __DIR__.'/output/'.$fileName;
-        $expected = @file_get_contents($fileName);
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
 
-        $result = $this->sut->generateAsString($method);
-
-        if (true === empty($expected)) {
-            file_put_contents($fileName, $result);
-            self::markTestSkipped('Generating output for '.$fileName);
-        } else {
-            self::assertEquals($expected, $result);
-        }
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
     public function provideMethods(): array
