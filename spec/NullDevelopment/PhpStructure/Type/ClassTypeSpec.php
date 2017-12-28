@@ -22,7 +22,7 @@ class ClassTypeSpec extends ObjectBehavior
         ConstructorMethod $constructorMethod,
         Property $property1
     ) {
-        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], [$property1],[$constructorMethod]);
+        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], [$property1], [$constructorMethod]);
     }
 
     public function it_is_initializable()

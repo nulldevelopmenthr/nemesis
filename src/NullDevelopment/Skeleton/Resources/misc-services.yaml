@@ -1,0 +1,111 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\Skeleton\ExampleMaker\ExampleMaker: ~
+  NullDevelopment\Skeleton\Path\Readers\FinderFactory: ~
+  Symfony\Component\Filesystem\Filesystem: ~
+
+
+  NullDevelopment\Skeleton\File\FileFactory: ~
+  NullDevelopment\Nemesis\Config\ConfigFactory: ~
+
+  NullDevelopment\Nemesis\Config\Config:
+    class: NullDevelopment\Nemesis\Config\Config
+    factory: ['@NullDevelopment\Nemesis\Config\ConfigFactory', create]
+
+
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\ConstructorMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\GetterMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\ToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\SetterMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\SerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DeserializeMethodGenerator: ~
+
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeCreateFromFormatMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeSerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeDeserializeMethodGenerator: ~
+
+
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SingleValueObjectLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleIdentifierLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\DateTimeValueObjectLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleEntityLoader: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader: ~
+
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory: ~
+  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory: ~
+
+
+
+
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\LetMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\InitializableMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\GetterSpecMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecSerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDeserializeMethodGenerator: ~
+
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeLetMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeSerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeDeserializeMethodGenerator: ~
+
+
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\LetMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\InitializableMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\GetterSpecMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecToStringMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecSerializeMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDeserializeMethodFactory: ~
+
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeLetMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeToStringMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeCreateFromFormatMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeSerializeMethodFactory: ~
+  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeDeserializeMethodFactory: ~
+
+
+
+
+
+
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\SetUpMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestGetterMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestSerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDeserializeMethodGenerator: ~
+
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeSetUpMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeToStringMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeCreateFromFormatMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeSerializeMethodGenerator: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestDateTimeDeserializeMethodGenerator: ~
+
+  NullDevelopment\Skeleton\PhpUnit\DefinitionGenerator\TestSimpleCollectionGenerator: ~
+
+
+
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\SetUpMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestGetterMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestToStringMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestSerializeMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDeserializeMethodFactory: ~
+
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDateTimeSetUpMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDateTimeToStringMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDateTimeCreateFromFormatMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDateTimeSerializeMethodFactory: ~
+  NullDevelopment\Skeleton\PhpUnit\MethodFactory\TestDateTimeDeserializeMethodFactory: ~
+
+
+
+

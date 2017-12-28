@@ -59,9 +59,9 @@ class DeserializeMethod implements Method
             return [new MethodParameter('data', ClassName::create('array'), false, false, null)];
         } elseif (count($this->properties) > 1) {
             return [new MethodParameter('data', ClassName::create('array'), false, false, null)];
-        } else {
-            return $this->properties;
         }
+
+        return $this->properties;
     }
 
     public function getReturnType(): string

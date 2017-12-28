@@ -21,7 +21,12 @@ final class SkeletonExtension extends Extension
         $container->addCompilerPass(new ObjectConfigurationLoaderCompilerPass());
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources/'));
-        $loader->load('services.yml');
         $loader->load('cli.yml');
+
+        $loader->load('middleware-services.yaml');
+        $loader->load('misc-services.yaml');
+        $loader->load('phpspec-definition-services.yaml');
+        $loader->load('phpunit-definition-services.yaml');
+        $loader->load('source-code-definition-services.yaml');
     }
 }

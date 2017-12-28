@@ -63,23 +63,22 @@ class SerializeMethod implements Method
             return 'array';
         } elseif (count($this->properties) > 1) {
             return 'array';
-        } else {
-            $property = $this->properties[0];
+        }
+        $property = $this->properties[0];
 
-            if (true === $property->isObject()) {
-                $refl = (new BetterReflection())
+        if (true === $property->isObject()) {
+            $refl = (new BetterReflection())
                     ->classReflector()
                     ->reflect($property->getInstanceFullName());
 
-                if (count($refl->getConstructor()->getParameters()) > 1) {
-                    return 'array';
-                }
-
-                return $refl->getConstructor()->getParameters()[0]->getType()->__toString();
-            } else {
-                return $property->getInstanceFullName();
+            if (count($refl->getConstructor()->getParameters()) > 1) {
+                return 'array';
             }
+
+            return $refl->getConstructor()->getParameters()[0]->getType()->__toString();
         }
+
+        return $property->getInstanceFullName();
     }
 
     public function isNullableReturnType(): bool
