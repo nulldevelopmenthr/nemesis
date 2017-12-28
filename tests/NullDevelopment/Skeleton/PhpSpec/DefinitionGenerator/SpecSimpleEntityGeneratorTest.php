@@ -70,7 +70,15 @@ class SpecSimpleEntityGeneratorTest extends SfTestCase
 
         return [
             [
-                new SpecSimpleEntity($class, $parent, [], [], [], [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue]),
+                new SpecSimpleEntity(
+                    $class,
+                    $parent,
+                    [],
+                    [],
+                    [],
+                    [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue],
+                    $sutClass
+                ),
                 'simple_entity.empty.output',
             ],
         ];

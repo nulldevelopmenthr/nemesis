@@ -81,7 +81,8 @@ class SpecDateTimeValueObjectFactoryTest extends SfTestCase
                         new SpecDateTimeCreateFromFormatMethod(),
                         new SpecDateTimeSerializeMethod(),
                         new SpecDateTimeDeserializeMethod($className),
-                    ]
+                    ],
+                    $className
                 ),
             ],
         ];

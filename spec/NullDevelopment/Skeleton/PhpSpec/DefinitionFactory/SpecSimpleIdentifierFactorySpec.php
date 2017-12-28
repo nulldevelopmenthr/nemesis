@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\Skeleton\PhpSpec\DefinitionFactory;
 
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\PhpSpec\Definition\SpecSimpleIdentifier;
 use NullDevelopment\Skeleton\PhpSpec\DefinitionFactory\SpecSimpleIdentifierFactory;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\GetterSpecMethodFactory;
@@ -31,9 +32,11 @@ class SpecSimpleIdentifierFactorySpec extends ObjectBehavior
         SimpleIdentifier $definition,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory
+        GetterSpecMethodFactory $getterSpecMethodFactory,
+        ClassName $subjectUnderTest
     ) {
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
+        $definition->getName()->shouldBeCalled()->willReturn($subjectUnderTest);
 
         $letMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $initializableMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);

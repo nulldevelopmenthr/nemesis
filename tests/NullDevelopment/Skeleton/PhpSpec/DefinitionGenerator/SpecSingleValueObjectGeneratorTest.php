@@ -70,7 +70,15 @@ class SpecSingleValueObjectGeneratorTest extends SfTestCase
 
         return [
             [
-                new SpecSingleValueObject($class, $parent, [], [], [], [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue]),
+                new SpecSingleValueObject(
+                    $class,
+                    $parent,
+                    [],
+                    [],
+                    [],
+                    [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue],
+                    $sutClass
+                ),
                 'single_value_object.empty.output',
             ],
         ];

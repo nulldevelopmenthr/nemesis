@@ -73,7 +73,8 @@ class SpecDateTimeValueObjectGeneratorTest extends SfTestCase
                         new SpecDateTimeCreateFromFormatMethod(),
                         new SpecDateTimeSerializeMethod(),
                         new SpecDateTimeDeserializeMethod($sutClassName),
-                    ]
+                    ],
+                    $sutClassName
                 ),
                 'datetime.output',
             ],
