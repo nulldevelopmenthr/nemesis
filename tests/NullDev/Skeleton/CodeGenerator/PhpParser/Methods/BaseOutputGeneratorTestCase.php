@@ -25,9 +25,16 @@ abstract class BaseOutputGeneratorTestCase extends TestCase
 
         $output = $this->printer->prettyPrintFile([$node]);
 
-        $expected = file_get_contents($this->getBasePath().'/'.$fileName.'.output');
+        $outputFilePath = $this->getBasePath().'/'.$fileName.'.output';
 
-        self::assertEquals($expected, $output);
+        if (false === file_exists($outputFilePath)) {
+            file_put_contents($outputFilePath, $output);
+            $this->markTestSkipped('Generating output to '.$outputFilePath);
+        } else {
+            $expected = file_get_contents($outputFilePath);
+
+            self::assertEquals($expected, $output);
+        }
     }
 
     protected function getBasePath(): string

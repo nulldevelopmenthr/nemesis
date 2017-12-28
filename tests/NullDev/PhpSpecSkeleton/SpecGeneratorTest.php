@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\NullDev\PhpSpecSkeleton;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
@@ -16,15 +16,13 @@ use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
  */
 class SpecGeneratorTest extends ContainerSupportedTestCase
 {
+    use AssertOutputTrait;
     /** @var SpecGenerator */
     private $specGenerator;
-    /** @var PhpParserGenerator */
-    private $phpParserGenerator;
 
     public function setUp(): void
     {
-        $this->specGenerator      = $this->getService(SpecGenerator::class);
-        $this->phpParserGenerator = $this->getService(PhpParserGenerator::class);
+        $this->specGenerator = $this->getService(SpecGenerator::class);
     }
 
     /**
@@ -32,9 +30,7 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
      */
     public function testNothing(ImprovedClassSource $classSource, string $outputName): void
     {
-        $test = $this->specGenerator->generate($classSource);
-
-        $this->assertSame($this->getFileContent($outputName), $this->phpParserGenerator->getOutput($test));
+        $this->assertOutputMatches($this->getFilePath($outputName), $this->specGenerator->generate($classSource));
     }
 
     public function provideTestRenderData(): array
@@ -56,8 +52,8 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
         ];
     }
 
-    protected function getFileContent(string $fileName): string
+    private function getFilePath(string $fileName): string
     {
-        return file_get_contents(__DIR__.'/sample-output/'.$fileName.'.output');
+        return __DIR__.'/sample-output/'.$fileName.'.output';
     }
 }
