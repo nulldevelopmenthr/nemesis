@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\CodeGenerator;
+namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 abstract class BaseCodeGeneratorTest extends ContainerSupportedTestCase
 {

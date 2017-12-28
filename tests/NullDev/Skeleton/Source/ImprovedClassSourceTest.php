@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Source;
+namespace Tests\NullDev\Skeleton\Source;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHP\Methods\ConstructorMethod;

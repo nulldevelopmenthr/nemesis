@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator;
 
 use Exception;
 use League\Tactician\CommandBus;
@@ -10,7 +10,7 @@ use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDevelopment\Skeleton\ObjectConfigurationLoaderCollection;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\SplFileInfo;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @group  usecase

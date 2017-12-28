@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\Config;
+namespace Tests\NullDev\Theater\Config;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;

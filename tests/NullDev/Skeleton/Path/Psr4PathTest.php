@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Path;
+namespace Tests\NullDev\Skeleton\Path;
 
 use Exception;
 use NullDev\Skeleton\Path\Psr4Path;

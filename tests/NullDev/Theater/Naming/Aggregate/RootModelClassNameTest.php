@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\Naming\Aggregate;
+namespace Tests\NullDev\Theater\Naming\Aggregate;
 
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use PHPUnit\Framework\TestCase;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Path\Readers;
+namespace Tests\NullDev\Skeleton\Path\Readers;
 
 use NullDev\Skeleton\Path\Readers\SourceCodePathReader;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\Path\Readers\SourceCodePathReader

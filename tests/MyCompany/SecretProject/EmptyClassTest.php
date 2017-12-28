@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\MyCompany\SecretProject;
+namespace Tests\MyCompany\SecretProject;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use MyCompany\SecretProject\EmptyClass;

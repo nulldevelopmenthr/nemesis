@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\ExampleMaker;
+namespace Tests\NullDevelopment\Skeleton\ExampleMaker;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

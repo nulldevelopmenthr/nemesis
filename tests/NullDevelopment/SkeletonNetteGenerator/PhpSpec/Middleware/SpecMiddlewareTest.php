@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\PhpSpec\Middleware;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\PhpSpec\Middleware;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\SkeletonNetteGenerator\PhpSpec\Middleware\SpecMiddleware;

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Uuid\Handler;
+namespace Tests\NullDev\Skeleton\Uuid\Handler;
 
 use League\Tactician\CommandBus;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
 use NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler;
-use tests\NullDev\AssertOutputTrait2;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler

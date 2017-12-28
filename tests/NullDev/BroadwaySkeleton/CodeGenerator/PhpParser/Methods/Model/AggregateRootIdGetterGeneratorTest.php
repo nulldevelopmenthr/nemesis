@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
+namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model;
 
 use NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator;
 use NullDev\BroadwaySkeleton\Definition\PHP\Methods\Model\AggregateRootIdGetterMethod;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use PhpParser\BuilderFactory;
-use tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
+use Tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods\BaseOutputGeneratorTestCase;
 
 /**
  * @covers \NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\Model\AggregateRootIdGetterGenerator

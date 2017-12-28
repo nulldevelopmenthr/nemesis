@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PHPUnitSkeleton\Definition\PHP;
+namespace Tests\NullDev\PHPUnitSkeleton\Definition\PHP;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

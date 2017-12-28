@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace tests\TestCase;
+namespace Tests\TestCase;
 
 use Symfony\Component\Yaml\Yaml;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */
 abstract class SfTestCase extends ContainerSupportedTestCase

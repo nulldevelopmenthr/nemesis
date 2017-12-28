@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Middleware;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Middleware;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\SkeletonNetteGenerator\SourceCode\Middleware\SerializationMiddleware;

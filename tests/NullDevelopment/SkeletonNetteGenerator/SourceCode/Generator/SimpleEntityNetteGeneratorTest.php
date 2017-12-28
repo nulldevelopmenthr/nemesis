@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator;
+namespace Tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator;
 
 use League\Tactician\CommandBus;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\SimpleEntityLoader;
 use NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator\SimpleEntityNetteGenerator;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonNetteGenerator\SourceCode\Generator\SimpleEntityNetteGenerator

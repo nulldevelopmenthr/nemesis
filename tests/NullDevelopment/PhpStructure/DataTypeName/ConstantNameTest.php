@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\PhpStructure\DataTypeName;
+namespace Tests\NullDevelopment\PhpStructure\DataTypeName;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataTypeName\ConstantName;

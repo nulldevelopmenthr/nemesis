@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\SourceFactory;
+namespace Tests\NullDev\BroadwaySkeleton\SourceFactory;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton;
+namespace Tests\NullDevelopment\Skeleton;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ObjectConfigurationLoaderCollection;

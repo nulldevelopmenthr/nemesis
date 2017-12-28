@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\ReadSide;
+namespace Tests\NullDev\Theater\ReadSide;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Theater\ReadSide\ReadSideImplementation;

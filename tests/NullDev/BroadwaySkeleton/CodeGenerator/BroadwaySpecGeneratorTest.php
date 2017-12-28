@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\CodeGenerator;
+namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;

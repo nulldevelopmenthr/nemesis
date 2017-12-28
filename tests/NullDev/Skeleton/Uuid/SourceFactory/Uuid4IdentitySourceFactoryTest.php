@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Uuid\SourceFactory;
+namespace Tests\NullDev\Skeleton\Uuid\SourceFactory;
 
 use Generator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
-use tests\NullDev\ContainerSupportedTestCase;
+use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
  * @covers \NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory

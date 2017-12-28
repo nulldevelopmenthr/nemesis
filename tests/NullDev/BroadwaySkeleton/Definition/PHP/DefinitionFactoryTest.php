@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\BroadwaySkeleton\Definition\PHP;
+namespace Tests\NullDev\BroadwaySkeleton\Definition\PHP;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Definition\PHP\DefinitionFactory;

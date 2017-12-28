@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Uuid\Definition\PHP\Methods;
+namespace Tests\NullDev\Skeleton\Uuid\Definition\PHP\Methods;
 
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Definition\PHP\Methods\UuidCreateMethod;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\BoundedContext;
+namespace Tests\NullDev\Theater\BoundedContext;
 
 use Exception;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

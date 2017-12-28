@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Theater\Naming;
+namespace Tests\NullDev\Theater\Naming;
 
 use NullDev\Theater\Naming\EventClassName;
 use PHPUnit\Framework\TestCase;

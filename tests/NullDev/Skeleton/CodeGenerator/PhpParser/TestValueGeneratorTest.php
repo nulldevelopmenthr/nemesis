@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser;
+namespace Tests\NullDev\Skeleton\CodeGenerator\PhpParser;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\CodeGenerator\PhpParser\TestValueGenerator;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
+namespace Tests\NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration;
 
 use NullDev\Skeleton\Definition\PHP\Types\TypeDeclaration\BoolType;
 use PHPUnit\Framework\TestCase;

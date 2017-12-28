@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
+namespace Tests\NullDev\PhpSpecSkeleton\Definition\PHP\Methods;
 
 use NullDev\PhpSpecSkeleton\Definition\PHP\Methods\ExposeGettersMethod;
 use PHPUnit\Framework\TestCase;

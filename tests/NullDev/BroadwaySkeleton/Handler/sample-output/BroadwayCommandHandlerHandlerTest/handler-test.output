@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\MyCompany\Webshop\Buyers\Application;
+namespace Tests\MyCompany\Webshop\Buyers\Application;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

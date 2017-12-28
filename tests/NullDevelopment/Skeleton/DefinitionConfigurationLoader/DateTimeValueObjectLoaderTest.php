@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
+namespace Tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
 
 use Generator;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\Definition\DateTimeValueObject;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\DateTimeValueObjectLoader;
-use tests\TestCase\SfTestCase;
+use Tests\TestCase\SfTestCase;
 
 /**
  * @group application

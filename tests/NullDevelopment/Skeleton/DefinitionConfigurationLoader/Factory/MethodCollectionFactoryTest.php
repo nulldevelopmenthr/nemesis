@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader\Factory;
+namespace Tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader\Factory;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\DefinitionConfigurationLoader\Factory\MethodCollectionFactory;

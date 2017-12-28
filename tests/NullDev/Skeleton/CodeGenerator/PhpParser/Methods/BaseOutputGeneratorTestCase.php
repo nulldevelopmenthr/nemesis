@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
+namespace Tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use PhpParser\PrettyPrinter\Standard;
 use PHPUnit\Framework\TestCase;

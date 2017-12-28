@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\Definition\PHP\Types;
+namespace Tests\NullDev\Skeleton\Definition\PHP\Types;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;

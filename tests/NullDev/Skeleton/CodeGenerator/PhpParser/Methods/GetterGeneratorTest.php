@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
+namespace Tests\NullDev\Skeleton\CodeGenerator\PhpParser\Methods;
 
 use NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator;
 use NullDev\Skeleton\Definition\PHP\Methods\GetterMethod;
