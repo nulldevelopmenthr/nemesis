@@ -8,7 +8,6 @@ use Generator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ClassSourceFactory;
 use NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -17,8 +16,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
  */
 class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
 {
-    use AssertOutputTrait;
-
     /** @var Uuid4IdentitySourceFactory */
     private $sourceFactory;
 
@@ -34,7 +31,7 @@ class Uuid4IdentitySourceFactoryTest extends ContainerSupportedTestCase
     {
         $source = $this->sourceFactory->create($inputClassType);
 
-        $this->assertOutputMatches($fileName, $source);
+        $this->assertClassSourceOutputMatches($fileName, $source);
     }
 
     public function provideData(): Generator

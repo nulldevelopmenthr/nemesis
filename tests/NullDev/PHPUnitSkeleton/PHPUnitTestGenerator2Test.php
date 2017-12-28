@@ -12,6 +12,7 @@ use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,6 +21,8 @@ use Tests\NullDev\ContainerSupportedTestCase;
  */
 class PHPUnitTestGenerator2Test extends ContainerSupportedTestCase
 {
+    use AssertOutputTrait;
+
     /**
      * @dataProvider provideClasses
      */
@@ -28,15 +31,11 @@ class PHPUnitTestGenerator2Test extends ContainerSupportedTestCase
         $classSource = $this->parseSourceClass($className);
         $testSource  = $this->createPhpUnit5Source($classSource);
 
-        $result = $this->getService(PhpParserGenerator::class)->getOutput($testSource);
+        $output = $this->getService(PhpParserGenerator::class)->getOutput($testSource);
 
-        $filePath = $this->getFilePath($className);
+        $outputFilePath = $this->getFilePath($className);
 
-        if (false === file_exists($filePath)) {
-            file_put_contents($filePath, $result);
-        }
-
-        self::assertStringEqualsFile($filePath, $result);
+        $this->assertOutputContentMatches($outputFilePath, $output);
     }
 
     public function provideClasses(): array

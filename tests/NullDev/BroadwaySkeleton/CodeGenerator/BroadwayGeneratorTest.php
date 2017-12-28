@@ -23,7 +23,7 @@ class BroadwayGeneratorTest extends BaseCodeGeneratorTest
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
-        $this->assertOutputMatches($this->getFileName($outputName), $classSource);
+        $this->assertClassSourceOutputMatches($this->getFileName($outputName), $classSource);
     }
 
     public function provideModelData(): array

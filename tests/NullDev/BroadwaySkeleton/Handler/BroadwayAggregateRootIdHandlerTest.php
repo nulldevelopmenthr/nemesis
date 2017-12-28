@@ -9,7 +9,6 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootId;
 use NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootIdHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,7 +18,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayAggregateRootIdHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayAggregateRootIdHandler */
     private $handler;
@@ -45,9 +43,9 @@ class BroadwayAggregateRootIdHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('id-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('id-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('id-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('id-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('id-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('id-spec'), $result[2]);
     }
 
     public function provideData(): array

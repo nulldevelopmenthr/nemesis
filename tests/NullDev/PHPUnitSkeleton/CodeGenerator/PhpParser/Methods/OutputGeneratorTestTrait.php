@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Tests\NullDev\PHPUnitSkeleton\CodeGenerator\PhpParser\Methods;
 
 use PhpParser\PrettyPrinter\Standard;
+use Tests\NullDev\AssertOutputTrait;
 
 trait OutputGeneratorTestTrait
 {
+    use AssertOutputTrait;
+
     /** @var Standard */
     private $printer;
 
@@ -26,14 +29,7 @@ trait OutputGeneratorTestTrait
 
         $outputFilePath = $this->getBasePath().'/'.$fileName.'.output';
 
-        if (false === file_exists($outputFilePath)) {
-            file_put_contents($outputFilePath, $output);
-            $this->markTestSkipped('Generating output to '.$outputFilePath);
-        } else {
-            $expected = file_get_contents($outputFilePath);
-
-            self::assertEquals($expected, $output);
-        }
+        $this->assertOutputContentMatches($outputFilePath, $output);
     }
 
     public function getBasePath(): string

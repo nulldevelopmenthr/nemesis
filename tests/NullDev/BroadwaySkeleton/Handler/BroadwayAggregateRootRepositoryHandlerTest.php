@@ -10,7 +10,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
 use NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootRepositoryHandler;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +19,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayAggregateRootRepositoryHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayAggregateRootRepositoryHandler */
     private $handler;
@@ -47,9 +45,9 @@ class BroadwayAggregateRootRepositoryHandlerTest extends ContainerSupportedTestC
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('repository-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('repository-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('repository-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('repository-spec'), $result[2]);
     }
 
     public function provideData(): array
