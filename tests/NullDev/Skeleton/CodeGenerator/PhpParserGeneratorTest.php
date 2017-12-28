@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\NullDev\Skeleton\CodeGenerator;
 
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -14,15 +13,13 @@ use Tests\NullDev\ContainerSupportedTestCase;
  */
 class PhpParserGeneratorTest extends ContainerSupportedTestCase
 {
-    use AssertOutputTrait;
-
     /**
      * @test
      * @dataProvider provideTestRenderData
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
-        $this->assertOutputMatches($this->getFileName($outputName), $classSource);
+        $this->assertClassSourceOutputMatches($this->getFileName($outputName), $classSource);
     }
 
     public function provideTestRenderData(): array

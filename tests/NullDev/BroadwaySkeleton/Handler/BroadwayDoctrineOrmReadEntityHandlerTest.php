@@ -10,7 +10,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity;
 use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadEntityHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +19,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayDoctrineOrmReadEntityHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayDoctrineOrmReadEntityHandler */
     private $handler;
@@ -46,9 +44,9 @@ class BroadwayDoctrineOrmReadEntityHandlerTest extends ContainerSupportedTestCas
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('entity-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('entity-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('entity-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('entity-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('entity-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('entity-spec'), $result[2]);
     }
 
     public function provideData(): array

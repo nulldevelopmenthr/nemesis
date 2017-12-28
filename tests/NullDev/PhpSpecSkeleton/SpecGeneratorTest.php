@@ -6,7 +6,6 @@ namespace Tests\NullDev\PhpSpecSkeleton;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
 
@@ -16,7 +15,6 @@ use Tests\NullDev\Skeleton\CodeGenerator\SeniorDeveloperProvider;
  */
 class SpecGeneratorTest extends ContainerSupportedTestCase
 {
-    use AssertOutputTrait;
     /** @var SpecGenerator */
     private $specGenerator;
 
@@ -30,7 +28,7 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
      */
     public function testNothing(ImprovedClassSource $classSource, string $outputName): void
     {
-        $this->assertOutputMatches($this->getFilePath($outputName), $this->specGenerator->generate($classSource));
+        $this->assertClassSourceOutputMatches($this->getFilePath($outputName), $this->specGenerator->generate($classSource));
     }
 
     public function provideTestRenderData(): array

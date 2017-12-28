@@ -10,7 +10,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel;
 use NullDev\BroadwaySkeleton\Handler\BroadwayAggregateRootModelHandler;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +19,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayAggregateRootModelHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayAggregateRootModelHandler */
     private $handler;
@@ -47,9 +45,9 @@ class BroadwayAggregateRootModelHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('model-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('model-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('model-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('model-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('model-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('model-spec'), $result[2]);
     }
 
     public function provideData(): array

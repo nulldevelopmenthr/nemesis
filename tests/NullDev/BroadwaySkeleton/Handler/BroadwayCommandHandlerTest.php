@@ -10,7 +10,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
 use NullDev\BroadwaySkeleton\Handler\BroadwayCommandHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +19,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayCommandHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayCommandHandler */
     private $handler;
@@ -44,9 +42,9 @@ class BroadwayCommandHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/command-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/command-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/command-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath($folderName.'/command-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath($folderName.'/command-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath($folderName.'/command-spec'), $result[2]);
     }
 
     public function provideData(): array

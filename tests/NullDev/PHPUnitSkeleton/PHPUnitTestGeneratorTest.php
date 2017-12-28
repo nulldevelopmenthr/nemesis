@@ -50,10 +50,11 @@ class PHPUnitTestGeneratorTest extends TestCase
      */
     public function testNothing(ImprovedClassSource $classSource, string $outputName): void
     {
-        $test = $this->testGenerator->generate($classSource);
+        $filePath        = $this->getFilePath($outputName);
+        $test            = $this->testGenerator->generate($classSource);
+        $generatedOutput = $this->phpParserGenerator->getOutput($test);
 
-        $filePath = $this->getFilePath($outputName);
-        $this->assertOutputMatches($filePath, $test);
+        $this->assertOutputContentMatches($filePath, $generatedOutput);
     }
 
     public function provideTestRenderData(): array

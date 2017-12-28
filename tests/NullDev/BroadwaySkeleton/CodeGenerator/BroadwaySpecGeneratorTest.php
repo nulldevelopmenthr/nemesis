@@ -26,7 +26,7 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
     {
         $specGenerator = $this->getService(SpecGenerator::class);
 
-        $this->assertOutputMatches($this->getFileName($outputName), $specGenerator->generate($classSource));
+        $this->assertClassSourceOutputMatches($this->getFileName($outputName), $specGenerator->generate($classSource));
     }
 
     public function provideModelData(): array

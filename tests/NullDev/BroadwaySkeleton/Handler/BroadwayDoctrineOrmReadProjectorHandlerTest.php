@@ -10,7 +10,6 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector;
 use NullDev\BroadwaySkeleton\Handler\BroadwayDoctrineOrmReadProjectorHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +19,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayDoctrineOrmReadProjectorHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var BroadwayDoctrineOrmReadProjectorHandler */
     private $handler;
@@ -46,9 +44,9 @@ class BroadwayDoctrineOrmReadProjectorHandlerTest extends ContainerSupportedTest
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('projector-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('projector-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('projector-spec'), $result[2]);
     }
 
     public function provideData(): array

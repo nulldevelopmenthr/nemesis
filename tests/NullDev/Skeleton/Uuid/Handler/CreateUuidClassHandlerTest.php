@@ -9,7 +9,6 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Skeleton\Uuid\Command\CreateUuidClass;
 use NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler;
-use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -19,7 +18,6 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class CreateUuidClassHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait;
 
     /** @var CreateUuidClassHandler */
     private $handler;
@@ -40,9 +38,9 @@ class CreateUuidClassHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches2($this->getExpectedOutputPath('uuid4-src'), $result[0]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('uuid4-test'), $result[1]);
-        $this->assertOutputMatches2($this->getExpectedOutputPath('uuid4-spec'), $result[2]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-src'), $result[0]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-test'), $result[1]);
+        $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-spec'), $result[2]);
     }
 
     protected function getExpectedOutputPath(string $fileName): string
