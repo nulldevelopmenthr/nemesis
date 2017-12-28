@@ -8,40 +8,44 @@ use MyVendor\User\Username;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \MyVendor\User\Username
- * @group  todo
+ * @coversNothing
  */
 class UsernameTest extends TestCase
 {
     /** @var string */
-    private $value;
+    private $username;
 
     /** @var Username */
     private $sut;
 
     public function setUp()
     {
-        $this->value = 'value';
-        $this->sut   = new Username($this->value);
+        $this->username = 'username';
+        $this->sut      = new Username($this->username);
+    }
+
+    public function testGetUsername()
+    {
+        self::assertSame($this->username, $this->sut->getUsername());
     }
 
     public function testGetValue()
     {
-        self::assertSame($this->value, $this->sut->getValue());
+        self::assertSame($this->username, $this->sut->getValue());
     }
 
     public function testToString()
     {
-        self::assertSame($this->value, $this->sut->__toString());
+        self::assertSame($this->username, $this->sut->__toString());
     }
 
     public function testSerialize()
     {
-        self::assertEquals($this->value, $this->sut->serialize());
+        self::assertEquals($this->username, $this->sut->serialize());
     }
 
     public function testDeserialize()
     {
-        self::assertEquals($this->sut, $this->sut->deserialize($this->value));
+        self::assertEquals($this->sut, $this->sut->deserialize($this->username));
     }
 }

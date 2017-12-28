@@ -11,7 +11,7 @@ class UsernameSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith($value = 'value');
+        $this->beConstructedWith($username = 'username');
     }
 
     public function it_is_initializable()
@@ -19,23 +19,28 @@ class UsernameSpec extends ObjectBehavior
         $this->shouldHaveType(Username::class);
     }
 
+    public function it_exposes_username()
+    {
+        $this->getUsername()->shouldReturn('username');
+    }
+
     public function it_exposes_value()
     {
-        $this->getValue()->shouldReturn('value');
+        $this->getValue()->shouldReturn('username');
     }
 
     public function it_is_castable_to_string()
     {
-        $this->__toString()->shouldReturn('value');
+        $this->__toString()->shouldReturn('username');
     }
 
-    public function it_is_serializable()
+    public function it_can_be_serialized()
     {
-        $this->serialize()->shouldReturn('value');
+        $this->serialize()->shouldReturn('username');
     }
 
-    public function it_is_deserializable()
+    public function it_can_be_deserialized()
     {
-        $this->deserialize('value')->shouldReturnAnInstanceOf(Username::class);
+        $this->deserialize('username')->shouldReturnAnInstanceOf(Username::class);
     }
 }

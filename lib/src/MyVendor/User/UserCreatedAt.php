@@ -29,7 +29,7 @@ class UserCreatedAt extends DateTime
         return $this->__toString();
     }
 
-    public static function deserialize(string $value): self
+    public static function deserialize($value): self
     {
         return new self($value);
     }

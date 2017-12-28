@@ -11,30 +11,35 @@ namespace MyVendor\User;
 class Username
 {
     /** @var string */
-    private $value;
+    private $username;
 
-    public function __construct(string $value)
+    public function __construct(string $username)
     {
-        $this->value = $value;
+        $this->username = $username;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
     }
 
     public function getValue(): string
     {
-        return $this->value;
+        return $this->username;
     }
 
     public function __toString(): string
     {
-        return $this->value;
+        return $this->username;
     }
 
     public function serialize(): string
     {
-        return $this->value;
+        return $this->username;
     }
 
-    public static function deserialize(string $value): self
+    public static function deserialize(string $username): self
     {
-        return new self($value);
+        return new self($username);
     }
 }
