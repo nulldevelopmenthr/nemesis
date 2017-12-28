@@ -1,0 +1,12 @@
+definition:
+  type: SingleValueObject
+  instanceOf: MyVendor\User\UserFirstName
+  parent: ~
+  interfaces: []
+  traits: []
+  constructor:
+    firstName:
+      instanceOf: string
+      nullable: false
+      hasDefault: false
+      default: ~

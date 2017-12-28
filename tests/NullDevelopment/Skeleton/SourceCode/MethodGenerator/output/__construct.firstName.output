@@ -1,0 +1,4 @@
+public function __construct(MyVendor\User\UserFirstName $firstName)
+{
+	$this->firstName = $firstName;
+}

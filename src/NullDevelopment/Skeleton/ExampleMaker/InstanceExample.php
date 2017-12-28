@@ -25,10 +25,10 @@ class InstanceExample implements Example
 
     public function __toString(): string
     {
-        $arguments =[];
+        $arguments = [];
 
         foreach ($this->parameters as $parameter) {
-            $arguments[]=$parameter->__toString();
+            $arguments[] = $parameter->__toString();
         }
 
         return sprintf('new %s(%s)', $this->instanceOf->getName(), implode(', ', $arguments));

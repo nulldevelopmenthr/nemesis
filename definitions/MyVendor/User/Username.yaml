@@ -1,11 +1,11 @@
 definition:
-  type: SimpleValueObject
+  type: SingleValueObject
   instanceOf: MyVendor\User\Username
   parent: ~
   interfaces: []
   traits: []
   constructor:
-    value:
+    username:
       instanceOf: string
       nullable: false
       hasDefault: false

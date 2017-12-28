@@ -1,0 +1,5 @@
+public function setUp()
+{
+	$this->name = 'name';
+	$this->sut = new UserEntity($this->name);
+}

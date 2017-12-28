@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\PhpStructure\CustomType\CollectionOf
- * @group todo
+ * @group  todo
  */
 class CollectionOfTest extends TestCase
 {

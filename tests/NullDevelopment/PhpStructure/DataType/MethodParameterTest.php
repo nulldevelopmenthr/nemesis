@@ -34,7 +34,7 @@ class MethodParameterTest extends TestCase
     public function setUp()
     {
         $this->name            = 'name';
-        $this->contractName    = new ClassName('User', 'MyCompany\\Webshop');
+        $this->contractName    = new ClassName('User', 'MyVendor\Webshop');
         $this->nullable        = true;
         $this->hasDefaultValue = true;
         $this->defaultValue    = 'defaultValue';
@@ -59,7 +59,7 @@ class MethodParameterTest extends TestCase
 
     public function testGetInstanceFullName()
     {
-        self::assertEquals('MyCompany\\Webshop\\User', $this->sut->getInstanceFullName());
+        self::assertEquals('MyVendor\Webshop\\User', $this->sut->getInstanceFullName());
     }
 
     public function testIsNullable()

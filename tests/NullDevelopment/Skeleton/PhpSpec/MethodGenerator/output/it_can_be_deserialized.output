@@ -1,0 +1,4 @@
+public function it_can_be_deserialized(MyVendor\User\UserFirstName $firstName)
+{
+	$this->deserialize('firstName')->shouldReturnAnInstanceOf(User::class);
+}

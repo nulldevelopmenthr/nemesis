@@ -1,0 +1,4 @@
+public function let()
+{
+	$this->beConstructedWith();
+}

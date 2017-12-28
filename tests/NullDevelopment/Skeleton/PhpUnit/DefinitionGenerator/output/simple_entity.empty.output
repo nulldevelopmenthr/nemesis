@@ -1,0 +1,26 @@
+namespace spec\MyVendor;
+
+use MyVendor\UserEntity;
+use MyVendor\User\UserFirstName;
+use PhpUnit\ObjectBehavior;
+
+class UserEntityTest extends ObjectBehavior
+{
+	public function setUp()
+	{
+		$this->firstName = new UserFirstName('firstName');
+		$this->sut = new UserEntity($this->firstName);
+	}
+
+
+	public function it_exposes_first_name()
+	{
+		self::assertSame($this->firstName, $this->sut->getFirstName());
+	}
+
+
+	public function it_exposes_value()
+	{
+		self::assertSame($this->firstName, $this->sut->getValue());
+	}
+}

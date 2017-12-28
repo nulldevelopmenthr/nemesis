@@ -1,0 +1,4 @@
+public function it_is_initializable()
+{
+	$this->shouldHaveType(UserFirstName::class);
+}

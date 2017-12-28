@@ -1,0 +1,27 @@
+namespace spec\MyVendor;
+
+use MyVendor\User\Username;
+use PhpUnit\ObjectBehavior;
+
+class UserEntityTest extends ObjectBehavior
+{
+	public function setUp()
+	{
+		$this->elements = [new Username('username')];
+		$this->sut = new UserEntity($this->elements);
+	}
+
+
+	public function testGetElements()
+	{
+		self::assertSame($this->elements, $this->sut->toArray());
+	}
+
+
+	public function testSerializeAndDeserialize()
+	{
+		$serialized = $this->sut->serialize();
+		$serializedJson = json_encode($serialized);
+		self::assertEquals($this->sut, $this->sut->deserialize(json_decode($serializedJson, true)));
+	}
+}

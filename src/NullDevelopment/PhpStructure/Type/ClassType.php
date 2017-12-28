@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace NullDevelopment\PhpStructure\Type;
 
-use NullDevelopment\PhpStructure\Behaviour\Method\ConstructorMethod;
+use NullDevelopment\PhpStructure\Behaviour\ConstructorMethod;
+use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
@@ -15,6 +16,7 @@ use Webmozart\Assert\Assert;
 /**
  * @see ClassTypeSpec
  * @see ClassTypeTest
+ * @SuppressWarnings("PHPMD.NumberOfChildren")
  */
 class ClassType
 {
@@ -26,29 +28,30 @@ class ClassType
     private $interfaces;
     /** @var TraitName[] */
     private $traits;
-    /** @var null|ConstructorMethod */
-    private $constructorMethod;
     /** @var Property[] */
     private $properties;
+    /** @var Method[] */
+    private $methods;
 
     public function __construct(
         ClassName $name,
         ?ClassName $parent,
         array $interfaces,
         array $traits,
-        ?ConstructorMethod $constructorMethod,
-        array $properties
+        array $properties,
+        array $methods
     ) {
         Assert::allIsInstanceOf($interfaces, InterfaceName::class);
         Assert::allIsInstanceOf($traits, TraitName::class);
         Assert::allIsInstanceOf($properties, Property::class);
+        Assert::allIsInstanceOf($methods, Method::class);
 
-        $this->name              = $name;
-        $this->parent            = $parent;
-        $this->interfaces        = $interfaces;
-        $this->traits            = $traits;
-        $this->constructorMethod = $constructorMethod;
-        $this->properties        = $properties;
+        $this->name       = $name;
+        $this->parent     = $parent;
+        $this->interfaces = $interfaces;
+        $this->traits     = $traits;
+        $this->properties = $properties;
+        $this->methods    = $methods;
     }
 
     public function getName(): ClassName
@@ -134,26 +137,36 @@ class ClassType
 
     public function hasConstructorMethod(): bool
     {
-        if (null === $this->constructorMethod) {
-            return false;
+        foreach ($this->methods as $method) {
+            if ($method instanceof ConstructorMethod) {
+                return true;
+            }
         }
 
-        return true;
+        return false;
     }
 
     public function getConstructorMethod(): ?ConstructorMethod
     {
-        return $this->constructorMethod;
+        foreach ($this->methods as $method) {
+            if ($method instanceof ConstructorMethod) {
+                return $method;
+            }
+        }
+
+        return null;
     }
 
     /** @return MethodParameter[] */
     public function getConstructorParameters(): array
     {
-        if (null === $this->constructorMethod) {
-            return [];
+        foreach ($this->methods as $method) {
+            if ($method instanceof ConstructorMethod) {
+                return $method->getParameters();
+            }
         }
 
-        return $this->constructorMethod->getParameters();
+        return [];
     }
 
     public function hasProperties(): bool
@@ -165,9 +178,25 @@ class ClassType
         return true;
     }
 
+    /** @return Property[] */
     public function getProperties(): array
     {
         return $this->properties;
+    }
+
+    public function hasMethods(): bool
+    {
+        if (true === empty($this->methods)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /** @return Method[] */
+    public function getMethods(): array
+    {
+        return $this->methods;
     }
 
     public function toArray(): array

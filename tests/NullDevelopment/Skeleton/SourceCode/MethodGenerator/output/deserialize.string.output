@@ -1,0 +1,4 @@
+public static function deserialize(string $name): self
+{
+	return new self($name);
+}

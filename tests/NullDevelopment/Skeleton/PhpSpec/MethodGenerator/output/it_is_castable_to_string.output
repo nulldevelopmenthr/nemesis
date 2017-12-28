@@ -1,0 +1,4 @@
+public function it_is_castable_to_string()
+{
+	$this->__toString()->shouldReturn('firstName');
+}

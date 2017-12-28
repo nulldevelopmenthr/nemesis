@@ -1,0 +1,4 @@
+public function it_exposes_first_name(MyVendor\User\UserFirstName $firstName)
+{
+	$this->getFirstName()->shouldReturn($firstName);
+}
