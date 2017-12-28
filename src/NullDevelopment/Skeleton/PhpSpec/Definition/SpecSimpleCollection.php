@@ -6,19 +6,15 @@ namespace NullDevelopment\Skeleton\PhpSpec\Definition;
 
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
-use NullDevelopment\Skeleton\PhpSpecSpecification;
 
 /**
  * @see SpecSimpleCollectionSpec
  * @see SpecSimpleCollectionTest
  */
-class SpecSimpleCollection extends ClassType implements PhpSpecSpecification
+class SpecSimpleCollection extends BaseSpecClassDefinition
 {
     /** @var CollectionOf */
     private $collectionOf;
-    /** @var ClassName */
-    private $subjectUnderTest;
 
     public function __construct(
         ClassName $name,
@@ -27,21 +23,15 @@ class SpecSimpleCollection extends ClassType implements PhpSpecSpecification
         array $traits,
         array $properties,
         array $methods,
-        CollectionOf $collectionOf,
-        ClassName $subjectUnderTest
+        ClassName $subjectUnderTest,
+        CollectionOf $collectionOf
     ) {
-        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods);
+        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods, $subjectUnderTest);
         $this->collectionOf     = $collectionOf;
-        $this->subjectUnderTest = $subjectUnderTest;
     }
 
     public function getCollectionOf(): CollectionOf
     {
         return $this->collectionOf;
-    }
-
-    public function getSubjectUnderTest(): ClassName
-    {
-        return $this->subjectUnderTest;
     }
 }

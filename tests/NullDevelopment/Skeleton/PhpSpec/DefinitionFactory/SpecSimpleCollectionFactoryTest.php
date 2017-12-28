@@ -73,12 +73,12 @@ class SpecSimpleCollectionFactoryTest extends SfTestCase
                         new InitializableMethod(ClassName::create('MyVendor\\User\\UserFirstName'), null, []),
                         new GetterSpecMethod('it_exposes_first_name', 'getFirstName', $firstName),
                     ],
+                    ClassName::create('MyVendor\\User\\UserFirstName'),
                     new CollectionOf(
                         ClassName::create('MyVendor\User\Username'),
                         'getId',
                         ClassName::create('MyVendor\User\UserId')
-                    ),
-                    ClassName::create('MyVendor\\User\\UserFirstName')
+                    )
                 ),
             ],
         ];

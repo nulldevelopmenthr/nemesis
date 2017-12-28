@@ -83,8 +83,8 @@ class SpecSimpleCollectionGeneratorTest extends SfTestCase
                     [],
                     [],
                     [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue],
-                    $collectionOf,
-                    $sutClass
+                    $sutClass,
+                    $collectionOf
                 ),
                 'simple_collection.empty.output',
             ],

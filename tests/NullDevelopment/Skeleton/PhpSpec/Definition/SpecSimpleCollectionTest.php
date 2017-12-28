@@ -69,8 +69,8 @@ class SpecSimpleCollectionTest extends TestCase
             $this->traits,
             $this->properties,
             $this->methods,
-            $this->collectionOf,
-            Fixtures::userEntity()
+            Fixtures::userEntity(),
+            $this->collectionOf
         );
     }
 

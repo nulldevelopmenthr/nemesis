@@ -24,8 +24,8 @@ class SpecSimpleCollectionSpec extends ObjectBehavior
         Property $property1,
         LetMethod $letMethod,
         InitializableMethod $initializableMethod,
-        CollectionOf $collectionOf,
-        ClassName $subjectUnderTest
+        ClassName $subjectUnderTest,
+        CollectionOf $collectionOf
     ) {
         $this->beConstructedWith(
             $name,
@@ -34,8 +34,8 @@ class SpecSimpleCollectionSpec extends ObjectBehavior
             [$traitName1],
             [$property1],
             [$letMethod, $initializableMethod],
-            $collectionOf,
-            $subjectUnderTest
+            $subjectUnderTest,
+            $collectionOf
         );
     }
 
