@@ -12,7 +12,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
-use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -22,7 +22,7 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayCommandHandlerHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait2;
+    use AssertOutputTrait;
 
     /** @var BroadwayCommandHandlerHandler */
     private $handler;
@@ -50,9 +50,9 @@ class BroadwayCommandHandlerHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath('handler-src'), $result[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('handler-test'), $result[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('handler-spec'), $result[2]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('handler-src'), $result[0]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('handler-test'), $result[1]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('handler-spec'), $result[2]);
     }
 
     public function provideData(): array

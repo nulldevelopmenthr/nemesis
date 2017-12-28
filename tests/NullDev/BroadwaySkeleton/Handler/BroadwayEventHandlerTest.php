@@ -10,7 +10,7 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\BroadwaySkeleton\Handler\BroadwayEventHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +20,7 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayEventHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait2;
+    use AssertOutputTrait;
 
     /** @var BroadwayEventHandler */
     private $handler;
@@ -47,9 +47,9 @@ class BroadwayEventHandlerTest extends ContainerSupportedTestCase
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-src'), $result[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-test'), $result[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath($folderName.'/event-spec'), $result[2]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/event-src'), $result[0]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/event-test'), $result[1]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath($folderName.'/event-spec'), $result[2]);
     }
 
     public function provideData(): array

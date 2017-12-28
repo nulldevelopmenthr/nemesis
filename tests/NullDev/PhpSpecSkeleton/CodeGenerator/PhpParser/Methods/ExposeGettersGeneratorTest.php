@@ -30,7 +30,7 @@ class ExposeGettersGeneratorTest extends TestCase
     {
         $method = new ExposeGettersMethod($parameters);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

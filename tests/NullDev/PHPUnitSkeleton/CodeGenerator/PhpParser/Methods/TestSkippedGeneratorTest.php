@@ -29,7 +29,7 @@ class TestSkippedGeneratorTest extends TestCase
     {
         $method = new TestSkippedMethod($methodName);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

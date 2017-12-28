@@ -33,7 +33,7 @@ class SetUpGeneratorTest extends TestCase
     {
         $method = new SetUpMethod($classSource);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

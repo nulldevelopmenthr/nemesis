@@ -28,7 +28,7 @@ class RepositoryConstructorGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new RepositoryConstructorMethod($classType);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

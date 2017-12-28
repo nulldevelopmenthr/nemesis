@@ -16,7 +16,7 @@ trait OutputGeneratorTestTrait
         $this->printer = new Standard();
     }
 
-    public function assertOutputMatches($method, string $fileName): void
+    public function assertMethodOutputMatches($method, string $fileName): void
     {
         $generated = $this->getGenerator()->generate($method);
 

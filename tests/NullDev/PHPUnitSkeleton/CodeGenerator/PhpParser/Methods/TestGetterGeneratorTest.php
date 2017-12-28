@@ -31,7 +31,7 @@ class TestGetterGeneratorTest extends TestCase
     {
         $method = new TestGetterMethod($getterMethod, $propertyName);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

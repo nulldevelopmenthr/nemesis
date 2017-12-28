@@ -31,7 +31,7 @@ class DeserializeGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new DeserializeMethod($classSource);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

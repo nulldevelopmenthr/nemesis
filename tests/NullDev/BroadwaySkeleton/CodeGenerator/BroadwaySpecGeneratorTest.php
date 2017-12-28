@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\NullDev\BroadwaySkeleton\CodeGenerator;
 
 use NullDev\PhpSpecSkeleton\SpecGenerator;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @group  FullCoverage
@@ -14,6 +14,8 @@ use NullDev\Skeleton\Source\ImprovedClassSource;
  */
 class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
 {
+    use AssertOutputTrait;
+
     /**
      * @test
      * @dataProvider provideModelData
@@ -22,24 +24,9 @@ class BroadwaySpecGeneratorTest extends BaseCodeGeneratorTest
      */
     public function outputClass(ImprovedClassSource $classSource, string $outputName): void
     {
-        $generator = $this->getService(PhpParserGenerator::class);
-
         $specGenerator = $this->getService(SpecGenerator::class);
 
-        $specSource = $specGenerator->generate($classSource);
-
-        $outputFilePath = $this->getFileName($outputName);
-
-        $output = $generator->getOutput($specSource);
-
-        if (false === file_exists($outputFilePath)) {
-            file_put_contents($outputFilePath, $output);
-            $this->markTestSkipped('Generating output to '.$outputFilePath);
-        } else {
-            $expected = file_get_contents($outputFilePath);
-
-            self::assertEquals($expected, $output);
-        }
+        $this->assertOutputMatches($this->getFileName($outputName), $specGenerator->generate($classSource));
     }
 
     public function provideModelData(): array

@@ -28,7 +28,7 @@ class CreateGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new CreateMethod($classType, $params);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

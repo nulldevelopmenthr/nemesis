@@ -10,7 +10,7 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector;
 use NullDev\BroadwaySkeleton\Handler\BroadwayElasticsearchReadProjectorHandler;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
-use Tests\NullDev\AssertOutputTrait2;
+use Tests\NullDev\AssertOutputTrait;
 use Tests\NullDev\ContainerSupportedTestCase;
 
 /**
@@ -20,7 +20,7 @@ use Tests\NullDev\ContainerSupportedTestCase;
 class BroadwayElasticsearchReadProjectorHandlerTest extends ContainerSupportedTestCase
 {
     use MockeryPHPUnitIntegration;
-    use AssertOutputTrait2;
+    use AssertOutputTrait;
 
     /** @var BroadwayElasticsearchReadProjectorHandler */
     private $handler;
@@ -46,9 +46,9 @@ class BroadwayElasticsearchReadProjectorHandlerTest extends ContainerSupportedTe
 
         self::assertCount(3, $result);
 
-        $this->assertOutputMatches($this->getExpectedOutputPath('projector-src'), $result[0]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('projector-test'), $result[1]);
-        $this->assertOutputMatches($this->getExpectedOutputPath('projector-spec'), $result[2]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-src'), $result[0]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-test'), $result[1]);
+        $this->assertOutputMatches2($this->getExpectedOutputPath('projector-spec'), $result[2]);
     }
 
     public function provideData(): array

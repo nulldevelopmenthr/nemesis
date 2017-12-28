@@ -30,7 +30,7 @@ class LetGeneratorTest extends TestCase
     {
         $method = new LetMethod($parameters);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array

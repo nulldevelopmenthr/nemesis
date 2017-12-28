@@ -27,7 +27,7 @@ class ReadModelIdGetterGeneratorTest extends BaseOutputGeneratorTestCase
 
         $method = new ReadModelIdGetterMethod($zz);
 
-        $this->assertOutputMatches($method, '0-no-param');
+        $this->assertMethodOutputMatches($method, '0-no-param');
     }
 
     public function provideParameters(): array

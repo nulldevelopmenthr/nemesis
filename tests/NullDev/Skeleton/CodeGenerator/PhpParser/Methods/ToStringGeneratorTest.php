@@ -28,7 +28,7 @@ class ToStringGeneratorTest extends BaseOutputGeneratorTestCase
     {
         $method = new ToStringMethod($parameter);
 
-        $this->assertOutputMatches($method, $fileName);
+        $this->assertMethodOutputMatches($method, $fileName);
     }
 
     public function provideParameters(): array
