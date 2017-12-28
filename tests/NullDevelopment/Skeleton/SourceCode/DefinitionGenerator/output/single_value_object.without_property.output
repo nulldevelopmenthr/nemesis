@@ -4,6 +4,10 @@ use MyVendor\Core\BaseModel;
 use MyVendor\Core\SomeInterface;
 use MyVendor\User\UserFirstName;
 
+/**
+ * @see \spec\MyVendor\UserEntitySpec
+ * @see \Tests\MyVendor\UserEntityTest
+ */
 class UserEntity extends BaseModel implements SomeInterface
 {
 	/** @var UserFirstName */

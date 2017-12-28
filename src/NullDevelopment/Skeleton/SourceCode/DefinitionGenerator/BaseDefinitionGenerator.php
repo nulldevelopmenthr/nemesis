@@ -46,7 +46,7 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
 
         $code = $namespace->addClass($definition->getClassName());
 
-        if($definition instanceof SourceCode){
+        if ($definition instanceof SourceCode) {
             $code->addComment(
               '@see \\spec\\'.$definition->getFullClassName().'Spec'
             );

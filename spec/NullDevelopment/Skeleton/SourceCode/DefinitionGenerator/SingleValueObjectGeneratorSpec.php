@@ -38,6 +38,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
     {
         $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
+        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
@@ -46,6 +47,10 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $lines = [
             'namespace MyVendor\\WebShop;',
             '',
+            '/**',
+            ' * @see \spec\MyVendor\WebShop\UserEntitySpec',
+            ' * @see \Tests\MyVendor\WebShop\UserEntityTest',
+            ' */',
             'class UserEntity',
             '{',
             '}',
@@ -61,6 +66,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
     {
         $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
+        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(true);
         $definition->getParentFullClassName()->shouldBeCalled()->willReturn('MyVendor\\Core\\BaseModel');
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
@@ -72,6 +78,10 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
             '',
             'use MyVendor\\Core\\BaseModel;',
             '',
+            '/**',
+            ' * @see \spec\MyVendor\WebShop\UserEntitySpec',
+            ' * @see \Tests\MyVendor\WebShop\UserEntityTest',
+            ' */',
             'class UserEntity extends BaseModel',
             '{',
             '}',
@@ -87,6 +97,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
     {
         $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
+        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName]);
         $interfaceName->getFullName()->shouldBeCalled()->willReturn('MyVendor\\Core\\SomeInterface');
@@ -98,6 +109,10 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
             '',
             'use MyVendor\\Core\\SomeInterface;',
             '',
+            '/**',
+            ' * @see \spec\MyVendor\WebShop\UserEntitySpec',
+            ' * @see \Tests\MyVendor\WebShop\UserEntityTest',
+            ' */',
             'class UserEntity implements SomeInterface',
             '{',
             '}',
@@ -113,6 +128,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
     {
         $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
+        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([$firstName]);
@@ -131,6 +147,10 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
             '',
             'use MyVendor\WebShop\User\UserFirstName;',
             '',
+            '/**',
+            ' * @see \spec\MyVendor\WebShop\UserEntitySpec',
+            ' * @see \Tests\MyVendor\WebShop\UserEntityTest',
+            ' */',
             'class UserEntity',
             '{',
             "\t".'/** @var UserFirstName */',
@@ -152,6 +172,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
     ) {
         $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
+        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([$lastName]);
@@ -171,6 +192,10 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
             '',
             'use MyVendor\WebShop\User\UserLastName;',
             '',
+            '/**',
+            ' * @see \spec\MyVendor\WebShop\UserEntitySpec',
+            ' * @see \Tests\MyVendor\WebShop\UserEntityTest',
+            ' */',
             'class UserEntity',
             '{',
             "\t".'/** @var UserLastName */',
