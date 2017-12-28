@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  cli.command.skeleton.missing:
+    class: NullDevelopment\SkeletonNetteGenerator\Command\GenerateMissingFilesFromDefinitionCliCommand
+    tags:
+      - {name: console.command }
+
+  cli.command.skeleton.all:
+    class: NullDevelopment\SkeletonNetteGenerator\Command\GenerateAllFilesFromDefinitionCliCommand
+    tags:
+      - {name: console.command }
