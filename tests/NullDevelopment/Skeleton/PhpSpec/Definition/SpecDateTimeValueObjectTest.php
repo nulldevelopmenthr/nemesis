@@ -55,7 +55,7 @@ class SpecDateTimeValueObjectTest extends TestCase
             new GetterMethod('it_exposes_value', $firstName),
         ];
         $this->sut = new SpecDateTimeValueObject(
-            $this->name, $this->parent, $this->interfaces, $this->traits, $this->properties, $this->methods
+            $this->name, $this->parent, $this->interfaces, $this->traits, $this->properties, $this->methods, Fixtures::userEntity()
         );
     }
 

@@ -22,7 +22,8 @@ class SpecSimpleIdentifierSpec extends ObjectBehavior
         TraitName $traitName1,
         Property $property1,
         LetMethod $letMethod,
-        InitializableMethod $initializableMethod
+        InitializableMethod $initializableMethod,
+        ClassName $subjectUnderTest
     ) {
         $this->beConstructedWith(
             $name,
@@ -30,7 +31,8 @@ class SpecSimpleIdentifierSpec extends ObjectBehavior
             [$interfaceName1],
             [$traitName1],
             [$property1],
-            [$letMethod, $initializableMethod]
+            [$letMethod, $initializableMethod],
+            $subjectUnderTest
         );
     }
 

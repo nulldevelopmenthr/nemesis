@@ -38,6 +38,6 @@ class SpecSimpleEntityFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecSimpleEntity($specClassName, $specParentName, [], [], [], $methods);
+        return new SpecSimpleEntity($specClassName, $specParentName, [], [], [], $methods, $definition->getName());
     }
 }

@@ -70,7 +70,15 @@ class SpecSimpleIdentifierGeneratorTest extends SfTestCase
 
         return [
             [
-                new SpecSimpleIdentifier($class, $parent, [], [], [], [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue]),
+                new SpecSimpleIdentifier(
+                    $class,
+                    $parent,
+                    [],
+                    [],
+                    [],
+                    [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue],
+                    $sutClass
+                ),
                 'simple_identifier.empty.output',
             ],
         ];

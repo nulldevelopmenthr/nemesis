@@ -66,7 +66,8 @@ class SpecSimpleIdentifierFactoryTest extends SfTestCase
                         new LetMethod([$firstName]),
                         new InitializableMethod(ClassName::create('MyVendor\\User\\UserFirstName'), null, []),
                         new GetterSpecMethod('it_exposes_first_name', 'getFirstName', $firstName),
-                    ]
+                    ],
+                    ClassName::create('MyVendor\\User\\UserFirstName')
                 ),
             ],
         ];
