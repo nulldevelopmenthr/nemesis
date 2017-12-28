@@ -6,6 +6,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\PhpUnitSpecification;
 use NullDevelopment\Skeleton\SourceCode;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
@@ -48,10 +49,17 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
 
         if ($definition instanceof SourceCode) {
             $code->addComment(
-              '@see \\spec\\'.$definition->getFullClassName().'Spec'
+                '@see \\spec\\'.$definition->getFullClassName().'Spec'
             );
             $code->addComment(
                 '@see \\Tests\\'.$definition->getFullClassName().'Test'
+            );
+        } elseif ($definition instanceof PhpUnitSpecification) {
+            $code->addComment(
+                '@covers \\'.$definition->getSubjectUnderTest()->getFullName()
+            );
+            $code->addComment(
+                '@group  todo'
             );
         }
 
