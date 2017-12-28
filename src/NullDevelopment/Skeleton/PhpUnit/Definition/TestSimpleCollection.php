@@ -6,19 +6,15 @@ namespace NullDevelopment\Skeleton\PhpUnit\Definition;
 
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
-use NullDevelopment\Skeleton\PhpUnitSpecification;
 
 /**
  * @see TestSimpleCollectionSpec
  * @see TestSimpleCollectionTest
  */
-class TestSimpleCollection extends ClassType implements PhpUnitSpecification
+class TestSimpleCollection extends BaseTestClassDefinition
 {
     /** @var CollectionOf */
     private $collectionOf;
-    /** @var ClassName */
-    private $subjectUnderTest;
 
     public function __construct(
         ClassName $name,
@@ -27,21 +23,15 @@ class TestSimpleCollection extends ClassType implements PhpUnitSpecification
         array $traits,
         array $properties,
         array $methods,
-        CollectionOf $collectionOf,
-        ClassName $subjectUnderTest
+        ClassName $subjectUnderTest,
+        CollectionOf $collectionOf
     ) {
-        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods);
-        $this->collectionOf     = $collectionOf;
-        $this->subjectUnderTest = $subjectUnderTest;
+        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods, $subjectUnderTest);
+        $this->collectionOf = $collectionOf;
     }
 
     public function getCollectionOf(): CollectionOf
     {
         return $this->collectionOf;
-    }
-
-    public function getSubjectUnderTest(): ClassName
-    {
-        return $this->subjectUnderTest;
     }
 }
