@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDevelopment\SkeletonNetteGenerator\SourceCode\Middleware;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDevelopment\PhpStructure\Behaviour\Method;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
