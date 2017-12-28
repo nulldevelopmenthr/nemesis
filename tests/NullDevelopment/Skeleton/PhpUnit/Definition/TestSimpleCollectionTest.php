@@ -31,10 +31,10 @@ class TestSimpleCollectionTest extends TestCase
     private $properties;
     /** @var array */
     private $methods;
-    /** @var MockInterface|CollectionOf */
-    private $collectionOf;
     /** @var MockInterface|ClassName */
     private $subjectUnderTest;
+    /** @var MockInterface|CollectionOf */
+    private $collectionOf;
     /** @var TestSimpleCollection */
     private $sut;
 
@@ -46,8 +46,8 @@ class TestSimpleCollectionTest extends TestCase
         $this->traits           = [];
         $this->properties       = [];
         $this->methods          = [];
-        $this->collectionOf     = Mockery::mock(CollectionOf::class);
         $this->subjectUnderTest = Mockery::mock(ClassName::class);
+        $this->collectionOf     = Mockery::mock(CollectionOf::class);
         $this->sut              = new TestSimpleCollection(
             $this->name,
             $this->parent,
@@ -55,8 +55,8 @@ class TestSimpleCollectionTest extends TestCase
             $this->traits,
             $this->properties,
             $this->methods,
-            $this->collectionOf,
-            $this->subjectUnderTest
+            $this->subjectUnderTest,
+            $this->collectionOf
         );
     }
 

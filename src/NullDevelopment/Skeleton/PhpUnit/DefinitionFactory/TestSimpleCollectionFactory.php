@@ -54,8 +54,8 @@ class TestSimpleCollectionFactory
             [],
             $properties,
             $methods,
-            $definition->getCollectionOf(),
-            $definition->getName()
+            $definition->getName(),
+            $definition->getCollectionOf()
         );
     }
 }
