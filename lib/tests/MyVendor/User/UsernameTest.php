@@ -8,7 +8,8 @@ use MyVendor\User\Username;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversNothing
+ * @covers \MyVendor\User\Username
+ * @group  todo
  */
 class UsernameTest extends TestCase
 {

@@ -8,7 +8,8 @@ use MyVendor\Product\ProductWeight;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversNothing
+ * @covers \MyVendor\Product\ProductWeight
+ * @group  todo
  */
 class ProductWeightTest extends TestCase
 {

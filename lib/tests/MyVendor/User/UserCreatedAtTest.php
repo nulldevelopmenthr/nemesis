@@ -9,7 +9,8 @@ use MyVendor\User\UserCreatedAt;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversNothing
+ * @covers \MyVendor\User\UserCreatedAt
+ * @group  todo
  */
 class UserCreatedAtTest extends TestCase
 {

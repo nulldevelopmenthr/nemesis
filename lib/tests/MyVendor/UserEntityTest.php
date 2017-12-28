@@ -12,7 +12,8 @@ use MyVendor\UserEntity;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversNothing
+ * @covers \MyVendor\UserEntity
+ * @group  todo
  */
 class UserEntityTest extends TestCase
 {
