@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDevelopment\Skeleton\DefinitionConfigurationLoader;
 
 use NullDevelopment\PhpStructure\Type\InterfaceDefinition;

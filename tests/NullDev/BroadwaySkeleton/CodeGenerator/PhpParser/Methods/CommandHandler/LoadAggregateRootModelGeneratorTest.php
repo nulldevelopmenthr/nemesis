@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDev\BroadwaySkeleton\CodeGenerator\PhpParser\Methods\CommandHandler;
 
 use Mockery;

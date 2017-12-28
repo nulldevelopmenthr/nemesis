@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDev\BroadwaySkeleton\Definition\PHP;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;

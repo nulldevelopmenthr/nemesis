@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace tests\NullDevelopment\Skeleton;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
