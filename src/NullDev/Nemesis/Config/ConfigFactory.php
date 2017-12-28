@@ -85,11 +85,11 @@ class ConfigFactory
                     'spec/' => 'spec\\',
                 ],
                 'tests' => [
-                    'tests/' => 'tests\\',
+                    'tests/' => 'Tests\\',
                 ],
             ],
             'phpunit'    => [
-                'base_namespace'       => 'tests',
+                'base_namespace'       => 'Tests',
                 'base_test_class_name' => 'PHPUnit\Framework\TestCase',
                 'ignore_instances_of'  => [
                     'Symfony\Component\Console\Command\Command',

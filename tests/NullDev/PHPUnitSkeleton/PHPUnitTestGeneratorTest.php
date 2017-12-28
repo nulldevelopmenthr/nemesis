@@ -38,7 +38,7 @@ class PHPUnitTestGeneratorTest extends TestCase
         $this->setUpContainer();
 
         $config = m::mock(Config::class);
-        $config->shouldReceive('getTestsNamespace')->andReturn('tests');
+        $config->shouldReceive('getTestsNamespace')->andReturn('Tests');
         $config->shouldReceive('getBaseTestClassName')->andReturn('PHPUnit\Framework\TestCase');
 
         $this->testGenerator      = new PHPUnitTestGenerator(new ClassSourceFactory(), $config);
