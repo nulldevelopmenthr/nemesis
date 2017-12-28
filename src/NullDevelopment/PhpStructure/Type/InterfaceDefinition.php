@@ -14,7 +14,7 @@ use Webmozart\Assert\Assert;
  * @see InterfaceDefinitionSpec
  * @see InterfaceDefinitionTest
  */
-class InterfaceDefinition implements SourceCode
+class InterfaceDefinition implements SourceCode, Definition
 {
     /** @var InterfaceName */
     private $name;
