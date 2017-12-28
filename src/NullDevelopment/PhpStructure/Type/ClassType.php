@@ -18,7 +18,7 @@ use Webmozart\Assert\Assert;
  * @see ClassTypeTest
  * @SuppressWarnings("PHPMD.NumberOfChildren")
  */
-class ClassType
+class ClassType implements Definition
 {
     /** @var ClassName */
     private $name;

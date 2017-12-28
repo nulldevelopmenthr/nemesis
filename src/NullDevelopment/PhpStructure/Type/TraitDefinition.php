@@ -14,7 +14,7 @@ use NullDevelopment\Skeleton\SourceCode;
  * @see TraitDefinitionSpec
  * @see TraitDefinitionTest
  */
-class TraitDefinition implements SourceCode
+class TraitDefinition implements SourceCode, Definition
 {
     /** @var TraitName */
     private $name;
