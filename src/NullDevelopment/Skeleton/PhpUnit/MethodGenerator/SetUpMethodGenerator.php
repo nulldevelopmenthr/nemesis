@@ -25,7 +25,7 @@ class SetUpMethodGenerator extends BaseTestMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $constructorArguments =[];
+        $constructorArguments = [];
         foreach ($method->getParameters() as $parameter) {
             if (true === $parameter->isObject()) {
                 $code->addBody(

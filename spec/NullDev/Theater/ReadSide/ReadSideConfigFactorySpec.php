@@ -30,7 +30,7 @@ class ReadSideConfigFactorySpec extends ObjectBehavior
     ) {
         $readSideName->getValue()->shouldBeCalled()->willReturn('CounterX');
         $readSideNamespace->getValue()->shouldBeCalled()->willReturn('MyCompany\Statistics');
-        $parameters=[];
+        $parameters = [];
 
         $this->create($readSideName, $readSideNamespace, $readSideImplementation, $parameters)
             ->shouldReturnAnInstanceOf(ReadSideConfig::class);

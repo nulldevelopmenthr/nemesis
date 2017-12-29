@@ -136,7 +136,7 @@ class TheaterConfigTest extends TestCase
                 'Buyer'      => $buyerContextData,
                 'SecondHand' => $secondContextData,
             ],
-            'reads'    => [
+            'reads' => [
                 'BuyerRead'      => $buyerReadSideData,
                 'SecondHandRead' => $secondReadSideData,
             ],

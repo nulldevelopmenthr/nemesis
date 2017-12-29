@@ -27,7 +27,7 @@ class SpecSimpleCollection extends BaseSpecClassDefinition
         CollectionOf $collectionOf
     ) {
         parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods, $subjectUnderTest);
-        $this->collectionOf     = $collectionOf;
+        $this->collectionOf = $collectionOf;
     }
 
     public function getCollectionOf(): CollectionOf

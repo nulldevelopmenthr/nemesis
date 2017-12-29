@@ -126,8 +126,7 @@ class BoundedContextConfig
                 $parameters[$parameter->getName()] = $parameter->getTypeFullName();
             }
 
-            $commands[$commandConfig->getName()] =
-                [
+            $commands[$commandConfig->getName()] = [
                     'className'  => $commandConfig->getCommandClassName()->getFullName(),
                     'parameters' => $parameters,
                 ];
@@ -140,8 +139,7 @@ class BoundedContextConfig
                 $parameters[$parameter->getName()] = $parameter->getTypeFullName();
             }
 
-            $events[$eventConfig->getName()] =
-                [
+            $events[$eventConfig->getName()] = [
                     'className'  => $eventConfig->getEventClassName()->getFullName(),
                     'parameters' => $parameters,
                 ];

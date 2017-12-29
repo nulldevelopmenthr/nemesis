@@ -40,9 +40,9 @@ abstract class BaseGenerateFilesFromDefinitionCliCommand extends Command impleme
 
     protected function loadSourceCode(): array
     {
-        $path       = getcwd().'/definitions';
-        $yamls      = $this->getService(FinderFactory::class)->create()->files()->in($path)->name('*.yaml');
-        $loaders    = $this->getService(DefinitionLoaderCollection::class);
+        $path    = getcwd().'/definitions';
+        $yamls   = $this->getService(FinderFactory::class)->create()->files()->in($path)->name('*.yaml');
+        $loaders = $this->getService(DefinitionLoaderCollection::class);
 
         $classDefinitions = [];
 

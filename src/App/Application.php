@@ -86,12 +86,12 @@ final class Application extends BaseApplication
     private function getDefaultExtensions()
     {
         return [
-            'NullDev\Skeleton\SkeletonExtension'                                     => null,
-            'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension'                     => null,
-            'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'                       => null,
-            'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'                       => null,
-            'NullDev\Theater\TheaterExtension'                                       => null,
-            'NullDevelopment\Skeleton\SkeletonExtension'                             => null,
+            'NullDev\Skeleton\SkeletonExtension'                 => null,
+            'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension' => null,
+            'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'   => null,
+            'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'   => null,
+            'NullDev\Theater\TheaterExtension'                   => null,
+            'NullDevelopment\Skeleton\SkeletonExtension'         => null,
         ];
     }
 

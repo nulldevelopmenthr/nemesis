@@ -77,36 +77,36 @@ class ConfigFactory
     private function getDefaultConfig()
     {
         return [
-            'paths'      => [
-                'code'  => [
+            'paths' => [
+                'code' => [
                     'src/' => '',
                 ],
-                'spec'  => [
+                'spec' => [
                     'spec/' => 'spec\\',
                 ],
                 'tests' => [
                     'tests/' => 'Tests\\',
                 ],
             ],
-            'phpunit'    => [
+            'phpunit' => [
                 'base_namespace'       => 'Tests',
                 'base_test_class_name' => 'PHPUnit\Framework\TestCase',
                 'ignore_instances_of'  => [
                     'Symfony\Component\Console\Command\Command',
                     'Symfony\Component\DependencyInjection\Extension\Extension',
                 ],
-                'ignore_interfaces'    => [
+                'ignore_interfaces' => [
                     'Behat\Behat\Context\Context',
                     'Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface',
                 ],
             ],
             'extensions' => [
-                'NullDev\Skeleton\SkeletonExtension'                                     => null,
-                'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension'                     => null,
-                'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'                       => null,
-                'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'                       => null,
-                'NullDev\Theater\TheaterExtension'                                       => null,
-                'NullDevelopment\Skeleton\SkeletonExtension'                             => null,
+                'NullDev\Skeleton\SkeletonExtension'                 => null,
+                'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension' => null,
+                'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'   => null,
+                'NullDev\PhpSpecSkeleton\PhpSpecSkeletonExtension'   => null,
+                'NullDev\Theater\TheaterExtension'                   => null,
+                'NullDevelopment\Skeleton\SkeletonExtension'         => null,
             ],
         ];
     }

@@ -29,7 +29,7 @@ class GetterSpecMethodTest extends TestCase
     {
         $this->name            = 'it_exposes_first_name';
         $this->methodUnderTest = 'methodUnderTest';
-        $this->property        =  Fixtures::firstNameProperty();
+        $this->property        = Fixtures::firstNameProperty();
         $this->sut             = new GetterSpecMethod($this->name, $this->methodUnderTest, $this->property);
     }
 

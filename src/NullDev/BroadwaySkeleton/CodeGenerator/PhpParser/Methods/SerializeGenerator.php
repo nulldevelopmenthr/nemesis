@@ -36,15 +36,13 @@ class SerializeGenerator implements MethodGenerator
         foreach ($method->getProperties() as $property) {
             if ($property->hasType() && (!$property->getType() instanceof TypeDeclaration)) {
                 if ('DateTime' === $property->getTypeFullName()) {
-                    $var =
-                        new Node\Expr\MethodCall(
+                    $var = new Node\Expr\MethodCall(
                             new Node\Expr\Variable('this->'.$property->getName()),
                             'format',
                             [new Node\Arg(new Node\Scalar\String_('c'))]
                         );
                 } else {
-                    $var =
-                        new Node\Expr\Cast\String_(
+                    $var = new Node\Expr\Cast\String_(
                             new Node\Expr\Variable('this->'.$property->getName())
                         );
                 }

@@ -60,8 +60,8 @@ class BroadwayAddCommandCliCommand extends BaseSkeletonGeneratorCommand
         }
         $commandBus = $this->getService(CommandBus::class);
 
-        $name             = $this->askForCommandName();
-        $parameters       = $this->getConstuctorParameters();
+        $name       = $this->askForCommandName();
+        $parameters = $this->getConstuctorParameters();
 
         $commandClassName = new CommandClassName($name, $this->context->getNamespace().'\Domain\Command');
 
