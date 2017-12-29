@@ -12,8 +12,7 @@ return PhpCsFixer\Config::create()
         'array_syntax' => ['syntax' => 'short'],
         'declare_strict_types' => true,
         'binary_operator_spaces' => [
-            'align_double_arrow' => true,
-            'align_equals' => true
+            'default' => 'align_single_space_minimal',
         ],
         'ordered_imports' => true,
         'phpdoc_order' => true,
