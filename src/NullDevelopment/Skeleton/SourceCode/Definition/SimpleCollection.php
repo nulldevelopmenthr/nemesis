@@ -6,14 +6,14 @@ namespace NullDevelopment\Skeleton\SourceCode\Definition;
 
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode;
 
 /**
  * @see SimpleCollectionSpec
  * @see SimpleCollectionTest
  */
-class SimpleCollection extends ClassType implements SourceCode
+class SimpleCollection extends ClassDefinition implements SourceCode
 {
     /**
      * @var CollectionOf

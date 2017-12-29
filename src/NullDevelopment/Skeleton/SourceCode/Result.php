@@ -20,7 +20,7 @@ class Result
         $this->generated = $generated;
     }
 
-    public function getClassType(): Definition
+    public function getClassDefinition(): Definition
     {
         return $this->classType;
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\PhpUnit\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpUnit\Method\TestDateTimeCreateFromFormatMethod;
 use NullDevelopment\Skeleton\PhpUnitMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
@@ -17,7 +17,7 @@ use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
 class TestDateTimeCreateFromFormatMethodFactory implements PhpUnitMethodFactory
 {
     /** @return Method[] */
-    public function create(ClassType $definition): array
+    public function create(ClassDefinition $definition): array
     {
         $methods = [];
         foreach ($definition->getMethods() as $method) {

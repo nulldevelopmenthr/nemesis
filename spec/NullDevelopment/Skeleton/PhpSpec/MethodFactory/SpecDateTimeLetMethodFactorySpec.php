@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeLetMethodFactory;
 use PhpSpec\ObjectBehavior;
 
@@ -20,7 +20,7 @@ class SpecDateTimeLetMethodFactorySpec extends ObjectBehavior
         $this->shouldHaveType(SpecDateTimeLetMethodFactory::class);
     }
 
-    public function it_will_create_let_method(ClassType $definition)
+    public function it_will_create_let_method(ClassDefinition $definition)
     {
         $this->create($definition)->shouldHaveCount(1);
     }

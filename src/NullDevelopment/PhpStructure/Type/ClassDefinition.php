@@ -14,11 +14,11 @@ use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use Webmozart\Assert\Assert;
 
 /**
- * @see ClassTypeSpec
- * @see ClassTypeTest
+ * @see ClassDefinitionSpec
+ * @see ClassDefinitionTest
  * @SuppressWarnings("PHPMD.NumberOfChildren")
  */
-class ClassType implements Definition
+class ClassDefinition implements Definition
 {
     /** @var ClassName */
     private $name;
