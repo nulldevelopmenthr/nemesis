@@ -12,7 +12,7 @@ class UserEntityTest extends ObjectBehavior
 {
 	public function setUp()
 	{
-		$this->firstName = new UserFirstName('firstName');
+		$this->firstName = new UserFirstName('Steve');
 		$this->sut = new UserEntity($this->firstName);
 	}
 
