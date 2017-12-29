@@ -32,7 +32,7 @@ class ConstructorMethodTest extends TestCase
     {
         $method = new ConstructorMethod([]);
 
-        self::expectException(Exception::class);
+        $this->expectException(Exception::class);
 
         $method->getMethodReturnType();
     }

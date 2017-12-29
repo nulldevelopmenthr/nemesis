@@ -14,7 +14,6 @@ use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;

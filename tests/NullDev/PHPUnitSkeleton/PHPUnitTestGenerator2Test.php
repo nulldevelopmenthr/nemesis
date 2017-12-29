@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\NullDev\PHPUnitSkeleton;
 
-use MyCompany\Entity;
 use MyCompany\SecretProject;
 use MyCompany\ValueObject;
 use NullDev\Nemesis\SourceParser\ReflectionSourceParser;
@@ -46,7 +45,6 @@ class PHPUnitTestGenerator2Test extends ContainerSupportedTestCase
             [ValueObject\ShoeSize::class],
             [ValueObject\Latitude::class],
             [ValueObject\ListOfSomeKind::class],
-            //[Entity\TransactionEntity::class],
         ];
     }
 

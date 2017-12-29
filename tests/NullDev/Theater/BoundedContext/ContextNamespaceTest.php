@@ -42,8 +42,8 @@ class ContextNamespaceTest extends TestCase
      */
     public function testDoesntAcceptName(string $name, string $expectedExceptionMessage)
     {
-        self::expectException(Exception::class);
-        self::expectExceptionMessage($expectedExceptionMessage);
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage($expectedExceptionMessage);
 
         new ContextNamespace($name);
     }
