@@ -41,6 +41,8 @@ class UsernameSpec extends ObjectBehavior
 
     public function it_can_be_deserialized()
     {
-        $this->deserialize('username')->shouldReturnAnInstanceOf(Username::class);
+        $input = 'username';
+
+        $this->deserialize($input)->shouldReturnAnInstanceOf(Username::class);
     }
 }

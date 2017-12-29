@@ -64,6 +64,8 @@ class UserEntitySpec extends ObjectBehavior
 
     public function it_can_be_deserialized(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
-        $this->deserialize(['id' => 1, 'firstName' => 'firstName', 'lastName' => 'lastName', 'username' => 'username', 'createdAt' => '2018-01-01T00:01:00+00:00', 'updatedAt' => '2018-01-01T00:01:00+00:00'])->shouldReturnAnInstanceOf(UserEntity::class);
+        $input = ['id' => 1, 'firstName' => 'firstName', 'lastName' => 'lastName', 'username' => 'username', 'createdAt' => '2018-01-01T00:01:00+00:00', 'updatedAt' => '2018-01-01T00:01:00+00:00'];
+
+        $this->deserialize($input)->shouldReturnAnInstanceOf(UserEntity::class);
     }
 }
