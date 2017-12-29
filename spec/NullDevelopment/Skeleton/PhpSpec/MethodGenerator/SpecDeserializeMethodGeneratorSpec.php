@@ -51,7 +51,9 @@ class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior
         $lines = [
             'public function it_can_be_deserialized(MyVendor\User\UserFirstName $firstName)',
             '{',
-            "\t"."\$this->deserialize('firstName')->shouldReturnAnInstanceOf(UserEntity::class);",
+            "\t".'$input = \'firstName\';',
+            '',
+            "\t".'$this->deserialize($input)->shouldReturnAnInstanceOf(UserEntity::class);',
             '}',
         ];
 
@@ -90,7 +92,9 @@ class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior
         $lines = [
             'public function it_can_be_deserialized(MyVendor\User\UserFirstName $firstName, MyVendor\User\UserFirstName $lastName)',
             '{',
-            "\t"."\$this->deserialize(['firstName' => 'firstName', 'lastName' => 'lastName'])->shouldReturnAnInstanceOf(UserEntity::class);",
+            "\t".'$input = [\'firstName\' => \'firstName\', \'lastName\' => \'lastName\'];',
+            '',
+            "\t".'$this->deserialize($input)->shouldReturnAnInstanceOf(UserEntity::class);',
             '}',
         ];
 
@@ -119,7 +123,9 @@ class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior
         $lines = [
             'public function it_can_be_deserialized()',
             '{',
-            "\t".'$this->deserialize(\'name\')->shouldReturnAnInstanceOf(UserEntity::class);',
+            "\t".'$input = \'name\';',
+            '',
+            "\t".'$this->deserialize($input)->shouldReturnAnInstanceOf(UserEntity::class);',
             '}',
         ];
 

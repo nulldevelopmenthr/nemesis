@@ -77,8 +77,13 @@ class SpecDeserializeMethodGenerator implements MethodGenerator
             $value = '['.implode(', ', $values).']';
         }
 
-        $code->addBody(
-            sprintf('$this->deserialize(%s)->shouldReturnAnInstanceOf(%s::class);', $value, $method->getClassName()->getName())
-        );
+        $code->addBody(sprintf('$input = %s;', $value))
+            ->addBody('')
+            ->addBody(
+                sprintf(
+                    '$this->deserialize($input)->shouldReturnAnInstanceOf(%s::class);',
+                    $method->getClassName()->getName()
+                )
+            );
     }
 }
