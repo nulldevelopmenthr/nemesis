@@ -7,7 +7,6 @@ namespace Tests\NullDev\Skeleton\File;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDev\Skeleton\File\FileResource;
-use NullDev\Skeleton\Path\Path;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use PHPUnit\Framework\TestCase;
 

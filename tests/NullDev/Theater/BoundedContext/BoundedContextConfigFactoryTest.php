@@ -41,7 +41,7 @@ class BoundedContextConfigFactoryTest extends TestCase
         );
     }
 
-    public function testcreateFromArray()
+    public function testCreateFromArray()
     {
         $name  = 'Webshop';
         $input = [
