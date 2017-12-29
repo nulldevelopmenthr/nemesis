@@ -1,4 +1,4 @@
 public function let(MyVendor\User\UserFirstName $firstName)
 {
-	$this->beConstructedWith($name = 'name', $firstName);
+	$this->beConstructedWith($name = 'John Smith', $firstName);
 }

@@ -72,7 +72,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                 [
                     'type'        => 'SingleValueObject',
                     'instanceOf'  => 'MyVendor\User\Username',
-                    'constructor' => ['name' => ['instanceOf' => 'string']],
+                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples'=>['John Smith']]],
                     'properties'  => [],
                 ],
                 new SingleValueObject(
@@ -104,6 +104,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                             'nullable'   => false,
                             'hasDefault' => false,
                             'default'    => null,
+                            'examples'   => ['John Smith'],
                         ],
                     ],
                     'properties'  => ['name' => ['instanceOf' => 'string']],

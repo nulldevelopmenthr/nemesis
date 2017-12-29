@@ -70,7 +70,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                 [
                     'type'        => 'SimpleIdentifier',
                     'instanceOf'  => 'MyVendor\User\Username',
-                    'constructor' => ['name' => ['instanceOf' => 'string']],
+                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples'=>['John Smith']]],
                     'properties'  => [],
                 ],
                 new SimpleIdentifier(
@@ -102,6 +102,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                             'nullable'   => false,
                             'hasDefault' => false,
                             'default'    => null,
+                            'examples'   => ['John Smith'],
                         ],
                     ],
                     'properties'  => ['name' => ['instanceOf' => 'string']],
@@ -129,7 +130,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                     'parent'      => null,
                     'interfaces'  => [],
                     'traits'      => [],
-                    'constructor' => ['id' => ['instanceOf' => 'int']],
+                    'constructor' => ['id' => ['instanceOf' => 'int', 'examples'=>[99]]],
                     'properties'  => [],
                 ],
                 new SimpleIdentifier(

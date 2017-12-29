@@ -47,7 +47,8 @@ class Fixtures
             false,
             false,
             false,
-            new Visibility('private')
+            new Visibility('private'),
+            [new SimpleExample('Smith')]
         );
     }
 
@@ -59,7 +60,8 @@ class Fixtures
             false,
             false,
             false,
-            new Visibility('private')
+            new Visibility('private'),
+            [new SimpleExample(99)]
         );
     }
 
@@ -71,7 +73,8 @@ class Fixtures
             false,
             false,
             false,
-            new Visibility('private')
+            new Visibility('private'),
+            [new SimpleExample('John Smith')]
         );
     }
 }
