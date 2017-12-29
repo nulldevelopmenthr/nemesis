@@ -13,4 +13,6 @@ interface Variable
     public function getInstanceName(): ContractName;
 
     public function getInstanceFullName(): string;
+
+    public function getExamples(): array;
 }

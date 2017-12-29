@@ -22,19 +22,23 @@ class MethodParameter implements Variable
     private $hasDefaultValue;
     /** @var mixed */
     private $defaultValue;
+    /** @var array */
+    private $examples;
 
     public function __construct(
         string $name,
         ContractName $contractName,
         bool $nullable = false,
         bool $hasDefaultValue = false,
-        $defaultValue = null
+        $defaultValue = null,
+        array $examples = []
     ) {
         $this->name            = $name;
         $this->contractName    = $contractName;
         $this->nullable        = $nullable;
         $this->hasDefaultValue = $hasDefaultValue;
         $this->defaultValue    = $defaultValue;
+        $this->examples        = $examples;
     }
 
     public function getName(): string
@@ -65,6 +69,11 @@ class MethodParameter implements Variable
     public function getDefaultValue()
     {
         return $this->defaultValue;
+    }
+
+    public function getExamples(): array
+    {
+        return $this->examples;
     }
 
     public function isObject(): bool
