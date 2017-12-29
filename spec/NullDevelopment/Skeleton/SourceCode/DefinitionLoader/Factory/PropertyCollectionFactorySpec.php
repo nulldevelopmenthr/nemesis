@@ -24,10 +24,10 @@ class PropertyCollectionFactorySpec extends ObjectBehavior
     public function it_will_create_collection_of_properties()
     {
         $input = [
-            'id'        => [
+            'id' => [
                 'instanceOf' => 'integer',
             ],
-            'name'      => [
+            'name' => [
                 'instanceOf' => 'string',
             ],
             'something' => [
@@ -37,7 +37,7 @@ class PropertyCollectionFactorySpec extends ObjectBehavior
                 'default'    => null,
                 'visibility' => Visibility::PRIVATE,
             ],
-            'another'   => [
+            'another' => [
                 'instanceOf' => 'integer',
                 'nullable'   => false,
                 'hasDefault' => true,

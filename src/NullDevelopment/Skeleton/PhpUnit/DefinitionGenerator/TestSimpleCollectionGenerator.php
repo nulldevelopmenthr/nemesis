@@ -86,7 +86,7 @@ class TestSimpleCollectionGenerator implements DefinitionGenerator
 
         $var = new SimpleVariable('zzz', $definition->getCollectionOf()->getClassName());
 
-        $exampleValue =$this->exampleMaker->instance($var);
+        $exampleValue = $this->exampleMaker->instance($var);
 
         foreach ($exampleValue->classesToImport() as $codeToImport) {
             $namespace->addUse($codeToImport->getFullName());

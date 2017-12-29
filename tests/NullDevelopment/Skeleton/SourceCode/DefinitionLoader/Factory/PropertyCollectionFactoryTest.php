@@ -28,10 +28,10 @@ class PropertyCollectionFactoryTest extends TestCase
     public function testCreate()
     {
         $input = [
-            'id'        => [
+            'id' => [
                 'instanceOf' => 'int',
             ],
-            'name'      => [
+            'name' => [
                 'instanceOf' => 'string',
             ],
             'something' => [
@@ -41,7 +41,7 @@ class PropertyCollectionFactoryTest extends TestCase
                 'default'    => null,
                 'visibility' => Visibility::PRIVATE,
             ],
-            'another'   => [
+            'another' => [
                 'instanceOf' => 'int',
                 'nullable'   => false,
                 'hasDefault' => true,

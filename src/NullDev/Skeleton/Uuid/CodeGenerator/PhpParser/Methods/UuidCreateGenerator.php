@@ -33,8 +33,7 @@ class UuidCreateGenerator implements MethodGenerator
             ->makeStatic()
             ->setReturnType($method->getMethodReturnType());
 
-        $factory =
-            new Node\Expr\Assign(
+        $factory = new Node\Expr\Assign(
                 new Node\Expr\Variable('id'),
                 new Node\Expr\MethodCall(
                     new Node\Expr\StaticCall(

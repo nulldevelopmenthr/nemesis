@@ -95,7 +95,7 @@ class SimpleCollectionGenerator implements DefinitionGenerator
         $namespace->addUse($definition->getCollectionOf()->getHas()->getFullName());
         $namespace->addUse('Webmozart\Assert\Assert');
 
-        $collectionOf=$definition->getCollectionOf()->getClassName()->getName();
+        $collectionOf = $definition->getCollectionOf()->getClassName()->getName();
 
         $constructorMethod = $code->addMethod('__construct')
                 ->setVisibility(Visibility::PUBLIC);

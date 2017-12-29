@@ -25,7 +25,7 @@ class TestToStringMethodGenerator extends BaseTestMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $property=$method->getProperty();
+        $property = $method->getProperty();
 
         if (true === in_array($property->getInstanceFullName(), ['int', 'float'])) {
             $body = sprintf('self::assertSame((string) $this->%s, $this->sut->__toString());', $property->getName());

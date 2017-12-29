@@ -61,7 +61,7 @@ class SimpleCollectionLoader implements DefinitionLoader
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
 
-        $collectionOf      = new CollectionOf(
+        $collectionOf = new CollectionOf(
             ClassName::create($data['collectionOf']['instanceOf']),
             $data['collectionOf']['accessor'],
             ClassName::create($data['collectionOf']['has'])

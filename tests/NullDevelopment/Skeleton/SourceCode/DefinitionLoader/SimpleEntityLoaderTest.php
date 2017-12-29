@@ -62,15 +62,15 @@ class SimpleEntityLoaderTest extends SfTestCase
 
     public function provideInputs(): array
     {
-        $nameProperty  = Fixtures::nameProperty();
-        $idProperty    = Fixtures::integerIdProperty();
+        $nameProperty = Fixtures::nameProperty();
+        $idProperty   = Fixtures::integerIdProperty();
 
         return [
             [
                 [
                     'type'        => 'SimpleEntity',
                     'instanceOf'  => 'MyVendor\User\Username',
-                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples'=>['John Smith']]],
+                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples' => ['John Smith']]],
                     'properties'  => [],
                 ],
                 new SimpleEntity(
@@ -104,7 +104,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                             'examples'   => ['John Smith'],
                         ],
                     ],
-                    'properties'  => ['name' => ['instanceOf' => 'string']],
+                    'properties' => ['name' => ['instanceOf' => 'string']],
                 ],
                 new SimpleEntity(
                     ClassName::create('MyVendor\User\Username'),
@@ -128,7 +128,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                     'parent'      => null,
                     'interfaces'  => [],
                     'traits'      => [],
-                    'constructor' => ['id' => ['instanceOf' => 'int', 'examples'=>[99]]],
+                    'constructor' => ['id' => ['instanceOf' => 'int', 'examples' => [99]]],
                     'properties'  => [],
                 ],
                 new SimpleEntity(

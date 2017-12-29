@@ -60,8 +60,8 @@ class BroadwayAddEventCliCommand extends BaseSkeletonGeneratorCommand
         }
         $commandBus = $this->getService(CommandBus::class);
 
-        $name             = $this->askForEventName();
-        $parameters       = $this->getConstuctorParameters();
+        $name       = $this->askForEventName();
+        $parameters = $this->getConstuctorParameters();
 
         $eventClassName = new EventClassName($name, $this->context->getNamespace().'\Domain\Event');
 

@@ -65,9 +65,9 @@ class SimpleCollectionLoaderTest extends SfTestCase
         return [
             [
                 [
-                    'type'         => 'SimpleCollection',
-                    'instanceOf'   => 'MyVendor\UserCollection',
-                    'constructor'  => [
+                    'type'        => 'SimpleCollection',
+                    'instanceOf'  => 'MyVendor\UserCollection',
+                    'constructor' => [
                         'elements' => [
                             'instanceOf' => 'array',
                             'nullable'   => false,

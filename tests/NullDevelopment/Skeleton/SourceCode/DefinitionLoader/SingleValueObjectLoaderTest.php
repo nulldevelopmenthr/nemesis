@@ -72,7 +72,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                 [
                     'type'        => 'SingleValueObject',
                     'instanceOf'  => 'MyVendor\User\Username',
-                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples'=>['John Smith']]],
+                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples' => ['John Smith']]],
                     'properties'  => [],
                 ],
                 new SingleValueObject(
@@ -107,7 +107,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                             'examples'   => ['John Smith'],
                         ],
                     ],
-                    'properties'  => ['name' => ['instanceOf' => 'string']],
+                    'properties' => ['name' => ['instanceOf' => 'string']],
                 ],
                 new SingleValueObject(
                     ClassName::create('MyVendor\User\Username'),

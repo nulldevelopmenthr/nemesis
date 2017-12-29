@@ -17,9 +17,9 @@ class OutputResource2
 
     public function __construct(string $fileName, AbstractDataTypeName $className, string $output)
     {
-        $this->fileName    = $fileName;
-        $this->className   = $className;
-        $this->output      = $output;
+        $this->fileName  = $fileName;
+        $this->className = $className;
+        $this->output    = $output;
     }
 
     public function getFileName(): string

@@ -110,7 +110,7 @@ class ReadSideConfig
                 'repository' => $this->readRepository->getFullName(),
                 'projector'  => $this->readProjector->getFullName(),
             ],
-            'properties'     => $properties,
+            'properties' => $properties,
         ];
 
         if (null !== $this->readFactory) {
