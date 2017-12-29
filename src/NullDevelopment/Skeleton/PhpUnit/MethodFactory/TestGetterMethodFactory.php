@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\PhpUnit\MethodFactory;
 
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpUnit\Method\TestGetterMethod;
 use NullDevelopment\Skeleton\PhpUnitMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
@@ -16,7 +16,7 @@ use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 class TestGetterMethodFactory implements PhpUnitMethodFactory
 {
     /** @return \NullDevelopment\PhpStructure\Behaviour\Method[] */
-    public function create(ClassType $definition): array
+    public function create(ClassDefinition $definition): array
     {
         $methods = [];
         foreach ($definition->getMethods() as $method) {

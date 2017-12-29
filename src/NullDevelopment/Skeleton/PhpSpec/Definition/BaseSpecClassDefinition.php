@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\PhpSpec\Definition;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpecSpecification;
 
-abstract class BaseSpecClassDefinition extends ClassType implements PhpSpecSpecification
+abstract class BaseSpecClassDefinition extends ClassDefinition implements PhpSpecSpecification
 {
     /** @var ClassName */
     private $subjectUnderTest;

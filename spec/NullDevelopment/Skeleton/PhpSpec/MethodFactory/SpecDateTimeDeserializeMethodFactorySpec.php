@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeDeserializeMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
 use PhpSpec\ObjectBehavior;
@@ -23,7 +23,7 @@ class SpecDateTimeDeserializeMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_spec_from_source_code_definition(
-        ClassType $definition,
+        ClassDefinition $definition,
         DateTimeDeserializeMethod $method,
         ClassName $className
     ) {

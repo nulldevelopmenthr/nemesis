@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\Method\GetterSpecMethod;
 use NullDevelopment\Skeleton\PhpSpecMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
@@ -17,7 +17,7 @@ use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 class GetterSpecMethodFactory implements PhpSpecMethodFactory
 {
     /** @return Method[] */
-    public function create(ClassType $definition): array
+    public function create(ClassDefinition $definition): array
     {
         $methods = [];
         foreach ($definition->getMethods() as $method) {

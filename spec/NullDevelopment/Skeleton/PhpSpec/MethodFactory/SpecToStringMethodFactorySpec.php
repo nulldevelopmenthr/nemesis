@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\Method\SpecToStringMethod;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecToStringMethodFactory;
 use NullDevelopment\Skeleton\PhpSpecMethodFactory;
@@ -26,7 +26,7 @@ class SpecToStringMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_to_string_spec_method_for_to_string_in_source_code_definition(
-        ClassType $definition,
+        ClassDefinition $definition,
         ToStringMethod $method,
         Property $firstName
     ) {
@@ -37,7 +37,7 @@ class SpecToStringMethodFactorySpec extends ObjectBehavior
         $this->create($definition)->shouldHaveCount(1);
     }
 
-    public function it_returns_empty_list_when_no_to_string_found(ClassType $definition)
+    public function it_returns_empty_list_when_no_to_string_found(ClassDefinition $definition)
     {
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
         $this->create($definition)->shouldReturn([]);

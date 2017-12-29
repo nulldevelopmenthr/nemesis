@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\Method\LetMethod;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\LetMethodFactory;
 use NullDevelopment\Skeleton\PhpSpecMethodFactory;
@@ -26,7 +26,7 @@ class LetMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_let_method_if_source_code_definition_had_one(
-        ClassType $definition,
+        ClassDefinition $definition,
         ConstructorMethod $constructorMethod,
         Property $property1
     ) {
@@ -37,7 +37,7 @@ class LetMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_returns_empty_list_when_source_code_has_no_constructor_defined(
-        ClassType $definition
+        ClassDefinition $definition
     ) {
         $definition->getConstructorMethod()->shouldBeCalled()->willReturn(null);
 

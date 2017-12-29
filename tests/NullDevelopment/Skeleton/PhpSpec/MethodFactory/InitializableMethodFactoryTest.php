@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\Method\InitializableMethod;
 use NullDevelopment\Skeleton\PhpSpec\MethodFactory\InitializableMethodFactory;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +25,7 @@ class InitializableMethodFactoryTest extends TestCase
     }
 
     /** @dataProvider provideSourceCodeDefinitions */
-    public function testCreateFromConstructorMethod(ClassType $definition)
+    public function testCreateFromConstructorMethod(ClassDefinition $definition)
     {
         $result = $this->sut->create($definition);
 
@@ -35,7 +35,7 @@ class InitializableMethodFactoryTest extends TestCase
 
     public function provideSourceCodeDefinitions(): array
     {
-        $definition = new ClassType(ClassName::create('MyVendor\\User\\UserFirstName'), null, [], [], [], []);
+        $definition = new ClassDefinition(ClassName::create('MyVendor\\User\\UserFirstName'), null, [], [], [], []);
 
         return [
             [$definition],

@@ -8,11 +8,11 @@ use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use PhpSpec\ObjectBehavior;
 
-class ClassTypeSpec extends ObjectBehavior
+class ClassDefinitionSpec extends ObjectBehavior
 {
     public function let(
         ClassName $name,
@@ -27,7 +27,7 @@ class ClassTypeSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(ClassType::class);
+        $this->shouldHaveType(ClassDefinition::class);
     }
 
     public function it_exposes_class_name(ClassName $name)

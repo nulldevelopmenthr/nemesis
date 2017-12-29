@@ -11,15 +11,15 @@ use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \NullDevelopment\PhpStructure\Type\ClassType
+ * @covers \NullDevelopment\PhpStructure\Type\ClassDefinition
  * @group  unit
  */
-class ClassTypeTest extends TestCase
+class ClassDefinitionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     /** @var MockInterface|ClassName */
@@ -36,7 +36,7 @@ class ClassTypeTest extends TestCase
     private $properties;
     /** @var array */
     private $methods;
-    /** @var ClassType */
+    /** @var ClassDefinition */
     private $sut;
 
     public function setUp()
@@ -56,7 +56,7 @@ class ClassTypeTest extends TestCase
         $this->methods = [
             $this->constructorMethod,
         ];
-        $this->sut = new ClassType(
+        $this->sut = new ClassDefinition(
             $this->name,
             $this->parent,
             $this->interfaces,

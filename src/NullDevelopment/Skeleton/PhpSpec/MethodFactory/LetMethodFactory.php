@@ -6,7 +6,7 @@ namespace NullDevelopment\Skeleton\PhpSpec\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\ConstructorMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\PhpSpec\Method\LetMethod;
 use NullDevelopment\Skeleton\PhpSpecMethodFactory;
 
@@ -17,7 +17,7 @@ use NullDevelopment\Skeleton\PhpSpecMethodFactory;
 class LetMethodFactory implements PhpSpecMethodFactory
 {
     /** @return Method[] */
-    public function create(ClassType $definition): array
+    public function create(ClassDefinition $definition): array
     {
         if (null === $definition->getConstructorMethod()) {
             return [];

@@ -8,7 +8,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\Type\ClassType;
+use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode\Result;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +19,7 @@ use PHPUnit\Framework\TestCase;
 class ResultTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
-    /** @var MockInterface|ClassType */
+    /** @var MockInterface|ClassDefinition */
     private $classType;
     /** @var PhpNamespace */
     private $generated;
@@ -28,14 +28,14 @@ class ResultTest extends TestCase
 
     public function setUp()
     {
-        $this->classType = Mockery::mock(ClassType::class);
+        $this->classType = Mockery::mock(ClassDefinition::class);
         $this->generated = new PhpNamespace('');
         $this->sut       = new Result($this->classType, $this->generated);
     }
 
-    public function testGetClassType()
+    public function testGetClassDefinition()
     {
-        self::assertEquals($this->classType, $this->sut->getClassType());
+        self::assertEquals($this->classType, $this->sut->getClassDefinition());
     }
 
     public function testGetGenerated()
