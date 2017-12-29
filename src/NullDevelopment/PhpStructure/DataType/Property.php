@@ -24,6 +24,8 @@ class Property implements Variable
     private $defaultValue;
     /** @var Visibility */
     private $visibility;
+    /** @var array */
+    private $examples;
 
     public function __construct(
         string $name,
@@ -31,7 +33,8 @@ class Property implements Variable
         bool $nullable,
         bool $hasDefaultValue,
         $defaultValue,
-        Visibility $visibility
+        Visibility $visibility,
+        array $examples = []
     ) {
         $this->name            = $name;
         $this->structureName   = $structureName;
@@ -39,6 +42,7 @@ class Property implements Variable
         $this->hasDefaultValue = $hasDefaultValue;
         $this->defaultValue    = $defaultValue;
         $this->visibility      = $visibility;
+        $this->examples        = $examples;
     }
 
     public function getName(): string
@@ -79,6 +83,11 @@ class Property implements Variable
     public function getVisibility(): Visibility
     {
         return $this->visibility;
+    }
+
+    public function getExamples(): array
+    {
+        return $this->examples;
     }
 
     public function isObject(): bool

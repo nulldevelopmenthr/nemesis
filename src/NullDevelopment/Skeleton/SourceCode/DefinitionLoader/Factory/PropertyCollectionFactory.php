@@ -7,6 +7,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 
 /**
  * @see PropertyCollectionFactorySpec
@@ -26,13 +27,20 @@ class PropertyCollectionFactory
         foreach ($input as $name => $item) {
             $data = array_merge($this->getDefaultValues(), $item);
 
+            $examples = [];
+
+            foreach ($data['examples'] as $example) {
+                $examples[] = new SimpleExample($example);
+            }
+
             $result[] = new Property(
                 $name,
                 ClassName::create($data['instanceOf']),
                 $data['nullable'],
                 $data['hasDefault'],
                 $data['default'],
-                new Visibility($data['visibility'])
+                new Visibility($data['visibility']),
+                $examples
             );
         }
 
@@ -47,6 +55,7 @@ class PropertyCollectionFactory
             'hasDefault' => false,
             'default'    => null,
             'visibility' => Visibility::PRIVATE,
+            'examples'   => [],
         ];
     }
 }

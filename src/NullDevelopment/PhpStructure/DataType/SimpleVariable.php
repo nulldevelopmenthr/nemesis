@@ -37,4 +37,9 @@ class SimpleVariable implements Variable
     {
         return $this->contractName->getFullName();
     }
+
+    public function getExamples(): array
+    {
+        return [];
+    }
 }
