@@ -80,6 +80,10 @@ class ExampleMaker
      */
     public function value(Variable $variable): Example
     {
+        if (count($variable->getExamples()) > 0) {
+            return $variable->getExamples()[0];
+        }
+
         switch ($variable->getInstanceFullName()) {
             case 'int':
                 return new SimpleExample(1);
