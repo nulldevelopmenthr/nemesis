@@ -70,7 +70,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                 [
                     'type'        => 'SimpleEntity',
                     'instanceOf'  => 'MyVendor\User\Username',
-                    'constructor' => ['name' => ['instanceOf' => 'string']],
+                    'constructor' => ['name' => ['instanceOf' => 'string', 'examples'=>['John Smith']]],
                     'properties'  => [],
                 ],
                 new SimpleEntity(
@@ -101,6 +101,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                             'nullable'   => false,
                             'hasDefault' => false,
                             'default'    => null,
+                            'examples'   => ['John Smith'],
                         ],
                     ],
                     'properties'  => ['name' => ['instanceOf' => 'string']],
@@ -127,7 +128,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                     'parent'      => null,
                     'interfaces'  => [],
                     'traits'      => [],
-                    'constructor' => ['id' => ['instanceOf' => 'int']],
+                    'constructor' => ['id' => ['instanceOf' => 'int', 'examples'=>[99]]],
                     'properties'  => [],
                 ],
                 new SimpleEntity(
