@@ -36,6 +36,8 @@ class ProductIdSpec extends ObjectBehavior
 
     public function it_can_be_deserialized()
     {
-        $this->deserialize(1)->shouldReturnAnInstanceOf(ProductId::class);
+        $input = 1;
+
+        $this->deserialize($input)->shouldReturnAnInstanceOf(ProductId::class);
     }
 }

@@ -57,6 +57,8 @@ class ProductEntitySpec extends ObjectBehavior
 
     public function it_can_be_deserialized(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
     {
-        $this->deserialize(['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01T00:01:00+00:00'])->shouldReturnAnInstanceOf(ProductEntity::class);
+        $input = ['id' => 1, 'title' => 'title', 'description' => 'description', 'weight' => 1, 'updatedAt' => '2018-01-01T00:01:00+00:00'];
+
+        $this->deserialize($input)->shouldReturnAnInstanceOf(ProductEntity::class);
     }
 }
