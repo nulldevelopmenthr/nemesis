@@ -31,6 +31,10 @@ class ExampleMaker
                 return new InstanceExample(new ClassName('DateTime'), [$this->value($variable)]);
         }
 
+        if (count($variable->getExamples()) > 0) {
+            return new InstanceExample($variable->getInstanceName(), [$variable->getExamples()[0]]);
+        }
+
         $refl = (new BetterReflection())
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
