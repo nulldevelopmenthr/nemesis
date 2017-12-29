@@ -7,6 +7,7 @@ namespace Tests\TestCase;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 
 class Fixtures
 {
@@ -33,7 +34,8 @@ class Fixtures
             false,
             false,
             false,
-            new Visibility('private')
+            new Visibility('private'),
+            [new SimpleExample('Steve'), new SimpleExample('Anna')]
         );
     }
 

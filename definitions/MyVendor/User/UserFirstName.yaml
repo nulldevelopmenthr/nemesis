@@ -10,3 +10,4 @@ definition:
       nullable: false
       hasDefault: false
       default: ~
+      examples: ['John', 'Amy']
