@@ -21,7 +21,7 @@ class UserFirstNameTest extends TestCase
 
     public function setUp()
     {
-        $this->firstName = 'firstName';
+        $this->firstName = 'John';
         $this->sut       = new UserFirstName($this->firstName);
     }
 
