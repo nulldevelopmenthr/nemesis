@@ -23,6 +23,7 @@ class SpecDateTimeSerializeMethod extends BaseSpecMethod
         return [];
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         return [];

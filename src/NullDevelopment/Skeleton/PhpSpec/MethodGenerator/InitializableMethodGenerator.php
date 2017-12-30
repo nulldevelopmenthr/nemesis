@@ -31,14 +31,26 @@ class InitializableMethodGenerator extends BaseMethodGenerator
         );
 
         if (null !== $method->getParentName()) {
+            if (null === $method->getParentName()->getAlias()) {
+                $className = $method->getParentName()->getName();
+            } else {
+                $className = $method->getParentName()->getAlias();
+            }
+
             $code->addBody(
-                sprintf('$this->shouldHaveType(%s::class);', $method->getParentName()->getName())
+                sprintf('$this->shouldHaveType(%s::class);', $className)
             );
         }
 
         foreach ($method->getInterfaces() as $interface) {
+            if (null === $interface->getAlias()) {
+                $interfaceName = $interface->getName();
+            } else {
+                $interfaceName = $interface->getAlias();
+            }
+
             $code->addBody(
-                sprintf('$this->shouldImplement(%s::class);', $interface->getName())
+                sprintf('$this->shouldImplement(%s::class);', $interfaceName)
             );
         }
     }

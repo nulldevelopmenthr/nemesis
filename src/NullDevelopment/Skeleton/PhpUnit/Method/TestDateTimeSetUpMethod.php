@@ -36,6 +36,7 @@ class TestDateTimeSetUpMethod extends BaseTestMethod
         return [];
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         return [];

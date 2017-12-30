@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\Skeleton\SourceCode\Method;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\DataType\MethodParameter;
@@ -12,6 +11,7 @@ use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use PHPUnit\Framework\TestCase;
+use Tests\TestCase\Fixtures;
 
 /**
  * @covers \NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod
@@ -32,7 +32,7 @@ class DeserializeMethodTest extends TestCase
 
     public function setUp()
     {
-        $this->className  = Mockery::mock(ClassName::class);
+        $this->className  = Fixtures::userEntity();
         $this->properties = [];
         $this->sut        = new DeserializeMethod($this->className, $this->properties);
     }
@@ -77,8 +77,7 @@ class DeserializeMethodTest extends TestCase
 
     public function testGetImports()
     {
-        $this->className->shouldReceive('getFullName')->once()->andReturn('MyVendor\\User\\UserEntity');
-        self::assertEquals(['MyVendor\\User\\UserEntity'], $this->sut->getImports());
+        self::assertEquals([$this->className], $this->sut->getImports());
     }
 
     public function testIsStatic()

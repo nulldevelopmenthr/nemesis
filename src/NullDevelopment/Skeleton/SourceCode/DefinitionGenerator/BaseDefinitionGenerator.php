@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
+use NullDevelopment\PhpStructure\Behaviour\Method;
+use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\PhpUnitSpecification;
 use NullDevelopment\Skeleton\SourceCode;
@@ -64,13 +66,13 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
         }
 
         if (true === $definition->hasParent()) {
+            $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
             $code->setExtends($definition->getParentFullClassName());
-            $namespace->addUse($definition->getParentFullClassName());
         }
 
         foreach ($definition->getInterfaces() as $interface) {
             $code->addImplement($interface->getFullName());
-            $namespace->addUse($interface->getFullName());
+            $namespace->addUse($interface->getFullName(), $interface->getAlias());
         }
 
         foreach ($definition->getProperties() as $property) {
@@ -93,11 +95,13 @@ abstract class BaseDefinitionGenerator implements DefinitionGenerator
         $methods = [];
 
         foreach ($this->methodGenerators as $methodGenerator) {
+            /** @var Method $method */
             foreach ($definition->getMethods() as $method) {
                 if (true === $methodGenerator->supports($method)) {
                     $methods[] = $methodGenerator->generate($method);
+                    /** @var AbstractDataTypeName $import */
                     foreach ($method->getImports() as $import) {
-                        $namespace->addUse($import);
+                        $namespace->addUse($import->getFullName(), $import->getAlias());
                     }
                 }
             }

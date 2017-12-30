@@ -8,6 +8,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SingleValueObjectLoader;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
@@ -128,18 +129,24 @@ class SingleValueObjectLoaderTest extends SfTestCase
             ],
             [
                 [
-                    'type'        => 'SingleValueObject',
-                    'instanceOf'  => 'MyVendor\User\Username',
-                    'parent'      => null,
-                    'interfaces'  => [],
+                    'type'       => 'SingleValueObject',
+                    'instanceOf' => 'MyVendor\User\Username',
+                    'parent'     => [
+                        'instanceOf' => 'ThirdParty\User\Username',
+                        'alias'      => 'BaseUsername',
+                    ],
+                    'interfaces'  => ['MyVendor\SomeInterface', 'AnotherInterface' => 'ThirdParty\SomeInterface'],
                     'traits'      => [],
                     'constructor' => ['value' => ['instanceOf' => 'string']],
                     'properties'  => [],
                 ],
                 new SingleValueObject(
                     ClassName::create('MyVendor\User\Username'),
-                    null,
-                    [],
+                    ClassName::create('ThirdParty\User\Username', 'BaseUsername'),
+                    [
+                        InterfaceName::create('MyVendor\SomeInterface'),
+                        InterfaceName::create('ThirdParty\SomeInterface', 'AnotherInterface'),
+                    ],
                     [],
                     [$valueProperty],
                     [

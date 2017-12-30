@@ -111,6 +111,15 @@ class ClassDefinition implements Definition
         return $this->parent->getFullName();
     }
 
+    public function getParentAlias(): ?string
+    {
+        if (null === $this->parent) {
+            return null;
+        }
+
+        return $this->parent->getAlias();
+    }
+
     public function hasInterfaces(): bool
     {
         if (true === empty($this->interfaces)) {

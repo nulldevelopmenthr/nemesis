@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\Skeleton\SourceCode\Method;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
@@ -60,7 +61,10 @@ class ConstructorMethodTest extends TestCase
 
     public function testGetImports()
     {
-        self::assertEquals(['MyVendor\\User\\UserFirstName', 'MyVendor\\User\\UserLastName'], $this->sut->getImports());
+        self::assertEquals(
+            [ClassName::create('MyVendor\\User\\UserFirstName'), ClassName::create('MyVendor\\User\\UserLastName')],
+            $this->sut->getImports()
+        );
     }
 
     public function testIsStatic()

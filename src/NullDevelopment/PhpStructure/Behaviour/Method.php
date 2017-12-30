@@ -21,6 +21,7 @@ interface Method
 
     public function isNullableReturnType(): bool;
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array;
 
     public function isStatic(): bool;

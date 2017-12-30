@@ -39,10 +39,12 @@ class ExampleMaker
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
 
-        while ($parent = $refl->getParentClass()) {
+        $zz = $refl;
+        while ($parent = $zz->getParentClass()) {
             if (DateTime::class === $parent->getName()) {
                 return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
             }
+            $zz = $parent;
         }
 
         $arguments = [];
@@ -107,10 +109,12 @@ class ExampleMaker
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
 
-        while ($parent = $refl->getParentClass()) {
+        $zz = $refl;
+        while ($parent = $zz->getParentClass()) {
             if (DateTime::class === $parent->getName()) {
                 return new SimpleExample('2018-01-01T00:01:00+00:00');
             }
+            $zz = $parent;
         }
 
         $arguments = [];

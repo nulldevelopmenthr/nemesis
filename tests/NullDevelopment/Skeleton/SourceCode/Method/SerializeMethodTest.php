@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\Skeleton\SourceCode\Method;
 
-use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
 use PHPUnit\Framework\TestCase;
+use Tests\TestCase\Fixtures;
 
 /**
  * @covers \NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod
@@ -31,7 +31,7 @@ class SerializeMethodTest extends TestCase
 
     public function setUp()
     {
-        $this->className  = Mockery::mock(ClassName::class);
+        $this->className  = Fixtures::userEntity();
         $this->properties = [];
         $this->sut        = new SerializeMethod($this->className, $this->properties);
     }
@@ -73,8 +73,7 @@ class SerializeMethodTest extends TestCase
 
     public function testGetImports()
     {
-        $this->className->shouldReceive('getFullName')->once()->andReturn('MyVendor\\User\\UserEntity');
-        self::assertEquals(['MyVendor\\User\\UserEntity'], $this->sut->getImports());
+        self::assertEquals([$this->className], $this->sut->getImports());
     }
 
     public function testIsStatic()
