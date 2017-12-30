@@ -1,9 +1,10 @@
 definition:
   type: SimpleEntity
   instanceOf: MyVendor\ProductEntity
-  parent: ~
-  interfaces: []
-  traits: []
+  parent: MyVendor\BaseModel
+  interfaces:
+    AnotherInterface: MyVendor\Base\SomeInterface
+  traits: [MyVendor\JsonSerializable]
   constructor:
     id:
       instanceOf: MyVendor\Product\ProductId

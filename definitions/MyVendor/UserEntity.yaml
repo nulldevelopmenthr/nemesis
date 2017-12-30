@@ -1,9 +1,11 @@
 definition:
   type: SimpleEntity
   instanceOf: MyVendor\UserEntity
-  parent: ~
-  interfaces: []
-  traits: []
+  parent:
+    instanceOf: MyVendor\Base\UserEntity
+    alias: BaseUser
+  interfaces: [MyVendor\SomeInterface,MyVendor\Base\SomeInterface]
+  traits: [MyVendor\JsonSerializable]
   constructor:
     id:
       instanceOf: MyVendor\User\UserId
