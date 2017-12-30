@@ -54,9 +54,12 @@ abstract class BaseGenerateFilesFromDefinitionCliCommand extends Command impleme
             $classDefinitions[] = $loaders->findAndLoad($config);
         }
 
-        usort($classDefinitions, function ($first, $second) {
-            return $first->getGenerationPriority() <=> $second->getGenerationPriority();
-        });
+        usort(
+            $classDefinitions,
+            function ($first, $second) {
+                return $first->getGenerationPriority() <=> $second->getGenerationPriority();
+            }
+        );
 
         return $classDefinitions;
     }

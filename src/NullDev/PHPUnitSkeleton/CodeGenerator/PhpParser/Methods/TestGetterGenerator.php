@@ -39,7 +39,8 @@ class TestGetterGenerator implements MethodGenerator
 
         $node->addStmt(
             new StaticCall(
-                new Name('self'), 'assertEquals',
+                new Name('self'),
+                'assertEquals',
                 [
                     new Arg(
                         new Variable(
