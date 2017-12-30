@@ -58,7 +58,7 @@ class InterfaceGenerator implements DefinitionGenerator
         $interface = $namespace->addInterface($definition->getClassName());
 
         if (true === $definition->hasParent()) {
-            $interface->setExtends($definition->getParentClassName());
+            $interface->setExtends($definition->getParentFullClassName());
             $namespace->addUse($definition->getParentFullClassName());
         }
 

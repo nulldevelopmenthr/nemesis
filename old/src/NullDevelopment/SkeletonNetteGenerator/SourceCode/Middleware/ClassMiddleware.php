@@ -17,7 +17,7 @@ class ClassMiddleware implements PartialCodeGeneratorMiddleware
         $class = $namespace->addClass($definition->getClassName());
 
         if (true === $definition->hasParent()) {
-            $class->setExtends($definition->getParentClassName());
+            $class->setExtends($definition->getParentFullClassName());
             $namespace->addUse($definition->getParentFullClassName());
         }
 
