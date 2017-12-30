@@ -31,8 +31,8 @@ class TestSerializeMethodGenerator extends BaseTestMethodGenerator
             if (false === $property->isObject()) {
                 // @var Property $property
                 $code->addBody(
-                        sprintf('self::assertEquals($this->%s, $this->sut->serialize());', $property->getName())
-                    );
+                    sprintf('self::assertEquals($this->%s, $this->sut->serialize());', $property->getName())
+                );
             } else {
                 $code->addBody(
                     sprintf('self::assertEquals($this->%s->serialize(), $this->sut->serialize());', $property->getName())

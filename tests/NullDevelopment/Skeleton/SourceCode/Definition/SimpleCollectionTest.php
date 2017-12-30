@@ -60,7 +60,13 @@ class SimpleCollectionTest extends TestCase
             ClassName::create('MyVendor\User\UserId')
         );
         $this->sut = new SimpleCollection(
-            $this->name, $this->parent, $this->interfaces, $this->traits, $this->properties, $this->methods, $this->collectionOf
+            $this->name,
+            $this->parent,
+            $this->interfaces,
+            $this->traits,
+            $this->properties,
+            $this->methods,
+            $this->collectionOf
         );
     }
 

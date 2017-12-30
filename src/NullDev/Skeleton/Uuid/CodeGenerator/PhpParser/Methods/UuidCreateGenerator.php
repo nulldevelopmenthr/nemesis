@@ -34,15 +34,15 @@ class UuidCreateGenerator implements MethodGenerator
             ->setReturnType($method->getMethodReturnType());
 
         $factory = new Node\Expr\Assign(
-                new Node\Expr\Variable('id'),
-                new Node\Expr\MethodCall(
-                    new Node\Expr\StaticCall(
+            new Node\Expr\Variable('id'),
+            new Node\Expr\MethodCall(
+                new Node\Expr\StaticCall(
                         new Name('Uuid'),
                         'uuid4'
                     ),
-                    'toString'
-                )
-            );
+                'toString'
+            )
+        );
 
         $return = new Node\Stmt\Return_(
             new Node\Expr\New_(
