@@ -26,6 +26,7 @@ return PhpCsFixer\Config::create()
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
+        'class_attributes_separation' => ['const', 'method', 'property']
 
     ))
     ->setCacheFile(__DIR__.'/vendor/.php_cs.cache')
