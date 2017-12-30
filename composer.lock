@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/msvrtan/PHP-CS-Fixer.git",
-                "reference": "1afa4fe2f873c0773934d2d9d0151304d12a4bff"
+                "reference": "df9590ae5f88844347b812d28c0ba66be1c0583d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/msvrtan/PHP-CS-Fixer/zipball/1afa4fe2f873c0773934d2d9d0151304d12a4bff",
-                "reference": "1afa4fe2f873c0773934d2d9d0151304d12a4bff",
+                "url": "https://api.github.com/repos/msvrtan/PHP-CS-Fixer/zipball/df9590ae5f88844347b812d28c0ba66be1c0583d",
+                "reference": "df9590ae5f88844347b812d28c0ba66be1c0583d",
                 "shasum": ""
             },
             "require": {
@@ -276,7 +276,7 @@
             "support": {
                 "source": "https://github.com/msvrtan/PHP-CS-Fixer/tree/long-line-fixers"
             },
-            "time": "2017-12-30T12:20:51+00:00"
+            "time": "2017-12-30T13:23:31+00:00"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
