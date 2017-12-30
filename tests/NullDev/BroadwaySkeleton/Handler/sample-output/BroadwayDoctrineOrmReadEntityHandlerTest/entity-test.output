@@ -18,8 +18,10 @@ use Something\UserId;
 class UserEntityTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|UserId */
     private $id;
+
     /** @var UserEntity */
     private $sut;
 

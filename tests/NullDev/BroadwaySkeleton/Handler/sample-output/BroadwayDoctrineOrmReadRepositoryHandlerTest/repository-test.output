@@ -15,6 +15,7 @@ use Something\UserRepository;
 class UserRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var UserRepository */
     private $sut;
 

@@ -15,6 +15,7 @@ use Something\UserFactory;
 class UserFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var UserFactory */
     private $sut;
 

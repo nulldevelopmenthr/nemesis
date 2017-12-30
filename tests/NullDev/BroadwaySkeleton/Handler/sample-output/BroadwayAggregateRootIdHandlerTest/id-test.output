@@ -15,8 +15,10 @@ use Something\UserId;
 class UserIdTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $id;
+
     /** @var UserId */
     private $sut;
 

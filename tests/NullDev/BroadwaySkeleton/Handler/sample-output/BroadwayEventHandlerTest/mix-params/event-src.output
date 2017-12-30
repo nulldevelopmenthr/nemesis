@@ -10,12 +10,16 @@ class UserCreated implements Serializable
 {
     /** @var string */
     private $name;
+
     /** @var int */
     private $age;
+
     /** @var float */
     private $height;
+
     /** @var  */
     private $about;
+
     /** @var Company */
     private $company;
 
