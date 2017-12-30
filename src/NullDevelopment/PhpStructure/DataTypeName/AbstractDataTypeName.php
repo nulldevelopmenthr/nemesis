@@ -14,10 +14,14 @@ abstract class AbstractDataTypeName
     /** @var null|string */
     private $namespace;
 
-    public function __construct(string $name, ?string $namespace = null)
+    /** @var null|string */
+    private $alias;
+
+    public function __construct(string $name, ?string $namespace = null, ?string $alias = null)
     {
         $this->name      = $name;
         $this->namespace = $namespace;
+        $this->alias     = $alias;
     }
 
     public function getName(): string
@@ -30,6 +34,20 @@ abstract class AbstractDataTypeName
         return $this->namespace;
     }
 
+    public function hasAlias(): bool
+    {
+        if (null === $this->alias) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
     public function getFullName(): string
     {
         if (null === $this->namespace || '' === $this->namespace) {
@@ -39,7 +57,7 @@ abstract class AbstractDataTypeName
         return $this->namespace.'\\'.$this->name;
     }
 
-    public static function createFromFullyQualified(string $fullName): self
+    public static function createFromFullyQualified(string $fullName, ?string $alias = null): self
     {
         $parts = explode(self::NAMESPACE_SEPARATOR, $fullName);
         $name  = array_pop($parts);
@@ -50,6 +68,6 @@ abstract class AbstractDataTypeName
             $namespace = implode(self::NAMESPACE_SEPARATOR, $parts);
         }
 
-        return new static($name, $namespace);
+        return new static($name, $namespace, $alias);
     }
 }
