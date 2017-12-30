@@ -24,8 +24,10 @@ class ProductCollectionTest extends TestCase
 
     public function setUp()
     {
-        $this->elements = [new ProductEntity(new ProductId(1), 'title', 'description', new ProductWeight(1), new DateTime('2018-01-01T00:01:00+00:00'))];
-        $this->sut      = new ProductCollection($this->elements);
+        $this->elements = [
+            new ProductEntity(new ProductId(1), 'title', 'description', new ProductWeight(1), new DateTime('2018-01-01T00:01:00+00:00')),
+        ];
+        $this->sut = new ProductCollection($this->elements);
     }
 
     public function testGetElements()
