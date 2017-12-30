@@ -15,6 +15,7 @@ use Something\UserCreated;
 class UserCreatedTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var UserCreated */
     private $sut;
 

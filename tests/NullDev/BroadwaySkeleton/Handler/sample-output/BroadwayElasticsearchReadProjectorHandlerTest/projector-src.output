@@ -10,6 +10,7 @@ class UserProjector extends Projector
 {
     /** @var UserRepository */
     private $repository;
+
     /** @var UserFactory */
     private $factory;
 

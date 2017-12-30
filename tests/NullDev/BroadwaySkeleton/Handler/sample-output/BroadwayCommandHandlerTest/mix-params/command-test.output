@@ -18,16 +18,22 @@ use Something\CreateUserCommand;
 class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var int */
     private $age;
+
     /** @var float */
     private $height;
+
     /** @var  */
     private $about;
+
     /** @var MockInterface|Company */
     private $company;
+
     /** @var CreateUserCommand */
     private $sut;
 

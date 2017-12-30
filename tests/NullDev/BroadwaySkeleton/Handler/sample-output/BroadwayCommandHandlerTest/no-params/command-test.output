@@ -15,6 +15,7 @@ use Something\CreateUserCommand;
 class CreateUserCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var CreateUserCommand */
     private $sut;
 

@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class BuyersCommandHandlerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|BuyerRepository */
     private $repository;
+
     /** @var BuyersCommandHandler */
     private $sut;
 

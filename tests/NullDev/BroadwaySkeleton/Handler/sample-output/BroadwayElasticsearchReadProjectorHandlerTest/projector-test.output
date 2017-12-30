@@ -19,10 +19,13 @@ use Something\UserRepository;
 class UserProjectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|UserRepository */
     private $repository;
+
     /** @var MockInterface|UserFactory */
     private $factory;
+
     /** @var UserProjector */
     private $sut;
 
