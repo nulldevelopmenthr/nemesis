@@ -55,7 +55,13 @@ class UserCreated implements Serializable
 
     public function serialize(): array
     {
-        return ['name' => $this->name, 'age' => $this->age, 'height' => $this->height, 'about' => $this->about, 'company' => (string) $this->company];
+        return [
+            'name'    => $this->name,
+            'age'     => $this->age,
+            'height'  => $this->height,
+            'about'   => $this->about,
+            'company' => (string) $this->company,
+        ];
     }
 
     public static function deserialize(array $data): self
