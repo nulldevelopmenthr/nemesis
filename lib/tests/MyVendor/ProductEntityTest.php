@@ -72,11 +72,11 @@ class ProductEntityTest extends TestCase
     public function testSerialize()
     {
         $expected = [
-            'id'         => 1,
-            'title'      => 'title',
-            'description'=> 'description',
-            'weight'     => 1,
-            'updatedAt'  => '2018-01-01T00:01:00+00:00',
+            'id'          => 1,
+            'title'       => 'title',
+            'description' => 'description',
+            'weight'      => 1,
+            'updatedAt'   => '2018-01-01T00:01:00+00:00',
         ];
 
         self::assertSame($expected, $this->sut->serialize());

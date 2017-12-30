@@ -59,12 +59,26 @@ class UserEntitySpec extends ObjectBehavior
         $username->serialize()->shouldBeCalled()->willReturn('username');
         $createdAt->serialize()->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
-        $this->serialize()->shouldReturn(['id' => 1, 'firstName' => 'firstName', 'lastName' => 'lastName', 'username' => 'username', 'createdAt' => '2018-01-01T00:01:00+00:00', 'updatedAt' => '2018-01-01T00:01:00+00:00']);
+        $this->serialize()->shouldReturn([
+            'id'        => 1,
+            'firstName' => 'firstName',
+            'lastName'  => 'lastName',
+            'username'  => 'username',
+            'createdAt' => '2018-01-01T00:01:00+00:00',
+            'updatedAt' => '2018-01-01T00:01:00+00:00',
+        ]);
     }
 
     public function it_can_be_deserialized(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
-        $input = ['id' => 1, 'firstName' => 'firstName', 'lastName' => 'lastName', 'username' => 'username', 'createdAt' => '2018-01-01T00:01:00+00:00', 'updatedAt' => '2018-01-01T00:01:00+00:00'];
+        $input = [
+            'id'        => 1,
+            'firstName' => 'firstName',
+            'lastName'  => 'lastName',
+            'username'  => 'username',
+            'createdAt' => '2018-01-01T00:01:00+00:00',
+            'updatedAt' => '2018-01-01T00:01:00+00:00',
+        ];
 
         $this->deserialize($input)->shouldReturnAnInstanceOf(UserEntity::class);
     }

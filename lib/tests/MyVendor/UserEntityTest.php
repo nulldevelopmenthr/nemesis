@@ -82,12 +82,12 @@ class UserEntityTest extends TestCase
     public function testSerialize()
     {
         $expected = [
-            'id'       => 1,
-            'firstName'=> 'firstName',
-            'lastName' => 'lastName',
-            'username' => 'username',
-            'createdAt'=> '2018-01-01T00:01:00+00:00',
-            'updatedAt'=> '2018-01-01T00:01:00+00:00',
+            'id'        => 1,
+            'firstName' => 'firstName',
+            'lastName'  => 'lastName',
+            'username'  => 'username',
+            'createdAt' => '2018-01-01T00:01:00+00:00',
+            'updatedAt' => '2018-01-01T00:01:00+00:00',
         ];
 
         self::assertSame($expected, $this->sut->serialize());
