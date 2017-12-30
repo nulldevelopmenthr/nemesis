@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MyVendor;
 
 use DateTime;
+use MyVendor\Base\SomeInterface as AnotherInterface;
 use MyVendor\Product\ProductId;
 use MyVendor\Product\ProductWeight;
 
@@ -12,7 +13,7 @@ use MyVendor\Product\ProductWeight;
  * @see \spec\MyVendor\ProductEntitySpec
  * @see \Tests\MyVendor\ProductEntityTest
  */
-class ProductEntity
+class ProductEntity extends BaseModel implements AnotherInterface
 {
     /** @var ProductId */
     private $id;

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MyVendor;
 
 use DateTime;
+use MyVendor\Base\SomeInterface as BaseSomeInterface;
+use MyVendor\Base\UserEntity as BaseUser;
 use MyVendor\User\UserCreatedAt;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
@@ -13,7 +15,7 @@ use MyVendor\User\Username;
  * @see \spec\MyVendor\UserEntitySpec
  * @see \Tests\MyVendor\UserEntityTest
  */
-class UserEntity
+class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 {
     /** @var UserId */
     private $id;
