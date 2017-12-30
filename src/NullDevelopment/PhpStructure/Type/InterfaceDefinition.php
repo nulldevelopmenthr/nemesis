@@ -67,6 +67,15 @@ class InterfaceDefinition implements SourceCode, Definition
         return $this->parentName->getFullName();
     }
 
+    public function getParentAlias(): ?string
+    {
+        if (null === $this->parentName) {
+            return null;
+        }
+
+        return $this->parentName->getAlias();
+    }
+
     public function getInterfaces(): array
     {
         return [];

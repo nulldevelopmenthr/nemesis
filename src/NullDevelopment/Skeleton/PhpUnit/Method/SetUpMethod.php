@@ -45,15 +45,16 @@ class SetUpMethod extends BaseTestMethod
         return $this->properties;
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         $imports = [
-            $this->className->getFullName(),
+            $this->className,
         ];
 
         foreach ($this->properties as $property) {
             if (true === $property->isObject()) {
-                $imports[] = $property->getInstanceFullName();
+                $imports[] = $property->getInstanceName();
 
                 $imports = array_merge($imports, $this->recursivelyGrabImports($property->getInstanceFullName()));
             }
@@ -62,6 +63,7 @@ class SetUpMethod extends BaseTestMethod
         return $imports;
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     private function recursivelyGrabImports(string $className): array
     {
         $refl = (new BetterReflection())
@@ -83,7 +85,7 @@ class SetUpMethod extends BaseTestMethod
             $type = $constructorParam->getType()->__toString();
 
             if (false === in_array($type, ['int', 'string', 'float', 'bool', 'array'])) {
-                $imports[] = $type;
+                $imports[] = ClassName::create($type);
                 $imports   = array_merge($imports, $this->recursivelyGrabImports($type));
             }
 
@@ -92,7 +94,7 @@ class SetUpMethod extends BaseTestMethod
                     $docBlockType = substr($docBlockType, 0, -2);
                 }
 
-                $imports[] = $docBlockType;
+                $imports[] = ClassName::create($docBlockType);
                 $imports   = array_merge($imports, $this->recursivelyGrabImports($docBlockType));
             }
         }

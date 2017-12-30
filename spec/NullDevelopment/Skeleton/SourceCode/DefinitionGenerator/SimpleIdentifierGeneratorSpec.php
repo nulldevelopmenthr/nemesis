@@ -69,6 +69,7 @@ class SimpleIdentifierGeneratorSpec extends ObjectBehavior
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(true);
         $definition->getParentFullClassName()->shouldBeCalled()->willReturn('MyVendor\\Core\\BaseModel');
+        $definition->getParentAlias()->shouldBeCalled()->willReturn(null);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
@@ -101,6 +102,7 @@ class SimpleIdentifierGeneratorSpec extends ObjectBehavior
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName]);
         $interfaceName->getFullName()->shouldBeCalled()->willReturn('MyVendor\\Core\\SomeInterface');
+        $interfaceName->getAlias()->shouldBeCalled()->willReturn(null);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
 

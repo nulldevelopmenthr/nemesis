@@ -16,8 +16,12 @@ class InterfaceNameCollectionFactory
     {
         $collection = [];
 
-        foreach ($input as $traitName) {
-            $collection[] = InterfaceName::create($traitName);
+        foreach ($input as $interfaceAlias => $interfaceName) {
+            $alias = null;
+            if (is_string($interfaceAlias)) {
+                $alias = $interfaceAlias;
+            }
+            $collection[] = InterfaceName::create($interfaceName, $alias);
         }
 
         return $collection;

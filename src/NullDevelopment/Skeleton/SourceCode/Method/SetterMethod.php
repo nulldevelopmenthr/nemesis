@@ -62,6 +62,7 @@ class SetterMethod implements Method
         return false;
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         return [];

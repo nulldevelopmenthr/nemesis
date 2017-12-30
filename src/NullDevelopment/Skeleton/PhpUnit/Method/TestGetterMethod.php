@@ -54,6 +54,7 @@ class TestGetterMethod extends BaseTestMethod
         return [$this->property];
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         return [];

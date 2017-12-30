@@ -20,6 +20,8 @@ interface Definition
 
     public function getParentFullClassName();
 
+    public function getParentAlias(): ?string;
+
     public function hasTraits(): bool;
 
     public function getTraits(): array;

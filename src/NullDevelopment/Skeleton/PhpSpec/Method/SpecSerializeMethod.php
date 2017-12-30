@@ -46,13 +46,14 @@ class SpecSerializeMethod extends BaseSpecMethod
         return $parameters;
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         $imports = [];
 
         foreach ($this->properties as $property) {
             if (true === $property->isObject()) {
-                $imports[] = $property->getInstanceFullName();
+                $imports[] = $property->getInstanceName();
             }
         }
 

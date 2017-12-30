@@ -62,6 +62,7 @@ class GetterMethod implements Method
         return $this->property->isNullable();
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         return [];

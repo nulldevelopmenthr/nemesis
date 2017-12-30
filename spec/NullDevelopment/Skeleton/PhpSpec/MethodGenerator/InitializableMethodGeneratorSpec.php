@@ -65,6 +65,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
         $method->getInterfaces()->shouldBeCalled()->willReturn([]);
 
         $className->getName()->shouldBeCalled()->willReturn('User');
+        $parentName->getAlias()->shouldBeCalled()->willReturn(null);
         $parentName->getName()->shouldBeCalled()->willReturn('BaseUser');
 
         $lines = [
@@ -95,6 +96,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
         $method->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName1]);
 
         $className->getName()->shouldBeCalled()->willReturn('User');
+        $interfaceName1->getAlias()->shouldBeCalled()->willReturn(null);
         $interfaceName1->getName()->shouldBeCalled()->willReturn('SomeInterface');
 
         $lines = [

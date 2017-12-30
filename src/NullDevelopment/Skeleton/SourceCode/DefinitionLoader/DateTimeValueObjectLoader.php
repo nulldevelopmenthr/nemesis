@@ -85,6 +85,9 @@ class DateTimeValueObjectLoader implements DefinitionLoader
         if (null === $data['parent']) {
             return null;
         }
+        if (true === is_array($data['parent'])) {
+            return ClassName::create($data['parent']['instanceOf'], $data['parent']['alias']);
+        }
 
         return ClassName::create($data['parent']);
     }

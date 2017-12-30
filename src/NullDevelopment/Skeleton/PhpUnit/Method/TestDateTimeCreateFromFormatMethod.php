@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\PhpUnit\Method;
 
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+
 /**
  * @see TestDateTimeCreateFromFormatMethodSpec
  * @see TestDateTimeCreateFromFormatMethodTest
@@ -21,8 +23,9 @@ class TestDateTimeCreateFromFormatMethod extends BaseTestMethod
         return [];
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
-        return ['DateTime'];
+        return [ClassName::create('DateTime')];
     }
 }

@@ -58,17 +58,18 @@ class InitializableMethod extends BaseSpecMethod
         return [];
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         $imports = [
-            $this->className->getFullName(),
+            $this->className,
         ];
         if (null !== $this->parentName) {
-            $imports[] = $this->parentName->getFullName();
+            $imports[] = $this->parentName;
         }
 
         foreach ($this->interfaces as $interfaceName) {
-            $imports[] = $interfaceName->getFullName();
+            $imports[] = $interfaceName;
         }
 
         return $imports;

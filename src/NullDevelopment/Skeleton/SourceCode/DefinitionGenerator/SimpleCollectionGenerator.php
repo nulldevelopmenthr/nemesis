@@ -65,12 +65,12 @@ class SimpleCollectionGenerator implements DefinitionGenerator
 
         if (true === $definition->hasParent()) {
             $code->setExtends($definition->getParentFullClassName());
-            $namespace->addUse($definition->getParentFullClassName());
+            $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
         }
 
         foreach ($definition->getInterfaces() as $interface) {
             $code->addImplement($interface->getFullName());
-            $namespace->addUse($interface->getFullName());
+            $namespace->addUse($interface->getFullName(), $interface->getAlias());
         }
 
         foreach ($definition->getProperties() as $property) {

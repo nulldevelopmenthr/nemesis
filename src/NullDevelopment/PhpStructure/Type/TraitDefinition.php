@@ -66,6 +66,11 @@ class TraitDefinition implements SourceCode, Definition
         return null;
     }
 
+    public function getParentAlias(): ?string
+    {
+        return null;
+    }
+
     public function getInterfaces(): array
     {
         return [];

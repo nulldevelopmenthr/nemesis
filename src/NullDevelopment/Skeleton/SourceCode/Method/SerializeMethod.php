@@ -87,15 +87,16 @@ class SerializeMethod implements Method
         return false;
     }
 
+    /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
         $imports = [
-            $this->className->getFullName(),
+            $this->className,
         ];
 
         foreach ($this->properties as $property) {
             if (true === $property->isObject()) {
-                $imports[] = $property->getInstanceFullName();
+                $imports[] = $property->getInstanceName();
             }
         }
 
