@@ -127,9 +127,9 @@ class BoundedContextConfig
             }
 
             $commands[$commandConfig->getName()] = [
-                    'className'  => $commandConfig->getCommandClassName()->getFullName(),
-                    'parameters' => $parameters,
-                ];
+                'className'  => $commandConfig->getCommandClassName()->getFullName(),
+                'parameters' => $parameters,
+            ];
         }
 
         foreach ($this->events as $eventConfig) {
@@ -140,9 +140,9 @@ class BoundedContextConfig
             }
 
             $events[$eventConfig->getName()] = [
-                    'className'  => $eventConfig->getEventClassName()->getFullName(),
-                    'parameters' => $parameters,
-                ];
+                'className'  => $eventConfig->getEventClassName()->getFullName(),
+                'parameters' => $parameters,
+            ];
         }
 
         return [
