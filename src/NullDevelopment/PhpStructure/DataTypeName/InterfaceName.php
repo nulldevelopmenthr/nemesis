@@ -10,7 +10,7 @@ namespace NullDevelopment\PhpStructure\DataTypeName;
  */
 class InterfaceName extends AbstractDataTypeName implements ContractName, Importable
 {
-    public static function create(string $fullName): self
+    public static function create(string $fullName, ?string $alias = null): self
     {
         $parts = explode(self::NAMESPACE_SEPARATOR, $fullName);
         $name  = array_pop($parts);
@@ -21,6 +21,6 @@ class InterfaceName extends AbstractDataTypeName implements ContractName, Import
             $namespace = implode(self::NAMESPACE_SEPARATOR, $parts);
         }
 
-        return new static($name, $namespace);
+        return new static($name, $namespace, $alias);
     }
 }
