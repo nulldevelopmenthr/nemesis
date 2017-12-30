@@ -16,8 +16,10 @@ class EventConfig
 {
     /** @var string */
     private $name;
+
     /** @var EventClassName */
     private $eventClassName;
+
     /** @var array */
     private $parameters;
 

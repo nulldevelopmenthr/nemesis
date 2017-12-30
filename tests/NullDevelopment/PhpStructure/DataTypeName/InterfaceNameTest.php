@@ -15,8 +15,10 @@ class InterfaceNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var InterfaceName */
     private $sut;
 

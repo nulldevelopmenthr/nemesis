@@ -21,6 +21,7 @@ class BroadwayElasticsearchReadRepositoryHandlerTest extends ContainerSupportedT
 
     /** @var BroadwayElasticsearchReadRepositoryHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

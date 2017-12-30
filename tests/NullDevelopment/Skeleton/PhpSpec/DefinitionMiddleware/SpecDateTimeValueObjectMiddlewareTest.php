@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class SpecDateTimeValueObjectMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|SpecDateTimeValueObjectFactory */
     private $factory;
+
     /** @var MockInterface|SpecDateTimeValueObjectGenerator */
     private $generator;
+
     /** @var SpecDateTimeValueObjectMiddleware */
     private $sut;
 

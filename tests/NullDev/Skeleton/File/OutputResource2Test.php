@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class OutputResource2Test extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $fileName;
+
     /** @var MockInterface|AbstractDataTypeName */
     private $className;
+
     /** @var string */
     private $output;
+
     /** @var OutputResource2 */
     private $sut;
 

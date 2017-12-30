@@ -17,6 +17,7 @@ class DateTimeSerializeMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var DateTimeSerializeMethodGenerator */
     private $sut;
 

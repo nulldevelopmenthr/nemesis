@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayElasticsearchReadProjectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $projectorClassType;
+
     /** @var array */
     private $entityParameters;
+
     /** @var CreateBroadwayElasticsearchReadProjector */
     private $sut;
 

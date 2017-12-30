@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TestDateTimeValueObjectFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $factories;
+
     /** @var TestDateTimeValueObjectFactory */
     private $sut;
 

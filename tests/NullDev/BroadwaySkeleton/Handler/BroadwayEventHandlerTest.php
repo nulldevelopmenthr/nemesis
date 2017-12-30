@@ -22,6 +22,7 @@ class BroadwayEventHandlerTest extends ContainerSupportedTestCase
 
     /** @var BroadwayEventHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

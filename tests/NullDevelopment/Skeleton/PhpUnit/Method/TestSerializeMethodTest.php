@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TestSerializeMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $properties;
+
     /** @var TestSerializeMethod */
     private $sut;
 

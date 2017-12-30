@@ -24,6 +24,7 @@ use Tests\TestCase\SfTestCase;
 class SpecSingleValueObjectFactoryTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecSingleValueObjectFactory */
     private $sut;
 

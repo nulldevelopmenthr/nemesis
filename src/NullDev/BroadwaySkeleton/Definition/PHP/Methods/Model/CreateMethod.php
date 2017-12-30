@@ -12,6 +12,7 @@ use Webmozart\Assert\Assert;
 class CreateMethod implements Method
 {
     private $classToBuild;
+
     /** @var Parameter[]|array */
     private $params;
 

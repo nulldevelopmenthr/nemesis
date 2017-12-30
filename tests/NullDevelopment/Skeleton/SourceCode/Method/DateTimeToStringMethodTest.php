@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class DateTimeToStringMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var DateTimeToStringMethod */
     private $sut;
 

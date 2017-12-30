@@ -18,8 +18,10 @@ class TestDateTimeSetUpMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var TestDateTimeSetUpMethodGenerator */
     private $sut;
 

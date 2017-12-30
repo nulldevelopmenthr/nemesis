@@ -15,6 +15,7 @@ class EventSourcedAggregateRootSourceFactory
 {
     /** @var ClassSourceFactory */
     private $sourceFactory;
+
     /** @var DefinitionFactory */
     private $definitionFactory;
 

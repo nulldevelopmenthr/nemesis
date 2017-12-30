@@ -14,6 +14,7 @@ class Constant
 {
     /** @var ConstantName */
     private $constantName;
+
     /** @var mixed */
     private $value;
 

@@ -28,8 +28,10 @@ class PHPUnitTestGeneratorTest extends TestCase
 
     /** @var PHPUnitTestGenerator */
     private $testGenerator;
+
     /** @var PhpParserGenerator */
     private $phpParserGenerator;
+
     /** @var ContainerInterface */
     private $container;
 

@@ -16,8 +16,10 @@ use PHPUnit\Framework\TestCase;
 class ContextNamespaceTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $namespace;
+
     /** @var ContextNamespace */
     private $contextNamespace;
 

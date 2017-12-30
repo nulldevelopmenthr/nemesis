@@ -14,8 +14,10 @@ class GetterSpecMethod extends BaseSpecMethod
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $methodUnderTest;
+
     /** @var Property */
     private $property;
 

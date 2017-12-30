@@ -21,6 +21,7 @@ use Tests\TestCase\SfTestCase;
 class SimpleCollectionLoaderTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SimpleCollectionLoader */
     private $sut;
 

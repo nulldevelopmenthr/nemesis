@@ -18,10 +18,13 @@ class GetterSpecMethodTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $methodUnderTest;
+
     /** @var Property */
     private $property;
+
     /** @var GetterSpecMethod */
     private $sut;
 

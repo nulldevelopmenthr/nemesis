@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TestSingleValueObjectFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $factories;
+
     /** @var TestSingleValueObjectFactory */
     private $sut;
 

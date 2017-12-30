@@ -18,16 +18,22 @@ class Config
 {
     /** @var array */
     private $sourceCodePaths = [];
+
     /** @var array */
     private $specPaths = [];
+
     /** @var array */
     private $testPaths = [];
+
     /** @var string */
     private $testsNamespace;
+
     /** @var string */
     private $baseTestClassName;
+
     /** @var array */
     private $testIgnoreInstancesOf = [];
+
     /** @var array */
     private $testIgnoreIterfaces = [];
 

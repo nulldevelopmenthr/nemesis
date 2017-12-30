@@ -17,6 +17,7 @@ class ReadEntitySourceFactory implements SourceFactory
 {
     /** @var ClassSourceFactory */
     private $sourceFactory;
+
     /** @var DefinitionFactory */
     private $definitionFactory;
 

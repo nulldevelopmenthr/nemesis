@@ -27,14 +27,19 @@ class ImprovedClassSource
 {
     /** @var ClassType */
     private $classType;
+
     /** @var DocComment[]|array */
     private $docComments = [];
+
     /** @var null|ClassType */
     private $parent;
+
     /** @var InterfaceType[]|array */
     private $interfaces = [];
+
     /** @var TraitType[]|array */
     private $traits = [];
+
     /** @var null|ConstructorMethod */
     private $constructor;
 

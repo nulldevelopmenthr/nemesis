@@ -21,14 +21,19 @@ use PHPUnit\Framework\TestCase;
 class TraitLoaderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
+
     /** @var MockInterface|ConstantCollectionFactory */
     private $constantCollectionFactory;
+
     /** @var MockInterface|PropertyCollectionFactory */
     private $propertyCollectionFactory;
+
     /** @var MockInterface|MethodCollectionFactory */
     private $methodCollectionFactory;
+
     /** @var TraitLoader */
     private $sut;
 

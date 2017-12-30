@@ -15,8 +15,10 @@ class RootIdClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var RootIdClassName */
     private $className;
 

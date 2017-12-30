@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class PhpParserSourceParserTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var PhpParserSourceParser */
     private $sut;
 

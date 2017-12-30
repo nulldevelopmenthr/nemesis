@@ -16,6 +16,7 @@ class CreateBroadwayAggregateRootModel
 {
     /** @var RootIdClassName */
     private $rootIdClassName;
+
     /** @var RootModelClassName */
     private $modelClassName;
 

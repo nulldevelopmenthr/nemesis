@@ -18,6 +18,7 @@ class SpecSimpleIdentifierMiddleware implements Middleware
 {
     /** @var SpecSimpleIdentifierFactory */
     private $factory;
+
     /** @var SpecSimpleIdentifierGenerator */
     private $generator;
 

@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TransactionEntityTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TransactionEntity */
     private $transactionEntity;
 

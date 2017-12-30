@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class CommandHandlerSourceFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassSourceFactory */
     private $sourceFactory;
+
     /** @var MockInterface|DefinitionFactory */
     private $definitionFactory;
+
     /** @var CommandHandlerSourceFactory */
     private $commandHandlerSourceFactory;
 

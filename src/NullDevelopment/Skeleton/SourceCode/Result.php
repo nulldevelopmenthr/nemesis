@@ -11,6 +11,7 @@ class Result
 {
     /** @var Definition */
     private $classType;
+
     /** @var PhpNamespace */
     private $generated;
 

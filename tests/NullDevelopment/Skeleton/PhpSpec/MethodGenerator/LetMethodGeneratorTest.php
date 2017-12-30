@@ -18,8 +18,10 @@ use Tests\TestCase\Fixtures;
 class LetMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var LetMethodGenerator */
     private $sut;
 

@@ -17,8 +17,10 @@ use Tests\TestCase\Fixtures;
 class ConstructorMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $properties;
+
     /** @var ConstructorMethod */
     private $sut;
 

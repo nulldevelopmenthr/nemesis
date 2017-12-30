@@ -15,18 +15,25 @@ class ReadSideConfig
 {
     /** @var ReadSideName */
     private $name;
+
     /** @var ReadSideNamespace */
     private $namespace;
+
     /** @var ReadSideImplementation */
     private $implementation;
+
     /** @var ClassType */
     private $readEntity;
+
     /** @var ClassType */
     private $readRepository;
+
     /** @var ClassType */
     private $readProjector;
+
     /** @var ClassType|null */
     private $readFactory;
+
     /** @var array */
     private $properties;
 

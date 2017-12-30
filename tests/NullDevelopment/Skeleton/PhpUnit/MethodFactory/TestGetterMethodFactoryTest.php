@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TestGetterMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TestGetterMethodFactory */
     private $sut;
 

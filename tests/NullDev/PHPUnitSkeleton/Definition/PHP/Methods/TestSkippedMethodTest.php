@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TestSkippedMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $methodUnderTestName;
+
     /** @var TestSkippedMethod */
     private $sut;
 

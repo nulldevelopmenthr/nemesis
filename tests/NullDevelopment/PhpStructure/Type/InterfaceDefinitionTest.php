@@ -20,14 +20,19 @@ use PHPUnit\Framework\TestCase;
 class InterfaceDefinitionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|InterfaceName */
     private $name;
+
     /** @var MockInterface|InterfaceName */
     private $parentName;
+
     /** @var array */
     private $constants;
+
     /** @var array */
     private $methods;
+
     /** @var InterfaceDefinition */
     private $sut;
 

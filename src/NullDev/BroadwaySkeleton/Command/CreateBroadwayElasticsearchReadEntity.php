@@ -14,6 +14,7 @@ class CreateBroadwayElasticsearchReadEntity
 {
     /** @var ClassType */
     private $entityClassType;
+
     /** @var array */
     private $entityParameters;
 

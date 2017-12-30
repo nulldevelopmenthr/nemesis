@@ -22,6 +22,7 @@ class BroadwayDoctrineOrmReadProjectorHandlerTest extends ContainerSupportedTest
 
     /** @var BroadwayDoctrineOrmReadProjectorHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

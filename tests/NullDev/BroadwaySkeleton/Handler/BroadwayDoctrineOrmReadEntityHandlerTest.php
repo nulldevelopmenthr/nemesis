@@ -22,6 +22,7 @@ class BroadwayDoctrineOrmReadEntityHandlerTest extends ContainerSupportedTestCas
 
     /** @var BroadwayDoctrineOrmReadEntityHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

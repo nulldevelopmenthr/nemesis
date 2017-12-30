@@ -11,6 +11,7 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 class RepositoryConstructorMethod implements Method
 {
     private $params = [];
+
     private $modelClassType;
 
     public function __construct(ClassType $modelClassType)

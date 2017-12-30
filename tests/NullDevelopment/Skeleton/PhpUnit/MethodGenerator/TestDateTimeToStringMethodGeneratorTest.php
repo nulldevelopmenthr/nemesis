@@ -18,8 +18,10 @@ class TestDateTimeToStringMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var TestDateTimeToStringMethodGenerator */
     private $sut;
 

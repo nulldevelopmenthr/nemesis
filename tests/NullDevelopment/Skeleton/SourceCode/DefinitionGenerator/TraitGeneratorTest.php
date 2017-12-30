@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TraitGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $methodGenerators;
+
     /** @var TraitGenerator */
     private $sut;
 

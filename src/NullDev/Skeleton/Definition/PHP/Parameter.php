@@ -16,6 +16,7 @@ class Parameter
 {
     /** @var string */
     private $name;
+
     /** @var Type|null */
     private $type;
 

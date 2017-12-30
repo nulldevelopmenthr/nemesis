@@ -15,6 +15,7 @@ class TheaterConfigFactory
 {
     /** @var BoundedContextConfigFactory */
     private $boundedContextConfigFactory;
+
     /** @var ReadSideConfigFactory */
     private $readSideConfigFactory;
 

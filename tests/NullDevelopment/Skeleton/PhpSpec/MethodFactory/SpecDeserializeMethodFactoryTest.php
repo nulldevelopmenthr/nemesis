@@ -18,6 +18,7 @@ use Tests\TestCase\Fixtures;
 class SpecDeserializeMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecDeserializeMethodFactory */
     private $sut;
 

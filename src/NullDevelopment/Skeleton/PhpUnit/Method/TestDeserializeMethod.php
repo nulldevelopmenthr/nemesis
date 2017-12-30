@@ -15,6 +15,7 @@ class TestDeserializeMethod extends BaseTestMethod
 {
     /** @var ClassName */
     private $className;
+
     /** @var array|Property[] */
     private $properties;
 

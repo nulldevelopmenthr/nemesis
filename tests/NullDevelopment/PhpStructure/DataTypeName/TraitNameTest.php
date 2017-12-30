@@ -15,8 +15,10 @@ class TraitNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var TraitName */
     private $sut;
 

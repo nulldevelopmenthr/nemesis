@@ -22,6 +22,7 @@ class TheaterNamingStrategy implements NamingStrategy
 {
     /** @var ContextName */
     private $contextName;
+
     /** @var ContextNamespace */
     private $contextNamespace;
 

@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayCommandTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $classType;
+
     /** @var array */
     private $parameters;
+
     /** @var CreateBroadwayCommand */
     private $sut;
 

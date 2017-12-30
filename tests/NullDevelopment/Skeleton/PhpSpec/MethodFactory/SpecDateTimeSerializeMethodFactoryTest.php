@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class SpecDateTimeSerializeMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecDateTimeSerializeMethodFactory */
     private $sut;
 

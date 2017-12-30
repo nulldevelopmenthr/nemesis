@@ -25,8 +25,10 @@ class BroadwayAddEventCliCommand extends BaseSkeletonGeneratorCommand
 {
     /** @var SymfonyStyle */
     protected $io;
+
     /** @var TheaterConfig */
     private $config;
+
     /** @var null|BoundedContextConfig */
     private $context;
 

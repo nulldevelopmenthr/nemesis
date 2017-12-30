@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayDoctrineOrmReadProjectorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $projectorClassType;
+
     /** @var array */
     private $entityParameters;
+
     /** @var CreateBroadwayDoctrineOrmReadProjector */
     private $sut;
 

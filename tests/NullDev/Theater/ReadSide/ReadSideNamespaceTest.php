@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ReadSideNamespaceTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $namespace;
+
     /** @var ReadSideNamespace */
     private $sut;
 

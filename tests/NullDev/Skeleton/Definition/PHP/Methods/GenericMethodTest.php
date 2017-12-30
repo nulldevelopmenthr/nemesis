@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class GenericMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $methodName;
+
     /** @var array */
     private $params;
+
     /** @var MockInterface|ClassType */
     private $returnType;
+
     /** @var GenericMethod */
     private $sut;
 

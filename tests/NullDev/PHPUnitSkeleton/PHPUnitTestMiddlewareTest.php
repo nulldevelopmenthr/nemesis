@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class PHPUnitTestMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|PHPUnitTestGenerator */
     private $testGenerator;
+
     /** @var PHPUnitTestMiddleware */
     private $sut;
 

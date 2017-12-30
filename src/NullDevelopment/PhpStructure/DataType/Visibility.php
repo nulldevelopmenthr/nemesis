@@ -12,7 +12,9 @@ use MyCLabs\Enum\Enum;
  */
 class Visibility extends Enum
 {
-    const PRIVATE   = 'private';
+    const PRIVATE = 'private';
+
     const PROTECTED = 'protected';
-    const PUBLIC    = 'public';
+
+    const PUBLIC = 'public';
 }

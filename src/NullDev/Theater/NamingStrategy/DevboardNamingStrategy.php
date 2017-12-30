@@ -22,6 +22,7 @@ class DevboardNamingStrategy implements NamingStrategy
 {
     /** @var ContextName */
     private $contextName;
+
     /** @var ContextNamespace */
     private $contextNamespace;
 

@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class TheaterConfigFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var BoundedContextConfigFactory */
     private $boundedContextConfigFactory;
+
     /** @var ReadSideConfigFactory */
     private $readSideConfigFactory;
+
     /** @var TheaterConfigFactory */
     private $theaterConfigFactory;
 

@@ -21,14 +21,19 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayCommandHandlerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|CommandHandlerClassName */
     private $handlerClassName;
+
     /** @var MockInterface|RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var MockInterface|RootIdClassName */
     private $idClassName;
+
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
+
     /** @var CreateBroadwayCommandHandler */
     private $CreateBroadwayCommandHandler;
 

@@ -18,6 +18,7 @@ class TestDateTimeValueObjectMiddleware implements Middleware
 {
     /** @var TestDateTimeValueObjectFactory */
     private $factory;
+
     /** @var TestDateTimeValueObjectGenerator */
     private $generator;
 

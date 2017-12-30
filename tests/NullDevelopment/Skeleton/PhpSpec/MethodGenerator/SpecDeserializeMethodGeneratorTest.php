@@ -22,8 +22,10 @@ class SpecDeserializeMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var MockInterface|ExampleMaker */
     private $exampleMaker;
+
     /** @var SpecDeserializeMethodGenerator */
     private $sut;
 

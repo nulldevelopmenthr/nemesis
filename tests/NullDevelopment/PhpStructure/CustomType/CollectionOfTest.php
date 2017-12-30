@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class CollectionOfTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $className;
+
     /** @var string */
     private $accessor;
+
     /** @var MockInterface|ClassName */
     private $has;
+
     /** @var CollectionOf */
     private $sut;
 

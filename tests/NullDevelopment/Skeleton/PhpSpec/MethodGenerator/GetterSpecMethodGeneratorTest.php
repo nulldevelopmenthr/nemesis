@@ -20,8 +20,10 @@ class GetterSpecMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var GetterSpecMethodGenerator */
     private $sut;
 

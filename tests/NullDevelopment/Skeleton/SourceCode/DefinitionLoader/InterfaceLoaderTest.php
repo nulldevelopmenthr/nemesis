@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class InterfaceLoaderTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ConstantCollectionFactory */
     private $constantCollectionFactory;
+
     /** @var MockInterface|MethodCollectionFactory */
     private $methodCollectionFactory;
+
     /** @var InterfaceLoader */
     private $sut;
 

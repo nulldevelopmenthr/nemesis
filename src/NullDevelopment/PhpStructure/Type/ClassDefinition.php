@@ -22,14 +22,19 @@ class ClassDefinition implements Definition
 {
     /** @var ClassName */
     private $name;
+
     /** @var null|ClassName */
     private $parent;
+
     /** @var InterfaceName[] */
     private $interfaces;
+
     /** @var TraitName[] */
     private $traits;
+
     /** @var Property[] */
     private $properties;
+
     /** @var Method[] */
     private $methods;
 

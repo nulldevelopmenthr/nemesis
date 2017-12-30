@@ -19,22 +19,31 @@ use PHPUnit\Framework\TestCase;
 class TestSimpleCollectionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $name;
+
     /** @var MockInterface|ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var array */
     private $properties;
+
     /** @var array */
     private $methods;
+
     /** @var MockInterface|ClassName */
     private $subjectUnderTest;
+
     /** @var MockInterface|CollectionOf */
     private $collectionOf;
+
     /** @var TestSimpleCollection */
     private $sut;
 

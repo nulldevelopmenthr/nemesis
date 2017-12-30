@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class GroupCommentTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $groupName;
+
     /** @var GroupComment */
     private $sut;
 

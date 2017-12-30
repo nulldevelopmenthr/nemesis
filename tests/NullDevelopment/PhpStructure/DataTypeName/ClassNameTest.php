@@ -15,8 +15,10 @@ class ClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var ClassName */
     private $sut;
 

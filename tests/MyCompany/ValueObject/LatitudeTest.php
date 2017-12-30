@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class LatitudeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var float */
     private $value;
+
     /** @var Latitude */
     private $latitude;
 

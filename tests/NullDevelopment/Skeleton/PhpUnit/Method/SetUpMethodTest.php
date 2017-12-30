@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class SetUpMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $className;
+
     /** @var array */
     private $properties;
+
     /** @var SetUpMethod */
     private $sut;
 

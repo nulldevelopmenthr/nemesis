@@ -25,6 +25,7 @@ use Tests\TestCase\SfTestCase;
 class SimpleEntityGeneratorTest extends SfTestCase
 {
     use AssertOutputTrait;
+
     /** @var SimpleEntityGenerator */
     private $sut;
 

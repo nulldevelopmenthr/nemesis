@@ -11,6 +11,7 @@ use Tests\NullDev\AssertOutputTrait;
 abstract class BaseOutputGeneratorTestCase extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var Standard */
     private $printer;
 

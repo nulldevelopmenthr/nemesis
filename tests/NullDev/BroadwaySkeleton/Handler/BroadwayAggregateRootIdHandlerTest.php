@@ -21,6 +21,7 @@ class BroadwayAggregateRootIdHandlerTest extends ContainerSupportedTestCase
 
     /** @var BroadwayAggregateRootIdHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

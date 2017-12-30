@@ -24,18 +24,25 @@ use Tests\TestCase\Fixtures;
 class SpecSimpleIdentifierTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ClassName */
     private $name;
+
     /** @var ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var Property[]|array */
     private $properties;
+
     /** @var Method[]|array */
     private $methods;
+
     /** @var SpecSimpleIdentifier */
     private $sut;
 

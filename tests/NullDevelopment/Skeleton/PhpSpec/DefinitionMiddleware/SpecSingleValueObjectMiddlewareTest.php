@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class SpecSingleValueObjectMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|SpecSingleValueObjectFactory */
     private $factory;
+
     /** @var MockInterface|SpecSingleValueObjectGenerator */
     private $generator;
+
     /** @var SpecSingleValueObjectMiddleware */
     private $sut;
 

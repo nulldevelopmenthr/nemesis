@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TestValueGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TestValueGenerator */
     private $sut;
 

@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class SpecDateTimeCreateFromFormatMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecDateTimeCreateFromFormatMethod */
     private $sut;
 

@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class TestGetterMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var string */
     private $methodUnderTest;
+
     /** @var MockInterface|Property */
     private $property;
+
     /** @var TestGetterMethod */
     private $sut;
 

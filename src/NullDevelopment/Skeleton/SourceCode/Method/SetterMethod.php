@@ -16,6 +16,7 @@ class SetterMethod implements Method
 {
     /** @var string */
     private $name;
+
     /** @var Property */
     private $property;
 

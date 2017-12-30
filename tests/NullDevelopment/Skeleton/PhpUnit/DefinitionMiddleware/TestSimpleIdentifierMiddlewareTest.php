@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class TestSimpleIdentifierMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|TestSimpleIdentifierFactory */
     private $factory;
+
     /** @var MockInterface|TestSimpleIdentifierGenerator */
     private $generator;
+
     /** @var TestSimpleIdentifierMiddleware */
     private $sut;
 

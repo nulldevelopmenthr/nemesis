@@ -18,6 +18,7 @@ class TestSimpleEntityMiddleware implements Middleware
 {
     /** @var TestSimpleEntityFactory */
     private $factory;
+
     /** @var TestSimpleEntityGenerator */
     private $generator;
 

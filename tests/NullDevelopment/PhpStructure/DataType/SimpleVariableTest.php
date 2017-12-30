@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class SimpleVariableTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var MockInterface|ContractName */
     private $contractName;
+
     /** @var SimpleVariable */
     private $sut;
 

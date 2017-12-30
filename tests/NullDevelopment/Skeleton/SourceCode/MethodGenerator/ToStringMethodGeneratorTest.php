@@ -19,6 +19,7 @@ class ToStringMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var ToStringMethodGenerator */
     private $sut;
 

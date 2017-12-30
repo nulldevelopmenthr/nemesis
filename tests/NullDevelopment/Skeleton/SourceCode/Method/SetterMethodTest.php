@@ -17,8 +17,10 @@ class SetterMethodTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var Property */
     private $property;
+
     /** @var SetterMethod */
     private $sut;
 

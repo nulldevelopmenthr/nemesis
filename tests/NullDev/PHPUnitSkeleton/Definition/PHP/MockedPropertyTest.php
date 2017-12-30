@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class MockedPropertyTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var MockInterface|Type */
     private $type;
+
     /** @var MockedProperty */
     private $sut;
 

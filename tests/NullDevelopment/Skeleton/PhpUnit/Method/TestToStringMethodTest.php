@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class TestToStringMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|Property */
     private $property;
+
     /** @var TestToStringMethod */
     private $sut;
 

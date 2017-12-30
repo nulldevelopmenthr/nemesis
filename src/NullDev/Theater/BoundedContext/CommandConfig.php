@@ -16,8 +16,10 @@ class CommandConfig
 {
     /** @var string */
     private $name;
+
     /** @var CommandClassName */
     private $commandClassName;
+
     /** @var array */
     private $parameters;
 

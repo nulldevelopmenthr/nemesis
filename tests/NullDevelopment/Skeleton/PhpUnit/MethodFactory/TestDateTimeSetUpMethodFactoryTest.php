@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TestDateTimeSetUpMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TestDateTimeSetUpMethodFactory */
     private $sut;
 

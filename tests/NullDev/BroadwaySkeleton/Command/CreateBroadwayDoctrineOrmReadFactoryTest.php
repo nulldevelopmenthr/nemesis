@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayDoctrineOrmReadFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $factoryClassType;
+
     /** @var CreateBroadwayDoctrineOrmReadFactory */
     private $sut;
 

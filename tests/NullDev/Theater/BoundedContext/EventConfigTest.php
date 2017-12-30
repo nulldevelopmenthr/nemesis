@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class EventConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var MockInterface|EventClassName */
     private $eventClassName;
+
     /** @var array */
     private $parameters;
+
     /** @var EventConfig */
     private $sut;
 

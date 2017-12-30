@@ -28,6 +28,7 @@ use Tests\TestCase\SfTestCase;
 class SingleValueObjectGeneratorTest extends SfTestCase
 {
     use AssertOutputTrait;
+
     /** @var SingleValueObjectGenerator */
     private $sut;
 

@@ -17,6 +17,7 @@ class LetMethodTest extends TestCase
 {
     /** @var array */
     private $properties;
+
     /** @var LetMethod */
     private $sut;
 

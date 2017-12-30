@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TestDeserializeMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TestDeserializeMethodFactory */
     private $sut;
 

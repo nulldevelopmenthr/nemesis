@@ -24,18 +24,25 @@ use Tests\TestCase\Fixtures;
 class SpecSimpleEntityTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ClassName */
     private $name;
+
     /** @var ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var Property[]|array */
     private $properties;
+
     /** @var Method[]|array */
     private $methods;
+
     /** @var SpecSimpleEntity */
     private $sut;
 

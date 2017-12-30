@@ -14,6 +14,7 @@ class InstanceExample implements Example
 {
     /** @var ContractName */
     private $instanceOf;
+
     /** @var array */
     private $parameters;
 

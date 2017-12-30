@@ -25,6 +25,7 @@ use Tests\TestCase\SfTestCase;
 class SpecSimpleCollectionFactoryTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecSimpleCollectionFactory */
     private $sut;
 

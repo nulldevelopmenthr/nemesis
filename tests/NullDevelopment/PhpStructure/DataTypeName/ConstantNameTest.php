@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ConstantNameTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var ConstantName */
     private $sut;
 

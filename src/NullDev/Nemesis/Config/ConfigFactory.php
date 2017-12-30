@@ -18,16 +18,22 @@ class ConfigFactory
 {
     /** @var array */
     private $sourceCodePaths = [];
+
     /** @var array */
     private $specPaths = [];
+
     /** @var array */
     private $testPaths = [];
+
     /** @var string */
     private $phpunitBaseNamespace;
+
     /** @var string */
     private $phpunitBaseTestClassName;
+
     /** @var array */
     private $phpunitIgnoreInstancesOfList = [];
+
     /** @var array */
     private $phpunitIgnoreInterfacesList = [];
 

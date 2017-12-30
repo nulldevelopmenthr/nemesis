@@ -17,6 +17,7 @@ use Tests\TestCase\Fixtures;
 class DeserializeMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var DeserializeMethodGenerator */
     private $sut;
 

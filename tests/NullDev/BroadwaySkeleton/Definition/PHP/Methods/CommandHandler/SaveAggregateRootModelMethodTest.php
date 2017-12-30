@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class SaveAggregateRootModelMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
+
     /** @var SaveAggregateRootModelMethod */
     private $sut;
 

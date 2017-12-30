@@ -18,21 +18,28 @@ class BoundedContextConfig
 {
     /** @var ContextName */
     private $name;
+
     /** @var ContextNamespace */
     private $namespace;
+
     /** @var RootIdClassName */
     private $rootIdClassName;
+
     /** @var RootModelClassName */
     private $modelClassName;
+
     /** @var RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var CommandHandlerClassName */
     private $commandHandlerClassName;
 
     /** @var EntityClassName[]|array */
     private $entityClassNames = [];
+
     /** @var CommandConfig[]|array */
     private $commands = [];
+
     /** @var EventConfig[]|array */
     private $events = [];
 

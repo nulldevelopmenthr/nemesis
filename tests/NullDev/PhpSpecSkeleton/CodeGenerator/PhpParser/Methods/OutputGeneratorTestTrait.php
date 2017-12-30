@@ -10,6 +10,7 @@ use Tests\NullDev\AssertOutputTrait;
 trait OutputGeneratorTestTrait
 {
     use AssertOutputTrait;
+
     /** @var Standard */
     private $printer;
 

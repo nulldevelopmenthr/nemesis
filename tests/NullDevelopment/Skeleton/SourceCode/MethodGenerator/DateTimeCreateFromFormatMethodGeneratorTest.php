@@ -17,6 +17,7 @@ class DateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var DateTimeCreateFromFormatMethodGenerator */
     private $sut;
 

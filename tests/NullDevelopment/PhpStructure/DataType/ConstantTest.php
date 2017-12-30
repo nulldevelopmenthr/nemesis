@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class ConstantTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ConstantName */
     private $constantName;
+
     /** @var mixed */
     private $value;
+
     /** @var Constant */
     private $sut;
 

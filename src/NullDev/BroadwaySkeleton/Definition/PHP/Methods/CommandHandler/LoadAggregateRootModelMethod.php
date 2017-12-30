@@ -17,6 +17,7 @@ class LoadAggregateRootModelMethod implements Method
 {
     /** @var RootIdClassName */
     private $idClassName;
+
     /** @var RootModelClassName */
     private $modelClassName;
 

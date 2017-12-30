@@ -18,10 +18,13 @@ class CreateBroadwayCommandHandler
 {
     /** @var CommandHandlerClassName */
     private $handlerClassName;
+
     /** @var RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var RootIdClassName */
     private $idClassName;
+
     /** @var RootModelClassName */
     private $modelClassName;
 

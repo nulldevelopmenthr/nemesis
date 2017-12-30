@@ -23,10 +23,13 @@ class SpecGenerator
 {
     /** @var ClassSourceFactory */
     private $factory;
+
     /** @var LetMethodFactory */
     private $letMethodFactory;
+
     /** @var InitializableMethodFactory */
     private $initializableMethodFactory;
+
     /** @var ExposeGettersMethodFactory */
     private $exposeMethodFactory;
 

@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ObjectConfigurationLoaderCollectionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $loaders;
+
     /** @var ObjectConfigurationLoaderCollection */
     private $sut;
 

@@ -26,8 +26,10 @@ abstract class BaseGenerateFilesFromDefinitionCliCommand extends Command impleme
 
     /** @var CommandBus */
     protected $commandBus;
+
     /** @var Filesystem */
     protected $fileSystem;
+
     /** @var SymfonyStyle */
     protected $io;
 

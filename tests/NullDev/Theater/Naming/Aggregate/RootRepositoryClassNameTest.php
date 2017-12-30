@@ -15,8 +15,10 @@ class RootRepositoryClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var RootRepositoryClassName */
     private $className;
 
