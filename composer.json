@@ -3,6 +3,13 @@
     "description": "Nemesis",
     "license": "proprietary",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "comment": "Adding my own multiline fixers",
+            "url": "https://github.com/msvrtan/PHP-CS-Fixer.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/",
@@ -16,7 +23,7 @@
     },
     "require": {
         "php": ">=7.1.0",
-        "friendsofphp/php-cs-fixer": "^2.4",
+        "friendsofphp/php-cs-fixer": "dev-long-line-fixers",
         "hanneskod/classtools": "^1.1",
         "league/tactician": "^1.0",
         "myclabs/php-enum": "^1.5",
