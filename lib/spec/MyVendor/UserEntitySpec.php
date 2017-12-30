@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace spec\MyVendor;
 
 use DateTime;
+use MyVendor\Base\UserEntity as BaseUser;
+use MyVendor\SomeInterface;
 use MyVendor\User\UserCreatedAt;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
@@ -21,6 +23,9 @@ class UserEntitySpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(UserEntity::class);
+        $this->shouldHaveType(BaseUser::class);
+        $this->shouldImplement(SomeInterface::class);
+        $this->shouldImplement(SomeInterface::class);
     }
 
     public function it_exposes_id(UserId $id)

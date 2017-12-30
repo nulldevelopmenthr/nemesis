@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace spec\MyVendor;
 
 use DateTime;
+use MyVendor\Base\SomeInterface as AnotherInterface;
+use MyVendor\BaseModel;
 use MyVendor\Product\ProductId;
 use MyVendor\Product\ProductWeight;
 use MyVendor\ProductEntity;
@@ -20,6 +22,8 @@ class ProductEntitySpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(ProductEntity::class);
+        $this->shouldHaveType(BaseModel::class);
+        $this->shouldImplement(AnotherInterface::class);
     }
 
     public function it_exposes_id(ProductId $id)
