@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce343e91c11cc1b520072a31ff61c195",
+    "content-hash": "5e311d6fd2adfd6a1cce08865d962e8c",
     "packages": [
         {
             "name": "composer/semver",
@@ -192,16 +192,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.9.0",
+            "version": "dev-long-line-fixers",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "454ddbe65da6a9297446f442bad244e8a99a9a38"
+                "url": "https://github.com/msvrtan/PHP-CS-Fixer.git",
+                "reference": "1afa4fe2f873c0773934d2d9d0151304d12a4bff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/454ddbe65da6a9297446f442bad244e8a99a9a38",
-                "reference": "454ddbe65da6a9297446f442bad244e8a99a9a38",
+                "url": "https://api.github.com/repos/msvrtan/PHP-CS-Fixer/zipball/1afa4fe2f873c0773934d2d9d0151304d12a4bff",
+                "reference": "1afa4fe2f873c0773934d2d9d0151304d12a4bff",
                 "shasum": ""
             },
             "require": {
@@ -254,22 +254,29 @@
                     "tests/Test/IntegrationCaseFactory.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "PhpCsFixer\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Dariusz Rumiński",
-                    "email": "dariusz.ruminski@gmail.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-12-08T16:36:20+00:00"
+            "support": {
+                "source": "https://github.com/msvrtan/PHP-CS-Fixer/tree/long-line-fixers"
+            },
+            "time": "2017-12-30T12:20:51+00:00"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
@@ -5498,6 +5505,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "friendsofphp/php-cs-fixer": 20,
         "humbug/humbug": 20,
         "mockery/mockery": 20
     },
