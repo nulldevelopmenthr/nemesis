@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class CommandConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var MockInterface|CommandClassName */
     private $commandClassName;
+
     /** @var array */
     private $parameters;
+
     /** @var CommandConfig */
     private $sut;
 

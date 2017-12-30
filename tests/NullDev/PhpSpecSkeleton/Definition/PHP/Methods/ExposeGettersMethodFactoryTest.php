@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class ExposeGettersMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ExposeGettersMethodFactory */
     private $sut;
 

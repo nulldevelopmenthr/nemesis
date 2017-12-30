@@ -17,6 +17,7 @@ use Tests\TestCase\Fixtures;
 class ConstructorMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var ConstructorMethodGenerator */
     private $sut;
 

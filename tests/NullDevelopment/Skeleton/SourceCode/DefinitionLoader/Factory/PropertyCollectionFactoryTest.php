@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
 class PropertyCollectionFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var PropertyCollectionFactory */
     private $sut;
 

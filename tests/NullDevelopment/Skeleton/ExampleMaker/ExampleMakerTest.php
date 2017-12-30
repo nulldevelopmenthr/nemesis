@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
 class ExampleMakerTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ExampleMaker */
     private $exampleMaker;
 

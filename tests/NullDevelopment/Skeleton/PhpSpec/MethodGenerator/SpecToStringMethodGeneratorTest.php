@@ -18,8 +18,10 @@ use Tests\TestCase\Fixtures;
 class SpecToStringMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var SpecToStringMethodGenerator */
     private $sut;
 

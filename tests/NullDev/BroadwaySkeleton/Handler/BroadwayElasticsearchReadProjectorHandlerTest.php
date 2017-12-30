@@ -22,6 +22,7 @@ class BroadwayElasticsearchReadProjectorHandlerTest extends ContainerSupportedTe
 
     /** @var BroadwayElasticsearchReadProjectorHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

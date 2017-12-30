@@ -34,6 +34,7 @@ class ReflectionSourceParser implements SourceParser
 {
     /** @var Parser */
     private $parser;
+
     private $namespace;
 
     public function __construct()

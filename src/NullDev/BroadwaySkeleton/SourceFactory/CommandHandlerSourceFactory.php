@@ -25,6 +25,7 @@ class CommandHandlerSourceFactory implements SourceFactory
 {
     /** @var ClassSourceFactory */
     private $sourceFactory;
+
     /** @var DefinitionFactory */
     private $definitionFactory;
 

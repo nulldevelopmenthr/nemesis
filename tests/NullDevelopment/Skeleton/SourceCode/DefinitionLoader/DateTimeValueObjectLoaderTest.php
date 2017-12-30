@@ -21,6 +21,7 @@ use Tests\TestCase\SfTestCase;
 class DateTimeValueObjectLoaderTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var DateTimeValueObjectLoader */
     private $sut;
 

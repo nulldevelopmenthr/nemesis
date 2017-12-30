@@ -18,6 +18,7 @@ use Tests\NullDev\AssertOutputTrait;
 class InitializableMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var InitializableMethodGenerator */
     private $sut;
 

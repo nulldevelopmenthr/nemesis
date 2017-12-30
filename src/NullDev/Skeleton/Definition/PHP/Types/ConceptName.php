@@ -10,6 +10,7 @@ abstract class ConceptName implements Importable, Type
 
     /** @var string|null */
     private $namespace;
+
     /** @var string */
     private $name;
 

@@ -15,6 +15,7 @@ class TestGetterMethod extends SimpleTestMethod implements Method
 {
     /** @var GetterMethod */
     private $methodUnderTest;
+
     /** @var string */
     private $subjectUnderTestPropertyName;
 

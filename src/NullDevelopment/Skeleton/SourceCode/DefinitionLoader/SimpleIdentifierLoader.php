@@ -24,10 +24,13 @@ class SimpleIdentifierLoader implements DefinitionLoader
 {
     /** @var InterfaceNameCollectionFactory */
     private $interfaceNameCollectionFactory;
+
     /** @var TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
+
     /** @var ConstructorMethodFactory */
     private $constructorMethodFactory;
+
     /** @var PropertyCollectionFactory */
     private $propertyCollectionFactory;
 

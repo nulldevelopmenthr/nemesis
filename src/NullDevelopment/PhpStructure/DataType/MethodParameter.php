@@ -14,14 +14,19 @@ class MethodParameter implements Variable
 {
     /** @var string */
     private $name;
+
     /** @var ContractName */
     private $contractName;
+
     /** @var bool */
     private $nullable;
+
     /** @var bool */
     private $hasDefaultValue;
+
     /** @var mixed */
     private $defaultValue;
+
     /** @var array */
     private $examples;
 

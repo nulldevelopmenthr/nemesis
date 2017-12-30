@@ -21,22 +21,31 @@ use PHPUnit\Framework\TestCase;
 class ReadSideConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ReadSideName */
     private $name;
+
     /** @var MockInterface|ReadSideNamespace */
     private $namespace;
+
     /** @var MockInterface|ReadSideImplementation */
     private $implementation;
+
     /** @var MockInterface|ClassType */
     private $readEntity;
+
     /** @var MockInterface|ClassType */
     private $readRepository;
+
     /** @var MockInterface|ClassType */
     private $readProjector;
+
     /** @var MockInterface|ClassType */
     private $readFactory;
+
     /** @var array */
     private $properties;
+
     /** @var ReadSideConfig */
     private $sut;
 

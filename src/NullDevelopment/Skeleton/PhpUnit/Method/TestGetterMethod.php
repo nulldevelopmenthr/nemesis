@@ -14,8 +14,10 @@ class TestGetterMethod extends BaseTestMethod
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $methodUnderTest;
+
     /** @var Property */
     private $property;
 

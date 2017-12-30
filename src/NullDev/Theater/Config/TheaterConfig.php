@@ -18,6 +18,7 @@ class TheaterConfig
 {
     /** @var BoundedContextConfig[]|array */
     private $contexts;
+
     /** @var ReadSideConfig[]|array */
     private $reads;
 

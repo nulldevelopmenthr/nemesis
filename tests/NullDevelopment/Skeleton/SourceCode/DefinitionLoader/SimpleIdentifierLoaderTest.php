@@ -23,6 +23,7 @@ use Tests\TestCase\SfTestCase;
 class SimpleIdentifierLoaderTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SimpleIdentifierLoader */
     private $sut;
 

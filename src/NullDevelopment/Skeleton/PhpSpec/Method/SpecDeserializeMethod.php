@@ -15,6 +15,7 @@ class SpecDeserializeMethod extends BaseSpecMethod
 {
     /** @var ClassName */
     private $className;
+
     /** @var array|Property[] */
     private $properties;
 

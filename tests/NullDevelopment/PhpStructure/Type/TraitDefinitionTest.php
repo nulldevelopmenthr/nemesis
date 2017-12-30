@@ -21,16 +21,22 @@ use PHPUnit\Framework\TestCase;
 class TraitDefinitionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|TraitName */
     private $name;
+
     /** @var array */
     private $traits;
+
     /** @var array */
     private $constants;
+
     /** @var array */
     private $properties;
+
     /** @var array */
     private $methods;
+
     /** @var TraitDefinition */
     private $sut;
 

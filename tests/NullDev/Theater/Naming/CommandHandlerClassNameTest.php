@@ -15,8 +15,10 @@ class CommandHandlerClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var CommandHandlerClassName */
     private $className;
 

@@ -18,6 +18,7 @@ class PHPParserGeneratorMiddleware implements Middleware
 {
     /** @var PhpParserGenerator */
     private $codeGenerator;
+
     /** @var FileFactory */
     private $fileFactory;
 

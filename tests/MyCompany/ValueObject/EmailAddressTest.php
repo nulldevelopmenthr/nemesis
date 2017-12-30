@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class EmailAddressTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $email;
+
     /** @var EmailAddress */
     private $emailAddress;
 

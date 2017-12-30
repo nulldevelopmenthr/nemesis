@@ -18,6 +18,7 @@ class SpecSingleValueObjectMiddleware implements Middleware
 {
     /** @var SpecSingleValueObjectFactory */
     private $factory;
+
     /** @var SpecSingleValueObjectGenerator */
     private $generator;
 

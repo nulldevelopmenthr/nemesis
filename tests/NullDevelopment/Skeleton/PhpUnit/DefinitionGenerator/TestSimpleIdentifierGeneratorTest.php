@@ -21,6 +21,7 @@ use Tests\TestCase\SfTestCase;
 class TestSimpleIdentifierGeneratorTest extends SfTestCase
 {
     use AssertOutputTrait;
+
     /** @var TestSimpleIdentifierGenerator */
     private $sut;
 

@@ -18,6 +18,7 @@ class SpecSimpleCollectionMiddleware implements Middleware
 {
     /** @var SpecSimpleCollectionFactory */
     private $factory;
+
     /** @var SpecSimpleCollectionGenerator */
     private $generator;
 

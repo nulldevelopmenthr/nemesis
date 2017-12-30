@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class NamespaceSuggestionsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|SourceCodePathReader */
     private $pathReader;
+
     /** @var NamespaceSuggestions */
     private $sut;
 

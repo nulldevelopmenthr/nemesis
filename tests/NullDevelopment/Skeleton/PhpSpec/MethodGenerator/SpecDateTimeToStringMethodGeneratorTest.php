@@ -17,6 +17,7 @@ class SpecDateTimeToStringMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
+
     /** @var SpecDateTimeToStringMethodGenerator */
     private $sut;
 

@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ReadSideNameTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var ReadSideName */
     private $sut;
 

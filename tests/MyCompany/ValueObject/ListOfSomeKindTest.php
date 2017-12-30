@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ListOfSomeKindTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $list;
+
     /** @var ListOfSomeKind */
     private $listOfSomeKind;
 

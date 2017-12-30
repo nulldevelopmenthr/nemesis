@@ -18,6 +18,7 @@ class TestSingleValueObjectMiddleware implements Middleware
 {
     /** @var TestSingleValueObjectFactory */
     private $factory;
+
     /** @var TestSingleValueObjectGenerator */
     private $generator;
 

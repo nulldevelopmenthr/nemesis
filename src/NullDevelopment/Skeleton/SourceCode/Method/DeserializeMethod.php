@@ -20,6 +20,7 @@ class DeserializeMethod implements Method
 {
     /** @var ClassName */
     private $className;
+
     /** @var array|Property[] */
     private $properties;
 

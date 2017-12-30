@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class FileFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|Config */
     private $config;
+
     /** @var FileFactory */
     private $sut;
 

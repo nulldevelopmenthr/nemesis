@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class CreateUuidClassTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $classType;
+
     /** @var CreateUuidClass */
     private $sut;
 

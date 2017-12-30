@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayAggregateRootRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
+
     /** @var CreateBroadwayAggregateRootRepository */
     private $sut;
 

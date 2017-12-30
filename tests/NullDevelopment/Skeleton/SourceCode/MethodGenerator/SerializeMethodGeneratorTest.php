@@ -17,6 +17,7 @@ use Tests\TestCase\Fixtures;
 class SerializeMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var SerializeMethodGenerator */
     private $sut;
 

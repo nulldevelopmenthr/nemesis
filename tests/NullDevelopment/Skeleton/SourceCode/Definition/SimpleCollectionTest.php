@@ -24,22 +24,31 @@ use Tests\TestCase\Fixtures;
 class SimpleCollectionTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ClassName */
     private $name;
+
     /** @var ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var Property[]|array */
     private $properties;
+
     /** @var Method[]|array */
     private $methods;
+
     /** @var CollectionOf */
     private $collectionOf;
+
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
+
     /** @var SimpleCollection */
     private $sut;
 

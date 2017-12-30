@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class ImprovedSpecSourceTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $classType;
+
     /** @var ImprovedSpecSource */
     private $sut;
 

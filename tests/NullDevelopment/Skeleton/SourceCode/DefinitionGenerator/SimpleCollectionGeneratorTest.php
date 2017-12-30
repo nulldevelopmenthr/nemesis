@@ -27,6 +27,7 @@ use Tests\TestCase\SfTestCase;
 class SimpleCollectionGeneratorTest extends SfTestCase
 {
     use AssertOutputTrait;
+
     /** @var SimpleCollectionGenerator */
     private $sut;
 

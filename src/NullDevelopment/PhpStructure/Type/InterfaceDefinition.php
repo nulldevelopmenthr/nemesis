@@ -19,10 +19,13 @@ class InterfaceDefinition implements SourceCode, Definition
 {
     /** @var InterfaceName */
     private $name;
+
     /** @var null|InterfaceName */
     private $parentName;
+
     /** @var Constant[] */
     private $constants;
+
     /** @var Method[] */
     private $methods;
 

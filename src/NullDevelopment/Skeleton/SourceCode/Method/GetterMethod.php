@@ -16,6 +16,7 @@ class GetterMethod implements Method
 {
     /** @var string */
     private $name;
+
     /** @var Property */
     private $property;
 

@@ -18,8 +18,10 @@ use Tests\TestCase\Fixtures;
 class SetUpMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var SetUpMethodGenerator */
     private $sut;
 

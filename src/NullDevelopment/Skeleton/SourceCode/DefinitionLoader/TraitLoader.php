@@ -20,10 +20,13 @@ class TraitLoader implements DefinitionLoader
 {
     /** @var TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
+
     /** @var ConstantCollectionFactory */
     private $constantCollectionFactory;
+
     /** @var PropertyCollectionFactory */
     private $propertyCollectionFactory;
+
     /** @var MethodCollectionFactory */
     private $methodCollectionFactory;
 

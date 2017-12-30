@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class LoadAggregateRootModelGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|BuilderFactory */
     private $builderFactory;
+
     /** @var LoadAggregateRootModelGenerator */
     private $sut;
 

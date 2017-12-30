@@ -25,6 +25,7 @@ use Tests\TestCase\SfTestCase;
 class SingleValueObjectLoaderTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SingleValueObjectLoader */
     private $sut;
 

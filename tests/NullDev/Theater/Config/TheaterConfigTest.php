@@ -21,14 +21,19 @@ use PHPUnit\Framework\TestCase;
 class TheaterConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|BoundedContextConfig */
     private $firstContext;
+
     /** @var MockInterface|BoundedContextConfig */
     private $secondContext;
+
     /** @var MockInterface|ReadSideConfig */
     private $firstReadSide;
+
     /** @var MockInterface|ReadSideConfig */
     private $secondReadSide;
+
     /** @var TheaterConfig */
     private $theaterConfig;
 

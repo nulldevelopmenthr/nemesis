@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class InitializableMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var InitializableMethodFactory */
     private $sut;
 

@@ -15,8 +15,10 @@ class EntityClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var EntityClassName */
     private $className;
 

@@ -18,6 +18,7 @@ class SpecDateTimeValueObjectMiddleware implements Middleware
 {
     /** @var SpecDateTimeValueObjectFactory */
     private $factory;
+
     /** @var SpecDateTimeValueObjectGenerator */
     private $generator;
 

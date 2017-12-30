@@ -16,6 +16,7 @@ class EventSourcingRepositorySourceFactory
 {
     /** @var ClassSourceFactory */
     private $sourceFactory;
+
     /** @var DefinitionFactory */
     private $definitionFactory;
 

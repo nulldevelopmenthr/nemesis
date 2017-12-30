@@ -22,6 +22,7 @@ class BroadwayAggregateRootModelHandlerTest extends ContainerSupportedTestCase
 
     /** @var BroadwayAggregateRootModelHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

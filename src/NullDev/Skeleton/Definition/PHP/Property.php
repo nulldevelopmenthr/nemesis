@@ -16,6 +16,7 @@ class Property
 {
     /** @var string */
     private $name;
+
     /** @var Type|null */
     private $type;
 

@@ -18,6 +18,7 @@ use Tests\TestCase\Fixtures;
 class SpecToStringMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecToStringMethodFactory */
     private $sut;
 

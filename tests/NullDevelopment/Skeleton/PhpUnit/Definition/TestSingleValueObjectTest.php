@@ -23,22 +23,31 @@ use Tests\TestCase\Fixtures;
 class TestSingleValueObjectTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $name;
+
     /** @var MockInterface|ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
+
     /** @var array */
     private $properties;
+
     /** @var Method[]|array */
     private $methods;
+
     /** @var MockInterface|ClassName */
     private $subjectUnderTest;
+
     /** @var TestSingleValueObject */
     private $sut;
 

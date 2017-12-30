@@ -19,8 +19,10 @@ use PHPUnit\Framework\TestCase;
 class BoundedContextConfigFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var NamingStrategyFactory */
     private $namingStrategyFactory;
+
     /** @var BoundedContextConfigFactory */
     private $boundedContextConfigFactory;
 

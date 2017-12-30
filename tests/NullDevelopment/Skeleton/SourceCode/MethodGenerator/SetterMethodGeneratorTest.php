@@ -17,6 +17,7 @@ use Tests\TestCase\Fixtures;
 class SetterMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var SetterMethodGenerator */
     private $sut;
 

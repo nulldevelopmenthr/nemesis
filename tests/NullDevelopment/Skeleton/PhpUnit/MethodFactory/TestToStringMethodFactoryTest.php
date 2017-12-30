@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class TestToStringMethodFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var TestToStringMethodFactory */
     private $sut;
 

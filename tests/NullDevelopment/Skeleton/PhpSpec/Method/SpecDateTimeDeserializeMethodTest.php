@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class SpecDateTimeDeserializeMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $className;
+
     /** @var SpecDateTimeDeserializeMethod */
     private $sut;
 

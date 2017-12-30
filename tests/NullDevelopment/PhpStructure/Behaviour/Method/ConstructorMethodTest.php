@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ConstructorMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $parameters;
+
     /** @var ConstructorMethod */
     private $sut;
 

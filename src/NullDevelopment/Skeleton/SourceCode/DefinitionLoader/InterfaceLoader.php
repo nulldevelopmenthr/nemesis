@@ -18,6 +18,7 @@ class InterfaceLoader implements DefinitionLoader
 {
     /** @var ConstantCollectionFactory */
     private $constantCollectionFactory;
+
     /** @var MethodCollectionFactory */
     private $methodCollectionFactory;
 

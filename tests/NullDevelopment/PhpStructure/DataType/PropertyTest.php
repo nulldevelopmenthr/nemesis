@@ -20,18 +20,25 @@ use PHPUnit\Framework\TestCase;
 class PropertyTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var MockInterface|ContractName */
     private $contractName;
+
     /** @var bool */
     private $nullable;
+
     /** @var bool */
     private $hasDefaultValue;
+
     /** @var mixed */
     private $defaultValue;
+
     /** @var MockInterface|Visibility */
     private $visibility;
+
     /** @var Property */
     private $sut;
 

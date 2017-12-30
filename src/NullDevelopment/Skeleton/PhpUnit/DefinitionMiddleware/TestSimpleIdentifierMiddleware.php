@@ -18,6 +18,7 @@ class TestSimpleIdentifierMiddleware implements Middleware
 {
     /** @var TestSimpleIdentifierFactory */
     private $factory;
+
     /** @var TestSimpleIdentifierGenerator */
     private $generator;
 

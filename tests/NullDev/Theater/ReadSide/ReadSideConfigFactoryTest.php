@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class ReadSideConfigFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ReadSideConfigFactory */
     private $sut;
 

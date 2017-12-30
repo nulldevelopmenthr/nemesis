@@ -35,8 +35,10 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
 
     /** @var InputInterface */
     protected $input;
+
     /** @var OutputInterface */
     protected $output;
+
     /** @var SymfonyStyle */
     protected $io;
 

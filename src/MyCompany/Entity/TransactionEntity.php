@@ -13,8 +13,10 @@ class TransactionEntity
 {
     /** @var string */
     private $id;
+
     /** @var int */
     private $amount;
+
     /** @var \DateTime */
     private $createdAt;
 

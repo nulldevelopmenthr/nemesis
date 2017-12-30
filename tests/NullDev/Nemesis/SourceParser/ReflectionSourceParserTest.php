@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class ReflectionSourceParserTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ReflectionSourceParser */
     private $sut;
 

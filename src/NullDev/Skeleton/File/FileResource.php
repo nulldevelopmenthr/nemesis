@@ -10,6 +10,7 @@ class FileResource
 {
     /** @var string */
     private $fileName;
+
     /** @var ImprovedClassSource */
     private $classSource;
 

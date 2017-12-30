@@ -22,6 +22,7 @@ use Tests\TestCase\SfTestCase;
 class SpecDateTimeValueObjectGeneratorTest extends SfTestCase
 {
     use AssertOutputTrait;
+
     /** @var SpecDateTimeValueObjectGenerator */
     private $sut;
 

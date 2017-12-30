@@ -18,6 +18,7 @@ class ToStringMethodTest extends TestCase
 {
     /** @var Property */
     private $property;
+
     /** @var ToStringMethod */
     private $sut;
 

@@ -26,18 +26,25 @@ use PHPUnit\Framework\TestCase;
 class BoundedContextConfigTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ContextName */
     private $name;
+
     /** @var MockInterface|ContextNamespace */
     private $namespace;
+
     /** @var MockInterface|RootIdClassName */
     private $rootIdClassName;
+
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
+
     /** @var MockInterface|RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var MockInterface|CommandHandlerClassName */
     private $commandHandlerClassName;
+
     /** @var BoundedContextConfig */
     private $config;
 

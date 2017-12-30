@@ -18,6 +18,7 @@ class TestSimpleCollectionMiddleware implements Middleware
 {
     /** @var TestSimpleCollectionFactory */
     private $factory;
+
     /** @var TestSimpleCollectionGenerator */
     private $generator;
 

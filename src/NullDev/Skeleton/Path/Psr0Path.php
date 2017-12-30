@@ -9,6 +9,7 @@ use Exception;
 class Psr0Path implements Path
 {
     private $pathBase;
+
     private $classBase;
 
     public function __construct(string $pathBase, string $classBase)

@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class ConstantCollectionFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ConstantCollectionFactory */
     private $sut;
 

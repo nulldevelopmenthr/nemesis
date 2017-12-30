@@ -18,8 +18,10 @@ use Tests\TestCase\Fixtures;
 class TestToStringMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
+
     /** @var ExampleMaker */
     private $exampleMaker;
+
     /** @var TestToStringMethodGenerator */
     private $sut;
 

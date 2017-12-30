@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class SerializeMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ImprovedClassSource */
     private $classSource;
+
     /** @var SerializeMethod */
     private $sut;
 

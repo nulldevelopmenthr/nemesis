@@ -20,10 +20,13 @@ use PHPUnit\Framework\TestCase;
 class DeserializeMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassName */
     private $className;
+
     /** @var array */
     private $properties;
+
     /** @var DeserializeMethod */
     private $sut;
 

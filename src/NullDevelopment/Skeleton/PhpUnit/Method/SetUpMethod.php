@@ -18,6 +18,7 @@ class SetUpMethod extends BaseTestMethod
 {
     /** @var ClassName */
     private $className;
+
     /** @var array|Property[] */
     private $properties;
 

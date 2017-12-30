@@ -10,6 +10,7 @@ abstract class AbstractDataTypeName
 
     /** @var string */
     private $name;
+
     /** @var null|string */
     private $namespace;
 

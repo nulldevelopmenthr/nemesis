@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class CsFixerMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var CsFixerMiddleware */
     private $sut;
 

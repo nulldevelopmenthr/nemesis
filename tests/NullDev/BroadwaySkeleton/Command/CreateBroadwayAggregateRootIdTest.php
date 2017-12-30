@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayAggregateRootIdTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|RootIdClassName */
     private $rootIdClassName;
+
     /** @var CreateBroadwayAggregateRootId */
     private $sut;
 

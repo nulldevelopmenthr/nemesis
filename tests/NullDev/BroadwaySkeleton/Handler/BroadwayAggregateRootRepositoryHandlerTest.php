@@ -22,6 +22,7 @@ class BroadwayAggregateRootRepositoryHandlerTest extends ContainerSupportedTestC
 
     /** @var BroadwayAggregateRootRepositoryHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

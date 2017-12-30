@@ -14,6 +14,7 @@ class CreateBroadwayElasticsearchReadProjector
 {
     /** @var ClassType */
     private $projectorClassType;
+
     /** @var array */
     private $entityParameters;
 

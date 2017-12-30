@@ -16,6 +16,7 @@ class CreateBroadwayAggregateRootRepository
 {
     /** @var RootRepositoryClassName */
     private $repositoryClassName;
+
     /** @var RootModelClassName */
     private $modelClassName;
 

@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 class InterfaceNameCollectionFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var InterfaceNameCollectionFactory */
     private $sut;
 

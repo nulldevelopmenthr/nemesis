@@ -14,6 +14,7 @@ class CreateBroadwayDoctrineOrmReadEntity
 {
     /** @var ClassType */
     private $entityClassType;
+
     /** @var array */
     private $entityParameters;
 

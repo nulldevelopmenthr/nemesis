@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class PHPParserGeneratorMiddlewareTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|PhpParserGenerator */
     private $codeGenerator;
+
     /** @var MockInterface|FileFactory */
     private $fileFactory;
+
     /** @var PHPParserGeneratorMiddleware */
     private $sut;
 

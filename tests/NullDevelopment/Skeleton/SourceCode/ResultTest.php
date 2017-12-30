@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class ResultTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassDefinition */
     private $classType;
+
     /** @var PhpNamespace */
     private $generated;
+
     /** @var Result */
     private $sut;
 

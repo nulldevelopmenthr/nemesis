@@ -16,8 +16,10 @@ class InitializableMethod extends BaseSpecMethod
 {
     /** @var ClassName */
     private $className;
+
     /** @var ClassName|null */
     private $parentName;
+
     /** @var InterfaceName[] */
     private $interfaces;
 

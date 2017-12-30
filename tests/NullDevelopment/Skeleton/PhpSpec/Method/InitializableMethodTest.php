@@ -18,12 +18,16 @@ use PHPUnit\Framework\TestCase;
 class InitializableMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ClassName */
     private $className;
+
     /** @var null|ClassName */
     private $parentName;
+
     /** @var array */
     private $interfaces;
+
     /** @var InitializableMethod */
     private $sut;
 

@@ -23,6 +23,7 @@ use Tests\TestCase\SfTestCase;
 class SimpleEntityLoaderTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SimpleEntityLoader */
     private $sut;
 

@@ -30,6 +30,7 @@ use Tests\TestCase\SfTestCase;
 class SpecDateTimeValueObjectFactoryTest extends SfTestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var SpecDateTimeValueObjectFactory */
     private $sut;
 

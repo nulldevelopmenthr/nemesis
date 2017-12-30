@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class CoversCommentTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $className;
+
     /** @var CoversComment */
     private $sut;
 

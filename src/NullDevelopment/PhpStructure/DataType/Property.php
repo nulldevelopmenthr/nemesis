@@ -14,16 +14,22 @@ class Property implements Variable
 {
     /** @var string */
     private $name;
+
     /** @var ContractName */
     private $structureName;
+
     /** @var bool */
     private $nullable;
+
     /** @var bool */
     private $hasDefaultValue;
+
     /** @var mixed */
     private $defaultValue;
+
     /** @var Visibility */
     private $visibility;
+
     /** @var array */
     private $examples;
 

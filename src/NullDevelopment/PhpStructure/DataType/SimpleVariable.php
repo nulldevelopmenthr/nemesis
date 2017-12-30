@@ -14,6 +14,7 @@ class SimpleVariable implements Variable
 {
     /** @var string */
     private $name;
+
     /** @var ContractName */
     private $contractName;
 

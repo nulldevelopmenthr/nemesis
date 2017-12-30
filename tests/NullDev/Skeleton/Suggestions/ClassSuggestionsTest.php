@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class ClassSuggestionsTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|SourceCodePathReader */
     private $pathReader;
+
     /** @var ClassSuggestions */
     private $sut;
 

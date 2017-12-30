@@ -17,8 +17,11 @@ use PhpParser\PrettyPrinterAbstract;
 class PhpParserGenerator
 {
     private $builderFactory;
+
     private $classGenerator;
+
     private $methodFactory;
+
     private $printer;
 
     public function __construct(

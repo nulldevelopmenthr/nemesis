@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class TestSimpleIdentifierFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $factories;
+
     /** @var TestSimpleIdentifierFactory */
     private $sut;
 

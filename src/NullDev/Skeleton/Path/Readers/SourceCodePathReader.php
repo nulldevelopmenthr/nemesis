@@ -18,6 +18,7 @@ class SourceCodePathReader
 {
     /** @var FinderFactory */
     private $finderFactory;
+
     /** @var Config */
     private $config;
 

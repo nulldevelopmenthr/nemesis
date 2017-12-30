@@ -18,8 +18,10 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayElasticsearchReadRepositoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $repositoryClassType;
+
     /** @var CreateBroadwayElasticsearchReadRepository */
     private $sut;
 

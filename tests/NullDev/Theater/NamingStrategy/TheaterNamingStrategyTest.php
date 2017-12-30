@@ -24,8 +24,10 @@ class TheaterNamingStrategyTest extends TestCase
 {
     /** @var TheaterNamingStrategy */
     private $theaterNamingStrategy;
+
     /** @var ContextName */
     private $contextName;
+
     /** @var ContextNamespace */
     private $contextNamespace;
 

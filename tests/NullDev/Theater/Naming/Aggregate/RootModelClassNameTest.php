@@ -15,8 +15,10 @@ class RootModelClassNameTest extends TestCase
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $namespace;
+
     /** @var RootModelClassName */
     private $className;
 

@@ -14,8 +14,10 @@ class CollectionOf
 {
     /** @var ClassName */
     private $className;
+
     /** @var string */
     private $accessor;
+
     /** @var ClassName */
     private $has;
 

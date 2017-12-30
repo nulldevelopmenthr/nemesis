@@ -18,10 +18,13 @@ use PHPUnit\Framework\TestCase;
 class CreateBroadwayElasticsearchReadEntityTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|ClassType */
     private $entityClassType;
+
     /** @var array */
     private $entityParameters;
+
     /** @var CreateBroadwayElasticsearchReadEntity */
     private $sut;
 

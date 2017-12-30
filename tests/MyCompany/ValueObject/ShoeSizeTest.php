@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class ShoeSizeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var int */
     private $value;
+
     /** @var ShoeSize */
     private $shoeSize;
 

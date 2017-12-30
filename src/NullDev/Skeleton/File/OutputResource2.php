@@ -10,8 +10,10 @@ class OutputResource2
 {
     /** @var string */
     private $fileName;
+
     /** @var AbstractDataTypeName */
     private $className;
+
     /** @var string */
     private $output;
 

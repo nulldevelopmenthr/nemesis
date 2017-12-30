@@ -22,6 +22,7 @@ class DateTimeValueObjectLoader implements DefinitionLoader
 {
     /** @var InterfaceNameCollectionFactory */
     private $interfaceNameCollectionFactory;
+
     /** @var TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
 

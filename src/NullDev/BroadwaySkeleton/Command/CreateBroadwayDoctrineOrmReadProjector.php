@@ -14,6 +14,7 @@ class CreateBroadwayDoctrineOrmReadProjector
 {
     /** @var ClassType */
     private $projectorClassType;
+
     /** @var array */
     private $entityParameters;
 

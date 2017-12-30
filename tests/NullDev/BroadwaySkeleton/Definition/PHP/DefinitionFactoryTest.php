@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class DefinitionFactoryTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var DefinitionFactory */
     private $sut;
 

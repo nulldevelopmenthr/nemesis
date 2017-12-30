@@ -15,6 +15,7 @@ use PHPUnit\Framework\TestCase;
 class EmptyClassTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var EmptyClass */
     private $emptyClass;
 

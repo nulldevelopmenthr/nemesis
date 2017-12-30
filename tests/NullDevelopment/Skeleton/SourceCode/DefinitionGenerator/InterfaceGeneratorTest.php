@@ -15,8 +15,10 @@ use PHPUnit\Framework\TestCase;
 class InterfaceGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var array */
     private $methodGenerators;
+
     /** @var InterfaceGenerator */
     private $sut;
 

@@ -12,7 +12,8 @@ use Webmozart\Assert\Assert;
  */
 class ReadSideImplementation
 {
-    const DOCTRINE_ORM  = 'DoctrineORM';
+    const DOCTRINE_ORM = 'DoctrineORM';
+
     const ELASTICSEARCH = 'Elasticsearch';
 
     /** @var string */

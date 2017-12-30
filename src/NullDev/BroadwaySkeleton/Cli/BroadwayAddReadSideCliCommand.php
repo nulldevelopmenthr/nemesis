@@ -38,8 +38,10 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
 
     /** @var ReadSideNamespace Read side namespace */
     protected $namespace;
+
     /** @var ReadSideImplementation */
     private $implementation;
+
     /** @var Parameter[]|array */
     private $readEntityProperties;
 

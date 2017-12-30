@@ -18,6 +18,7 @@ class SpecToStringMethodTest extends TestCase
 {
     /** @var Property */
     private $property;
+
     /** @var SpecToStringMethod */
     private $sut;
 

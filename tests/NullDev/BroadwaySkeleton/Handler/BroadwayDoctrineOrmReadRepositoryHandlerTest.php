@@ -21,6 +21,7 @@ class BroadwayDoctrineOrmReadRepositoryHandlerTest extends ContainerSupportedTes
 
     /** @var BroadwayDoctrineOrmReadRepositoryHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

@@ -16,8 +16,10 @@ abstract class SourceParserContext implements Context
 {
     /** @var SourceParser */
     protected $sourceParser;
+
     /** @var string */
     protected $input;
+
     /** @var array */
     protected $result;
 

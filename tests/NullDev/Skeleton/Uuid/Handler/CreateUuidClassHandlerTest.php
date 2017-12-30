@@ -21,6 +21,7 @@ class CreateUuidClassHandlerTest extends ContainerSupportedTestCase
 
     /** @var CreateUuidClassHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

@@ -16,8 +16,10 @@ use PHPUnit\Framework\TestCase;
 class ContextNameTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var string */
     private $name;
+
     /** @var ContextName */
     private $contextName;
 

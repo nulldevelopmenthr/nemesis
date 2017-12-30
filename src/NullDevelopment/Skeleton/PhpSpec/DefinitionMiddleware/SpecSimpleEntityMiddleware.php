@@ -18,6 +18,7 @@ class SpecSimpleEntityMiddleware implements Middleware
 {
     /** @var SpecSimpleEntityFactory */
     private $factory;
+
     /** @var SpecSimpleEntityGenerator */
     private $generator;
 

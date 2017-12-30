@@ -16,6 +16,7 @@ class CreateBroadwayEvent
 {
     /** @var ClassType */
     private $classType;
+
     /** @var Parameter[]|array */
     private $parameters;
 

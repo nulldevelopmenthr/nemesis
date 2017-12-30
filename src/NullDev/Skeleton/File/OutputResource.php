@@ -14,8 +14,10 @@ class OutputResource
 {
     /** @var string */
     private $fileName;
+
     /** @var ImprovedClassSource */
     private $classSource;
+
     /** @var string */
     private $output;
 

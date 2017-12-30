@@ -21,6 +21,7 @@ class BroadwayDoctrineOrmReadFactoryHandlerTest extends ContainerSupportedTestCa
 
     /** @var BroadwayDoctrineOrmReadFactoryHandler */
     private $handler;
+
     /** @var CommandBus */
     private $commandBus;
 

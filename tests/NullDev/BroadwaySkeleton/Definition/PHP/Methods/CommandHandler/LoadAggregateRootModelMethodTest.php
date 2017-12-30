@@ -19,10 +19,13 @@ use PHPUnit\Framework\TestCase;
 class LoadAggregateRootModelMethodTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var MockInterface|RootIdClassName */
     private $idClassName;
+
     /** @var MockInterface|RootModelClassName */
     private $modelClassName;
+
     /** @var LoadAggregateRootModelMethod */
     private $sut;
 

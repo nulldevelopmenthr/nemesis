@@ -17,8 +17,10 @@ class GenericMethod implements Method
 {
     /** @var string */
     private $methodName;
+
     /** @var Parameter[]|array */
     private $params;
+
     /** @var null|ClassType */
     private $returnType;
 

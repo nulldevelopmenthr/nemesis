@@ -19,12 +19,16 @@ class TraitDefinition implements SourceCode, Definition
 {
     /** @var TraitName */
     private $name;
+
     /** @var TraitName[] */
     private $traits;
+
     /** @var Constant[] */
     private $constants;
+
     /** @var Property[] */
     private $properties;
+
     /** @var Method[] */
     private $methods;
 

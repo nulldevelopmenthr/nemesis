@@ -23,20 +23,28 @@ use Tests\TestCase\Fixtures;
 class DateTimeValueObjectTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
+
     /** @var ClassName */
     private $name;
+
     /** @var ClassName */
     private $parent;
+
     /** @var array */
     private $interfaces;
+
     /** @var array */
     private $traits;
+
     /** @var Property[]|array */
     private $properties;
+
     /** @var Method[]|array */
     private $methods;
+
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
+
     /** @var DateTimeValueObject */
     private $sut;
 
