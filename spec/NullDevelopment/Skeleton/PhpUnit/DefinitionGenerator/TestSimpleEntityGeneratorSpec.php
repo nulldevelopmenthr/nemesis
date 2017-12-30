@@ -13,7 +13,6 @@ class TestSimpleEntityGeneratorSpec extends ObjectBehavior
 {
     public function let(
         SetUpMethodGenerator $setUpMethodGenerator,
-
         TestGetterMethodGenerator $testGetterMethodGenerator
     ) {
         $this->beConstructedWith([$setUpMethodGenerator, $testGetterMethodGenerator]);
