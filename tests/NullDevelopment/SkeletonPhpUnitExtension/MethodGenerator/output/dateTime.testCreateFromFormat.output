@@ -1,0 +1,5 @@
+public function testCreateFromFormat()
+{
+	$result = $this->sut::createFromFormat(DateTime::ATOM, '2018-01-01T11:22:33Z');
+	self::assertEquals('2018-01-01T11:22:33+00:00', $result->__toString());
+}
