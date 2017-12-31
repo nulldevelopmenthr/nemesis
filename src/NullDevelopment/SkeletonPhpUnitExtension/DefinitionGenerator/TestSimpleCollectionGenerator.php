@@ -56,6 +56,9 @@ class TestSimpleCollectionGenerator implements DefinitionGenerator
 
         $code = $namespace->addClass($definition->getClassName());
 
+        $code->addComment('@covers \\'.$definition->getSubjectUnderTest()->getFullName());
+        $code->addComment('@group  todo');
+
         if (true === $definition->hasParent()) {
             $code->setExtends($definition->getParentFullClassName());
             $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());

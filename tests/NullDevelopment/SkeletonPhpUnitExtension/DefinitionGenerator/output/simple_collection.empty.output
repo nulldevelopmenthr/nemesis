@@ -3,6 +3,10 @@ namespace spec\MyVendor;
 use MyVendor\User\Username;
 use PhpUnit\ObjectBehavior;
 
+/**
+ * @covers \MyVendor\UserEntity
+ * @group  todo
+ */
 class UserEntityTest extends ObjectBehavior
 {
 	public function setUp()
