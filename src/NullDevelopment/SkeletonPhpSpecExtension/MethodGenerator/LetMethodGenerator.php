@@ -75,10 +75,6 @@ class LetMethodGenerator implements MethodGenerator
             }
         }
 
-        $zz = implode(', ', $parameters);
-
-        $code->addBody(
-            sprintf('$this->beConstructedWith(%s);', $zz)
-        );
+        $code->addBody(sprintf('$this->beConstructedWith(%s);', implode(', ', $parameters)));
     }
 }
