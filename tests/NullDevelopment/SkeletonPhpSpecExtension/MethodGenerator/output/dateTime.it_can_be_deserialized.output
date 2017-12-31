@@ -1,0 +1,4 @@
+public function it_is_deserializable()
+{
+	$this->deserialize('2018-01-01T11:22:33+00:00')->shouldReturnAnInstanceOf(UserCreatedAt::class);
+}

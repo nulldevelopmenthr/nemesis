@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeCreateFromFormatMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator;
 use PHPUnit\Framework\TestCase;
 use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator
- * @group  todo
+ * @group  unit
  */
 class SpecDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 {
@@ -26,18 +27,25 @@ class SpecDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
         $this->sut = new SpecDateTimeCreateFromFormatMethodGenerator();
     }
 
-    public function testSupports()
+    /** @dataProvider provideMethods */
+    public function testSupports(SpecDateTimeCreateFromFormatMethod $method)
     {
-        $this->markTestSkipped('Skipping');
+        self::assertTrue($this->sut->supports($method));
     }
 
-    public function testGenerateAsString()
+    /** @dataProvider provideMethods */
+    public function testGenerateAsString(SpecDateTimeCreateFromFormatMethod $method, string $fileName)
     {
-        $this->markTestSkipped('Skipping');
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
+
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
-    public function testGenerate()
+    public function provideMethods(): array
     {
-        $this->markTestSkipped('Skipping');
+        return [
+            [new SpecDateTimeCreateFromFormatMethod(), 'dateTime.createFromFormat.output'],
+        ];
     }
 }
