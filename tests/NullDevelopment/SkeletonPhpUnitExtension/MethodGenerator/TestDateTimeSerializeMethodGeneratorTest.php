@@ -6,13 +6,14 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSerializeMethodGenerator;
 use PHPUnit\Framework\TestCase;
 use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSerializeMethodGenerator
- * @group  todo
+ * @group  unit
  */
 class TestDateTimeSerializeMethodGeneratorTest extends TestCase
 {
@@ -31,18 +32,25 @@ class TestDateTimeSerializeMethodGeneratorTest extends TestCase
         $this->sut          = new TestDateTimeSerializeMethodGenerator($this->exampleMaker);
     }
 
-    public function testSupports()
+    /** @dataProvider provideMethods */
+    public function testSupports(TestDateTimeSerializeMethod $method)
     {
-        $this->markTestSkipped('Skipping');
+        self::assertTrue($this->sut->supports($method));
     }
 
-    public function testGenerateAsString()
+    /** @dataProvider provideMethods */
+    public function testGenerateAsString(TestDateTimeSerializeMethod $method, string $fileName)
     {
-        $this->markTestSkipped('Skipping');
+        $filePath = __DIR__.'/output/'.$fileName;
+        $result   = $this->sut->generateAsString($method);
+
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
-    public function testGenerate()
+    public function provideMethods(): array
     {
-        $this->markTestSkipped('Skipping');
+        return [
+            [new TestDateTimeSerializeMethod(), 'dateTime.testSerialize.output'],
+        ];
     }
 }

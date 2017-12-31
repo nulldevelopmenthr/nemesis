@@ -1,0 +1,4 @@
+public function setUp()
+{
+	$this->sut = new UserCreatedAt('2018-01-01T11:22:33+00:00');
+}
