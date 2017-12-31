@@ -28,22 +28,12 @@ class SetUpMethodGenerator extends BaseTestMethodGenerator
         $constructorArguments = [];
         foreach ($method->getParameters() as $parameter) {
             if (true === $parameter->isObject()) {
-                $code->addBody(
-                    sprintf(
-                        '$this->%s = %s;',
-                        $parameter->getName(),
-                        $this->exampleMaker->instance($parameter)
-                    )
-                );
+                $value = $this->exampleMaker->instance($parameter);
             } else {
-                $code->addBody(
-                    sprintf(
-                        '$this->%s = %s;',
-                        $parameter->getName(),
-                        $this->exampleMaker->value($parameter)
-                    )
-                );
+                $value = $this->exampleMaker->value($parameter);
             }
+
+            $code->addBody(sprintf('$this->%s = %s;', $parameter->getName(), $value));
 
             $constructorArguments[] = sprintf('$this->%s', $parameter->getName());
         }
