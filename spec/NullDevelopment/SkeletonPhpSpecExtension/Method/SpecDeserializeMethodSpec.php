@@ -39,11 +39,9 @@ class SpecDeserializeMethodSpec extends ObjectBehavior
         $this->getProperties()->shouldReturn([$property1, $property2]);
     }
 
-    public function it_exposes_object_properties_as_parameters(Property $property1, Property $property2)
+    public function it_has_no_parameters()
     {
-        $property1->isObject()->shouldBeCalled()->willReturn(true);
-        $property2->isObject()->shouldBeCalled()->willReturn(false);
-        $this->getParameters()->shouldReturn([$property1]);
+        $this->getParameters()->shouldReturn([]);
     }
 
     public function it_has_no_return_type()

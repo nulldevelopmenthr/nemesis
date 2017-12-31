@@ -67,7 +67,7 @@ class ProductEntitySpec extends ObjectBehavior
         );
     }
 
-    public function it_can_be_deserialized(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
+    public function it_can_be_deserialized()
     {
         $input = [
             'id'          => 1,

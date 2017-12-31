@@ -76,7 +76,7 @@ class UserEntitySpec extends ObjectBehavior
         );
     }
 
-    public function it_can_be_deserialized(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
+    public function it_can_be_deserialized()
     {
         $input = [
             'id'        => 1,
