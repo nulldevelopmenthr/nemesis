@@ -93,6 +93,7 @@ final class Application extends BaseApplication
             'NullDev\Theater\TheaterExtension'                                  => null,
             'NullDevelopment\Skeleton\SkeletonExtension'                        => null,
             'NullDevelopment\SkeletonPhpSpecExtension\SkeletonPhpSpecExtension' => null,
+            'NullDevelopment\SkeletonPhpUnitExtension\SkeletonPhpUnitExtension' => null,
         ];
     }
 
