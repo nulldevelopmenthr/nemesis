@@ -1,0 +1,35 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\GetterSpecMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator: ~
+
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeLetMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeToStringMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeSerializeMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeDeserializeMethodGenerator: ~
+
+
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory: ~
+
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeLetMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeToStringMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeCreateFromFormatMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeSerializeMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeDeserializeMethodFactory: ~
+
