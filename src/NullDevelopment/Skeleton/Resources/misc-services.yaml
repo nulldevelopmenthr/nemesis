@@ -49,37 +49,6 @@ services:
 
 
 
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\LetMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\InitializableMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\GetterSpecMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecToStringMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecSerializeMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDeserializeMethodGenerator: ~
-
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeLetMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeToStringMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeSerializeMethodGenerator: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodGenerator\SpecDateTimeDeserializeMethodGenerator: ~
-
-
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\LetMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\InitializableMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\GetterSpecMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecToStringMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecSerializeMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDeserializeMethodFactory: ~
-
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeLetMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeToStringMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeCreateFromFormatMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeSerializeMethodFactory: ~
-  NullDevelopment\Skeleton\PhpSpec\MethodFactory\SpecDateTimeDeserializeMethodFactory: ~
-
-
-
-
-
 
   NullDevelopment\Skeleton\PhpUnit\MethodGenerator\SetUpMethodGenerator: ~
   NullDevelopment\Skeleton\PhpUnit\MethodGenerator\TestGetterMethodGenerator: ~

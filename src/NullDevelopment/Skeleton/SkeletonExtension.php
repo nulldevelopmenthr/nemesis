@@ -25,7 +25,6 @@ final class SkeletonExtension extends Extension
 
         $loader->load('middleware-services.yaml');
         $loader->load('misc-services.yaml');
-        $loader->load('phpspec-definition-services.yaml');
         $loader->load('phpunit-definition-services.yaml');
         $loader->load('source-code-definition-services.yaml');
     }
