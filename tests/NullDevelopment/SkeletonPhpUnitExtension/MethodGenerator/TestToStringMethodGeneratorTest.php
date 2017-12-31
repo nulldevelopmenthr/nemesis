@@ -51,7 +51,7 @@ class TestToStringMethodGeneratorTest extends TestCase
         $firstName = Fixtures::firstNameProperty();
 
         return [
-            [new TestToStringMethod($firstName), 'it_is_castable_to_string.output'],
+            [new TestToStringMethod($firstName), 'testToString.firstName.output'],
         ];
     }
 }

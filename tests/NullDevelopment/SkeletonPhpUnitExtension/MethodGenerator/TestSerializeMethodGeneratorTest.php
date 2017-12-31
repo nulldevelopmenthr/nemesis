@@ -54,7 +54,7 @@ class TestSerializeMethodGeneratorTest extends TestCase
         $firstName = Fixtures::firstNameProperty();
 
         return [
-            [new TestSerializeMethod([$firstName]), 'it_can_be_serialized.output'],
+            [new TestSerializeMethod([$firstName]), 'testSerialize.User.output'],
         ];
     }
 }
