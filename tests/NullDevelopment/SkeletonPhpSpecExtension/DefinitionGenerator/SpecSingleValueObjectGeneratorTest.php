@@ -4,50 +4,45 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator;
 
+use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
+use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSingleValueObjectGenerator;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use Tests\NullDev\AssertOutputTrait;
-use Tests\TestCase\Fixtures;
-use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSingleValueObjectGenerator
  * @group  integration
  */
-class SpecSingleValueObjectGeneratorTest extends SfTestCase
+class SpecSingleValueObjectGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 {
     use AssertOutputTrait;
 
     /** @var SpecSingleValueObjectGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        parent::setUp();
         $this->sut = $this->getService(SpecSingleValueObjectGenerator::class);
     }
 
-    /** @dataProvider provideSpecSingleValueObject */
+    /** @dataProvider provideDefinitions */
     public function testSupports(SpecSingleValueObject $definition)
     {
         self::assertTrue($this->sut->supports($definition));
     }
 
-    /** @dataProvider provideSpecSingleValueObject */
-    public function testGenerateAsString(SpecSingleValueObject $definition, string $fileName)
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(SpecSingleValueObject $definition, string $filePath)
     {
-        $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($definition);
+        $result = $this->sut->generateAsString($definition);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
 
-    /** @dataProvider provideSpecSingleValueObject */
+    /** @dataProvider provideDefinitions */
     public function testGenerate(SpecSingleValueObject $definition)
     {
         $result = $this->sut->generate($definition);
@@ -55,33 +50,20 @@ class SpecSingleValueObjectGeneratorTest extends SfTestCase
         self::assertInstanceOf(PhpNamespace::class, $result);
     }
 
-    public function provideSpecSingleValueObject(): array
+    public function provideDefinitions(): Generator
     {
-        $sutClass = Fixtures::userEntity();
+        $inputs = $this->loadAllDefinitionsFromFiles();
 
-        $firstName = Fixtures::firstNameProperty();
+        $specFactory = $this->getService(SpecSingleValueObjectFactory::class);
 
-        $class  = ClassName::create('spec\\MyVendor\\UserEntitySpec');
-        $parent = ClassName::create('PhpSpec\\ObjectBehavior');
+        foreach ($inputs as $definition) {
+            if ($definition instanceof SingleValueObject) {
+                $specDefinition = $specFactory->createFromSingleValueObject($definition);
 
-        $letMethod           = new LetMethod([$firstName]);
-        $initializableMethod = new InitializableMethod($sutClass, null, []);
-        $exposesFirstName    = new GetterSpecMethod('it_exposes_first_name', 'getFirstName', $firstName);
-        $exposesValue        = new GetterSpecMethod('it_exposes_value', 'getValue', $firstName);
-
-        return [
-            [
-                new SpecSingleValueObject(
-                    $class,
-                    $parent,
-                    [],
-                    [],
-                    [],
-                    [$letMethod, $initializableMethod, $exposesFirstName, $exposesValue],
-                    $sutClass
-                ),
-                'single_value_object.empty.output',
-            ],
-        ];
+                if (true === $this->sut->supports($specDefinition)) {
+                    yield[$specDefinition, __DIR__.'/output/'.$specDefinition->getClassName().'.output'];
+                }
+            }
+        }
     }
 }
