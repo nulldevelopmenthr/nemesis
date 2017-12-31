@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -19,12 +20,16 @@ class InitializableMethodGeneratorTest extends TestCase
 {
     use AssertOutputTrait;
 
+    /** @var ExampleMaker */
+    private $exampleMaker;
+
     /** @var InitializableMethodGenerator */
     private $sut;
 
     public function setUp()
     {
-        $this->sut = new InitializableMethodGenerator();
+        $this->exampleMaker = new ExampleMaker();
+        $this->sut          = new InitializableMethodGenerator($this->exampleMaker);
     }
 
     /** @dataProvider provideMethods */

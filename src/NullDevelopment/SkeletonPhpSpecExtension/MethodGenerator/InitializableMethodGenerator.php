@@ -6,14 +6,13 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator\BaseMethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
 
 /**
  * @see InitializableMethodGeneratorSpec
  * @see InitializableMethodGeneratorTest
  */
-class InitializableMethodGenerator extends BaseMethodGenerator
+class InitializableMethodGenerator extends BaseSpecMethodGenerator
 {
     public function supports(Method $method): bool
     {

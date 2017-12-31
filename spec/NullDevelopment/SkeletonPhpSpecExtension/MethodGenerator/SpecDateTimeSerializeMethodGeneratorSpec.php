@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeSerializeMethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeSerializeMethodGeneratorSpec extends ObjectBehavior
 {
+    public function let(ExampleMaker $exampleMaker)
+    {
+        $this->beConstructedWith($exampleMaker);
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(SpecDateTimeSerializeMethodGenerator::class);
@@ -22,7 +28,6 @@ class SpecDateTimeSerializeMethodGeneratorSpec extends ObjectBehavior
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
         $method->getParameters()->shouldBeCalled()->willReturn([]);
-        $method->isStatic()->shouldBeCalled()->willReturn(false);
 
         $lines = [
             'public function it_is_serializable()',

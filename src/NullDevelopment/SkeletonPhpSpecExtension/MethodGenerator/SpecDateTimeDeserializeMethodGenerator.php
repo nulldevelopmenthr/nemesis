@@ -6,14 +6,13 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator\BaseMethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeDeserializeMethod;
 
 /**
  * @see SpecDateTimeDeserializeMethodGeneratorSpec
  * @see SpecDateTimeDeserializeMethodGeneratorTest
  */
-class SpecDateTimeDeserializeMethodGenerator extends BaseMethodGenerator
+class SpecDateTimeDeserializeMethodGenerator extends BaseSpecMethodGenerator
 {
     public function supports(Method $method): bool
     {
