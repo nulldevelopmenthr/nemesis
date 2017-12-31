@@ -1,0 +1,16 @@
+definition:
+  type: SimpleCollection
+  instanceOf: MyVendor\UserCollection
+  parent: ~
+  interfaces: []
+  traits: []
+  constructor:
+    elements:
+      instanceOf: array
+      nullable: false
+      hasDefault: true
+      default: []
+  collectionOf:
+    instanceOf: MyVendor\UserEntity
+    accessor: getId
+    has: MyVendor\User\UserId
