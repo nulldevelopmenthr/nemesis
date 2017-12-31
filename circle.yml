@@ -166,3 +166,6 @@ workflows:
       - humbug:
          requires:
            - phpunit
+         filters:
+           branches:
+             only: master
