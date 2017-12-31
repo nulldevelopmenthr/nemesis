@@ -16,6 +16,21 @@ class Fixtures
         return ClassName::create('MyVendor\\UserEntity');
     }
 
+    public static function productEntity(): ClassName
+    {
+        return ClassName::create('MyVendor\\ProductEntity');
+    }
+
+    public static function userCollection(): ClassName
+    {
+        return ClassName::create('MyVendor\\UserCollection');
+    }
+
+    public static function productCollection(): ClassName
+    {
+        return ClassName::create('MyVendor\\ProductCollection');
+    }
+
     public static function firstName(): ClassName
     {
         return ClassName::create('MyVendor\\User\\UserFirstName');
