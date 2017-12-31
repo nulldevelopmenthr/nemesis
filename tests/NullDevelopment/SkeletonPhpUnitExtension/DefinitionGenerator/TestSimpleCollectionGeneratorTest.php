@@ -4,50 +4,42 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
+use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\CustomType\CollectionOf;
-use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleCollection;
+use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleCollectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
-use Tests\NullDev\AssertOutputTrait;
-use Tests\TestCase\Fixtures;
-use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator
  * @group  integration
  */
-class TestSimpleCollectionGeneratorTest extends SfTestCase
+class TestSimpleCollectionGeneratorTest extends BaseTestDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var TestSimpleCollectionGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        parent::setUp();
         $this->sut = $this->getService(TestSimpleCollectionGenerator::class);
     }
 
-    /** @dataProvider provideTestSimpleCollection */
+    /** @dataProvider provideDefinitions */
     public function testSupports(TestSimpleCollection $definition)
     {
         self::assertTrue($this->sut->supports($definition));
     }
 
-    /** @dataProvider provideTestSimpleCollection */
-    public function testGenerateAsString(TestSimpleCollection $definition, string $fileName)
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(TestSimpleCollection $definition, string $filePath)
     {
-        $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($definition);
+        $result = $this->sut->generateAsString($definition);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
 
-    /** @dataProvider provideTestSimpleCollection */
+    /** @dataProvider provideDefinitions */
     public function testGenerate(TestSimpleCollection $definition)
     {
         $result = $this->sut->generate($definition);
@@ -55,38 +47,20 @@ class TestSimpleCollectionGeneratorTest extends SfTestCase
         self::assertInstanceOf(PhpNamespace::class, $result);
     }
 
-    public function provideTestSimpleCollection(): array
+    public function provideDefinitions(): Generator
     {
-        $sutClass = Fixtures::userEntity();
+        $inputs = $this->loadAllDefinitionsFromFiles();
 
-        $firstName = Fixtures::firstNameProperty();
+        $testFactory = $this->getService(TestSimpleCollectionFactory::class);
 
-        $class  = ClassName::create('spec\\MyVendor\\UserEntityTest');
-        $parent = ClassName::create('PhpUnit\\ObjectBehavior');
+        foreach ($inputs as $definition) {
+            if ($definition instanceof SimpleCollection) {
+                $testDefinition = $testFactory->createFromSimpleCollection($definition);
 
-        $letMethod        = new SetUpMethod($sutClass, [$firstName]);
-        $exposesFirstName = new TestGetterMethod('it_exposes_first_name', 'getFirstName', $firstName);
-        $exposesValue     = new TestGetterMethod('it_exposes_value', 'getValue', $firstName);
-        $collectionOf     = new CollectionOf(
-            ClassName::create('MyVendor\User\Username'),
-            'getId',
-            ClassName::create('MyVendor\User\UserId')
-        );
-
-        return [
-            [
-                new TestSimpleCollection(
-                    $class,
-                    $parent,
-                    [],
-                    [],
-                    [],
-                    [$letMethod, $exposesFirstName, $exposesValue],
-                    $sutClass,
-                    $collectionOf
-                ),
-                'simple_collection.empty.output',
-            ],
-        ];
+                if (true === $this->sut->supports($testDefinition)) {
+                    yield[$testDefinition, __DIR__.'/output/'.$testDefinition->getClassName().'.output'];
+                }
+            }
+        }
     }
 }
