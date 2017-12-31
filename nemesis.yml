@@ -25,3 +25,4 @@ extensions:
   NullDev\Theater\TheaterExtension: ~
   NullDevelopment\Skeleton\SkeletonExtension: ~
   NullDevelopment\SkeletonPhpSpecExtension\SkeletonPhpSpecExtension: ~
+  NullDevelopment\SkeletonPhpUnitExtension\SkeletonPhpUnitExtension: ~
