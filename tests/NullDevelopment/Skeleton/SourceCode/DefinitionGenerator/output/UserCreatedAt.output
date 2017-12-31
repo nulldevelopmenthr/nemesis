@@ -1,10 +1,10 @@
-namespace MyVendor;
+namespace MyVendor\User;
 
 use DateTime;
 
 /**
- * @see \spec\MyVendor\UserCreatedAtSpec
- * @see \Tests\MyVendor\UserCreatedAtTest
+ * @see \spec\MyVendor\User\UserCreatedAtSpec
+ * @see \Tests\MyVendor\User\UserCreatedAtTest
  */
 class UserCreatedAt extends DateTime
 {

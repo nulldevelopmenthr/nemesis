@@ -1,10 +1,10 @@
-namespace MyVendor;
+namespace MyVendor\User;
 
 /**
- * @see \spec\MyVendor\UserEntitySpec
- * @see \Tests\MyVendor\UserEntityTest
+ * @see \spec\MyVendor\User\UserIdSpec
+ * @see \Tests\MyVendor\User\UserIdTest
  */
-class UserEntity
+class UserId
 {
 	/** @var int */
 	private $id;

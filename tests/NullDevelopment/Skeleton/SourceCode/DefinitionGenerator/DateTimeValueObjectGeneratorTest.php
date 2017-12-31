@@ -5,80 +5,42 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\DateTimeValueObjectGenerator;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeSerializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeToStringMethod;
-use Tests\NullDev\AssertOutputTrait;
-use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\DateTimeValueObjectGenerator
  * @group  integration
- *
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class DateTimeValueObjectGeneratorTest extends SfTestCase
+class DateTimeValueObjectGeneratorTest extends BaseDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var DateTimeValueObjectGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        parent::setUp();
         $this->sut = $this->getService(DateTimeValueObjectGenerator::class);
     }
 
-    /** @dataProvider provideDateTimeValueObject */
+    /** @dataProvider provideDefinitions */
     public function testSupports(DateTimeValueObject $definition)
     {
         self::assertTrue($this->sut->supports($definition));
     }
 
-    /** @dataProvider provideDateTimeValueObject */
-    public function testGenerateAsString(DateTimeValueObject $definition, string $fileName)
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(DateTimeValueObject $definition, string $filePath)
     {
-        $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($definition);
+        $result = $this->sut->generateAsString($definition);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
 
-    /** @dataProvider provideDateTimeValueObject */
+    /** @dataProvider provideDefinitions */
     public function testGenerate(DateTimeValueObject $definition)
     {
         $result = $this->sut->generate($definition);
 
         self::assertInstanceOf(PhpNamespace::class, $result);
-    }
-
-    public function provideDateTimeValueObject(): array
-    {
-        $class  = ClassName::create('MyVendor\\UserCreatedAt');
-        $parent = ClassName::create('DateTime');
-
-        $toString               = new DateTimeToStringMethod();
-        $createFromFormatMethod = new DateTimeCreateFromFormatMethod();
-        $serializeMethod        = new DateTimeSerializeMethod();
-        $deserializeMethod      = new DateTimeDeserializeMethod($class);
-
-        return [
-            [
-                new DateTimeValueObject(
-                    $class,
-                    $parent,
-                    [],
-                    [],
-                    [],
-                    [$toString, $createFromFormatMethod, $serializeMethod, $deserializeMethod]
-                ),
-                'datetime.output',
-            ],
-        ];
     }
 }

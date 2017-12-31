@@ -1,36 +1,35 @@
 namespace MyVendor;
 
-use MyVendor\User\UserId;
-use MyVendor\User\Username;
+use MyVendor\Product\ProductId;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \spec\MyVendor\UserEntitySpec
- * @see \Tests\MyVendor\UserEntityTest
+ * @see \spec\MyVendor\ProductCollectionSpec
+ * @see \Tests\MyVendor\ProductCollectionTest
  */
-class UserEntity
+class ProductCollection
 {
-	/** @var int|Username[] */
-	private $id;
+	/** @var array|ProductEntity[] */
+	private $elements;
 
 
 	/**
-	 * @param Username[] $elements
+	 * @param ProductEntity[] $elements
 	 */
-	public function __construct(int $id = [])
+	public function __construct(array $elements = [])
 	{
-		Assert::allIsInstanceOf($elements, Username::class);
-		$this->id = $id;
+		Assert::allIsInstanceOf($elements, ProductEntity::class);
+		$this->elements = $elements;
 	}
 
 
-	public function add(Username $element)
+	public function add(ProductEntity $element)
 	{
 		$this->elements[] = $element;
 	}
 
 
-	public function has(UserId $id): bool
+	public function has(ProductId $id): bool
 	{
 		foreach ($this->elements as $element) {
 		    if ($element->getId() == $id) {
@@ -41,7 +40,7 @@ class UserEntity
 	}
 
 
-	public function get(UserId $id)
+	public function get(ProductId $id)
 	{
 		foreach ($this->elements as $element) {
 		    if ($element->getId() == $id) {
@@ -78,7 +77,7 @@ class UserEntity
 	{
 		$elements = [];
 		foreach ($data as $item) {
-		    $elements[] = Username::deserialize($item);
+		    $elements[] = ProductEntity::deserialize($item);
 		}
 		return new self($elements);
 	}

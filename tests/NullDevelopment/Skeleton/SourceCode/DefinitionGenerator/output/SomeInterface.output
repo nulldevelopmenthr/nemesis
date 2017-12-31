@@ -1,0 +1,5 @@
+namespace MyVendor;
+
+interface SomeInterface
+{
+}
