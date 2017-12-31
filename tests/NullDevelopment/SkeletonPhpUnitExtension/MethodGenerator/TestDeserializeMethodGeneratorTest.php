@@ -56,7 +56,7 @@ class TestDeserializeMethodGeneratorTest extends TestCase
         $firstName = Fixtures::firstNameProperty();
 
         return [
-            [new TestDeserializeMethod($className, [$firstName]), 'it_can_be_deserialized.output'],
+            [new TestDeserializeMethod($className, [$firstName]), 'testDeserialize.User.output'],
         ];
     }
 }

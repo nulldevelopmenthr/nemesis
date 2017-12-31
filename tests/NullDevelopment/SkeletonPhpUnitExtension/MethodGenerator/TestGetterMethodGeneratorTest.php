@@ -53,7 +53,7 @@ class TestGetterMethodGeneratorTest extends TestCase
         $firstName = Fixtures::firstNameProperty();
 
         return [
-            [new TestGetterMethod('it_exposes_first_name', 'getFirstName', $firstName), 'it_exposes_first_name.output'],
+            [new TestGetterMethod('testGetFirstName', 'getFirstName', $firstName), 'testGet.FirstName.output'],
         ];
     }
 }
