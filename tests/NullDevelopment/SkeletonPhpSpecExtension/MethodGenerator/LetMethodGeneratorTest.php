@@ -53,9 +53,9 @@ class LetMethodGeneratorTest extends TestCase
 
         return [
             [new LetMethod([]), 'let.empty.output'],
-            [new LetMethod([$firstName]), '__construct.firstName.output'],
-            [new LetMethod([$name]), '__construct.name.output'],
-            [new LetMethod([$name, $firstName]), '__construct.name+firstName.output'],
+            [new LetMethod([$firstName]), 'let.firstName.output'],
+            [new LetMethod([$name]), 'let.name.output'],
+            [new LetMethod([$name, $firstName]), 'let.name+firstName.output'],
         ];
     }
 }
