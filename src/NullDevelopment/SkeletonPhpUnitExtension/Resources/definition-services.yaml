@@ -1,0 +1,93 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSingleValueObjectFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
+
+
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleIdentifierGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleIdentifierFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
+
+
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestDateTimeValueObjectGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeCreateFromFormatMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeDeserializeMethodGenerator'
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestDateTimeValueObjectFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDateTimeSetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDateTimeToStringMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDateTimeCreateFromFormatMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDateTimeSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDateTimeDeserializeMethodFactory'
+
+
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleEntityGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleEntityFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
+
+
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleCollectionFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
