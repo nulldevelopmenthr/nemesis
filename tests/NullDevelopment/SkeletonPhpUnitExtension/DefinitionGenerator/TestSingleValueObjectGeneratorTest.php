@@ -4,49 +4,42 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
+use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSingleValueObject;
+use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
-use Tests\NullDev\AssertOutputTrait;
-use Tests\TestCase\Fixtures;
-use Tests\TestCase\SfTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator
  * @group  integration
  */
-class TestSingleValueObjectGeneratorTest extends SfTestCase
+class TestSingleValueObjectGeneratorTest extends BaseTestDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var TestSingleValueObjectGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        parent::setUp();
         $this->sut = $this->getService(TestSingleValueObjectGenerator::class);
     }
 
-    /** @dataProvider provideTestSingleValueObject */
+    /** @dataProvider provideDefinitions */
     public function testSupports(TestSingleValueObject $definition)
     {
         self::assertTrue($this->sut->supports($definition));
     }
 
-    /** @dataProvider provideTestSingleValueObject */
-    public function testGenerateAsString(TestSingleValueObject $definition, string $fileName)
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(TestSingleValueObject $definition, string $filePath)
     {
-        $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($definition);
+        $result = $this->sut->generateAsString($definition);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
 
-    /** @dataProvider provideTestSingleValueObject */
+    /** @dataProvider provideDefinitions */
     public function testGenerate(TestSingleValueObject $definition)
     {
         $result = $this->sut->generate($definition);
@@ -54,24 +47,20 @@ class TestSingleValueObjectGeneratorTest extends SfTestCase
         self::assertInstanceOf(PhpNamespace::class, $result);
     }
 
-    public function provideTestSingleValueObject(): array
+    public function provideDefinitions(): Generator
     {
-        $sutClass = Fixtures::userEntity();
+        $inputs = $this->loadAllDefinitionsFromFiles();
 
-        $firstName = Fixtures::firstNameProperty();
+        $testFactory = $this->getService(TestSingleValueObjectFactory::class);
 
-        $class  = ClassName::create('spec\\MyVendor\\UserEntityTest');
-        $parent = ClassName::create('PhpUnit\\ObjectBehavior');
+        foreach ($inputs as $definition) {
+            if ($definition instanceof SingleValueObject) {
+                $testDefinition = $testFactory->createFromSingleValueObject($definition);
 
-        $letMethod        = new SetUpMethod($sutClass, [$firstName]);
-        $exposesFirstName = new TestGetterMethod('testGetFirstName', 'getFirstName', $firstName);
-        $exposesValue     = new TestGetterMethod('testGetValue', 'getValue', $firstName);
-
-        return [
-            [
-                new TestSingleValueObject($class, $parent, [], [], [], [$letMethod, $exposesFirstName, $exposesValue], $sutClass),
-                'single_value_object.empty.output',
-            ],
-        ];
+                if (true === $this->sut->supports($testDefinition)) {
+                    yield[$testDefinition, __DIR__.'/output/'.$testDefinition->getClassName().'.output'];
+                }
+            }
+        }
     }
 }
