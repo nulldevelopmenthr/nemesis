@@ -45,15 +45,7 @@ class SpecDeserializeMethod extends BaseSpecMethod
     /** @return Property[] */
     public function getParameters(): array
     {
-        $parameters = [];
-
-        foreach ($this->properties as $property) {
-            if (true === $property->isObject()) {
-                $parameters[] = $property;
-            }
-        }
-
-        return $parameters;
+        return [];
     }
 
     /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
