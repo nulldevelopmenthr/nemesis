@@ -4,47 +4,43 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
-use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Nette\PhpGenerator\PhpNamespace;
+use NullDevelopment\PhpStructure\Type\InterfaceDefinition;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\InterfaceGenerator;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\InterfaceGenerator
- * @group  todo
+ * @group  integration
  */
-class InterfaceGeneratorTest extends TestCase
+class InterfaceGeneratorTest extends BaseDefinitionGeneratorTestCase
 {
-    use MockeryPHPUnitIntegration;
-
-    /** @var array */
-    private $methodGenerators;
-
     /** @var InterfaceGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        $this->methodGenerators = [];
-        $this->sut              = new InterfaceGenerator($this->methodGenerators);
+        $this->sut = $this->getService(InterfaceGenerator::class);
     }
 
-    public function testSupports()
+    /** @dataProvider provideDefinitions */
+    public function testSupports(InterfaceDefinition $definition)
     {
-        $this->markTestSkipped('Skipping');
+        self::assertTrue($this->sut->supports($definition));
     }
 
-    public function testGenerateAsString()
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(InterfaceDefinition $definition, string $filePath)
     {
-        $this->markTestSkipped('Skipping');
+        $result = $this->sut->generateAsString($definition);
+
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
-    public function testGenerate()
+    /** @dataProvider provideDefinitions */
+    public function testGenerate(InterfaceDefinition $definition)
     {
-        $this->markTestSkipped('Skipping');
-    }
+        $result = $this->sut->generate($definition);
 
-    public function testHandleInterfaceDefinition()
-    {
-        $this->markTestSkipped('Skipping');
+        self::assertInstanceOf(PhpNamespace::class, $result);
     }
 }

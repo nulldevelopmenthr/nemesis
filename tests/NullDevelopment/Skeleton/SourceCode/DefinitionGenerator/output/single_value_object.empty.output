@@ -1,9 +1,0 @@
-namespace MyVendor;
-
-/**
- * @see \spec\MyVendor\UserEntitySpec
- * @see \Tests\MyVendor\UserEntityTest
- */
-class UserEntity
-{
-}

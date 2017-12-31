@@ -1,10 +1,10 @@
-namespace MyVendor;
+namespace MyVendor\Product;
 
 /**
- * @see \spec\MyVendor\UserEntitySpec
- * @see \Tests\MyVendor\UserEntityTest
+ * @see \spec\MyVendor\Product\ProductIdSpec
+ * @see \Tests\MyVendor\Product\ProductIdTest
  */
-class UserEntity
+class ProductId
 {
 	/** @var int */
 	private $id;
@@ -19,6 +19,12 @@ class UserEntity
 	public function getId(): int
 	{
 		return $this->id;
+	}
+
+
+	public function __toString(): string
+	{
+		return (string) $this->id;
 	}
 
 

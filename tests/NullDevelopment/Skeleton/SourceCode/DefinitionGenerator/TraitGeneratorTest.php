@@ -4,47 +4,43 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
-use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Nette\PhpGenerator\PhpNamespace;
+use NullDevelopment\PhpStructure\Type\TraitDefinition;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\TraitGenerator;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\TraitGenerator
- * @group  todo
+ * @group  integration
  */
-class TraitGeneratorTest extends TestCase
+class TraitGeneratorTest extends BaseDefinitionGeneratorTestCase
 {
-    use MockeryPHPUnitIntegration;
-
-    /** @var array */
-    private $methodGenerators;
-
     /** @var TraitGenerator */
-    private $sut;
+    protected $sut;
 
-    public function setUp()
+    protected function initializeSubjectUnderTest()
     {
-        $this->methodGenerators = [];
-        $this->sut              = new TraitGenerator($this->methodGenerators);
+        $this->sut = $this->getService(TraitGenerator::class);
     }
 
-    public function testSupports()
+    /** @dataProvider provideDefinitions */
+    public function testSupports(TraitDefinition $definition)
     {
-        $this->markTestSkipped('Skipping');
+        self::assertTrue($this->sut->supports($definition));
     }
 
-    public function testGenerateAsString()
+    /** @dataProvider provideDefinitions */
+    public function testGenerateAsString(TraitDefinition $definition, string $filePath)
     {
-        $this->markTestSkipped('Skipping');
+        $result = $this->sut->generateAsString($definition);
+
+        $this->assertOutputContentMatches($filePath, $result);
     }
 
-    public function testGenerate()
+    /** @dataProvider provideDefinitions */
+    public function testGenerate(TraitDefinition $definition)
     {
-        $this->markTestSkipped('Skipping');
-    }
+        $result = $this->sut->generate($definition);
 
-    public function testHandleTraitDefinition()
-    {
-        $this->markTestSkipped('Skipping');
+        self::assertInstanceOf(PhpNamespace::class, $result);
     }
 }
