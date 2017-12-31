@@ -6,26 +6,6 @@ services:
     autoconfigure: true
     public: true
 
-  NullDevelopment\Skeleton\PhpUnit\DefinitionMiddleware\TestSingleValueObjectMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
-  NullDevelopment\Skeleton\PhpUnit\DefinitionMiddleware\TestSimpleIdentifierMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
-  NullDevelopment\Skeleton\PhpUnit\DefinitionMiddleware\TestDateTimeValueObjectMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
-  NullDevelopment\Skeleton\PhpUnit\DefinitionMiddleware\TestSimpleEntityMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
-  NullDevelopment\Skeleton\PhpUnit\DefinitionMiddleware\TestSimpleCollectionMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
 
   NullDevelopment\Skeleton\CsFixer\CsFixerMiddleware:
     tags:

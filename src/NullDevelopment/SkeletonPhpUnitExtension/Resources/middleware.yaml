@@ -1,0 +1,29 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestSingleValueObjectMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestSimpleIdentifierMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestDateTimeValueObjectMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestSimpleEntityMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestSimpleCollectionMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
