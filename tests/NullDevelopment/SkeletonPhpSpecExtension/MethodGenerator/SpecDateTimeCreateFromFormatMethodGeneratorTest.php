@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeCreateFromFormatMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -24,7 +25,7 @@ class SpecDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeCreateFromFormatMethodGenerator();
+        $this->sut = new SpecDateTimeCreateFromFormatMethodGenerator(new ExampleMaker());
     }
 
     /** @dataProvider provideMethods */

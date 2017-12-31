@@ -6,12 +6,18 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeDeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeDeserializeMethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeDeserializeMethodGeneratorSpec extends ObjectBehavior
 {
+    public function let(ExampleMaker $exampleMaker)
+    {
+        $this->beConstructedWith($exampleMaker);
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(SpecDateTimeDeserializeMethodGenerator::class);
@@ -23,7 +29,6 @@ class SpecDateTimeDeserializeMethodGeneratorSpec extends ObjectBehavior
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
         $method->getParameters()->shouldBeCalled()->willReturn([]);
-        $method->isStatic()->shouldBeCalled()->willReturn(false);
 
         $method->getClassName()->shouldBeCalled()->willReturn($className);
         $className->getName()->shouldBeCalled()->willReturn('UserCreatedAt');

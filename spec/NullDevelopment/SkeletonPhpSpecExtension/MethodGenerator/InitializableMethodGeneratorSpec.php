@@ -7,6 +7,7 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator;
@@ -14,9 +15,9 @@ use PhpSpec\ObjectBehavior;
 
 class InitializableMethodGeneratorSpec extends ObjectBehavior
 {
-    public function let()
+    public function let(ExampleMaker $exampleMaker)
     {
-        $this->beConstructedWith();
+        $this->beConstructedWith($exampleMaker);
     }
 
     public function it_is_initializable()
@@ -28,7 +29,6 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
     public function it_creates_initializable_method(InitializableMethod $method, ClassName $className)
     {
         $method->getName()->shouldBeCalled()->willReturn('it_is_initializable');
-        $method->isStatic()->shouldBeCalled()->willReturn(false);
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
         $method->getParameters()->shouldBeCalled()->willReturn([]);
@@ -56,7 +56,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
         ClassName $parentName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_initializable');
-        $method->isStatic()->shouldBeCalled()->willReturn(false);
+
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
         $method->getParameters()->shouldBeCalled()->willReturn([]);
@@ -87,7 +87,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
         InterfaceName $interfaceName1
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_initializable');
-        $method->isStatic()->shouldBeCalled()->willReturn(false);
+
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
         $method->getParameters()->shouldBeCalled()->willReturn([]);

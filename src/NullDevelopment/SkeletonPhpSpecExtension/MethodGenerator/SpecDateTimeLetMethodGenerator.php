@@ -6,14 +6,13 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeLetMethod;
 
 /**
  * @see SpecDateTimeLetMethodGeneratorSpec
  * @see SpecDateTimeLetMethodGeneratorTest
  */
-class SpecDateTimeLetMethodGenerator implements MethodGenerator
+class SpecDateTimeLetMethodGenerator extends BaseSpecMethodGenerator
 {
     public function supports(Method $method): bool
     {
@@ -22,36 +21,6 @@ class SpecDateTimeLetMethodGenerator implements MethodGenerator
         }
 
         return false;
-    }
-
-    public function generateAsString(Method $method): string
-    {
-        $code = $this->generate($method);
-
-        return $code->__toString();
-    }
-
-    public function generate(Method $method): NetteMethod
-    {
-        $code = new NetteMethod($method->getName());
-
-        $code->setVisibility((string) $method->getVisibility());
-
-        if ('' !== $method->getReturnType()) {
-            $code->setReturnType($method->getReturnType());
-            $code->setReturnNullable($method->isNullableReturnType());
-        }
-
-        foreach ($method->getParameters() as $parameter) {
-            if (true === $parameter->isObject()) {
-                $code->addParameter($parameter->getName())
-                    ->setTypeHint($parameter->getInstanceNameAsString());
-            }
-        }
-
-        $this->generateMethodBody($method, $code);
-
-        return $code;
     }
 
     /** @SuppressWarnings("PHPMD.UnusedFormalParameter") */

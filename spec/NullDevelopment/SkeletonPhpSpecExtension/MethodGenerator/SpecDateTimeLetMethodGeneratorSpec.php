@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeLetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeLetMethodGenerator;
@@ -12,9 +13,9 @@ use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeLetMethodGeneratorSpec extends ObjectBehavior
 {
-    public function let()
+    public function let(ExampleMaker $exampleMaker)
     {
-        $this->beConstructedWith();
+        $this->beConstructedWith($exampleMaker);
     }
 
     public function it_is_initializable()

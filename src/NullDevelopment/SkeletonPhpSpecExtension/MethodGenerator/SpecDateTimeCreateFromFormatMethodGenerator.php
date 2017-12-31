@@ -6,14 +6,13 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator\BaseMethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeCreateFromFormatMethod;
 
 /**
  * @see SpecDateTimeCreateFromFormatMethodGeneratorSpec
  * @see SpecDateTimeCreateFromFormatMethodGeneratorTest
  */
-class SpecDateTimeCreateFromFormatMethodGenerator extends BaseMethodGenerator
+class SpecDateTimeCreateFromFormatMethodGenerator extends BaseSpecMethodGenerator
 {
     public function supports(Method $method): bool
     {
