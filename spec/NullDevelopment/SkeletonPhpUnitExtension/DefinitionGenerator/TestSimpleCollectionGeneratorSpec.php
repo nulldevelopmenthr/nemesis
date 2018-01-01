@@ -12,7 +12,7 @@ class TestSimpleCollectionGeneratorSpec extends ObjectBehavior
 {
     public function let(ExampleMaker $exampleMaker)
     {
-        $this->beConstructedWith($exampleMaker);
+        $this->beConstructedWith([], $exampleMaker);
     }
 
     public function it_is_initializable()

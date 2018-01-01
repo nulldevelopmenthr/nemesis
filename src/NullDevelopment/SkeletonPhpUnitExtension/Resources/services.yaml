@@ -20,7 +20,6 @@ services:
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSerializeMethodGenerator: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeDeserializeMethodGenerator: ~
 
-  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator: ~
 
 
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory: ~

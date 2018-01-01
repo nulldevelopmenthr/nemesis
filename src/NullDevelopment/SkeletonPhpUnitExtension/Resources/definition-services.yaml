@@ -82,6 +82,10 @@ services:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
 
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator:
+    arguments:
+      $methodGenerators: []
+      $exampleMaker: '@NullDevelopment\Skeleton\ExampleMaker\ExampleMaker'
 
 
   NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleCollectionFactory:
