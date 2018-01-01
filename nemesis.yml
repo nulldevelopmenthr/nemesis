@@ -26,3 +26,4 @@ extensions:
   NullDevelopment\Skeleton\SkeletonExtension: ~
   NullDevelopment\SkeletonPhpSpecExtension\SkeletonPhpSpecExtension: ~
   NullDevelopment\SkeletonPhpUnitExtension\SkeletonPhpUnitExtension: ~
+  NullDevelopment\SkeletonBroadwayExtension\SkeletonBroadwayExtension: ~
