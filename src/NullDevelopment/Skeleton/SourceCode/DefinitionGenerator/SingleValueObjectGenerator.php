@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\Skeleton\SourceCode\Result;
 
@@ -13,7 +12,7 @@ use NullDevelopment\Skeleton\SourceCode\Result;
  * @see SingleValueObjectGeneratorSpec
  * @see SingleValueObjectGeneratorTest
  */
-class SingleValueObjectGenerator extends BaseClassDefinitionGenerator
+class SingleValueObjectGenerator extends BaseSourceCodeDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {

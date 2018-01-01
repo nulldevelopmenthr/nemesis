@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\Skeleton\SourceCode\Result;
 
@@ -13,7 +12,7 @@ use NullDevelopment\Skeleton\SourceCode\Result;
  * @see DateTimeValueObjectGeneratorSpec
  * @see DateTimeValueObjectGeneratorTest
  */
-class DateTimeValueObjectGenerator extends BaseClassDefinitionGenerator
+class DateTimeValueObjectGenerator extends BaseSourceCodeDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {
