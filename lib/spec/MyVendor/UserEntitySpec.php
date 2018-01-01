@@ -17,7 +17,7 @@ class UserEntitySpec extends ObjectBehavior
 {
     public function let(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
-        $this->beConstructedWith($id, $firstName = 'firstName', $lastName = 'lastName', $username, $createdAt, $updatedAt);
+        $this->beConstructedWith($id, $firstName = 'firstName', $lastName = 'lastName', $username, $active = true, $createdAt, $updatedAt);
     }
 
     public function it_is_initializable()
@@ -48,6 +48,11 @@ class UserEntitySpec extends ObjectBehavior
         $this->getUsername()->shouldReturn($username);
     }
 
+    public function it_exposes_is_active()
+    {
+        $this->isActive()->shouldReturn(true);
+    }
+
     public function it_exposes_created_at(UserCreatedAt $createdAt)
     {
         $this->getCreatedAt()->shouldReturn($createdAt);
@@ -70,6 +75,7 @@ class UserEntitySpec extends ObjectBehavior
             'firstName' => 'firstName',
             'lastName'  => 'lastName',
             'username'  => 'username',
+            'active'    => true,
             'createdAt' => '2018-01-01T00:01:00+00:00',
             'updatedAt' => '2018-01-01T00:01:00+00:00',
         ]
@@ -83,6 +89,7 @@ class UserEntitySpec extends ObjectBehavior
             'firstName' => 'firstName',
             'lastName'  => 'lastName',
             'username'  => 'username',
+            'active'    => true,
             'createdAt' => '2018-01-01T00:01:00+00:00',
             'updatedAt' => '2018-01-01T00:01:00+00:00',
         ];

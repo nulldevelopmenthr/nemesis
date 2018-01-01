@@ -29,6 +29,9 @@ class UserEntityTest extends TestCase
     /** @var Username */
     private $username;
 
+    /** @var bool */
+    private $active;
+
     /** @var UserCreatedAt */
     private $createdAt;
 
@@ -44,9 +47,10 @@ class UserEntityTest extends TestCase
         $this->firstName = 'firstName';
         $this->lastName  = 'lastName';
         $this->username  = new Username('username');
+        $this->active    = true;
         $this->createdAt = new UserCreatedAt('2018-01-01T00:01:00+00:00');
         $this->updatedAt = new DateTime('2018-01-01T00:01:00+00:00');
-        $this->sut       = new UserEntity($this->id, $this->firstName, $this->lastName, $this->username, $this->createdAt, $this->updatedAt);
+        $this->sut       = new UserEntity($this->id, $this->firstName, $this->lastName, $this->username, $this->active, $this->createdAt, $this->updatedAt);
     }
 
     public function testGetId()
@@ -69,6 +73,11 @@ class UserEntityTest extends TestCase
         self::assertSame($this->username, $this->sut->getUsername());
     }
 
+    public function testIsActive()
+    {
+        self::assertSame($this->active, $this->sut->isActive());
+    }
+
     public function testGetCreatedAt()
     {
         self::assertSame($this->createdAt, $this->sut->getCreatedAt());
@@ -86,6 +95,7 @@ class UserEntityTest extends TestCase
             'firstName' => 'firstName',
             'lastName'  => 'lastName',
             'username'  => 'username',
+            'active'    => true,
             'createdAt' => '2018-01-01T00:01:00+00:00',
             'updatedAt' => '2018-01-01T00:01:00+00:00',
         ];
