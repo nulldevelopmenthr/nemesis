@@ -15,6 +15,8 @@ use MyVendor\Product\ProductWeight;
  */
 class ProductEntity extends BaseModel implements AnotherInterface
 {
+    use JsonSerializable;
+
     const RANDOM_CONST = 188;
 
     /** @var ProductId */

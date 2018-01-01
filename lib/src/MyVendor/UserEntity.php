@@ -17,6 +17,8 @@ use MyVendor\User\Username;
  */
 class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 {
+    use JsonSerializable;
+
     const RANDOM_CONST = 249;
 
     /** @var UserId */
