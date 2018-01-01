@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
+namespace NullDevelopment\Skeleton\Core\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Behaviour\Method;
@@ -15,7 +15,7 @@ use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitSpecification;
 use Webmozart\Assert\Assert;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */
-abstract class BaseDefinitionGenerator implements DefinitionGenerator
+abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
 {
     /** @var MethodGenerator[] */
     private $methodGenerators;
