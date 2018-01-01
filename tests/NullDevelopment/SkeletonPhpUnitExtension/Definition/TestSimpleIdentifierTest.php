@@ -8,6 +8,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\Behaviour\Method;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleIdentifier;
@@ -33,6 +34,9 @@ class TestSimpleIdentifierTest extends TestCase
     /** @var array */
     private $traits;
 
+    /** @var Constant[]|array */
+    private $constants;
+
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
 
@@ -54,6 +58,7 @@ class TestSimpleIdentifierTest extends TestCase
         $this->parent            = Mockery::mock(ClassName::class);
         $this->interfaces        = [];
         $this->traits            = [];
+        $this->constants         = [Constant::create('SOME_CONST', '29')];
         $this->constructorMethod = Mockery::mock(ConstructorMethod::class);
         $this->properties        = [];
         $this->methods           = [];
@@ -63,6 +68,7 @@ class TestSimpleIdentifierTest extends TestCase
             $this->parent,
             $this->interfaces,
             $this->traits,
+            $this->constants,
             $this->properties,
             $this->methods,
             $this->subjectUnderTest

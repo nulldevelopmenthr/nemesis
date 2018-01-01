@@ -47,6 +47,6 @@ class TestSimpleEntityFactory
         }
         $properties[] = new Property('sut', $definition->getName(), false, false, null, new Visibility('private'));
 
-        return new TestSimpleEntity($testClassName, $testParentName, [], [], $properties, $methods, $definition->getName());
+        return new TestSimpleEntity($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getName());
     }
 }

@@ -47,6 +47,6 @@ class TestSingleValueObjectFactory
         }
         $properties[] = new Property('sut', $definition->getName(), false, false, null, new Visibility('private'));
 
-        return new TestSingleValueObject($testClassName, $testParentName, [], [], $properties, $methods, $definition->getName());
+        return new TestSingleValueObject($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getName());
     }
 }

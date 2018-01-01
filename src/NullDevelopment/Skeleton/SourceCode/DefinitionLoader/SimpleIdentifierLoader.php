@@ -7,6 +7,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleIdentifier;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory;
@@ -28,6 +29,9 @@ class SimpleIdentifierLoader implements DefinitionLoader
     /** @var TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
 
+    /** @var ConstantCollectionFactory */
+    private $constantCollectionFactory;
+
     /** @var ConstructorMethodFactory */
     private $constructorMethodFactory;
 
@@ -37,11 +41,13 @@ class SimpleIdentifierLoader implements DefinitionLoader
     public function __construct(
         InterfaceNameCollectionFactory $interfaceNameCollectionFactory,
         TraitNameCollectionFactory $traitNameCollectionFactory,
+        ConstantCollectionFactory $constantCollectionFactory,
         ConstructorMethodFactory $constructorMethodFactory,
         PropertyCollectionFactory $propertyCollectionFactory
     ) {
         $this->interfaceNameCollectionFactory = $interfaceNameCollectionFactory;
         $this->traitNameCollectionFactory     = $traitNameCollectionFactory;
+        $this->constantCollectionFactory      = $constantCollectionFactory;
         $this->constructorMethodFactory       = $constructorMethodFactory;
         $this->propertyCollectionFactory      = $propertyCollectionFactory;
     }
@@ -63,6 +69,7 @@ class SimpleIdentifierLoader implements DefinitionLoader
         $parent            = $this->extractParent($data);
         $interfaces        = $this->interfaceNameCollectionFactory->create($data['interfaces']);
         $traits            = $this->traitNameCollectionFactory->create($data['traits']);
+        $constants         = $this->constantCollectionFactory->create($data['constants']);
         $properties        = $this->propertyCollectionFactory->create(array_merge($data['properties'], $data['constructor']));
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
@@ -81,6 +88,7 @@ class SimpleIdentifierLoader implements DefinitionLoader
             $parent,
             $interfaces,
             $traits,
+            $constants,
             $properties,
             $methods
         );
@@ -94,6 +102,7 @@ class SimpleIdentifierLoader implements DefinitionLoader
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
+            'constants'   => [],
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],

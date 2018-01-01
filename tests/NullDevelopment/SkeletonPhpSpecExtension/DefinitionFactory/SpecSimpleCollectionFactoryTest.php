@@ -55,6 +55,7 @@ class SpecSimpleCollectionFactoryTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$firstName],
                     [$constructorMethod, $getterMethod],
                     new CollectionOf(
@@ -66,6 +67,7 @@ class SpecSimpleCollectionFactoryTest extends SfTestCase
                 new SpecSimpleCollection(
                     ClassName::create('spec\\MyVendor\\User\\UserFirstNameSpec'),
                     ClassName::create('PhpSpec\\ObjectBehavior'),
+                    [],
                     [],
                     [],
                     [],

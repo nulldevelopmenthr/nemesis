@@ -54,12 +54,14 @@ class SpecSingleValueObjectFactoryTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$firstName],
                     [$constructorMethod, $getterMethod]
                 ),
                 new SpecSingleValueObject(
                     ClassName::create('spec\\MyVendor\\User\\UserFirstNameSpec'),
                     ClassName::create('PhpSpec\\ObjectBehavior'),
+                    [],
                     [],
                     [],
                     [],

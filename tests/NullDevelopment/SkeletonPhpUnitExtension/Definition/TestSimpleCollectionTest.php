@@ -8,6 +8,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleCollection;
 use PHPUnit\Framework\TestCase;
@@ -32,6 +33,9 @@ class TestSimpleCollectionTest extends TestCase
     /** @var array */
     private $traits;
 
+    /** @var Constant[]|array */
+    private $constants;
+
     /** @var array */
     private $properties;
 
@@ -53,6 +57,7 @@ class TestSimpleCollectionTest extends TestCase
         $this->parent           = Mockery::mock(ClassName::class);
         $this->interfaces       = [];
         $this->traits           = [];
+        $this->constants        = [Constant::create('SOME_CONST', '29')];
         $this->properties       = [];
         $this->methods          = [];
         $this->subjectUnderTest = Mockery::mock(ClassName::class);
@@ -62,6 +67,7 @@ class TestSimpleCollectionTest extends TestCase
             $this->parent,
             $this->interfaces,
             $this->traits,
+            $this->constants,
             $this->properties,
             $this->methods,
             $this->subjectUnderTest,

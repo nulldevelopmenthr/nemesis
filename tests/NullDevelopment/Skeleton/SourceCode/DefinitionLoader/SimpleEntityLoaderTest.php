@@ -53,6 +53,7 @@ class SimpleEntityLoaderTest extends SfTestCase
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
+            'constants'   => [],
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
@@ -77,6 +78,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                 new SimpleEntity(
                     ClassName::create('MyVendor\User\Username'),
                     null,
+                    [],
                     [],
                     [],
                     [$nameProperty],
@@ -112,6 +114,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$nameProperty],
                     [
                         new ConstructorMethod([$nameProperty]),
@@ -135,6 +138,7 @@ class SimpleEntityLoaderTest extends SfTestCase
                 new SimpleEntity(
                     ClassName::create('MyVendor\User\Username'),
                     null,
+                    [],
                     [],
                     [],
                     [$idProperty],

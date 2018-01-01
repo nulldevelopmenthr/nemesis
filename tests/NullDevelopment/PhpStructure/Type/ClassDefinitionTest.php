@@ -7,6 +7,7 @@ namespace Tests\NullDevelopment\PhpStructure\Type;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -35,6 +36,9 @@ class ClassDefinitionTest extends TestCase
     /** @var array */
     private $traits;
 
+    /** @var Constant[]|array */
+    private $constants;
+
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
 
@@ -57,6 +61,7 @@ class ClassDefinitionTest extends TestCase
         $this->traits = [
             Mockery::mock(TraitName::class),
         ];
+        $this->constants         = [Constant::create('SOME_CONST', '29')];
         $this->constructorMethod = Mockery::mock(ConstructorMethod::class);
         $this->properties        = [
             Mockery::mock(Property::class),
@@ -69,6 +74,7 @@ class ClassDefinitionTest extends TestCase
             $this->parent,
             $this->interfaces,
             $this->traits,
+            $this->constants,
             $this->properties,
             $this->methods
         );

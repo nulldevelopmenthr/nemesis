@@ -54,12 +54,14 @@ class SpecSimpleIdentifierFactoryTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$firstName],
                     [$constructorMethod, $getterMethod]
                 ),
                 new SpecSimpleIdentifier(
                     ClassName::create('spec\\MyVendor\\User\\UserFirstNameSpec'),
                     ClassName::create('PhpSpec\\ObjectBehavior'),
+                    [],
                     [],
                     [],
                     [],

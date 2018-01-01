@@ -56,6 +56,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
+            'constants'   => [],
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
@@ -80,6 +81,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                 new SingleValueObject(
                     ClassName::create('MyVendor\User\Username'),
                     null,
+                    [],
                     [],
                     [],
                     [$nameProperty],
@@ -116,6 +118,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$nameProperty],
                     [
                         new ConstructorMethod([$nameProperty]),
@@ -136,9 +139,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                         'alias'      => 'BaseUsername',
                     ],
                     'interfaces'  => ['MyVendor\SomeInterface', 'AnotherInterface' => 'ThirdParty\SomeInterface'],
-                    'traits'      => [],
                     'constructor' => ['value' => ['instanceOf' => 'string']],
-                    'properties'  => [],
                 ],
                 new SingleValueObject(
                     ClassName::create('MyVendor\User\Username'),
@@ -147,6 +148,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                         InterfaceName::create('MyVendor\SomeInterface'),
                         InterfaceName::create('ThirdParty\SomeInterface', 'AnotherInterface'),
                     ],
+                    [],
                     [],
                     [$valueProperty],
                     [

@@ -52,6 +52,7 @@ class TestSimpleCollectionFactory
             $testParentName,
             [],
             [],
+            [],
             $properties,
             $methods,
             $definition->getName(),

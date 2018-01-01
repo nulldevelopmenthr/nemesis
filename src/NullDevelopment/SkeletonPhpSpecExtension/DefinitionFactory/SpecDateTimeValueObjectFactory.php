@@ -38,6 +38,6 @@ class SpecDateTimeValueObjectFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecDateTimeValueObject($specClassName, $specParentName, [], [], [], $methods, $definition->getName());
+        return new SpecDateTimeValueObject($specClassName, $specParentName, [], [], [], [], $methods, $definition->getName());
     }
 }

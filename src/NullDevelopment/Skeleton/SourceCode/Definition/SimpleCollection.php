@@ -25,11 +25,12 @@ class SimpleCollection extends ClassDefinition implements SourceCode
         ?ClassName $parent,
         array $interfaces,
         array $traits,
+        array $constants,
         array $properties,
         array $methods,
         CollectionOf $collectionOf
     ) {
-        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods);
+        parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods);
         $this->collectionOf = $collectionOf;
     }
 

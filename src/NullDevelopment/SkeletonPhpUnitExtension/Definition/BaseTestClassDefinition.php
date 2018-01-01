@@ -18,11 +18,12 @@ abstract class BaseTestClassDefinition extends ClassDefinition implements PhpUni
         ?ClassName $parent,
         array $interfaces,
         array $traits,
+        array $constants,
         array $properties,
         array $methods,
         ClassName $subjectUnderTest
     ) {
-        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods);
+        parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods);
         $this->subjectUnderTest = $subjectUnderTest;
     }
 
