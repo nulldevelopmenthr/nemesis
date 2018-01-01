@@ -5,29 +5,29 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 
 /**
- * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory
+ * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory
  * @group  unit
  */
-class GetterSpecMethodFactoryTest extends TestCase
+class SpecGetterMethodFactoryTest extends TestCase
 {
-    /** @var GetterSpecMethodFactory */
+    /** @var SpecGetterMethodFactory */
     private $sut;
 
     public function setUp()
     {
-        $this->sut = new GetterSpecMethodFactory();
+        $this->sut = new SpecGetterMethodFactory();
     }
 
     /** @dataProvider provideGetterMethods */
     public function testCreateFromGetterMethod(GetterMethod $method)
     {
-        self::assertInstanceOf(GetterSpecMethod::class, $this->sut->createFromGetterMethod($method));
+        self::assertInstanceOf(SpecGetterMethod::class, $this->sut->createFromGetterMethod($method));
     }
 
     public function provideGetterMethods(): array

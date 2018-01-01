@@ -6,17 +6,17 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\GetterSpecMethodGenerator;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator;
 use PHPUnit\Framework\TestCase;
 use Tests\NullDev\AssertOutputTrait;
 use Tests\TestCase\Fixtures;
 
 /**
- * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\GetterSpecMethodGenerator
+ * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator
  * @group  unit
  */
-class GetterSpecMethodGeneratorTest extends TestCase
+class SpecGetterMethodGeneratorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use AssertOutputTrait;
@@ -24,23 +24,23 @@ class GetterSpecMethodGeneratorTest extends TestCase
     /** @var ExampleMaker */
     private $exampleMaker;
 
-    /** @var GetterSpecMethodGenerator */
+    /** @var SpecGetterMethodGenerator */
     private $sut;
 
     public function setUp()
     {
         $this->exampleMaker = new ExampleMaker();
-        $this->sut          = new GetterSpecMethodGenerator($this->exampleMaker);
+        $this->sut          = new SpecGetterMethodGenerator($this->exampleMaker);
     }
 
     /** @dataProvider provideMethods */
-    public function testSupports(GetterSpecMethod $method)
+    public function testSupports(SpecGetterMethod $method)
     {
         self::assertTrue($this->sut->supports($method));
     }
 
     /** @dataProvider provideMethods */
-    public function testGenerateAsString(GetterSpecMethod $method, string $fileName)
+    public function testGenerateAsString(SpecGetterMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
         $result   = $this->sut->generateAsString($method);
@@ -53,7 +53,7 @@ class GetterSpecMethodGeneratorTest extends TestCase
         $firstName = Fixtures::firstNameProperty();
 
         return [
-            [new GetterSpecMethod('it_exposes_first_name', 'getFirstName', $firstName), 'it_exposes_first_name.output'],
+            [new SpecGetterMethod('it_exposes_first_name', 'getFirstName', $firstName), 'it_exposes_first_name.output'],
         ];
     }
 }

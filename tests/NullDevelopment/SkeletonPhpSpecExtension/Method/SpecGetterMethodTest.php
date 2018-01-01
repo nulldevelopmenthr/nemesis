@@ -6,15 +6,15 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\Method;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 
 /**
- * @covers \NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod
+ * @covers \NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod
  * @group  unit
  */
-class GetterSpecMethodTest extends TestCase
+class SpecGetterMethodTest extends TestCase
 {
     /** @var string */
     private $name;
@@ -25,7 +25,7 @@ class GetterSpecMethodTest extends TestCase
     /** @var Property */
     private $property;
 
-    /** @var GetterSpecMethod */
+    /** @var SpecGetterMethod */
     private $sut;
 
     public function setUp()
@@ -33,7 +33,7 @@ class GetterSpecMethodTest extends TestCase
         $this->name            = 'it_exposes_first_name';
         $this->methodUnderTest = 'methodUnderTest';
         $this->property        = Fixtures::firstNameProperty();
-        $this->sut             = new GetterSpecMethod($this->name, $this->methodUnderTest, $this->property);
+        $this->sut             = new SpecGetterMethod($this->name, $this->methodUnderTest, $this->property);
     }
 
     public function testGetMethodUnderTest()

@@ -6,17 +6,17 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 
 /**
- * @see GetterSpecMethodGeneratorSpec
- * @see GetterSpecMethodGeneratorTest
+ * @see SpecGetterMethodGeneratorSpec
+ * @see SpecGetterMethodGeneratorTest
  */
-class GetterSpecMethodGenerator extends BaseSpecMethodGenerator
+class SpecGetterMethodGenerator extends BaseSpecMethodGenerator
 {
     public function supports(Method $method): bool
     {
-        if ($method instanceof GetterSpecMethod) {
+        if ($method instanceof SpecGetterMethod) {
             return true;
         }
 

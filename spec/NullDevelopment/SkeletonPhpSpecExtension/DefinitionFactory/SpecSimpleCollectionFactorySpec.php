@@ -9,9 +9,9 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleCollection;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleCollectionFactory;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use PhpSpec\ObjectBehavior;
 
 class SpecSimpleCollectionFactorySpec extends ObjectBehavior
@@ -19,7 +19,7 @@ class SpecSimpleCollectionFactorySpec extends ObjectBehavior
     public function let(
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory
+        SpecGetterMethodFactory $getterSpecMethodFactory
     ) {
         $this->beConstructedWith([$letMethodFactory, $initializableMethodFactory, $getterSpecMethodFactory]);
     }
@@ -33,7 +33,7 @@ class SpecSimpleCollectionFactorySpec extends ObjectBehavior
         SimpleCollection $definition,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory,
+        SpecGetterMethodFactory $getterSpecMethodFactory,
         CollectionOf $collectionOf,
         ClassName $subjectUnderTest
     ) {

@@ -7,10 +7,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\Method;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use PhpSpec\ObjectBehavior;
 
-class GetterSpecMethodSpec extends ObjectBehavior
+class SpecGetterMethodSpec extends ObjectBehavior
 {
     public function let(Property $property)
     {
@@ -19,7 +19,7 @@ class GetterSpecMethodSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(GetterSpecMethod::class);
+        $this->shouldHaveType(SpecGetterMethod::class);
         $this->shouldImplement(Method::class);
     }
 
