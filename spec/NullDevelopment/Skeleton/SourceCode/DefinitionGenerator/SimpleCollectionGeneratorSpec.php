@@ -10,6 +10,11 @@ use PhpSpec\ObjectBehavior;
 
 class SimpleCollectionGeneratorSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith([]);
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType(SimpleCollectionGenerator::class);

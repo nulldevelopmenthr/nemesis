@@ -47,6 +47,8 @@ services:
       - { name: tactician.handler, command: 'NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity' }
 
   NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\SimpleCollectionGenerator:
+    arguments:
+      $methodGenerators: []
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection' }
 
