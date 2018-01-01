@@ -62,6 +62,10 @@ class InterfaceGenerator implements DefinitionGenerator
             $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
         }
 
+        foreach ($definition->getConstants() as $constant) {
+            $interface->addConstant($constant->getConstantName()->__toString(), $constant->getValue());
+        }
+
         return $namespace;
     }
 
