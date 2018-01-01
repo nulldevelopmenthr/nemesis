@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleEntity;
 
 /**
  * @see TestSimpleEntityGeneratorSpec
  * @see TestSimpleEntityGeneratorTest
  */
-class TestSimpleEntityGenerator extends BaseClassDefinitionGenerator
+class TestSimpleEntityGenerator extends BaseTestDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {
