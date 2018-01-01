@@ -21,7 +21,7 @@ definition:
       default: ~
     lastName:
       instanceOf: string
-      nullable: false
+      nullable: true
       hasDefault: false
       default: ~
     username:

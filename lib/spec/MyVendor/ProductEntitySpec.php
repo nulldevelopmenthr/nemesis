@@ -26,6 +26,16 @@ class ProductEntitySpec extends ObjectBehavior
         $this->shouldImplement(AnotherInterface::class);
     }
 
+    public function it_has_description()
+    {
+        $this->hasDescription()->shouldReturn(true);
+    }
+
+    public function it_has_weight()
+    {
+        $this->hasWeight()->shouldReturn(true);
+    }
+
     public function it_exposes_id(ProductId $id)
     {
         $this->getId()->shouldReturn($id);
