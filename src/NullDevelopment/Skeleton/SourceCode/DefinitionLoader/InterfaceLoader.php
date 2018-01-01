@@ -43,12 +43,7 @@ class InterfaceLoader implements DefinitionLoader
     {
         $data = array_merge($this->getDefaultValues(), $input);
 
-        if (null !== $input['parent']) {
-            $parent = InterfaceName::create($data['parent']);
-        } else {
-            $parent = null;
-        }
-
+        $parent    = $this->extractParent($input);
         $constants = $this->constantCollectionFactory->create($input['constants']);
         $methods   = $this->methodCollectionFactory->create($input['methods']);
 
@@ -64,5 +59,17 @@ class InterfaceLoader implements DefinitionLoader
             'constants'  => [],
             'methods'    => [],
         ];
+    }
+
+    private function extractParent(array $data): ?InterfaceName
+    {
+        if (null === $data['parent']) {
+            return null;
+        }
+        if (true === is_array($data['parent'])) {
+            return InterfaceName::create($data['parent']['instanceOf'], $data['parent']['alias']);
+        }
+
+        return InterfaceName::create($data['parent']);
     }
 }
