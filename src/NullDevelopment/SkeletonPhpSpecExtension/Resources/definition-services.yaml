@@ -90,7 +90,9 @@ services:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
 
-  NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleCollectionGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleCollectionGenerator:
+    arguments:
+      $methodGenerators: []
 
   NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleCollectionFactory:
     arguments:
