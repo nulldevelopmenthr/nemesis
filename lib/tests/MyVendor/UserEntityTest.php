@@ -6,6 +6,7 @@ namespace Tests\MyVendor;
 
 use DateTime;
 use MyVendor\User\UserCreatedAt;
+use MyVendor\User\UserFirstName;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
 use MyVendor\UserEntity;
@@ -20,7 +21,7 @@ class UserEntityTest extends TestCase
     /** @var UserId */
     private $id;
 
-    /** @var string */
+    /** @var UserFirstName */
     private $firstName;
 
     /** @var string */
@@ -44,7 +45,7 @@ class UserEntityTest extends TestCase
     public function setUp()
     {
         $this->id        = new UserId(1);
-        $this->firstName = 'firstName';
+        $this->firstName = new UserFirstName('firstName');
         $this->lastName  = 'lastName';
         $this->username  = new Username('username');
         $this->active    = true;

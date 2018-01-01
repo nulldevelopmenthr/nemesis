@@ -6,6 +6,7 @@ namespace Tests\MyVendor;
 
 use DateTime;
 use MyVendor\User\UserCreatedAt;
+use MyVendor\User\UserFirstName;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
 use MyVendor\UserCollection;
@@ -29,9 +30,10 @@ class UserCollectionTest extends TestCase
         $this->elements = [
             new UserEntity(
                 new UserId(1),
-                'firstName',
+                new UserFirstName('firstName'),
                 'lastName',
                 new Username('username'),
+                true,
                 new UserCreatedAt('2018-01-01T00:01:00+00:00'),
                 new DateTime('2018-01-01T00:01:00+00:00')
             ),

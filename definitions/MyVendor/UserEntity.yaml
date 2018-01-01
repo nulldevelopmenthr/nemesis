@@ -15,7 +15,7 @@ definition:
       hasDefault: false
       default: ~
     firstName:
-      instanceOf: string
+      instanceOf: MyVendor\User\UserFirstName
       nullable: false
       hasDefault: false
       default: ~
