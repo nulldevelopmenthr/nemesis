@@ -8,6 +8,7 @@ use DateTime;
 use MyVendor\Base\SomeInterface as BaseSomeInterface;
 use MyVendor\Base\UserEntity as BaseUser;
 use MyVendor\User\UserCreatedAt;
+use MyVendor\User\UserFirstName;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
 
@@ -22,7 +23,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
     /** @var UserId */
     private $id;
 
-    /** @var string */
+    /** @var UserFirstName */
     private $firstName;
 
     /** @var string */
@@ -42,7 +43,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 
     public function __construct(
         UserId $id,
-        string $firstName,
+        UserFirstName $firstName,
         string $lastName,
         Username $username,
         bool $active,
@@ -63,7 +64,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
         return $this->id;
     }
 
-    public function getFirstName(): string
+    public function getFirstName(): UserFirstName
     {
         return $this->firstName;
     }
@@ -97,7 +98,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
     {
         return [
             'id'        => $this->id->serialize(),
-            'firstName' => $this->firstName,
+            'firstName' => $this->firstName->serialize(),
             'lastName'  => $this->lastName,
             'username'  => $this->username->serialize(),
             'active'    => $this->active,
@@ -110,7 +111,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
     {
         return new self(
             UserId::deserialize($data['id']),
-            $data['firstName'],
+            UserFirstName::deserialize($data['firstName']),
             $data['lastName'],
             Username::deserialize($data['username']),
             $data['active'],

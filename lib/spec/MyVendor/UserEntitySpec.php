@@ -8,16 +8,21 @@ use DateTime;
 use MyVendor\Base\UserEntity as BaseUser;
 use MyVendor\SomeInterface;
 use MyVendor\User\UserCreatedAt;
+use MyVendor\User\UserFirstName;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
 use MyVendor\UserEntity;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(PHPMD.ExcessiveParameterList)
+ */
 class UserEntitySpec extends ObjectBehavior
 {
-    public function let(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
+    public function let(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
-        $this->beConstructedWith($id, $firstName = 'firstName', $lastName = 'lastName', $username, $active = true, $createdAt, $updatedAt);
+        $this->beConstructedWith($id, $firstName, $lastName = 'lastName', $username, $active = true, $createdAt, $updatedAt);
     }
 
     public function it_is_initializable()
@@ -33,9 +38,9 @@ class UserEntitySpec extends ObjectBehavior
         $this->getId()->shouldReturn($id);
     }
 
-    public function it_exposes_first_name()
+    public function it_exposes_first_name(UserFirstName $firstName)
     {
-        $this->getFirstName()->shouldReturn('firstName');
+        $this->getFirstName()->shouldReturn($firstName);
     }
 
     public function it_exposes_last_name()
@@ -63,9 +68,10 @@ class UserEntitySpec extends ObjectBehavior
         $this->getUpdatedAt()->shouldReturn($updatedAt);
     }
 
-    public function it_can_be_serialized(UserId $id, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
+    public function it_can_be_serialized(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
         $id->serialize()->shouldBeCalled()->willReturn(1);
+        $firstName->serialize()->shouldBeCalled()->willReturn('firstName');
         $username->serialize()->shouldBeCalled()->willReturn('username');
         $createdAt->serialize()->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');

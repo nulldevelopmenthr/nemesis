@@ -4,6 +4,7 @@ use DateTime;
 use MyVendor\UserCollection;
 use MyVendor\UserEntity;
 use MyVendor\User\UserCreatedAt;
+use MyVendor\User\UserFirstName;
 use MyVendor\User\UserId;
 use MyVendor\User\Username;
 use PHPUnit\Framework\TestCase;
@@ -23,7 +24,7 @@ class UserCollectionTest extends TestCase
 
 	public function setUp()
 	{
-		$this->elements = [new UserEntity(new UserId(1), 'firstName', 'lastName', new Username('username'), true, new UserCreatedAt('2018-01-01T00:01:00+00:00'), new DateTime('2018-01-01T00:01:00+00:00'))];
+		$this->elements = [new UserEntity(new UserId(1), new UserFirstName('firstName'), 'lastName', new Username('username'), true, new UserCreatedAt('2018-01-01T00:01:00+00:00'), new DateTime('2018-01-01T00:01:00+00:00'))];
 		$this->sut = new UserCollection($this->elements);
 	}
 
