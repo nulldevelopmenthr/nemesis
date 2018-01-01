@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\PhpNamespace;
+use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\PhpStructure\Type\InterfaceDefinition;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
@@ -64,6 +65,25 @@ class InterfaceGenerator implements DefinitionGenerator
 
         foreach ($definition->getConstants() as $constant) {
             $interface->addConstant($constant->getConstantName()->__toString(), $constant->getValue());
+        }
+
+        /** @var Method $method */
+        foreach ($definition->getMethods() as $method) {
+            $methodCode = $interface
+                ->addMethod($method->getName())
+                ->setStatic($method->isStatic())
+                ->setReturnNullable($method->isNullableReturnType())
+                ->setReturnType($method->getReturnType())
+            ;
+
+            foreach ($method->getParameters() as $parameter) {
+                $methodCode->addParameter($parameter->getName())
+                    ->setTypeHint($parameter->getInstanceFullName());
+
+                if ($parameter->isObject()) {
+                    $namespace->addUse($parameter->getInstanceFullName());
+                }
+            }
         }
 
         return $namespace;
