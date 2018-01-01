@@ -68,10 +68,9 @@ class SingleValueObjectLoader implements DefinitionLoader
         $methods           = [$constructorMethod];
 
         foreach ($properties as $property) {
-            $methodName = 'get'.ucfirst($property->getName());
-            $methods[]  = new GetterMethod($methodName, $property);
-            $methods[]  = new GetterMethod('getValue', $property);
-            $methods[]  = new ToStringMethod($property);
+            $methods[] = GetterMethod::create($property);
+            $methods[] = new GetterMethod('getValue', $property);
+            $methods[] = new ToStringMethod($property);
         }
 
         $methods[] = new SerializeMethod($className, $properties);
