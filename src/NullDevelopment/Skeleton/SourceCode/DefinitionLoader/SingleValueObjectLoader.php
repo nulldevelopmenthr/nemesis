@@ -14,6 +14,7 @@ use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollect
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
+use NullDevelopment\Skeleton\SourceCode\Method\HasPropertyMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 
@@ -75,6 +76,10 @@ class SingleValueObjectLoader implements DefinitionLoader
         $methods           = [$constructorMethod];
 
         foreach ($properties as $property) {
+            if (true === $property->isNullable()) {
+                $methods[] = HasPropertyMethod::create($property);
+            }
+
             $methods[] = GetterMethod::create($property);
             $methods[] = new GetterMethod('getValue', $property);
             $methods[] = new ToStringMethod($property);
