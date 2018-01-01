@@ -7,14 +7,14 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
 
 /**
- * @see GetterSpecMethodFactorySpec
- * @see GetterSpecMethodFactoryTest
+ * @see SpecGetterMethodFactorySpec
+ * @see SpecGetterMethodFactoryTest
  */
-class GetterSpecMethodFactory implements PhpSpecMethodFactory
+class SpecGetterMethodFactory implements PhpSpecMethodFactory
 {
     /** @return Method[] */
     public function create(ClassDefinition $definition): array
@@ -29,7 +29,7 @@ class GetterSpecMethodFactory implements PhpSpecMethodFactory
         return $methods;
     }
 
-    public function createFromGetterMethod(GetterMethod $method): GetterSpecMethod
+    public function createFromGetterMethod(GetterMethod $method): SpecGetterMethod
     {
         $methodName = $method->getName();
         if (preg_match('/get(?<methodName>.*)/', $methodName, $matches)) {
@@ -38,7 +38,7 @@ class GetterSpecMethodFactory implements PhpSpecMethodFactory
 
         $snakeCasePropertyName = strtolower(preg_replace('/[A-Z]/', '_\\0', lcfirst($methodName)));
 
-        return new GetterSpecMethod(
+        return new SpecGetterMethod(
             'it_exposes_'.$snakeCasePropertyName,
             $method->getName(),
             $method->getProperty()

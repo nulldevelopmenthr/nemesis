@@ -8,9 +8,9 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSingleValueObjectFactory;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use PhpSpec\ObjectBehavior;
 
 class SpecSingleValueObjectFactorySpec extends ObjectBehavior
@@ -18,7 +18,7 @@ class SpecSingleValueObjectFactorySpec extends ObjectBehavior
     public function let(
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory
+        SpecGetterMethodFactory $getterSpecMethodFactory
     ) {
         $this->beConstructedWith([$letMethodFactory, $initializableMethodFactory, $getterSpecMethodFactory]);
     }
@@ -32,7 +32,7 @@ class SpecSingleValueObjectFactorySpec extends ObjectBehavior
         SingleValueObject $definition,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory,
+        SpecGetterMethodFactory $getterSpecMethodFactory,
         ClassName $subjectUnderTest
     ) {
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');

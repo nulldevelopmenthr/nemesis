@@ -8,9 +8,9 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecDateTimeValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecDateTimeValueObjectFactory;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeValueObjectFactorySpec extends ObjectBehavior
@@ -18,7 +18,7 @@ class SpecDateTimeValueObjectFactorySpec extends ObjectBehavior
     public function let(
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory
+        SpecGetterMethodFactory $getterSpecMethodFactory
     ) {
         $this->beConstructedWith([$letMethodFactory, $initializableMethodFactory, $getterSpecMethodFactory]);
     }
@@ -32,7 +32,7 @@ class SpecDateTimeValueObjectFactorySpec extends ObjectBehavior
         DateTimeValueObject $definition,
         LetMethodFactory $letMethodFactory,
         InitializableMethodFactory $initializableMethodFactory,
-        GetterSpecMethodFactory $getterSpecMethodFactory,
+        SpecGetterMethodFactory $getterSpecMethodFactory,
         ClassName $subjectUnderTest
     ) {
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');

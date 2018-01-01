@@ -9,11 +9,11 @@ use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\GetterSpecMethodGenerator;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator;
 use PhpSpec\ObjectBehavior;
 
-class GetterSpecMethodGeneratorSpec extends ObjectBehavior
+class SpecGetterMethodGeneratorSpec extends ObjectBehavior
 {
     public function let(ExampleMaker $exampleMaker)
     {
@@ -22,11 +22,11 @@ class GetterSpecMethodGeneratorSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(GetterSpecMethodGenerator::class);
+        $this->shouldHaveType(SpecGetterMethodGenerator::class);
         $this->shouldImplement(MethodGenerator::class);
     }
 
-    public function it_creates_specification_for_a_object_getter(GetterSpecMethod $method, Property $property)
+    public function it_creates_specification_for_a_object_getter(SpecGetterMethod $method, Property $property)
     {
         $method->getName()->shouldBeCalled()->willReturn('it_exposes_first_name');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -54,7 +54,7 @@ class GetterSpecMethodGeneratorSpec extends ObjectBehavior
 
     public function it_creates_specification_for_string_property(
         ExampleMaker $exampleMaker,
-        GetterSpecMethod $method,
+        SpecGetterMethod $method,
         Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_exposes_name');
@@ -81,7 +81,7 @@ class GetterSpecMethodGeneratorSpec extends ObjectBehavior
 
     public function it_creates_specification_for_int_property(
         ExampleMaker $exampleMaker,
-        GetterSpecMethod $method,
+        SpecGetterMethod $method,
         Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_exposes_amount');

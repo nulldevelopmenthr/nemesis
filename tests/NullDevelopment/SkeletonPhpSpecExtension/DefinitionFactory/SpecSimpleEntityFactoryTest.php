@@ -11,9 +11,9 @@ use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleEntityFactory;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use Tests\TestCase\Fixtures;
 use Tests\TestCase\SfTestCase;
 
@@ -68,7 +68,7 @@ class SpecSimpleEntityFactoryTest extends SfTestCase
                     [
                         new LetMethod([$firstName]),
                         new InitializableMethod(ClassName::create('MyVendor\\User\\UserFirstName'), null, []),
-                        new GetterSpecMethod('it_exposes_first_name', 'getFirstName', $firstName),
+                        new SpecGetterMethod('it_exposes_first_name', 'getFirstName', $firstName),
                     ],
                     ClassName::create('MyVendor\\User\\UserFirstName')
                 ),

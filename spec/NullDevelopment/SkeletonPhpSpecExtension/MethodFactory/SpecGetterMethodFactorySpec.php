@@ -7,12 +7,12 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\GetterSpecMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\GetterSpecMethodFactory;
+use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
+use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
 use PhpSpec\ObjectBehavior;
 
-class GetterSpecMethodFactorySpec extends ObjectBehavior
+class SpecGetterMethodFactorySpec extends ObjectBehavior
 {
     public function let()
     {
@@ -21,7 +21,7 @@ class GetterSpecMethodFactorySpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(GetterSpecMethodFactory::class);
+        $this->shouldHaveType(SpecGetterMethodFactory::class);
         $this->shouldImplement(PhpSpecMethodFactory::class);
     }
 
@@ -50,7 +50,7 @@ class GetterSpecMethodFactorySpec extends ObjectBehavior
         $method->getProperty()->shouldBeCalled()->willReturn($firstName);
 
         $this->createFromGetterMethod($method)
-            ->shouldReturnAnInstanceOf(GetterSpecMethod::class);
+            ->shouldReturnAnInstanceOf(SpecGetterMethod::class);
     }
 
     public function it_creates_nice_spec_method_name(GetterMethod $method, Property $firstName)

@@ -7,10 +7,10 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\Method;
 use NullDevelopment\PhpStructure\DataType\Property;
 
 /**
- * @see GetterSpecMethodSpec
- * @see GetterSpecMethodTest
+ * @see SpecGetterMethodSpec
+ * @see SpecGetterMethodTest
  */
-class GetterSpecMethod extends BaseSpecMethod
+class SpecGetterMethod extends BaseSpecMethod
 {
     /** @var string */
     private $name;
