@@ -11,6 +11,8 @@ use MyVendor\Product\ProductWeight;
  */
 class ProductEntity extends BaseModel implements AnotherInterface
 {
+	const RANDOM_CONST = 188;
+
 	/** @var ProductId */
 	private $id;
 

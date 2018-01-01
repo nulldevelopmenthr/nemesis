@@ -6,6 +6,8 @@ namespace MyVendor\User;
  */
 class UserId
 {
+	const RANDOM_CONST = 659;
+
 	/** @var int */
 	private $id;
 

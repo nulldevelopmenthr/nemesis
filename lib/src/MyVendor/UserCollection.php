@@ -13,6 +13,8 @@ use Webmozart\Assert\Assert;
  */
 class UserCollection
 {
+    const RANDOM_CONST = 664;
+
     /** @var array|UserEntity[] */
     private $elements;
 

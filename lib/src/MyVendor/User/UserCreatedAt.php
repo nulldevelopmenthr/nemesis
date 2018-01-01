@@ -12,6 +12,8 @@ use DateTime;
  */
 class UserCreatedAt extends DateTime
 {
+    const RANDOM_CONST = 346;
+
     public function __toString(): string
     {
         return $this->format('c');

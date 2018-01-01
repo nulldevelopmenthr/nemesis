@@ -10,6 +10,8 @@ namespace MyVendor\User;
  */
 class UserFirstName
 {
+    const RANDOM_CONST = 142;
+
     /** @var string */
     private $firstName;
 
