@@ -33,6 +33,11 @@ class UserEntitySpec extends ObjectBehavior
         $this->shouldImplement(SomeInterface::class);
     }
 
+    public function it_has_last_name()
+    {
+        $this->hasLastName()->shouldReturn(true);
+    }
+
     public function it_exposes_id(UserId $id)
     {
         $this->getId()->shouldReturn($id);

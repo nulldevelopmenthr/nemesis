@@ -24,7 +24,7 @@ class UserEntityTest extends TestCase
     /** @var UserFirstName */
     private $firstName;
 
-    /** @var string */
+    /** @var string|null */
     private $lastName;
 
     /** @var Username */

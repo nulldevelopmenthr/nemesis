@@ -24,7 +24,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 	/** @var UserFirstName */
 	private $firstName;
 
-	/** @var string */
+	/** @var string|null */
 	private $lastName;
 
 	/** @var Username */
@@ -40,7 +40,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 	private $updatedAt;
 
 
-	public function __construct(UserId $id, UserFirstName $firstName, string $lastName, Username $username, bool $active, UserCreatedAt $createdAt, DateTime $updatedAt)
+	public function __construct(UserId $id, UserFirstName $firstName, ?string $lastName, Username $username, bool $active, UserCreatedAt $createdAt, DateTime $updatedAt)
 	{
 		$this->id = $id;
 		$this->firstName = $firstName;
@@ -49,6 +49,16 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 		$this->active = $active;
 		$this->createdAt = $createdAt;
 		$this->updatedAt = $updatedAt;
+	}
+
+
+	public function hasLastName(): bool
+	{
+		if(null === $this->lastName){
+		    return false;
+		}
+
+		return true;
 	}
 
 
@@ -64,7 +74,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 	}
 
 
-	public function getLastName(): string
+	public function getLastName(): ?string
 	{
 		return $this->lastName;
 	}
