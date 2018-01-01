@@ -4,6 +4,8 @@ definition:
   parent: ~
   interfaces: []
   traits: []
+  constants:
+    RANDOM_CONST: 325
   constructor:
     id:
       instanceOf: int

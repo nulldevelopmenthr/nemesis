@@ -5,6 +5,8 @@ definition:
   interfaces:
     AnotherInterface: MyVendor\Base\SomeInterface
   traits: [MyVendor\JsonSerializable]
+  constants:
+    RANDOM_CONST: 188
   constructor:
     id:
       instanceOf: MyVendor\Product\ProductId

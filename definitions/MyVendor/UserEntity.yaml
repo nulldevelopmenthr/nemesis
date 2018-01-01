@@ -6,6 +6,8 @@ definition:
     alias: BaseUser
   interfaces: [MyVendor\SomeInterface,MyVendor\Base\SomeInterface]
   traits: [MyVendor\JsonSerializable]
+  constants:
+    RANDOM_CONST: 249
   constructor:
     id:
       instanceOf: MyVendor\User\UserId
