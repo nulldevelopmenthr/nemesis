@@ -10,6 +10,8 @@ namespace MyVendor\Product;
  */
 class ProductWeight
 {
+    const RANDOM_CONST = 563;
+
     /** @var int */
     private $weight;
 

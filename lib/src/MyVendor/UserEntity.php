@@ -17,6 +17,8 @@ use MyVendor\User\Username;
  */
 class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 {
+    const RANDOM_CONST = 249;
+
     /** @var UserId */
     private $id;
 

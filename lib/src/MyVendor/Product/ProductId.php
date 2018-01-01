@@ -10,6 +10,8 @@ namespace MyVendor\Product;
  */
 class ProductId
 {
+    const RANDOM_CONST = 325;
+
     /** @var int */
     private $id;
 

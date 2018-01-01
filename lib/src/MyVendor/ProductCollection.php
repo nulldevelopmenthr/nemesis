@@ -13,6 +13,8 @@ use Webmozart\Assert\Assert;
  */
 class ProductCollection
 {
+    const RANDOM_CONST = 530;
+
     /** @var array|ProductEntity[] */
     private $elements;
 
