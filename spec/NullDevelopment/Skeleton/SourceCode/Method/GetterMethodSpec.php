@@ -23,6 +23,20 @@ class GetterMethodSpec extends ObjectBehavior
         $this->shouldImplement(Method::class);
     }
 
+    public function it_has_create_method(Property $property)
+    {
+        $property->getInstanceNameAsString()->shouldBeCalled()->willReturn('string');
+        $property->getName()->willReturn('value');
+        $this->create($property)->shouldReturnAnInstanceOf(GetterMethod::class);
+    }
+
+    public function it_can_create_bool_method_getter_too(Property $property)
+    {
+        $property->getInstanceNameAsString()->shouldBeCalled()->willReturn('bool');
+        $property->getName()->willReturn('value');
+        $this->create($property)->shouldReturnAnInstanceOf(GetterMethod::class);
+    }
+
     public function it_exposes_its_visibility_is_hardcoded_to_public()
     {
         $this->getVisibility()->shouldBeLike(new Visibility('public'));
