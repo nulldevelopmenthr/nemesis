@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\Core\DefinitionGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\SourceCode;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
-use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitSpecification;
 use Webmozart\Assert\Assert;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */
@@ -30,9 +29,9 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
 
     public function generateAsString(Definition $definition): string
     {
-        $code = $this->generate($definition);
+        $netteCode = $this->generate($definition);
 
-        return $code->__toString();
+        return $netteCode->__toString();
     }
 
     /**
@@ -47,36 +46,43 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
             $namespace = new PhpNamespace($definition->getNamespace());
         }
 
-        $code = $namespace->addClass($definition->getClassName());
+        $netteCode = $namespace->addClass($definition->getClassName());
 
-        if ($definition instanceof SourceCode) {
-            $code->addComment(
-                '@see \\spec\\'.$definition->getFullClassName().'Spec'
-            );
-            $code->addComment(
-                '@see \\Tests\\'.$definition->getFullClassName().'Test'
-            );
-        } elseif ($definition instanceof PhpUnitSpecification) {
-            $code->addComment(
-                '@covers \\'.$definition->getSubjectUnderTest()->getFullName()
-            );
-            $code->addComment(
-                '@group  todo'
-            );
+        $this->processParent($namespace, $netteCode, $definition);
+        $this->processInterfaces($namespace, $netteCode, $definition);
+        $this->processProperties($namespace, $netteCode, $definition);
+        $this->processMethods($namespace, $netteCode, $definition);
+
+        //@TODO: move this to a middleware!
+        if (count($namespace->getUses()) > 10) {
+            $netteCode->addComment('@SuppressWarnings(PHPMD.CouplingBetweenObjects)');
+            $netteCode->addComment('@SuppressWarnings(PHPMD.ExcessiveParameterList)');
         }
 
-        if (true === $definition->hasParent()) {
-            $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
-            $code->setExtends($definition->getParentFullClassName());
-        }
+        return $namespace;
+    }
 
+    protected function processParent(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
+        if (false === $definition->hasParent()) {
+            return;
+        }
+        $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
+        $netteCode->setExtends($definition->getParentFullClassName());
+    }
+
+    protected function processInterfaces(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
         foreach ($definition->getInterfaces() as $interface) {
-            $code->addImplement($interface->getFullName());
+            $netteCode->addImplement($interface->getFullName());
             $namespace->addUse($interface->getFullName(), $interface->getAlias());
         }
+    }
 
+    protected function processProperties(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
         foreach ($definition->getProperties() as $property) {
-            $propertyCode = $code->addProperty($property->getName())
+            $propertyCode = $netteCode->addProperty($property->getName())
                 ->setVisibility((string) $property->getVisibility());
 
             if (true === $property->hasDefaultValue()) {
@@ -92,6 +98,10 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
                 $namespace->addUse($property->getInstanceFullName());
             }
         }
+    }
+
+    protected function processMethods(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
         $methods = [];
 
         foreach ($this->methodGenerators as $methodGenerator) {
@@ -107,14 +117,6 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
             }
         }
 
-        $code->setMethods($methods);
-
-        //@TODO: move this to a middleware!
-        if (count($namespace->getUses()) > 10) {
-            $code->addComment('@SuppressWarnings(PHPMD.CouplingBetweenObjects)');
-            $code->addComment('@SuppressWarnings(PHPMD.ExcessiveParameterList)');
-        }
-
-        return $namespace;
+        $netteCode->setMethods($methods);
     }
 }
