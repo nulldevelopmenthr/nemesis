@@ -51,6 +51,7 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
         $this->processConstants($namespace, $netteCode, $definition);
         $this->processParent($namespace, $netteCode, $definition);
         $this->processInterfaces($namespace, $netteCode, $definition);
+        $this->processTraits($namespace, $netteCode, $definition);
         $this->processProperties($namespace, $netteCode, $definition);
         $this->processMethods($namespace, $netteCode, $definition);
 
@@ -85,6 +86,14 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
         foreach ($definition->getInterfaces() as $interface) {
             $netteCode->addImplement($interface->getFullName());
             $namespace->addUse($interface->getFullName(), $interface->getAlias());
+        }
+    }
+
+    protected function processTraits(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
+        foreach ($definition->getTraits() as $traitName) {
+            $netteCode->addTrait($traitName->getFullName());
+            $namespace->addUse($traitName->getFullName(), $traitName->getAlias());
         }
     }
 
