@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDevelopment\PhpStructure\Type;
 
+use NullDevelopment\PhpStructure\Behaviour\Method;
+
 interface Definition
 {
     public function getName();
@@ -32,5 +34,6 @@ interface Definition
 
     public function getProperties(): array;
 
+    /** @return Method[] */
     public function getMethods(): array;
 }
