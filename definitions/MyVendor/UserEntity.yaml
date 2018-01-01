@@ -27,6 +27,11 @@ definition:
       nullable: false
       hasDefault: false
       default: ~
+    active:
+      instanceOf: bool
+      nullable: false
+      hasDefault: false
+      default: ~
     createdAt:
       instanceOf: MyVendor\User\UserCreatedAt
       nullable: false

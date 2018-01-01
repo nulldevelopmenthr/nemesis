@@ -29,18 +29,29 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
     /** @var Username */
     private $username;
 
+    /** @var bool */
+    private $active;
+
     /** @var UserCreatedAt */
     private $createdAt;
 
     /** @var DateTime */
     private $updatedAt;
 
-    public function __construct(UserId $id, string $firstName, string $lastName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
-    {
+    public function __construct(
+        UserId $id,
+        string $firstName,
+        string $lastName,
+        Username $username,
+        bool $active,
+        UserCreatedAt $createdAt,
+        DateTime $updatedAt
+    ) {
         $this->id        = $id;
         $this->firstName = $firstName;
         $this->lastName  = $lastName;
         $this->username  = $username;
+        $this->active    = $active;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
     }
@@ -65,6 +76,11 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
         return $this->username;
     }
 
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
     public function getCreatedAt(): UserCreatedAt
     {
         return $this->createdAt;
@@ -82,6 +98,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
             'firstName' => $this->firstName,
             'lastName'  => $this->lastName,
             'username'  => $this->username->serialize(),
+            'active'    => $this->active,
             'createdAt' => $this->createdAt->serialize(),
             'updatedAt' => $this->updatedAt->format('c'),
         ];
@@ -94,6 +111,7 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
             $data['firstName'],
             $data['lastName'],
             Username::deserialize($data['username']),
+            $data['active'],
             UserCreatedAt::deserialize($data['createdAt']),
             new DateTime($data['updatedAt'])
         );
