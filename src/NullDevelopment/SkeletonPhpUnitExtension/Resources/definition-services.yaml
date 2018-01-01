@@ -10,6 +10,7 @@ services:
     arguments:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
@@ -19,6 +20,7 @@ services:
     arguments:
       $factories:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
@@ -30,6 +32,7 @@ services:
     arguments:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
@@ -39,6 +42,7 @@ services:
     arguments:
       $factories:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
@@ -78,6 +82,7 @@ services:
     arguments:
       $factories:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
@@ -92,6 +97,7 @@ services:
     arguments:
       $factories:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'

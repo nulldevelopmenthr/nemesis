@@ -20,6 +20,7 @@ services:
 
 
   NullDevelopment\Skeleton\SourceCode\MethodGenerator\ConstructorMethodGenerator: ~
+  NullDevelopment\Skeleton\SourceCode\MethodGenerator\HasPropertyMethodGenerator: ~
   NullDevelopment\Skeleton\SourceCode\MethodGenerator\GetterMethodGenerator: ~
   NullDevelopment\Skeleton\SourceCode\MethodGenerator\ToStringMethodGenerator: ~
   NullDevelopment\Skeleton\SourceCode\MethodGenerator\SetterMethodGenerator: ~

@@ -11,6 +11,7 @@ services:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
@@ -21,6 +22,7 @@ services:
       $factories:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
@@ -33,6 +35,7 @@ services:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
@@ -43,6 +46,7 @@ services:
       $factories:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
@@ -55,6 +59,7 @@ services:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeLetMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeToStringMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeCreateFromFormatMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeSerializeMethodGenerator'
@@ -77,6 +82,7 @@ services:
       $methodGenerators:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator'
@@ -86,6 +92,7 @@ services:
       $factories:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
@@ -99,6 +106,7 @@ services:
       $factories:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'

@@ -10,6 +10,7 @@ services:
 
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator: ~
+  NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestHasPropertyMethodGenerator: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator: ~
@@ -24,6 +25,7 @@ services:
 
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory: ~
+  NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory: ~
   NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory: ~
