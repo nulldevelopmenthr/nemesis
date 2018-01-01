@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\Skeleton\SourceCode\Definition;
 
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -22,6 +23,7 @@ class SimpleCollectionSpec extends ObjectBehavior
         ClassName $parent,
         InterfaceName $interfaceName1,
         TraitName $traitName1,
+        Constant $constant1,
         Property $property1,
         ConstructorMethod $constructorMethod,
         GetterMethod $getterMethod1,
@@ -32,6 +34,7 @@ class SimpleCollectionSpec extends ObjectBehavior
             $parent,
             [$interfaceName1],
             [$traitName1],
+            [$constant1],
             [$property1],
             [$constructorMethod, $getterMethod1],
             $collectionOf

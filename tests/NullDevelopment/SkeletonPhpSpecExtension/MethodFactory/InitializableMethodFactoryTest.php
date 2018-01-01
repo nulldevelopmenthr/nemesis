@@ -35,7 +35,7 @@ class InitializableMethodFactoryTest extends TestCase
 
     public function provideSourceCodeDefinitions(): array
     {
-        $definition = new ClassDefinition(ClassName::create('MyVendor\\User\\UserFirstName'), null, [], [], [], []);
+        $definition = new ClassDefinition(ClassName::create('MyVendor\\User\\UserFirstName'), null, [], [], [], [], []);
 
         return [
             [$definition],

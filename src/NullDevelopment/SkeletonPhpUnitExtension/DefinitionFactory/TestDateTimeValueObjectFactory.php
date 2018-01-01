@@ -48,6 +48,6 @@ class TestDateTimeValueObjectFactory
 
         $properties[] = new Property('sut', $definition->getName(), false, false, null, new Visibility('private'));
 
-        return new TestDateTimeValueObject($testClassName, $testParentName, [], [], $properties, $methods, $definition->getName());
+        return new TestDateTimeValueObject($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getName());
     }
 }

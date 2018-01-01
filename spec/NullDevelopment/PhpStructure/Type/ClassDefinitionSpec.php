@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\PhpStructure\Type;
 
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -19,10 +20,11 @@ class ClassDefinitionSpec extends ObjectBehavior
         ClassName $parent,
         InterfaceName $interfaceName1,
         TraitName $traitName1,
+        Constant $constant1,
         ConstructorMethod $constructorMethod,
         Property $property1
     ) {
-        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], [$property1], [$constructorMethod]);
+        $this->beConstructedWith($name, $parent, [$interfaceName1], [$traitName1], [$constant1], [$property1], [$constructorMethod]);
     }
 
     public function it_is_initializable()

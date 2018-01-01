@@ -53,6 +53,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
+            'constants'   => [],
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
@@ -77,6 +78,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                 new SimpleIdentifier(
                     ClassName::create('MyVendor\User\Username'),
                     null,
+                    [],
                     [],
                     [],
                     [$nameProperty],
@@ -113,6 +115,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$nameProperty],
                     [
                         new ConstructorMethod([$nameProperty]),
@@ -137,6 +140,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                 new SimpleIdentifier(
                     ClassName::create('MyVendor\User\Username'),
                     null,
+                    [],
                     [],
                     [],
                     [$idProperty],

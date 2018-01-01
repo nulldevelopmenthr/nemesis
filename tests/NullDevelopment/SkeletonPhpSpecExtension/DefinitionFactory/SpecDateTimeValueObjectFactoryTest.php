@@ -58,6 +58,7 @@ class SpecDateTimeValueObjectFactoryTest extends SfTestCase
                     [],
                     [],
                     [],
+                    [],
                     [
                         new DateTimeToStringMethod(),
                         new DateTimeCreateFromFormatMethod(),
@@ -68,6 +69,7 @@ class SpecDateTimeValueObjectFactoryTest extends SfTestCase
                 new SpecDateTimeValueObject(
                     ClassName::create('spec\\MyVendor\\User\\UserCreatedAtSpec'),
                     ClassName::create('PhpSpec\\ObjectBehavior'),
+                    [],
                     [],
                     [],
                     [],

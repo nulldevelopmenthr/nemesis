@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\Definition;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\Behaviour\Method;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -37,6 +38,9 @@ class SpecSimpleIdentifierTest extends TestCase
     /** @var array */
     private $traits;
 
+    /** @var Constant[]|array */
+    private $constants;
+
     /** @var Property[]|array */
     private $properties;
 
@@ -54,6 +58,7 @@ class SpecSimpleIdentifierTest extends TestCase
         $this->parent     = ClassName::create('MyVendor\\Core\\BaseModel');
         $this->interfaces = [InterfaceName::create('MyVendor\\Core\\SomeInterface')];
         $this->traits     = [TraitName::create('MyVendor\\Core\\ImportantTrait')];
+        $this->constants  = [Constant::create('SOME_CONST', '29')];
         $this->properties = [$firstName];
         $this->methods    = [
             new LetMethod([$firstName]),
@@ -66,6 +71,7 @@ class SpecSimpleIdentifierTest extends TestCase
             $this->parent,
             $this->interfaces,
             $this->traits,
+            $this->constants,
             $this->properties,
             $this->methods,
             Fixtures::userEntity()

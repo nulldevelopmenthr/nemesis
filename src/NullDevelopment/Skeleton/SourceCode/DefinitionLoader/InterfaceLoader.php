@@ -43,9 +43,9 @@ class InterfaceLoader implements DefinitionLoader
     {
         $data = array_merge($this->getDefaultValues(), $input);
 
-        $parent    = $this->extractParent($input);
-        $constants = $this->constantCollectionFactory->create($input['constants']);
-        $methods   = $this->methodCollectionFactory->create($input['methods']);
+        $parent    = $this->extractParent($data);
+        $constants = $this->constantCollectionFactory->create($data['constants']);
+        $methods   = $this->methodCollectionFactory->create($data['methods']);
 
         return new InterfaceDefinition(InterfaceName::create($data['instanceOf']), $parent, $constants, $methods);
     }

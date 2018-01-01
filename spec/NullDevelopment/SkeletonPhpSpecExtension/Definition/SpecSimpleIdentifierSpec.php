@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\Definition;
 
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -20,6 +21,7 @@ class SpecSimpleIdentifierSpec extends ObjectBehavior
         ClassName $parent,
         InterfaceName $interfaceName1,
         TraitName $traitName1,
+        Constant $constant1,
         Property $property1,
         LetMethod $letMethod,
         InitializableMethod $initializableMethod,
@@ -30,6 +32,7 @@ class SpecSimpleIdentifierSpec extends ObjectBehavior
             $parent,
             [$interfaceName1],
             [$traitName1],
+            [$constant1],
             [$property1],
             [$letMethod, $initializableMethod],
             $subjectUnderTest

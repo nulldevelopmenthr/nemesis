@@ -55,10 +55,10 @@ class TraitLoader implements DefinitionLoader
     {
         $data = array_merge($this->getDefaultValues(), $input);
 
-        $traits     = $this->traitNameCollectionFactory->create($input['traits']);
-        $constants  = $this->constantCollectionFactory->create($input['constants']);
-        $properties = $this->propertyCollectionFactory->create($input['properties']);
-        $methods    = $this->methodCollectionFactory->create($input['methods']);
+        $traits     = $this->traitNameCollectionFactory->create($data['traits']);
+        $constants  = $this->constantCollectionFactory->create($data['constants']);
+        $properties = $this->propertyCollectionFactory->create($data['properties']);
+        $methods    = $this->methodCollectionFactory->create($data['methods']);
 
         return new TraitDefinition(
             TraitName::create($data['instanceOf']), $traits, $constants, $properties, $methods

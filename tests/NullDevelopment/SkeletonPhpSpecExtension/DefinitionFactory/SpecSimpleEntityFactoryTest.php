@@ -54,12 +54,14 @@ class SpecSimpleEntityFactoryTest extends SfTestCase
                     null,
                     [],
                     [],
+                    [],
                     [$firstName],
                     [$constructorMethod, $getterMethod]
                 ),
                 new SpecSimpleEntity(
                     ClassName::create('spec\\MyVendor\\User\\UserFirstNameSpec'),
                     ClassName::create('PhpSpec\\ObjectBehavior'),
+                    [],
                     [],
                     [],
                     [],

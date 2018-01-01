@@ -6,6 +6,7 @@ namespace NullDevelopment\PhpStructure\Type;
 
 use NullDevelopment\PhpStructure\Behaviour\ConstructorMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
@@ -32,6 +33,9 @@ class ClassDefinition implements Definition
     /** @var TraitName[] */
     private $traits;
 
+    /** @var Constant[] */
+    private $constants;
+
     /** @var Property[] */
     private $properties;
 
@@ -43,11 +47,13 @@ class ClassDefinition implements Definition
         ?ClassName $parent,
         array $interfaces,
         array $traits,
+        array $constants,
         array $properties,
         array $methods
     ) {
         Assert::allIsInstanceOf($interfaces, InterfaceName::class);
         Assert::allIsInstanceOf($traits, TraitName::class);
+        Assert::allIsInstanceOf($constants, Constant::class);
         Assert::allIsInstanceOf($properties, Property::class);
         Assert::allIsInstanceOf($methods, Method::class);
 
@@ -55,6 +61,7 @@ class ClassDefinition implements Definition
         $this->parent     = $parent;
         $this->interfaces = $interfaces;
         $this->traits     = $traits;
+        $this->constants  = $constants;
         $this->properties = $properties;
         $this->methods    = $methods;
     }
@@ -147,6 +154,20 @@ class ClassDefinition implements Definition
     public function getTraits(): array
     {
         return $this->traits;
+    }
+
+    public function hasConstants(): bool
+    {
+        if (true === empty($this->constants)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function getConstants(): array
+    {
+        return $this->constants;
     }
 
     public function hasConstructorMethod(): bool

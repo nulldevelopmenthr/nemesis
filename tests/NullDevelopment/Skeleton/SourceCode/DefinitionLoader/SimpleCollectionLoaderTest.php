@@ -51,6 +51,7 @@ class SimpleCollectionLoaderTest extends SfTestCase
             'parent'      => null,
             'interfaces'  => [],
             'traits'      => [],
+            'constants'   => [],
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
@@ -86,6 +87,7 @@ class SimpleCollectionLoaderTest extends SfTestCase
                 new SimpleCollection(
                     ClassName::create('MyVendor\UserCollection'),
                     null,
+                    [],
                     [],
                     [],
                     [$elements],

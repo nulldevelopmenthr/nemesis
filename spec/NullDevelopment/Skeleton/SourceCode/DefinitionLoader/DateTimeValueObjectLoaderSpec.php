@@ -6,6 +6,7 @@ namespace spec\NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\DateTimeValueObjectLoader;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory;
@@ -17,12 +18,14 @@ class DateTimeValueObjectLoaderSpec extends ObjectBehavior
     public function let(
         InterfaceNameCollectionFactory $interfaceNameCollectionFactory,
         TraitNameCollectionFactory $traitNameCollectionFactory,
+        ConstantCollectionFactory $constantCollectionFactory,
         ConstructorMethodFactory $constructorMethodFactory,
         PropertyCollectionFactory $propertyCollectionFactory
     ) {
         $this->beConstructedWith(
             $interfaceNameCollectionFactory,
             $traitNameCollectionFactory,
+            $constantCollectionFactory,
             $constructorMethodFactory,
             $propertyCollectionFactory
         );

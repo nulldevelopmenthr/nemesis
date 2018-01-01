@@ -51,6 +51,7 @@ class DateTimeValueObjectLoaderTest extends SfTestCase
             'parent'     => '\DateTime',
             'interfaces' => [],
             'traits'     => [],
+            'constants'  => [],
         ];
 
         $this->assertEquals($expected, $this->sut->getDefaultValues());
@@ -69,6 +70,7 @@ class DateTimeValueObjectLoaderTest extends SfTestCase
                 new DateTimeValueObject(
                     $className,
                     ClassName::create('DateTime'),
+                    [],
                     [],
                     [],
                     [],

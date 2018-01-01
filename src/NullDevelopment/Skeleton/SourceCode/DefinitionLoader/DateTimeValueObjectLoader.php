@@ -7,6 +7,7 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
@@ -26,12 +27,17 @@ class DateTimeValueObjectLoader implements DefinitionLoader
     /** @var TraitNameCollectionFactory */
     private $traitNameCollectionFactory;
 
+    /** @var ConstantCollectionFactory */
+    private $constantCollectionFactory;
+
     public function __construct(
         InterfaceNameCollectionFactory $interfaceNameCollectionFactory,
-        TraitNameCollectionFactory $traitNameCollectionFactory
+        TraitNameCollectionFactory $traitNameCollectionFactory,
+        ConstantCollectionFactory $constantCollectionFactory
     ) {
         $this->interfaceNameCollectionFactory = $interfaceNameCollectionFactory;
         $this->traitNameCollectionFactory     = $traitNameCollectionFactory;
+        $this->constantCollectionFactory      = $constantCollectionFactory;
     }
 
     public function supports(array $input): bool
@@ -51,6 +57,7 @@ class DateTimeValueObjectLoader implements DefinitionLoader
         $parent     = $this->extractParent($data);
         $interfaces = $this->interfaceNameCollectionFactory->create($data['interfaces']);
         $traits     = $this->traitNameCollectionFactory->create($data['traits']);
+        $constants  = $this->constantCollectionFactory->create($data['constants']);
         $properties = [];
         $methods    = [
             new DateTimeToStringMethod(),
@@ -64,6 +71,7 @@ class DateTimeValueObjectLoader implements DefinitionLoader
             $parent,
             $interfaces,
             $traits,
+            $constants,
             $properties,
             $methods
         );
@@ -77,6 +85,7 @@ class DateTimeValueObjectLoader implements DefinitionLoader
             'parent'     => '\DateTime',
             'interfaces' => [],
             'traits'     => [],
+            'constants'  => [],
         ];
     }
 

@@ -21,12 +21,13 @@ class TestSimpleCollection extends BaseTestClassDefinition
         ?ClassName $parent,
         array $interfaces,
         array $traits,
+        array $constants,
         array $properties,
         array $methods,
         ClassName $subjectUnderTest,
         CollectionOf $collectionOf
     ) {
-        parent::__construct($name, $parent, $interfaces, $traits, $properties, $methods, $subjectUnderTest);
+        parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods, $subjectUnderTest);
         $this->collectionOf = $collectionOf;
     }
 

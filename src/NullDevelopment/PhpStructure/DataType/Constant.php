@@ -24,6 +24,11 @@ class Constant
         $this->value        = $value;
     }
 
+    public static function create($name, $value): self
+    {
+        return new self(new ConstantName($name), $value);
+    }
+
     public function getConstantName(): ConstantName
     {
         return $this->constantName;

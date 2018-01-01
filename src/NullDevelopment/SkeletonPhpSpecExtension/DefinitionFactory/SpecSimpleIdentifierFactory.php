@@ -38,6 +38,6 @@ class SpecSimpleIdentifierFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecSimpleIdentifier($specClassName, $specParentName, [], [], [], $methods, $definition->getName());
+        return new SpecSimpleIdentifier($specClassName, $specParentName, [], [], [], [], $methods, $definition->getName());
     }
 }

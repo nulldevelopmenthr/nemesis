@@ -7,6 +7,7 @@ namespace Tests\NullDevelopment\Skeleton\SourceCode\Definition;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\Behaviour\Method;
+use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
@@ -36,6 +37,9 @@ class SimpleIdentifierTest extends TestCase
     /** @var array */
     private $traits;
 
+    /** @var Constant[]|array */
+    private $constants;
+
     /** @var Property[]|array */
     private $properties;
 
@@ -56,11 +60,18 @@ class SimpleIdentifierTest extends TestCase
         $this->parent            = ClassName::create('MyVendor\\Core\\BaseModel');
         $this->interfaces        = [InterfaceName::create('MyVendor\\Core\\SomeInterface')];
         $this->traits            = [TraitName::create('MyVendor\\Core\\ImportantTrait')];
+        $this->constants         = [Constant::create('SOME_CONST', '29')];
         $this->constructorMethod = new ConstructorMethod([$firstName]);
         $this->properties        = [$firstName];
         $this->methods           = [$this->constructorMethod];
         $this->sut               = new SimpleIdentifier(
-            $this->name, $this->parent, $this->interfaces, $this->traits, $this->properties, $this->methods
+            $this->name,
+            $this->parent,
+            $this->interfaces,
+            $this->traits,
+            $this->constants,
+            $this->properties,
+            $this->methods
         );
     }
 
