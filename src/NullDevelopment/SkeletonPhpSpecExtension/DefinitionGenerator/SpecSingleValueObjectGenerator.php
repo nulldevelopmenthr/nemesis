@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
 
 /**
  * @see SpecSingleValueObjectGeneratorSpec
  * @see SpecSingleValueObjectGeneratorTest
  */
-class SpecSingleValueObjectGenerator extends BaseClassDefinitionGenerator
+class SpecSingleValueObjectGenerator extends BaseSpecDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {
