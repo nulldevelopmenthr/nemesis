@@ -4,4 +4,6 @@ definition:
   parent: DateTime
   interfaces: []
   traits: []
+  constants:
+    RANDOM_CONST: 346
   constructor: ~
