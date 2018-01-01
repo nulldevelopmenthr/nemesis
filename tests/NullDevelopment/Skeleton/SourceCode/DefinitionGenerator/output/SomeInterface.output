@@ -2,4 +2,5 @@ namespace MyVendor;
 
 interface SomeInterface
 {
+	function getFirstName(): User\UserFirstName;
 }
