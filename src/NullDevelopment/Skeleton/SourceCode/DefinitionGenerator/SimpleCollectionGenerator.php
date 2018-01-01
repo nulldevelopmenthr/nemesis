@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\Result;
 
 /**
  * @see SimpleCollectionGeneratorSpec
  * @see SimpleCollectionGeneratorTest
  */
-class SimpleCollectionGenerator implements DefinitionGenerator
+class SimpleCollectionGenerator extends BaseSourceCodeDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {
@@ -34,76 +34,30 @@ class SimpleCollectionGenerator implements DefinitionGenerator
         ];
     }
 
-    public function generateAsString(Definition $definition): string
+    protected function processMethods(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
     {
-        $code = $this->generate($definition);
-
-        return $code->__toString();
-    }
-
-    /**
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-     */
-    public function generate(Definition $definition): PhpNamespace
-    {
-        if (null === $definition->getNamespace()) {
-            $namespace = new PhpNamespace('');
-        } else {
-            $namespace = new PhpNamespace($definition->getNamespace());
-        }
-
-        $code = $namespace->addClass($definition->getClassName());
-
-        $code->addComment(
-            '@see \\spec\\'.$definition->getFullClassName().'Spec'
-        );
-        $code->addComment(
-            '@see \\Tests\\'.$definition->getFullClassName().'Test'
-        );
-
-        if (true === $definition->hasParent()) {
-            $code->setExtends($definition->getParentFullClassName());
-            $namespace->addUse($definition->getParentFullClassName(), $definition->getParentAlias());
-        }
-
-        foreach ($definition->getInterfaces() as $interface) {
-            $code->addImplement($interface->getFullName());
-            $namespace->addUse($interface->getFullName(), $interface->getAlias());
-        }
-
-        foreach ($definition->getProperties() as $property) {
-            $propertyCode = $code->addProperty($property->getName())
-                ->setVisibility((string) $property->getVisibility());
-
-            if (true === $property->hasDefaultValue()) {
-                $propertyCode->setValue($property->getDefaultValue());
-            }
-            if (true === $property->isNullable()) {
-                $propertyCode->addComment(sprintf('@var %s|null', $property->getInstanceNameAsString()));
-            } else {
-                $propertyCode->addComment(sprintf('@var %s', $property->getInstanceNameAsString()));
-            }
-
-            if (true === $property->isObject()) {
-                $namespace->addUse($property->getInstanceFullName());
-            }
-        }
-
         $namespace->addUse($definition->getCollectionOf()->getClassName()->getFullName());
         $namespace->addUse($definition->getCollectionOf()->getHas()->getFullName());
         $namespace->addUse('Webmozart\Assert\Assert');
 
+        $this->addConstructorMethod($netteCode, $definition);
+        $this->addAddMethod($netteCode, $definition);
+        $this->addHasMethod($netteCode, $definition);
+        $this->addGetMethod($netteCode, $definition);
+        $this->addToArrayMethod($netteCode);
+        $this->addCountMethod($netteCode);
+        $this->addSerializeMethod($netteCode);
+        $this->addDeserializeMethod($netteCode, $definition);
+    }
+
+    private function addConstructorMethod(ClassType $netteCode, Definition $definition): void
+    {
         $collectionOf = $definition->getCollectionOf()->getClassName()->getName();
 
-        $constructorMethod = $code->addMethod('__construct')
-                ->setVisibility(Visibility::PUBLIC);
-
-        $constructorMethod->addBody(
-                sprintf('Assert::allIsInstanceOf($elements, %s::class);', $collectionOf)
-            );
-        $constructorMethod->addComment(sprintf('@param %s[] $elements', $collectionOf));
+        $constructorMethod = $netteCode->addMethod('__construct')
+            ->setVisibility(Visibility::PUBLIC)
+            ->addBody(sprintf('Assert::allIsInstanceOf($elements, %s::class);', $collectionOf))
+            ->addComment(sprintf('@param %s[] $elements', $collectionOf));
 
         /** @var MethodParameter $parameter */
         foreach ($definition->getConstructorParameters() as $parameter) {
@@ -114,67 +68,94 @@ class SimpleCollectionGenerator implements DefinitionGenerator
                 ->setTypeHint($parameter->getInstanceFullName())
                 ->setDefaultValue([]);
 
-            $property = $code->addProperty($parameter->getName())
-                ->setVisibility(Visibility::PRIVATE);
-
-            $property->addComment('@var '.$parameter->getInstanceName()->getName().'|'.$collectionOf.'[]');
+            $netteCode
+                ->addProperty($parameter->getName())
+                ->setVisibility(Visibility::PRIVATE)
+                ->addComment('@var '.$parameter->getInstanceName()->getName().'|'.$collectionOf.'[]');
         }
+    }
 
-        $addMethod = $code->addMethod('add')
-                ->addBody('$this->elements[] = $element;');
+    private function addAddMethod(ClassType $netteCode, Definition $definition): void
+    {
+        $addMethod = $netteCode->addMethod('add')
+            ->addBody('$this->elements[] = $element;');
 
         $addMethod->addParameter('element')
-                ->setTypeHint($definition->getCollectionOf()->getClassName()->getFullName());
+            ->setTypeHint($definition->getCollectionOf()->getClassName()->getFullName());
+    }
 
-        $hasMethod = $code->addMethod('has')
-                ->setReturnType('bool')
-                ->addBody('foreach ($this->elements as $element) {')
-                ->addBody(sprintf('    if ($element->%s() == $id) {', $definition->getCollectionOf()->getAccessor()))
-                ->addBody('        return true;')
-                ->addBody('    }')
-                ->addBody('}')
-                ->addBody('return false;');
+    private function addHasMethod(ClassType $netteCode, Definition $definition): void
+    {
+        $hasMethod = $netteCode->addMethod('has')
+            ->setReturnType('bool')
+            ->addBody('foreach ($this->elements as $element) {')
+            ->addBody(sprintf('    if ($element->%s() == $id) {', $definition->getCollectionOf()->getAccessor()))
+            ->addBody('        return true;')
+            ->addBody('    }')
+            ->addBody('}')
+            ->addBody('return false;');
 
         $hasMethod->addParameter('id')
-                ->setTypeHint($definition->getCollectionOf()->getHas()->getFullName());
+            ->setTypeHint($definition->getCollectionOf()->getHas()->getFullName());
+    }
 
-        $getMethod = $code->addMethod('get')
-                ->addBody('foreach ($this->elements as $element) {')
-                ->addBody(sprintf('    if ($element->%s() == $id) {', $definition->getCollectionOf()->getAccessor()))
-                ->addBody('        return $element;')
-                ->addBody('    }')
-                ->addBody('}')
-                ->addBody('return null;');
+    private function addGetMethod(ClassType $netteCode, Definition $definition): void
+    {
+        $getMethod = $netteCode->addMethod('get')
+            ->addBody('foreach ($this->elements as $element) {')
+            ->addBody(sprintf('    if ($element->%s() == $id) {', $definition->getCollectionOf()->getAccessor()))
+            ->addBody('        return $element;')
+            ->addBody('    }')
+            ->addBody('}')
+            ->addBody('return null;');
 
         $getMethod->addParameter('id')
-                ->setTypeHint($definition->getCollectionOf()->getHas()->getFullName());
+            ->setTypeHint($definition->getCollectionOf()->getHas()->getFullName());
+    }
 
-        $code->addMethod('toArray')->setReturnType('array')->addBody('return $this->elements;');
+    private function addToArrayMethod(ClassType $netteCode): void
+    {
+        $netteCode
+            ->addMethod('toArray')
+            ->setReturnType('array')
+            ->addBody('return $this->elements;');
+    }
 
-        $code->addMethod('count')->setReturnType('int')->addBody('return count($this->elements);');
+    private function addCountMethod(ClassType $netteCode): void
+    {
+        $netteCode
+            ->addMethod('count')
+            ->setReturnType('int')
+            ->addBody('return count($this->elements);');
+    }
 
-        ///
-        $serializeMethod = $code->addMethod('serialize')
-                ->setReturnType('array');
+    private function addSerializeMethod(ClassType $netteCode): void
+    {
+        $netteCode
+            ->addMethod('serialize')
+            ->setReturnType('array')
+            ->addBody('$data = [];')
+            ->addBody('foreach ($this->elements as $element) {')
+            ->addBody('    $data[] = $element->serialize();')
+            ->addBody('}')
+            ->addBody('return $data;');
+    }
 
-        $serializeMethod->addBody('$data = [];');
-        $serializeMethod->addBody('foreach ($this->elements as $element) {');
-        $serializeMethod->addBody('    $data[] = $element->serialize();');
-        $serializeMethod->addBody('}');
-        $serializeMethod->addBody('return $data;');
+    private function addDeserializeMethod(ClassType $netteCode, Definition $definition): void
+    {
+        $collectionOf = $definition->getCollectionOf()->getClassName()->getName();
 
-        ///
-        $deserializeMethod = $code->addMethod('deserialize')->setStatic(true)->setReturnType('self');
+        $deserializeMethod = $netteCode
+            ->addMethod('deserialize')
+            ->setStatic(true)
+            ->setReturnType('self')
+            ->addBody('$elements = [];')
+            ->addBody('foreach ($data as $item) {')
+            ->addBody(sprintf('    $elements[] = %s::deserialize($item);', $collectionOf))
+            ->addBody('}')
+            ->addBody('return new self($elements);');
 
         $deserializeMethod->addParameter('data')
-                ->setTypeHint('array');
-
-        $deserializeMethod->addBody('$elements = [];');
-        $deserializeMethod->addBody('foreach ($data as $item) {');
-        $deserializeMethod->addBody(sprintf('    $elements[] = %s::deserialize($item);', $collectionOf));
-        $deserializeMethod->addBody('}');
-        $deserializeMethod->addBody('return new self($elements);');
-
-        return $namespace;
+            ->setTypeHint('array');
     }
 }
