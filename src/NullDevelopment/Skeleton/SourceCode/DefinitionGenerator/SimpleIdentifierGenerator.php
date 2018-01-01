@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleIdentifier;
 use NullDevelopment\Skeleton\SourceCode\Result;
 
@@ -12,7 +13,7 @@ use NullDevelopment\Skeleton\SourceCode\Result;
  * @see SimpleIdentifierGeneratorSpec
  * @see SimpleIdentifierGeneratorTest
  */
-class SimpleIdentifierGenerator extends BaseDefinitionGenerator
+class SimpleIdentifierGenerator extends BaseClassDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {

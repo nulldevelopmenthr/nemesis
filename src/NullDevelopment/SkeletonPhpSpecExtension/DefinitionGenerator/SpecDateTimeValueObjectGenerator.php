@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseDefinitionGenerator;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecDateTimeValueObject;
 
 /**
  * @see SpecDateTimeValueObjectGeneratorSpec
  * @see SpecDateTimeValueObjectGeneratorTest
  */
-class SpecDateTimeValueObjectGenerator extends BaseDefinitionGenerator
+class SpecDateTimeValueObjectGenerator extends BaseClassDefinitionGenerator
 {
     public function supports(Definition $definition): bool
     {
