@@ -41,6 +41,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
+        $definition->getConstants()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
 
@@ -71,6 +72,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $definition->getParentFullClassName()->shouldBeCalled()->willReturn('MyVendor\\Core\\BaseModel');
         $definition->getParentAlias()->shouldBeCalled()->willReturn(null);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
+        $definition->getConstants()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
 
@@ -101,6 +103,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName]);
+        $definition->getConstants()->shouldBeCalled()->willReturn([]);
         $interfaceName->getFullName()->shouldBeCalled()->willReturn('MyVendor\\Core\\SomeInterface');
         $interfaceName->getAlias()->shouldBeCalled()->willReturn(null);
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
@@ -133,6 +136,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
+        $definition->getConstants()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([$firstName]);
 
         $firstName->getName()->shouldBeCalled()->willReturn('firstName');
@@ -177,6 +181,7 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
+        $definition->getConstants()->shouldBeCalled()->willReturn([]);
         $definition->getProperties()->shouldBeCalled()->willReturn([$lastName]);
         $definition->getMethods()->shouldBeCalled()->willReturn([]);
 

@@ -26,6 +26,8 @@ interface Definition
 
     public function getTraits(): array;
 
+    public function getConstants(): array;
+
     public function getInterfaces(): array;
 
     public function getProperties(): array;

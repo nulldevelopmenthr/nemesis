@@ -48,6 +48,7 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
 
         $netteCode = $namespace->addClass($definition->getClassName());
 
+        $this->processConstants($namespace, $netteCode, $definition);
         $this->processParent($namespace, $netteCode, $definition);
         $this->processInterfaces($namespace, $netteCode, $definition);
         $this->processProperties($namespace, $netteCode, $definition);
@@ -60,6 +61,14 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
         }
 
         return $namespace;
+    }
+
+    /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
+    protected function processConstants(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
+        foreach ($definition->getConstants() as $constant) {
+            $netteCode->addConstant($constant->getConstantName()->__toString(), $constant->getValue());
+        }
     }
 
     protected function processParent(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
