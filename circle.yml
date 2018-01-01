@@ -168,4 +168,4 @@ workflows:
            - phpunit
          filters:
            branches:
-             only: master
+             only: quality_check
