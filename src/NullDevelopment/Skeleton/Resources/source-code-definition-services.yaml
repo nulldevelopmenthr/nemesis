@@ -84,6 +84,7 @@ services:
         - '@NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader'
         - '@NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader'
         - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntityLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRootLoader'
 
 
 
