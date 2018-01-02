@@ -1,0 +1,7 @@
+namespace spec\MyVendor\Theater\Domain\Event;
+
+use PhpSpec\ObjectBehavior;
+
+class ActorAddedToCastSpec extends ObjectBehavior
+{
+}

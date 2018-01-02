@@ -7,3 +7,4 @@ services:
     public: true
 
   NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader: ~
