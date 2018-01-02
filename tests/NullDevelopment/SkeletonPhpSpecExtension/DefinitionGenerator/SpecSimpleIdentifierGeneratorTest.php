@@ -10,7 +10,6 @@ use NullDevelopment\Skeleton\SourceCode\Definition\SimpleIdentifier;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleIdentifier;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleIdentifierFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleIdentifierGenerator;
-use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleIdentifierGenerator
@@ -18,8 +17,6 @@ use Tests\NullDev\AssertOutputTrait;
  */
 class SpecSimpleIdentifierGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var SpecSimpleIdentifierGenerator */
     protected $sut;
 

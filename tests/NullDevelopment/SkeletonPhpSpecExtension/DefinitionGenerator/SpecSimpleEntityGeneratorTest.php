@@ -10,7 +10,6 @@ use NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleEntityFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleEntityGenerator;
-use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleEntityGenerator
@@ -18,8 +17,6 @@ use Tests\NullDev\AssertOutputTrait;
  */
 class SpecSimpleEntityGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var SpecSimpleEntityGenerator */
     protected $sut;
 
