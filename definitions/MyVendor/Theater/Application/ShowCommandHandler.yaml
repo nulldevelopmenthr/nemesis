@@ -1,0 +1,13 @@
+definition:
+  type: BroadwayCommandHandler
+  instanceOf: MyVendor\Theater\Application\ShowCommandHandler
+  parent: Broadway\CommandHandling\SimpleCommandHandler
+  interfaces: {  }
+  traits: {  }
+  constructor:
+    repository:
+      instanceOf: MyVendor\Theater\Application\ShowRepository
+      nullable: false
+      hasDefault: false
+      default: null
+      examples: []

@@ -1,0 +1,20 @@
+namespace Tests\MyVendor\Theater\Application;
+
+use MyVendor\Theater\Application\ShowCommandHandler;
+use MyVendor\Theater\Application\ShowRepository;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \MyVendor\Theater\Application\ShowCommandHandler
+ * @group  todo
+ */
+class ShowCommandHandlerTest extends TestCase
+{
+	/** @var ShowRepository */
+	private $repository;
+
+	/** @var ShowCommandHandler */
+	private $sut;
+
+
+}
