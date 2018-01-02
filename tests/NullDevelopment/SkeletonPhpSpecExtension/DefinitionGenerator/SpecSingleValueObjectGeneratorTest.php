@@ -10,7 +10,6 @@ use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSingleValueObjectGenerator;
-use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSingleValueObjectGenerator
@@ -18,8 +17,6 @@ use Tests\NullDev\AssertOutputTrait;
  */
 class SpecSingleValueObjectGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var SpecSingleValueObjectGenerator */
     protected $sut;
 

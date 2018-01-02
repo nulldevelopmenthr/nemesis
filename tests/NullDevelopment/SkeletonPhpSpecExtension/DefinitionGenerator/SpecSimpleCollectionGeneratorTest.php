@@ -10,7 +10,6 @@ use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleCollection;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleCollectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleCollectionGenerator;
-use Tests\NullDev\AssertOutputTrait;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleCollectionGenerator
@@ -18,8 +17,6 @@ use Tests\NullDev\AssertOutputTrait;
  */
 class SpecSimpleCollectionGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 {
-    use AssertOutputTrait;
-
     /** @var SpecSimpleCollectionGenerator */
     protected $sut;
 
