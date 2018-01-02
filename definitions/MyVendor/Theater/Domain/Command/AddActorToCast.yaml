@@ -1,0 +1,19 @@
+definition:
+  type: BroadwayCommand
+  instanceOf: MyVendor\Theater\Domain\Command\AddActorToCast
+  parent: null
+  interfaces: {  }
+  traits: {  }
+  constructor:
+    id:
+      instanceOf: MyVendor\Theater\Core\ShowId
+      nullable: false
+      hasDefault: false
+      default: null
+      examples: []
+    actor:
+      instanceOf: MyVendor\Theater\Core\Actor
+      nullable: false
+      hasDefault: false
+      default: null
+      examples: []

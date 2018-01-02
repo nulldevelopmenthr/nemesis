@@ -1,0 +1,14 @@
+definition:
+  type: SimpleIdentifier
+  instanceOf: MyVendor\Theater\Core\ShowId
+  parent: ~
+  interfaces: []
+  traits: []
+  constants:
+    RANDOM_CONST: 163
+  constructor:
+    id:
+      instanceOf: int
+      nullable: false
+      hasDefault: false
+      default: ~

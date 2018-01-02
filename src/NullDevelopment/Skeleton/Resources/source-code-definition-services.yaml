@@ -81,6 +81,7 @@ services:
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader'
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\TraitLoader'
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\InterfaceLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader'
 
 
 
