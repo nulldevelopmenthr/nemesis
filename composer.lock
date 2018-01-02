@@ -2658,12 +2658,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/humbug/humbug.git",
-                "reference": "f6dd67ccfab6c3891e62db9118ca806eea2cad60"
+                "reference": "53730b3306efebf85bd66b6f7ec870d500f5ccbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/humbug/humbug/zipball/f6dd67ccfab6c3891e62db9118ca806eea2cad60",
-                "reference": "f6dd67ccfab6c3891e62db9118ca806eea2cad60",
+                "url": "https://api.github.com/repos/humbug/humbug/zipball/53730b3306efebf85bd66b6f7ec870d500f5ccbd",
+                "reference": "53730b3306efebf85bd66b6f7ec870d500f5ccbd",
                 "shasum": ""
             },
             "require": {
@@ -2724,7 +2724,8 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2017-10-18T09:34:32+00:00"
+            "abandoned": "infection/infection",
+            "time": "2017-12-31T15:29:07+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
