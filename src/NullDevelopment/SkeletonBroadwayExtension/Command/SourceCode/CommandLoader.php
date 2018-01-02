@@ -5,13 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\MethodCollectionFactory;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\BaseDefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\Skeleton\SourceCode\Method\HasPropertyMethod;
@@ -21,44 +15,9 @@ use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 /**
  * @see CommandLoaderSpec
  * @see CommandLoaderTest
- * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class CommandLoader implements DefinitionLoader
+class CommandLoader extends BaseDefinitionLoader
 {
-    /** @var InterfaceNameCollectionFactory */
-    private $interfaceNameCollectionFactory;
-
-    /** @var TraitNameCollectionFactory */
-    private $traitNameCollectionFactory;
-
-    /** @var ConstantCollectionFactory */
-    private $constantCollectionFactory;
-
-    /** @var ConstructorMethodFactory */
-    private $constructorMethodFactory;
-
-    /** @var PropertyCollectionFactory */
-    private $propertyCollectionFactory;
-
-    /** @var MethodCollectionFactory */
-    private $methodCollectionFactory;
-
-    public function __construct(
-        InterfaceNameCollectionFactory $interfaceNameCollectionFactory,
-        TraitNameCollectionFactory $traitNameCollectionFactory,
-        ConstantCollectionFactory $constantCollectionFactory,
-        ConstructorMethodFactory $constructorMethodFactory,
-        PropertyCollectionFactory $propertyCollectionFactory,
-        MethodCollectionFactory $methodCollectionFactory
-    ) {
-        $this->interfaceNameCollectionFactory = $interfaceNameCollectionFactory;
-        $this->traitNameCollectionFactory     = $traitNameCollectionFactory;
-        $this->constantCollectionFactory      = $constantCollectionFactory;
-        $this->constructorMethodFactory       = $constructorMethodFactory;
-        $this->propertyCollectionFactory      = $propertyCollectionFactory;
-        $this->methodCollectionFactory        = $methodCollectionFactory;
-    }
-
     public function supports(array $input): bool
     {
         if ('BroadwayCommand' === $input['type']) {
@@ -120,17 +79,5 @@ class CommandLoader implements DefinitionLoader
             'methods'     => [],
             'constructor' => [],
         ];
-    }
-
-    private function extractParent(array $data): ?ClassName
-    {
-        if (null === $data['parent']) {
-            return null;
-        }
-        if (true === is_array($data['parent'])) {
-            return ClassName::create($data['parent']['instanceOf'], $data['parent']['alias']);
-        }
-
-        return ClassName::create($data['parent']);
     }
 }
