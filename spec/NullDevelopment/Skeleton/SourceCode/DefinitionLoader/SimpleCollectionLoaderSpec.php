@@ -8,6 +8,7 @@ use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\MethodCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader;
@@ -20,14 +21,16 @@ class SimpleCollectionLoaderSpec extends ObjectBehavior
         TraitNameCollectionFactory $traitNameCollectionFactory,
         ConstantCollectionFactory $constantCollectionFactory,
         ConstructorMethodFactory $constructorMethodFactory,
-        PropertyCollectionFactory $propertyCollectionFactory
+        PropertyCollectionFactory $propertyCollectionFactory,
+        MethodCollectionFactory $methodCollectionFactory
     ) {
         $this->beConstructedWith(
             $interfaceNameCollectionFactory,
             $traitNameCollectionFactory,
             $constantCollectionFactory,
             $constructorMethodFactory,
-            $propertyCollectionFactory
+            $propertyCollectionFactory,
+            $methodCollectionFactory
         );
     }
 
