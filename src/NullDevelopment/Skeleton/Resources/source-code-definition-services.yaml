@@ -83,6 +83,7 @@ services:
         - '@NullDevelopment\Skeleton\SourceCode\DefinitionLoader\InterfaceLoader'
         - '@NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader'
         - '@NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntityLoader'
 
 
 

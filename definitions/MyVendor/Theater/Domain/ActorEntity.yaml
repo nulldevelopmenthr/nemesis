@@ -1,0 +1,22 @@
+definition:
+  type: BroadwayEventSourcedEntity
+  instanceOf: MyVendor\Theater\Domain\ActorEntity
+  parent: Broadway\EventSourcing\SimpleEventSourcedEntity
+  interfaces: {  }
+  traits: {  }
+  constructor:
+    id:
+      instanceOf: int
+      nullable: false
+      hasDefault: false
+      default: ~
+    firstName:
+      instanceOf: string
+      nullable: false
+      hasDefault: false
+      default: ~
+    lastName:
+      instanceOf: string
+      nullable: false
+      hasDefault: false
+      default: ~

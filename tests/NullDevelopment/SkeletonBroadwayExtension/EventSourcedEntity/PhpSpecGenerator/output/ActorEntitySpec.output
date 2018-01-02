@@ -1,0 +1,7 @@
+namespace spec\MyVendor\Theater\Domain;
+
+use PhpSpec\ObjectBehavior;
+
+class ActorEntitySpec extends ObjectBehavior
+{
+}
