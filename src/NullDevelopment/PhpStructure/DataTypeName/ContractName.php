@@ -14,4 +14,6 @@ interface ContractName
     public function getNamespace(): ?string;
 
     public function getFullName(): string;
+
+    public function getAlias(): ?string;
 }
