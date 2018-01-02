@@ -1,0 +1,21 @@
+definition:
+  type: BroadwayEventSourcedAggregateRoot
+  instanceOf: MyVendor\Theater\Domain\ShowModel
+  parent: Broadway\EventSourcing\EventSourcedAggregateRoot
+  interfaces: {  }
+  traits: {  }
+  properties: {  }
+  methods:
+    getAggregateRootId:
+      type: getter
+      property:
+        name: id
+        instanceOf: string
+        nullable: false
+        hasDefault: false
+        default: ~
+  children:
+    actors:
+      instanceOf: MyVendor\Theater\Domain\ActorEntity
+
+
