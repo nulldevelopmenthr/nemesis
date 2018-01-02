@@ -44,4 +44,9 @@ class CommandNetteGeneratorTest extends BaseDefinitionGeneratorTestCase
 
         self::assertInstanceOf(PhpNamespace::class, $result);
     }
+
+    protected function getOutputFolder(): string
+    {
+        return __DIR__.'/output/';
+    }
 }
