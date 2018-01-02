@@ -23,7 +23,7 @@ class SpecEventSourcedEntityNetteGeneratorTest extends BaseSpecDefinitionGenerat
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new SpecEventSourcedEntityNetteGenerator([]);
+        $this->sut = $this->getService(SpecEventSourcedEntityNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */

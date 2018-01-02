@@ -13,4 +13,14 @@ class ShowModelTest extends TestCase
 	private $sut;
 
 
+	public function setUp()
+	{
+		$this->sut = new ShowModel();
+	}
+
+
+	public function testGetAggregateRootId()
+	{
+		self::assertSame($this->id, $this->sut->getAggregateRootId());
+	}
 }

@@ -23,7 +23,7 @@ class SpecEventNetteGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new SpecEventNetteGenerator([]);
+        $this->sut = $this->getService(SpecEventNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */

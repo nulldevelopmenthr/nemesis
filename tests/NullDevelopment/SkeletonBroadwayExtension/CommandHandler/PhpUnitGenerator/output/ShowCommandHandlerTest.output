@@ -17,4 +17,9 @@ class ShowCommandHandlerTest extends TestCase
 	private $sut;
 
 
+	public function setUp()
+	{
+		$this->repository = new ShowRepository();
+		$this->sut = new ShowCommandHandler($this->repository);
+	}
 }

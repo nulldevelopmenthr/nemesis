@@ -23,7 +23,7 @@ class TestCommandNetteGeneratorTest extends BaseTestDefinitionGeneratorTestCase
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new TestCommandNetteGenerator([]);
+        $this->sut = $this->getService(TestCommandNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */
