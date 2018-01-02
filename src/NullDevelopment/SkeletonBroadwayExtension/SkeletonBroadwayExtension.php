@@ -19,6 +19,7 @@ final class SkeletonBroadwayExtension extends Extension
 
         $loader->load('middleware.yaml');
         $loader->load('services.yaml');
-        $loader->load('definition-services.yaml');
+        $loader->load('command-definition-services.yaml');
+        $loader->load('event-definition-services.yaml');
     }
 }
