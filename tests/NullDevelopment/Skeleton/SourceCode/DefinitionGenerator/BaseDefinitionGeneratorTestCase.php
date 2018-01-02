@@ -59,9 +59,14 @@ abstract class BaseDefinitionGeneratorTestCase extends TestCase
 
         foreach ($inputs as $definition) {
             if (true === $this->sut->supports($definition)) {
-                yield[$definition, __DIR__.'/output/'.$definition->getClassName().'.output'];
+                yield[$definition, $this->getOutputFolder().$definition->getClassName().'.output'];
             }
         }
+    }
+
+    protected function getOutputFolder(): string
+    {
+        return __DIR__.'/output/';
     }
 
     protected function loadAllDefinitionsFromFiles(): array
