@@ -1,0 +1,28 @@
+namespace Tests\MyVendor\Theater\Domain\Event;
+
+use DateTime;
+use MyVendor\Theater\Core\Actor;
+use MyVendor\Theater\Core\ShowId;
+use MyVendor\Theater\Domain\Event\ActorAddedToCast;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \MyVendor\Theater\Domain\Event\ActorAddedToCast
+ * @group  todo
+ */
+class ActorAddedToCastTest extends TestCase
+{
+	/** @var ShowId */
+	private $id;
+
+	/** @var Actor */
+	private $actor;
+
+	/** @var DateTime */
+	private $addedAt;
+
+	/** @var ActorAddedToCast */
+	private $sut;
+
+
+}

@@ -14,3 +14,12 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\Command\PhpUnitGenerator\TestCommandMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
+
+
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpecGenerator\SpecEventMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnitGenerator\TestEventMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
