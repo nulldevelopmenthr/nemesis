@@ -10,6 +10,7 @@ use NullDevelopment\Skeleton\SourceCode\DefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
+use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\MethodCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory;
 use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
@@ -38,18 +39,23 @@ class SimpleIdentifierLoader implements DefinitionLoader
     /** @var PropertyCollectionFactory */
     private $propertyCollectionFactory;
 
+    /** @var MethodCollectionFactory */
+    private $methodCollectionFactory;
+
     public function __construct(
         InterfaceNameCollectionFactory $interfaceNameCollectionFactory,
         TraitNameCollectionFactory $traitNameCollectionFactory,
         ConstantCollectionFactory $constantCollectionFactory,
         ConstructorMethodFactory $constructorMethodFactory,
-        PropertyCollectionFactory $propertyCollectionFactory
+        PropertyCollectionFactory $propertyCollectionFactory,
+        MethodCollectionFactory $methodCollectionFactory
     ) {
         $this->interfaceNameCollectionFactory = $interfaceNameCollectionFactory;
         $this->traitNameCollectionFactory     = $traitNameCollectionFactory;
         $this->constantCollectionFactory      = $constantCollectionFactory;
         $this->constructorMethodFactory       = $constructorMethodFactory;
         $this->propertyCollectionFactory      = $propertyCollectionFactory;
+        $this->methodCollectionFactory        = $methodCollectionFactory;
     }
 
     public function supports(array $input): bool
@@ -73,6 +79,10 @@ class SimpleIdentifierLoader implements DefinitionLoader
         $properties        = $this->propertyCollectionFactory->create(array_merge($data['properties'], $data['constructor']));
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
+
+        foreach ($this->methodCollectionFactory->create($data['methods']) as $method) {
+            $methods[] = $method;
+        }
 
         foreach ($properties as $property) {
             $methods[] = GetterMethod::create($property);
