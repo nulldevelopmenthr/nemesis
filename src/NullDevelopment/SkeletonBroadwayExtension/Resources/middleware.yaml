@@ -5,3 +5,12 @@ services:
     autowire: true
     autoconfigure: true
     public: true
+
+
+  NullDevelopment\SkeletonBroadwayExtension\Command\PhpSpecGenerator\SpecCommandMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\Command\PhpUnitGenerator\TestCommandMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }

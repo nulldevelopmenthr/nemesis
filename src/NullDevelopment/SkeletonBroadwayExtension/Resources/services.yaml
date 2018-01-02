@@ -6,3 +6,4 @@ services:
     autoconfigure: true
     public: true
 
+  NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader: ~
