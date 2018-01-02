@@ -22,4 +22,11 @@ class ActorEntityTest extends TestCase
 	private $sut;
 
 
+	public function setUp()
+	{
+		$this->id = 1;
+		$this->firstName = 'firstName';
+		$this->lastName = 'lastName';
+		$this->sut = new ActorEntity($this->id, $this->firstName, $this->lastName);
+	}
 }

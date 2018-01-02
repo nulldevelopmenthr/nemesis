@@ -23,7 +23,7 @@ class SpecCommandNetteGeneratorTest extends BaseSpecDefinitionGeneratorTestCase
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new SpecCommandNetteGenerator([]);
+        $this->sut = $this->getService(SpecCommandNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */

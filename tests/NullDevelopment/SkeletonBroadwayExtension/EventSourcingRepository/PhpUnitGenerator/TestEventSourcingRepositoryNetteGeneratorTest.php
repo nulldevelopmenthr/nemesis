@@ -23,7 +23,7 @@ class TestEventSourcingRepositoryNetteGeneratorTest extends BaseTestDefinitionGe
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new TestEventSourcingRepositoryNetteGenerator([]);
+        $this->sut = $this->getService(TestEventSourcingRepositoryNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */

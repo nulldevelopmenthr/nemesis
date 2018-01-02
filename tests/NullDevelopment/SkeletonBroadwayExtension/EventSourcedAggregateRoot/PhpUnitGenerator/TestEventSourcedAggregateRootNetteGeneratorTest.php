@@ -23,7 +23,7 @@ class TestEventSourcedAggregateRootNetteGeneratorTest extends BaseTestDefinition
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new TestEventSourcedAggregateRootNetteGenerator([]);
+        $this->sut = $this->getService(TestEventSourcedAggregateRootNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */

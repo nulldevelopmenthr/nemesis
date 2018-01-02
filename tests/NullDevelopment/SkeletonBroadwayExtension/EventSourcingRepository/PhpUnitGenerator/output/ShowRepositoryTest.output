@@ -13,4 +13,8 @@ class ShowRepositoryTest extends TestCase
 	private $sut;
 
 
+	public function setUp()
+	{
+		$this->sut = new ShowRepository();
+	}
 }

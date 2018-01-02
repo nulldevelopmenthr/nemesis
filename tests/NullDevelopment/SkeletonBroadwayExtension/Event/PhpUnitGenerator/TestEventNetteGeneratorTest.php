@@ -23,7 +23,7 @@ class TestEventNetteGeneratorTest extends BaseTestDefinitionGeneratorTestCase
 
     protected function initializeSubjectUnderTest()
     {
-        $this->sut = new TestEventNetteGenerator([]);
+        $this->sut = $this->getService(TestEventNetteGenerator::class);
     }
 
     /** @dataProvider provideDefinitions */
