@@ -13,7 +13,6 @@ parameters:
 	    - '#Method NullDevelopment\\PhpStructure\\Type\\ClassDefinition\:\:getConstructorParameters\(\) should return#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getCollectionOf\(\)#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getSubjectUnderTest\(\).#'
-	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getConstructorParameters\(\).#'
 	includes:
 	    - vendor/phpstan/phpstan-phpunit/extension.neon
 	    - vendor/phpstan/phpstan-phpunit/rules.neon

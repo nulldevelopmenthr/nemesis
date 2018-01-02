@@ -6,7 +6,6 @@ namespace NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
@@ -57,22 +56,17 @@ class SimpleCollectionGenerator extends BaseSourceCodeDefinitionGenerator
         $constructorMethod = $netteCode->addMethod('__construct')
             ->setVisibility(Visibility::PUBLIC)
             ->addBody(sprintf('Assert::allIsInstanceOf($elements, %s::class);', $collectionOf))
-            ->addComment(sprintf('@param %s[] $elements', $collectionOf));
+            ->addComment(sprintf('@param %s[] $elements', $collectionOf))
+            ->addBody('$this->elements = $elements;');
 
-        /** @var MethodParameter $parameter */
-        foreach ($definition->getConstructorParameters() as $parameter) {
-            $assign = sprintf('$this->%s = $%s;', $parameter->getName(), $parameter->getName());
-            $constructorMethod->addBody($assign);
+        $constructorMethod->addParameter('elements')
+            ->setTypeHint('array')
+            ->setDefaultValue([]);
 
-            $constructorMethod->addParameter($parameter->getName())
-                ->setTypeHint($parameter->getInstanceFullName())
-                ->setDefaultValue([]);
-
-            $netteCode
-                ->addProperty($parameter->getName())
-                ->setVisibility(Visibility::PRIVATE)
-                ->addComment('@var '.$parameter->getInstanceName()->getName().'|'.$collectionOf.'[]');
-        }
+        $netteCode
+            ->addProperty('elements')
+            ->setVisibility(Visibility::PRIVATE)
+            ->addComment('@var array|'.$collectionOf.'[]');
     }
 
     private function addAddMethod(ClassType $netteCode, Definition $definition): void
