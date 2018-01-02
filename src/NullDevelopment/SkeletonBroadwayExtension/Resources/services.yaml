@@ -10,5 +10,6 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntityLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRootLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepositoryLoader: ~
 
 

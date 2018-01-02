@@ -1,0 +1,7 @@
+definition:
+  type: BroadwayEventSourcingRepository
+  instanceOf: MyVendor\Theater\Application\ShowRepository
+  parent: Broadway\EventSourcing\EventSourcingRepository
+  interfaces: {  }
+  traits: {  }
+  entity: MyVendor\Theater\Domain\ShowModel
