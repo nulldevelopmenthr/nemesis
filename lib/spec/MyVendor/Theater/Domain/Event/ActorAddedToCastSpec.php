@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\MyVendor\Theater\Domain\Event;
 
+use Broadway\Serializer\Serializable;
 use DateTime;
 use MyVendor\Theater\Core\Actor;
 use MyVendor\Theater\Core\ShowId;
@@ -20,6 +21,7 @@ class ActorAddedToCastSpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(ActorAddedToCast::class);
+        $this->shouldImplement(Serializable::class);
     }
 
     public function it_exposes_id(ShowId $id)

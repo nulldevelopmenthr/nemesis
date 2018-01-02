@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\Theater\Domain\Event;
 
+use Broadway\Serializer\Serializable;
 use DateTime;
 use MyVendor\Theater\Core\Actor;
 use MyVendor\Theater\Core\ShowId;
@@ -12,7 +13,7 @@ use MyVendor\Theater\Core\ShowId;
  * @see \spec\MyVendor\Theater\Domain\Event\ActorAddedToCastSpec
  * @see \Tests\MyVendor\Theater\Domain\Event\ActorAddedToCastTest
  */
-class ActorAddedToCast
+class ActorAddedToCast implements Serializable
 {
     /** @var ShowId */
     private $id;
