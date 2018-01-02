@@ -48,6 +48,13 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
+  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpecGenerator\SpecCommandHandlerMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpUnitGenerator\TestCommandHandlerMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
 
 
 
