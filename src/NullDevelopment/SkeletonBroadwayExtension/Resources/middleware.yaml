@@ -40,5 +40,14 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpSpecGenerator\SpecEventSourcingRepositoryMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnitGenerator\TestEventSourcingRepositoryMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+
 
 

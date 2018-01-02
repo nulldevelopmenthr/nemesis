@@ -1,0 +1,7 @@
+namespace spec\MyVendor\Theater\Application;
+
+use PhpSpec\ObjectBehavior;
+
+class ShowRepositorySpec extends ObjectBehavior
+{
+}
