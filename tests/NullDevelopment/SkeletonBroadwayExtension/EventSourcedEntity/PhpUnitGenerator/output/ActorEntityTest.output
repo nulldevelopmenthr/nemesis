@@ -1,0 +1,25 @@
+namespace Tests\MyVendor\Theater\Domain;
+
+use MyVendor\Theater\Domain\ActorEntity;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \MyVendor\Theater\Domain\ActorEntity
+ * @group  todo
+ */
+class ActorEntityTest extends TestCase
+{
+	/** @var int */
+	private $id;
+
+	/** @var string */
+	private $firstName;
+
+	/** @var string */
+	private $lastName;
+
+	/** @var ActorEntity */
+	private $sut;
+
+
+}

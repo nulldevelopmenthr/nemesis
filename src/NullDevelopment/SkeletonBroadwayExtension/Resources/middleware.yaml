@@ -23,3 +23,11 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnitGenerator\TestEventMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpecGenerator\SpecEventSourcedEntityMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpUnitGenerator\TestEventSourcedEntityMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
