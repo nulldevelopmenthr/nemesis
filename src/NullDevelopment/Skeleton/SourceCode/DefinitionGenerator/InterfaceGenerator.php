@@ -84,6 +84,10 @@ class InterfaceGenerator implements DefinitionGenerator
                     $namespace->addUse($parameter->getInstanceFullName());
                 }
             }
+
+            foreach ($method->getImports() as $import) {
+                $namespace->addUse($import->getFullName(), $import->getAlias());
+            }
         }
 
         return $namespace;
