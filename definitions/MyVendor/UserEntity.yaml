@@ -56,3 +56,13 @@ definition:
           nullable: false
           hasDefault: false
           default: ~
+    doSomething:
+      type: custom
+      parameters:
+        id:
+          instanceOf: MyVendor\User\UserId
+          nullable: false
+          hasDefault: false
+          default: ~
+      body:
+        - "return 1;"
