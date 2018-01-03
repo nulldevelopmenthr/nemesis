@@ -33,14 +33,14 @@ class AddActorToCastSpec extends ObjectBehavior
 
     public function it_can_be_serialized(ShowId $id, Actor $actor)
     {
-        $id->serialize()->shouldBeCalled()->willReturn(1);
+        $id->serialize()->shouldBeCalled()->willReturn('id');
         $actor->serialize()->shouldBeCalled()->willReturn(1);
-        $this->serialize()->shouldReturn(['id' => 1, 'actor' => 1]);
+        $this->serialize()->shouldReturn(['id' => 'id', 'actor' => 1]);
     }
 
     public function it_can_be_deserialized()
     {
-        $input = ['id' => 1, 'actor' => 1];
+        $input = ['id' => 'id', 'actor' => 1];
 
         $this->deserialize($input)->shouldReturnAnInstanceOf(AddActorToCast::class);
     }

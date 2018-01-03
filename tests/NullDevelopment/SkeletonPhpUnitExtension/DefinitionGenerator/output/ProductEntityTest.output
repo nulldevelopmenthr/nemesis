@@ -33,7 +33,7 @@ class ProductEntityTest extends TestCase
 
 	public function setUp()
 	{
-		$this->id = new ProductId(1);
+		$this->id = new ProductId('id');
 		$this->title = 'title';
 		$this->description = 'description';
 		$this->weight = new ProductWeight(1);
@@ -75,7 +75,7 @@ class ProductEntityTest extends TestCase
 	public function testSerialize()
 	{
 		$expected = [
-			'id'=> 1,
+			'id'=> 'id',
 			'title'=> 'title',
 			'description'=> 'description',
 			'weight'=> 1,

@@ -27,7 +27,7 @@ class ActorAddedToCastTest extends TestCase
 
 	public function setUp()
 	{
-		$this->id = new ShowId(1);
+		$this->id = new ShowId('id');
 		$this->actor = new Actor(1);
 		$this->addedAt = new DateTime('2018-01-01T00:01:00+00:00');
 		$this->sut = new ActorAddedToCast($this->id, $this->actor, $this->addedAt);
@@ -55,7 +55,7 @@ class ActorAddedToCastTest extends TestCase
 	public function testSerialize()
 	{
 		$expected = [
-			'id'=> 1,
+			'id'=> 'id',
 			'actor'=> 1,
 			'addedAt'=> '2018-01-01T00:01:00+00:00'
 		];

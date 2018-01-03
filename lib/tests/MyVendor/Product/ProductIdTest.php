@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ProductIdTest extends TestCase
 {
-    /** @var int */
+    /** @var string */
     private $id;
 
     /** @var ProductId */
@@ -21,7 +21,7 @@ class ProductIdTest extends TestCase
 
     public function setUp()
     {
-        $this->id  = 1;
+        $this->id  = 'id';
         $this->sut = new ProductId($this->id);
     }
 
@@ -32,7 +32,7 @@ class ProductIdTest extends TestCase
 
     public function testToString()
     {
-        self::assertSame((string) $this->id, $this->sut->__toString());
+        self::assertSame($this->id, $this->sut->__toString());
     }
 
     public function testSerialize()

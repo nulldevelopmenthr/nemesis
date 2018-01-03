@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\Theater\Core;
 
+use Ramsey\Uuid\Uuid;
+
 /**
  * @see \spec\MyVendor\Theater\Core\ShowIdSpec
  * @see \Tests\MyVendor\Theater\Core\ShowIdTest
@@ -12,31 +14,38 @@ class ShowId
 {
     const RANDOM_CONST = 163;
 
-    /** @var int */
+    /** @var string */
     private $id;
 
-    public function __construct(int $id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
 
     public function __toString(): string
     {
-        return (string) $this->id;
+        return $this->id;
     }
 
-    public function serialize(): int
+    public function serialize(): string
     {
         return $this->id;
     }
 
-    public static function deserialize(int $id): self
+    public static function deserialize(string $id): self
     {
+        return new self($id);
+    }
+
+    public function create(): self
+    {
+        $id = Uuid::uuid4()->toString();
+
         return new self($id);
     }
 }
