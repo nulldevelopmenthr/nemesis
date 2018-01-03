@@ -11,6 +11,7 @@ services:
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ChainedGetterMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\CustomMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SetterMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator: ~

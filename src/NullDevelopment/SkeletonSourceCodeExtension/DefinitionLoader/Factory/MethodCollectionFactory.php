@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory;
 
 use Exception;
+use NullDevelopment\PhpStructure\DataType\MethodParameter;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ChainedGetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\CustomMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 
 /**
@@ -52,8 +54,23 @@ class MethodCollectionFactory
                 $getterMethod = new GetterMethod($data['name'], $property);
 
                 $result[] = new ChainedGetterMethod($methodName, $getterMethod);
+            } elseif ('custom' === $methodInput['type']) {
+                $params = [];
+
+                foreach ($methodInput['parameters'] as $paramName => $param) {
+                    $params[] = new MethodParameter(
+                        $paramName,
+                        ClassName::create($param['instanceOf']),
+                        $param['nullable'],
+                        $param['hasDefault'],
+                        $param['default'],
+                        []
+                    );
+                }
+
+                $result[] = new CustomMethod($methodName, $params, $methodInput['body']);
             } else {
-                throw new Exception('ERR 322315002: Only getter & chainedgetter are implemented for now!');
+                throw new Exception('ERR 322315002: Only getter, chainedgetter & custom methods are implemented for now!');
             }
         }
 
