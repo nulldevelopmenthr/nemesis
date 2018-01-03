@@ -63,12 +63,12 @@ class ProductEntitySpec extends ObjectBehavior
 
     public function it_can_be_serialized(ProductId $id, ProductWeight $weight, DateTime $updatedAt)
     {
-        $id->serialize()->shouldBeCalled()->willReturn(1);
+        $id->serialize()->shouldBeCalled()->willReturn('id');
         $weight->serialize()->shouldBeCalled()->willReturn(1);
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $this->serialize()->shouldReturn(
             [
-            'id'          => 1,
+            'id'          => 'id',
             'title'       => 'title',
             'description' => 'description',
             'weight'      => 1,
@@ -80,7 +80,7 @@ class ProductEntitySpec extends ObjectBehavior
     public function it_can_be_deserialized()
     {
         $input = [
-            'id'          => 1,
+            'id'          => 'id',
             'title'       => 'title',
             'description' => 'description',
             'weight'      => 1,

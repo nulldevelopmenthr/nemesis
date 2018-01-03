@@ -26,7 +26,7 @@ class AddActorToCastTest extends TestCase
 
     public function setUp()
     {
-        $this->id    = new ShowId(1);
+        $this->id    = new ShowId('id');
         $this->actor = new Actor(1);
         $this->sut   = new AddActorToCast($this->id, $this->actor);
     }
@@ -44,7 +44,7 @@ class AddActorToCastTest extends TestCase
     public function testSerialize()
     {
         $expected = [
-            'id'    => 1,
+            'id'    => 'id',
             'actor' => 1,
         ];
 

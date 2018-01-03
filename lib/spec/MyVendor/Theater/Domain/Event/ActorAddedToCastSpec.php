@@ -41,15 +41,15 @@ class ActorAddedToCastSpec extends ObjectBehavior
 
     public function it_can_be_serialized(ShowId $id, Actor $actor, DateTime $addedAt)
     {
-        $id->serialize()->shouldBeCalled()->willReturn(1);
+        $id->serialize()->shouldBeCalled()->willReturn('id');
         $actor->serialize()->shouldBeCalled()->willReturn(1);
         $addedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
-        $this->serialize()->shouldReturn(['id' => 1, 'actor' => 1, 'addedAt' => '2018-01-01T00:01:00+00:00']);
+        $this->serialize()->shouldReturn(['id' => 'id', 'actor' => 1, 'addedAt' => '2018-01-01T00:01:00+00:00']);
     }
 
     public function it_can_be_deserialized()
     {
-        $input = ['id' => 1, 'actor' => 1, 'addedAt' => '2018-01-01T00:01:00+00:00'];
+        $input = ['id' => 'id', 'actor' => 1, 'addedAt' => '2018-01-01T00:01:00+00:00'];
 
         $this->deserialize($input)->shouldReturnAnInstanceOf(ActorAddedToCast::class);
     }

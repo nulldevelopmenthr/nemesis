@@ -11,7 +11,7 @@ class ProductIdSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith($id = 1);
+        $this->beConstructedWith($id = 'id');
     }
 
     public function it_is_initializable()
@@ -21,22 +21,22 @@ class ProductIdSpec extends ObjectBehavior
 
     public function it_exposes_id()
     {
-        $this->getId()->shouldReturn(1);
+        $this->getId()->shouldReturn('id');
     }
 
     public function it_is_castable_to_string()
     {
-        $this->__toString()->shouldReturn('1');
+        $this->__toString()->shouldReturn('id');
     }
 
     public function it_can_be_serialized()
     {
-        $this->serialize()->shouldReturn(1);
+        $this->serialize()->shouldReturn('id');
     }
 
     public function it_can_be_deserialized()
     {
-        $input = 1;
+        $input = 'id';
 
         $this->deserialize($input)->shouldReturnAnInstanceOf(ProductId::class);
     }
