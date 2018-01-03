@@ -69,6 +69,16 @@ class ProductEntityTest extends TestCase
         self::assertSame($this->updatedAt, $this->sut->getUpdatedAt());
     }
 
+    public function testHasDescription()
+    {
+        self::assertTrue($this->sut->hasDescription());
+    }
+
+    public function testHasWeight()
+    {
+        self::assertTrue($this->sut->hasWeight());
+    }
+
     public function testSerialize()
     {
         $expected = [

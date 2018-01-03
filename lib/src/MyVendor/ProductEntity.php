@@ -43,24 +43,6 @@ class ProductEntity extends BaseModel implements AnotherInterface
         $this->updatedAt   = $updatedAt;
     }
 
-    public function hasDescription(): bool
-    {
-        if (null === $this->description) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public function hasWeight(): bool
-    {
-        if (null === $this->weight) {
-            return false;
-        }
-
-        return true;
-    }
-
     public function getId(): ProductId
     {
         return $this->id;
@@ -84,6 +66,24 @@ class ProductEntity extends BaseModel implements AnotherInterface
     public function getUpdatedAt(): DateTime
     {
         return $this->updatedAt;
+    }
+
+    public function hasDescription(): bool
+    {
+        if (null === $this->description) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function hasWeight(): bool
+    {
+        if (null === $this->weight) {
+            return false;
+        }
+
+        return true;
     }
 
     public function serialize(): array

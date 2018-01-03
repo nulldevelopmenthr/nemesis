@@ -32,6 +32,13 @@ class ProductId
         return $this->id;
     }
 
+    public function create(): self
+    {
+        $id = Uuid::uuid4()->toString();
+
+        return new self($id);
+    }
+
     public function serialize(): string
     {
         return $this->id;
@@ -39,13 +46,6 @@ class ProductId
 
     public static function deserialize(string $id): self
     {
-        return new self($id);
-    }
-
-    public function create(): self
-    {
-        $id = Uuid::uuid4()->toString();
-
         return new self($id);
     }
 }

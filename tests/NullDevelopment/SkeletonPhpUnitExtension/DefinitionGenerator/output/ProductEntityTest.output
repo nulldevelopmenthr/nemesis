@@ -72,6 +72,18 @@ class ProductEntityTest extends TestCase
 	}
 
 
+	public function testHasDescription()
+	{
+		self::assertTrue($this->sut->hasDescription());
+	}
+
+
+	public function testHasWeight()
+	{
+		self::assertTrue($this->sut->hasWeight());
+	}
+
+
 	public function testSerialize()
 	{
 		$expected = [

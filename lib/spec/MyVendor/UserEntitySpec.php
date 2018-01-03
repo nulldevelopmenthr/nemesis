@@ -33,11 +33,6 @@ class UserEntitySpec extends ObjectBehavior
         $this->shouldImplement(SomeInterface::class);
     }
 
-    public function it_has_last_name()
-    {
-        $this->hasLastName()->shouldReturn(true);
-    }
-
     public function it_exposes_id(UserId $id)
     {
         $this->getId()->shouldReturn($id);
@@ -71,6 +66,11 @@ class UserEntitySpec extends ObjectBehavior
     public function it_exposes_updated_at(DateTime $updatedAt)
     {
         $this->getUpdatedAt()->shouldReturn($updatedAt);
+    }
+
+    public function it_has_last_name()
+    {
+        $this->hasLastName()->shouldReturn(true);
     }
 
     public function it_can_be_serialized(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
