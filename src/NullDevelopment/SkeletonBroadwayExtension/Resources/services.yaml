@@ -14,3 +14,8 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader: ~
 
 
+  NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator\Method\CreateEventMethodGenerator: ~
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpecGenerator\Method\SpecCreateEventMethodGenerator: ~
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnitGenerator\Method\TestCreateEventMethodGenerator: ~
+
+

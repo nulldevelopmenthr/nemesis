@@ -6,6 +6,7 @@ namespace NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
+use NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\Method\CreateEventMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\BaseDefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
@@ -41,6 +42,8 @@ class EventLoader extends BaseDefinitionLoader
         $methods           = [$constructorMethod];
 
         $interfaces[] = InterfaceName::create('Broadway\\Serializer\\Serializable');
+
+        $methods[] = new CreateEventMethod($className, $properties);
 
         foreach ($this->methodCollectionFactory->create($data['methods']) as $method) {
             $methods[] = $method;

@@ -35,3 +35,5 @@ services:
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeSerializeMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeDeserializeMethodFactory: ~
 
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpec\Method\SpecCreateEventMethodFactory: ~
+  NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnit\Method\TestCreateEventMethodFactory: ~
