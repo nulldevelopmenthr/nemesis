@@ -111,7 +111,7 @@ class SingleValueObjectLoaderTest extends SfTestCase
                             'examples'   => ['John Smith'],
                         ],
                     ],
-                    'properties' => ['name' => ['instanceOf' => 'string']],
+                    'properties' => ['name' => ['instanceOf' => 'string', 'examples' => ['John Smith']]],
                 ],
                 new SingleValueObject(
                     ClassName::create('MyVendor\User\Username'),

@@ -74,7 +74,7 @@ class Fixtures
             ClassName::create('int'),
             false,
             false,
-            false,
+            null,
             new Visibility('private'),
             [new SimpleExample(99)]
         );
@@ -87,7 +87,7 @@ class Fixtures
             ClassName::create('string'),
             false,
             false,
-            false,
+            null,
             new Visibility('private'),
             [new SimpleExample('John Smith')]
         );

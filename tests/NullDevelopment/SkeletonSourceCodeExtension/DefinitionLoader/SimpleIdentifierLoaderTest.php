@@ -108,7 +108,7 @@ class SimpleIdentifierLoaderTest extends SfTestCase
                             'examples'   => ['John Smith'],
                         ],
                     ],
-                    'properties' => ['name' => ['instanceOf' => 'string']],
+                    'properties' => ['name' => ['instanceOf' => 'string', 'examples' => ['John Smith']]],
                 ],
                 new SimpleIdentifier(
                     ClassName::create('MyVendor\User\Username'),
