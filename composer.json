@@ -42,7 +42,6 @@
         "broadway/read-model-elasticsearch": "^0.3.0",
         "ciaranmcnulty/phpspec-typehintedmethods": "^3.0",
         "codeclimate/php-test-reporter": "^0.4.4",
-        "humbug/humbug": "dev-master",
         "leanphp/phpspec-code-coverage": "^4.0",
         "mockery/mockery": "~1@dev",
         "phing/phing": "^2.16",
