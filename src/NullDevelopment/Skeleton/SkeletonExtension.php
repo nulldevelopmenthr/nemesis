@@ -29,6 +29,6 @@ final class SkeletonExtension extends Extension
         $loader->load('cli.yml');
 
         $loader->load('middleware-services.yaml');
-        $loader->load('misc-services.yaml');
+        $loader->load('services.yaml');
     }
 }
