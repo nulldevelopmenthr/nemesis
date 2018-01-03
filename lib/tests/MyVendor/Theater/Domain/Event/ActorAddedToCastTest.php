@@ -36,6 +36,12 @@ class ActorAddedToCastTest extends TestCase
         $this->sut     = new ActorAddedToCast($this->id, $this->actor, $this->addedAt);
     }
 
+    public function testCreate()
+    {
+        $result = $this->sut->create($id, $actor);
+        self::assertInstanceOf(ActorAddedToCast::class, $result);
+    }
+
     public function testGetId()
     {
         self::assertSame($this->id, $this->sut->getId());
