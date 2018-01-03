@@ -105,7 +105,7 @@ jobs:
           name: Static analysis
           command: ./vendor/bin/phing phpstan
 
-  humbug:
+  infection:
     docker:
       - image: msvrtan/square:0.2.1
     workDir: /var/www
@@ -114,8 +114,8 @@ jobs:
       - restore_cache:
           key: cache-v1-{{ checksum "composer.lock" }}
       - run:
-          name: Humbug
-          command: ./vendor/bin/humbug
+          name: Infection
+          command: ./vendor/bin/infection
       - store_artifacts:
           path: build
           destination: build
@@ -163,7 +163,7 @@ workflows:
          filters:
            branches:
              only: building-phar
-      - humbug:
+      - infection:
          requires:
            - phpunit
          filters:
