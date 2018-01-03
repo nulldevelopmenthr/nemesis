@@ -20,7 +20,7 @@ class TestDateTimeSetUpMethodFactory implements PhpUnitMethodFactory
     public function create(ClassDefinition $definition): array
     {
         return [
-            $this->createFromConstructorMethod($definition->getName()),
+            $this->createFromConstructorMethod($definition->getInstanceOf()),
         ];
     }
 

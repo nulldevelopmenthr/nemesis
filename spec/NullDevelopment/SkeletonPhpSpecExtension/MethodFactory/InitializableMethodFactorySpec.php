@@ -29,7 +29,7 @@ class InitializableMethodFactorySpec extends ObjectBehavior
         ClassName $parentClassName,
         InterfaceName $interfaceName1
     ) {
-        $definition->getName()->shouldBeCalled()->willReturn($className);
+        $definition->getInstanceOf()->shouldBeCalled()->willReturn($className);
         $definition->getParent()->shouldBeCalled()->willReturn($parentClassName);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName1]);
 

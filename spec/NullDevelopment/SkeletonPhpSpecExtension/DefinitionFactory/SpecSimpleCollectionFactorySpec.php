@@ -37,9 +37,9 @@ class SpecSimpleCollectionFactorySpec extends ObjectBehavior
         CollectionOf $collectionOf,
         ClassName $subjectUnderTest
     ) {
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
         $definition->getCollectionOf()->shouldBeCalled()->willReturn($collectionOf);
-        $definition->getName()->shouldBeCalled()->willReturn($subjectUnderTest);
+        $definition->getInstanceOf()->shouldBeCalled()->willReturn($subjectUnderTest);
 
         $letMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $initializableMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
@@ -48,7 +48,7 @@ class SpecSimpleCollectionFactorySpec extends ObjectBehavior
         $result = $this->createFromSimpleCollection($definition);
         $result->shouldReturnAnInstanceOf(SpecSimpleCollection::class);
 
-        $result->getFullClassName()->shouldReturn('spec\\MyVendor\\UserEntitySpec');
+        $result->getInstanceOfFullName()->shouldReturn('spec\\MyVendor\\UserEntitySpec');
         $result->getParentFullClassName()->shouldReturn('PhpSpec\\ObjectBehavior');
         $result->getInterfaces()->shouldReturn([]);
         $result->getTraits()->shouldReturn([]);

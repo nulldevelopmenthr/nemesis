@@ -49,7 +49,7 @@ class SimpleCollectionSpec extends ObjectBehavior
 
     public function it_exposes_class_name(ClassName $name)
     {
-        $this->getName()->shouldReturn($name);
+        $this->getInstanceOf()->shouldReturn($name);
     }
 
     public function it_knows_there_is_a_parent()

@@ -30,7 +30,7 @@ class TraitDefinitionSpec extends ObjectBehavior
 
     public function it_exposes_trait_name(TraitName $name)
     {
-        $this->getName()->shouldReturn($name);
+        $this->getInstanceOf()->shouldReturn($name);
     }
 
     public function it_exposes_traits_that_this_trait_uses(TraitName $trait1)

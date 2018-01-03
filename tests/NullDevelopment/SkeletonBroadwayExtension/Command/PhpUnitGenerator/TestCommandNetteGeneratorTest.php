@@ -59,7 +59,7 @@ class TestCommandNetteGeneratorTest extends BaseTestDefinitionGeneratorTestCase
                 $testDefinition = $testFactory->createFromCommand($definition);
 
                 if (true === $this->sut->supports($testDefinition)) {
-                    yield[$testDefinition, __DIR__.'/output/'.$testDefinition->getClassName().'.output'];
+                    yield[$testDefinition, __DIR__.'/output/'.$testDefinition->getInstanceOfName().'.output'];
                 }
             }
         }

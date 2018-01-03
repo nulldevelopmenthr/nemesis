@@ -58,7 +58,7 @@ class SpecSimpleIdentifierGeneratorTest extends BaseSpecDefinitionGeneratorTestC
                 $specDefinition = $specFactory->createFromSimpleIdentifier($definition);
 
                 if (true === $this->sut->supports($specDefinition)) {
-                    yield[$specDefinition, __DIR__.'/output/'.$specDefinition->getClassName().'.output'];
+                    yield[$specDefinition, __DIR__.'/output/'.$specDefinition->getInstanceOfName().'.output'];
                 }
             }
         }

@@ -19,10 +19,10 @@ abstract class BaseSourceCodeDefinitionGenerator extends BaseClassDefinitionGene
         $namespace = parent::generate($definition);
         foreach ($namespace->getClasses() as $classCode) {
             $classCode->addComment(
-                '@see \\spec\\'.$definition->getFullClassName().'Spec'
+                '@see \\spec\\'.$definition->getInstanceOfFullName().'Spec'
             );
             $classCode->addComment(
-                '@see \\Tests\\'.$definition->getFullClassName().'Test'
+                '@see \\Tests\\'.$definition->getInstanceOfFullName().'Test'
             );
         }
 

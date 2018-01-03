@@ -19,7 +19,7 @@ class InitializableMethodFactory implements PhpSpecMethodFactory
     public function create(ClassDefinition $definition): array
     {
         return [
-            new InitializableMethod($definition->getName(), $definition->getParent(), $definition->getInterfaces()),
+            new InitializableMethod($definition->getInstanceOf(), $definition->getParent(), $definition->getInterfaces()),
         ];
     }
 }

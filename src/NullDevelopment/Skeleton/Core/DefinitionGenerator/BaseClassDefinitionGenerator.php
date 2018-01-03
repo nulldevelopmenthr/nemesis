@@ -46,7 +46,7 @@ abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
             $namespace = new PhpNamespace($definition->getNamespace());
         }
 
-        $netteCode = $namespace->addClass($definition->getClassName());
+        $netteCode = $namespace->addClass($definition->getInstanceOfName());
 
         $this->processConstants($namespace, $netteCode, $definition);
         $this->processParent($namespace, $netteCode, $definition);

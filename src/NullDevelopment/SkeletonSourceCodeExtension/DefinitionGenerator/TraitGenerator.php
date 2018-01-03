@@ -55,7 +55,7 @@ class TraitGenerator implements DefinitionGenerator
             $namespace = new PhpNamespace($definition->getNamespace());
         }
 
-        $trait = $namespace->addTrait($definition->getClassName());
+        $trait = $namespace->addTrait($definition->getInstanceOfName());
 
         if (true === $definition->hasTraits()) {
             foreach ($definition->getTraits() as $subTrait) {

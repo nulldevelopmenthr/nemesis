@@ -34,9 +34,9 @@ class SpecEventSourcedAggregateRootFactory
             $methods = array_merge($methods, $factory->create($definition));
         }
 
-        $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
+        $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecEventSourcedAggregateRoot($specClassName, $specParentName, [], [], [], [], $methods, $definition->getName());
+        return new SpecEventSourcedAggregateRoot($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
     }
 }

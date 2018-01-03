@@ -35,8 +35,8 @@ class SpecSimpleIdentifierFactorySpec extends ObjectBehavior
         SpecGetterMethodFactory $getterSpecMethodFactory,
         ClassName $subjectUnderTest
     ) {
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
-        $definition->getName()->shouldBeCalled()->willReturn($subjectUnderTest);
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
+        $definition->getInstanceOf()->shouldBeCalled()->willReturn($subjectUnderTest);
 
         $letMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $initializableMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
@@ -45,7 +45,7 @@ class SpecSimpleIdentifierFactorySpec extends ObjectBehavior
         $result = $this->createFromSimpleIdentifier($definition);
         $result->shouldReturnAnInstanceOf(SpecSimpleIdentifier::class);
 
-        $result->getFullClassName()->shouldReturn('spec\\MyVendor\\UserEntitySpec');
+        $result->getInstanceOfFullName()->shouldReturn('spec\\MyVendor\\UserEntitySpec');
         $result->getParentFullClassName()->shouldReturn('PhpSpec\\ObjectBehavior');
         $result->getInterfaces()->shouldReturn([]);
         $result->getTraits()->shouldReturn([]);
