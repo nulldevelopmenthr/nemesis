@@ -76,21 +76,6 @@ services:
 
 
 
-  NullDevelopment\Skeleton\Core\DefinitionLoaderCollection:
-    arguments:
-      $loaders:
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SingleValueObjectLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleIdentifierLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\DateTimeValueObjectLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleEntityLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleCollectionLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\TraitLoader'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\InterfaceLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntityLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRootLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepositoryLoader'
-        - '@NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader'
+  NullDevelopment\Skeleton\Core\DefinitionLoaderCollection: ~
 
 
