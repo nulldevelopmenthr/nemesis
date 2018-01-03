@@ -24,18 +24,6 @@ class ProductEntitySpec extends ObjectBehavior
 	}
 
 
-	public function it_has_description()
-	{
-		$this->hasDescription()->shouldReturn(true);
-	}
-
-
-	public function it_has_weight()
-	{
-		$this->hasWeight()->shouldReturn(true);
-	}
-
-
 	public function it_exposes_id(ProductId $id)
 	{
 		$this->getId()->shouldReturn($id);
@@ -63,6 +51,18 @@ class ProductEntitySpec extends ObjectBehavior
 	public function it_exposes_updated_at(DateTime $updatedAt)
 	{
 		$this->getUpdatedAt()->shouldReturn($updatedAt);
+	}
+
+
+	public function it_has_description()
+	{
+		$this->hasDescription()->shouldReturn(true);
+	}
+
+
+	public function it_has_weight()
+	{
+		$this->hasWeight()->shouldReturn(true);
 	}
 
 

@@ -89,6 +89,11 @@ class UserEntityTest extends TestCase
         self::assertSame($this->updatedAt, $this->sut->getUpdatedAt());
     }
 
+    public function testHasLastName()
+    {
+        self::assertTrue($this->sut->hasLastName());
+    }
+
     public function testSerialize()
     {
         $expected = [

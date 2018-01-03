@@ -61,15 +61,6 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
         $this->updatedAt = $updatedAt;
     }
 
-    public function hasLastName(): bool
-    {
-        if (null === $this->lastName) {
-            return false;
-        }
-
-        return true;
-    }
-
     public function getId(): UserId
     {
         return $this->id;
@@ -108,6 +99,15 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
     public function getFirstNameAsString(): string
     {
         return $this->firstName->getValue();
+    }
+
+    public function hasLastName(): bool
+    {
+        if (null === $this->lastName) {
+            return false;
+        }
+
+        return true;
     }
 
     public function serialize(): array

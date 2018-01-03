@@ -94,6 +94,12 @@ class UserEntityTest extends TestCase
 	}
 
 
+	public function testHasLastName()
+	{
+		self::assertTrue($this->sut->hasLastName());
+	}
+
+
 	public function testSerialize()
 	{
 		$expected = [
