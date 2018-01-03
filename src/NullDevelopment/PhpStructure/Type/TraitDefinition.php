@@ -51,14 +51,6 @@ class TraitDefinition implements SourceCode, Definition
         throw new Exception('ERR 23523632: @TODO');
     }
 
-    /**
-     * @deprecated Use getInstanceOfName()
-     */
-    public function getFullClassName()
-    {
-        throw new Exception('ERR 325236: @TODO');
-    }
-
     public function hasParent(): bool
     {
         return false;
@@ -89,28 +81,12 @@ class TraitDefinition implements SourceCode, Definition
         return $this->name;
     }
 
-    /**
-     * @deprecated Use getInstanceOf()
-     */
-    public function getName(): TraitName
-    {
-        return $this->name;
-    }
-
     public function getNamespace(): ?string
     {
         return $this->name->getNamespace();
     }
 
     public function getInstanceOfName(): string
-    {
-        return $this->name->getName();
-    }
-
-    /**
-     * @deprecated Use getInstanceOfName()
-     */
-    public function getClassName(): string
     {
         return $this->name->getName();
     }
