@@ -12,7 +12,6 @@ use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
-use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 use Tests\TestCase\Fixtures;
 use Tests\TestCase\SfTestCase;
 
@@ -85,7 +84,6 @@ class SimpleEntityLoaderTest extends SfTestCase
                     [
                         new ConstructorMethod([$nameProperty]),
                         new GetterMethod('getName', $nameProperty),
-                        new ToStringMethod($nameProperty),
                         new SerializeMethod(ClassName::create('MyVendor\User\Username'), [$nameProperty]),
                         new DeserializeMethod(ClassName::create('MyVendor\User\Username'), [$nameProperty]),
                     ]
@@ -119,7 +117,6 @@ class SimpleEntityLoaderTest extends SfTestCase
                     [
                         new ConstructorMethod([$nameProperty]),
                         new GetterMethod('getName', $nameProperty),
-                        new ToStringMethod($nameProperty),
                         new SerializeMethod(ClassName::create('MyVendor\User\Username'), [$nameProperty]),
                         new DeserializeMethod(ClassName::create('MyVendor\User\Username'), [$nameProperty]),
                     ]
@@ -145,7 +142,6 @@ class SimpleEntityLoaderTest extends SfTestCase
                     [
                         new ConstructorMethod([$idProperty]),
                         new GetterMethod('getId', $idProperty),
-                        new ToStringMethod($idProperty),
                         new SerializeMethod(ClassName::create('MyVendor\User\Username'), [$idProperty]),
                         new DeserializeMethod(ClassName::create('MyVendor\User\Username'), [$idProperty]),
                     ]
