@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace NullDev\PHPUnitSkeleton;
+namespace NullDev\Skeleton;
 
 use League\Tactician\Middleware;
+use NullDev\PHPUnitSkeleton\PHPUnitTestGenerator;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 
 /**
