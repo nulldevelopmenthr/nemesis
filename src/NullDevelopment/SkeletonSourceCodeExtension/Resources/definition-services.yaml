@@ -90,6 +90,4 @@ services:
 
 
 
-  NullDevelopment\Skeleton\Core\DefinitionLoaderCollection: ~
-
 
