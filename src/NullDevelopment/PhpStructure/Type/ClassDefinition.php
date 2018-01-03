@@ -71,23 +71,7 @@ class ClassDefinition implements Definition
         return $this->name;
     }
 
-    /**
-     * @deprecated Use getInstanceOf()
-     */
-    public function getName(): ClassName
-    {
-        return $this->name;
-    }
-
     public function getInstanceOfName(): string
-    {
-        return $this->name->getName();
-    }
-
-    /**
-     * @deprecated Use getInstanceOfName()
-     */
-    public function getClassName(): string
     {
         return $this->name->getName();
     }
@@ -98,14 +82,6 @@ class ClassDefinition implements Definition
     }
 
     public function getInstanceOfFullName(): string
-    {
-        return $this->name->getFullName();
-    }
-
-    /**
-     * @deprecated Use getInstanceOfFullName()
-     */
-    public function getFullClassName(): string
     {
         return $this->name->getFullName();
     }
