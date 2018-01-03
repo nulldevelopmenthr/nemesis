@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\BaseDefinitionLoader;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\BaseDefinitionLoader;
 
 /**
  * @see EventSourcingRepositoryLoaderSpec

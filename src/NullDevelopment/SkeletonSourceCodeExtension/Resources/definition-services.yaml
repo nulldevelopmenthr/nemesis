@@ -1,0 +1,93 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SingleValueObjectGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject' }
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleIdentifierGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier' }
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\DateTimeValueObjectGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeCreateFromFormatMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeDeserializeMethodGenerator'
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject' }
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleEntityGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleEntity' }
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleCollectionGenerator:
+    arguments:
+      $methodGenerators: []
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection' }
+
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\TraitGenerator:
+    arguments:
+      $methodGenerators: []
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\TraitDefinition' }
+
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\InterfaceGenerator:
+    arguments:
+      $methodGenerators: []
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\InterfaceDefinition' }
+
+
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection:
+    arguments:
+      $loaders:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SingleValueObjectLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleIdentifierLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\DateTimeValueObjectLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleEntityLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleCollectionLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\TraitLoader'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\InterfaceLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\CommandLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\EventLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntityLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRootLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepositoryLoader'
+        - '@NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader'
+
+

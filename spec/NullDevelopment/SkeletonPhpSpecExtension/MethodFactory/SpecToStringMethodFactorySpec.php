@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecToStringMethodFactorySpec extends ObjectBehavior

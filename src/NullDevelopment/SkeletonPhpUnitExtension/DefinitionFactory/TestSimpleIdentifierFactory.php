@@ -7,9 +7,9 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleIdentifier;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleIdentifier;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier;
 use Webmozart\Assert\Assert;
 
 /**

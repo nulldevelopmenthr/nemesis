@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecSerializeMethodFactorySpec extends ObjectBehavior

@@ -6,8 +6,8 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeDeserializeMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeDeserializeMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeDeserializeMethodFactorySpec extends ObjectBehavior

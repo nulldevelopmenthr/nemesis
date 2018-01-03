@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeCreateFromFormatMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeCreateFromFormatMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeCreateFromFormatMethodFactorySpec extends ObjectBehavior

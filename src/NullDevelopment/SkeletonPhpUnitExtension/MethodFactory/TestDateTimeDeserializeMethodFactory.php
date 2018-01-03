@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeDeserializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeDeserializeMethod;
 
 /**
  * @see TestDateTimeDeserializeMethodFactorySpec

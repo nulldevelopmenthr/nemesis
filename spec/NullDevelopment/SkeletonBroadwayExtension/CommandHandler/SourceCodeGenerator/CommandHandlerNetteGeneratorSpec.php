@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator;
 
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\CommandHandlerNetteGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
 use PhpSpec\ObjectBehavior;
 
 class CommandHandlerNetteGeneratorSpec extends ObjectBehavior

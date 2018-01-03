@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 

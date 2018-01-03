@@ -10,10 +10,10 @@ use Mockery\MockInterface;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 

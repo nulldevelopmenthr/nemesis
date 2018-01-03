@@ -6,10 +6,10 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
 use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestDateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestDateTimeValueObjectGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestDateTimeValueObjectGenerator

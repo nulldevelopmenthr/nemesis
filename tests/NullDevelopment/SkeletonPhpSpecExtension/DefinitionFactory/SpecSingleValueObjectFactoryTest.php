@@ -6,14 +6,14 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use Tests\TestCase\Fixtures;
 use Tests\TestCase\SfTestCase;
 

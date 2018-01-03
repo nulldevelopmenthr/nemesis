@@ -11,8 +11,6 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpSpec\SpecEventSourcedAggregateRoot;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnit\TestEventSourcedAggregateRoot;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRoot;
@@ -21,6 +19,8 @@ use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)

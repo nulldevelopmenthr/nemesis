@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDeserializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
 
 /**
  * @see TestDeserializeMethodFactorySpec

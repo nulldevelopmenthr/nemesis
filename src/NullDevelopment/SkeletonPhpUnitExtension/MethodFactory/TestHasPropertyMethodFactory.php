@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpUnitExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\HasPropertyMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestHasPropertyMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\HasPropertyMethod;
 
 /**
  * @see TestHasPropertyMethodFactorySpec

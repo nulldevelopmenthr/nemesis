@@ -17,34 +17,3 @@ services:
   NullDevelopment\Nemesis\Config\Config:
     class: NullDevelopment\Nemesis\Config\Config
     factory: ['@NullDevelopment\Nemesis\Config\ConfigFactory', create]
-
-
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\ConstructorMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\HasPropertyMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\GetterMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\ToStringMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\SetterMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\SerializeMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DeserializeMethodGenerator: ~
-
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeToStringMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeCreateFromFormatMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeSerializeMethodGenerator: ~
-  NullDevelopment\Skeleton\SourceCode\MethodGenerator\DateTimeDeserializeMethodGenerator: ~
-
-
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SingleValueObjectLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleIdentifierLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\DateTimeValueObjectLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleEntityLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\SimpleCollectionLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\TraitLoader: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\InterfaceLoader: ~
-
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstructorMethodFactory: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\ConstantCollectionFactory: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\InterfaceNameCollectionFactory: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\PropertyCollectionFactory: ~
-  NullDevelopment\Skeleton\SourceCode\DefinitionLoader\Factory\TraitNameCollectionFactory: ~
-
-

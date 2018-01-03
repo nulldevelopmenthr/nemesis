@@ -9,11 +9,11 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCodeGenerator\EventSourcedAggregateRootNetteGenerator:
     arguments:
       $methodGenerators:
-        - '@NullDevelopment\Skeleton\SourceCode\MethodGenerator\ConstructorMethodGenerator'
-        - '@NullDevelopment\Skeleton\SourceCode\MethodGenerator\HasPropertyMethodGenerator'
-        - '@NullDevelopment\Skeleton\SourceCode\MethodGenerator\GetterMethodGenerator'
-        - '@NullDevelopment\Skeleton\SourceCode\MethodGenerator\SerializeMethodGenerator'
-        - '@NullDevelopment\Skeleton\SourceCode\MethodGenerator\DeserializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRoot' }
 

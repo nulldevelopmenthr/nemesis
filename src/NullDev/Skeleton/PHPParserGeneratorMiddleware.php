@@ -12,7 +12,7 @@ use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\OutputResource2;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Result;
+use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 class PHPParserGeneratorMiddleware implements Middleware
 {

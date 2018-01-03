@@ -7,10 +7,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecDeserializeMethodFactorySpec extends ObjectBehavior

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject;
 use PhpSpec\ObjectBehavior;
 
 class TestSingleValueObjectFactorySpec extends ObjectBehavior

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
-use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 

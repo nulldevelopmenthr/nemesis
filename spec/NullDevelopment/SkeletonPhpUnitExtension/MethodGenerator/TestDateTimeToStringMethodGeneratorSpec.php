@@ -6,9 +6,9 @@ namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeToStringMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeToStringMethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestDateTimeToStringMethodGeneratorSpec extends ObjectBehavior

@@ -7,9 +7,9 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestDateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
 use Webmozart\Assert\Assert;
 
 /**

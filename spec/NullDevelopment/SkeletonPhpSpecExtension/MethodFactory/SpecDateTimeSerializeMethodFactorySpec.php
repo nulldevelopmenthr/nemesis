@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDateTimeSerializeMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeSerializeMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeSerializeMethodFactorySpec extends ObjectBehavior

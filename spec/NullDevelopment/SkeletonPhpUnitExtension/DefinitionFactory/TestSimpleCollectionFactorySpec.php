@@ -6,11 +6,11 @@ namespace spec\NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\CustomType\CollectionOf;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleCollection;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleCollectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection;
 use PhpSpec\ObjectBehavior;
 
 class TestSimpleCollectionFactorySpec extends ObjectBehavior
