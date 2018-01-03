@@ -17,3 +17,6 @@ services:
   NullDevelopment\Nemesis\Config\Config:
     class: NullDevelopment\Nemesis\Config\Config
     factory: ['@NullDevelopment\Nemesis\Config\ConfigFactory', create]
+
+  NullDevelopment\Skeleton\Core\DefinitionLoaderCollection: ~
+
