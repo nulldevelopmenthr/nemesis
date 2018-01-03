@@ -33,6 +33,7 @@ services:
       $factories:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpec\Method\SpecCreateEventMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
@@ -50,6 +51,7 @@ services:
     arguments:
       $factories:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnit\Method\TestCreateEventMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
