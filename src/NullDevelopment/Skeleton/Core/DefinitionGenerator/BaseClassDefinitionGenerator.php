@@ -22,6 +22,14 @@ abstract class BaseClassDefinitionGenerator implements AutowiredDefinitionGenera
     public function __construct(array $methodGenerators)
     {
         Assert::allIsInstanceOf($methodGenerators, MethodGenerator::class);
+
+        usort(
+            $methodGenerators,
+            function ($first, $second) {
+                return $first->getMethodGeneratorPriority() <=> $second->getMethodGeneratorPriority();
+            }
+        );
+
         $this->methodGenerators = $methodGenerators;
     }
 
