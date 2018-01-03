@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware;
 
 use League\Tactician\Middleware;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see TestSingleValueObjectMiddlewareSpec

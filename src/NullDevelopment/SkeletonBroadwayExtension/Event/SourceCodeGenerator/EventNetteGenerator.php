@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\Core\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\Event;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator\EventNetteGeneratorSpec

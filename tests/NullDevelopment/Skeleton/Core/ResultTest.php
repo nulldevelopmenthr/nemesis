@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Tests\NullDevelopment\SkeletonSourceCodeExtension;
+namespace Tests\NullDevelopment\Skeleton\Core;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
+use NullDevelopment\Skeleton\Core\Result;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \NullDevelopment\SkeletonSourceCodeExtension\Result
+ * @covers \NullDevelopment\Skeleton\Core\Result
  * @group  unit
  */
 class ResultTest extends TestCase

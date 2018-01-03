@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDevelopment\SkeletonSourceCodeExtension;
+namespace NullDevelopment\Skeleton\Core;
 
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\Definition;

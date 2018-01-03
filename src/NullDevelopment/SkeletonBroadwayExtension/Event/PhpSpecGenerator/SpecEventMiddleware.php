@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpecGenerator;
 
 use League\Tactician\Middleware;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpec\SpecEventFactory;
 use NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\Event;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\Event\PhpSpecGenerator\SpecEventMiddlewareSpec

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpecGenerator;
 
 use League\Tactician\Middleware;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpec\SpecCommandHandlerFactory;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpecGenerator\SpecCommandHandlerMiddlewareSpec

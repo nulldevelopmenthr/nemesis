@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware;
 
 use League\Tactician\Middleware;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestDateTimeValueObjectGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see TestDateTimeValueObjectMiddlewareSpec

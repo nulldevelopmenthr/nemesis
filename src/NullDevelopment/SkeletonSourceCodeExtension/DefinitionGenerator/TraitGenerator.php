@@ -9,7 +9,7 @@ use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\PhpStructure\Type\TraitDefinition;
 use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\Skeleton\Core\MethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
+use NullDevelopment\Skeleton\Core\Result;
 use Webmozart\Assert\Assert;
 
 /**
