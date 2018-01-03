@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace MyVendor;
 
+use MyVendor\User\UserFirstName;
+
 interface SomeInterface
 {
-    public function getFirstName(): User\UserFirstName;
+    public function getFirstName(): UserFirstName;
 }
