@@ -29,4 +29,9 @@ class DateTimeDeserializeMethodGenerator extends BaseMethodGenerator
             'return new self($value);'
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 96;
+    }
 }

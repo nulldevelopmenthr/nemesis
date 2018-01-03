@@ -29,4 +29,9 @@ class GetterMethodGenerator extends BaseMethodGenerator
             sprintf('return $this->%s;', $method->getPropertyName())
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 50;
+    }
 }

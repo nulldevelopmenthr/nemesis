@@ -28,4 +28,9 @@ class SpecDateTimeCreateFromFormatMethodGenerator extends BaseSpecMethodGenerato
         $code->addBody('$result = $this->createFromFormat(DateTime::ATOM, \'2018-01-01T11:22:33Z\');');
         $code->addBody('$result->__toString()->shouldReturn(\'2018-01-01T11:22:33+00:00\');');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 30;
+    }
 }

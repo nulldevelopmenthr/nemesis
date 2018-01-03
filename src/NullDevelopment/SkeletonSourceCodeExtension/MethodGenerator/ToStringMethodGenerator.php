@@ -39,4 +39,9 @@ class ToStringMethodGenerator extends BaseMethodGenerator
             $code->addBody('return (string) $this->'.$property->getName().';');
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

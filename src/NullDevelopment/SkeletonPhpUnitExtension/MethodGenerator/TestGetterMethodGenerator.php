@@ -29,4 +29,9 @@ class TestGetterMethodGenerator extends BaseTestMethodGenerator
             sprintf('self::assertSame($this->%s, $this->sut->%s());', $method->getProperty()->getName(), $method->getMethodUnderTest())
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 50;
+    }
 }

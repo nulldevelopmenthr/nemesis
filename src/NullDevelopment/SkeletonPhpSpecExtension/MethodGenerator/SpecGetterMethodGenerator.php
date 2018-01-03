@@ -35,4 +35,9 @@ class SpecGetterMethodGenerator extends BaseSpecMethodGenerator
             sprintf('$this->%s()->shouldReturn(%s);', $method->getMethodUnderTest(), $value)
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 50;
+    }
 }

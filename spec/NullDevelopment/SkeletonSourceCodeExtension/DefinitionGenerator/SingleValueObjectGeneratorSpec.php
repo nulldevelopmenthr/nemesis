@@ -20,6 +20,8 @@ class SingleValueObjectGeneratorSpec extends ObjectBehavior
         ConstructorMethodGenerator $constructorMethodGenerator,
         GetterMethodGenerator $getterMethodGenerator
     ) {
+        $constructorMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
+        $getterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
         $this->beConstructedWith([$constructorMethodGenerator, $getterMethodGenerator]);
     }
 

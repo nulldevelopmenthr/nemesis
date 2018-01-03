@@ -51,4 +51,9 @@ class TestSerializeMethodGenerator extends BaseTestMethodGenerator
                 ->addBody('self::assertSame($expected, $this->sut->serialize());');
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }

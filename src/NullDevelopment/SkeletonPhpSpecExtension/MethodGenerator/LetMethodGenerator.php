@@ -37,4 +37,9 @@ class LetMethodGenerator extends BaseSpecMethodGenerator
 
         $code->addBody(sprintf('$this->beConstructedWith(%s);', implode(', ', $parameters)));
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 10;
+    }
 }

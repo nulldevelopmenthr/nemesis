@@ -29,4 +29,9 @@ class TestHasPropertyMethodGenerator extends BaseTestMethodGenerator
             sprintf('self::assertTrue($this->sut->%s());', $method->getMethodUnderTest())
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 60;
+    }
 }

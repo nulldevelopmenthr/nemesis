@@ -41,4 +41,9 @@ class ToStringGenerator implements MethodGenerator
 
         return $getterMethod;
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

@@ -28,4 +28,9 @@ class SpecDateTimeLetMethodGenerator extends BaseSpecMethodGenerator
     {
         $code->addBody('$this->beConstructedWith(\'2018-01-01T11:22:33+00:00\');');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 10;
+    }
 }

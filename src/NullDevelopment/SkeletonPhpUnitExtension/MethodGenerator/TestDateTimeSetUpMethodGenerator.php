@@ -29,4 +29,9 @@ class TestDateTimeSetUpMethodGenerator extends BaseTestMethodGenerator
             sprintf('$this->sut = new %s(%s);', $method->getClassName()->getName(), '\'2018-01-01T11:22:33+00:00\'')
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 10;
+    }
 }

@@ -29,4 +29,9 @@ class ChainedGetterMethodGenerator extends BaseMethodGenerator
             sprintf('return $this->%s->%s();', $method->getPropertyName(), $method->getGetterMethod()->getName())
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 55;
+    }
 }

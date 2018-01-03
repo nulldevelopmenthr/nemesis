@@ -44,4 +44,9 @@ class TestDeserializeMethodGenerator extends BaseTestMethodGenerator
                 );
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 96;
+    }
 }

@@ -64,4 +64,9 @@ class SerializeMethodGenerator extends BaseMethodGenerator
             $code->addBody('return ['.$indent.implode(', '.$indent, $serializeList).PHP_EOL.'];');
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }

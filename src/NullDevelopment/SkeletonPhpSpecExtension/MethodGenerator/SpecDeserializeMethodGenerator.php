@@ -46,4 +46,9 @@ class SpecDeserializeMethodGenerator extends BaseSpecMethodGenerator
                 )
             );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 96;
+    }
 }

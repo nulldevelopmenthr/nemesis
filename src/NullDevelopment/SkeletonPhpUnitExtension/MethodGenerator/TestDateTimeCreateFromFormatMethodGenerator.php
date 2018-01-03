@@ -29,4 +29,9 @@ class TestDateTimeCreateFromFormatMethodGenerator extends BaseTestMethodGenerato
             ->addBody('$result = $this->sut::createFromFormat(DateTime::ATOM, \'2018-01-01T11:22:33Z\');')
             ->addBody('self::assertEquals(\'2018-01-01T11:22:33+00:00\', $result->__toString());');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 30;
+    }
 }

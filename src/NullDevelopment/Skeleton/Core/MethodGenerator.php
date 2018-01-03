@@ -13,4 +13,6 @@ interface MethodGenerator
     public function generate(Method $method);
 
     public function generateAsString(Method $method): string;
+
+    public function getMethodGeneratorPriority(): int;
 }

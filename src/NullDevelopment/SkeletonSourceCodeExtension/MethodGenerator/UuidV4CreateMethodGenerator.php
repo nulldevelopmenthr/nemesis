@@ -30,4 +30,9 @@ class UuidV4CreateMethodGenerator extends BaseMethodGenerator
             ->addBody('')
             ->addBody('return new self($id);');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 90;
+    }
 }

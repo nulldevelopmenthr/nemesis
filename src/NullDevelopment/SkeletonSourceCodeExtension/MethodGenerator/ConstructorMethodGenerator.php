@@ -29,4 +29,9 @@ class ConstructorMethodGenerator extends BaseMethodGenerator
             $code->addBody(sprintf('$this->%s = $%s;', $parameter->getName(), $parameter->getName()));
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 10;
+    }
 }

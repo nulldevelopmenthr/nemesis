@@ -32,4 +32,9 @@ class HasPropertyMethodGenerator extends BaseMethodGenerator
             ->addBody('')
             ->addBody('return true;');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 60;
+    }
 }

@@ -27,4 +27,9 @@ class SpecDateTimeToStringMethodGenerator extends BaseSpecMethodGenerator
     {
         $code->addBody('$this->__toString()->shouldReturn(\'2018-01-01T11:22:33+00:00\');');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

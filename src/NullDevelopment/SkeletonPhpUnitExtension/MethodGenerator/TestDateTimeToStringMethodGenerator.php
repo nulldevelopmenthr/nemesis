@@ -29,4 +29,9 @@ class TestDateTimeToStringMethodGenerator extends BaseTestMethodGenerator
             sprintf('self::assertSame(\'2018-01-01T11:22:33+00:00\', $this->sut->__toString());')
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

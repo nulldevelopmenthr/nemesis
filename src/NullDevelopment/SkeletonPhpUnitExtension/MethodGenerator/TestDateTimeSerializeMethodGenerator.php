@@ -29,4 +29,9 @@ class TestDateTimeSerializeMethodGenerator extends BaseTestMethodGenerator
             sprintf('self::assertSame(\'2018-01-01T11:22:33+00:00\', $this->sut->serialize());')
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }
