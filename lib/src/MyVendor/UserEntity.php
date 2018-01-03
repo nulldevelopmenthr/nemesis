@@ -110,6 +110,11 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
         return true;
     }
 
+    public function doSomething(UserId $id): string
+    {
+        return 1;
+    }
+
     public function serialize(): array
     {
         return [
