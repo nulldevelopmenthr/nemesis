@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace NullDevelopment\SkeletonSourceCodeExtension;
+namespace NullDevelopment\Skeleton\Core;
 
-use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode;
 use Webmozart\Assert\Assert;
 

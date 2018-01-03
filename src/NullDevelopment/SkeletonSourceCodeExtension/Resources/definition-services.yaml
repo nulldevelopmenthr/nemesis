@@ -73,7 +73,7 @@ services:
 
 
 
-  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection:
+  NullDevelopment\Skeleton\Core\DefinitionLoaderCollection:
     arguments:
       $loaders:
         - '@NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SingleValueObjectLoader'
