@@ -9,12 +9,12 @@ use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\Core\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\AutowiredDefinitionGenerator;
 use NullDevelopment\Skeleton\Core\MethodGenerator;
 use Webmozart\Assert\Assert;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */
-abstract class BaseClassDefinitionGenerator implements DefinitionGenerator
+abstract class BaseClassDefinitionGenerator implements AutowiredDefinitionGenerator
 {
     /** @var MethodGenerator[] */
     private $methodGenerators;
