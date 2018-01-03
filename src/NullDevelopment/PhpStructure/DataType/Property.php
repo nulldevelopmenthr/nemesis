@@ -51,6 +51,11 @@ class Property implements Variable
         $this->examples        = $examples;
     }
 
+    public static function private(string $name, ContractName $contractName): self
+    {
+        return new self($name, $contractName, false, false, null, new Visibility('private'), []);
+    }
+
     public function getName(): string
     {
         return $this->name;
