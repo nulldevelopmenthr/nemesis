@@ -32,6 +32,20 @@ services:
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier' }
 
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\UuidV4IdentifierGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ChainedGetterMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
+        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\UuidV4CreateMethodGenerator'
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\UuidV4Identifier' }
+
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\DateTimeValueObjectGenerator:
     arguments:
       $methodGenerators:
