@@ -10,7 +10,6 @@ use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\HasPropertyMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
-use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 
 /**
  * @see SimpleEntityLoaderSpec
@@ -49,7 +48,6 @@ class SimpleEntityLoader extends BaseDefinitionLoader
                 $methods[] = HasPropertyMethod::create($property);
             }
             $methods[] = GetterMethod::create($property);
-            $methods[] = new ToStringMethod($property);
         }
 
         $methods[] = new SerializeMethod($className, $properties);
