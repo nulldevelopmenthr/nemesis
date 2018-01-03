@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode;
 
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\Skeleton\SourceCode;
 
@@ -13,4 +14,27 @@ use NullDevelopment\Skeleton\SourceCode;
  */
 class EventSourcingRepository extends ClassDefinition implements SourceCode
 {
+    /**
+     * @var ClassName
+     */
+    private $entity;
+
+    public function __construct(
+        ClassName $name,
+        ?ClassName $parent,
+        array $interfaces,
+        array $traits,
+        array $constants,
+        array $properties,
+        array $methods,
+        ClassName $entity
+    ) {
+        parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods);
+        $this->entity = $entity;
+    }
+
+    public function getEntity(): ClassName
+    {
+        return $this->entity;
+    }
 }

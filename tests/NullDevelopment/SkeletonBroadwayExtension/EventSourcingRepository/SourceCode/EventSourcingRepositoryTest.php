@@ -15,6 +15,7 @@ use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository;
 use PHPUnit\Framework\TestCase;
+use Tests\NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\EventSourcingRepositoryFixtures;
 use Tests\TestCase\Fixtures;
 
 /**
@@ -49,6 +50,9 @@ class EventSourcingRepositoryTest extends TestCase
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
 
+    /** @var ClassName */
+    private $entity;
+
     /** @var EventSourcingRepository */
     private $sut;
 
@@ -64,6 +68,7 @@ class EventSourcingRepositoryTest extends TestCase
         $this->constructorMethod = new ConstructorMethod([$firstName]);
         $this->properties        = [$firstName];
         $this->methods           = [$this->constructorMethod];
+        $this->entity            = EventSourcingRepositoryFixtures::actorEntityName();
         $this->sut               = new EventSourcingRepository(
             $this->name,
             $this->parent,
@@ -71,7 +76,8 @@ class EventSourcingRepositoryTest extends TestCase
             $this->traits,
             $this->constants,
             $this->properties,
-            $this->methods
+            $this->methods,
+            $this->entity
         );
     }
 

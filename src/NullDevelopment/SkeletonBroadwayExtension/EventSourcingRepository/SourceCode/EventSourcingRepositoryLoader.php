@@ -34,6 +34,7 @@ class EventSourcingRepositoryLoader extends BaseDefinitionLoader
         $properties        = $this->propertyCollectionFactory->create(array_merge($data['properties'], $data['constructor']));
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
+        $entity            = ClassName::create($data['entity']);
 
         foreach ($this->methodCollectionFactory->create($data['methods']) as $method) {
             $methods[] = $method;
@@ -46,7 +47,8 @@ class EventSourcingRepositoryLoader extends BaseDefinitionLoader
             $traits,
             $constants,
             $properties,
-            $methods
+            $methods,
+            $entity
         );
     }
 
@@ -62,6 +64,7 @@ class EventSourcingRepositoryLoader extends BaseDefinitionLoader
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
+            'entity'      => '',
         ];
     }
 }
