@@ -17,7 +17,10 @@ use Roave\BetterReflection\BetterReflection;
  */
 class ExampleMaker
 {
-    /** @SuppressWarnings(PHPMD.CyclomaticComplexity) */
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
     public function instance(Variable $variable): Example
     {
         switch ($variable->getInstanceFullName()) {
@@ -38,6 +41,10 @@ class ExampleMaker
         $refl = (new BetterReflection())
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
+
+        if ($refl->isInterface()) {
+            return new MockeryMockExample($variable->getInstanceName());
+        }
 
         $zz = $refl;
         while ($parent = $zz->getParentClass()) {
