@@ -8,12 +8,27 @@ use NullDevelopment\PhpStructure\Behaviour\Method;
 
 interface Definition
 {
+    public function getInstanceOf();
+
+    /**
+     * @deprecated Use getInstanceOf()
+     */
     public function getName();
 
+    public function getInstanceOfName(): string;
+
+    /**
+     * @deprecated Use getInstanceOfName()
+     */
     public function getClassName(): string;
 
     public function getNamespace(): ?string;
 
+    public function getInstanceOfFullName(): string;
+
+    /**
+     * @deprecated Use getInstanceOfFullName()
+     */
     public function getFullClassName();
 
     public function hasParent(): bool;
