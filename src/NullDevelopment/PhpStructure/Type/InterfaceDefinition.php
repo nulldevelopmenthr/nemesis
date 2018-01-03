@@ -44,6 +44,14 @@ class InterfaceDefinition implements SourceCode, Definition
         $this->methods    = $methods;
     }
 
+    public function getInstanceOfFullName(): string
+    {
+        throw new Exception('ERR 235235: @TODO');
+    }
+
+    /**
+     * @deprecated Use getInstanceOfFullName()
+     */
     public function getFullClassName()
     {
         throw new Exception('ERR 235352: @TODO');
@@ -96,6 +104,14 @@ class InterfaceDefinition implements SourceCode, Definition
         return [];
     }
 
+    public function getInstanceOf(): InterfaceName
+    {
+        return $this->name;
+    }
+
+    /**
+     * @deprecated Use getInstanceOf()
+     */
     public function getName(): InterfaceName
     {
         return $this->name;
@@ -106,8 +122,13 @@ class InterfaceDefinition implements SourceCode, Definition
         return $this->name->getNamespace();
     }
 
+    public function getInstanceOfName(): string
+    {
+        return $this->name->getName();
+    }
+
     /**
-     * @TODO: this name is totally WRONG!
+     * @deprecated Use getInstanceOfName()
      */
     public function getClassName(): string
     {
