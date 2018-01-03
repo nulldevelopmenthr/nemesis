@@ -34,9 +34,9 @@ class SpecEventSourcingRepositoryFactory
             $methods = array_merge($methods, $factory->create($definition));
         }
 
-        $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
+        $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecEventSourcingRepository($specClassName, $specParentName, [], [], [], [], $methods, $definition->getName());
+        return new SpecEventSourcingRepository($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
     }
 }

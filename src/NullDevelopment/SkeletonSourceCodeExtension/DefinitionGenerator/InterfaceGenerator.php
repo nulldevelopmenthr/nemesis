@@ -56,7 +56,7 @@ class InterfaceGenerator implements DefinitionGenerator
             $namespace = new PhpNamespace($definition->getNamespace());
         }
 
-        $interface = $namespace->addInterface($definition->getClassName());
+        $interface = $namespace->addInterface($definition->getInstanceOfName());
 
         if (true === $definition->hasParent()) {
             $interface->setExtends($definition->getParentFullClassName());

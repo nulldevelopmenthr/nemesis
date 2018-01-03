@@ -37,7 +37,7 @@ class TestSimpleEntityFactory
             $methods = array_merge($methods, $factory->create($definition));
         }
 
-        $testClassName  = ClassName::create('Tests\\'.$definition->getFullClassName().'Test');
+        $testClassName  = ClassName::create('Tests\\'.$definition->getInstanceOfFullName().'Test');
         $testParentName = ClassName::create('PHPUnit\\Framework\\TestCase');
 
         $properties = [];
@@ -45,8 +45,8 @@ class TestSimpleEntityFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getName(), false, false, null, new Visibility('private'));
+        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
 
-        return new TestSimpleEntity($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getName());
+        return new TestSimpleEntity($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf());
     }
 }

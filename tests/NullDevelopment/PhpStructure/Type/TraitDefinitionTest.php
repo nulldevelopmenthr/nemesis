@@ -52,9 +52,9 @@ class TraitDefinitionTest extends TestCase
         );
     }
 
-    public function testGetName()
+    public function testGetInstanceOf()
     {
-        self::assertEquals($this->name, $this->sut->getName());
+        self::assertEquals($this->name, $this->sut->getInstanceOf());
     }
 
     public function testGetTraits()

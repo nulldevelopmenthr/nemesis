@@ -36,9 +36,9 @@ class SimpleEntityGeneratorSpec extends ObjectBehavior
 
     public function it_creates_class_code(SimpleEntity $definition)
     {
-        $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
+        $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getTraits()->shouldBeCalled()->willReturn([]);
@@ -66,9 +66,9 @@ class SimpleEntityGeneratorSpec extends ObjectBehavior
 
     public function it_creates_class_code_with_parent(SimpleEntity $definition)
     {
-        $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
+        $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(true);
         $definition->getParentFullClassName()->shouldBeCalled()->willReturn('MyVendor\\Core\\BaseModel');
         $definition->getParentAlias()->shouldBeCalled()->willReturn(null);
@@ -100,9 +100,9 @@ class SimpleEntityGeneratorSpec extends ObjectBehavior
 
     public function it_creates_class_code_with_interfaces(SimpleEntity $definition, InterfaceName $interfaceName)
     {
-        $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
+        $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([$interfaceName]);
         $definition->getTraits()->shouldBeCalled()->willReturn([]);
@@ -134,9 +134,9 @@ class SimpleEntityGeneratorSpec extends ObjectBehavior
 
     public function it_creates_class_code_with_properties(SimpleEntity $definition, Property $firstName)
     {
-        $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
+        $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getTraits()->shouldBeCalled()->willReturn([]);
@@ -180,9 +180,9 @@ class SimpleEntityGeneratorSpec extends ObjectBehavior
         SimpleEntity $definition,
         Property $lastName
     ) {
-        $definition->getClassName()->shouldBeCalled()->willReturn('UserEntity');
+        $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
         $definition->hasParent()->shouldBeCalled()->willReturn(false);
         $definition->getInterfaces()->shouldBeCalled()->willReturn([]);
         $definition->getTraits()->shouldBeCalled()->willReturn([]);

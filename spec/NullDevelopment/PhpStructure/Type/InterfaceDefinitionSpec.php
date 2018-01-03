@@ -24,7 +24,7 @@ class InterfaceDefinitionSpec extends ObjectBehavior
 
     public function it_will_expose_name(InterfaceName $name)
     {
-        $this->getName()->shouldReturn($name);
+        $this->getInstanceOf()->shouldReturn($name);
     }
 
     public function it_will_expose_parent_name(InterfaceName $parentName)

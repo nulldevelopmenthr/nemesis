@@ -35,9 +35,9 @@ class SpecSingleValueObjectFactory
             $methods = array_merge($methods, $factory->create($definition));
         }
 
-        $specClassName  = ClassName::create('spec\\'.$definition->getFullClassName().'Spec');
+        $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecSingleValueObject($specClassName, $specParentName, [], [], [], [], $methods, $definition->getName());
+        return new SpecSingleValueObject($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
     }
 }

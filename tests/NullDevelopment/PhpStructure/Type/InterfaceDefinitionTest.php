@@ -45,9 +45,9 @@ class InterfaceDefinitionTest extends TestCase
         $this->sut        = new InterfaceDefinition($this->name, $this->parentName, $this->constants, $this->methods);
     }
 
-    public function testGetName()
+    public function testGetInstanceOf()
     {
-        self::assertEquals($this->name, $this->sut->getName());
+        self::assertEquals($this->name, $this->sut->getInstanceOf());
     }
 
     public function testGetParentName()

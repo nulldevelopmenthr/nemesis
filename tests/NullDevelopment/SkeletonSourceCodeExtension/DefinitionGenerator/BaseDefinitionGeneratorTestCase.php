@@ -9,6 +9,7 @@ use Generator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
+use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\Core\DefinitionLoaderCollection;
 use PHPUnit\Framework\TestCase;
 use SplFileInfo;
@@ -57,9 +58,10 @@ abstract class BaseDefinitionGeneratorTestCase extends TestCase
     {
         $inputs = $this->loadAllDefinitionsFromFiles();
 
+        /** @var Definition $definition */
         foreach ($inputs as $definition) {
             if (true === $this->sut->supports($definition)) {
-                yield[$definition, $this->getOutputFolder().$definition->getClassName().'.output'];
+                yield[$definition, $this->getOutputFolder().$definition->getInstanceOfName().'.output'];
             }
         }
     }
@@ -69,6 +71,7 @@ abstract class BaseDefinitionGeneratorTestCase extends TestCase
         return __DIR__.'/output/';
     }
 
+    /** @return Definition[] */
     protected function loadAllDefinitionsFromFiles(): array
     {
         $path    = getcwd().'/definitions';

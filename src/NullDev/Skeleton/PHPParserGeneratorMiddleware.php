@@ -52,8 +52,8 @@ class PHPParserGeneratorMiddleware implements Middleware
                 $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace("\t", '    ', $item->getGenerated());
 
                 $outputs[] = new OutputResource2(
-                    $this->fileFactory->getPath2($item->getClassDefinition()->getName()),
-                    $item->getClassDefinition()->getName(),
+                    $this->fileFactory->getPath2($item->getClassDefinition()->getInstanceOf()),
+                    $item->getClassDefinition()->getInstanceOf(),
                     $zz
                 );
             } else {

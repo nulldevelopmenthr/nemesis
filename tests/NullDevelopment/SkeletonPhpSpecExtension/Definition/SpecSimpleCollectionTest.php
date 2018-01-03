@@ -88,14 +88,14 @@ class SpecSimpleCollectionTest extends TestCase
         );
     }
 
-    public function testGetName()
+    public function testGetInstanceOf()
     {
-        self::assertEquals($this->name, $this->sut->getName());
+        self::assertEquals($this->name, $this->sut->getInstanceOf());
     }
 
-    public function testGetClassName()
+    public function testGetInstanceOfName()
     {
-        self::assertEquals('UserEntity', $this->sut->getClassName());
+        self::assertEquals('UserEntity', $this->sut->getInstanceOfName());
     }
 
     public function testGetNamespace()
@@ -103,9 +103,9 @@ class SpecSimpleCollectionTest extends TestCase
         self::assertEquals('MyVendor', $this->sut->getNamespace());
     }
 
-    public function testGetFullClassName()
+    public function testGetInstanceOfFullName()
     {
-        self::assertEquals('MyVendor\\UserEntity', $this->sut->getFullClassName());
+        self::assertEquals('MyVendor\\UserEntity', $this->sut->getInstanceOfFullName());
     }
 
     public function testHasParent()

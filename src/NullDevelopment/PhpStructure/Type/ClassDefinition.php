@@ -279,7 +279,7 @@ class ClassDefinition implements Definition
 
         $items = [
             'type'        => $this->getCurrentType(),
-            'instanceOf'  => $this->getFullClassName(),
+            'instanceOf'  => $this->getInstanceOfFullName(),
             'parent'      => $parent,
             'interfaces'  => $interfaces,
             'traits'      => $traits,

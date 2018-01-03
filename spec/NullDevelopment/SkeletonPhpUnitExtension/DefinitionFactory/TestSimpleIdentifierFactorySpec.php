@@ -33,9 +33,9 @@ class TestSimpleIdentifierFactorySpec extends ObjectBehavior
         TestGetterMethodFactory $testGetterMethodFactory,
         ClassName $className
     ) {
-        $definition->getFullClassName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
+        $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
         $definition->getProperties()->shouldBeCalled()->willReturn([]);
-        $definition->getName()->shouldBeCalled()->willReturn($className);
+        $definition->getInstanceOf()->shouldBeCalled()->willReturn($className);
 
         $setUpMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $testGetterMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
@@ -43,7 +43,7 @@ class TestSimpleIdentifierFactorySpec extends ObjectBehavior
         $result = $this->createFromSimpleIdentifier($definition);
         $result->shouldReturnAnInstanceOf(TestSimpleIdentifier::class);
 
-        $result->getFullClassName()->shouldReturn('Tests\\MyVendor\\UserEntityTest');
+        $result->getInstanceOfFullName()->shouldReturn('Tests\\MyVendor\\UserEntityTest');
         $result->getParentFullClassName()->shouldReturn('PHPUnit\Framework\TestCase');
         $result->getInterfaces()->shouldReturn([]);
         $result->getTraits()->shouldReturn([]);

@@ -59,7 +59,7 @@ class SpecEventSourcedEntityNetteGeneratorTest extends BaseSpecDefinitionGenerat
                 $specDefinition = $specFactory->createFromEventSourcedEntity($definition);
 
                 if (true === $this->sut->supports($specDefinition)) {
-                    yield[$specDefinition, __DIR__.'/output/'.$specDefinition->getClassName().'.output'];
+                    yield[$specDefinition, __DIR__.'/output/'.$specDefinition->getInstanceOfName().'.output'];
                 }
             }
         }
