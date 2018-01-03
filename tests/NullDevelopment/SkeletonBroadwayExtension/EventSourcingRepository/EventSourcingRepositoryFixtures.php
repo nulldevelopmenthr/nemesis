@@ -98,6 +98,8 @@ class EventSourcingRepositoryFixtures
             GetterMethod::create(self::firstNameProperty()),
         ];
 
+        $entity = ClassName::create('MyVendor\\Theater\\Domain\\EventSourcingRepository\\CreateShow');
+
         return new EventSourcingRepository(
             $className,
             $parentName,
@@ -105,7 +107,8 @@ class EventSourcingRepositoryFixtures
             [TraitName::create('SomeTrait')],
             [Constant::create('SOME_CONSTANT', 22)],
             $properties,
-            $methods
+            $methods,
+            $entity
         );
     }
 

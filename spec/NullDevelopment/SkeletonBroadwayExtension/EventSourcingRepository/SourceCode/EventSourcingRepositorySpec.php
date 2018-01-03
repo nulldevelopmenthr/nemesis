@@ -26,7 +26,8 @@ class EventSourcingRepositorySpec extends ObjectBehavior
         Constant $constant1,
         Property $property1,
         ConstructorMethod $constructorMethod,
-        GetterMethod $getterMethod1
+        GetterMethod $getterMethod1,
+        ClassName $entity
     ) {
         $this->beConstructedWith(
             $name,
@@ -35,7 +36,8 @@ class EventSourcingRepositorySpec extends ObjectBehavior
             [$traitName1],
             [$constant1],
             [$property1],
-            [$constructorMethod, $getterMethod1]
+            [$constructorMethod, $getterMethod1],
+            $entity
         );
     }
 

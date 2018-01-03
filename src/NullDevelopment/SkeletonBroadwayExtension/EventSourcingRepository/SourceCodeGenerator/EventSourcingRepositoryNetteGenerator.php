@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCodeGenerator;
 
+use Nette\PhpGenerator\ClassType;
+use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
@@ -30,5 +32,32 @@ class EventSourcingRepositoryNetteGenerator extends BaseSourceCodeDefinitionGene
         return [
             new Result($definition, $this->generate($definition)),
         ];
+    }
+
+    protected function processMethods(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
+    {
+        $constructorCode = $netteCode->addMethod('__construct');
+
+        $constructorCode->addParameter('eventStore')
+            ->setTypeHint('Broadway\EventStore\EventStore');
+        $constructorCode->addParameter('eventBus')
+            ->setTypeHint('Broadway\EventHandling\EventBus');
+        $constructorCode->addParameter('eventStreamDecorators')
+            ->setTypeHint('array')
+            ->setDefaultValue([]);
+
+        $constructorCode
+            ->addBody('parent::__construct(')
+            ->addBody("\t".'$eventStore,')
+            ->addBody("\t".'$eventBus,')
+            ->addBody("\t".$definition->getEntity()->getName().'::class,')
+            ->addBody("\t".'new PublicConstructorAggregateFactory(),')
+            ->addBody("\t".'$eventStreamDecorators')
+            ->addBody(');');
+
+        $namespace->addUse('Broadway\EventStore\EventStore');
+        $namespace->addUse('Broadway\EventHandling\EventBus');
+        $namespace->addUse('Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory');
+        $namespace->addUse($definition->getEntity()->getFullName());
     }
 }
