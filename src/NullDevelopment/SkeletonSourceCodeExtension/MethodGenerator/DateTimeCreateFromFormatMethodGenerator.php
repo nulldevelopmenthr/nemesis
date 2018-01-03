@@ -28,4 +28,9 @@ class DateTimeCreateFromFormatMethodGenerator extends BaseMethodGenerator
         $code->addBody('$date = parent::createFromFormat($format, $time, $object);');
         $code->addBody('return new self($date->format(\'c\'));');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 30;
+    }
 }

@@ -119,4 +119,9 @@ class DeserializeMethodGenerator extends BaseMethodGenerator
             $code->addBody('return new self('.$indent.implode(', '.$indent, $deserializeList).PHP_EOL.');');
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 98;
+    }
 }

@@ -29,4 +29,9 @@ class DateTimeSerializeMethodGenerator extends BaseMethodGenerator
             'return $this->__toString();'
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }

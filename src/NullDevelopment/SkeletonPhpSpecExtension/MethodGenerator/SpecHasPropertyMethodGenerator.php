@@ -29,4 +29,9 @@ class SpecHasPropertyMethodGenerator extends BaseSpecMethodGenerator
             sprintf('$this->%s()->shouldReturn(true);', $method->getMethodUnderTest())
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 60;
+    }
 }

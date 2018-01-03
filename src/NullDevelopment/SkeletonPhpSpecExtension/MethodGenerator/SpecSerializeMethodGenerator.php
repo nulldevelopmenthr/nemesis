@@ -67,4 +67,9 @@ class SpecSerializeMethodGenerator extends BaseSpecMethodGenerator
             sprintf('$this->serialize()->shouldReturn(%s);', $value)
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }

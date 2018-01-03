@@ -29,4 +29,9 @@ class DateTimeToStringMethodGenerator extends BaseMethodGenerator
             'return $this->format(\'c\');'
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

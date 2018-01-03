@@ -15,6 +15,8 @@ class TestDateTimeValueObjectGeneratorSpec extends ObjectBehavior
         SetUpMethodGenerator $setUpMethodGenerator,
         TestGetterMethodGenerator $testGetterMethodGenerator
     ) {
+        $setUpMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
+        $testGetterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
         $this->beConstructedWith([$setUpMethodGenerator, $testGetterMethodGenerator]);
     }
 

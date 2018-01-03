@@ -34,4 +34,9 @@ class SpecToStringMethodGenerator extends BaseSpecMethodGenerator
 
         $code->addBody(sprintf('$this->__toString()->shouldReturn(%s);', $value));
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

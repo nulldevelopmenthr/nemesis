@@ -53,4 +53,9 @@ class InitializableMethodGenerator extends BaseSpecMethodGenerator
             );
         }
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 20;
+    }
 }

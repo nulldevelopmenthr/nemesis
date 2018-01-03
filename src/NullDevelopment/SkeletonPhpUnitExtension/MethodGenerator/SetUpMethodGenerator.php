@@ -42,4 +42,9 @@ class SetUpMethodGenerator extends BaseTestMethodGenerator
             sprintf('$this->sut = new %s(%s);', $method->getClassName()->getName(), implode(', ', $constructorArguments))
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 10;
+    }
 }

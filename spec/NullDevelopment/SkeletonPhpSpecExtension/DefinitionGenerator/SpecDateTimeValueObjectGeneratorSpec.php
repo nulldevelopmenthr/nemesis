@@ -17,6 +17,10 @@ class SpecDateTimeValueObjectGeneratorSpec extends ObjectBehavior
         InitializableMethodGenerator $initializableMethodGenerator,
         SpecGetterMethodGenerator $getterSpecMethodGenerator
     ) {
+        $letMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
+        $initializableMethodGenerator->getMethodGeneratorPriority()->willReturn(20);
+        $getterSpecMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
+
         $this->beConstructedWith([$letMethodGenerator, $initializableMethodGenerator, $getterSpecMethodGenerator]);
     }
 

@@ -27,4 +27,9 @@ class SetterMethodGenerator extends BaseMethodGenerator
     {
         $code->addBody(sprintf('$this->%s = $%s;', $method->getPropertyName(), $method->getPropertyName()));
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 40;
+    }
 }

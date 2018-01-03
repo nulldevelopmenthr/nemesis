@@ -32,4 +32,9 @@ class SpecDateTimeDeserializeMethodGenerator extends BaseSpecMethodGenerator
             )
         );
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 96;
+    }
 }

@@ -37,4 +37,9 @@ class TestToStringMethodGenerator extends BaseTestMethodGenerator
 
         $code->addBody($body);
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 80;
+    }
 }

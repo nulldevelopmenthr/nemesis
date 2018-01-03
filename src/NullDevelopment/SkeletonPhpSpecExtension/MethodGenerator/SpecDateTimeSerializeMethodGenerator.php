@@ -27,4 +27,9 @@ class SpecDateTimeSerializeMethodGenerator extends BaseSpecMethodGenerator
     {
         $code->addBody('$this->serialize()->shouldReturn(\'2018-01-01T11:22:33+00:00\');');
     }
+
+    public function getMethodGeneratorPriority(): int
+    {
+        return 95;
+    }
 }
