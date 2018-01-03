@@ -6,10 +6,10 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator;
 
 use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleEntityFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleEntityGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleEntity;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleEntityGenerator

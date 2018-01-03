@@ -8,9 +8,9 @@ use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecToStringMethodGeneratorSpec extends ObjectBehavior

@@ -7,7 +7,7 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
 abstract class BaseTestMethodGenerator implements MethodGenerator
 {

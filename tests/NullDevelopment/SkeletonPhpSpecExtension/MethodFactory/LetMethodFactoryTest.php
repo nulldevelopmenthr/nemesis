@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 

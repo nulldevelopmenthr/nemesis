@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSingleValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject;
 use Webmozart\Assert\Assert;
 
 /**

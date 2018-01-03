@@ -9,9 +9,9 @@ use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior

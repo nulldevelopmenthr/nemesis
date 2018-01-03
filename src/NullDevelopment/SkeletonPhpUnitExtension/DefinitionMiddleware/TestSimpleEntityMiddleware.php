@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware;
 
 use League\Tactician\Middleware;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity;
-use NullDevelopment\Skeleton\SourceCode\Result;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleEntityFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleEntityGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleEntity;
+use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see TestSimpleEntityMiddlewareSpec

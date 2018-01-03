@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnitGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnit\TestEvent;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\BaseTestDefinitionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\Event\PhpUnitGenerator\TestEventNetteGeneratorSpec

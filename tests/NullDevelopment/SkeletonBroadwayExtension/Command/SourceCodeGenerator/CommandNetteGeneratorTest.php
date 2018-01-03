@@ -7,7 +7,7 @@ namespace Tests\NullDevelopment\SkeletonBroadwayExtension\Command\SourceCodeGene
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\Command;
 use NullDevelopment\SkeletonBroadwayExtension\Command\SourceCodeGenerator\CommandNetteGenerator;
-use Tests\NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseDefinitionGeneratorTestCase;
+use Tests\NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseDefinitionGeneratorTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\Command\SourceCodeGenerator\CommandNetteGenerator

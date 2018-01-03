@@ -10,9 +10,9 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\InstanceExample;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SetUpMethodGeneratorSpec extends ObjectBehavior

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpSpecExtension\DefinitionMiddleware;
 
 use League\Tactician\Middleware;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
-use NullDevelopment\Skeleton\SourceCode\Result;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecDateTimeValueObjectGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
+use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see SpecDateTimeValueObjectMiddlewareSpec

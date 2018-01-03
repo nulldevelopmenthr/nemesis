@@ -6,10 +6,10 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
 use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\Skeleton\SourceCode\Definition\SingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSingleValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSingleValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSingleValueObjectGenerator

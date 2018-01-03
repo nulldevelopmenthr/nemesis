@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleIdentifier;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleIdentifier;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleIdentifierFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier;
 use PhpSpec\ObjectBehavior;
 
 class TestSimpleIdentifierFactorySpec extends ObjectBehavior

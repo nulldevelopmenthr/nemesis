@@ -12,8 +12,8 @@ use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 

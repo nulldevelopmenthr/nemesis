@@ -6,12 +6,12 @@ namespace NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoader\BaseDefinitionLoader;
-use NullDevelopment\Skeleton\SourceCode\Method\DeserializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\HasPropertyMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\SerializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\BaseDefinitionLoader;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\HasPropertyMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 
 /**
  * @see EventLoaderSpec

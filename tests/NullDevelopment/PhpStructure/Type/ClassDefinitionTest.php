@@ -13,7 +13,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
 
 /**

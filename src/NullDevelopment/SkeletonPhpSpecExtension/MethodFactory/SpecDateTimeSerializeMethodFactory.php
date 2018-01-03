@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeSerializeMethod;
 
 /**
  * @see SpecDateTimeSerializeMethodFactorySpec

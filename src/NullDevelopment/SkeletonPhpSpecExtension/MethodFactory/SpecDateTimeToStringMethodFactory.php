@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeToStringMethod;
 
 /**
  * @see SpecDateTimeToStringMethodFactorySpec

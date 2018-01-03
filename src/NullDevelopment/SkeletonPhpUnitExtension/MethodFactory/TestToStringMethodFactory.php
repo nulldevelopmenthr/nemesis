@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpUnitExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestToStringMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 
 /**
  * @see TestToStringMethodFactorySpec

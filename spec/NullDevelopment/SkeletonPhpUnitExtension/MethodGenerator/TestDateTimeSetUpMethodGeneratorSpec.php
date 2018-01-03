@@ -7,9 +7,9 @@ namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
-use NullDevelopment\Skeleton\SourceCode\MethodGenerator;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeSetUpMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSetUpMethodGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestDateTimeSetUpMethodGeneratorSpec extends ObjectBehavior

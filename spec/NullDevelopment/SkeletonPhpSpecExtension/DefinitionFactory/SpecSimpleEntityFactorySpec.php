@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecSimpleEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleEntityFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleEntity;
 use PhpSpec\ObjectBehavior;
 
 class SpecSimpleEntityFactorySpec extends ObjectBehavior

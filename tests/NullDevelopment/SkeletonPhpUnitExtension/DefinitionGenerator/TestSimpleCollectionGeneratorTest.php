@@ -6,10 +6,10 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator;
 
 use Generator;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDevelopment\Skeleton\SourceCode\Definition\SimpleCollection;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestSimpleCollection;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestSimpleCollectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator

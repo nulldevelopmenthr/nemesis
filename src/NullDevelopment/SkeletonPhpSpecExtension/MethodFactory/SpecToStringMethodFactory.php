@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\ToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
 
 /**
  * @see SpecToStringMethodFactorySpec

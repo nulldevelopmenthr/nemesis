@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonBroadwayExtension\Command\PhpSpecGenerator;
 
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\Command\PhpSpecGenerator\SpecCommandNetteGenerator;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\BaseSpecDefinitionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecCommandNetteGeneratorSpec extends ObjectBehavior

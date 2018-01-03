@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use PhpSpec\ObjectBehavior;
 
 class SpecGetterMethodFactorySpec extends ObjectBehavior

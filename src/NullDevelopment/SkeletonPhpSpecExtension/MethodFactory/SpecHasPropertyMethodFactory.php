@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\HasPropertyMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecHasPropertyMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\HasPropertyMethod;
 
 /**
  * @see SpecHasPropertyMethodFactorySpec

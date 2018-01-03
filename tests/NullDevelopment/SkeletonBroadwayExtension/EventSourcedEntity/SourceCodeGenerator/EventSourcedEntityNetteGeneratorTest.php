@@ -7,7 +7,7 @@ namespace Tests\NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\Sou
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntity;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCodeGenerator\EventSourcedEntityNetteGenerator;
-use Tests\NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseDefinitionGeneratorTestCase;
+use Tests\NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseDefinitionGeneratorTestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCodeGenerator\EventSourcedEntityNetteGenerator

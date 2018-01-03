@@ -8,7 +8,7 @@ use App\Application;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDevelopment\Skeleton\SourceCode\DefinitionLoaderCollection;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection;
 use PHPUnit\Framework\TestCase;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerInterface;

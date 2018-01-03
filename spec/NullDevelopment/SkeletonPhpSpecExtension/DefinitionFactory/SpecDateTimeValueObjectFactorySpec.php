@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecDateTimeValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
 use PhpSpec\ObjectBehavior;
 
 class SpecDateTimeValueObjectFactorySpec extends ObjectBehavior

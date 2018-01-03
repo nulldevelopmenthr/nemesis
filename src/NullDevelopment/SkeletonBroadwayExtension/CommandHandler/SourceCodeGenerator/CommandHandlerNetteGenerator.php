@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator;
-use NullDevelopment\Skeleton\SourceCode\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
-use NullDevelopment\Skeleton\SourceCode\Result;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
+use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\CommandHandlerNetteGeneratorSpec

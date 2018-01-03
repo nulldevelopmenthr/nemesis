@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
-use NullDevelopment\Skeleton\SourceCode\Method\ConstructorMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PhpSpec\ObjectBehavior;
 
 class LetMethodFactorySpec extends ObjectBehavior

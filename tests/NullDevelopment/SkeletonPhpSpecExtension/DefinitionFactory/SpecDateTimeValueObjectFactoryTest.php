@@ -6,11 +6,6 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeCreateFromFormatMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeDeserializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeSerializeMethod;
-use NullDevelopment\Skeleton\SourceCode\Method\DateTimeToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Definition\SpecDateTimeValueObject;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
@@ -19,6 +14,11 @@ use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeDeserializeMetho
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeLetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeToStringMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeCreateFromFormatMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeDeserializeMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeSerializeMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\DateTimeToStringMethod;
 use Tests\TestCase\SfTestCase;
 
 /**

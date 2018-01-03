@@ -1,0 +1,38 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SetterMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator: ~
+
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeToStringMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeCreateFromFormatMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeSerializeMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeDeserializeMethodGenerator: ~
+
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SingleValueObjectLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleIdentifierLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\DateTimeValueObjectLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleEntityLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleCollectionLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\TraitLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\InterfaceLoader: ~
+
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstructorMethodFactory: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\InterfaceNameCollectionFactory: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\PropertyCollectionFactory: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\TraitNameCollectionFactory: ~
+
+

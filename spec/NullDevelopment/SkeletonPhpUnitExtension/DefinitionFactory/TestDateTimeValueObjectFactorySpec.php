@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\Skeleton\SourceCode\Definition\DateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\Definition\TestDateTimeValueObject;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestDateTimeValueObjectFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
 use PhpSpec\ObjectBehavior;
 
 class TestDateTimeValueObjectFactorySpec extends ObjectBehavior

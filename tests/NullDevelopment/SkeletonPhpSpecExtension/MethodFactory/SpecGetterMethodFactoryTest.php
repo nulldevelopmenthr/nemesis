@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodFactory;
 
-use NullDevelopment\Skeleton\SourceCode\Method\GetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use PHPUnit\Framework\TestCase;
 use Tests\TestCase\Fixtures;
 
