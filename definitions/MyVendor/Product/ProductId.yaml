@@ -1,5 +1,5 @@
 definition:
-  type: SimpleIdentifier
+  type: UuidV4Identifier
   instanceOf: MyVendor\Product\ProductId
   parent: ~
   interfaces: []
@@ -8,7 +8,7 @@ definition:
     RANDOM_CONST: 325
   constructor:
     id:
-      instanceOf: int
+      instanceOf: string
       nullable: false
       hasDefault: false
       default: ~
