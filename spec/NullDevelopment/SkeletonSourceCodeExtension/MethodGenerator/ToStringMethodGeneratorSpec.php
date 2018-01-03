@@ -6,8 +6,8 @@ namespace spec\NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ToStringMethod;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ToStringMethodGenerator;
 use PhpSpec\ObjectBehavior;
 

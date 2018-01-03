@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestToStringMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestToStringMethodGeneratorSpec extends ObjectBehavior

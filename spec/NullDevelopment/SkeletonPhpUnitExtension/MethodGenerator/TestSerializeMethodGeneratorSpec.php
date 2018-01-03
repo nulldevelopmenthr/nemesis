@@ -6,10 +6,10 @@ namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestSerializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestSerializeMethodGeneratorSpec extends ObjectBehavior

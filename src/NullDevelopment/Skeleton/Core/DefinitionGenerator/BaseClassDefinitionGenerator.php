@@ -9,8 +9,8 @@ use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataTypeName\AbstractDataTypeName;
 use NullDevelopment\PhpStructure\Type\Definition;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use Webmozart\Assert\Assert;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */

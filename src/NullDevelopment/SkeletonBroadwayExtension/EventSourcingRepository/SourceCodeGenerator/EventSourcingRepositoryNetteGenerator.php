@@ -7,8 +7,8 @@ namespace NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\Sour
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Result;
 

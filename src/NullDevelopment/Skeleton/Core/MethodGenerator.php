@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NullDevelopment\SkeletonSourceCodeExtension;
+namespace NullDevelopment\Skeleton\Core;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 

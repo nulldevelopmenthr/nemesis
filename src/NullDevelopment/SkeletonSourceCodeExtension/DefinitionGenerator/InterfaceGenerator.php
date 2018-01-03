@@ -8,8 +8,8 @@ use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\PhpStructure\Type\InterfaceDefinition;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Result;
 use Webmozart\Assert\Assert;
 

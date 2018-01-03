@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\InterfaceGenerator;
 use PhpSpec\ObjectBehavior;
 

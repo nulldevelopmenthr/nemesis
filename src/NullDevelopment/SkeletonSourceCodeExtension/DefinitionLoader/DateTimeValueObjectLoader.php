@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\InterfaceNameCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\TraitNameCollectionFactory;

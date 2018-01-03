@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\DateTimeValueObjectLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstructorMethodFactory;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator;
 use PhpSpec\ObjectBehavior;
 
