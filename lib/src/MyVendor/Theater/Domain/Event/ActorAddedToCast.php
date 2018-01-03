@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MyVendor\Theater\Domain\Event;
 
 use Broadway\Serializer\Serializable;
+use Carbon\Carbon;
 use DateTime;
 use MyVendor\Theater\Core\Actor;
 use MyVendor\Theater\Core\ShowId;
@@ -29,6 +30,11 @@ class ActorAddedToCast implements Serializable
         $this->id      = $id;
         $this->actor   = $actor;
         $this->addedAt = $addedAt;
+    }
+
+    public function create(ShowId $id, Actor $actor): self
+    {
+        return new self($id, $actor, Carbon::now());
     }
 
     public function getId(): ShowId
