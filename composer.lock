@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e311d6fd2adfd6a1cce08865d962e8c",
+    "content-hash": "cf7debb74336f0d5091276fd12362a5c",
     "packages": [
         {
             "name": "composer/semver",
@@ -1313,30 +1313,30 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.2",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835"
+                "reference": "d4face19ed8002eec8280bc1c5ec18130472bf43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b869cbf8a15ca6261689de2c28a7d7f2d0706835",
-                "reference": "b869cbf8a15ca6261689de2c28a7d7f2d0706835",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d4face19ed8002eec8280bc1c5ec18130472bf43",
+                "reference": "d4face19ed8002eec8280bc1c5ec18130472bf43",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "symfony/dependency-injection": "<3.4"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
-                "symfony/stopwatch": "~2.8|~3.0|~4.0"
+                "symfony/config": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
+                "symfony/stopwatch": "~3.4|~4.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -1345,7 +1345,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -1372,7 +1372,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-14T19:40:10+00:00"
+            "time": "2017-12-14T19:48:22+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1528,25 +1528,25 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.2",
+            "version": "v4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "bb3ef65d493a6d57297cad6c560ee04e2a8f5098"
+                "reference": "18d1953068e72262830bad593f0366fa62c93fb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/bb3ef65d493a6d57297cad6c560ee04e2a8f5098",
-                "reference": "bb3ef65d493a6d57297cad6c560ee04e2a8f5098",
+                "url": "https://api.github.com/repos/symfony/process/zipball/18d1953068e72262830bad593f0366fa62c93fb7",
+                "reference": "18d1953068e72262830bad593f0366fa62c93fb7",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -1573,7 +1573,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-12-14T19:40:10+00:00"
+            "time": "2017-12-14T19:48:22+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -2653,81 +2653,6 @@
             "time": "2016-01-20T08:20:44+00:00"
         },
         {
-            "name": "humbug/humbug",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/humbug/humbug.git",
-                "reference": "53730b3306efebf85bd66b6f7ec870d500f5ccbd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/humbug/humbug/zipball/53730b3306efebf85bd66b6f7ec870d500f5ccbd",
-                "reference": "53730b3306efebf85bd66b6f7ec870d500f5ccbd",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ctype": "*",
-                "ext-dom": "*",
-                "ext-json": "*",
-                "ext-libxml": "*",
-                "ext-tokenizer": "*",
-                "padraic/phar-updater": "^1.0.0",
-                "padraic/phpunit-extensions": "^1.0.0",
-                "php": "^7.0",
-                "phpunit/phpunit": "^6.0",
-                "sebastian/diff": "^2.0",
-                "symfony/console": "^2.6|^3.0",
-                "symfony/event-dispatcher": "^2.6|^3.0",
-                "symfony/finder": "^2.6|^3.0",
-                "symfony/process": "^2.6|^3.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.1",
-                "behat/behat": "^3.3",
-                "ciaranmcnulty/versionbasedtestskipper": "^0.2.1",
-                "mikey179/vfsstream": "^1.4",
-                "mockery/mockery": "^1.0",
-                "squizlabs/php_codesniffer": "^2.8",
-                "symfony/filesystem": "^2.6|^3.0"
-            },
-            "bin": [
-                "bin/humbug"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Humbug\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Pádraic Brady",
-                    "email": "padraic.brady@gmail.com",
-                    "homepage": "http://blog.astrumfutura.com"
-                }
-            ],
-            "description": "Humbug is a Mutation Testing framework for PHP. Whereas Code Coverage can tell you what code your tests are executing, Mutation Testing is intended to help you judge how well your unit tests actually perform and where they could be improved.",
-            "homepage": "https://github.com/padraic/humbug",
-            "keywords": [
-                "coverage",
-                "mutation testing",
-                "testing",
-                "unit testing"
-            ],
-            "abandoned": "infection/infection",
-            "time": "2017-12-31T15:29:07+00:00"
-        },
-        {
             "name": "jean85/pretty-package-versions",
             "version": "1.0.3",
             "source": {
@@ -3427,57 +3352,6 @@
                 "update"
             ],
             "time": "2017-07-12T22:42:45+00:00"
-        },
-        {
-            "name": "padraic/phpunit-extensions",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/humbug/phpunit-extensions.git",
-                "reference": "64717e59860b20a88b8b45a2173894c4cc521063"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/humbug/phpunit-extensions/zipball/64717e59860b20a88b8b45a2173894c4cc521063",
-                "reference": "64717e59860b20a88b8b45a2173894c4cc521063",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0",
-                "phpunit/phpunit": "^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Humbug\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Pádraic Brady",
-                    "email": "padraic.brady@gmail.com",
-                    "homepage": "http://blog.astrumfutura.com"
-                }
-            ],
-            "description": "Collection of Listeners to log and manipulate test run order",
-            "keywords": [
-                "extension",
-                "humbug",
-                "listener",
-                "phpunit",
-                "testing",
-                "tests"
-            ],
-            "time": "2017-09-10T19:14:54+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -5507,7 +5381,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofphp/php-cs-fixer": 20,
-        "humbug/humbug": 20,
         "mockery/mockery": 20
     },
     "prefer-stable": false,
