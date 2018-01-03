@@ -49,6 +49,27 @@ services:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
 
 
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestUuidV4IdentifierGenerator:
+    arguments:
+      $methodGenerators:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestHasPropertyMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionFactory\TestUuidV4IdentifierFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestToStringMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
+
+
 
   NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestDateTimeValueObjectGenerator:
     arguments:

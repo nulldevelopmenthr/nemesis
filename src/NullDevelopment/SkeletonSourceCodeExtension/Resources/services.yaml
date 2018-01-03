@@ -15,6 +15,7 @@ services:
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SetterMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator: ~
+  NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\UuidV4CreateMethodGenerator: ~
 
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeToStringMethodGenerator: ~
   NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DateTimeCreateFromFormatMethodGenerator: ~
@@ -24,6 +25,7 @@ services:
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SingleValueObjectLoader: ~
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleIdentifierLoader: ~
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\UuidV4IdentifierLoader: ~
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\DateTimeValueObjectLoader: ~
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleEntityLoader: ~
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\SimpleCollectionLoader: ~

@@ -15,6 +15,10 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
+  NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestUuidV4IdentifierMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
   NullDevelopment\SkeletonPhpUnitExtension\DefinitionMiddleware\TestDateTimeValueObjectMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
