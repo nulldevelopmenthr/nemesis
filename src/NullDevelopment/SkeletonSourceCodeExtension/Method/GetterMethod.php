@@ -76,7 +76,12 @@ class GetterMethod implements Method
     /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
-        return [];
+        $imports = [];
+        if (true === $this->property->isObject()) {
+            $imports[] = $this->property->getInstanceName();
+        }
+
+        return $imports;
     }
 
     public function isStatic(): bool
