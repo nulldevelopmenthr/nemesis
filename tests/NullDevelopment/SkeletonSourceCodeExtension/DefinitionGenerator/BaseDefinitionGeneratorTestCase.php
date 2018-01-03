@@ -9,7 +9,7 @@ use Generator;
 use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\Path\Readers\FinderFactory;
 use NullDev\Skeleton\Source\ImprovedClassSource;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection;
+use NullDevelopment\Skeleton\Core\DefinitionLoaderCollection;
 use PHPUnit\Framework\TestCase;
 use SplFileInfo;
 use Symfony\Component\DependencyInjection\ContainerInterface;

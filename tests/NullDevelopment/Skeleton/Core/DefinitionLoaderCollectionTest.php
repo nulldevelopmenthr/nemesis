@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Tests\NullDevelopment\SkeletonSourceCodeExtension;
+namespace Tests\NullDevelopment\Skeleton\Core;
 
 use Generator;
 use NullDev\Skeleton\Path\Readers\FinderFactory;
+use NullDevelopment\Skeleton\Core\DefinitionLoaderCollection;
 use NullDevelopment\Skeleton\SourceCode;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection;
 use SplFileInfo;
 use Tests\TestCase\SfTestCase;
 use TypeError;
 
 /**
- * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoaderCollection
+ * @covers \NullDevelopment\Skeleton\Core\DefinitionLoaderCollection
  * @group  integration
  */
 class DefinitionLoaderCollectionTest extends SfTestCase
