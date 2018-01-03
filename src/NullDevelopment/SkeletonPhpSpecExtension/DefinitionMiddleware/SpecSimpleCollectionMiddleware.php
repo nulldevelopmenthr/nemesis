@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonPhpSpecExtension\DefinitionMiddleware;
 
 use League\Tactician\Middleware;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionFactory\SpecSimpleCollectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\SpecSimpleCollectionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see SpecSimpleCollectionMiddlewareSpec

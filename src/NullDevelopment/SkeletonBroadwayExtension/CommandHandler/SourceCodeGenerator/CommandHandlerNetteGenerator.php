@@ -6,9 +6,9 @@ namespace NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGen
 
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\Core\DefinitionGenerator;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\CommandHandlerNetteGeneratorSpec

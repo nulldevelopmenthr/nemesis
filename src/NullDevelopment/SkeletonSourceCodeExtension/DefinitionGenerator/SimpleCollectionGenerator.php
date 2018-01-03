@@ -8,8 +8,8 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see SimpleCollectionGeneratorSpec

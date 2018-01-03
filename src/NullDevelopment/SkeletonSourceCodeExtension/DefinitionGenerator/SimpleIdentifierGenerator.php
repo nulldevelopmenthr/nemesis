@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\Result;
 use NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier;
-use NullDevelopment\SkeletonSourceCodeExtension\Result;
 
 /**
  * @see SimpleIdentifierGeneratorSpec
