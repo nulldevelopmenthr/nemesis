@@ -101,11 +101,11 @@ class SimpleEntityLoaderTest extends SfTestCase
                             'instanceOf' => 'string',
                             'nullable'   => false,
                             'hasDefault' => false,
-                            'default'    => null,
+                            'default'    => false,
                             'examples'   => ['John Smith'],
                         ],
                     ],
-                    'properties' => ['name' => ['instanceOf' => 'string']],
+                    'properties' => ['name' => ['instanceOf' => 'string', 'examples' => ['John Smith']]],
                 ],
                 new SimpleEntity(
                     ClassName::create('MyVendor\User\Username'),

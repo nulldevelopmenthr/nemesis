@@ -31,7 +31,7 @@ class EventSourcedAggregateRootLoader extends BaseDefinitionLoader
         $interfaces        = $this->interfaceNameCollectionFactory->create($data['interfaces']);
         $traits            = $this->traitNameCollectionFactory->create($data['traits']);
         $constants         = $this->constantCollectionFactory->create($data['constants']);
-        $properties        = $this->propertyCollectionFactory->create(array_merge($data['properties'], $data['constructor']));
+        $properties        = $this->propertyCollectionFactory->create(array_merge($data['constructor'], $data['properties']));
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
 
