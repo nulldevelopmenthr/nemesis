@@ -44,3 +44,15 @@ definition:
       nullable: false
       hasDefault: false
       default: ~
+  methods:
+    getFirstNameAsString:
+      type: chainedgetter
+      calls:
+        name: getValue
+        type: getter
+        property:
+          name: firstName
+          instanceOf: string
+          nullable: false
+          hasDefault: false
+          default: ~

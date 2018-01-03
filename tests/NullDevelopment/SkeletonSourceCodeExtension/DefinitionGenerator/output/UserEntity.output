@@ -104,6 +104,12 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
 	}
 
 
+	public function getFirstNameAsString(): string
+	{
+		return $this->firstName->getValue();
+	}
+
+
 	public function serialize(): array
 	{
 		return [
