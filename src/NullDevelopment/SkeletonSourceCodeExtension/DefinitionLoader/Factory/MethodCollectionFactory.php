@@ -8,6 +8,7 @@ use Exception;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\ChainedGetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 
 /**
@@ -36,8 +37,23 @@ class MethodCollectionFactory
                 );
 
                 $result[] = new GetterMethod($methodName, $property);
+            } elseif ('chainedgetter' === $methodInput['type']) {
+                $data = $methodInput['calls'];
+
+                $property = new Property(
+                    $data['property']['name'],
+                    ClassName::create($data['property']['instanceOf']),
+                    $data['property']['nullable'],
+                    $data['property']['hasDefault'],
+                    $data['property']['default'],
+                    new Visibility('private')
+                );
+
+                $getterMethod = new GetterMethod($data['name'], $property);
+
+                $result[] = new ChainedGetterMethod($methodName, $getterMethod);
             } else {
-                throw new Exception('ERR 322315002: Only getter is implemented for now!');
+                throw new Exception('ERR 322315002: Only getter & chainedgetter are implemented for now!');
             }
         }
 
