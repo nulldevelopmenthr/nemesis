@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton;
 
+use NullDevelopment\Skeleton\CompilerPass\DefinitionLoaderCollectionCompilerPass;
 use NullDevelopment\Skeleton\CompilerPass\ObjectConfigurationLoaderCompilerPass;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -17,8 +19,11 @@ final class SkeletonExtension extends Extension
     {
         $container->registerForAutoconfiguration(DefinitionConfigurationLoader::class)
             ->addTag('skeleton.object_configuration_loader');
-
         $container->addCompilerPass(new ObjectConfigurationLoaderCompilerPass());
+
+        $container->registerForAutoconfiguration(DefinitionLoader::class)
+            ->addTag('skeleton.definition_loader');
+        $container->addCompilerPass(new DefinitionLoaderCollectionCompilerPass());
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources/'));
         $loader->load('cli.yml');
