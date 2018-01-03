@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode;
 
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\InterfaceNameCollectionFactory;

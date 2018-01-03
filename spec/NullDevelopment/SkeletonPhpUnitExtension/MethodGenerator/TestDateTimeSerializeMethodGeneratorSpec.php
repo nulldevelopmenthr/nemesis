@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeSerializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeSerializeMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestDateTimeSerializeMethodGeneratorSpec extends ObjectBehavior

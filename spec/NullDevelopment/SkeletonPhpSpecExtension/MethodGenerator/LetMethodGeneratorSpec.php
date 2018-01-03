@@ -6,11 +6,11 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class LetMethodGeneratorSpec extends ObjectBehavior

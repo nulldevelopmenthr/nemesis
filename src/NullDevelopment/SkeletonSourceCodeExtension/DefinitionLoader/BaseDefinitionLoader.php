@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstructorMethodFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\InterfaceNameCollectionFactory;

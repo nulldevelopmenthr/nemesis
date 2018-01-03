@@ -6,7 +6,7 @@ namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\Type\InterfaceDefinition;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\MethodCollectionFactory;
 

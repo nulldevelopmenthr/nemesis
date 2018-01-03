@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\SkeletonSourceCodeExtension;
 
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\Skeleton\SourceCode;
 use Webmozart\Assert\Assert;
 

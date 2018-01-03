@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnitGenerator;
 
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnitGenerator\TestEventSourcingRepositoryNetteGenerator;
 use NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\BaseTestDefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestEventSourcingRepositoryNetteGeneratorSpec extends ObjectBehavior

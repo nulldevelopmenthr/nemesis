@@ -6,7 +6,7 @@ namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
 
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\PhpStructure\Type\TraitDefinition;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader;
+use NullDevelopment\Skeleton\Core\DefinitionLoader;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\ConstantCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\MethodCollectionFactory;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\PropertyCollectionFactory;

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace spec\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeCreateFromFormatMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeCreateFromFormatMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class TestDateTimeCreateFromFormatMethodGeneratorSpec extends ObjectBehavior

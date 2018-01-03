@@ -6,7 +6,7 @@ namespace NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 
 /** @SuppressWarnings("PHPMD.NumberOfChildren") */
 abstract class BaseMethodGenerator implements MethodGenerator

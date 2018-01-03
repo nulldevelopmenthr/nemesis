@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCodeGenerator;
 
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCodeGenerator\EventSourcedAggregateRootNetteGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
 use PhpSpec\ObjectBehavior;
 

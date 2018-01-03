@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\Event\SourceCode\Event;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\BaseSourceCodeDefinitionGenerator;
 use NullDevelopment\SkeletonSourceCodeExtension\Result;
 

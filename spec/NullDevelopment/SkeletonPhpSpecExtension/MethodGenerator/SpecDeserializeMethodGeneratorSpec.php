@@ -7,11 +7,11 @@ namespace spec\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\Core\MethodGenerator;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDeserializeMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 use PhpSpec\ObjectBehavior;
 
 class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior

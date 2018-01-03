@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpecGenerator;
 
 use NullDevelopment\PhpStructure\Type\Definition;
+use NullDevelopment\Skeleton\Core\DefinitionGenerator;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpec\SpecEventSourcedEntity;
 use NullDevelopment\SkeletonPhpSpecExtension\DefinitionGenerator\BaseSpecDefinitionGenerator;
-use NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator;
 
 /**
  * @see \spec\NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpecGenerator\SpecEventSourcedEntityNetteGeneratorSpec
