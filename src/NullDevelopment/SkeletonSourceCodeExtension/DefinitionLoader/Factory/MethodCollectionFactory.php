@@ -68,7 +68,13 @@ class MethodCollectionFactory
                     );
                 }
 
-                $result[] = new CustomMethod($methodName, $params, $methodInput['body']);
+                $zz = new CustomMethod($methodName, $params, $methodInput['body']);
+
+                if (null !== $methodInput['returnType']) {
+                    $zz->setReturnType(ClassName::create($methodInput['returnType']));
+                }
+
+                $result[] = $zz;
             } else {
                 throw new Exception('ERR 322315002: Only getter, chainedgetter & custom methods are implemented for now!');
             }
