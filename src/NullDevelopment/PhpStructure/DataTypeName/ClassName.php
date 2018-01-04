@@ -23,4 +23,13 @@ class ClassName extends AbstractDataTypeName implements ContractName, Importable
 
         return new static($name, $namespace, $alias);
     }
+
+    public function isObject(): bool
+    {
+        if (true === in_array($this->getFullName(), ['int', 'string', 'float', 'bool', 'array'])) {
+            return false;
+        }
+
+        return true;
+    }
 }
