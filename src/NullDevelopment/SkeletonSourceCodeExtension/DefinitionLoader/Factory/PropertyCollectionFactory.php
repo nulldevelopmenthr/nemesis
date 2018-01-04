@@ -7,6 +7,7 @@ namespace NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataType\Visibility;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\ArrayExample;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
 
 /**
@@ -30,7 +31,11 @@ class PropertyCollectionFactory
             $examples = [];
 
             foreach ($data['examples'] as $example) {
-                $examples[] = new SimpleExample($example);
+                if (true === is_array($example)) {
+                    $examples[] = new ArrayExample($example);
+                } else {
+                    $examples[] = new SimpleExample($example);
+                }
             }
 
             $result[] = new Property(
