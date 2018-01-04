@@ -26,6 +26,13 @@ class SetterMethod implements Method
         $this->property = $property;
     }
 
+    public static function create(Property $property): self
+    {
+        $methodName = 'set'.ucfirst($property->getName());
+
+        return new self($methodName, $property);
+    }
+
     public function getProperty(): Property
     {
         return $this->property;

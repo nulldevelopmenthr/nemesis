@@ -12,6 +12,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ChainedGetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\CustomMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
+use NullDevelopment\SkeletonSourceCodeExtension\Method\SetterMethod;
 
 /**
  * @see MethodCollectionFactorySpec
@@ -83,8 +84,19 @@ class MethodCollectionFactory
                 }
 
                 $result[] = $zz;
+            } elseif ('setter' === $methodInput['type']) {
+                $property = new Property(
+                    $methodInput['property']['name'],
+                    ClassName::create($methodInput['property']['instanceOf']),
+                    $methodInput['property']['nullable'],
+                    $methodInput['property']['hasDefault'],
+                    $methodInput['property']['default'],
+                    new Visibility('private')
+                );
+
+                $result[] = new SetterMethod($methodName, $property);
             } else {
-                throw new Exception('ERR 322315002: Only getter, chainedgetter & custom methods are implemented for now!');
+                throw new Exception('ERR 322315002: Only setter, getter, chainedgetter & custom methods are implemented for now!');
             }
         }
 
