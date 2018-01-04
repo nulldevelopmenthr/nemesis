@@ -9,4 +9,6 @@ use MyVendor\User\UserFirstName;
 interface SomeInterface
 {
     public function getFirstName(): UserFirstName;
+
+    public function setFirstName(UserFirstName $firstName);
 }
