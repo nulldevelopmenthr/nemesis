@@ -25,9 +25,7 @@ class TestEventSourcedAggregateRootFactoryTest extends SfTestCase
         $this->sut = $this->getService(TestEventSourcedAggregateRootFactory::class);
     }
 
-    /**
-     * @dataProvider provideEventSourcedAggregateRoots
-     */
+    /** @dataProvider provideEventSourcedAggregateRoots */
     public function testCreateFromEventSourcedAggregateRoot(EventSourcedAggregateRoot $command, TestEventSourcedAggregateRoot $expected)
     {
         self::assertEquals($expected, $this->sut->createFromEventSourcedAggregateRoot($command));

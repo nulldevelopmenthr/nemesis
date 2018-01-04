@@ -23,9 +23,7 @@ class LetGeneratorTest extends TestCase
         return new LetGenerator(new BuilderFactory());
     }
 
-    /**
-     * @dataProvider provideParameters
-     */
+    /** @dataProvider provideParameters */
     public function testOutput(array $parameters, string $fileName): void
     {
         $method = new LetMethod($parameters);
@@ -41,9 +39,7 @@ class LetGeneratorTest extends TestCase
                 '0-no-params',
             ],
             [
-                [
-                    Parameter::create('first'),
-                ],
+                [Parameter::create('first')],
                 '1-one-no-type-param',
             ],
             [
@@ -55,9 +51,7 @@ class LetGeneratorTest extends TestCase
                 '2-multiple-no-type-params',
             ],
             [
-                [
-                    Parameter::create('first', 'Vendor\Namespace\FirstName'),
-                ],
+                [Parameter::create('first', 'Vendor\Namespace\FirstName')],
                 '3-one-type-param',
             ],
             [

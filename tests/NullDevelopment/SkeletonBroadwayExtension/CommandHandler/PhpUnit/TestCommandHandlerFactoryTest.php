@@ -25,9 +25,7 @@ class TestCommandHandlerFactoryTest extends SfTestCase
         $this->sut = $this->getService(TestCommandHandlerFactory::class);
     }
 
-    /**
-     * @dataProvider provideCommandHandlers
-     */
+    /** @dataProvider provideCommandHandlers */
     public function testCreateFromCommandHandler(CommandHandler $command, TestCommandHandler $expected)
     {
         self::assertEquals($expected, $this->sut->createFromCommandHandler($command));

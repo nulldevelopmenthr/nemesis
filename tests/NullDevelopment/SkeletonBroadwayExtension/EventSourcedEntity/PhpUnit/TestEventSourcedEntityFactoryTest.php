@@ -25,9 +25,7 @@ class TestEventSourcedEntityFactoryTest extends SfTestCase
         $this->sut = $this->getService(TestEventSourcedEntityFactory::class);
     }
 
-    /**
-     * @dataProvider provideEventSourcedEntitys
-     */
+    /** @dataProvider provideEventSourcedEntitys */
     public function testCreateFromEventSourcedEntity(EventSourcedEntity $command, TestEventSourcedEntity $expected)
     {
         self::assertEquals($expected, $this->sut->createFromEventSourcedEntity($command));

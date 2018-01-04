@@ -25,9 +25,7 @@ class TestEventFactoryTest extends SfTestCase
         $this->sut = $this->getService(TestEventFactory::class);
     }
 
-    /**
-     * @dataProvider provideEvents
-     */
+    /** @dataProvider provideEvents */
     public function testCreateFromEvent(Event $command, TestEvent $expected)
     {
         self::assertEquals($expected, $this->sut->createFromEvent($command));
