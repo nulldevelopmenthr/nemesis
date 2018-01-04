@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\Command;
 
-use Exception;
 use NullDevelopment\Skeleton\SourceCode;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Throwable;
 
 /**
  * @codeCoverageIgnore
@@ -36,7 +36,7 @@ class GenerateMissingFilesFromDefinitionCliCommand extends BaseGenerateFilesFrom
                         $this->io->writeln('Skipping '.$result->getFileName().' as it already exists');
                     }
                 }
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->io->writeln($e->getMessage());
             }
         }
