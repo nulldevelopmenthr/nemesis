@@ -143,13 +143,6 @@ abstract class SourceParserContext implements Context
 
             Assert::eq($item['methodClass'], get_class($method));
             Assert::eq($item['methodName'], $method->getMethodName());
-            /*
-            if (true === empty($item['className'])) {
-                Assert::false($getterMethod->getParameter()->hasType());
-            } else {
-                Assert::eq($item['className'], $getterMethod->getParameter()->getType()->getFullName());
-            }
-            */
         }
     }
 

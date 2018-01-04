@@ -25,9 +25,7 @@ class TestCommandFactoryTest extends SfTestCase
         $this->sut = $this->getService(TestCommandFactory::class);
     }
 
-    /**
-     * @dataProvider provideCommands
-     */
+    /** @dataProvider provideCommands */
     public function testCreateFromCommand(Command $command, TestCommand $expected)
     {
         self::assertEquals($expected, $this->sut->createFromCommand($command));

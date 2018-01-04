@@ -38,14 +38,7 @@ abstract class BaseTestMethodGenerator implements MethodGenerator
             $code->setReturnType($method->getReturnType());
             $code->setReturnNullable($method->isNullableReturnType());
         }
-        /*
-        foreach ($method->getParameters() as $parameter) {
-            if (true === $parameter->isObject()) {
-                $code->addParameter($parameter->getName())
-                    ->setTypeHint($parameter->getInstanceFullName());
-            }
-        }
-        */
+
         $this->generateMethodBody($method, $code);
 
         return $code;
