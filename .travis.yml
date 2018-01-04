@@ -42,6 +42,7 @@ matrix:
         - mkdir -p build/cov build/logs build/phpunit/coverage
       install:
         - composer install --prefer-source
+        - composer dump-autoload -o
       script:
         - php -d 'xdebug.max_nesting_level=500' vendor/bin/phpunit
       after_script:
