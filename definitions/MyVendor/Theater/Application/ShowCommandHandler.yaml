@@ -11,3 +11,5 @@ definition:
       hasDefault: false
       default: null
       examples: []
+  model: MyVendor\Theater\Domain\ShowModel
+  modelId: MyVendor\Theater\Core\ShowId

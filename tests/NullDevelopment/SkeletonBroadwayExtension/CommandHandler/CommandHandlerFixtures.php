@@ -32,14 +32,24 @@ class CommandHandlerFixtures
         return ClassName::create('MyVendor\\Theater\\Domain\\CommandHandler\\CreateShow');
     }
 
+    public static function commandName(): ClassName
+    {
+        return ClassName::create('MyVendor\\Theater\\Domain\\Command\\CreateNewShow');
+    }
+
+    public static function modelName(): ClassName
+    {
+        return ClassName::create('MyVendor\\Theater\\Domain\\ShowModel');
+    }
+
     public static function idName(): ClassName
     {
-        return ClassName::create('MyVendor\\Theater\\Domain\\Core\\ShowId');
+        return ClassName::create('MyVendor\\Theater\\Core\\ShowId');
     }
 
     public static function firstName(): ClassName
     {
-        return ClassName::create('MyVendor\\Theater\\Domain\\Core\\FirstName');
+        return ClassName::create('MyVendor\\Theater\\Core\\FirstName');
     }
 
     public static function testActorEntityName(): ClassName
@@ -105,7 +115,9 @@ class CommandHandlerFixtures
             [TraitName::create('SomeTrait')],
             [Constant::create('SOME_CONSTANT', 22)],
             $properties,
-            $methods
+            $methods,
+            self::modelName(),
+            self::idName()
         );
     }
 

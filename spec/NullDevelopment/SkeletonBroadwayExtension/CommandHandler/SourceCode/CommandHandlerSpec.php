@@ -26,7 +26,9 @@ class CommandHandlerSpec extends ObjectBehavior
         Constant $constant1,
         Property $property1,
         ConstructorMethod $constructorMethod,
-        GetterMethod $getterMethod1
+        GetterMethod $getterMethod1,
+        ClassName $model,
+        ClassName $modelId
     ) {
         $this->beConstructedWith(
             $name,
@@ -35,7 +37,9 @@ class CommandHandlerSpec extends ObjectBehavior
             [$traitName1],
             [$constant1],
             [$property1],
-            [$constructorMethod, $getterMethod1]
+            [$constructorMethod, $getterMethod1],
+            $model,
+            $modelId
         );
     }
 

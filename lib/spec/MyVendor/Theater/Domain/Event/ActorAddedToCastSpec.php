@@ -18,15 +18,15 @@ class ActorAddedToCastSpec extends ObjectBehavior
         $this->beConstructedWith($id, $actor, $addedAt);
     }
 
-    public function it_has_a_helper_factory_method(ShowId $id, Actor $actor)
-    {
-        $this->create($id, $actor)->shouldReturnAnInstanceOf(ActorAddedToCast::class);
-    }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType(ActorAddedToCast::class);
         $this->shouldImplement(Serializable::class);
+    }
+
+    public function it_has_a_helper_factory_method(ShowId $id, Actor $actor)
+    {
+        $this->create($id, $actor)->shouldReturnAnInstanceOf(ActorAddedToCast::class);
     }
 
     public function it_exposes_id(ShowId $id)

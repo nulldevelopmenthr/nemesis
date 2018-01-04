@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace MyVendor\Theater\Application;
 
 use Broadway\CommandHandling\SimpleCommandHandler;
+use MyVendor\Theater\Core\ShowId;
+use MyVendor\Theater\Domain\ShowModel;
 
 /**
  * @see \spec\MyVendor\Theater\Application\ShowCommandHandlerSpec
@@ -18,5 +20,15 @@ class ShowCommandHandler extends SimpleCommandHandler
     public function __construct(ShowRepository $repository)
     {
         $this->repository = $repository;
+    }
+
+    protected function load(ShowId $id): ShowModel
+    {
+        return $this->repository->load($id);
+    }
+
+    protected function save(ShowModel $model)
+    {
+        $this->repository->save($model);
     }
 }

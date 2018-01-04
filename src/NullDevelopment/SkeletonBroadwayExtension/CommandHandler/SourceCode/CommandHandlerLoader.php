@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode;
 
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\Method\LoadMethod;
+use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\Method\SaveMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\BaseDefinitionLoader;
 
 /**
@@ -34,10 +36,15 @@ class CommandHandlerLoader extends BaseDefinitionLoader
         $properties        = $this->propertyCollectionFactory->create(array_merge($data['constructor'], $data['properties']));
         $constructorMethod = $this->constructorMethodFactory->create($data['constructor']);
         $methods           = [$constructorMethod];
+        $model             = ClassName::create($data['model']);
+        $modelId           = ClassName::create($data['modelId']);
 
         foreach ($this->methodCollectionFactory->create($data['methods']) as $method) {
             $methods[] = $method;
         }
+
+        $methods[] = new LoadMethod($model, $modelId);
+        $methods[] = new SaveMethod($model);
 
         return new CommandHandler(
             $className,
@@ -46,7 +53,9 @@ class CommandHandlerLoader extends BaseDefinitionLoader
             $traits,
             $constants,
             $properties,
-            $methods
+            $methods,
+            $model,
+            $modelId
         );
     }
 
@@ -62,6 +71,8 @@ class CommandHandlerLoader extends BaseDefinitionLoader
             'properties'  => [],
             'methods'     => [],
             'constructor' => [],
+            'model'       => null,
+            'modelId'     => null,
         ];
     }
 }
