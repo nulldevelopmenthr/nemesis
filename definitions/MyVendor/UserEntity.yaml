@@ -66,3 +66,4 @@ definition:
           default: ~
       body:
         - "return 1;"
+      returnType: int
