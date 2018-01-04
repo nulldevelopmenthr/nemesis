@@ -1,8 +1,0 @@
-namespace MyVendor;
-
-use MyVendor\User\UserFirstName;
-
-interface SomeInterface
-{
-	function getFirstName(): UserFirstName;
-}
