@@ -65,7 +65,13 @@ class ChainedGetterMethod implements Method
     /** @return \NullDevelopment\PhpStructure\DataTypeName\ContractName[] */
     public function getImports(): array
     {
-        return [];
+        $imports = [];
+
+        if ($this->getterMethod->getProperty()->isObject()) {
+            $imports[] = $this->getterMethod->getProperty()->getInstanceName();
+        }
+
+        return $imports;
     }
 
     public function isStatic(): bool
