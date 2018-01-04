@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\Command;
 
-use Exception;
 use NullDevelopment\Skeleton\SourceCode;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Throwable;
 
 /**
  * @codeCoverageIgnore
@@ -32,7 +32,7 @@ class GenerateAllFilesFromDefinitionCliCommand extends BaseGenerateFilesFromDefi
                 foreach ($results as $result) {
                     $this->fileSystem->dumpFile($result->getFileName(), $result->getOutput());
                 }
-            } catch (Exception $e) {
+            } catch (Throwable $e) {
                 $this->io->writeln($e->getMessage());
             }
         }
