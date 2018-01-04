@@ -28,6 +28,8 @@ class GenerateAllFilesFromDefinitionCliCommand extends BaseGenerateFilesFromDefi
         /** @var SourceCode $sourceCodeDefinition */
         foreach ($sourceCodeDefinitions as $sourceCodeDefinition) {
             try {
+                $this->io->writeln('Processing '.$sourceCodeDefinition->getInstanceOfName());
+
                 $results = $this->commandBus->handle($sourceCodeDefinition);
                 foreach ($results as $result) {
                     $this->fileSystem->dumpFile($result->getFileName(), $result->getOutput());
