@@ -1,0 +1,72 @@
+<?php
+
+declare(strict_types=1);
+
+namespace MyVendor\Theater\Domain\Event;
+
+use Broadway\Serializer\Serializable;
+use Carbon\Carbon;
+use DateTime;
+use MyVendor\Theater\Core\Actor;
+use MyVendor\Theater\Core\ShowId;
+
+/**
+ * @see \spec\MyVendor\Theater\Domain\Event\ActorAddedToCastSpec
+ * @see \Tests\MyVendor\Theater\Domain\Event\ActorAddedToCastTest
+ */
+class ActorAddedToCast implements Serializable
+{
+    /** @var ShowId */
+    private $id;
+
+    /** @var Actor */
+    private $actor;
+
+    /** @var DateTime */
+    private $addedAt;
+
+    public function __construct(ShowId $id, Actor $actor, DateTime $addedAt)
+    {
+        $this->id      = $id;
+        $this->actor   = $actor;
+        $this->addedAt = $addedAt;
+    }
+
+    public static function create(ShowId $id, Actor $actor): self
+    {
+        return new self($id, $actor, Carbon::now());
+    }
+
+    public function getId(): ShowId
+    {
+        return $this->id;
+    }
+
+    public function getActor(): Actor
+    {
+        return $this->actor;
+    }
+
+    public function getAddedAt(): DateTime
+    {
+        return $this->addedAt;
+    }
+
+    public function serialize(): array
+    {
+        return [
+            'id'      => $this->id->serialize(),
+            'actor'   => $this->actor->serialize(),
+            'addedAt' => $this->addedAt->format('c'),
+        ];
+    }
+
+    public static function deserialize(array $data): self
+    {
+        return new self(
+            ShowId::deserialize($data['id']),
+            Actor::deserialize($data['actor']),
+            new DateTime($data['addedAt'])
+        );
+    }
+}
