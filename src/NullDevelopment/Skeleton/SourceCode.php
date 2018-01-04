@@ -7,4 +7,6 @@ namespace NullDevelopment\Skeleton;
 interface SourceCode
 {
     public function getGenerationPriority(): int;
+
+    public function getInstanceOfName(): string;
 }
