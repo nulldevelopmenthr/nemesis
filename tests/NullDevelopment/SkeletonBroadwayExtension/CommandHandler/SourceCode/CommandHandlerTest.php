@@ -10,16 +10,14 @@ use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
-use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
-use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use PHPUnit\Framework\TestCase;
-use Tests\TestCase\Fixtures;
+use Tests\NullDevelopment\SkeletonBroadwayExtension\CommandHandler\CommandHandlerFixtures;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler
- * @group  todo
+ * @group  unit
  */
 class CommandHandlerTest extends TestCase
 {
@@ -28,7 +26,7 @@ class CommandHandlerTest extends TestCase
     /** @var ClassName */
     private $name;
 
-    /** @var ClassName */
+    /** @var ClassName|null */
     private $parent;
 
     /** @var array */
@@ -49,21 +47,29 @@ class CommandHandlerTest extends TestCase
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
 
+    /** @var ClassName */
+    private $model;
+
+    /** @var ClassName */
+    private $modelId;
+
     /** @var CommandHandler */
     private $sut;
 
     public function setUp()
     {
-        $firstName = Fixtures::firstNameProperty();
+        $firstName = CommandHandlerFixtures::firstNameProperty();
 
-        $this->name              = Fixtures::userEntity();
-        $this->parent            = ClassName::create('MyVendor\\Core\\BaseModel');
-        $this->interfaces        = [InterfaceName::create('MyVendor\\Core\\SomeInterface')];
-        $this->traits            = [TraitName::create('MyVendor\\Core\\ImportantTrait')];
+        $this->name              = CommandHandlerFixtures::commandName();
+        $this->parent            = null;
+        $this->interfaces        = [];
+        $this->traits            = [];
         $this->constants         = [Constant::create('SOME_CONST', '29')];
         $this->constructorMethod = new ConstructorMethod([$firstName]);
         $this->properties        = [$firstName];
         $this->methods           = [$this->constructorMethod];
+        $this->model             = CommandHandlerFixtures::modelName();
+        $this->modelId           = CommandHandlerFixtures::idName();
         $this->sut               = new CommandHandler(
             $this->name,
             $this->parent,
@@ -71,7 +77,9 @@ class CommandHandlerTest extends TestCase
             $this->traits,
             $this->constants,
             $this->properties,
-            $this->methods
+            $this->methods,
+            $this->model,
+            $this->modelId
         );
     }
 
@@ -82,42 +90,42 @@ class CommandHandlerTest extends TestCase
 
     public function testGetInstanceOfName()
     {
-        self::assertEquals('UserEntity', $this->sut->getInstanceOfName());
+        self::assertEquals('CreateNewShow', $this->sut->getInstanceOfName());
     }
 
     public function testGetNamespace()
     {
-        self::assertEquals('MyVendor', $this->sut->getNamespace());
+        self::assertEquals('MyVendor\\Theater\\Domain\\Command', $this->sut->getNamespace());
     }
 
     public function testGetInstanceOfFullName()
     {
-        self::assertEquals('MyVendor\\UserEntity', $this->sut->getInstanceOfFullName());
+        self::assertEquals('MyVendor\\Theater\\Domain\\Command\\CreateNewShow', $this->sut->getInstanceOfFullName());
     }
 
     public function testHasParent()
     {
-        self::assertTrue($this->sut->hasParent());
+        self::assertFalse($this->sut->hasParent());
     }
 
     public function testGetParent()
     {
-        self::assertEquals($this->parent, $this->sut->getParent());
+        self::assertEquals(null, $this->sut->getParent());
     }
 
     public function testGetParentClassName()
     {
-        self::assertEquals('BaseModel', $this->sut->getParentClassName());
+        self::assertEquals('', $this->sut->getParentClassName());
     }
 
     public function testGetParentFullClassName()
     {
-        self::assertEquals('MyVendor\\Core\\BaseModel', $this->sut->getParentFullClassName());
+        self::assertEquals('', $this->sut->getParentFullClassName());
     }
 
     public function testHasInterfaces()
     {
-        self::assertTrue($this->sut->hasInterfaces());
+        self::assertFalse($this->sut->hasInterfaces());
     }
 
     public function testGetInterfaces()
@@ -127,7 +135,7 @@ class CommandHandlerTest extends TestCase
 
     public function testHasTraits()
     {
-        self::assertTrue($this->sut->hasTraits());
+        self::assertFalse($this->sut->hasTraits());
     }
 
     public function testGetTraits()
