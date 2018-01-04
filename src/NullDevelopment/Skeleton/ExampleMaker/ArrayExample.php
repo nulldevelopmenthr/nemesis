@@ -23,7 +23,13 @@ class ArrayExample implements Example
         $results = [];
 
         foreach ($this->values as $value) {
-            $results[] = $value->__toString();
+            if (true === is_string($value)) {
+                $results[] = '"'.$value.'"';
+            } elseif ($value instanceof Example) {
+                $results[] = $value->__toString();
+            } else {
+                $results[] = $value;
+            }
         }
 
         return '['.implode(', ', $results).']';
@@ -34,7 +40,9 @@ class ArrayExample implements Example
         $result = [];
 
         foreach ($this->values as $value) {
-            $result = array_merge($result, $value->classesToImport());
+            if ($value instanceof Example) {
+                $result = array_merge($result, $value->classesToImport());
+            }
         }
 
         return $result;
