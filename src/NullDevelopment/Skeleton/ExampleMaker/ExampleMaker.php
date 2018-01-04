@@ -116,6 +116,10 @@ class ExampleMaker
             ->classReflector()
             ->reflect($variable->getInstanceFullName());
 
+        if ($refl->isInterface()) {
+            return new MockeryMockExample($variable->getInstanceName());
+        }
+
         $zz = $refl;
         while ($parent = $zz->getParentClass()) {
             if (DateTime::class === $parent->getName()) {
