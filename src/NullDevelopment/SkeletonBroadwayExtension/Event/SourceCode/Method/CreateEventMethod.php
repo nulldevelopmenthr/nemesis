@@ -94,6 +94,6 @@ class CreateEventMethod implements Method
 
     public function isStatic(): bool
     {
-        return false;
+        return true;
     }
 }

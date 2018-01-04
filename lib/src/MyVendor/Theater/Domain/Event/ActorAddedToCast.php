@@ -32,7 +32,7 @@ class ActorAddedToCast implements Serializable
         $this->addedAt = $addedAt;
     }
 
-    public function create(ShowId $id, Actor $actor): self
+    public static function create(ShowId $id, Actor $actor): self
     {
         return new self($id, $actor, Carbon::now());
     }
