@@ -10,7 +10,6 @@ use NullDevelopment\Skeleton\Core\DefinitionLoaderCollection;
 use NullDevelopment\Skeleton\SourceCode;
 use SplFileInfo;
 use Tests\TestCase\SfTestCase;
-use TypeError;
 
 /**
  * @covers \NullDevelopment\Skeleton\Core\DefinitionLoaderCollection
@@ -27,19 +26,15 @@ class DefinitionLoaderCollectionTest extends SfTestCase
         $this->sut = $this->getService(DefinitionLoaderCollection::class);
     }
 
-    public function testGetLoaders()
+    public function testAllLoadersAreImportedProperly()
     {
-        $this->markTestSkipped('Skipping');
+        self::assertCount(14, $this->sut->getLoaders());
     }
 
     public function testFindAndLoad()
     {
         foreach ($this->provideInput() as $input) {
-            try {
-                self::assertInstanceOf(SourceCode::class, $this->sut->findAndLoad($input));
-            } catch (TypeError $e) {
-                echo $e->getMessage().PHP_EOL;
-            }
+            self::assertInstanceOf(SourceCode::class, $this->sut->findAndLoad($input));
         }
     }
 
