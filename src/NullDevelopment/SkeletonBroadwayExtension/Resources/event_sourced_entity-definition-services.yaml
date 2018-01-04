@@ -19,6 +19,7 @@ services:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
 
@@ -30,6 +31,7 @@ services:
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSetterMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
 

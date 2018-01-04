@@ -10,6 +10,7 @@ services:
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSetterMethodGenerator: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator: ~
@@ -25,6 +26,7 @@ services:
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory: ~
+  NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSetterMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecToStringMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory: ~
   NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory: ~
