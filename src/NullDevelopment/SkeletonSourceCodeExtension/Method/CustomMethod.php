@@ -6,6 +6,7 @@ namespace NullDevelopment\SkeletonSourceCodeExtension\Method;
 
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\PhpStructure\DataType\Visibility;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see CustomMethodSpec
@@ -22,7 +23,7 @@ class CustomMethod implements Method
     /** @var array */
     private $parameters;
 
-    /** @var string */
+    /** @var ClassName */
     private $returnType;
 
     /** @var bool */
@@ -44,7 +45,7 @@ class CustomMethod implements Method
         $this->body       = $body;
 
         $this->visibility           = new Visibility('public');
-        $this->returnType           = 'string';
+        $this->returnType           = ClassName::create('string');
         $this->isNullableReturnType = false;
         $this->imports              = [];
     }
@@ -54,7 +55,7 @@ class CustomMethod implements Method
         $this->visibility = $visibility;
     }
 
-    public function setReturnType(string $returnType)
+    public function setReturnType(ClassName $returnType)
     {
         $this->returnType = $returnType;
     }
@@ -86,7 +87,7 @@ class CustomMethod implements Method
 
     public function getReturnType(): string
     {
-        return $this->returnType;
+        return $this->returnType->getFullName();
     }
 
     public function isNullableReturnType(): bool
@@ -105,7 +106,13 @@ class CustomMethod implements Method
         $imports = $this->imports;
 
         foreach ($this->parameters as $parameter) {
-            $imports[] = $parameter->getInstanceName();
+            if (true === $parameter->isObject()) {
+                $imports[] = $parameter->getInstanceName();
+            }
+        }
+
+        if (true === $this->returnType->isObject()) {
+            $imports[] = $this->returnType;
         }
 
         return $imports;
