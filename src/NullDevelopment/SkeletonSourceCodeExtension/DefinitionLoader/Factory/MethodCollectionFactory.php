@@ -19,6 +19,10 @@ use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
  */
 class MethodCollectionFactory
 {
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
     public function create(?array $input): array
     {
         if (null === $input) {
@@ -70,8 +74,12 @@ class MethodCollectionFactory
 
                 $zz = new CustomMethod($methodName, $params, $methodInput['body']);
 
-                if (null !== $methodInput['returnType']) {
+                if (true === array_key_exists('returnType', $methodInput) && null !== $methodInput['returnType']) {
                     $zz->setReturnType(ClassName::create($methodInput['returnType']));
+                }
+
+                if (true === array_key_exists('static', $methodInput) && null !== $methodInput['static']) {
+                    $zz->setStatic($methodInput['static']);
                 }
 
                 $result[] = $zz;

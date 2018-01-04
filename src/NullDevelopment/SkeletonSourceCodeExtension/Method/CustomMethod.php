@@ -23,7 +23,7 @@ class CustomMethod implements Method
     /** @var array */
     private $parameters;
 
-    /** @var ClassName */
+    /** @var ClassName|null */
     private $returnType;
 
     /** @var bool */
@@ -35,6 +35,9 @@ class CustomMethod implements Method
     /** @var array */
     private $imports;
 
+    /** @var bool */
+    private $static;
+
     public function __construct(
         string $name,
         array $parameters,
@@ -45,9 +48,10 @@ class CustomMethod implements Method
         $this->body       = $body;
 
         $this->visibility           = new Visibility('public');
-        $this->returnType           = ClassName::create('string');
+        $this->returnType           = null;
         $this->isNullableReturnType = false;
         $this->imports              = [];
+        $this->static               = false;
     }
 
     public function setVisibility(Visibility $visibility)
@@ -87,6 +91,10 @@ class CustomMethod implements Method
 
     public function getReturnType(): string
     {
+        if (null === $this->returnType) {
+            return '';
+        }
+
         return $this->returnType->getFullName();
     }
 
@@ -111,15 +119,20 @@ class CustomMethod implements Method
             }
         }
 
-        if (true === $this->returnType->isObject()) {
+        if (null !== $this->returnType && true === $this->returnType->isObject()) {
             $imports[] = $this->returnType;
         }
 
         return $imports;
     }
 
+    public function setStatic(bool $static)
+    {
+        $this->static = $static;
+    }
+
     public function isStatic(): bool
     {
-        return false;
+        return $this->static;
     }
 }
