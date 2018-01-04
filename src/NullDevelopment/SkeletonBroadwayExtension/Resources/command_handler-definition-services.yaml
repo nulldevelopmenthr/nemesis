@@ -7,26 +7,10 @@ services:
     public: true
 
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\CommandHandlerNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ChainedGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandler' }
 
-  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpecGenerator\SpecCommandHandlerNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpecGenerator\SpecCommandHandlerNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpSpec\SpecCommandHandlerFactory:
     arguments:
@@ -38,13 +22,7 @@ services:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
 
-  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpUnitGenerator\TestCommandHandlerNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpUnitGenerator\TestCommandHandlerNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\PhpUnit\TestCommandHandlerFactory:
     arguments:

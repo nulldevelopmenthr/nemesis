@@ -7,25 +7,10 @@ services:
     public: true
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCodeGenerator\EventSourcedEntityNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCode\EventSourcedEntity' }
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpecGenerator\SpecEventSourcedEntityNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpecGenerator\SpecEventSourcedEntityNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpSpec\SpecEventSourcedEntityFactory:
     arguments:
@@ -37,13 +22,7 @@ services:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpUnitGenerator\TestEventSourcedEntityNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpUnitGenerator\TestEventSourcedEntityNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\PhpUnit\TestEventSourcedEntityFactory:
     arguments:
