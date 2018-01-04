@@ -38,6 +38,9 @@ jobs:
           name: Composer install
           command: composer install --no-interaction
       - run:
+          name: Composer dump autoload (bug on autoload)
+          command: composer dump-autoload -o
+      - run:
           name: PHPUnit
           command: ./vendor/bin/phpunit --fail-on-warning --log-junit build/phpunit/junit.xml
       - run:
