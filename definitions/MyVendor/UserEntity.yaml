@@ -67,3 +67,11 @@ definition:
       body:
         - "return 1;"
       returnType: int
+    setUsername:
+      type: setter
+      property:
+        name: username
+        instanceOf: MyVendor\User\Username
+        nullable: false
+        hasDefault: false
+        default: ~
