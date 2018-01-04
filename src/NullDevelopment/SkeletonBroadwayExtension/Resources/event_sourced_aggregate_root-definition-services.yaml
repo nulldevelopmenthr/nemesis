@@ -7,27 +7,10 @@ services:
     public: true
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCodeGenerator\EventSourcedAggregateRootNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ConstructorMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ChainedGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\ChainedGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\DeserializeMethodGenerator'
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRoot' }
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpSpecGenerator\SpecEventSourcedAggregateRootNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\LetMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\InitializableMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpSpecGenerator\SpecEventSourcedAggregateRootNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpSpec\SpecEventSourcedAggregateRootFactory:
     arguments:
@@ -39,13 +22,7 @@ services:
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
         - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnitGenerator\TestEventSourcedAggregateRootNetteGenerator:
-    arguments:
-      $methodGenerators:
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\SetUpMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestGetterMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator'
-        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDeserializeMethodGenerator'
+  NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnitGenerator\TestEventSourcedAggregateRootNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnit\TestEventSourcedAggregateRootFactory:
     arguments:
