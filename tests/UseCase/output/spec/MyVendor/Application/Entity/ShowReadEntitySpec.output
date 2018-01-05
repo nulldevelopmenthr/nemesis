@@ -49,31 +49,31 @@ class ShowReadEntitySpec extends ObjectBehavior
     public function it_can_set_id(ShowId $otherId)
     {
         $this->setId($otherId);
-        $this->getOtherId()->shouldReturn($otherId);
+        $this->getId()->shouldReturn($otherId);
     }
 
     public function it_can_set_title()
     {
         $this->setTitle('otherTitle');
-        $this->getOtherTitle()->shouldReturn('otherTitle');
+        $this->getTitle()->shouldReturn('otherTitle');
     }
 
     public function it_can_set_description()
     {
         $this->setDescription('otherDescription');
-        $this->getOtherDescription()->shouldReturn('otherDescription');
+        $this->getDescription()->shouldReturn('otherDescription');
     }
 
     public function it_can_set_created_at(DateTime $otherCreatedAt)
     {
         $this->setCreatedAt($otherCreatedAt);
-        $this->getOtherCreatedAt()->shouldReturn($otherCreatedAt);
+        $this->getCreatedAt()->shouldReturn($otherCreatedAt);
     }
 
     public function it_can_set_updated_at(DateTime $otherUpdatedAt)
     {
         $this->setUpdatedAt($otherUpdatedAt);
-        $this->getOtherUpdatedAt()->shouldReturn($otherUpdatedAt);
+        $this->getUpdatedAt()->shouldReturn($otherUpdatedAt);
     }
 
     public function it_has_description()

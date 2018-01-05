@@ -31,15 +31,9 @@ class SpecSetterMethodGenerator extends BaseSpecMethodGenerator
             $value = (string) $this->exampleMaker->value($method->getProperty());
         }
 
-        if ('bool' === $method->getProperty()->getInstanceNameAsString()) {
-            $getterMethodName = 'is'.ucfirst($method->getProperty()->getName());
-        } else {
-            $getterMethodName = 'get'.ucfirst($method->getProperty()->getName());
-        }
-
         $code
             ->addBody(sprintf('$this->%s(%s);', $method->getMethodUnderTest(), $value))
-            ->addBody(sprintf('$this->%s()->shouldReturn(%s);', $getterMethodName, $value));
+            ->addBody(sprintf('$this->%s()->shouldReturn(%s);', $method->getGetterMethodName(), $value));
     }
 
     public function getMethodGeneratorPriority(): int
