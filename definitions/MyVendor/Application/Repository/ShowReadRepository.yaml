@@ -1,0 +1,8 @@
+definition:
+  type: DoctrineReadRepository
+  instanceOf: MyVendor\Application\Repository\ShowReadRepository
+  parent: Doctrine\ORM\EntityRepository
+  interfaces: []
+  traits: []
+  constructor: []
+  entity: MyVendor\Application\Entity\ShowReadEntity
