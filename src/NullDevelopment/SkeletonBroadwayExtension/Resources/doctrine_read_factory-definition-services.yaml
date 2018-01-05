@@ -1,0 +1,38 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: false
+    autoconfigure: true
+    public: true
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCodeGenerator\DoctrineReadFactoryGenerator:
+    tags:
+      - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadFactory' }
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadFactoryGenerator: ~
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpec\SpecDoctrineReadFactoryFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpUnitGenerator\TestDoctrineReadFactoryGenerator: ~
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpUnit\TestDoctrineReadFactoryFactory:
+    arguments:
+      $factories:
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\SetUpMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestHasPropertyMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestGetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSetterMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestSerializeMethodFactory'
+        - '@NullDevelopment\SkeletonPhpUnitExtension\MethodFactory\TestDeserializeMethodFactory'
+
+

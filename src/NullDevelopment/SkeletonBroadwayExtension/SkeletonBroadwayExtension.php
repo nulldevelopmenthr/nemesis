@@ -27,5 +27,7 @@ final class SkeletonBroadwayExtension extends Extension
         $loader->load('command_handler-definition-services.yaml');
         $loader->load('doctrine_read-definition-services.yaml');
         $loader->load('doctrine_read_repository-definition-services.yaml');
+        $loader->load('doctrine_read_projector-definition-services.yaml');
+        $loader->load('doctrine_read_factory-definition-services.yaml');
     }
 }

@@ -14,6 +14,8 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadEntityLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadRepositoryLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadProjectorLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadFactoryLoader: ~
 
 
   NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator\Method\CreateEventMethodGenerator: ~

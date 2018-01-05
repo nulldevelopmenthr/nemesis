@@ -8,6 +8,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\SkeletonPhpSpecExtension\PhpSpecSpecification;
 
+/** @SuppressWarnings("PHPMD.NumberOfChildren") */
 abstract class BaseSpecClassDefinition extends ClassDefinition implements PhpSpecSpecification
 {
     /** @var ClassName */

@@ -8,6 +8,7 @@ use Nette\PhpGenerator\PhpNamespace;
 use NullDevelopment\PhpStructure\Type\Definition;
 use NullDevelopment\Skeleton\Core\DefinitionGenerator\BaseClassDefinitionGenerator;
 
+/** @SuppressWarnings("PHPMD.NumberOfChildren") */
 abstract class BaseSourceCodeDefinitionGenerator extends BaseClassDefinitionGenerator
 {
     /**

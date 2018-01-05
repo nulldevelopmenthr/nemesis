@@ -16,6 +16,8 @@ use NullDevelopment\SkeletonSourceCodeExtension\DefinitionLoader\Factory\TraitNa
 /**
  * @see SimpleEntityLoaderSpec
  * @see SimpleEntityLoaderTest
+ *
+ * @SuppressWarnings("PHPMD.NumberOfChildren")
  */
 abstract class BaseDefinitionLoader implements DefinitionLoader
 {
