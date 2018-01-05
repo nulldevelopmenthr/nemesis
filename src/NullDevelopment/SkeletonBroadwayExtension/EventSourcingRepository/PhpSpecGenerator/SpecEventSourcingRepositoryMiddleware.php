@@ -31,6 +31,9 @@ class SpecEventSourcingRepositoryMiddleware implements Middleware
     {
         $returnValue = $next($command);
 
+        // #455 We dont want to generate spec for event sourcing repository
+        return $returnValue;
+
         if (false === $command instanceof EventSourcingRepository) {
             return $returnValue;
         }
