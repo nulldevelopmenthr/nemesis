@@ -21,11 +21,15 @@ class TestSetterMethod extends BaseTestMethod
     /** @var Property */
     private $property;
 
-    public function __construct(string $name, string $methodUnderTest, Property $property)
+    /** @var string */
+    private $getterMethodName;
+
+    public function __construct(string $name, string $methodUnderTest, Property $property, string $getterMethodName)
     {
-        $this->name            = $name;
-        $this->methodUnderTest = $methodUnderTest;
-        $this->property        = $property;
+        $this->name             = $name;
+        $this->methodUnderTest  = $methodUnderTest;
+        $this->property         = $property;
+        $this->getterMethodName = $getterMethodName;
     }
 
     public function getMethodUnderTest(): string
@@ -41,6 +45,11 @@ class TestSetterMethod extends BaseTestMethod
     public function getPropertyName(): string
     {
         return $this->property->getName();
+    }
+
+    public function getGetterMethodName(): string
+    {
+        return $this->getterMethodName;
     }
 
     public function getName(): string

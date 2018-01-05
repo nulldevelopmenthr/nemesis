@@ -71,13 +71,13 @@ class UserEntitySpec extends ObjectBehavior
     public function it_can_set_username(Username $otherUsername)
     {
         $this->setUsername($otherUsername);
-        $this->getOtherUsername()->shouldReturn($otherUsername);
+        $this->getUsername()->shouldReturn($otherUsername);
     }
 
     public function it_can_set_first_name(UserFirstName $otherFirstName)
     {
         $this->setFirstName($otherFirstName);
-        $this->getOtherFirstName()->shouldReturn($otherFirstName);
+        $this->getFirstName()->shouldReturn($otherFirstName);
     }
 
     public function it_has_last_name()

@@ -30,10 +30,17 @@ class TestSetterMethodFactory implements PhpUnitMethodFactory
 
     public function createFromSetterMethod(SetterMethod $method): TestSetterMethod
     {
+        if ('bool' === $method->getProperty()->getInstanceNameAsString()) {
+            $getterMethodName = 'is'.ucfirst($method->getProperty()->getName());
+        } else {
+            $getterMethodName = 'get'.ucfirst($method->getProperty()->getName());
+        }
+
         return new TestSetterMethod(
             'test'.ucfirst($method->getName()),
             $method->getName(),
-            $method->getProperty()
+            $method->getProperty(),
+            $getterMethodName
         );
     }
 }

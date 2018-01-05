@@ -49,10 +49,17 @@ class SpecSetterMethodFactory implements PhpSpecMethodFactory
             $method->getProperty()->getExamples()
         );
 
+        if ('bool' === $method->getProperty()->getInstanceNameAsString()) {
+            $getterMethodName = 'is'.ucfirst($method->getProperty()->getName());
+        } else {
+            $getterMethodName = 'get'.ucfirst($method->getProperty()->getName());
+        }
+
         return new SpecSetterMethod(
             'it_can_'.$snakeCasePropertyName,
             $method->getName(),
-            $anotherProperty
+            $anotherProperty,
+            $getterMethodName
         );
     }
 }
