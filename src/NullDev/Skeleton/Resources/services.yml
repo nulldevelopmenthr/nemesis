@@ -20,6 +20,7 @@ services:
   NullDev\Skeleton\Path\Readers\FinderFactory: ~
   NullDev\Skeleton\Path\Readers\SourceCodePathReader: ~
 
+  NullDev\Skeleton\Suggestions\InterfaceSuggestions: ~
   NullDev\Skeleton\Suggestions\ClassSuggestions: ~
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
 
