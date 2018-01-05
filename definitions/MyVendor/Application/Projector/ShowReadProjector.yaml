@@ -1,0 +1,19 @@
+definition:
+  type: DoctrineReadProjector
+  instanceOf: MyVendor\Application\Projector\ShowReadProjector
+  parent: Broadway\ReadModel\Projector
+  interfaces: []
+  traits: []
+  constructor:
+    repository:
+      instanceOf: MyVendor\Application\Repository\ShowReadRepository
+      nullable: false
+      hasDefault: false
+      default: ~
+    factory:
+      instanceOf: MyVendor\Application\Factory\ShowReadFactory
+      nullable: false
+      hasDefault: false
+      default: ~
+  repository: MyVendor\Application\Repository\ShowReadRepository
+  factory: MyVendor\Application\Factory\ShowReadFactory
