@@ -31,6 +31,9 @@ class SpecEventSourcedAggregateRootMiddleware implements Middleware
     {
         $returnValue = $next($command);
 
+        // #453 We dont want to generate spec for event sourced aggregate root
+        return $returnValue;
+
         if (false === $command instanceof EventSourcedAggregateRoot) {
             return $returnValue;
         }
