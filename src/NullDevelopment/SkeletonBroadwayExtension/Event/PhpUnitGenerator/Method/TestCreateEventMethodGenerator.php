@@ -30,6 +30,7 @@ class TestCreateEventMethodGenerator extends BaseTestMethodGenerator
 
         foreach ($method->getParameters() as $parameter) {
             $values[] = '$'.$parameter->getName();
+            $code->addBody(sprintf('$%s = %s;', $parameter->getName(), $this->exampleMaker->instance($parameter)));
         }
 
         $code
