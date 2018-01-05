@@ -3,3 +3,8 @@ services:
     autowire: true
     autoconfigure: true
     public: true
+
+  cli.command.interface.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddInterfaceCliCommand
+    tags:
+      - {name: console.command }
