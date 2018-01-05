@@ -61,6 +61,13 @@ class UserEntityTest extends TestCase
         self::assertSame($username, $this->sut->getUsername());
     }
 
+    public function testSetFirstName()
+    {
+        $firstName = new UserFirstName('firstName');
+        $this->sut->setFirstName($firstName);
+        self::assertSame($firstName, $this->sut->getFirstName());
+    }
+
     public function testGetId()
     {
         self::assertSame($this->id, $this->sut->getId());

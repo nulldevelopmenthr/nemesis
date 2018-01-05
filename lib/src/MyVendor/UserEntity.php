@@ -61,6 +61,16 @@ class UserEntity extends BaseUser implements SomeInterface, BaseSomeInterface
         $this->updatedAt = $updatedAt;
     }
 
+    public function setUsername(Username $username)
+    {
+        $this->username = $username;
+    }
+
+    public function setFirstName(UserFirstName $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
     public function getId(): UserId
     {
         return $this->id;

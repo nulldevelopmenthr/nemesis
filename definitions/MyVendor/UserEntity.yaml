@@ -75,3 +75,11 @@ definition:
         nullable: false
         hasDefault: false
         default: ~
+    setFirstName:
+      type: setter
+      property:
+        name: firstName
+        instanceOf: MyVendor\User\UserFirstName
+        nullable: false
+        hasDefault: false
+        default: ~
