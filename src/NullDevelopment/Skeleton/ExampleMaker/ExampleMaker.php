@@ -9,11 +9,13 @@ use Exception;
 use NullDevelopment\PhpStructure\DataType\SimpleVariable;
 use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use OutOfBoundsException;
 use Roave\BetterReflection\BetterReflection;
 
 /**
  * @see ExampleMakerSpec
  * @see ExampleMakerTest
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class ExampleMaker
 {
@@ -52,6 +54,12 @@ class ExampleMaker
                 return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
             }
             $zz = $parent;
+        }
+
+        try {
+            $refl->getConstructor();
+        } catch (OutOfBoundsException $exception) {
+            return new MockeryMockExample($variable->getInstanceName());
         }
 
         $arguments = [];
@@ -126,6 +134,12 @@ class ExampleMaker
                 return new SimpleExample('2018-01-01T00:01:00+00:00');
             }
             $zz = $parent;
+        }
+
+        try {
+            $refl->getConstructor();
+        } catch (OutOfBoundsException $exception) {
+            return new MockeryMockExample($variable->getInstanceName());
         }
 
         $arguments = [];
