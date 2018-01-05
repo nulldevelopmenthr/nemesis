@@ -12,6 +12,7 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRootLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepositoryLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadEntityLoader: ~
 
 
   NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator\Method\CreateEventMethodGenerator: ~
