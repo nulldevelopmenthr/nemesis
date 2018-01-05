@@ -51,6 +51,9 @@ class SpecSimpleCollectionTest extends TestCase
     /** @var CollectionOf */
     private $collectionOf;
 
+    /** @var bool */
+    private $serializationEnabled;
+
     /** @var SpecSimpleCollection */
     private $sut;
 
@@ -75,6 +78,8 @@ class SpecSimpleCollectionTest extends TestCase
             'getId',
             ClassName::create('MyVendor\User\UserId')
         );
+        $this->serializationEnabled = true;
+
         $this->sut = new SpecSimpleCollection(
             $this->name,
             $this->parent,
@@ -84,7 +89,8 @@ class SpecSimpleCollectionTest extends TestCase
             $this->properties,
             $this->methods,
             Fixtures::userEntity(),
-            $this->collectionOf
+            $this->collectionOf,
+            $this->serializationEnabled
         );
     }
 

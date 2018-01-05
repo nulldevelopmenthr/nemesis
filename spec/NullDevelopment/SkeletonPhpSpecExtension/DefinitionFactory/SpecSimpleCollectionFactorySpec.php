@@ -40,6 +40,7 @@ class SpecSimpleCollectionFactorySpec extends ObjectBehavior
         $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\UserEntity');
         $definition->getCollectionOf()->shouldBeCalled()->willReturn($collectionOf);
         $definition->getInstanceOf()->shouldBeCalled()->willReturn($subjectUnderTest);
+        $definition->isSerializationEnabled()->shouldBeCalled()->willReturn(true);
 
         $letMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $initializableMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);

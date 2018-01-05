@@ -54,9 +54,13 @@ class TestSimpleCollectionGenerator extends BaseTestDefinitionGenerator
         $netteCode->addMethod('testGetElements')
             ->addBody('self::assertSame($this->elements, $this->sut->toArray());');
 
-        $netteCode->addMethod('testSerializeAndDeserialize')
-            ->addBody('$serialized = $this->sut->serialize();')
-            ->addBody('$serializedJson = json_encode($serialized);')
-            ->addBody('self::assertEquals($this->sut, $this->sut->deserialize(json_decode($serializedJson, true)));');
+        if (true === $definition->isSerializationEnabled()) {
+            $netteCode->addMethod('testSerializeAndDeserialize')
+                ->addBody('$serialized = $this->sut->serialize();')
+                ->addBody('$serializedJson = json_encode($serialized);')
+                ->addBody(
+                    'self::assertEquals($this->sut, $this->sut->deserialize(json_decode($serializedJson, true)));'
+                );
+        }
     }
 }

@@ -15,11 +15,13 @@ use NullDevelopment\Skeleton\SourceCode;
  */
 class SimpleCollection extends ClassDefinition implements SourceCode
 {
-    /**
-     * @var CollectionOf
-     */
+    /** @var CollectionOf */
     private $collectionOf;
 
+    /** @var bool */
+    private $serializationEnabled;
+
+    /** @SuppressWarnings(PHPMD.ExcessiveParameterList) */
     public function __construct(
         ClassName $name,
         ?ClassName $parent,
@@ -28,14 +30,21 @@ class SimpleCollection extends ClassDefinition implements SourceCode
         array $constants,
         array $properties,
         array $methods,
-        CollectionOf $collectionOf
+        CollectionOf $collectionOf,
+        bool $serializationEnabled
     ) {
         parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods);
-        $this->collectionOf = $collectionOf;
+        $this->collectionOf         = $collectionOf;
+        $this->serializationEnabled = $serializationEnabled;
     }
 
     public function getCollectionOf(): CollectionOf
     {
         return $this->collectionOf;
+    }
+
+    public function isSerializationEnabled(): bool
+    {
+        return $this->serializationEnabled;
     }
 }

@@ -63,24 +63,4 @@ class ProductCollection
     {
         return count($this->elements);
     }
-
-    public function serialize(): array
-    {
-        $data = [];
-        foreach ($this->elements as $element) {
-            $data[] = $element->serialize();
-        }
-
-        return $data;
-    }
-
-    public static function deserialize(array $data): self
-    {
-        $elements = [];
-        foreach ($data as $item) {
-            $elements[] = ProductEntity::deserialize($item);
-        }
-
-        return new self($elements);
-    }
 }

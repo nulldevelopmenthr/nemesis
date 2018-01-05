@@ -16,6 +16,10 @@ class TestSimpleCollection extends BaseTestClassDefinition
     /** @var CollectionOf */
     private $collectionOf;
 
+    /** @var bool */
+    private $serializationEnabled;
+
+    /** @SuppressWarnings(PHPMD.ExcessiveParameterList) */
     public function __construct(
         ClassName $name,
         ?ClassName $parent,
@@ -25,14 +29,21 @@ class TestSimpleCollection extends BaseTestClassDefinition
         array $properties,
         array $methods,
         ClassName $subjectUnderTest,
-        CollectionOf $collectionOf
+        CollectionOf $collectionOf,
+        bool $serializationEnabled
     ) {
         parent::__construct($name, $parent, $interfaces, $traits, $constants, $properties, $methods, $subjectUnderTest);
-        $this->collectionOf = $collectionOf;
+        $this->collectionOf         = $collectionOf;
+        $this->serializationEnabled = $serializationEnabled;
     }
 
     public function getCollectionOf(): CollectionOf
     {
         return $this->collectionOf;
+    }
+
+    public function isSerializationEnabled(): bool
+    {
+        return $this->serializationEnabled;
     }
 }

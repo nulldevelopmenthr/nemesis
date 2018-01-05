@@ -53,6 +53,9 @@ class SimpleCollectionTest extends TestCase
     /** @var MockInterface|ConstructorMethod */
     private $constructorMethod;
 
+    /** @var bool */
+    private $serializationEnabled;
+
     /** @var SimpleCollection */
     private $sut;
 
@@ -73,6 +76,8 @@ class SimpleCollectionTest extends TestCase
             'getId',
             ClassName::create('MyVendor\User\UserId')
         );
+        $this->serializationEnabled = true;
+
         $this->sut = new SimpleCollection(
             $this->name,
             $this->parent,
@@ -81,7 +86,8 @@ class SimpleCollectionTest extends TestCase
             $this->constants,
             $this->properties,
             $this->methods,
-            $this->collectionOf
+            $this->collectionOf,
+            $this->serializationEnabled
         );
     }
 

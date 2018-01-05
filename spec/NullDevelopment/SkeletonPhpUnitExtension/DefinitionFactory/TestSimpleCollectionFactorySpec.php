@@ -38,6 +38,7 @@ class TestSimpleCollectionFactorySpec extends ObjectBehavior
         $definition->getInstanceOf()->shouldBeCalled()->willReturn($className);
         $definition->getCollectionOf()->shouldBeCalled()->willReturn($collectionOf);
         $definition->getInstanceOf()->shouldBeCalled()->willReturn($subjectUnderTest);
+        $definition->isSerializationEnabled()->shouldBeCalled()->willReturn(true);
 
         $setUpMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);
         $testGetterMethodFactory->create($definition)->shouldBeCalled()->willReturn([]);

@@ -62,7 +62,8 @@ class SpecSimpleCollectionFactoryTest extends SfTestCase
                         ClassName::create('MyVendor\User\Username'),
                         'getId',
                         ClassName::create('MyVendor\User\UserId')
-                    )
+                    ),
+                    true
                 ),
                 new SpecSimpleCollection(
                     ClassName::create('spec\\MyVendor\\User\\UserFirstNameSpec'),
@@ -81,7 +82,8 @@ class SpecSimpleCollectionFactoryTest extends SfTestCase
                         ClassName::create('MyVendor\User\Username'),
                         'getId',
                         ClassName::create('MyVendor\User\UserId')
-                    )
+                    ),
+                    true
                 ),
             ],
         ];

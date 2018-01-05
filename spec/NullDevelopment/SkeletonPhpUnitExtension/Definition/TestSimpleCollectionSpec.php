@@ -36,7 +36,8 @@ class TestSimpleCollectionSpec extends ObjectBehavior
             [$property1],
             [$setUpMethod],
             $subjectUnderTest,
-            $collectionOf
+            $collectionOf,
+            $serializationEnabled = true
         );
     }
 
