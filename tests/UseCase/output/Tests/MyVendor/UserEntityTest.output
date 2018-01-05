@@ -54,20 +54,6 @@ class UserEntityTest extends TestCase
         $this->sut       = new UserEntity($this->id, $this->firstName, $this->lastName, $this->username, $this->active, $this->createdAt, $this->updatedAt);
     }
 
-    public function testSetUsername()
-    {
-        $username = new Username('username');
-        $this->sut->setUsername($username);
-        self::assertSame($username, $this->sut->getUsername());
-    }
-
-    public function testSetFirstName()
-    {
-        $firstName = new UserFirstName('firstName');
-        $this->sut->setFirstName($firstName);
-        self::assertSame($firstName, $this->sut->getFirstName());
-    }
-
     public function testGetId()
     {
         self::assertSame($this->id, $this->sut->getId());
@@ -101,6 +87,20 @@ class UserEntityTest extends TestCase
     public function testGetUpdatedAt()
     {
         self::assertSame($this->updatedAt, $this->sut->getUpdatedAt());
+    }
+
+    public function testSetUsername()
+    {
+        $username = new Username('username');
+        $this->sut->setUsername($username);
+        self::assertSame($username, $this->sut->getUsername());
+    }
+
+    public function testSetFirstName()
+    {
+        $firstName = new UserFirstName('firstName');
+        $this->sut->setFirstName($firstName);
+        self::assertSame($firstName, $this->sut->getFirstName());
     }
 
     public function testHasLastName()

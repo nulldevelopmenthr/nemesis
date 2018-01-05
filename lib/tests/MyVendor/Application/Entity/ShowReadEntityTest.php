@@ -43,6 +43,31 @@ class ShowReadEntityTest extends TestCase
         $this->sut         = new ShowReadEntity($this->id, $this->title, $this->description, $this->createdAt, $this->updatedAt);
     }
 
+    public function testGetId()
+    {
+        self::assertSame($this->id, $this->sut->getId());
+    }
+
+    public function testGetTitle()
+    {
+        self::assertSame($this->title, $this->sut->getTitle());
+    }
+
+    public function testGetDescription()
+    {
+        self::assertSame($this->description, $this->sut->getDescription());
+    }
+
+    public function testGetCreatedAt()
+    {
+        self::assertSame($this->createdAt, $this->sut->getCreatedAt());
+    }
+
+    public function testGetUpdatedAt()
+    {
+        self::assertSame($this->updatedAt, $this->sut->getUpdatedAt());
+    }
+
     public function testSetId()
     {
         $id = new ShowId('id');
@@ -76,31 +101,6 @@ class ShowReadEntityTest extends TestCase
         $updatedAt = new DateTime('2018-01-01T00:01:00+00:00');
         $this->sut->setUpdatedAt($updatedAt);
         self::assertSame($updatedAt, $this->sut->getUpdatedAt());
-    }
-
-    public function testGetId()
-    {
-        self::assertSame($this->id, $this->sut->getId());
-    }
-
-    public function testGetTitle()
-    {
-        self::assertSame($this->title, $this->sut->getTitle());
-    }
-
-    public function testGetDescription()
-    {
-        self::assertSame($this->description, $this->sut->getDescription());
-    }
-
-    public function testGetCreatedAt()
-    {
-        self::assertSame($this->createdAt, $this->sut->getCreatedAt());
-    }
-
-    public function testGetUpdatedAt()
-    {
-        self::assertSame($this->updatedAt, $this->sut->getUpdatedAt());
     }
 
     public function testHasDescription()

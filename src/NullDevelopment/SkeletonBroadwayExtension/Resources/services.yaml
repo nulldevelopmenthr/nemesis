@@ -13,6 +13,7 @@ services:
   NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepositoryLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCode\CommandHandlerLoader: ~
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadEntityLoader: ~
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadRepositoryLoader: ~
 
 
   NullDevelopment\SkeletonBroadwayExtension\Event\SourceCodeGenerator\Method\CreateEventMethodGenerator: ~
@@ -21,4 +22,7 @@ services:
 
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\Method\LoadMethodGenerator: ~
   NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\Method\SaveMethodGenerator: ~
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCodeGenerator\Method\SaveMethodGenerator: ~
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCodeGenerator\Method\RemoveMethodGenerator: ~
 
