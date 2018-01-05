@@ -1,0 +1,8 @@
+definition:
+  type: DoctrineReadFactory
+  instanceOf: MyVendor\Application\Factory\ShowReadFactory
+  parent: null
+  interfaces: []
+  traits: []
+  constructor: []
+  entity: MyVendor\Application\Entity\ShowReadEntity
