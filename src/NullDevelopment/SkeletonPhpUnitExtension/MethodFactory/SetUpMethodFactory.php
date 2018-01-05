@@ -21,7 +21,9 @@ class SetUpMethodFactory implements PhpUnitMethodFactory
     public function create(ClassDefinition $definition): array
     {
         if (null === $definition->getConstructorMethod()) {
-            return [];
+            return [
+                 new SetUpMethod($definition->getInstanceOf(), []),
+            ];
         }
 
         return [
