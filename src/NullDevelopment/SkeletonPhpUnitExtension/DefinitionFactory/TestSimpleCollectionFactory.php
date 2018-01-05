@@ -56,7 +56,8 @@ class TestSimpleCollectionFactory
             $properties,
             $methods,
             $definition->getInstanceOf(),
-            $definition->getCollectionOf()
+            $definition->getCollectionOf(),
+            $definition->isSerializationEnabled()
         );
     }
 }

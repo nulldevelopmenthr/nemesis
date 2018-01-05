@@ -45,8 +45,10 @@ class SimpleCollectionGenerator extends BaseSourceCodeDefinitionGenerator
         $this->addGetMethod($netteCode, $definition);
         $this->addToArrayMethod($netteCode);
         $this->addCountMethod($netteCode);
-        $this->addSerializeMethod($netteCode);
-        $this->addDeserializeMethod($netteCode, $definition);
+        if (true === $definition->isSerializationEnabled()) {
+            $this->addSerializeMethod($netteCode);
+            $this->addDeserializeMethod($netteCode, $definition);
+        }
     }
 
     private function addConstructorMethod(ClassType $netteCode, Definition $definition): void

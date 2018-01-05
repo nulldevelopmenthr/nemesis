@@ -37,7 +37,8 @@ class SimpleCollectionSpec extends ObjectBehavior
             [$constant1],
             [$property1],
             [$constructorMethod, $getterMethod1],
-            $collectionOf
+            $collectionOf,
+            $serializationEnabled = true
         );
     }
 

@@ -46,15 +46,16 @@ class SimpleCollectionLoaderTest extends SfTestCase
     public function testGetDefaultValues()
     {
         $expected = [
-            'type'        => 'SimpleCollection',
-            'instanceOf'  => null,
-            'parent'      => null,
-            'interfaces'  => [],
-            'traits'      => [],
-            'constants'   => [],
-            'properties'  => [],
-            'methods'     => [],
-            'constructor' => [],
+            'type'          => 'SimpleCollection',
+            'instanceOf'    => null,
+            'parent'        => null,
+            'interfaces'    => [],
+            'traits'        => [],
+            'constants'     => [],
+            'properties'    => [],
+            'methods'       => [],
+            'constructor'   => [],
+            'serialization' => true,
         ];
 
         $this->assertEquals($expected, $this->sut->getDefaultValues());
@@ -98,7 +99,8 @@ class SimpleCollectionLoaderTest extends SfTestCase
                         ClassName::create('MyVendor\UserEntity'),
                         'getId',
                         ClassName::create('MyVendor\User\UserId')
-                    )
+                    ),
+                    true
                 ),
             ],
         ];

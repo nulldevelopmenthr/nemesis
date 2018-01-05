@@ -35,11 +35,4 @@ class ProductCollectionTest extends TestCase
     {
         self::assertSame($this->elements, $this->sut->toArray());
     }
-
-    public function testSerializeAndDeserialize()
-    {
-        $serialized     = $this->sut->serialize();
-        $serializedJson = json_encode($serialized);
-        self::assertEquals($this->sut, $this->sut->deserialize(json_decode($serializedJson, true)));
-    }
 }

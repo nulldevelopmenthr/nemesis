@@ -16,3 +16,4 @@ definition:
     instanceOf: MyVendor\ProductEntity
     accessor: getId
     has: MyVendor\Product\ProductId
+  serialization: false

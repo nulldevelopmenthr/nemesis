@@ -15,6 +15,7 @@ parameters:
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getCollectionOf\(\)#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getSubjectUnderTest\(\).#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getEntity\(\).#'
+	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:isSerializationEnabled\(\)#'
 	includes:
 	    - vendor/phpstan/phpstan-phpunit/extension.neon
 	    - vendor/phpstan/phpstan-phpunit/rules.neon

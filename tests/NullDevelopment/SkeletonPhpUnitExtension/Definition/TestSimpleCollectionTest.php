@@ -48,21 +48,26 @@ class TestSimpleCollectionTest extends TestCase
     /** @var MockInterface|CollectionOf */
     private $collectionOf;
 
+    /** @var bool */
+    private $serializationEnabled;
+
     /** @var TestSimpleCollection */
     private $sut;
 
     public function setUp()
     {
-        $this->name             = Mockery::mock(ClassName::class);
-        $this->parent           = Mockery::mock(ClassName::class);
-        $this->interfaces       = [];
-        $this->traits           = [];
-        $this->constants        = [Constant::create('SOME_CONST', '29')];
-        $this->properties       = [];
-        $this->methods          = [];
-        $this->subjectUnderTest = Mockery::mock(ClassName::class);
-        $this->collectionOf     = Mockery::mock(CollectionOf::class);
-        $this->sut              = new TestSimpleCollection(
+        $this->name                 = Mockery::mock(ClassName::class);
+        $this->parent               = Mockery::mock(ClassName::class);
+        $this->interfaces           = [];
+        $this->traits               = [];
+        $this->constants            = [Constant::create('SOME_CONST', '29')];
+        $this->properties           = [];
+        $this->methods              = [];
+        $this->subjectUnderTest     = Mockery::mock(ClassName::class);
+        $this->collectionOf         = Mockery::mock(CollectionOf::class);
+        $this->serializationEnabled = true;
+
+        $this->sut = new TestSimpleCollection(
             $this->name,
             $this->parent,
             $this->interfaces,
@@ -71,7 +76,8 @@ class TestSimpleCollectionTest extends TestCase
             $this->properties,
             $this->methods,
             $this->subjectUnderTest,
-            $this->collectionOf
+            $this->collectionOf,
+            $this->serializationEnabled
         );
     }
 

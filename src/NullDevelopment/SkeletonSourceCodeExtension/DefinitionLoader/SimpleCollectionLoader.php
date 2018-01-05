@@ -54,22 +54,24 @@ class SimpleCollectionLoader extends BaseDefinitionLoader
             $constants,
             $properties,
             $methods,
-            $collectionOf
+            $collectionOf,
+            $data['serialization']
         );
     }
 
     public function getDefaultValues(): array
     {
         return [
-            'type'        => 'SimpleCollection',
-            'instanceOf'  => null,
-            'parent'      => null,
-            'interfaces'  => [],
-            'traits'      => [],
-            'constants'   => [],
-            'properties'  => [],
-            'methods'     => [],
-            'constructor' => [],
+            'type'          => 'SimpleCollection',
+            'instanceOf'    => null,
+            'parent'        => null,
+            'interfaces'    => [],
+            'traits'        => [],
+            'constants'     => [],
+            'properties'    => [],
+            'methods'       => [],
+            'constructor'   => [],
+            'serialization' => true,
         ];
     }
 }
