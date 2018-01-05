@@ -31,6 +31,9 @@ class SpecDoctrineReadRepositoryMiddleware implements Middleware
     {
         $returnValue = $next($command);
 
+        // #454 We dont want to generate spec for doctrine read repository
+        return $returnValue;
+
         if (false === $command instanceof DoctrineReadRepository) {
             return $returnValue;
         }
