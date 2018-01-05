@@ -72,5 +72,21 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadProjectorMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpUnitGenerator\TestDoctrineReadProjectorMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadFactoryMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
+  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpUnitGenerator\TestDoctrineReadFactoryMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 50 }
+
 
 

@@ -8,6 +8,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\Type\ClassDefinition;
 use NullDevelopment\SkeletonPhpUnitExtension\PhpUnitSpecification;
 
+/** @SuppressWarnings("PHPMD.NumberOfChildren") */
 abstract class BaseTestClassDefinition extends ClassDefinition implements PhpUnitSpecification
 {
     /** @var ClassName */
