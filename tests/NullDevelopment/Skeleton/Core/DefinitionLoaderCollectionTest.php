@@ -28,7 +28,7 @@ class DefinitionLoaderCollectionTest extends SfTestCase
 
     public function testAllLoadersAreImportedProperly()
     {
-        self::assertCount(14, $this->sut->getLoaders());
+        self::assertCount(15, $this->sut->getLoaders());
     }
 
     public function testFindAndLoad()

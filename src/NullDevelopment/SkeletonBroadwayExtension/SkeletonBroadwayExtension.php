@@ -25,5 +25,6 @@ final class SkeletonBroadwayExtension extends Extension
         $loader->load('event_sourced_aggregate_root-definition-services.yaml');
         $loader->load('event_sourcing_repository-definition-services.yaml');
         $loader->load('command_handler-definition-services.yaml');
+        $loader->load('doctrine_read-definition-services.yaml');
     }
 }
