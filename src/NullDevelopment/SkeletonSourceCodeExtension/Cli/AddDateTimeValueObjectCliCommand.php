@@ -36,7 +36,7 @@ class AddDateTimeValueObjectCliCommand extends BaseCliCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name       = $this->askName();
-        $parentName = null;
+        $parentName = 'DateTime';
         $interfaces = [];
         $traits     = [];
         $constants  = [];
