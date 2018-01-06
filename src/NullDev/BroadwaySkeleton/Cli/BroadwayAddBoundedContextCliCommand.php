@@ -11,6 +11,7 @@ use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
+use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\BoundedContextConfigFactory;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\BoundedContext\ContextNamespace;
@@ -88,7 +89,10 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
             return;
         }
 
+        /** @var BoundedContextConfig $newContext */
         $newContext = $this->getService(BoundedContextConfigFactory::class)->create($this->name, $this->namespace);
+
+        $this->generateDefinitions($newContext);
 
         $config->addContext($newContext);
         $this->writeTheaterConfig($config);
@@ -114,6 +118,81 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
 
         $this->io->writeln('DoNE');
     }
+
+    private function generateDefinitions(BoundedContextConfig $newContext)
+    {
+        $rootIdClassName         = $newContext->getRootIdClassName()->getFullName();
+        $rootClassName           = $newContext->getModelClassName()->getFullName();
+        $repositoryClassName     = $newContext->getRepositoryClassName()->getFullName();
+        $commandHandlerClassName = $newContext->getCommandHandlerClassName()->getFullName();
+
+        $rootIdDefinition = [
+            'type'       => 'UuidV4Identifier',
+            'instanceOf' => $rootIdClassName,
+            'parent'     => null,
+            'interfaces' => [],
+            'traits'     => [],
+            'constants'  => [],
+            'properties' => [],
+            'methods'    => [],
+        ];
+
+        $rootDefinition = [
+            'type'       => 'BroadwayEventSourcedAggregateRoot',
+            'instanceOf' => $rootClassName,
+            'parent'     => 'Broadway\EventSourcing\EventSourcedAggregateRoot',
+            'interfaces' => [],
+            'traits'     => [],
+            'constants'  => [],
+            'properties' => [],
+            'methods'    => [
+                'getAggregateRootId' => [
+                    'type'     => 'getter',
+                    'property' => [
+                        'name'       => 'id',
+                        'instanceOf' => 'string',
+                        'nullable'   => false,
+                        'hasDefault' => false,
+                        'default'    => null,
+                    ],
+                ],
+            ],
+        ];
+
+        $repositoryDefinition = [
+            'type'       => 'BroadwayEventSourcingRepository',
+            'instanceOf' => $repositoryClassName,
+            'parent'     => 'Broadway\EventSourcing\EventSourcingRepository',
+            'interfaces' => [],
+            'traits'     => [],
+            'constants'  => [],
+            'properties' => [],
+            'methods'    => [],
+            'entity'     => $rootClassName,
+        ];
+
+        $commandHandlerDefinition = [
+            'type'       => 'BroadwayCommandHandler',
+            'instanceOf' => $commandHandlerClassName,
+            'parent'     => 'Broadway\CommandHandling\SimpleCommandHandler',
+            'interfaces' => [],
+            'traits'     => [],
+            'constants'  => [],
+            'properties' => [],
+            'methods'    => [],
+            'model'      => $rootClassName,
+            'modelId'    => $rootIdClassName,
+        ];
+
+        $this->dumpFile($rootIdClassName, $rootIdDefinition);
+        $this->dumpFile($rootClassName, $rootDefinition);
+        $this->dumpFile($repositoryClassName, $repositoryDefinition);
+        $this->dumpFile($commandHandlerClassName, $commandHandlerDefinition);
+    }
+
+    ///
+    ///
+    ///
 
     protected function handleNameInput()
     {
