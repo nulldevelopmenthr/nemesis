@@ -19,5 +19,10 @@ services:
     tags:
       - {name: console.command }
 
+  cli.command.simple.entity.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSimpleEntityCliCommand
+    tags:
+      - {name: console.command }
+
 
 
