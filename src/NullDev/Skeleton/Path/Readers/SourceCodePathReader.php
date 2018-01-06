@@ -262,6 +262,67 @@ class SourceCodePathReader
         return $list;
     }
 
+    /**
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
+     */
+    public function getExistingTraitNames(): array
+    {
+        $namespaceList = [];
+        $classList     = [];
+        $list          = [];
+
+        foreach ($this->config->getSourceCodePaths() as $path) {
+            $files = $this->getPhpFiles($path->getPathBase());
+
+            $foundNames = array_keys(
+                (new ClassIterator($files))->getClassMap()
+            );
+
+            foreach ($foundNames as $traitName) {
+                try {
+                    $reflection = new ReflectionClass($traitName);
+                } catch (Throwable $exception) {
+                    continue;
+                }
+
+                if (false === $reflection->isTrait()) {
+                    continue;
+                }
+
+                if ($reflection->inNamespace()) {
+                    $namespaces = explode('\\', $reflection->getNamespaceName());
+
+                    $namespace = '';
+                    foreach ($namespaces as $key => $namespacePart) {
+                        if ('' !== $namespace) {
+                            $namespace .= '/';
+                        }
+                        $namespace .= $namespacePart;
+
+                        if (!array_key_exists($key, $namespaceList)) {
+                            $namespaceList[$key] = [];
+                        }
+
+                        $namespaceList[$key][$namespace] = $namespace;
+                    }
+                }
+
+                $escapedName = str_replace('\\', '/', $traitName);
+
+                $classList[$escapedName] = $escapedName;
+            }
+        }
+
+        foreach ($namespaceList as $namespaceDepthList) {
+            $list = array_merge($list, $namespaceDepthList);
+        }
+
+        $list = array_merge($list, $classList);
+
+        return $list;
+    }
+
     private function getPhpFiles($path)
     {
         return $this->getFinder()->files()->in($path)->name('*.php');
