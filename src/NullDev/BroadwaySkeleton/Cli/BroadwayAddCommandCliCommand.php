@@ -6,6 +6,8 @@ namespace NullDev\BroadwaySkeleton\Cli;
 
 use League\Tactician\CommandBus;
 use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommand;
+use NullDev\Skeleton\Definition\PHP\Parameter;
+use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
@@ -74,11 +76,43 @@ class BroadwayAddCommandCliCommand extends BaseSkeletonGeneratorCommand
 
         $outputResources = $commandBus->handle(new CreateBroadwayCommand($commandClassName, $parameters));
 
+        $this->generateDefinition($commandClassName, $parameters);
+
         foreach ($outputResources as $outputResource) {
             $this->handleGeneratingFile($outputResource);
         }
 
         $this->io->writeln('DoNE');
+    }
+
+    private function generateDefinition(ClassType $commandClassName, array $parameters)
+    {
+        $className = $commandClassName->getFullName();
+
+        $properties = [];
+
+        /** @var Parameter $parameter */
+        foreach ($parameters as $parameter) {
+            $properties[$parameter->getName()] = [
+                'instanceOf' => $parameter->getTypeFullName(),
+                'nullable'   => false,
+                'hasDefault' => false,
+                'default'    => null,
+            ];
+        }
+
+        $definition = [
+            'type'        => 'BroadwayCommand',
+            'instanceOf'  => $className,
+            'parent'      => null,
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'constructor' => $properties,
+            'methods'     => [],
+        ];
+
+        $this->dumpFile($className, $definition);
     }
 
     private function pickContext()
