@@ -172,16 +172,24 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
         ];
 
         $commandHandlerDefinition = [
-            'type'       => 'BroadwayCommandHandler',
-            'instanceOf' => $commandHandlerClassName,
-            'parent'     => 'Broadway\CommandHandling\SimpleCommandHandler',
-            'interfaces' => [],
-            'traits'     => [],
-            'constants'  => [],
-            'properties' => [],
-            'methods'    => [],
-            'model'      => $rootClassName,
-            'modelId'    => $rootIdClassName,
+            'type'        => 'BroadwayCommandHandler',
+            'instanceOf'  => $commandHandlerClassName,
+            'parent'      => 'Broadway\CommandHandling\SimpleCommandHandler',
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'properties'  => [],
+            'methods'     => [],
+            'constructor' => [
+                'repository' => [
+                    'instanceOf' => $repositoryClassName,
+                    'nullable'   => false,
+                    'hasDefault' => false,
+                    'default'    => null,
+                ],
+            ],
+            'model'   => $rootClassName,
+            'modelId' => $rootIdClassName,
         ];
 
         $this->dumpFile($rootIdClassName, $rootIdDefinition);
