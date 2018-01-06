@@ -209,4 +209,30 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     abstract protected function getSectionMessage(): string;
 
     abstract protected function getIntroductionMessage(): array;
+
+    ///
+    ///
+    ///
+
+    protected function dumpFile(string $name, $definition)
+    {
+        $yaml = Yaml::dump(['definition' => $definition], 7, 2);
+
+        $this->getFileSystem()->dumpFile($this->getPath($name), $yaml);
+    }
+
+    protected function getDefinitionsPath(): string
+    {
+        return getcwd().'/definitions/';
+    }
+
+    protected function getPath(string $name): string
+    {
+        return $this->getDefinitionsPath().str_replace('\\', '/', $name).'.yaml';
+    }
+
+    protected function getFileSystem(): Filesystem
+    {
+        return $this->getService(Filesystem::class);
+    }
 }
