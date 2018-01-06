@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @codeCoverageIgnore
@@ -36,7 +35,7 @@ class AddInterfaceCliCommand extends BaseCliCommand
     /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name       = $this->askForInterfaceName();
+        $name       = $this->askName();
         $parentName = $this->askForParentInterfaceName();
         $constants  = $this->askForConstants();
         $methods    = $this->askForMethods();
@@ -49,14 +48,12 @@ class AddInterfaceCliCommand extends BaseCliCommand
             'methods'    => $methods,
         ];
 
-        $yaml = Yaml::dump(['definition' => $definition], 7, 2);
-
-        $this->getFileSystem()->dumpFile($this->getPath($name), $yaml);
+        $this->dumpFile($name, $definition);
 
         $this->io->writeln('Done.');
     }
 
-    protected function askForInterfaceName(): string
+    protected function askName(): string
     {
         $question = new Question('Enter interface name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
