@@ -11,6 +11,7 @@ use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use OutOfBoundsException;
 use Roave\BetterReflection\BetterReflection;
+use Roave\BetterReflection\Reflection\Reflection;
 
 /**
  * @see ExampleMakerSpec
@@ -48,12 +49,8 @@ class ExampleMaker
             return new MockeryMockExample($variable->getInstanceName());
         }
 
-        $zz = $refl;
-        while ($parent = $zz->getParentClass()) {
-            if (DateTime::class === $parent->getName()) {
-                return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
-            }
-            $zz = $parent;
+        if (true === $this->isInstanceOfDateTime($refl)) {
+            return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
         }
 
         try {
@@ -128,12 +125,8 @@ class ExampleMaker
             return new MockeryMockExample($variable->getInstanceName());
         }
 
-        $zz = $refl;
-        while ($parent = $zz->getParentClass()) {
-            if (DateTime::class === $parent->getName()) {
-                return new SimpleExample('2018-01-01T00:01:00+00:00');
-            }
-            $zz = $parent;
+        if (true === $this->isInstanceOfDateTime($refl)) {
+            return new SimpleExample('2018-01-01T00:01:00+00:00');
         }
 
         try {
@@ -179,5 +172,17 @@ class ExampleMaker
         }
 
         return new SimpleExample('WTF?');
+    }
+
+    protected function isInstanceOfDateTime(Reflection $reflection): bool
+    {
+        while ($parent = $reflection->getParentClass()) {
+            if (DateTime::class === $parent->getName()) {
+                return true;
+            }
+            $reflection = $parent;
+        }
+
+        return false;
     }
 }
