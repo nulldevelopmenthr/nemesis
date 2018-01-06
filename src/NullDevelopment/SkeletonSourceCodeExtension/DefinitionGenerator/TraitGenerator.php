@@ -59,8 +59,8 @@ class TraitGenerator implements DefinitionGenerator
 
         if (true === $definition->hasTraits()) {
             foreach ($definition->getTraits() as $subTrait) {
-                $trait->addTrait($subTrait->getClassName());
-                $namespace->addUse($subTrait->getFullClassName());
+                $trait->addTrait($subTrait->getName());
+                $namespace->addUse($subTrait->getFullName());
             }
         }
 
