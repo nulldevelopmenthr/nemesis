@@ -44,7 +44,7 @@ class AddSimpleEntityCliCommand extends BaseCliCommand
         $methods    = $this->askForMethods();
 
         $definition = [
-            'type'        => 'SimpleIdentifier',
+            'type'        => 'SimpleEntity',
             'instanceOf'  => $name,
             'parent'      => $parentName,
             'interfaces'  => $interfaces,

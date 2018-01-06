@@ -67,7 +67,7 @@ class AddSingleValueObjectCliCommand extends BaseCliCommand
         $methods = $this->askForMethods();
 
         $definition = [
-            'type'        => 'SimpleIdentifier',
+            'type'        => 'SingleValueObject',
             'instanceOf'  => $name,
             'parent'      => $parentName,
             'interfaces'  => $interfaces,
