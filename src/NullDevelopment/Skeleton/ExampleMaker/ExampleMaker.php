@@ -53,9 +53,7 @@ class ExampleMaker
             return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
         }
 
-        try {
-            $refl->getConstructor();
-        } catch (OutOfBoundsException $exception) {
+        if (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
         }
 
@@ -129,9 +127,7 @@ class ExampleMaker
             return new SimpleExample('2018-01-01T00:01:00+00:00');
         }
 
-        try {
-            $refl->getConstructor();
-        } catch (OutOfBoundsException $exception) {
+        if (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
         }
 
@@ -184,5 +180,16 @@ class ExampleMaker
         }
 
         return false;
+    }
+
+    protected function hasConstructor(Reflection $reflection): bool
+    {
+        try {
+            $reflection->getConstructor();
+
+            return true;
+        } catch (OutOfBoundsException $exception) {
+            return false;
+        }
     }
 }
