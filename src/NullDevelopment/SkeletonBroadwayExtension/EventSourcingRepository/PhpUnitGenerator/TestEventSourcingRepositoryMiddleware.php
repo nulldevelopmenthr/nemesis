@@ -31,6 +31,9 @@ class TestEventSourcingRepositoryMiddleware implements Middleware
     {
         $returnValue = $next($command);
 
+        // #byMiri We dont want to generate tests for eventsourcing repository
+
+        return $returnValue;
         if (false === $command instanceof EventSourcingRepository) {
             return $returnValue;
         }
