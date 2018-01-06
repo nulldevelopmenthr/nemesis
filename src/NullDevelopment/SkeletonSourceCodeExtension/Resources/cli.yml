@@ -13,3 +13,11 @@ services:
     class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddTraitCliCommand
     tags:
       - {name: console.command }
+
+  cli.command.simple.identifier.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSimpleIdentifierCliCommand
+    tags:
+      - {name: console.command }
+
+
+

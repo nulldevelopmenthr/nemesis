@@ -9,7 +9,6 @@ use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\InterfaceSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Skeleton\Suggestions\TraitSuggestions;
-use NullDevelopment\PhpStructure\DataType\Constant;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
@@ -91,6 +90,11 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
     /**
      * @TODO
      */
+    protected function askForInterfaces(): array
+    {
+        return [];
+    }
+
     protected function askForTraits(): array
     {
         $traits = [];
@@ -125,9 +129,6 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
         return $this->io->askQuestion($question);
     }
 
-    /**
-     * @TODO
-     */
     protected function askForProperties(): array
     {
         $properties = [];
@@ -135,7 +136,7 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
         while (true) {
             $propertyClassName = $this->askForPropertyClassName();
 
-            if (true === empty($propertyClassName)) {
+            if (null === $propertyClassName) {
                 break;
             }
             $className = ClassName::create(str_replace('/', '\\', $propertyClassName));
@@ -152,7 +153,7 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
             } else {
                 $defaultValue = null;
             }
-            $examples = [];
+            $examples = $this->askForExamples();
 
             $properties[$propertyName] = [
                 'instanceOf' => $propertyClassName,
@@ -168,7 +169,7 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
         return $properties;
     }
 
-    protected function askForPropertyClassName()
+    protected function askForPropertyClassName(): ?string
     {
         $question = new Question('Enter property class name', '');
         $question->setAutocompleterValues($this->getExistingClasses());
@@ -176,7 +177,7 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
         $question->setValidator(
             function ($input) {
                 if (true === empty($input)) {
-                    return false;
+                    return null;
                 }
 
                 return $input;
@@ -189,6 +190,14 @@ abstract class BaseCliCommand extends Command implements ContainerAwareInterface
     protected function askForPropertyName(string $suggestedName)
     {
         return $this->io->ask('Enter property name', $suggestedName);
+    }
+
+    /**
+     * @TODO
+     */
+    protected function askForExamples(): array
+    {
+        return [];
     }
 
     /**
