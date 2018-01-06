@@ -35,7 +35,7 @@ class DevboardNamingStrategy implements NamingStrategy
     public function aggregateRootId(): RootIdClassName
     {
         $namespace = $this->getCoreNamespace();
-        $className = $this->getName().'Id';
+        $className = $this->getName().'RootId';
 
         return new RootIdClassName($className, $namespace);
     }
