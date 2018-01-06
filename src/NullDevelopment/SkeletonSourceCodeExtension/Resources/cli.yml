@@ -19,6 +19,11 @@ services:
     tags:
       - {name: console.command }
 
+  cli.command.uuidv4.identifier.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddUuidV4IdentifierCliCommand
+    tags:
+      - {name: console.command }
+
   cli.command.simple.entity.add:
     class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSimpleEntityCliCommand
     tags:
