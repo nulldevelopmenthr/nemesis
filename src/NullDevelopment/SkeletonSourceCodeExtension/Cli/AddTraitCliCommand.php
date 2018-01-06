@@ -59,7 +59,7 @@ class AddTraitCliCommand extends BaseCliCommand
         $this->io->writeln('Done.');
     }
 
-    protected function askName(): string
+    private function askName(): string
     {
         $question = new Question('Enter trait name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());

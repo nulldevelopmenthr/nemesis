@@ -91,7 +91,7 @@ class AddSingleValueObjectCliCommand extends BaseCliCommand
         $this->io->writeln('Done.');
     }
 
-    protected function askName(): string
+    private function askName(): string
     {
         $question = new Question('Enter single value object name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
@@ -110,7 +110,7 @@ class AddSingleValueObjectCliCommand extends BaseCliCommand
         return $this->io->askQuestion($question);
     }
 
-    protected function askForParentClassName(): ?string
+    private function askForParentClassName(): ?string
     {
         $question = new Question('Enter parent class name', '');
         $question->setAutocompleterValues($this->getExistingClasses());

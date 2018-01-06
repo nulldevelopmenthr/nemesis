@@ -53,7 +53,7 @@ class AddInterfaceCliCommand extends BaseCliCommand
         $this->io->writeln('Done.');
     }
 
-    protected function askName(): string
+    private function askName(): string
     {
         $question = new Question('Enter interface name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
@@ -72,7 +72,7 @@ class AddInterfaceCliCommand extends BaseCliCommand
         return $this->io->askQuestion($question);
     }
 
-    protected function askForParentInterfaceName(): ?string
+    private function askForParentInterfaceName(): ?string
     {
         $question = new Question('Enter parent interface name', '');
         $question->setAutocompleterValues($this->getExistingInterfaces());
