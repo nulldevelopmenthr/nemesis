@@ -144,16 +144,27 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
             'interfaces' => [],
             'traits'     => [],
             'constants'  => [],
-            'properties' => [],
-            'methods'    => [
+            'properties' => [
+                'id' => [
+                    'instanceOf' => $rootIdClassName,
+                    'nullable'   => false,
+                    'hasDefault' => false,
+                    'default'    => null,
+                ],
+            ],
+            'methods' => [
                 'getAggregateRootId' => [
-                    'type'     => 'getter',
-                    'property' => [
-                        'name'       => 'id',
-                        'instanceOf' => 'string',
-                        'nullable'   => false,
-                        'hasDefault' => false,
-                        'default'    => null,
+                    'type'  => 'chainedgetter',
+                    'calls' => [
+                        'name'     => '__toString',
+                        'type'     => 'getter',
+                        'property' => [
+                            'name'       => 'id',
+                            'instanceOf' => 'string',
+                            'nullable'   => false,
+                            'hasDefault' => false,
+                            'default'    => null,
+                        ],
                     ],
                 ],
             ],
