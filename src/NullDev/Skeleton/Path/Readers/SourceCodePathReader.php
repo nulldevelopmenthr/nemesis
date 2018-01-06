@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Skeleton\Path\Readers;
 
 use hanneskod\classtools\Iterator\ClassIterator;
+use InvalidArgumentException;
 use NullDev\Nemesis\Config\Config;
 use ReflectionClass;
 use Symfony\Component\Finder\Finder;
@@ -126,11 +127,7 @@ class SourceCodePathReader
         foreach ($this->config->getSourceCodePaths() as $path) {
             $files = $this->getPhpFiles($path->getPathBase());
 
-            $foundNames = array_keys(
-                (new ClassIterator($files))->getClassMap()
-            );
-
-            $names = array_merge($names, $foundNames);
+            $names = array_merge($names, $files);
         }
 
         return $names;
@@ -149,11 +146,7 @@ class SourceCodePathReader
         foreach ($this->config->getSourceCodePaths() as $path) {
             $files = $this->getPhpFiles($path->getPathBase());
 
-            $foundNames = array_keys(
-                (new ClassIterator($files))->getClassMap()
-            );
-
-            foreach ($foundNames as $classname) {
+            foreach ($files as $classname) {
                 if (in_array(substr($classname, -4), ['Test', 'Spec'])) {
                     continue;
                 }
@@ -214,11 +207,7 @@ class SourceCodePathReader
         foreach ($this->config->getSourceCodePaths() as $path) {
             $files = $this->getPhpFiles($path->getPathBase());
 
-            $foundNames = array_keys(
-                (new ClassIterator($files))->getClassMap()
-            );
-
-            foreach ($foundNames as $interfaceName) {
+            foreach ($files as $interfaceName) {
                 try {
                     $reflection = new ReflectionClass($interfaceName);
                 } catch (Throwable $exception) {
@@ -275,11 +264,7 @@ class SourceCodePathReader
         foreach ($this->config->getSourceCodePaths() as $path) {
             $files = $this->getPhpFiles($path->getPathBase());
 
-            $foundNames = array_keys(
-                (new ClassIterator($files))->getClassMap()
-            );
-
-            foreach ($foundNames as $traitName) {
+            foreach ($files as $traitName) {
                 try {
                     $reflection = new ReflectionClass($traitName);
                 } catch (Throwable $exception) {
@@ -325,7 +310,19 @@ class SourceCodePathReader
 
     private function getPhpFiles($path)
     {
-        return $this->getFinder()->files()->in($path)->name('*.php');
+        try {
+            $files = $this->getFinder()->files()->in($path)->name('*.php');
+        } catch (InvalidArgumentException $exception) {
+            echo PHP_EOL.PHP_EOL.$exception->getMessage().PHP_EOL.PHP_EOL;
+
+            return [];
+        }
+
+        $foundNames = array_keys(
+            (new ClassIterator($files))->getClassMap()
+        );
+
+        return $foundNames;
     }
 
     private function getPhpFiles2(array $paths)
