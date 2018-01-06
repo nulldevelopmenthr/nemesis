@@ -60,7 +60,7 @@ class AddSimpleEntityCliCommand extends BaseCliCommand
         $this->io->writeln('Done.');
     }
 
-    protected function askName(): string
+    private function askName(): string
     {
         $question = new Question('Enter simple entity name', '');
         $question->setAutocompleterValues($this->getExistingNamespaces());
@@ -79,7 +79,7 @@ class AddSimpleEntityCliCommand extends BaseCliCommand
         return $this->io->askQuestion($question);
     }
 
-    protected function askForParentClassName(): ?string
+    private function askForParentClassName(): ?string
     {
         $question = new Question('Enter parent class name', '');
         $question->setAutocompleterValues($this->getExistingClasses());
