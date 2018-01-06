@@ -89,6 +89,10 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         $config->addReadSide($newReadSide);
         $this->writeTheaterConfig($config);
 
+        if ('DoctrineORM' === $this->implementation->getValue()) {
+            $this->generateDefinition($newReadSide);
+        }
+
         if ($this->io->confirm('Do you want to generate files now?')) {
             $commands = $this->getCommands($newReadSide);
 
@@ -104,6 +108,91 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         }
 
         $this->io->writeln('DoNE');
+    }
+
+    private function generateDefinition(ReadSideConfig $newReadSide)
+    {
+        $entityClassName     = $newReadSide->getReadEntity()->getFullName();
+        $repositoryClassName = $newReadSide->getReadRepository()->getFullName();
+        $factoryClassName    = $newReadSide->getReadFactory()->getFullName();
+        $projectorClassName  = $newReadSide->getReadProjector()->getFullName();
+
+        $properties = [];
+
+        /** @var Parameter $parameter */
+        foreach ($newReadSide->getProperties() as $parameter) {
+            $properties[$parameter->getName()] = [
+                'instanceOf' => $parameter->getTypeFullName(),
+                'nullable'   => false,
+                'hasDefault' => false,
+                'default'    => null,
+                'examples'   => [],
+            ];
+        }
+
+        $entityDefinition = [
+            'type'        => 'DoctrineReadEntity',
+            'instanceOf'  => $entityClassName,
+            'parent'      => null,
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'constructor' => $properties,
+            'methods'     => [],
+        ];
+
+        $repositoryDefinition = [
+            'type'        => 'DoctrineReadRepository',
+            'instanceOf'  => $repositoryClassName,
+            'parent'      => 'Doctrine\ORM\EntityRepository',
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'constructor' => [],
+            'methods'     => [],
+            'entity'      => $entityClassName,
+        ];
+        $factoryDefinition = [
+            'type'        => 'DoctrineReadFactory',
+            'instanceOf'  => $factoryClassName,
+            'parent'      => null,
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'constructor' => [],
+            'methods'     => [],
+            'entity'      => $entityClassName,
+        ];
+        $projectorDefinition = [
+            'type'        => 'DoctrineReadProjector',
+            'instanceOf'  => $projectorClassName,
+            'parent'      => null,
+            'interfaces'  => [],
+            'traits'      => [],
+            'constants'   => [],
+            'constructor' => [
+                'repository' => [
+                    'instanceOf' => $repositoryClassName,
+                    'nullable'   => false,
+                    'hasDefault' => false,
+                    'default'    => null,
+                ],
+                'factory' => [
+                    'instanceOf' => $factoryClassName,
+                    'nullable'   => false,
+                    'hasDefault' => false,
+                    'default'    => null,
+                ],
+            ],
+            'methods'    => [],
+            'repository' => $repositoryClassName,
+            'factory'    => $factoryClassName,
+        ];
+
+        $this->dumpFile($entityClassName, $entityDefinition);
+        $this->dumpFile($repositoryClassName, $repositoryDefinition);
+        $this->dumpFile($factoryClassName, $factoryDefinition);
+        $this->dumpFile($projectorClassName, $projectorDefinition);
     }
 
     protected function getCommands(ReadSideConfig $newReadSide): array
