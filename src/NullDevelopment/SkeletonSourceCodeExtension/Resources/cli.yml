@@ -8,3 +8,8 @@ services:
     class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddInterfaceCliCommand
     tags:
       - {name: console.command }
+
+  cli.command.trait.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddTraitCliCommand
+    tags:
+      - {name: console.command }
