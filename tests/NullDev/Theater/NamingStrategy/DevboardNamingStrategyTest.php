@@ -44,7 +44,7 @@ class DevboardNamingStrategyTest extends TestCase
 
         self::assertInstanceOf(RootIdClassName::class, $rootIdClassName);
 
-        self::assertEquals('MyCompany\Webshop\Core\WebshopId', $rootIdClassName->getFullName());
+        self::assertEquals('MyCompany\Webshop\Core\WebshopRootId', $rootIdClassName->getFullName());
     }
 
     public function testAggregateRootModel()
