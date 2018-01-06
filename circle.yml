@@ -9,23 +9,18 @@ jobs:
       - restore_cache:
           key: cache-v1-{{ checksum "composer.lock" }}
       - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
           name: Composer install
           command: composer install --no-interaction
-      - run: cp etc/circleci2/phpspec.yml phpspec.yml
       - run:
           name: PHPSpec
           command: ./vendor/bin/phpspec run --no-interaction
-      - run:
-          name: Ship codecoverage to codecov.io
-          command: bash <(curl -s https://codecov.io/bash)
       - save_cache:
           key: cache-v1-{{ checksum "composer.lock" }}
           paths:
             - /var/www/vendor
-      - type: artifacts-store
-        path: build
-        destination: build
-
   phpunit:
     docker:
       - image: msvrtan/square:0.2.1
@@ -35,6 +30,9 @@ jobs:
       - restore_cache:
           key: cache-v1-{{ checksum "composer.lock" }}
       - run:
+          name: Disable xdebug
+          command: ./etc/circleci2/disable-xdebug.sh
+      - run:
           name: Composer install
           command: composer install --no-interaction
       - run:
@@ -43,14 +41,6 @@ jobs:
       - run:
           name: PHPUnit
           command: ./vendor/bin/phpunit --fail-on-warning --log-junit build/phpunit/junit.xml
-      - run:
-          name: Ship codecoverage to codecov.io
-          command: bash <(curl -s https://codecov.io/bash)
-      - type: artifacts-store
-        path: build
-        destination: build
-      - store_test_results:
-          path: build
 
   behat:
     docker:
@@ -138,6 +128,59 @@ jobs:
           name: Build Phar
           command: php -d phar.readonly=false box.phar build -v
 
+
+  codecoverage_phpspec:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run: cp etc/circleci2/phpspec.yml phpspec.yml
+      - run:
+          name: PHPSpec
+          command: ./vendor/bin/phpspec run --no-interaction
+      - run:
+          name: Ship codecoverage to codecov.io
+          command: bash <(curl -s https://codecov.io/bash)
+      - save_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+          paths:
+            - /var/www/vendor
+      - type: artifacts-store
+        path: build
+        destination: build
+
+  codecoverage_phpunit:
+    docker:
+      - image: msvrtan/square:0.2.1
+    workDir: /var/www
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-v1-{{ checksum "composer.lock" }}
+      - run:
+          name: Composer install
+          command: composer install --no-interaction
+      - run:
+          name: Composer dump autoload (bug on autoload)
+          command: composer dump-autoload -o
+      - run:
+          name: PHPUnit
+          command: ./vendor/bin/phpunit --fail-on-warning --log-junit build/phpunit/junit.xml
+      - run:
+          name: Ship codecoverage to codecov.io
+          command: bash <(curl -s https://codecov.io/bash)
+      - type: artifacts-store
+        path: build
+        destination: build
+      - store_test_results:
+          path: build
+
 workflows:
   version: 2
   build-and-deploy:
@@ -168,7 +211,19 @@ workflows:
              only: building-phar
       - infection:
          requires:
-           - phpunit
+           - build
+         filters:
+           branches:
+             only: quality_check
+      - codecoverage_phpspec:
+         requires:
+           - build
+         filters:
+           branches:
+             only: quality_check
+      - codecoverage_phpunit:
+         requires:
+           - build
          filters:
            branches:
              only: quality_check
