@@ -26,6 +26,10 @@ class ExampleMaker
      */
     public function instance(Variable $variable): Example
     {
+        if (count($variable->getExamples()) > 0) {
+            return new InstanceExample($variable->getInstanceName(), [$variable->getExamples()[0]]);
+        }
+
         switch ($variable->getInstanceFullName()) {
             case 'int':
             case 'string':
@@ -35,10 +39,6 @@ class ExampleMaker
                 return $this->value($variable);
             case 'DateTime':
                 return new InstanceExample(new ClassName('DateTime'), [$this->value($variable)]);
-        }
-
-        if (count($variable->getExamples()) > 0) {
-            return new InstanceExample($variable->getInstanceName(), [$variable->getExamples()[0]]);
         }
 
         $refl = (new BetterReflection())
