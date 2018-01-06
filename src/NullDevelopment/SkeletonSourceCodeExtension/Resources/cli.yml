@@ -24,5 +24,10 @@ services:
     tags:
       - {name: console.command }
 
+  cli.command.single.value_object.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSingleValueObjectCliCommand
+    tags:
+      - {name: console.command }
+
 
 
