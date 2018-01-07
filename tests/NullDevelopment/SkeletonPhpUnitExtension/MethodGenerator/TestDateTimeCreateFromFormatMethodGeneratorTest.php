@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeCreateFromFormatMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestDateTimeCreateFromFormatMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +29,7 @@ class TestDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker();
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
         $this->sut          = new TestDateTimeCreateFromFormatMethodGenerator($this->exampleMaker);
     }
 

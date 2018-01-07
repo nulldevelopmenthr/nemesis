@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecGetterMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -29,7 +30,7 @@ class SpecGetterMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker();
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
         $this->sut          = new SpecGetterMethodGenerator($this->exampleMaker);
     }
 

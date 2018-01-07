@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestToStringMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestToStringMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -27,7 +28,7 @@ class TestToStringMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker();
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
         $this->sut          = new TestToStringMethodGenerator($this->exampleMaker);
     }
 
