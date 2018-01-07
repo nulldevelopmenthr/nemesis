@@ -184,6 +184,10 @@ class ExampleMaker
 
         $class = substr($docBlockClassName, 0, -2);
 
+        if (0 === strpos($class, '\\')) {
+            $class = substr($class, 1);
+        }
+
         return ClassName::create($class);
     }
 
