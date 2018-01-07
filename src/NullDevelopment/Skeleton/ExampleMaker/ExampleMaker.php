@@ -70,7 +70,7 @@ class ExampleMaker
     private function processParameterForInstance(ReflectionParameter $parameter)
     {
         if (null === $parameter->getType()) {
-            throw new Exception('Err xxx1: Ha? No type on param?');
+            return new SimpleExample($parameter->getName());
         }
 
         if (true === $this->isDefinedAsCollection($parameter)) {
@@ -136,7 +136,7 @@ class ExampleMaker
     private function processParameterForValue(ReflectionParameter $parameter)
     {
         if (null === $parameter->getType()) {
-            throw new Exception('Err xxx2: Ha? No type on param?');
+            return new SimpleExample($parameter->getName());
         }
 
         if (true === $this->isDefinedAsCollection($parameter)) {
