@@ -130,7 +130,7 @@ class ExampleMaker
             return array_pop($arguments);
         }
 
-        throw new \Exception('Err 2323423: WTF?');
+        throw new Exception('Err 2323423: WTF?');
     }
 
     private function processParameterForValue(ReflectionParameter $parameter)
@@ -153,7 +153,7 @@ class ExampleMaker
     private function createSimpleVariableFromParameter(ReflectionParameter $parameter): SimpleVariable
     {
         if (null === $parameter->getType()) {
-            throw new \Exception('Parameter without type');
+            throw new Exception('Parameter without type');
         }
 
         return new SimpleVariable(
