@@ -52,13 +52,9 @@ class ExampleMaker
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
-        }
-
-        if (true === $this->isInstanceOfDateTime($refl)) {
+        } elseif (true === $this->isInstanceOfDateTime($refl)) {
             return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
-        }
-
-        if (false === $this->hasConstructor($refl)) {
+        } elseif (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
         }
 
@@ -124,13 +120,9 @@ class ExampleMaker
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
-        }
-
-        if (true === $this->isInstanceOfDateTime($refl)) {
+        } elseif (true === $this->isInstanceOfDateTime($refl)) {
             return new SimpleExample('2018-01-01T00:01:00+00:00');
-        }
-
-        if (false === $this->hasConstructor($refl)) {
+        } elseif (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
         }
 
