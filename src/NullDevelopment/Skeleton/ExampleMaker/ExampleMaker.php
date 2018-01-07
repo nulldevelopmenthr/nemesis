@@ -130,7 +130,7 @@ class ExampleMaker
             return array_pop($arguments);
         }
 
-        return new SimpleExample('WTF?');
+        throw new \Exception('Err 2323423: WTF?');
     }
 
     private function processParameterForValue(ReflectionParameter $parameter)
