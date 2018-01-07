@@ -11,6 +11,7 @@ parameters:
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getParentClass\(\).#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getConstructor\(\).#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:isInterface\(\).#'
+	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:isSubclassOf\(\).#'
 	    - '#Method NullDevelopment\\PhpStructure\\Type\\ClassDefinition\:\:getConstructorParameters\(\) should return#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getCollectionOf\(\)#'
 	    - '#Call to an undefined method NullDevelopment\\PhpStructure\\Type\\Definition\:\:getSubjectUnderTest\(\).#'
