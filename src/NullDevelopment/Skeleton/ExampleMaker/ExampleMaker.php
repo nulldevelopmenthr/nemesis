@@ -51,7 +51,7 @@ class ExampleMaker
 
         $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
 
-        if ($refl->isInterface()) {
+        if (true === $refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
         } elseif (true === $refl->isSubclassOf(DateTime::class)) {
             return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
@@ -111,7 +111,7 @@ class ExampleMaker
 
         $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
 
-        if ($refl->isInterface()) {
+        if (true === $refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
         } elseif (true === $refl->isSubclassOf(DateTime::class)) {
             return new SimpleExample('2018-01-01T00:01:00+00:00');
