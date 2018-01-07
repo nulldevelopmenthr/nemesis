@@ -53,7 +53,7 @@ class ExampleMaker
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
-        } elseif (true === $this->isInstanceOfDateTime($refl)) {
+        } elseif (true === $refl->isSubclassOf(DateTime::class)) {
             return new InstanceExample($variable->getInstanceName(), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
         } elseif (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
@@ -113,7 +113,7 @@ class ExampleMaker
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
-        } elseif (true === $this->isInstanceOfDateTime($refl)) {
+        } elseif (true === $refl->isSubclassOf(DateTime::class)) {
             return new SimpleExample('2018-01-01T00:01:00+00:00');
         } elseif (false === $this->hasConstructor($refl)) {
             return new MockeryMockExample($variable->getInstanceName());
@@ -185,18 +185,6 @@ class ExampleMaker
         $class = substr($docBlockClassName, 0, -2);
 
         return ClassName::create($class);
-    }
-
-    protected function isInstanceOfDateTime(Reflection $reflection): bool
-    {
-        while ($parent = $reflection->getParentClass()) {
-            if (DateTime::class === $parent->getName()) {
-                return true;
-            }
-            $reflection = $parent;
-        }
-
-        return false;
     }
 
     protected function hasConstructor(Reflection $reflection): bool
