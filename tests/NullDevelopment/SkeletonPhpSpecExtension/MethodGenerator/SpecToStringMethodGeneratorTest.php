@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecToStringMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -27,7 +28,7 @@ class SpecToStringMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker();
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
         $this->sut          = new SpecToStringMethodGenerator($this->exampleMaker);
     }
 

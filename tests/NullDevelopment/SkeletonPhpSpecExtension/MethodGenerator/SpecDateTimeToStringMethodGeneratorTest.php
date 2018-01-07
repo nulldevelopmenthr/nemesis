@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeToStringMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeToStringMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +26,7 @@ class SpecDateTimeToStringMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeToStringMethodGenerator(new ExampleMaker());
+        $this->sut = new SpecDateTimeToStringMethodGenerator(new ExampleMaker(new ReflectionFactory()));
     }
 
     /** @dataProvider provideMethods */

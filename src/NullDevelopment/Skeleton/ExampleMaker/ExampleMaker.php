@@ -10,7 +10,6 @@ use NullDevelopment\PhpStructure\DataType\SimpleVariable;
 use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use OutOfBoundsException;
-use Roave\BetterReflection\BetterReflection;
 use Roave\BetterReflection\Reflection\Reflection;
 
 /**
@@ -20,6 +19,14 @@ use Roave\BetterReflection\Reflection\Reflection;
  */
 class ExampleMaker
 {
+    /** @var ReflectionFactory */
+    private $reflectionFactory;
+
+    public function __construct(ReflectionFactory $reflectionFactory)
+    {
+        $this->reflectionFactory = $reflectionFactory;
+    }
+
     /**
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -41,9 +48,7 @@ class ExampleMaker
                 return new InstanceExample(new ClassName('DateTime'), [$this->value($variable)]);
         }
 
-        $refl = (new BetterReflection())
-            ->classReflector()
-            ->reflect($variable->getInstanceFullName());
+        $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());
@@ -115,9 +120,7 @@ class ExampleMaker
                 return new SimpleExample('2018-01-01T00:01:00+00:00');
         }
 
-        $refl = (new BetterReflection())
-            ->classReflector()
-            ->reflect($variable->getInstanceFullName());
+        $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
 
         if ($refl->isInterface()) {
             return new MockeryMockExample($variable->getInstanceName());

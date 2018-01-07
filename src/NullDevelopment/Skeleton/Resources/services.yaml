@@ -7,6 +7,7 @@ services:
     public: true
 
   NullDevelopment\Skeleton\ExampleMaker\ExampleMaker: ~
+  NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory: ~
   NullDevelopment\Skeleton\Path\Readers\FinderFactory: ~
   Symfony\Component\Filesystem\Filesystem: ~
 

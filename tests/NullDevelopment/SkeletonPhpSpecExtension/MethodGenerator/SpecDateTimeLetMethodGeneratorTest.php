@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeLetMethod;
 use NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecDateTimeLetMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +26,7 @@ class SpecDateTimeLetMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeLetMethodGenerator(new ExampleMaker());
+        $this->sut = new SpecDateTimeLetMethodGenerator(new ExampleMaker(new ReflectionFactory()));
     }
 
     /** @dataProvider provideMethods */

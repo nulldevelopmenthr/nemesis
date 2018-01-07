@@ -7,6 +7,7 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
+use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestSerializeMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator\TestSerializeMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -30,7 +31,7 @@ class TestSerializeMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker();
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
         $this->sut          = new TestSerializeMethodGenerator($this->exampleMaker);
     }
 
