@@ -11,6 +11,7 @@ use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use OutOfBoundsException;
 use Roave\BetterReflection\Reflection\Reflection;
+use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 /**
  * @see ExampleMakerSpec
@@ -60,35 +61,27 @@ class ExampleMaker
 
         $arguments = [];
         foreach ($refl->getConstructor()->getParameters() as $parameter) {
-            if ($parameter->getType()) {
-                if (count($parameter->getDocBlockTypes()) > 0) {
-                    $docBlockClassName = $parameter->getDocBlockTypeStrings()[0];
-
-                    if ('[]' === substr($docBlockClassName, -2, 2)) {
-                        $class = substr($docBlockClassName, 0, -2);
-
-                        $paramAsVar = new SimpleVariable(
-                            $parameter->getName(),
-                            ClassName::create($class)
-                        );
-
-                        $arguments[] = new ArrayExample([$this->instance($paramAsVar)]);
-                        continue;
-                    }
-                }
-
-                $paramAsVar = new SimpleVariable(
-                    $parameter->getName(),
-                    ClassName::create($parameter->getType()->__toString())
-                );
-
-                $arguments[] = $this->instance($paramAsVar);
-            } else {
-                throw new Exception('Err xxx1: Ha? No type on param?');
-            }
+            $arguments[] = $this->processParameterForInstance($parameter);
         }
 
         return new InstanceExample($variable->getInstanceName(), $arguments);
+    }
+
+    private function processParameterForInstance(ReflectionParameter $parameter)
+    {
+        if (null === $parameter->getType()) {
+            throw new Exception('Err xxx1: Ha? No type on param?');
+        }
+
+        if (true === $this->isDefinedAsCollection($parameter)) {
+            $paramAsVar = new SimpleVariable($parameter->getName(), $this->getClassNameFromDocBlock($parameter));
+
+            return new ArrayExample([$this->instance($paramAsVar)]);
+        }
+
+        $paramAsVar = $this->createSimpleVariableFromParameter($parameter);
+
+        return $this->instance($paramAsVar);
     }
 
     /**
@@ -128,32 +121,7 @@ class ExampleMaker
 
         $arguments = [];
         foreach ($refl->getConstructor()->getParameters() as $parameter) {
-            if (null !== $parameter->getType()) {
-                if (count($parameter->getDocBlockTypes()) > 0) {
-                    $docBlockClassName = $parameter->getDocBlockTypeStrings()[0];
-
-                    if ('[]' === substr($docBlockClassName, -2, 2)) {
-                        $class = substr($docBlockClassName, 0, -2);
-
-                        $paramAsVar = new SimpleVariable(
-                            $parameter->getName(),
-                            ClassName::create($class)
-                        );
-
-                        $arguments[] = new ArrayExample([$this->value($paramAsVar)]);
-                        continue;
-                    }
-                }
-
-                $paramAsVar = new SimpleVariable(
-                    $parameter->getName(),
-                    ClassName::create($parameter->getType()->__toString())
-                );
-
-                $arguments[$parameter->getName()] = $this->value($paramAsVar);
-            } else {
-                throw new Exception('Err xxx2: Ha? No type on param?');
-            }
+            $arguments[] = $this->processParameterForValue($parameter);
         }
 
         if (count($arguments) > 1) {
@@ -163,6 +131,60 @@ class ExampleMaker
         }
 
         return new SimpleExample('WTF?');
+    }
+
+    private function processParameterForValue(ReflectionParameter $parameter)
+    {
+        if (null === $parameter->getType()) {
+            throw new Exception('Err xxx2: Ha? No type on param?');
+        }
+
+        if (true === $this->isDefinedAsCollection($parameter)) {
+            $paramAsVar = new SimpleVariable($parameter->getName(), $this->getClassNameFromDocBlock($parameter));
+
+            return new ArrayExample([$this->value($paramAsVar)]);
+        }
+
+        $paramAsVar = $this->createSimpleVariableFromParameter($parameter);
+
+        return $this->value($paramAsVar);
+    }
+
+    private function createSimpleVariableFromParameter(ReflectionParameter $parameter): SimpleVariable
+    {
+        if (null === $parameter->getType()) {
+            throw new \Exception('Parameter without type');
+        }
+
+        return new SimpleVariable(
+            $parameter->getName(),
+            ClassName::create($parameter->getType()->__toString())
+        );
+    }
+
+    private function isDefinedAsCollection(ReflectionParameter $parameter): bool
+    {
+        if (0 === count($parameter->getDocBlockTypes())) {
+            return false;
+        }
+
+        $docBlockClassName = $parameter->getDocBlockTypeStrings()[0];
+
+        // When last 2 characters are [] we know it's a collection.
+        if ('[]' === substr($docBlockClassName, -2, 2)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private function getClassNameFromDocBlock(ReflectionParameter $parameter): ClassName
+    {
+        $docBlockClassName = $parameter->getDocBlockTypeStrings()[0];
+
+        $class = substr($docBlockClassName, 0, -2);
+
+        return ClassName::create($class);
     }
 
     protected function isInstanceOfDateTime(Reflection $reflection): bool
