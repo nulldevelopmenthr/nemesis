@@ -121,7 +121,7 @@ class ExampleMaker
 
         $arguments = [];
         foreach ($refl->getConstructor()->getParameters() as $parameter) {
-            $arguments[] = $this->processParameterForValue($parameter);
+            $arguments[$parameter->getName()] = $this->processParameterForValue($parameter);
         }
 
         if (count($arguments) > 1) {
