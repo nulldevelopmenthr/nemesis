@@ -127,7 +127,7 @@ class ExampleMaker
         if (count($arguments) > 1) {
             return new ArrayExample2($arguments);
         } elseif (1 === count($arguments)) {
-            return new SimpleExample(array_pop($arguments));
+            return array_pop($arguments);
         }
 
         return new SimpleExample('WTF?');
