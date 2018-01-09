@@ -45,7 +45,7 @@ class UserEntityTest extends TestCase
     public function setUp()
     {
         $this->id        = new UserId(1);
-        $this->firstName = new UserFirstName('firstName');
+        $this->firstName = new UserFirstName('Amy');
         $this->lastName  = 'lastName';
         $this->username  = new Username('username');
         $this->active    = true;
@@ -98,7 +98,7 @@ class UserEntityTest extends TestCase
 
     public function testSetFirstName()
     {
-        $firstName = new UserFirstName('firstName');
+        $firstName = new UserFirstName('Amy');
         $this->sut->setFirstName($firstName);
         self::assertSame($firstName, $this->sut->getFirstName());
     }
@@ -112,7 +112,7 @@ class UserEntityTest extends TestCase
     {
         $expected = [
             'id'        => 1,
-            'firstName' => 'firstName',
+            'firstName' => 'Amy',
             'lastName'  => 'lastName',
             'username'  => 'username',
             'active'    => true,
