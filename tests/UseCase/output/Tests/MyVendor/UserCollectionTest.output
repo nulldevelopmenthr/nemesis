@@ -30,7 +30,7 @@ class UserCollectionTest extends TestCase
         $this->elements = [
             new UserEntity(
                 new UserId(1),
-                new UserFirstName('firstName'),
+                new UserFirstName('Amy'),
                 'lastName',
                 new Username('username'),
                 true,

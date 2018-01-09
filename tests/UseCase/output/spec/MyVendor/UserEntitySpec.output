@@ -88,14 +88,14 @@ class UserEntitySpec extends ObjectBehavior
     public function it_can_be_serialized(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
     {
         $id->serialize()->shouldBeCalled()->willReturn(1);
-        $firstName->serialize()->shouldBeCalled()->willReturn('firstName');
+        $firstName->serialize()->shouldBeCalled()->willReturn('Amy');
         $username->serialize()->shouldBeCalled()->willReturn('username');
         $createdAt->serialize()->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $this->serialize()->shouldReturn(
             [
             'id'        => 1,
-            'firstName' => 'firstName',
+            'firstName' => 'Amy',
             'lastName'  => 'lastName',
             'username'  => 'username',
             'active'    => true,
@@ -109,7 +109,7 @@ class UserEntitySpec extends ObjectBehavior
     {
         $input = [
             'id'        => 1,
-            'firstName' => 'firstName',
+            'firstName' => 'Amy',
             'lastName'  => 'lastName',
             'username'  => 'username',
             'active'    => true,
