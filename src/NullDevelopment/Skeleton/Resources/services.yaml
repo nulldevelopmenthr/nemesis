@@ -8,6 +8,7 @@ services:
 
   NullDevelopment\Skeleton\ExampleMaker\ExampleMaker: ~
   NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory: ~
+  NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory: ~
   NullDevelopment\Skeleton\Path\Readers\FinderFactory: ~
   Symfony\Component\Filesystem\Filesystem: ~
 

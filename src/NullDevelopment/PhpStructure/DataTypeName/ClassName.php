@@ -32,4 +32,13 @@ class ClassName extends AbstractDataTypeName implements ContractName, Importable
 
         return true;
     }
+
+    public function isArray(): bool
+    {
+        if (true === in_array($this->getFullName(), ['array'])) {
+            return true;
+        }
+
+        return false;
+    }
 }

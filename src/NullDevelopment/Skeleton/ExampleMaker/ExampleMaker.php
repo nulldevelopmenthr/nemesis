@@ -23,9 +23,17 @@ class ExampleMaker
     /** @var ReflectionFactory */
     private $reflectionFactory;
 
-    public function __construct(ReflectionFactory $reflectionFactory)
-    {
-        $this->reflectionFactory = $reflectionFactory;
+    /**
+     * @var DefinitionExampleFactory
+     */
+    private $definitionExampleFactory;
+
+    public function __construct(
+        ReflectionFactory $reflectionFactory,
+        DefinitionExampleFactory $definitionExampleFactory
+    ) {
+        $this->reflectionFactory        = $reflectionFactory;
+        $this->definitionExampleFactory = $definitionExampleFactory;
     }
 
     /**
@@ -38,15 +46,25 @@ class ExampleMaker
             return new InstanceExample($variable->getInstanceName(), [$variable->getExamples()[0]]);
         }
 
+        $example = $this->definitionExampleFactory->instance($variable->getInstanceFullName());
+
+        if (null !== $example) {
+            return $example;
+        }
+
         switch ($variable->getInstanceFullName()) {
             case 'int':
+                return new SimpleExample(1);
             case 'string':
+                return new SimpleExample($variable->getName());
             case 'float':
+                return new SimpleExample(2.0);
             case 'bool':
+                return new SimpleExample(true);
             case 'array':
-                return $this->value($variable);
+                return new ArrayExample([new SimpleExample('data')]);
             case 'DateTime':
-                return new InstanceExample(new ClassName('DateTime'), [$this->value($variable)]);
+                return new InstanceExample(new ClassName('DateTime'), [new SimpleExample('2018-01-01T00:01:00+00:00')]);
         }
 
         $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
@@ -61,10 +79,15 @@ class ExampleMaker
 
         $arguments = [];
         foreach ($refl->getConstructor()->getParameters() as $parameter) {
-            $arguments[] = $this->processParameterForInstance($parameter);
+            $arguments[$parameter->getName()] = $this->processParameterForInstance($parameter);
         }
 
         return new InstanceExample($variable->getInstanceName(), $arguments);
+    }
+
+    public function value(Variable $variable)
+    {
+        return $this->instance($variable)->asValue();
     }
 
     private function processParameterForInstance(ReflectionParameter $parameter)
@@ -82,72 +105,6 @@ class ExampleMaker
         $paramAsVar = $this->createSimpleVariableFromParameter($parameter);
 
         return $this->instance($paramAsVar);
-    }
-
-    /**
-     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     */
-    public function value(Variable $variable): Example
-    {
-        if (count($variable->getExamples()) > 0) {
-            return $variable->getExamples()[0];
-        }
-
-        switch ($variable->getInstanceFullName()) {
-            case 'int':
-                return new SimpleExample(1);
-            case 'string':
-                return new SimpleExample($variable->getName());
-            case 'float':
-                return new SimpleExample(2.0);
-            case 'bool':
-                return new SimpleExample(true);
-            case 'array':
-                return new ArrayExample([new SimpleExample('data')]);
-            case 'DateTime':
-                return new SimpleExample('2018-01-01T00:01:00+00:00');
-        }
-
-        $refl = $this->reflectionFactory->reflect($variable->getInstanceFullName());
-
-        if (true === $refl->isInterface()) {
-            return new MockeryMockExample($variable->getInstanceName());
-        } elseif (true === $refl->isSubclassOf(DateTime::class)) {
-            return new SimpleExample('2018-01-01T00:01:00+00:00');
-        } elseif (false === $this->hasConstructor($refl)) {
-            return new MockeryMockExample($variable->getInstanceName());
-        }
-
-        $arguments = [];
-        foreach ($refl->getConstructor()->getParameters() as $parameter) {
-            $arguments[$parameter->getName()] = $this->processParameterForValue($parameter);
-        }
-
-        if (count($arguments) > 1) {
-            return new ArrayExample2($arguments);
-        } elseif (1 === count($arguments)) {
-            return array_pop($arguments);
-        }
-
-        throw new Exception('Err 2323423: WTF?');
-    }
-
-    private function processParameterForValue(ReflectionParameter $parameter)
-    {
-        if (null === $parameter->getType()) {
-            return new SimpleExample($parameter->getName());
-        }
-
-        if (true === $this->isDefinedAsCollection($parameter)) {
-            $paramAsVar = new SimpleVariable($parameter->getName(), $this->getClassNameFromDocBlock($parameter));
-
-            return new ArrayExample([$this->value($paramAsVar)]);
-        }
-
-        $paramAsVar = $this->createSimpleVariableFromParameter($parameter);
-
-        return $this->value($paramAsVar);
     }
 
     private function createSimpleVariableFromParameter(ReflectionParameter $parameter): SimpleVariable

@@ -33,4 +33,9 @@ class MockeryMockExample implements Example
             $this->instanceOf,
         ];
     }
+
+    public function asValue()
+    {
+        return $this->__toString();
+    }
 }

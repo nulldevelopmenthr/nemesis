@@ -9,4 +9,6 @@ interface Example
     public function __toString(): string;
 
     public function classesToImport(): array;
+
+    public function asValue();
 }

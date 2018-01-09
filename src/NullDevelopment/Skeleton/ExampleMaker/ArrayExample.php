@@ -47,4 +47,21 @@ class ArrayExample implements Example
 
         return $result;
     }
+
+    public function asValue()
+    {
+        $results = [];
+
+        foreach ($this->values as $value) {
+            if (true === is_string($value)) {
+                $results[] = '"'.$value.'"';
+            } elseif ($value instanceof Example) {
+                $results[] = $value->asValue();
+            } else {
+                $results[] = $value;
+            }
+        }
+
+        return '['.implode(', ', $results).']';
+    }
 }
