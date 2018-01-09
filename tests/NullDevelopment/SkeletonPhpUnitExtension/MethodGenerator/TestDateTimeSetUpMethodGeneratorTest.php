@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestDateTimeSetUpMethod;
@@ -30,7 +31,7 @@ class TestDateTimeSetUpMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->exampleMaker = new ExampleMaker(new ReflectionFactory());
+        $this->exampleMaker = new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory());
         $this->sut          = new TestDateTimeSetUpMethodGenerator($this->exampleMaker);
     }
 

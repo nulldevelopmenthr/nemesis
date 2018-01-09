@@ -6,6 +6,7 @@ namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
+use NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
 use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecDateTimeDeserializeMethod;
@@ -27,7 +28,7 @@ class SpecDateTimeDeserializeMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeDeserializeMethodGenerator(new ExampleMaker(new ReflectionFactory()));
+        $this->sut = new SpecDateTimeDeserializeMethodGenerator(new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory()));
     }
 
     /** @dataProvider provideMethods */
