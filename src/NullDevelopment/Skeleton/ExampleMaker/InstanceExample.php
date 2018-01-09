@@ -45,4 +45,13 @@ class InstanceExample implements Example
 
         return $result;
     }
+
+    public function asValue()
+    {
+        if (count($this->parameters) > 1) {
+            return (new ArrayExample2($this->parameters))->asValue();
+        } elseif (1 === count($this->parameters)) {
+            return array_pop($this->parameters)->asValue();
+        }
+    }
 }

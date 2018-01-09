@@ -36,4 +36,9 @@ class SimpleExample implements Example
     {
         return [];
     }
+
+    public function asValue()
+    {
+        return $this->__toString();
+    }
 }

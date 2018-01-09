@@ -9,7 +9,7 @@ use NullDevelopment\PhpStructure\DataType\Variable;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\Skeleton\ExampleMaker\ArrayExample;
-use NullDevelopment\Skeleton\ExampleMaker\ArrayExample2;
+use NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory;
 use NullDevelopment\Skeleton\ExampleMaker\Example;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\InstanceExample;
@@ -42,19 +42,13 @@ class ExampleMakerTest extends TestCase
     public function setUp()
     {
         $this->reflectionFactory = new ReflectionFactory();
-        $this->exampleMaker      = new ExampleMaker($this->reflectionFactory);
+        $this->exampleMaker      = new ExampleMaker($this->reflectionFactory, new DefinitionExampleFactory());
     }
 
     /** @dataProvider provideStaticTypesWithoutExamples */
     public function testStaticTypeInstancesWithoutExamples(Variable $input, Example $expected)
     {
         self::assertEquals($expected, $this->exampleMaker->instance($input));
-    }
-
-    /** @dataProvider provideStaticTypesWithoutExamples */
-    public function testStaticTypeValuesWithoutExamples(Variable $input, Example $expected)
-    {
-        self::assertEquals($expected, $this->exampleMaker->value($input));
     }
 
     public function provideStaticTypesWithoutExamples()
@@ -83,20 +77,6 @@ class ExampleMakerTest extends TestCase
         self::assertEquals($expected, $result);
     }
 
-    public function testDateTimeValueWithoutExamples()
-    {
-        // Arrange
-        $input    = new SimpleVariable('createdAt', ClassName::create('DateTime'));
-        $expected = new SimpleExample('2018-01-01T00:01:00+00:00');
-
-        // Act
-        $result = $this->exampleMaker->value($input);
-
-        // Assert
-
-        self::assertEquals($expected, $result);
-    }
-
     public function testInterfaceInstanceWithoutExamples()
     {
         // Arrange
@@ -106,20 +86,6 @@ class ExampleMakerTest extends TestCase
 
         // Act
         $result = $this->exampleMaker->instance($input);
-
-        // Assert
-        self::assertEquals($expected, $result);
-    }
-
-    public function testInterfaceValueWithoutExamples()
-    {
-        // Arrange
-        $interfaceName = InterfaceName::create(ExampleInterface::class);
-        $input         = new SimpleVariable('variableName', $interfaceName);
-        $expected      = new MockeryMockExample($interfaceName);
-
-        // Act
-        $result = $this->exampleMaker->value($input);
 
         // Assert
         self::assertEquals($expected, $result);
@@ -139,19 +105,6 @@ class ExampleMakerTest extends TestCase
         self::assertEquals($expected, $result);
     }
 
-    public function testChildOfDateTimeValueWithoutExamples()
-    {
-        // Arrange
-        $input    = new SimpleVariable('variableName', ClassName::create(CreatedAt::class));
-        $expected = new SimpleExample('2018-01-01T00:01:00+00:00');
-
-        // Act
-        $result = $this->exampleMaker->value($input);
-
-        // Assert
-        self::assertEquals($expected, $result);
-    }
-
     public function testClassWithoutConstructorInstanceWithoutExamples()
     {
         // Arrange
@@ -166,35 +119,11 @@ class ExampleMakerTest extends TestCase
         self::assertEquals($expected, $result);
     }
 
-    public function testClassWithoutConstructorValueWithoutExamples()
-    {
-        // Arrange
-        $className = ClassName::create(NoConstructorClass::class);
-        $input     = new SimpleVariable('variableName', $className);
-        $expected  = new MockeryMockExample($className);
-
-        // Act
-        $result = $this->exampleMaker->value($input);
-
-        // Assert
-        self::assertEquals($expected, $result);
-    }
-
     /** @dataProvider provideClassesWithoutExamples */
     public function testClassInstanceWithoutExamples(Variable $input, Example $expected)
     {
         // Act
         $result = $this->exampleMaker->instance($input);
-
-        // Assert
-        self::assertEquals($expected, $result);
-    }
-
-    /** @dataProvider provideClassesWithoutExamples2 */
-    public function testClassValueWithoutExamples(Variable $input, Example $expected)
-    {
-        // Act
-        $result = $this->exampleMaker->value($input);
 
         // Assert
         self::assertEquals($expected, $result);
@@ -214,58 +143,6 @@ class ExampleMakerTest extends TestCase
                 new InstanceExample(
                     $exampleWithStaticTypes,
                     [
-                        new SimpleExample('1'),
-                        new SimpleExample('title'),
-                        new SimpleExample('2.0'),
-                        new SimpleExample(true),
-                        new ArrayExample([new SimpleExample('data')]),
-                    ]
-                ),
-            ],
-            [
-                new SimpleVariable('variableName', $exampleWithSingleStaticType),
-                new InstanceExample(
-                    $exampleWithSingleStaticType,
-                    [
-                        new SimpleExample('title'),
-                    ]
-                ),
-            ],
-            [
-                new SimpleVariable('variableName', $exampleCollection),
-                new InstanceExample(
-                    $exampleCollection,
-                    [
-                        new ArrayExample([new MockeryMockExample($genericClass)]),
-                    ]
-                ),
-            ],
-            [
-                new SimpleVariable('variableName', $exampleWithoutTypes),
-                new InstanceExample(
-                    $exampleWithoutTypes,
-                    [
-                        new SimpleExample('id'),
-                        new SimpleExample('title'),
-                    ]
-                ),
-            ],
-        ];
-    }
-
-    public function provideClassesWithoutExamples2(): array
-    {
-        $exampleWithStaticTypes      = ClassName::create(ExampleWithStaticTypeConstructorParameters::class);
-        $exampleWithSingleStaticType = ClassName::create(ExampleWithSingleStaticTypeConstructorParameter::class);
-        $exampleCollection           = ClassName::create(ExampleCollection::class);
-        $genericClass                = ClassName::create(GenericClass::class);
-        $exampleWithoutTypes         = ClassName::create(ExampleWithoutTypes::class);
-
-        return [
-            [
-                new SimpleVariable('variableName', $exampleWithStaticTypes),
-                new ArrayExample2(
-                    [
                         'id'     => new SimpleExample('1'),
                         'title'  => new SimpleExample('title'),
                         'amount' => new SimpleExample('2.0'),
@@ -276,15 +153,26 @@ class ExampleMakerTest extends TestCase
             ],
             [
                 new SimpleVariable('variableName', $exampleWithSingleStaticType),
-                new SimpleExample('title'),
+                new InstanceExample(
+                    $exampleWithSingleStaticType,
+                    [
+                        'title' => new SimpleExample('title'),
+                    ]
+                ),
             ],
             [
                 new SimpleVariable('variableName', $exampleCollection),
-                new ArrayExample([new MockeryMockExample($genericClass)]),
+                new InstanceExample(
+                    $exampleCollection,
+                    [
+                        'items' => new ArrayExample([new MockeryMockExample($genericClass)]),
+                    ]
+                ),
             ],
             [
                 new SimpleVariable('variableName', $exampleWithoutTypes),
-                new ArrayExample2(
+                new InstanceExample(
+                    $exampleWithoutTypes,
                     [
                         'id'    => new SimpleExample('id'),
                         'title' => new SimpleExample('title'),
