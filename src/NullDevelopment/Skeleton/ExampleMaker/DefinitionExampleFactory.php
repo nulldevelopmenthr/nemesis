@@ -11,9 +11,9 @@ class DefinitionExampleFactory
 {
     private function loadDefinition(string $fullName): ?array
     {
-        $path = getcwd().'/definitions/'.str_replace('\\', '/', $fullName).'.yaml';
+        $path = $this->getDefinitionFilePath($fullName);
 
-        if (false === is_file($path)) {
+        if (null === $path) {
             return null;
         }
 
@@ -25,6 +25,22 @@ class DefinitionExampleFactory
 
         // Return definition part.
         return $parsedYaml['definition'];
+    }
+
+    private function getDefinitionFilePath(string $fullName): ?string
+    {
+        $path = getcwd().'/definitions/'.str_replace('\\', '/', $fullName).'.yaml';
+
+        if (true === is_file($path)) {
+            return $path;
+        }
+        $path = getcwd().'/definitions2/'.str_replace('\\', '/', $fullName).'.yaml';
+
+        if (true === is_file($path)) {
+            return $path;
+        }
+
+        return null;
     }
 
     /**
