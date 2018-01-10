@@ -52,12 +52,7 @@ class DeserializeGenerator implements MethodGenerator
 
             $zz[] = $var;
         }
-        $return = new Node\Stmt\Return_(
-            new Node\Expr\New_(
-                new Name('self'),
-                $zz
-            )
-        );
+        $return = new Node\Stmt\Return_(new Node\Expr\New_(new Name('self'), $zz));
         $deserializeMethod->addStmt($return);
 
         return $deserializeMethod;

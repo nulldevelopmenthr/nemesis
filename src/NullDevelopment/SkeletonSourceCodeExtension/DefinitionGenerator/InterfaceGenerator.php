@@ -73,8 +73,7 @@ class InterfaceGenerator implements DefinitionGenerator
                 ->addMethod($method->getName())
                 ->setStatic($method->isStatic())
                 ->setReturnNullable($method->isNullableReturnType())
-                ->setReturnType($method->getReturnType())
-            ;
+                ->setReturnType($method->getReturnType());
 
             foreach ($method->getParameters() as $parameter) {
                 $methodCode->addParameter($parameter->getName())

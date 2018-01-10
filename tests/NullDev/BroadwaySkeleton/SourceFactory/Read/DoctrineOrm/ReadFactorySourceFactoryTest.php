@@ -20,7 +20,9 @@ class ReadFactorySourceFactoryTest extends TestCase
 
     public function setUp(): void
     {
-        $this->readFactorySourceFactory = new ReadFactorySourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $this->readFactorySourceFactory = new ReadFactorySourceFactory(
+            new ClassSourceFactory(), new DefinitionFactory()
+        );
     }
 
     public function testNothing(): void

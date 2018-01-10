@@ -37,10 +37,7 @@ class TestSetterMethodFactory implements PhpUnitMethodFactory
         }
 
         return new TestSetterMethod(
-            'test'.ucfirst($method->getName()),
-            $method->getName(),
-            $method->getProperty(),
-            $getterMethodName
+            'test'.ucfirst($method->getName()), $method->getName(), $method->getProperty(), $getterMethodName
         );
     }
 }

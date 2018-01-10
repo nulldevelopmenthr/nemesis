@@ -31,9 +31,7 @@ class SpecGetterMethodGenerator extends BaseSpecMethodGenerator
             $value = (string) $this->exampleMaker->value($method->getProperty());
         }
 
-        $code->addBody(
-            sprintf('$this->%s()->shouldReturn(%s);', $method->getMethodUnderTest(), $value)
-        );
+        $code->addBody(sprintf('$this->%s()->shouldReturn(%s);', $method->getMethodUnderTest(), $value));
     }
 
     public function getMethodGeneratorPriority(): int

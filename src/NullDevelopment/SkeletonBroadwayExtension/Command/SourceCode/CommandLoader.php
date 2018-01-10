@@ -53,15 +53,7 @@ class CommandLoader extends BaseDefinitionLoader
         $methods[] = new SerializeMethod($className, $properties);
         $methods[] = new DeserializeMethod($className, $properties);
 
-        return new Command(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new Command($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

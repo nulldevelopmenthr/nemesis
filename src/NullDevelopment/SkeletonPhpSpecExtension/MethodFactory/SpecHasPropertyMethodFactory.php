@@ -38,10 +38,6 @@ class SpecHasPropertyMethodFactory implements PhpSpecMethodFactory
 
         $snakeCasePropertyName = strtolower(preg_replace('/[A-Z]/', '_\\0', lcfirst($methodName)));
 
-        return new SpecHasPropertyMethod(
-            'it_'.$snakeCasePropertyName,
-            $method->getName(),
-            $method->getProperty()
-        );
+        return new SpecHasPropertyMethod('it_'.$snakeCasePropertyName, $method->getName(), $method->getProperty());
     }
 }

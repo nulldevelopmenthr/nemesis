@@ -36,9 +36,7 @@ class CreateEventMethodGenerator extends BaseMethodGenerator
             $values[] = 'Carbon::now()';
         }
 
-        $code->addBody(
-            sprintf('return new self(%s);', implode(', ', $values))
-        );
+        $code->addBody(sprintf('return new self(%s);', implode(', ', $values)));
     }
 
     public function getMethodGeneratorPriority(): int

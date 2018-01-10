@@ -56,10 +56,7 @@ class SpecSetterMethodFactory implements PhpSpecMethodFactory
         }
 
         return new SpecSetterMethod(
-            'it_can_'.$snakeCasePropertyName,
-            $method->getName(),
-            $anotherProperty,
-            $getterMethodName
+            'it_can_'.$snakeCasePropertyName, $method->getName(), $anotherProperty, $getterMethodName
         );
     }
 }

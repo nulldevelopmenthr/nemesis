@@ -22,7 +22,7 @@ class SetUpMethodFactory implements PhpUnitMethodFactory
     {
         if (null === $definition->getConstructorMethod()) {
             return [
-                 new SetUpMethod($definition->getInstanceOf(), []),
+                new SetUpMethod($definition->getInstanceOf(), []),
             ];
         }
 

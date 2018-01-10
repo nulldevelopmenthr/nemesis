@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\TraitGenerator
- * @group todo
+ * @group  todo
  */
 class TraitGeneratorTest extends TestCase
 {

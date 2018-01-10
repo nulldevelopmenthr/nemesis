@@ -29,8 +29,7 @@ class PHPParserMethodCompilerPassSpec extends ObjectBehavior
     }
 
     public function it_will_add_all_tagged_services_to_0th_argument(
-        ContainerBuilder $container,
-        Definition $serviceDefinition
+        ContainerBuilder $container, Definition $serviceDefinition
     ) {
         $container->has(MethodFactory::class)
             ->shouldBeCalled()
@@ -42,12 +41,7 @@ class PHPParserMethodCompilerPassSpec extends ObjectBehavior
 
         $container->findTaggedServiceIds('skeleton.method_generator')
             ->shouldBeCalled()
-            ->willReturn(
-                [
-                    'generator1' => [],
-                    'generator2' => [],
-                ]
-            );
+            ->willReturn(['generator1' => [], 'generator2' => []]);
 
         $serviceDefinition->setArgument(0, [new Reference('generator1'), new Reference('generator2')])
             ->shouldBeCalled();

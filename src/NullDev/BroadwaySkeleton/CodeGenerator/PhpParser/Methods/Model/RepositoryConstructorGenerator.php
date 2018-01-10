@@ -34,22 +34,11 @@ class RepositoryConstructorGenerator implements MethodGenerator
             ->method('__construct')
             ->makePublic();
 
-        $constructor->addParam(
-            $this->createMethodParam(
-                Parameter::create('eventStore', EventStore::class)
-            )
-        );
+        $constructor->addParam($this->createMethodParam(Parameter::create('eventStore', EventStore::class)));
 
+        $constructor->addParam($this->createMethodParam(Parameter::create('eventBus', EventBus::class)));
         $constructor->addParam(
-            $this->createMethodParam(
-                Parameter::create('eventBus', EventBus::class)
-            )
-        );
-        $constructor->addParam(
-            $this->createMethodParamWithDefaultValue(
-                Parameter::create('eventStreamDecorators', 'array'),
-                []
-            )
+            $this->createMethodParamWithDefaultValue(Parameter::create('eventStreamDecorators', 'array'), [])
         );
 
         $constructor->addStmt(

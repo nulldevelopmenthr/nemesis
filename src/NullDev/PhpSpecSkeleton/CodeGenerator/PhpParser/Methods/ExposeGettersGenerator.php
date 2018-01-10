@@ -47,10 +47,7 @@ class ExposeGettersGenerator implements MethodGenerator
             if (true === $this->isParameterEligibleForMethodParameter($property)) {
                 $node->addStmt(
                     new MethodCall(
-                        new MethodCall(
-                            new Variable('this'),
-                            'get'.ucfirst($property->getName())
-                        ),
+                        new MethodCall(new Variable('this'), 'get'.ucfirst($property->getName())),
                         'shouldReturn',
                         [
                             new Arg(new Variable($property->getName())),
@@ -60,10 +57,7 @@ class ExposeGettersGenerator implements MethodGenerator
             } else {
                 $node->addStmt(
                     new MethodCall(
-                        new MethodCall(
-                            new Variable('this'),
-                            'get'.ucfirst($property->getName())
-                        ),
+                        new MethodCall(new Variable('this'), 'get'.ucfirst($property->getName())),
                         'shouldReturn',
                         [TestValueGenerator::generate($property)]
                     )

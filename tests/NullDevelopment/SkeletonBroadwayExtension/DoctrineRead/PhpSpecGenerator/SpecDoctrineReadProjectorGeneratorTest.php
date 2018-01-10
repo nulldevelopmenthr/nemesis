@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadProjectorGenerator
- * @group todo
+ * @group  todo
  */
 class SpecDoctrineReadProjectorGeneratorTest extends TestCase
 {

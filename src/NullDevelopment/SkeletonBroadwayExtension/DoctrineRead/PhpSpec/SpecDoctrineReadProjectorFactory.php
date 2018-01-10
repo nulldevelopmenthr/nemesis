@@ -37,6 +37,8 @@ class SpecDoctrineReadProjectorFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecDoctrineReadProjector($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecDoctrineReadProjector(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

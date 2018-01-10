@@ -14,11 +14,7 @@ use PhpSpec\ObjectBehavior;
 class TraitDefinitionSpec extends ObjectBehavior
 {
     public function let(
-        TraitName $name,
-        TraitName $trait1,
-        Constant $constant1,
-        Property $property1,
-        Method $method1
+        TraitName $name, TraitName $trait1, Constant $constant1, Property $property1, Method $method1
     ) {
         $this->beConstructedWith($name, [$trait1], [$constant1], [$property1], [$method1]);
     }

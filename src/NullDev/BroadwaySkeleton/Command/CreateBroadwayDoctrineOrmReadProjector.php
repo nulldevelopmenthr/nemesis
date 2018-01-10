@@ -18,8 +18,8 @@ class CreateBroadwayDoctrineOrmReadProjector
     /** @var array */
     private $entityParameters;
 
-    public function __construct(ClassType $projectorClassType, array $entityParameters
-    ) {
+    public function __construct(ClassType $projectorClassType, array $entityParameters)
+    {
         $this->projectorClassType = $projectorClassType;
         $this->entityParameters   = $entityParameters;
     }

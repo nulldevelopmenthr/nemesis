@@ -39,12 +39,7 @@ class InitializableGenerator implements MethodGenerator
                     new Variable('this'),
                     'shouldHaveType',
                     [
-                        new Arg(
-                            new ClassConstFetch(
-                                new Name($classType->getName()),
-                                'class'
-                            )
-                        ),
+                        new Arg(new ClassConstFetch(new Name($classType->getName()), 'class')),
                     ]
                 )
             );

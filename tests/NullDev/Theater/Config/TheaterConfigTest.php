@@ -52,8 +52,7 @@ class TheaterConfigTest extends TestCase
         $this->secondReadSide->shouldReceive('getName')->andReturn(new ReadSideName('SecondHandRead'));
 
         $this->theaterConfig = new TheaterConfig(
-            [$this->firstContext, $this->secondContext],
-            [$this->firstReadSide, $this->secondReadSide]
+            [$this->firstContext, $this->secondContext], [$this->firstReadSide, $this->secondReadSide]
         );
     }
 

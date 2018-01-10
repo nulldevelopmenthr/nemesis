@@ -65,18 +65,14 @@ class DeserializeMethodGenerator extends BaseMethodGenerator
             foreach ($method->getProperties() as $property) {
                 if (true === $property->isObject()) {
                     $params[] = sprintf(
-                        '%s::deserialize($%s)',
-                        $property->getInstanceNameAsString(),
-                        $property->getName()
+                        '%s::deserialize($%s)', $property->getInstanceNameAsString(), $property->getName()
                     );
                 } else {
                     $params[] = '$'.$property->getName();
                 }
             }
 
-            $code->addBody(
-                sprintf('return new self(%s);', implode(', ', $params))
-            );
+            $code->addBody(sprintf('return new self(%s);', implode(', ', $params)));
         } else {
             $deserializeList = [];
 
@@ -106,9 +102,7 @@ class DeserializeMethodGenerator extends BaseMethodGenerator
                         $deserializeList[] = sprintf('$%s', $property->getName());
                     } else {
                         $deserializeList[] = sprintf(
-                            "%s::deserialize(\$data['%s'])",
-                            $contractName,
-                            $property->getName()
+                            "%s::deserialize(\$data['%s'])", $contractName, $property->getName()
                         );
                     }
                 }

@@ -46,9 +46,6 @@ class ClassNameTest extends TestCase
 
     public function testCreateFromFullyQualified()
     {
-        self::assertEquals(
-            $this->sut,
-            ClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
-        );
+        self::assertEquals($this->sut, ClassName::createFromFullyQualified($this->namespace.'\\'.$this->name));
     }
 }

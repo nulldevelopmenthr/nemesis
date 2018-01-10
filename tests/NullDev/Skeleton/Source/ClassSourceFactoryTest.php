@@ -20,8 +20,7 @@ class ClassSourceFactoryTest extends TestCase
         $factory = new ClassSourceFactory();
 
         self::assertInstanceOf(
-            ImprovedClassSource::class,
-            $factory->create(ClassType::createFromFullyQualified('My\Namespace\User'))
+            ImprovedClassSource::class, $factory->create(ClassType::createFromFullyQualified('My\Namespace\User'))
         );
     }
 }

@@ -30,9 +30,8 @@ class SpecDateTimeCreateFromFormatMethodFactory implements PhpSpecMethodFactory
     }
 
     /** @SuppressWarnings("PHPMD.UnusedFormalParameter") */
-    public function createFromDateTimeCreateFromFormatMethod(
-        DateTimeCreateFromFormatMethod $method
-    ): SpecDateTimeCreateFromFormatMethod {
+    public function createFromDateTimeCreateFromFormatMethod(DateTimeCreateFromFormatMethod $method): SpecDateTimeCreateFromFormatMethod
+    {
         return new SpecDateTimeCreateFromFormatMethod();
     }
 }

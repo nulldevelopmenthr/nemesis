@@ -42,17 +42,8 @@ class TestGetterGenerator implements MethodGenerator
                 new Name('self'),
                 'assertEquals',
                 [
-                    new Arg(
-                        new Variable(
-                            'this->'.lcfirst($method->getParameterName())
-                        )
-                    ),
-                    new Arg(
-                        new MethodCall(
-                            new Variable('this->sut'),
-                            $method->getGetterMethodName()
-                        )
-                    ),
+                    new Arg(new Variable('this->'.lcfirst($method->getParameterName()))),
+                    new Arg(new MethodCall(new Variable('this->sut'), $method->getGetterMethodName())),
                 ]
             )
         );

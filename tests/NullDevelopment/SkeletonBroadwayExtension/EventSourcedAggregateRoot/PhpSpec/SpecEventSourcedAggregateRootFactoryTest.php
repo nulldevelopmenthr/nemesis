@@ -26,8 +26,9 @@ class SpecEventSourcedAggregateRootFactoryTest extends SfTestCase
     }
 
     /** @dataProvider provideEventSourcedAggregateRoots */
-    public function testCreateFromEventSourcedAggregateRoot(EventSourcedAggregateRoot $command, SpecEventSourcedAggregateRoot $expected)
-    {
+    public function testCreateFromEventSourcedAggregateRoot(
+        EventSourcedAggregateRoot $command, SpecEventSourcedAggregateRoot $expected
+    ) {
         self::assertEquals($expected, $this->sut->createFromEventSourcedAggregateRoot($command));
     }
 

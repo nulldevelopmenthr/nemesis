@@ -55,9 +55,7 @@ class ConstructorMethodSpec extends ObjectBehavior
     }
 
     public function it_returns_only_parameters_with_defined_types_as_class_types(
-        Parameter $parameter1,
-        Parameter $parameter2,
-        Type $classType1
+        Parameter $parameter1, Parameter $parameter2, Type $classType1
     ) {
         $parameter1->hasType()->shouldBeCalled()->willReturn(true);
         $parameter1->getType()->shouldBeCalled()->willReturn($classType1);

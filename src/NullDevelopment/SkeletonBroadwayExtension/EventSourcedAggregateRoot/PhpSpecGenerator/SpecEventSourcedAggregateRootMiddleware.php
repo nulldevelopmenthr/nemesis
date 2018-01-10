@@ -21,8 +21,9 @@ class SpecEventSourcedAggregateRootMiddleware implements Middleware
     /** @var SpecEventSourcedAggregateRootNetteGenerator */
     private $generator;
 
-    public function __construct(SpecEventSourcedAggregateRootFactory $factory, SpecEventSourcedAggregateRootNetteGenerator $generator)
-    {
+    public function __construct(
+        SpecEventSourcedAggregateRootFactory $factory, SpecEventSourcedAggregateRootNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

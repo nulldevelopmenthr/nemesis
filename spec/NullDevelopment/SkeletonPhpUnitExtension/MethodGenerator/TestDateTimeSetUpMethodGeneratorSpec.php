@@ -26,8 +26,7 @@ class TestDateTimeSetUpMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_let_method_for_object_properties(
-        TestDateTimeSetUpMethod $method,
-        ClassName $className
+        TestDateTimeSetUpMethod $method, ClassName $className
     ) {
         $method->getName()->shouldBeCalled()->willReturn('setUp');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

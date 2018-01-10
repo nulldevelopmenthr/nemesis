@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory
- * @group todo
+ * @group  todo
  */
 class SpecHasPropertyMethodFactoryTest extends TestCase
 {

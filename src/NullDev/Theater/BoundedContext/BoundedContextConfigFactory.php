@@ -68,13 +68,7 @@ class BoundedContextConfigFactory
                 $parameters[] = Parameter::create($parameterName, $parameterType);
             }
 
-            $config->addCommand(
-                new CommandConfig(
-                    $commandName,
-                    CommandClassName::create($className),
-                    $parameters
-                )
-            );
+            $config->addCommand(new CommandConfig($commandName, CommandClassName::create($className), $parameters));
         }
         foreach ($data['classes']['events'] as $eventName => $event) {
             $className = $event['className'];
@@ -84,13 +78,7 @@ class BoundedContextConfigFactory
                 $parameters[] = Parameter::create($parameterName, $parameterType);
             }
 
-            $config->addEvent(
-                new EventConfig(
-                    $eventName,
-                    EventClassName::create($className),
-                    $parameters
-                )
-            );
+            $config->addEvent(new EventConfig($eventName, EventClassName::create($className), $parameters));
         }
 
         return $config;

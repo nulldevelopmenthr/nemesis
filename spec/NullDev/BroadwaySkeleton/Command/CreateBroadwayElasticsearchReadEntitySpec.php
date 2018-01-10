@@ -11,8 +11,8 @@ use PhpSpec\ObjectBehavior;
 
 class CreateBroadwayElasticsearchReadEntitySpec extends ObjectBehavior
 {
-    public function let(ClassType $entityClassType, Parameter $parameter1
-    ) {
+    public function let(ClassType $entityClassType, Parameter $parameter1)
+    {
         $this->beConstructedWith($entityClassType, $entityParameters = [$parameter1]);
     }
 

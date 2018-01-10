@@ -32,8 +32,7 @@ class EntityClassNameTest extends TestCase
     public function testCreateFromFullyQualified()
     {
         self::assertEquals(
-            $this->className,
-            EntityClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
+            $this->className, EntityClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
         );
     }
 

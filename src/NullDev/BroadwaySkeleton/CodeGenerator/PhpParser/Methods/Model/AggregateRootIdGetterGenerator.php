@@ -33,9 +33,7 @@ class AggregateRootIdGetterGenerator implements MethodGenerator
             $getterMethod->setReturnType($method->getMethodReturnType());
         }
 
-        $return = new Node\Stmt\Return_(
-            new Node\Expr\Variable('this->'.$method->getPropertyName())
-        );
+        $return = new Node\Stmt\Return_(new Node\Expr\Variable('this->'.$method->getPropertyName()));
         $getterMethod->addStmt($return);
 
         return $getterMethod;

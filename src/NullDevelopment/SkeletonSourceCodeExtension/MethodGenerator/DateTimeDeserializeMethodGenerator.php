@@ -25,9 +25,7 @@ class DateTimeDeserializeMethodGenerator extends BaseMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            'return new self($value);'
-        );
+        $code->addBody('return new self($value);');
     }
 
     public function getMethodGeneratorPriority(): int

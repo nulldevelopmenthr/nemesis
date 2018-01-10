@@ -27,9 +27,7 @@ class SpecToStringMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_a_object_with_a_single_property(
-        ExampleMaker $exampleMaker,
-        SpecToStringMethod $method,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecToStringMethod $method, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_castable_to_string');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -56,9 +54,7 @@ class SpecToStringMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_string_property(
-        ExampleMaker $exampleMaker,
-        SpecToStringMethod $method,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecToStringMethod $method, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_castable_to_string');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -83,9 +79,7 @@ class SpecToStringMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_integer_property(
-        ExampleMaker $exampleMaker,
-        SpecToStringMethod $method,
-        Property $amount
+        ExampleMaker $exampleMaker, SpecToStringMethod $method, Property $amount
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_castable_to_string');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

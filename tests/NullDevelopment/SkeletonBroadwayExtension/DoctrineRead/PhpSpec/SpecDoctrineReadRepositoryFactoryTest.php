@@ -35,8 +35,9 @@ class SpecDoctrineReadRepositoryFactoryTest extends SfTestCase
     }
 
     /** @dataProvider provideSamples */
-    public function testCreateFromDoctrineReadRepository(DoctrineReadRepository $definition, SpecDoctrineReadRepository $expected)
-    {
+    public function testCreateFromDoctrineReadRepository(
+        DoctrineReadRepository $definition, SpecDoctrineReadRepository $expected
+    ) {
         self::assertEquals($expected, $this->sut->createFromDoctrineReadRepository($definition));
     }
 

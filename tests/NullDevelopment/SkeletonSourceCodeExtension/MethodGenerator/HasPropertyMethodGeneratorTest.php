@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\HasPropertyMethodGenerator
- * @group todo
+ * @group  todo
  */
 class HasPropertyMethodGeneratorTest extends TestCase
 {

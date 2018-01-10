@@ -47,15 +47,7 @@ class CommandHandlerLoader extends BaseDefinitionLoader
         $methods[] = new SaveMethod($model);
 
         return new CommandHandler(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods,
-            $model,
-            $modelId
+            $className, $parent, $interfaces, $traits, $constants, $properties, $methods, $model, $modelId
         );
     }
 

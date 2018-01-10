@@ -66,15 +66,7 @@ class DateTimeValueObjectLoader implements DefinitionLoader
             new DateTimeDeserializeMethod($className),
         ];
 
-        return new DateTimeValueObject(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new DateTimeValueObject($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

@@ -66,10 +66,13 @@ class PHPUnitTestGenerator
         $testSource->addTrait(TraitType::createFromFullyQualified('Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration'));
 
         foreach ($improvedClassSource->getConstructorParameters() as $constructorParameter) {
-            if (true === $constructorParameter->hasType() && false === ($constructorParameter->getType() instanceof TypeDeclaration)) {
+            $hasType = $constructorParameter->hasType();
+            if ($hasType && false === ($constructorParameter->getType() instanceof TypeDeclaration)) {
                 $testSource->addImport(ClassType::createFromFullyQualified('Mockery\MockInterface'));
 
-                $property = new MockedProperty(lcfirst($constructorParameter->getName()), $constructorParameter->getType());
+                $property = new MockedProperty(
+                    lcfirst($constructorParameter->getName()), $constructorParameter->getType()
+                );
             } else {
                 $property = new Property(lcfirst($constructorParameter->getName()), $constructorParameter->getType());
             }
@@ -77,9 +80,7 @@ class PHPUnitTestGenerator
             $testSource->addProperty($property);
         }
 
-        $testSource->addProperty(
-            new Property('sut', $improvedClassSource->getClassType())
-        );
+        $testSource->addProperty(new Property('sut', $improvedClassSource->getClassType()));
 
         $setUpMethod = new SetUpMethod($improvedClassSource);
 

@@ -21,8 +21,9 @@ class TestDoctrineReadProjectorMiddleware implements Middleware
     /** @var TestDoctrineReadProjectorGenerator */
     private $generator;
 
-    public function __construct(TestDoctrineReadProjectorFactory $factory, TestDoctrineReadProjectorGenerator $generator)
-    {
+    public function __construct(
+        TestDoctrineReadProjectorFactory $factory, TestDoctrineReadProjectorGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

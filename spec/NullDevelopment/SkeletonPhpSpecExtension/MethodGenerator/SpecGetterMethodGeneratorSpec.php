@@ -53,9 +53,7 @@ class SpecGetterMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_string_property(
-        ExampleMaker $exampleMaker,
-        SpecGetterMethod $method,
-        Property $property
+        ExampleMaker $exampleMaker, SpecGetterMethod $method, Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_exposes_name');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -80,9 +78,7 @@ class SpecGetterMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_int_property(
-        ExampleMaker $exampleMaker,
-        SpecGetterMethod $method,
-        Property $property
+        ExampleMaker $exampleMaker, SpecGetterMethod $method, Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_exposes_amount');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

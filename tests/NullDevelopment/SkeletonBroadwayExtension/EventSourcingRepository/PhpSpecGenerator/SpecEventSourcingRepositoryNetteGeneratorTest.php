@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpSpecGenerator\SpecEventSourcingRepositoryNetteGenerator
- * @group todo
+ * @group  todo
  */
 class SpecEventSourcingRepositoryNetteGeneratorTest extends TestCase
 {

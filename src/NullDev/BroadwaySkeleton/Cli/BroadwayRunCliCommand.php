@@ -80,8 +80,7 @@ class BroadwayRunCliCommand extends BaseSkeletonGeneratorCommand
 
             foreach ($context->getCommands() as $commandConfig) {
                 $commands[] = new CreateBroadwayCommand(
-                    $commandConfig->getCommandClassName(),
-                    $commandConfig->getParameters()
+                    $commandConfig->getCommandClassName(), $commandConfig->getParameters()
                 );
             }
 

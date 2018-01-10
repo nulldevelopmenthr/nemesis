@@ -29,9 +29,7 @@ class Uuid4IdentitySourceFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_source_from_given_class_type(
-        ClassSourceFactory $sourceFactory,
-        ClassType $classType,
-        ImprovedClassSource $classSource
+        ClassSourceFactory $sourceFactory, ClassType $classType, ImprovedClassSource $classSource
     ) {
         $sourceFactory->create($classType)->willReturn($classSource);
 

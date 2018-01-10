@@ -31,8 +31,6 @@ class TestSerializeMethodFactory implements PhpUnitMethodFactory
 
     public function createFromSerializeMethod(SerializeMethod $method): TestSerializeMethod
     {
-        return new TestSerializeMethod(
-            $method->getProperties()
-        );
+        return new TestSerializeMethod($method->getProperties());
     }
 }

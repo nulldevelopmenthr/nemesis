@@ -38,10 +38,6 @@ class SpecGetterMethodFactory implements PhpSpecMethodFactory
 
         $snakeCasePropertyName = strtolower(preg_replace('/[A-Z]/', '_\\0', lcfirst($methodName)));
 
-        return new SpecGetterMethod(
-            'it_exposes_'.$snakeCasePropertyName,
-            $method->getName(),
-            $method->getProperty()
-        );
+        return new SpecGetterMethod('it_exposes_'.$snakeCasePropertyName, $method->getName(), $method->getProperty());
     }
 }

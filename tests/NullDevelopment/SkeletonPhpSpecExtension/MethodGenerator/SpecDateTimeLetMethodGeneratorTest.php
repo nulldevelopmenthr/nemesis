@@ -27,7 +27,9 @@ class SpecDateTimeLetMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeLetMethodGenerator(new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory()));
+        $this->sut = new SpecDateTimeLetMethodGenerator(
+            new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory())
+        );
     }
 
     /** @dataProvider provideMethods */

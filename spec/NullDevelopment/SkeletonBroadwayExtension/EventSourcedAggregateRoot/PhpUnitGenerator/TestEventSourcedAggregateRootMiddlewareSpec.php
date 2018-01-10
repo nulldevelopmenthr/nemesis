@@ -11,8 +11,9 @@ use PhpSpec\ObjectBehavior;
 
 class TestEventSourcedAggregateRootMiddlewareSpec extends ObjectBehavior
 {
-    public function let(TestEventSourcedAggregateRootFactory $factory, TestEventSourcedAggregateRootNetteGenerator $generator)
-    {
+    public function let(
+        TestEventSourcedAggregateRootFactory $factory, TestEventSourcedAggregateRootNetteGenerator $generator
+    ) {
         $this->beConstructedWith($factory, $generator);
     }
 

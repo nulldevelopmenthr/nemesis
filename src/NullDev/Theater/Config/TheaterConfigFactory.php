@@ -20,8 +20,7 @@ class TheaterConfigFactory
     private $readSideConfigFactory;
 
     public function __construct(
-        BoundedContextConfigFactory $boundedContextConfigFactory,
-        ReadSideConfigFactory $readSideConfigFactory
+        BoundedContextConfigFactory $boundedContextConfigFactory, ReadSideConfigFactory $readSideConfigFactory
     ) {
         $this->boundedContextConfigFactory = $boundedContextConfigFactory;
         $this->readSideConfigFactory       = $readSideConfigFactory;

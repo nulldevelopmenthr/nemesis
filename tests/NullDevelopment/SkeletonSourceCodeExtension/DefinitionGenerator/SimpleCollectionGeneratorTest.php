@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleCollectionGenerator
- * @group todo
+ * @group  todo
  */
 class SimpleCollectionGeneratorTest extends TestCase
 {

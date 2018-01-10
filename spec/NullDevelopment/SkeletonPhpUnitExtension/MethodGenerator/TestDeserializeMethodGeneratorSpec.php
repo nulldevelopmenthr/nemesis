@@ -27,9 +27,7 @@ class TestDeserializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_let_method_for_object_properties(
-        TestDeserializeMethod $method,
-        Property $property,
-        ClassName $className
+        TestDeserializeMethod $method, Property $property, ClassName $className
     ) {
         $method->getName()->shouldBeCalled()->willReturn('testDeserialize');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

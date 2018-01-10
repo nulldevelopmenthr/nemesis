@@ -21,8 +21,9 @@ class SpecEventSourcedEntityMiddleware implements Middleware
     /** @var SpecEventSourcedEntityNetteGenerator */
     private $generator;
 
-    public function __construct(SpecEventSourcedEntityFactory $factory, SpecEventSourcedEntityNetteGenerator $generator)
-    {
+    public function __construct(
+        SpecEventSourcedEntityFactory $factory, SpecEventSourcedEntityNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

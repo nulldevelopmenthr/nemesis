@@ -57,8 +57,7 @@ class ConstructorGenerator implements MethodGenerator
     private function createConstructorMethodAssignment(Parameter $param): Node\Expr\Assign
     {
         return new Node\Expr\Assign(
-            new Node\Expr\Variable('this->'.$param->getName()),
-            new Node\Expr\Variable($param->getName())
+            new Node\Expr\Variable('this->'.$param->getName()), new Node\Expr\Variable($param->getName())
         );
     }
 }

@@ -35,11 +35,7 @@ class SaveAggregateRootModelGenerator implements MethodGenerator
             ->makePrivate();
 
         $repoSaveCall = new Node\Expr\MethodCall(
-            new Node\Expr\Variable('this->repository'),
-            'save',
-            [
-                    new Node\Arg(new Node\Expr\Variable('model')),
-                ]
+            new Node\Expr\Variable('this->repository'), 'save', [new Node\Arg(new Node\Expr\Variable('model'))]
         );
         $saveMethod->addStmt($repoSaveCall);
         $saveMethod->addParam($this->createMethodParam($method->getMethodParameters()[0]));

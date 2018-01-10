@@ -33,7 +33,9 @@ class CommandHandlerSourceFactoryTest extends TestCase
     {
         $this->sourceFactory               = Mockery::mock(ClassSourceFactory::class);
         $this->definitionFactory           = Mockery::mock(DefinitionFactory::class);
-        $this->commandHandlerSourceFactory = new CommandHandlerSourceFactory($this->sourceFactory, $this->definitionFactory);
+        $this->commandHandlerSourceFactory = new CommandHandlerSourceFactory(
+            $this->sourceFactory, $this->definitionFactory
+        );
     }
 
     public function testCreate()

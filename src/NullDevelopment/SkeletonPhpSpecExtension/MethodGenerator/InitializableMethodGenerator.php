@@ -25,9 +25,7 @@ class InitializableMethodGenerator extends BaseSpecMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            sprintf('$this->shouldHaveType(%s::class);', $method->getClassName()->getName())
-        );
+        $code->addBody(sprintf('$this->shouldHaveType(%s::class);', $method->getClassName()->getName()));
 
         if (null !== $method->getParentName()) {
             if (null === $method->getParentName()->getAlias()) {
@@ -36,9 +34,7 @@ class InitializableMethodGenerator extends BaseSpecMethodGenerator
                 $className = $method->getParentName()->getAlias();
             }
 
-            $code->addBody(
-                sprintf('$this->shouldHaveType(%s::class);', $className)
-            );
+            $code->addBody(sprintf('$this->shouldHaveType(%s::class);', $className));
         }
 
         foreach ($method->getInterfaces() as $interface) {
@@ -48,9 +44,7 @@ class InitializableMethodGenerator extends BaseSpecMethodGenerator
                 $interfaceName = $interface->getAlias();
             }
 
-            $code->addBody(
-                sprintf('$this->shouldImplement(%s::class);', $interfaceName)
-            );
+            $code->addBody(sprintf('$this->shouldImplement(%s::class);', $interfaceName));
         }
     }
 

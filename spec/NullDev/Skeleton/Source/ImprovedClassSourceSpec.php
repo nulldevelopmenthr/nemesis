@@ -108,8 +108,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_can_not_have_more_then_one_constructor(
-        ConstructorMethod $constructor,
-        ConstructorMethod $secondConstructorMethod
+        ConstructorMethod $constructor, ConstructorMethod $secondConstructorMethod
     ) {
         $constructor->getMethodParameters()->willReturn([]);
         $this->addConstructorMethod($constructor)->shouldReturn($this);
@@ -124,9 +123,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_has_constructor_params_in_imports(
-        ConstructorMethod $constructor,
-        Parameter $param,
-        ClassType $paramClassType
+        ConstructorMethod $constructor, Parameter $param, ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');
@@ -138,9 +135,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_will_not_put_constructor_parameters_as_class_properties(
-        ConstructorMethod $constructor,
-        Parameter $param,
-        ClassType $paramClassType
+        ConstructorMethod $constructor, Parameter $param, ClassType $paramClassType
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');
@@ -159,9 +154,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_supports_type_declaration_params_in_constructor(
-        ConstructorMethod $constructor,
-        Parameter $param,
-        TypeDeclaration $typeDeclaration
+        ConstructorMethod $constructor, Parameter $param, TypeDeclaration $typeDeclaration
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');
@@ -173,9 +166,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_will_not_show_type_declaration_params_from_constructor_in_imports(
-        ConstructorMethod $constructor,
-        Parameter $param,
-        TypeDeclaration $typeDeclaration
+        ConstructorMethod $constructor, Parameter $param, TypeDeclaration $typeDeclaration
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');
@@ -186,10 +177,8 @@ class ImprovedClassSourceSpec extends ObjectBehavior
         $this->getImports()->shouldReturn([]);
     }
 
-    public function it_supports_plain_params_in_constructor(
-        ConstructorMethod $constructor,
-        Parameter $param
-    ) {
+    public function it_supports_plain_params_in_constructor(ConstructorMethod $constructor, Parameter $param)
+    {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');
         $param->hasType()->willReturn(false);
@@ -199,8 +188,7 @@ class ImprovedClassSourceSpec extends ObjectBehavior
     }
 
     public function it_will_not_show_plain_params_from_constructor_in_imports(
-        ConstructorMethod $constructor,
-        Parameter $param
+        ConstructorMethod $constructor, Parameter $param
     ) {
         $constructor->getMethodParameters()->willReturn([$param]);
         $param->getName()->willReturn('paramName');

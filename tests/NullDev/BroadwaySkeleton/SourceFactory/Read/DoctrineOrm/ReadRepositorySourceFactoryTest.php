@@ -21,8 +21,7 @@ class ReadRepositorySourceFactoryTest extends TestCase
     public function setUp(): void
     {
         $this->readRepositorySourceFactory = new ReadRepositorySourceFactory(
-            new ClassSourceFactory(),
-            new DefinitionFactory()
+            new ClassSourceFactory(), new DefinitionFactory()
         );
     }
 

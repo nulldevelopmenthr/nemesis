@@ -46,9 +46,6 @@ class InterfaceNameTest extends TestCase
 
     public function testCreateFromFullyQualified()
     {
-        self::assertEquals(
-            $this->sut,
-            InterfaceName::createFromFullyQualified($this->namespace.'\\'.$this->name)
-        );
+        self::assertEquals($this->sut, InterfaceName::createFromFullyQualified($this->namespace.'\\'.$this->name));
     }
 }

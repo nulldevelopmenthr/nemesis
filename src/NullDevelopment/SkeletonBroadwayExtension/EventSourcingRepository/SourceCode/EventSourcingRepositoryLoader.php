@@ -41,14 +41,7 @@ class EventSourcingRepositoryLoader extends BaseDefinitionLoader
         }
 
         return new EventSourcingRepository(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods,
-            $entity
+            $className, $parent, $interfaces, $traits, $constants, $properties, $methods, $entity
         );
     }
 

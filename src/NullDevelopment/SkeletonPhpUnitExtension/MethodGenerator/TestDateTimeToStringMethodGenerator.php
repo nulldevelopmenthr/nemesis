@@ -25,9 +25,7 @@ class TestDateTimeToStringMethodGenerator extends BaseTestMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            sprintf('self::assertSame(\'2018-01-01T11:22:33+00:00\', $this->sut->__toString());')
-        );
+        $code->addBody(sprintf('self::assertSame(\'2018-01-01T11:22:33+00:00\', $this->sut->__toString());'));
     }
 
     public function getMethodGeneratorPriority(): int

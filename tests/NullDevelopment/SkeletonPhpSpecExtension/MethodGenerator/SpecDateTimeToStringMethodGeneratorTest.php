@@ -27,7 +27,9 @@ class SpecDateTimeToStringMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeToStringMethodGenerator(new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory()));
+        $this->sut = new SpecDateTimeToStringMethodGenerator(
+            new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory())
+        );
     }
 
     /** @dataProvider provideMethods */

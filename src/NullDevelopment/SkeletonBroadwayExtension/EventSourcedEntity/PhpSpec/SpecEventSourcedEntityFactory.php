@@ -37,6 +37,8 @@ class SpecEventSourcedEntityFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecEventSourcedEntity($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecEventSourcedEntity(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

@@ -26,8 +26,9 @@ class TestEventSourcingRepositoryFactoryTest extends SfTestCase
     }
 
     /** @dataProvider provideEventSourcingRepositorys */
-    public function testCreateFromEventSourcingRepository(EventSourcingRepository $command, TestEventSourcingRepository $expected)
-    {
+    public function testCreateFromEventSourcingRepository(
+        EventSourcingRepository $command, TestEventSourcingRepository $expected
+    ) {
         self::assertEquals($expected, $this->sut->createFromEventSourcingRepository($command));
     }
 

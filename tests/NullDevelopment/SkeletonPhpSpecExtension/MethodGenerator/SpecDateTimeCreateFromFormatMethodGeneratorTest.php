@@ -27,7 +27,9 @@ class SpecDateTimeCreateFromFormatMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeCreateFromFormatMethodGenerator(new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory()));
+        $this->sut = new SpecDateTimeCreateFromFormatMethodGenerator(
+            new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory())
+        );
     }
 
     /** @dataProvider provideMethods */

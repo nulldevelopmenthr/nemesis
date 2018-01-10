@@ -45,7 +45,9 @@ class TestSimpleCollectionFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
+        $properties[] = new Property(
+            'sut', $definition->getInstanceOf(), false, false, null, new Visibility('private')
+        );
 
         return new TestSimpleCollection(
             $testClassName,

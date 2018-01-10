@@ -25,10 +25,8 @@ class TestGetterMethodGeneratorSpec extends ObjectBehavior
         $this->shouldImplement(MethodGenerator::class);
     }
 
-    public function it_creates_test_getter_method_for_object_properties(
-        TestGetterMethod $method,
-        Property $property
-    ) {
+    public function it_creates_test_getter_method_for_object_properties(TestGetterMethod $method, Property $property)
+    {
         $method->getName()->shouldBeCalled()->willReturn('testGetFirstName');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');

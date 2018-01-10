@@ -31,8 +31,6 @@ class SpecSerializeMethodFactory implements PhpSpecMethodFactory
 
     public function createFromSerializeMethod(SerializeMethod $method): SpecSerializeMethod
     {
-        return new SpecSerializeMethod(
-            $method->getProperties()
-        );
+        return new SpecSerializeMethod($method->getProperties());
     }
 }

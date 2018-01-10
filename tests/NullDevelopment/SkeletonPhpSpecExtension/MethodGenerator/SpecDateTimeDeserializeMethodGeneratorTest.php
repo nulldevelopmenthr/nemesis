@@ -28,7 +28,9 @@ class SpecDateTimeDeserializeMethodGeneratorTest extends TestCase
 
     public function setUp()
     {
-        $this->sut = new SpecDateTimeDeserializeMethodGenerator(new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory()));
+        $this->sut = new SpecDateTimeDeserializeMethodGenerator(
+            new ExampleMaker(new ReflectionFactory(), new DefinitionExampleFactory())
+        );
     }
 
     /** @dataProvider provideMethods */

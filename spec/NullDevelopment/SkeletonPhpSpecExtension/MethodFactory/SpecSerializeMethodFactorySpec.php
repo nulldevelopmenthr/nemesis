@@ -26,9 +26,7 @@ class SpecSerializeMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_serialize_spec_method_for_serialize_in_source_code_definition(
-        ClassDefinition $definition,
-        SerializeMethod $method,
-        Property $firstName
+        ClassDefinition $definition, SerializeMethod $method, Property $firstName
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
 
@@ -43,8 +41,9 @@ class SpecSerializeMethodFactorySpec extends ObjectBehavior
         $this->create($definition)->shouldReturn([]);
     }
 
-    public function it_creates_serialize_spec_method_from_given_serialize_method(SerializeMethod $method, Property $firstName)
-    {
+    public function it_creates_serialize_spec_method_from_given_serialize_method(
+        SerializeMethod $method, Property $firstName
+    ) {
         $method->getProperties()->shouldBeCalled()->willReturn([$firstName]);
 
         $this->createFromSerializeMethod($method)

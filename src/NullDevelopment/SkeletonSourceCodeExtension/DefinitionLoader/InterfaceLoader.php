@@ -23,8 +23,7 @@ class InterfaceLoader implements DefinitionLoader
     private $methodCollectionFactory;
 
     public function __construct(
-        ConstantCollectionFactory $constantCollectionFactory,
-        MethodCollectionFactory $methodCollectionFactory
+        ConstantCollectionFactory $constantCollectionFactory, MethodCollectionFactory $methodCollectionFactory
     ) {
         $this->constantCollectionFactory = $constantCollectionFactory;
         $this->methodCollectionFactory   = $methodCollectionFactory;

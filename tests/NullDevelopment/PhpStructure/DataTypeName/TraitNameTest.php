@@ -46,9 +46,6 @@ class TraitNameTest extends TestCase
 
     public function testCreateFromFullyQualified()
     {
-        self::assertEquals(
-            $this->sut,
-            TraitName::createFromFullyQualified($this->namespace.'\\'.$this->name)
-        );
+        self::assertEquals($this->sut, TraitName::createFromFullyQualified($this->namespace.'\\'.$this->name));
     }
 }

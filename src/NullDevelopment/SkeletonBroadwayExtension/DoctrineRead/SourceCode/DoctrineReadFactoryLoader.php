@@ -39,15 +39,7 @@ class DoctrineReadFactoryLoader extends BaseDefinitionLoader
             $methods[] = $method;
         }
 
-        return new DoctrineReadFactory(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new DoctrineReadFactory($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

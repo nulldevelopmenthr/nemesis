@@ -17,8 +17,7 @@ use PhpSpec\ObjectBehavior;
 class UuidV4IdentifierGeneratorSpec extends ObjectBehavior
 {
     public function let(
-        ConstructorMethodGenerator $constructorMethodGenerator,
-        GetterMethodGenerator $getterMethodGenerator
+        ConstructorMethodGenerator $constructorMethodGenerator, GetterMethodGenerator $getterMethodGenerator
     ) {
         $constructorMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
         $getterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
@@ -180,8 +179,7 @@ class UuidV4IdentifierGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_class_code_with_property_having_default_value(
-        UuidV4Identifier $definition,
-        Property $lastName
+        UuidV4Identifier $definition, Property $lastName
     ) {
         $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');

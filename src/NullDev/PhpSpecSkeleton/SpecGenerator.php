@@ -54,12 +54,8 @@ class SpecGenerator
         $specSource->addImports(...$this->getImports($classSource));
         $specSource->addParent(ClassType::createFromFullyQualified(ObjectBehavior::class));
 
-        $specSource->addMethod(
-            $this->letMethodFactory->create($classSource)
-        );
-        $specSource->addMethod(
-            $this->initializableMethodFactory->create($classSource)
-        );
+        $specSource->addMethod($this->letMethodFactory->create($classSource));
+        $specSource->addMethod($this->initializableMethodFactory->create($classSource));
 
         if (EventSourcingRepository::class !== $classSource->getParentFullName()) {
             $specSource->addMethod($this->exposeMethodFactory->create($classSource));

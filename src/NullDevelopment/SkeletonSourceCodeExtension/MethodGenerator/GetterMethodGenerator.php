@@ -25,9 +25,7 @@ class GetterMethodGenerator extends BaseMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            sprintf('return $this->%s;', $method->getPropertyName())
-        );
+        $code->addBody(sprintf('return $this->%s;', $method->getPropertyName()));
     }
 
     public function getMethodGeneratorPriority(): int

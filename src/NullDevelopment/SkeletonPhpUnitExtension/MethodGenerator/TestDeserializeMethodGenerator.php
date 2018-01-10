@@ -29,8 +29,7 @@ class TestDeserializeMethodGenerator extends BaseTestMethodGenerator
             // @var Property $property
             foreach ($method->getProperties() as $property) {
                 $deserializeBody = sprintf(
-                    'self::assertEquals($this->sut, $this->sut->deserialize($this->%s));',
-                    $property->getName()
+                    'self::assertEquals($this->sut, $this->sut->deserialize($this->%s));', $property->getName()
                 );
 
                 $code

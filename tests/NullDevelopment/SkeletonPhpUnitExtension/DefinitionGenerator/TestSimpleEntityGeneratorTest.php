@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleEntityGenerator
- * @group todo
+ * @group  todo
  */
 class TestSimpleEntityGeneratorTest extends TestCase
 {

@@ -45,11 +45,7 @@ class MethodParameterTest extends TestCase
         $this->hasDefaultValue = true;
         $this->defaultValue    = 'defaultValue';
         $this->sut             = new MethodParameter(
-            $this->name,
-            $this->contractName,
-            $this->nullable,
-            $this->hasDefaultValue,
-            $this->defaultValue
+            $this->name, $this->contractName, $this->nullable, $this->hasDefaultValue, $this->defaultValue
         );
     }
 

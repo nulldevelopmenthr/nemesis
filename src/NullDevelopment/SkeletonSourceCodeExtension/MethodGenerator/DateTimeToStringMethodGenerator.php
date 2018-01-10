@@ -25,9 +25,7 @@ class DateTimeToStringMethodGenerator extends BaseMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            'return $this->format(\'c\');'
-        );
+        $code->addBody('return $this->format(\'c\');');
     }
 
     public function getMethodGeneratorPriority(): int

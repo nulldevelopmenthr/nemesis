@@ -38,11 +38,8 @@ class CustomMethod implements Method
     /** @var bool */
     private $static;
 
-    public function __construct(
-        string $name,
-        array $parameters,
-        array $body
-    ) {
+    public function __construct(string $name, array $parameters, array $body)
+    {
         $this->name       = $name;
         $this->parameters = $parameters;
         $this->body       = $body;

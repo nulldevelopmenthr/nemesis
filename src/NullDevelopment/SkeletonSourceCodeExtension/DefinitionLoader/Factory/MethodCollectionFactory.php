@@ -96,7 +96,9 @@ class MethodCollectionFactory
 
                 $result[] = new SetterMethod($methodName, $property);
             } else {
-                throw new Exception('ERR 322315002: Only setter, getter, chainedgetter & custom methods are implemented for now!');
+                throw new Exception(
+                    'ERR 322315002: Only setter, getter, chainedgetter & custom methods are implemented for now!'
+                );
             }
         }
 

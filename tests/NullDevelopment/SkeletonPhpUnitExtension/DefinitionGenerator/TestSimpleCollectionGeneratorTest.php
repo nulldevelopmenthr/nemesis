@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpUnitExtension\DefinitionGenerator\TestSimpleCollectionGenerator
- * @group todo
+ * @group  todo
  */
 class TestSimpleCollectionGeneratorTest extends TestCase
 {

@@ -17,8 +17,7 @@ use PhpSpec\ObjectBehavior;
 class DoctrineReadFactoryGeneratorSpec extends ObjectBehavior
 {
     public function let(
-        ConstructorMethodGenerator $constructorMethodGenerator,
-        GetterMethodGenerator $getterMethodGenerator
+        ConstructorMethodGenerator $constructorMethodGenerator, GetterMethodGenerator $getterMethodGenerator
     ) {
         $constructorMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
         $getterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
@@ -100,8 +99,9 @@ class DoctrineReadFactoryGeneratorSpec extends ObjectBehavior
         $this->generateAsString($definition)->shouldReturn($expected);
     }
 
-    public function it_creates_class_code_with_interfaces(DoctrineReadFactory $definition, InterfaceName $interfaceName)
-    {
+    public function it_creates_class_code_with_interfaces(
+        DoctrineReadFactory $definition, InterfaceName $interfaceName
+    ) {
         $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');
         $definition->getInstanceOfFullName()->shouldBeCalled()->willReturn('MyVendor\\WebShop\\UserEntity');
@@ -179,8 +179,7 @@ class DoctrineReadFactoryGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_class_code_with_property_having_default_value(
-        DoctrineReadFactory $definition,
-        Property $lastName
+        DoctrineReadFactory $definition, Property $lastName
     ) {
         $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');

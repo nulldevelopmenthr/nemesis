@@ -24,7 +24,9 @@ class BroadwayAggregateRootModelHandler
 
     public function handleCreateBroadwayAggregateRootModel(CreateBroadwayAggregateRootModel $command): array
     {
-        $rootIdParam = new Parameter(lcfirst($command->getRootIdClassName()->getName()), $command->getRootIdClassName());
+        $rootIdParam = new Parameter(
+            lcfirst($command->getRootIdClassName()->getName()), $command->getRootIdClassName()
+        );
 
         return [
             $this->aggregateRootSourceFactory->create($command->getModelClassName(), $rootIdParam),

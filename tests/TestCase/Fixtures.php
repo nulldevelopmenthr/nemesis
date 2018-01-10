@@ -70,13 +70,7 @@ class Fixtures
     public static function integerIdProperty(): Property
     {
         return new Property(
-            'id',
-            ClassName::create('int'),
-            false,
-            false,
-            null,
-            new Visibility('private'),
-            [new SimpleExample(99)]
+            'id', ClassName::create('int'), false, false, null, new Visibility('private'), [new SimpleExample(99)]
         );
     }
 

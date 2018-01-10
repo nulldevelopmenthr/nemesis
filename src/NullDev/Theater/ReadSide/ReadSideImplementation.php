@@ -22,9 +22,7 @@ class ReadSideImplementation
     public function __construct(string $value)
     {
         Assert::oneOf(
-            $value,
-            [self::DOCTRINE_ORM, self::ELASTICSEARCH],
-            'Only DoctrineORM and Elasticsearch are supported'
+            $value, [self::DOCTRINE_ORM, self::ELASTICSEARCH], 'Only DoctrineORM and Elasticsearch are supported'
         );
         $this->value = $value;
     }

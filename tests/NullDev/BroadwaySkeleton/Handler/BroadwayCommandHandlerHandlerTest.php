@@ -43,7 +43,9 @@ class BroadwayCommandHandlerHandlerTest extends ContainerSupportedTestCase
         RootIdClassName $idClassName,
         RootModelClassName $modelClassName
     ): void {
-        $command = new CreateBroadwayCommandHandler($handlerClassName, $repositoryClassName, $idClassName, $modelClassName);
+        $command = new CreateBroadwayCommandHandler(
+            $handlerClassName, $repositoryClassName, $idClassName, $modelClassName
+        );
 
         $result = $this->commandBus->handle($command);
 

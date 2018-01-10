@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\Skeleton\ObjectConfigurationLoaderCollection
- * @group todo
+ * @group  todo
  */
 class ObjectConfigurationLoaderCollectionTest extends TestCase
 {

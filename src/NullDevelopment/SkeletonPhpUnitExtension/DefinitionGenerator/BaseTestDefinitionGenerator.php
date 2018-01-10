@@ -20,12 +20,8 @@ abstract class BaseTestDefinitionGenerator extends BaseClassDefinitionGenerator
         $namespace = parent::generate($definition);
 
         foreach ($namespace->getClasses() as $classCode) {
-            $classCode->addComment(
-                '@covers \\'.$definition->getSubjectUnderTest()->getFullName()
-            );
-            $classCode->addComment(
-                '@group  todo'
-            );
+            $classCode->addComment('@covers \\'.$definition->getSubjectUnderTest()->getFullName());
+            $classCode->addComment('@group  todo');
         }
 
         return $namespace;

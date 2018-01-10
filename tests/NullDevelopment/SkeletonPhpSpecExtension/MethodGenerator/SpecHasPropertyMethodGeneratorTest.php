@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator\SpecHasPropertyMethodGenerator
- * @group todo
+ * @group  todo
  */
 class SpecHasPropertyMethodGeneratorTest extends TestCase
 {

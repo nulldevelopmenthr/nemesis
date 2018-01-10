@@ -27,9 +27,7 @@ class SpecSerializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_a_object_with_a_single_property(
-        ExampleMaker $exampleMaker,
-        SpecSerializeMethod $method,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecSerializeMethod $method, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_can_be_serialized');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -57,10 +55,7 @@ class SpecSerializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_a_object_with_multiple_properties(
-        ExampleMaker $exampleMaker,
-        SpecSerializeMethod $method,
-        Property $firstName,
-        Property $lastName
+        ExampleMaker $exampleMaker, SpecSerializeMethod $method, Property $firstName, Property $lastName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_can_be_serialized');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -94,9 +89,7 @@ class SpecSerializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_string_property(
-        ExampleMaker $exampleMaker,
-        SpecSerializeMethod $method,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecSerializeMethod $method, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_can_be_serialized');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

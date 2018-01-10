@@ -59,15 +59,7 @@ class EventLoader extends BaseDefinitionLoader
         $methods[] = new SerializeMethod($className, $properties);
         $methods[] = new DeserializeMethod($className, $properties);
 
-        return new Event(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new Event($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

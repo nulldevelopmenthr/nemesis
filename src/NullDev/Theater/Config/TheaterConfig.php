@@ -25,16 +25,10 @@ class TheaterConfig
     public function __construct(array $contexts, array $reads)
     {
         Assert::allIsInstanceOf(
-            $contexts,
-            BoundedContextConfig::class,
-            'Contexts should be instances of BoundedContextConfig'
+            $contexts, BoundedContextConfig::class, 'Contexts should be instances of BoundedContextConfig'
         );
 
-        Assert::allIsInstanceOf(
-            $reads,
-            ReadSideConfig::class,
-            'Read sides should be instances of ReadSideConfig'
-        );
+        Assert::allIsInstanceOf($reads, ReadSideConfig::class, 'Read sides should be instances of ReadSideConfig');
 
         $this->contexts = $contexts;
         $this->reads    = $reads;

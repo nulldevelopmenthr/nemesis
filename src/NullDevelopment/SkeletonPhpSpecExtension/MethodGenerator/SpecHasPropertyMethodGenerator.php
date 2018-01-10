@@ -25,9 +25,7 @@ class SpecHasPropertyMethodGenerator extends BaseSpecMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            sprintf('$this->%s()->shouldReturn(true);', $method->getMethodUnderTest())
-        );
+        $code->addBody(sprintf('$this->%s()->shouldReturn(true);', $method->getMethodUnderTest()));
     }
 
     public function getMethodGeneratorPriority(): int

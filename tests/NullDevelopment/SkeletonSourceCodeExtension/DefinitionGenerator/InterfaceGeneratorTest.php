@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\InterfaceGenerator
- * @group todo
+ * @group  todo
  */
 class InterfaceGeneratorTest extends TestCase
 {

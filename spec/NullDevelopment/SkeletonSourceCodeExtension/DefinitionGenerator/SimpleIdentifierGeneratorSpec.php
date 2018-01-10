@@ -17,8 +17,7 @@ use PhpSpec\ObjectBehavior;
 class SimpleIdentifierGeneratorSpec extends ObjectBehavior
 {
     public function let(
-        ConstructorMethodGenerator $constructorMethodGenerator,
-        GetterMethodGenerator $getterMethodGenerator
+        ConstructorMethodGenerator $constructorMethodGenerator, GetterMethodGenerator $getterMethodGenerator
     ) {
         $constructorMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
         $getterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);
@@ -179,8 +178,7 @@ class SimpleIdentifierGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_class_code_with_property_having_default_value(
-        SimpleIdentifier $definition,
-        Property $lastName
+        SimpleIdentifier $definition, Property $lastName
     ) {
         $definition->getInstanceOfName()->shouldBeCalled()->willReturn('UserEntity');
         $definition->getNamespace()->shouldBeCalled()->willReturn('MyVendor\\WebShop');

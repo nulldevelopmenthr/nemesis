@@ -31,9 +31,7 @@ class TestHasPropertyMethodFactory implements PhpUnitMethodFactory
     public function createFromHasPropertyMethod(HasPropertyMethod $method): TestHasPropertyMethod
     {
         return new TestHasPropertyMethod(
-            'test'.ucfirst($method->getName()),
-            $method->getName(),
-            $method->getProperty()
+            'test'.ucfirst($method->getName()), $method->getName(), $method->getProperty()
         );
     }
 }

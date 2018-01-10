@@ -31,9 +31,6 @@ class TestDeserializeMethodFactory implements PhpUnitMethodFactory
 
     public function createFromDeserializeMethod(DeserializeMethod $method): TestDeserializeMethod
     {
-        return new TestDeserializeMethod(
-            $method->getClassName(),
-            $method->getProperties()
-        );
+        return new TestDeserializeMethod($method->getClassName(), $method->getProperties());
     }
 }

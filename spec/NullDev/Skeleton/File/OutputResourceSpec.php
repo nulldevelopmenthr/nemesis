@@ -13,9 +13,7 @@ class OutputResourceSpec extends ObjectBehavior
     public function let(ImprovedClassSource $classSource)
     {
         $this->beConstructedWith(
-            $filename = '/var/www/src/MyCompany/ClassName.php',
-            $classSource,
-            $output = '<?php ...'
+            $filename = '/var/www/src/MyCompany/ClassName.php', $classSource, $output = '<?php ...'
         );
     }
 

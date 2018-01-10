@@ -22,8 +22,7 @@ class SpecDateTimeCreateFromFormatMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_spec_from_source_code_definition(
-        ClassDefinition $definition,
-        DateTimeCreateFromFormatMethod $method
+        ClassDefinition $definition, DateTimeCreateFromFormatMethod $method
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
 

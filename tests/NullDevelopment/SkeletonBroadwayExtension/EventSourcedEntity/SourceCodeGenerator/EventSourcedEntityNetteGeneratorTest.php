@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\EventSourcedEntity\SourceCodeGenerator\EventSourcedEntityNetteGenerator
- * @group todo
+ * @group  todo
  */
 class EventSourcedEntityNetteGeneratorTest extends TestCase
 {

@@ -24,16 +24,14 @@ class NamingStrategyFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_theater_naming_strategy_instance(
-        ContextName $contextName,
-        ContextNamespace $contextNamespace
+        ContextName $contextName, ContextNamespace $contextNamespace
     ) {
         $this->theater($contextName, $contextNamespace)
             ->shouldReturnAnInstanceOf(TheaterNamingStrategy::class);
     }
 
     public function it_will_create_devboard_naming_strategy_instance(
-        ContextName $contextName,
-        ContextNamespace $contextNamespace
+        ContextName $contextName, ContextNamespace $contextNamespace
     ) {
         $this->devboard($contextName, $contextNamespace)
             ->shouldReturnAnInstanceOf(DevboardNamingStrategy::class);
