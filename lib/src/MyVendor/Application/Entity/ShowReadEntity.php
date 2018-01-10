@@ -28,8 +28,9 @@ class ShowReadEntity
     /** @var DateTime */
     private $updatedAt;
 
-    public function __construct(ShowId $id, string $title, ?string $description, DateTime $createdAt, DateTime $updatedAt)
-    {
+    public function __construct(
+        ShowId $id, string $title, ?string $description, DateTime $createdAt, DateTime $updatedAt
+    ) {
         $this->id          = $id;
         $this->title       = $title;
         $this->description = $description;

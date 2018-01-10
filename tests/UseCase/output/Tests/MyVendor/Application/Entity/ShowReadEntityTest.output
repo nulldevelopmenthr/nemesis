@@ -40,7 +40,9 @@ class ShowReadEntityTest extends TestCase
         $this->description = 'description';
         $this->createdAt   = new DateTime('2018-01-01T00:01:00+00:00');
         $this->updatedAt   = new DateTime('2018-01-01T00:01:00+00:00');
-        $this->sut         = new ShowReadEntity($this->id, $this->title, $this->description, $this->createdAt, $this->updatedAt);
+        $this->sut         = new ShowReadEntity(
+            $this->id, $this->title, $this->description, $this->createdAt, $this->updatedAt
+        );
     }
 
     public function testGetId()

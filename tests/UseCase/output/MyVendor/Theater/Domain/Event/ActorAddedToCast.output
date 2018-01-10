@@ -64,9 +64,7 @@ class ActorAddedToCast implements Serializable
     public static function deserialize(array $data): self
     {
         return new self(
-            ShowId::deserialize($data['id']),
-            Actor::deserialize($data['actor']),
-            new DateTime($data['addedAt'])
+            ShowId::deserialize($data['id']), Actor::deserialize($data['actor']), new DateTime($data['addedAt'])
         );
     }
 }

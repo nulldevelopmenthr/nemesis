@@ -20,9 +20,12 @@ use PhpSpec\ObjectBehavior;
  */
 class UserEntitySpec extends ObjectBehavior
 {
-    public function let(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
-    {
-        $this->beConstructedWith($id, $firstName, $lastName = 'lastName', $username, $active = true, $createdAt, $updatedAt);
+    public function let(
+        UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt
+    ) {
+        $this->beConstructedWith(
+            $id, $firstName, $lastName = 'lastName', $username, $active = true, $createdAt, $updatedAt
+        );
     }
 
     public function it_is_initializable()
@@ -85,8 +88,9 @@ class UserEntitySpec extends ObjectBehavior
         $this->hasLastName()->shouldReturn(true);
     }
 
-    public function it_can_be_serialized(UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt)
-    {
+    public function it_can_be_serialized(
+        UserId $id, UserFirstName $firstName, Username $username, UserCreatedAt $createdAt, DateTime $updatedAt
+    ) {
         $id->serialize()->shouldBeCalled()->willReturn(1);
         $firstName->serialize()->shouldBeCalled()->willReturn('Amy');
         $username->serialize()->shouldBeCalled()->willReturn('username');
@@ -94,14 +98,14 @@ class UserEntitySpec extends ObjectBehavior
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $this->serialize()->shouldReturn(
             [
-            'id'        => 1,
-            'firstName' => 'Amy',
-            'lastName'  => 'lastName',
-            'username'  => 'username',
-            'active'    => true,
-            'createdAt' => '2018-01-01T00:01:00+00:00',
-            'updatedAt' => '2018-01-01T00:01:00+00:00',
-        ]
+                'id'        => 1,
+                'firstName' => 'Amy',
+                'lastName'  => 'lastName',
+                'username'  => 'username',
+                'active'    => true,
+                'createdAt' => '2018-01-01T00:01:00+00:00',
+                'updatedAt' => '2018-01-01T00:01:00+00:00',
+            ]
         );
     }
 
