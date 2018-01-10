@@ -51,7 +51,15 @@ class UserEntityTest extends TestCase
         $this->active    = true;
         $this->createdAt = new UserCreatedAt('2018-01-01T00:01:00+00:00');
         $this->updatedAt = new DateTime('2018-01-01T00:01:00+00:00');
-        $this->sut       = new UserEntity($this->id, $this->firstName, $this->lastName, $this->username, $this->active, $this->createdAt, $this->updatedAt);
+        $this->sut       = new UserEntity(
+            $this->id,
+            $this->firstName,
+            $this->lastName,
+            $this->username,
+            $this->active,
+            $this->createdAt,
+            $this->updatedAt
+        );
     }
 
     public function testGetId()

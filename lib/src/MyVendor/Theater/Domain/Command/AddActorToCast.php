@@ -45,9 +45,6 @@ class AddActorToCast
 
     public static function deserialize(array $data): self
     {
-        return new self(
-            ShowId::deserialize($data['id']),
-            Actor::deserialize($data['actor'])
-        );
+        return new self(ShowId::deserialize($data['id']), Actor::deserialize($data['actor']));
     }
 }

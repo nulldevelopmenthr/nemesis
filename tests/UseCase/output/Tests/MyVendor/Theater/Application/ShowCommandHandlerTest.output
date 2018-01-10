@@ -22,7 +22,11 @@ class ShowCommandHandlerTest extends TestCase
 
     public function setUp()
     {
-        $this->repository = new ShowRepository(\Mockery::mock('Broadway\EventStore\EventStore'), \Mockery::mock('Broadway\EventHandling\EventBus'), ['data']);
-        $this->sut        = new ShowCommandHandler($this->repository);
+        $this->repository = new ShowRepository(
+            \Mockery::mock('Broadway\EventStore\EventStore'),
+            \Mockery::mock('Broadway\EventHandling\EventBus'),
+            ['data']
+        );
+        $this->sut = new ShowCommandHandler($this->repository);
     }
 }

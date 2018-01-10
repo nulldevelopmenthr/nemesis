@@ -68,12 +68,12 @@ class ProductEntitySpec extends ObjectBehavior
         $updatedAt->format('c')->shouldBeCalled()->willReturn('2018-01-01T00:01:00+00:00');
         $this->serialize()->shouldReturn(
             [
-            'id'          => 'id',
-            'title'       => 'title',
-            'description' => 'description',
-            'weight'      => 1,
-            'updatedAt'   => '2018-01-01T00:01:00+00:00',
-        ]
+                'id'          => 'id',
+                'title'       => 'title',
+                'description' => 'description',
+                'weight'      => 1,
+                'updatedAt'   => '2018-01-01T00:01:00+00:00',
+            ]
         );
     }
 

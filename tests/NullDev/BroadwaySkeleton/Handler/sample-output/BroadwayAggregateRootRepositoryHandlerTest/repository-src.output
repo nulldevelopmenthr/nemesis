@@ -13,6 +13,8 @@ class UserRepository extends EventSourcingRepository
 {
     public function __construct(EventStore $eventStore, EventBus $eventBus, array $eventStreamDecorators = [])
     {
-        parent::__construct($eventStore, $eventBus, UserModel::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators);
+        parent::__construct(
+            $eventStore, $eventBus, UserModel::class, new PublicConstructorAggregateFactory(), $eventStreamDecorators
+        );
     }
 }

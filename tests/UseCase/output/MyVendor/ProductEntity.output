@@ -34,8 +34,9 @@ class ProductEntity extends BaseModel implements AnotherInterface
     /** @var DateTime */
     private $updatedAt;
 
-    public function __construct(ProductId $id, string $title, ?string $description, ?ProductWeight $weight, DateTime $updatedAt)
-    {
+    public function __construct(
+        ProductId $id, string $title, ?string $description, ?ProductWeight $weight, DateTime $updatedAt
+    ) {
         $this->id          = $id;
         $this->title       = $title;
         $this->description = $description;
