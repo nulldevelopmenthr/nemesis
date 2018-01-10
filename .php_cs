@@ -3,7 +3,9 @@
 $finder = PhpCsFixer\Finder::create()
     ->in('spec')
     ->in('src')
-    ->in('tests');
+    ->in('tests')
+    ->notName('phar-stub.php')
+    ;
 
 return PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
@@ -26,8 +28,13 @@ return PhpCsFixer\Config::create()
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
-        'class_attributes_separation' => ['elements'=>['const', 'method', 'property']]
-
+        'class_attributes_separation' => ['elements'=>['const', 'method', 'property']],
+        'long_lines' => [
+            'compress_multiline_array'   => false,
+            'decompress_multiline_array' => true,
+            'compress_multiline_call'    => true,
+            'decompress_multiline_call'  => true,
+        ],
     ))
     ->setCacheFile(__DIR__.'/vendor/.php_cs.cache')
     ->setFinder($finder)
