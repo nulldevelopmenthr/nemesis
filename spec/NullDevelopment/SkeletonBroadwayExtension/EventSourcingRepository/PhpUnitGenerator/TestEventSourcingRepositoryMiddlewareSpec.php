@@ -11,8 +11,9 @@ use PhpSpec\ObjectBehavior;
 
 class TestEventSourcingRepositoryMiddlewareSpec extends ObjectBehavior
 {
-    public function let(TestEventSourcingRepositoryFactory $factory, TestEventSourcingRepositoryNetteGenerator $generator)
-    {
+    public function let(
+        TestEventSourcingRepositoryFactory $factory, TestEventSourcingRepositoryNetteGenerator $generator
+    ) {
         $this->beConstructedWith($factory, $generator);
     }
 

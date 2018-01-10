@@ -35,11 +35,8 @@ class BroadwayEventHandlerTest extends ContainerSupportedTestCase
     /**
      * @dataProvider provideData
      */
-    public function testSourcesWillMatchExpectedOutput(
-        ClassType $classType,
-        array $parameters,
-        string $folderName
-    ): void {
+    public function testSourcesWillMatchExpectedOutput(ClassType $classType, array $parameters, string $folderName): void
+    {
         $command = new CreateBroadwayEvent($classType, $parameters);
 
         $result = $this->commandBus->handle($command);

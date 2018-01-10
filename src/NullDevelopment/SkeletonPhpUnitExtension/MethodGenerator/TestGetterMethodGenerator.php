@@ -26,7 +26,11 @@ class TestGetterMethodGenerator extends BaseTestMethodGenerator
     protected function generateMethodBody($method, NetteMethod $code)
     {
         $code->addBody(
-            sprintf('self::assertSame($this->%s, $this->sut->%s());', $method->getProperty()->getName(), $method->getMethodUnderTest())
+            sprintf(
+                'self::assertSame($this->%s, $this->sut->%s());',
+                $method->getProperty()->getName(),
+                $method->getMethodUnderTest()
+            )
         );
     }
 

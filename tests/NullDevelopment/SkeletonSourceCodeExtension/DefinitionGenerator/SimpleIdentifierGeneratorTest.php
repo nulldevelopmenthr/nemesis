@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleIdentifierGenerator
- * @group todo
+ * @group  todo
  */
 class SimpleIdentifierGeneratorTest extends TestCase
 {

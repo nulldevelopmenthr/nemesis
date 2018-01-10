@@ -30,10 +30,6 @@ class TestGetterMethodFactory implements PhpUnitMethodFactory
 
     public function createFromGetterMethod(GetterMethod $method): TestGetterMethod
     {
-        return new TestGetterMethod(
-            'test'.ucfirst($method->getName()),
-            $method->getName(),
-            $method->getProperty()
-        );
+        return new TestGetterMethod('test'.ucfirst($method->getName()), $method->getName(), $method->getProperty());
     }
 }

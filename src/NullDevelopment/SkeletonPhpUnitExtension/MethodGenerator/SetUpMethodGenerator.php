@@ -39,7 +39,11 @@ class SetUpMethodGenerator extends BaseTestMethodGenerator
         }
 
         $code->addBody(
-            sprintf('$this->sut = new %s(%s);', $method->getClassName()->getName(), implode(', ', $constructorArguments))
+            sprintf(
+                '$this->sut = new %s(%s);',
+                $method->getClassName()->getName(),
+                implode(', ', $constructorArguments)
+            )
         );
     }
 

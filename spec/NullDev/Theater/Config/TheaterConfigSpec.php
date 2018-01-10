@@ -33,8 +33,7 @@ class TheaterConfigSpec extends ObjectBehavior
     }
 
     public function it_throws_an_exception_if_contexts_are_not_instances_of_expected_class(
-        DateTime $wrongObject,
-        ReadSideConfig $readSideConfig
+        DateTime $wrongObject, ReadSideConfig $readSideConfig
     ) {
         $contexts = [$wrongObject];
         $reads    = [$readSideConfig];
@@ -44,8 +43,7 @@ class TheaterConfigSpec extends ObjectBehavior
     }
 
     public function it_throws_an_exception_if_reads_are_not_instances_of_expected_class(
-        BoundedContextConfig $boundedContextConfig,
-        DateTime $wrongObject
+        BoundedContextConfig $boundedContextConfig, DateTime $wrongObject
     ) {
         $contexts = [$boundedContextConfig];
         $reads    = [$wrongObject];

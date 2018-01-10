@@ -34,7 +34,9 @@ class BroadwayDoctrineOrmReadProjectorHandlerSpec extends ObjectBehavior
         $command->getEntityParameters()->shouldBeCalled()->willReturn([$parameters]);
         $command->getProjectorClassType()->shouldBeCalled()->willReturn($projectorType);
 
-        $readProjectorSourceFactory->create($projectorType, [$parameters])->shouldBeCalled()->willReturn($projectorClass);
+        $readProjectorSourceFactory->create($projectorType, [$parameters])->shouldBeCalled()->willReturn(
+            $projectorClass
+        );
 
         $this->handleCreateBroadwayDoctrineOrmReadProjector($command)->shouldBeArray();
     }

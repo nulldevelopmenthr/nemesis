@@ -53,7 +53,9 @@ class FileFactory
             }
         }
 
-        throw new Exception('Err 235235235235235: Cant find path that "'.$className->getFullName().'" would belong to!');
+        throw new Exception(
+            'Err 235235235235235: Cant find path that "'.$className->getFullName().'" would belong to!'
+        );
     }
 
     public function getPath2(AbstractDataTypeName $className)

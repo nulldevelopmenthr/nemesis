@@ -37,6 +37,8 @@ class SpecCommandHandlerFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecCommandHandler($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecCommandHandler(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

@@ -26,9 +26,7 @@ class SpecToStringMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_to_string_spec_method_for_to_string_in_source_code_definition(
-        ClassDefinition $definition,
-        ToStringMethod $method,
-        Property $firstName
+        ClassDefinition $definition, ToStringMethod $method, Property $firstName
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
 
@@ -43,8 +41,9 @@ class SpecToStringMethodFactorySpec extends ObjectBehavior
         $this->create($definition)->shouldReturn([]);
     }
 
-    public function it_creates_to_string_spec_method_from_given_to_string_method(ToStringMethod $method, Property $firstName)
-    {
+    public function it_creates_to_string_spec_method_from_given_to_string_method(
+        ToStringMethod $method, Property $firstName
+    ) {
         $method->getProperty()->shouldBeCalled()->willReturn($firstName);
 
         $this->createFromToStringMethod($method)

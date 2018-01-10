@@ -31,8 +31,6 @@ class TestToStringMethodFactory implements PhpUnitMethodFactory
 
     public function createFromToStringMethod(ToStringMethod $method): TestToStringMethod
     {
-        return new TestToStringMethod(
-            $method->getProperty()
-        );
+        return new TestToStringMethod($method->getProperty());
     }
 }

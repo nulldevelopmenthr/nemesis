@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnitGenerator\TestEventSourcedAggregateRootNetteGenerator
- * @group todo
+ * @group  todo
  */
 class TestEventSourcedAggregateRootNetteGeneratorTest extends TestCase
 {

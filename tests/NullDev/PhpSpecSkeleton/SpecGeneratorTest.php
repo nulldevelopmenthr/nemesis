@@ -28,7 +28,9 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
      */
     public function testNothing(ImprovedClassSource $classSource, string $outputName): void
     {
-        $this->assertClassSourceOutputMatches($this->getFilePath($outputName), $this->specGenerator->generate($classSource));
+        $this->assertClassSourceOutputMatches(
+            $this->getFilePath($outputName), $this->specGenerator->generate($classSource)
+        );
     }
 
     public function provideTestRenderData(): array
@@ -46,7 +48,10 @@ class SpecGeneratorTest extends ContainerSupportedTestCase
             [$provider->provideSourceWithTwoParamConstructor(), 'class-with-all-2-param-spec'],
             [$provider->provideSourceWithThreeParamConstructor(), 'class-with-all-3-param-spec'],
             [$provider->provideSourceWithOneClasslessParamConstructor(), 'class-with-all-1-classless-param-spec'],
-            [$provider->provideSourceWithOneTypeDeclarationParamConstructor(), 'class-with-all-1-scalartypes-param-spec'],
+            [
+                $provider->provideSourceWithOneTypeDeclarationParamConstructor(),
+                'class-with-all-1-scalartypes-param-spec',
+            ],
         ];
     }
 

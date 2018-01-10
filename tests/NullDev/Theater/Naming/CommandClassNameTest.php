@@ -32,8 +32,7 @@ class CommandClassNameTest extends TestCase
     public function testCreateFromFullyQualified()
     {
         self::assertEquals(
-            $this->className,
-            CommandClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
+            $this->className, CommandClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
         );
     }
 

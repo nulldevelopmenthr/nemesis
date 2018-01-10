@@ -88,7 +88,9 @@ class DoctrineReadProjectorLoaderTest extends SfTestCase
                     [
                         new ConstructorMethod(
                             [
-                                Property::private('repository', ClassName::create('MyVendor\Repository\UserRepository')),
+                                Property::private(
+                                    'repository', ClassName::create('MyVendor\Repository\UserRepository')
+                                ),
                                 Property::private('factory', ClassName::create('MyVendor\Factory\UserFactory')),
                             ]
                         ),

@@ -60,13 +60,7 @@ class EventSourcedEntityFixtures
     public static function idProperty(): Property
     {
         return new Property(
-            'id',
-            self::idName(),
-            false,
-            false,
-            false,
-            new Visibility('private'),
-            [new SimpleExample(123)]
+            'id', self::idName(), false, false, false, new Visibility('private'), [new SimpleExample(123)]
         );
     }
 

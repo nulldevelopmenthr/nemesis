@@ -30,10 +30,7 @@ class InterfaceDefinition implements SourceCode, Definition
     private $methods;
 
     public function __construct(
-        InterfaceName $name,
-        ?InterfaceName $parentName = null,
-        array $constants = [],
-        array $methods = []
+        InterfaceName $name, ?InterfaceName $parentName = null, array $constants = [], array $methods = []
     ) {
         Assert::allIsInstanceOf($constants, Constant::class);
         Assert::allIsInstanceOf($methods, Method::class);

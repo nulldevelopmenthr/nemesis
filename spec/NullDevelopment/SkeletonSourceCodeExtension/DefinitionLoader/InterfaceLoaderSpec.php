@@ -13,8 +13,7 @@ use PhpSpec\ObjectBehavior;
 class InterfaceLoaderSpec extends ObjectBehavior
 {
     public function let(
-        ConstantCollectionFactory $constantCollectionFactory,
-        MethodCollectionFactory $methodCollectionFactory
+        ConstantCollectionFactory $constantCollectionFactory, MethodCollectionFactory $methodCollectionFactory
     ) {
         $this->beConstructedWith($constantCollectionFactory, $methodCollectionFactory);
     }

@@ -21,8 +21,9 @@ class TestEventSourcedAggregateRootMiddleware implements Middleware
     /** @var TestEventSourcedAggregateRootNetteGenerator */
     private $generator;
 
-    public function __construct(TestEventSourcedAggregateRootFactory $factory, TestEventSourcedAggregateRootNetteGenerator $generator)
-    {
+    public function __construct(
+        TestEventSourcedAggregateRootFactory $factory, TestEventSourcedAggregateRootNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

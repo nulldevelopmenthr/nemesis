@@ -49,7 +49,9 @@ class TestSimpleCollectionGenerator extends BaseTestDefinitionGenerator
         $netteCode->addMethod('setUp')
             ->setVisibility(Visibility::PUBLIC)
             ->addBody(sprintf('$this->elements = [%s];', $exampleValue))
-            ->addBody(sprintf('$this->sut = new %s(%s);', $definition->getSubjectUnderTest()->getName(), '$this->elements'));
+            ->addBody(
+                sprintf('$this->sut = new %s(%s);', $definition->getSubjectUnderTest()->getName(), '$this->elements')
+            );
 
         $netteCode->addMethod('testGetElements')
             ->addBody('self::assertSame($this->elements, $this->sut->toArray());');

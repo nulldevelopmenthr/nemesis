@@ -40,13 +40,7 @@ class DoctrineReadRepositoryLoader extends BaseDefinitionLoader
         ];
 
         return new DoctrineReadRepository(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
+            $className, $parent, $interfaces, $traits, $constants, $properties, $methods
         );
     }
 

@@ -30,8 +30,8 @@ class TestDateTimeCreateFromFormatMethodFactory implements PhpUnitMethodFactory
     }
 
     /** @SuppressWarnings("PHPMD.UnusedFormalParameter") */
-    public function createFromDateTimeCreateFromFormatMethod(DateTimeCreateFromFormatMethod $method
-    ): TestDateTimeCreateFromFormatMethod {
+    public function createFromDateTimeCreateFromFormatMethod(DateTimeCreateFromFormatMethod $method): TestDateTimeCreateFromFormatMethod
+    {
         return new TestDateTimeCreateFromFormatMethod();
     }
 }

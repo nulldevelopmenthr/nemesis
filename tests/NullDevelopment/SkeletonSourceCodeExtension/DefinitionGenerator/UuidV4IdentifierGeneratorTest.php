@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\UuidV4IdentifierGenerator
- * @group todo
+ * @group  todo
  */
 class UuidV4IdentifierGeneratorTest extends TestCase
 {

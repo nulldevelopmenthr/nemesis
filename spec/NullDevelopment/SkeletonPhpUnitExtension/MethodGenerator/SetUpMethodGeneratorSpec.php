@@ -29,10 +29,7 @@ class SetUpMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_let_method_for_object_properties(
-        ExampleMaker $exampleMaker,
-        SetUpMethod $method,
-        Property $property,
-        ClassName $className
+        ExampleMaker $exampleMaker, SetUpMethod $method, Property $property, ClassName $className
     ) {
         $method->getName()->shouldBeCalled()->willReturn('setUp');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

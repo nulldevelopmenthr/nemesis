@@ -39,15 +39,7 @@ class EventSourcedEntityLoader extends BaseDefinitionLoader
             $methods[] = $method;
         }
 
-        return new EventSourcedEntity(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new EventSourcedEntity($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

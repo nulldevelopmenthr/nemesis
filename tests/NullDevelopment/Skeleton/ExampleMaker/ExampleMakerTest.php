@@ -153,20 +153,12 @@ class ExampleMakerTest extends TestCase
             ],
             [
                 new SimpleVariable('variableName', $exampleWithSingleStaticType),
-                new InstanceExample(
-                    $exampleWithSingleStaticType,
-                    [
-                        'title' => new SimpleExample('title'),
-                    ]
-                ),
+                new InstanceExample($exampleWithSingleStaticType, ['title' => new SimpleExample('title')]),
             ],
             [
                 new SimpleVariable('variableName', $exampleCollection),
                 new InstanceExample(
-                    $exampleCollection,
-                    [
-                        'items' => new ArrayExample([new MockeryMockExample($genericClass)]),
-                    ]
+                    $exampleCollection, ['items' => new ArrayExample([new MockeryMockExample($genericClass)])]
                 ),
             ],
             [

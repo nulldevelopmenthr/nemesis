@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\Command\PhpSpecGenerator\SpecCommandNetteGenerator
- * @group todo
+ * @group  todo
  */
 class SpecCommandNetteGeneratorTest extends TestCase
 {

@@ -41,9 +41,7 @@ class TestNothingGenerator implements MethodGenerator
                 new Variable('this'),
                 'markTestIncomplete',
                 [
-                    new Arg(
-                        new String_('Auto generated using nemesis')
-                    ),
+                    new Arg(new String_('Auto generated using nemesis')),
                 ]
             )
         );

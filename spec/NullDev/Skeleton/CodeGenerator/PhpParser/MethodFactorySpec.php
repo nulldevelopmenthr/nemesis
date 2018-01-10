@@ -22,13 +22,7 @@ class MethodFactorySpec extends ObjectBehavior
         GetterGenerator $getterGenerator,
         ToStringGenerator $toStringGenerator
     ) {
-        $this->beConstructedWith(
-            [
-                $constructorGenerator,
-                $getterGenerator,
-                $toStringGenerator,
-            ]
-        );
+        $this->beConstructedWith([$constructorGenerator, $getterGenerator, $toStringGenerator]);
     }
 
     public function it_is_initializable()

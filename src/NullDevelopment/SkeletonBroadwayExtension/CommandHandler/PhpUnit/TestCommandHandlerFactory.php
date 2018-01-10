@@ -44,8 +44,12 @@ class TestCommandHandlerFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
+        $properties[] = new Property(
+            'sut', $definition->getInstanceOf(), false, false, null, new Visibility('private')
+        );
 
-        return new TestCommandHandler($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf());
+        return new TestCommandHandler(
+            $testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf()
+        );
     }
 }

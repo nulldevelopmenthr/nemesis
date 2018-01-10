@@ -41,8 +41,9 @@ class SpecDateTimeValueObjectFactoryTest extends SfTestCase
     }
 
     /** @dataProvider provideSamples */
-    public function testCreateFromDateTimeValueObject(DateTimeValueObject $definition, SpecDateTimeValueObject $expected)
-    {
+    public function testCreateFromDateTimeValueObject(
+        DateTimeValueObject $definition, SpecDateTimeValueObject $expected
+    ) {
         self::assertEquals($expected, $this->sut->createFromDateTimeValueObject($definition));
     }
 
@@ -76,9 +77,7 @@ class SpecDateTimeValueObjectFactoryTest extends SfTestCase
                     [
                         new SpecDateTimeLetMethod(),
                         new InitializableMethod(
-                            ClassName::create('MyVendor\\User\\UserCreatedAt'),
-                            ClassName::create('DateTime'),
-                            []
+                            ClassName::create('MyVendor\\User\\UserCreatedAt'), ClassName::create('DateTime'), []
                         ),
                         new SpecDateTimeToStringMethod(),
                         new SpecDateTimeCreateFromFormatMethod(),

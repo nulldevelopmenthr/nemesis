@@ -55,15 +55,7 @@ class DoctrineReadEntityLoader extends BaseDefinitionLoader
         $methods[] = new SerializeMethod($className, $properties);
         $methods[] = new DeserializeMethod($className, $properties);
 
-        return new DoctrineReadEntity(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new DoctrineReadEntity($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

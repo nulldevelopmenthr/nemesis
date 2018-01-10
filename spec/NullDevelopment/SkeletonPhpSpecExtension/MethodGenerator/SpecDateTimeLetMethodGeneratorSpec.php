@@ -24,9 +24,8 @@ class SpecDateTimeLetMethodGeneratorSpec extends ObjectBehavior
         $this->shouldImplement(MethodGenerator::class);
     }
 
-    public function it_creates_let_method_for_string_properties(
-        SpecDateTimeLetMethod $method
-    ) {
+    public function it_creates_let_method_for_string_properties(SpecDateTimeLetMethod $method)
+    {
         $method->getName()->shouldBeCalled()->willReturn('let');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');

@@ -26,9 +26,7 @@ class SpecGetterMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_getter_spec_method_for_each_getter_in_source_code_definition(
-        ClassDefinition $definition,
-        GetterMethod $method,
-        Property $firstName
+        ClassDefinition $definition, GetterMethod $method, Property $firstName
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
 

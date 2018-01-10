@@ -27,9 +27,7 @@ class LetMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_let_method_for_string_properties(
-        ExampleMaker $exampleMaker,
-        LetMethod $method,
-        Property $property
+        ExampleMaker $exampleMaker, LetMethod $method, Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('let');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -53,10 +51,8 @@ class LetMethodGeneratorSpec extends ObjectBehavior
         $this->generateAsString($method)->shouldReturn($expected);
     }
 
-    public function it_creates_let_method_for_object_properties(
-        LetMethod $method,
-        Property $property
-    ) {
+    public function it_creates_let_method_for_object_properties(LetMethod $method, Property $property)
+    {
         $method->getName()->shouldBeCalled()->willReturn('let');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
         $method->getReturnType()->shouldBeCalled()->willReturn('');
@@ -79,10 +75,7 @@ class LetMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_let_method_for_combination_of_properties(
-        ExampleMaker $exampleMaker,
-        LetMethod $method,
-        Property $propertyString,
-        Property $propertyObject
+        ExampleMaker $exampleMaker, LetMethod $method, Property $propertyString, Property $propertyObject
     ) {
         $method->getName()->shouldBeCalled()->willReturn('let');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

@@ -38,8 +38,7 @@ class BoundedContextConfigFactoryTest extends TestCase
         $namespace = new ContextNamespace('MyCompany\Webshop');
 
         self::assertInstanceOf(
-            BoundedContextConfig::class,
-            $this->boundedContextConfigFactory->create($name, $namespace)
+            BoundedContextConfig::class, $this->boundedContextConfigFactory->create($name, $namespace)
         );
     }
 
@@ -60,8 +59,7 @@ class BoundedContextConfigFactoryTest extends TestCase
         ];
 
         self::assertInstanceOf(
-            BoundedContextConfig::class,
-            $this->boundedContextConfigFactory->createFromArray($name, $input)
+            BoundedContextConfig::class, $this->boundedContextConfigFactory->createFromArray($name, $input)
         );
     }
 }

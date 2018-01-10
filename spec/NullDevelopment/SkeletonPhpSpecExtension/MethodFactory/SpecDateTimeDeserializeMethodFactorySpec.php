@@ -23,9 +23,7 @@ class SpecDateTimeDeserializeMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_spec_from_source_code_definition(
-        ClassDefinition $definition,
-        DateTimeDeserializeMethod $method,
-        ClassName $className
+        ClassDefinition $definition, DateTimeDeserializeMethod $method, ClassName $className
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
         $method->getClassName()->shouldBeCalled()->willReturn($className);

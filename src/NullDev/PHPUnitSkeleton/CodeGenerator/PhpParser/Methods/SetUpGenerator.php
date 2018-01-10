@@ -45,16 +45,12 @@ class SetUpGenerator implements MethodGenerator
             ->makePublic();
 
         foreach ($method->getSubjectUnderTestConstuctorParameters() as $methodParameter) {
-            $node->addStmt(
-                $this->createExample($methodParameter)
-            );
+            $node->addStmt($this->createExample($methodParameter));
         }
 
         $node->addStmt(
             new Assign(
-                new Variable(
-                    'this->sut'
-                ),
+                new Variable('this->sut'),
                 new New_(
                     new Name($method->getSubjectUnderTestName()),
                     $this->createConstructorParams($method->getSubjectUnderTestConstuctorParameters())
@@ -92,9 +88,7 @@ class SetUpGenerator implements MethodGenerator
                 new Name('Mockery'),
                 'mock',
                 [
-                    new Arg(
-                        new ClassConstFetch(new Name($parameter->getTypeShortName()), 'class')
-                    ),
+                    new Arg(new ClassConstFetch(new Name($parameter->getTypeShortName()), 'class')),
                 ]
             )
         );

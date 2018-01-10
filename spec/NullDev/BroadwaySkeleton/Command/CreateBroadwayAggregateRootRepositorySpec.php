@@ -11,10 +11,8 @@ use PhpSpec\ObjectBehavior;
 
 class CreateBroadwayAggregateRootRepositorySpec extends ObjectBehavior
 {
-    public function let(
-        RootRepositoryClassName $repositoryClassName,
-        RootModelClassName $modelClassName
-    ) {
+    public function let(RootRepositoryClassName $repositoryClassName, RootModelClassName $modelClassName)
+    {
         $this->beConstructedWith($repositoryClassName, $modelClassName);
     }
 

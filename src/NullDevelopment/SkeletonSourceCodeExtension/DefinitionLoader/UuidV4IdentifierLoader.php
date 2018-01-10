@@ -55,15 +55,7 @@ class UuidV4IdentifierLoader extends BaseDefinitionLoader
         $methods[] = new DeserializeMethod($className, $properties);
         $methods[] = new UuidV4CreateMethod();
 
-        return new UuidV4Identifier(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new UuidV4Identifier($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

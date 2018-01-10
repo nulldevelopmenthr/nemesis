@@ -35,8 +35,9 @@ class SpecDoctrineReadProjectorFactoryTest extends SfTestCase
     }
 
     /** @dataProvider provideSamples */
-    public function testCreateFromDoctrineReadProjector(DoctrineReadProjector $definition, SpecDoctrineReadProjector $expected)
-    {
+    public function testCreateFromDoctrineReadProjector(
+        DoctrineReadProjector $definition, SpecDoctrineReadProjector $expected
+    ) {
         self::assertEquals($expected, $this->sut->createFromDoctrineReadProjector($definition));
     }
 

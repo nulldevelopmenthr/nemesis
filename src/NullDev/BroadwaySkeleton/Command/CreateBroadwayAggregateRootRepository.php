@@ -20,10 +20,8 @@ class CreateBroadwayAggregateRootRepository
     /** @var RootModelClassName */
     private $modelClassName;
 
-    public function __construct(
-        RootRepositoryClassName $repositoryClassName,
-        RootModelClassName $modelClassName
-    ) {
+    public function __construct(RootRepositoryClassName $repositoryClassName, RootModelClassName $modelClassName)
+    {
         $this->repositoryClassName = $repositoryClassName;
         $this->modelClassName      = $modelClassName;
     }

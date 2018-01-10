@@ -32,8 +32,7 @@ class EventClassNameTest extends TestCase
     public function testCreateFromFullyQualified()
     {
         self::assertEquals(
-            $this->className,
-            EventClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
+            $this->className, EventClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
         );
     }
 

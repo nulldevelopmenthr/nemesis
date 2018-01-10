@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDev\Skeleton\File\OutputResource2
- * @group todo
+ * @group  todo
  */
 class OutputResource2Test extends TestCase
 {

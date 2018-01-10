@@ -36,15 +36,7 @@ class TestSkippedGenerator implements MethodGenerator
             ->method($method->getMethodName())
             ->makePublic();
 
-        $node->addStmt(
-            new MethodCall(
-                new Variable('this'),
-                'markTestSkipped',
-                [
-                    new Arg(new String_('Skipping')),
-                ]
-            )
-        );
+        $node->addStmt(new MethodCall(new Variable('this'), 'markTestSkipped', [new Arg(new String_('Skipping'))]));
 
         return $node;
     }

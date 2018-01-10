@@ -38,6 +38,8 @@ class SpecUuidV4IdentifierFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecUuidV4Identifier($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecUuidV4Identifier(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

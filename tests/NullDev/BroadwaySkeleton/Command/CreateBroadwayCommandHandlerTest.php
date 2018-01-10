@@ -45,10 +45,7 @@ class CreateBroadwayCommandHandlerTest extends TestCase
         $this->modelClassName      = Mockery::mock(RootModelClassName::class);
 
         $this->CreateBroadwayCommandHandler = new CreateBroadwayCommandHandler(
-            $this->handlerClassName,
-            $this->repositoryClassName,
-            $this->idClassName,
-            $this->modelClassName
+            $this->handlerClassName, $this->repositoryClassName, $this->idClassName, $this->modelClassName
         );
     }
 

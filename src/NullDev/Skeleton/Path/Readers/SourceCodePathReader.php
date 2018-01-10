@@ -318,9 +318,7 @@ class SourceCodePathReader
             return [];
         }
 
-        $foundNames = array_keys(
-            (new ClassIterator($files))->getClassMap()
-        );
+        $foundNames = array_keys((new ClassIterator($files))->getClassMap());
 
         return $foundNames;
     }

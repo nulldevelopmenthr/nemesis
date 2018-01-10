@@ -37,7 +37,10 @@ class PhpParserGeneratorTest extends ContainerSupportedTestCase
             [$provider->provideSourceWithTwoParamConstructor(), 'code/class-with-all-2-param'],
             [$provider->provideSourceWithThreeParamConstructor(), 'code/class-with-all-3-param'],
             [$provider->provideSourceWithOneClasslessParamConstructor(), 'code/class-with-all-1-classless-param'],
-            [$provider->provideSourceWithOneTypeDeclarationParamConstructor(), 'code/class-with-all-1-scalartypes-param'],
+            [
+                $provider->provideSourceWithOneTypeDeclarationParamConstructor(),
+                'code/class-with-all-1-scalartypes-param',
+            ],
         ];
     }
 

@@ -70,9 +70,7 @@ class SetUpMethodSpec extends ObjectBehavior
     }
 
     public function it_exposes_subject_under_test_constructor_parameters(
-        ImprovedClassSource $subjectUnderTest,
-        Parameter $param1,
-        Parameter $param2
+        ImprovedClassSource $subjectUnderTest, Parameter $param1, Parameter $param2
     ) {
         $subjectUnderTest->getConstructorParameters()
             ->shouldBeCalled()
@@ -82,10 +80,7 @@ class SetUpMethodSpec extends ObjectBehavior
     }
 
     public function it_exposes_subject_under_test_constructor_parameters_having_types(
-        ImprovedClassSource $subjectUnderTest,
-        Parameter $param1,
-        Parameter $param2,
-        ClassType $classType1
+        ImprovedClassSource $subjectUnderTest, Parameter $param1, Parameter $param2, ClassType $classType1
     ) {
         $subjectUnderTest->getConstructorParameters()
             ->shouldBeCalled()

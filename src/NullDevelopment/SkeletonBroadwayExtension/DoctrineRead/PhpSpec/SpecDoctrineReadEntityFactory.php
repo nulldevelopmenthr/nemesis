@@ -37,6 +37,8 @@ class SpecDoctrineReadEntityFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecDoctrineReadEntity($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecDoctrineReadEntity(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

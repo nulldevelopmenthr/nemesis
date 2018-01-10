@@ -32,8 +32,7 @@ class RootIdClassNameTest extends TestCase
     public function testCreateFromFullyQualified()
     {
         self::assertEquals(
-            $this->className,
-            RootIdClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
+            $this->className, RootIdClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
         );
     }
 

@@ -35,22 +35,11 @@ class UuidCreateGenerator implements MethodGenerator
 
         $factory = new Node\Expr\Assign(
             new Node\Expr\Variable('id'),
-            new Node\Expr\MethodCall(
-                new Node\Expr\StaticCall(
-                        new Name('Uuid'),
-                        'uuid4'
-                    ),
-                'toString'
-            )
+            new Node\Expr\MethodCall(new Node\Expr\StaticCall(new Name('Uuid'), 'uuid4'), 'toString')
         );
 
         $return = new Node\Stmt\Return_(
-            new Node\Expr\New_(
-                new Name('self'),
-                [
-                    new Node\Arg(new Node\Expr\Variable('id')),
-                ]
-            )
+            new Node\Expr\New_(new Name('self'), [new Node\Arg(new Node\Expr\Variable('id'))])
         );
         $zzMethod->addStmt($factory);
         $zzMethod->addStmt($return);

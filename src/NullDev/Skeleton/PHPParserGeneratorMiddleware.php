@@ -40,7 +40,9 @@ class PHPParserGeneratorMiddleware implements Middleware
             } elseif ($item instanceof PhpNamespace) {
                 $namespaceName = $item->getName();
                 foreach (array_keys($item->getClasses()) as $className) {
-                    $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace("\t", '    ', $item);
+                    $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace(
+                        "\t", '    ', $item
+                    );
 
                     $outputs[] = new OutputResource2(
                         $this->fileFactory->getPath2(new ClassName($className, $namespaceName)),
@@ -49,7 +51,9 @@ class PHPParserGeneratorMiddleware implements Middleware
                     );
                 }
             } elseif ($item instanceof Result) {
-                $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace("\t", '    ', $item->getGenerated());
+                $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace(
+                    "\t", '    ', $item->getGenerated()
+                );
 
                 $outputs[] = new OutputResource2(
                     $this->fileFactory->getPath2($item->getClassDefinition()->getInstanceOf()),

@@ -42,26 +42,16 @@ class SerializeGenerator implements MethodGenerator
                         [new Node\Arg(new Node\Scalar\String_('c'))]
                     );
                 } else {
-                    $var = new Node\Expr\Cast\String_(
-                            new Node\Expr\Variable('this->'.$property->getName())
-                        );
+                    $var = new Node\Expr\Cast\String_(new Node\Expr\Variable('this->'.$property->getName()));
                 }
             } else {
                 $var = new Node\Expr\Variable('this->'.$property->getName());
             }
 
-            $zz[] = new Node\Expr\ArrayItem(
-                $var,
-                new Node\Scalar\String_($property->getName())
-            );
+            $zz[] = new Node\Expr\ArrayItem($var, new Node\Scalar\String_($property->getName()));
         }
 
-        $return = new Node\Stmt\Return_(
-            new Node\Expr\Array_(
-                $zz,
-                ['kind' => Node\Expr\Array_::KIND_SHORT]
-            )
-        );
+        $return = new Node\Stmt\Return_(new Node\Expr\Array_($zz, ['kind' => Node\Expr\Array_::KIND_SHORT]));
         $serializeMethod->addStmt($return);
 
         return $serializeMethod;

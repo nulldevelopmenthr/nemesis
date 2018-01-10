@@ -45,8 +45,12 @@ class TestSimpleEntityFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
+        $properties[] = new Property(
+            'sut', $definition->getInstanceOf(), false, false, null, new Visibility('private')
+        );
 
-        return new TestSimpleEntity($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf());
+        return new TestSimpleEntity(
+            $testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf()
+        );
     }
 }

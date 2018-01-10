@@ -28,10 +28,7 @@ class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_a_object_with_a_single_property(
-        ExampleMaker $exampleMaker,
-        SpecDeserializeMethod $method,
-        ClassName $className,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecDeserializeMethod $method, ClassName $className, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_can_be_deserialized');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
@@ -104,10 +101,7 @@ class SpecDeserializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_specification_for_string_property(
-        ExampleMaker $exampleMaker,
-        SpecDeserializeMethod $method,
-        ClassName $className,
-        Property $firstName
+        ExampleMaker $exampleMaker, SpecDeserializeMethod $method, ClassName $className, Property $firstName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_can_be_deserialized');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

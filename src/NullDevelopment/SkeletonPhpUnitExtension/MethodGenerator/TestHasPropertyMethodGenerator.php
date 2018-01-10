@@ -25,9 +25,7 @@ class TestHasPropertyMethodGenerator extends BaseTestMethodGenerator
 
     protected function generateMethodBody($method, NetteMethod $code)
     {
-        $code->addBody(
-            sprintf('self::assertTrue($this->sut->%s());', $method->getMethodUnderTest())
-        );
+        $code->addBody(sprintf('self::assertTrue($this->sut->%s());', $method->getMethodUnderTest()));
     }
 
     public function getMethodGeneratorPriority(): int

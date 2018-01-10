@@ -45,8 +45,12 @@ class TestSimpleIdentifierFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
+        $properties[] = new Property(
+            'sut', $definition->getInstanceOf(), false, false, null, new Visibility('private')
+        );
 
-        return new TestSimpleIdentifier($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf());
+        return new TestSimpleIdentifier(
+            $testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf()
+        );
     }
 }

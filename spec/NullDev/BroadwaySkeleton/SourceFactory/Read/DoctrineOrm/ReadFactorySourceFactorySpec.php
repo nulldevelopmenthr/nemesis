@@ -24,9 +24,7 @@ class ReadFactorySourceFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_source_from_given_class_type_and_constructor_params(
-        ClassSourceFactory $sourceFactory,
-        ClassType $classType,
-        ImprovedClassSource $classSource
+        ClassSourceFactory $sourceFactory, ClassType $classType, ImprovedClassSource $classSource
     ) {
         $sourceFactory
             ->create($classType)

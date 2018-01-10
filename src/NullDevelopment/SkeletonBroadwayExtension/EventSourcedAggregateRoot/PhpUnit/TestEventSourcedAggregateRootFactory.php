@@ -44,8 +44,12 @@ class TestEventSourcedAggregateRootFactory
         foreach ($definition->getProperties() as $property) {
             $properties[] = $property;
         }
-        $properties[] = new Property('sut', $definition->getInstanceOf(), false, false, null, new Visibility('private'));
+        $properties[] = new Property(
+            'sut', $definition->getInstanceOf(), false, false, null, new Visibility('private')
+        );
 
-        return new TestEventSourcedAggregateRoot($testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf());
+        return new TestEventSourcedAggregateRoot(
+            $testClassName, $testParentName, [], [], [], $properties, $methods, $definition->getInstanceOf()
+        );
     }
 }

@@ -12,8 +12,9 @@ use PhpSpec\ObjectBehavior;
 
 class SpecEventSourcedAggregateRootMiddlewareSpec extends ObjectBehavior
 {
-    public function let(SpecEventSourcedAggregateRootFactory $factory, SpecEventSourcedAggregateRootNetteGenerator $generator)
-    {
+    public function let(
+        SpecEventSourcedAggregateRootFactory $factory, SpecEventSourcedAggregateRootNetteGenerator $generator
+    ) {
         $this->beConstructedWith($factory, $generator);
     }
 

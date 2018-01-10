@@ -80,7 +80,9 @@ class TheaterNamingStrategyTest extends TestCase
 
         self::assertInstanceOf(CommandHandlerClassName::class, $commandHandlerClassName);
 
-        self::assertEquals('MyCompany\Webshop\Application\WebshopCommandHandler', $commandHandlerClassName->getFullName());
+        self::assertEquals(
+            'MyCompany\Webshop\Application\WebshopCommandHandler', $commandHandlerClassName->getFullName()
+        );
     }
 
     public function testCommand()

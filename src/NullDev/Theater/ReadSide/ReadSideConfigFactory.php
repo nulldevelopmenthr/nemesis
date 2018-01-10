@@ -14,10 +14,7 @@ use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 class ReadSideConfigFactory
 {
     public function create(
-        ReadSideName $name,
-        ReadSideNamespace $namespace,
-        ReadSideImplementation $implementation,
-        array $properties
+        ReadSideName $name, ReadSideNamespace $namespace, ReadSideImplementation $implementation, array $properties
     ): ReadSideConfig {
         $base = $namespace->getValue().'\\'.$name->getValue();
 

@@ -34,8 +34,7 @@ class TheaterConfigFactoryTest extends TestCase
         $this->boundedContextConfigFactory = new BoundedContextConfigFactory(new NamingStrategyFactory());
         $this->readSideConfigFactory       = new ReadSideConfigFactory();
         $this->theaterConfigFactory        = new TheaterConfigFactory(
-            $this->boundedContextConfigFactory,
-            $this->readSideConfigFactory
+            $this->boundedContextConfigFactory, $this->readSideConfigFactory
         );
     }
 

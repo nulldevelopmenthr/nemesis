@@ -23,10 +23,7 @@ class SpecGeneratorSpec extends ObjectBehavior
         ExposeGettersMethodFactory $exposeGettersMethodFactory
     ) {
         $this->beConstructedWith(
-            $factory,
-            $letMethodFactory,
-            $initializableMethodFactory,
-            $exposeGettersMethodFactory
+            $factory, $letMethodFactory, $initializableMethodFactory, $exposeGettersMethodFactory
         );
     }
 
@@ -36,10 +33,7 @@ class SpecGeneratorSpec extends ObjectBehavior
     }
 
     public function TODO_it_can_generate_spec_source_from_class_source(
-        $factory,
-        ImprovedClassSource $classSource,
-        ClassType $classType,
-        ImprovedClassSource $specSource
+        $factory, ImprovedClassSource $classSource, ClassType $classType, ImprovedClassSource $specSource
     ) {
         $classSource->getType()->willReturn($classType);
         $classType->getFullName()->willReturn('Namespace\\Class');

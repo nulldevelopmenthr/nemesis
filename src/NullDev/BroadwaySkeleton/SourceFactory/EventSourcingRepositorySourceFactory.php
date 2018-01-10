@@ -32,21 +32,13 @@ class EventSourcingRepositorySourceFactory
 
         $source->addParent(ClassType::createFromFullyQualified(EventSourcingRepository::class));
 
-        $source->addImport(
-            ClassType::createFromFullyQualified(PublicConstructorAggregateFactory::class)
-        );
-        $source->addImport(
-            ClassType::createFromFullyQualified(EventBus::class)
-        );
-        $source->addImport(
-            ClassType::createFromFullyQualified(EventStore::class)
-        );
+        $source->addImport(ClassType::createFromFullyQualified(PublicConstructorAggregateFactory::class));
+        $source->addImport(ClassType::createFromFullyQualified(EventBus::class));
+        $source->addImport(ClassType::createFromFullyQualified(EventStore::class));
 
         //Add aggregate root id as property.
         //Add constructor which calls parent constructor method.
-        $source->addMethod(
-            $this->definitionFactory->createBroadwayModelRepositoryConstructorMethod($modelClassType)
-        );
+        $source->addMethod($this->definitionFactory->createBroadwayModelRepositoryConstructorMethod($modelClassType));
 
         return $source;
     }

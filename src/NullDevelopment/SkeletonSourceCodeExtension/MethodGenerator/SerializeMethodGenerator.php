@@ -42,19 +42,25 @@ class SerializeMethodGenerator extends BaseMethodGenerator
                 if (true === in_array($property->getInstanceFullName(), ['int', 'string', 'float', 'bool', 'array'])) {
                     $serializeList[] = sprintf("'%s' => \$this->%s", $property->getName(), $property->getName());
                 } elseif ('DateTime' === $property->getInstanceFullName()) {
-                    $serializeList[] = sprintf("'%s' => \$this->%s->format('c')", $property->getName(), $property->getName());
+                    $serializeList[] = sprintf(
+                        "'%s' => \$this->%s->format('c')", $property->getName(), $property->getName()
+                    );
                 } else {
                     if (true === $property->isNullable()) {
                         $code->addBody(sprintf('if(null === $this->%s){', $property->getName()));
                         $code->addBody(sprintf('    $%s = null;', $property->getName()));
                         $code->addBody('}else{');
-                        $code->addBody(sprintf('    $%s = $this->%s->serialize();', $property->getName(), $property->getName()));
+                        $code->addBody(
+                            sprintf('    $%s = $this->%s->serialize();', $property->getName(), $property->getName())
+                        );
                         $code->addBody('}');
                         $code->addBody('');
 
                         $serializeList[] = sprintf("'%s' => \$%s", $property->getName(), $property->getName());
                     } else {
-                        $serializeList[] = sprintf("'%s' => \$this->%s->serialize()", $property->getName(), $property->getName());
+                        $serializeList[] = sprintf(
+                            "'%s' => \$this->%s->serialize()", $property->getName(), $property->getName()
+                        );
                     }
                 }
             }

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonBroadwayExtension\CommandHandler\SourceCodeGenerator\CommandHandlerNetteGenerator
- * @group todo
+ * @group  todo
  */
 class CommandHandlerNetteGeneratorTest extends TestCase
 {

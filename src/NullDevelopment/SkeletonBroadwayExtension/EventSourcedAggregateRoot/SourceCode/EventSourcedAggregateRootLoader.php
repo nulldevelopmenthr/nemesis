@@ -40,13 +40,7 @@ class EventSourcedAggregateRootLoader extends BaseDefinitionLoader
         }
 
         return new EventSourcedAggregateRoot(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
+            $className, $parent, $interfaces, $traits, $constants, $properties, $methods
         );
     }
 

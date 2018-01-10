@@ -38,6 +38,8 @@ class SpecSingleValueObjectFactory
         $specClassName  = ClassName::create('spec\\'.$definition->getInstanceOfFullName().'Spec');
         $specParentName = ClassName::create('PhpSpec\\ObjectBehavior');
 
-        return new SpecSingleValueObject($specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf());
+        return new SpecSingleValueObject(
+            $specClassName, $specParentName, [], [], [], [], $methods, $definition->getInstanceOf()
+        );
     }
 }

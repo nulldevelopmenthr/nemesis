@@ -14,8 +14,7 @@ use PhpSpec\ObjectBehavior;
 class TheaterConfigFactorySpec extends ObjectBehavior
 {
     public function let(
-        BoundedContextConfigFactory $boundedContextConfigFactory,
-        ReadSideConfigFactory $readSideConfigFactory
+        BoundedContextConfigFactory $boundedContextConfigFactory, ReadSideConfigFactory $readSideConfigFactory
     ) {
         $this->beConstructedWith($boundedContextConfigFactory, $readSideConfigFactory);
     }
@@ -26,8 +25,7 @@ class TheaterConfigFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_theater_config_from_given_array(
-        BoundedContextConfigFactory $boundedContextConfigFactory,
-        BoundedContextConfig $boundedContextConfig
+        BoundedContextConfigFactory $boundedContextConfigFactory, BoundedContextConfig $boundedContextConfig
     ) {
         $buyerContextData = [
             'namespace' => 'MyCompany\Webshop\Buyers',

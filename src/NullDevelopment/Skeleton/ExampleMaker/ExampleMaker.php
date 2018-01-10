@@ -29,8 +29,7 @@ class ExampleMaker
     private $definitionExampleFactory;
 
     public function __construct(
-        ReflectionFactory $reflectionFactory,
-        DefinitionExampleFactory $definitionExampleFactory
+        ReflectionFactory $reflectionFactory, DefinitionExampleFactory $definitionExampleFactory
     ) {
         $this->reflectionFactory        = $reflectionFactory;
         $this->definitionExampleFactory = $definitionExampleFactory;
@@ -113,10 +112,7 @@ class ExampleMaker
             throw new Exception('Parameter without type');
         }
 
-        return new SimpleVariable(
-            $parameter->getName(),
-            ClassName::create($parameter->getType()->__toString())
-        );
+        return new SimpleVariable($parameter->getName(), ClassName::create($parameter->getType()->__toString()));
     }
 
     private function isDefinedAsCollection(ReflectionParameter $parameter): bool

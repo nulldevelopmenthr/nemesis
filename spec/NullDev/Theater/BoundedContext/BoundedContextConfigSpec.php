@@ -27,12 +27,7 @@ class BoundedContextConfigSpec extends ObjectBehavior
         CommandHandlerClassName $commandHandlerClassName
     ) {
         $this->beConstructedWith(
-            $name,
-            $namespace,
-            $rootIdClassName,
-            $modelClassName,
-            $repositoryClassName,
-            $commandHandlerClassName
+            $name, $namespace, $rootIdClassName, $modelClassName, $repositoryClassName, $commandHandlerClassName
         );
     }
 

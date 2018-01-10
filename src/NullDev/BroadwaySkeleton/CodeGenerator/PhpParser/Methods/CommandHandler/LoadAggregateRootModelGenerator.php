@@ -37,11 +37,7 @@ class LoadAggregateRootModelGenerator implements MethodGenerator
 
         $return = new Node\Stmt\Return_(
             new Node\Expr\MethodCall(
-                new Node\Expr\Variable('this->repository'),
-                'load',
-                [
-                    new Node\Arg(new Node\Expr\Variable('id')),
-                ]
+                new Node\Expr\Variable('this->repository'), 'load', [new Node\Arg(new Node\Expr\Variable('id'))]
             )
         );
         $loadMethod->addStmt($return);

@@ -31,8 +31,6 @@ class SpecToStringMethodFactory implements PhpSpecMethodFactory
 
     public function createFromToStringMethod(ToStringMethod $method): SpecToStringMethod
     {
-        return new SpecToStringMethod(
-            $method->getProperty()
-        );
+        return new SpecToStringMethod($method->getProperty());
     }
 }

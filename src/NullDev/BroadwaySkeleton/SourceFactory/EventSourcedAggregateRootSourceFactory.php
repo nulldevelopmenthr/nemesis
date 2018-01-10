@@ -39,9 +39,7 @@ class EventSourcedAggregateRootSourceFactory
         //Add static create() method.
         $source->addMethod($this->definitionFactory->createBroadwayModelCreateMethod($classType, [$parameter]));
         //Add aggregate root id getter.
-        $source->addMethod(
-            $this->definitionFactory->createBroadwayModelAggregateRootIdGetterMethod($parameter)
-        );
+        $source->addMethod($this->definitionFactory->createBroadwayModelAggregateRootIdGetterMethod($parameter));
 
         return $source;
     }

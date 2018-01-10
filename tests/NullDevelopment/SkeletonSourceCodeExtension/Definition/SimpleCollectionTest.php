@@ -72,9 +72,7 @@ class SimpleCollectionTest extends TestCase
         $this->properties        = [$firstName];
         $this->methods           = [$this->constructorMethod];
         $this->collectionOf      = new CollectionOf(
-            ClassName::create('MyVendor\User\Username'),
-            'getId',
-            ClassName::create('MyVendor\User\UserId')
+            ClassName::create('MyVendor\User\Username'), 'getId', ClassName::create('MyVendor\User\UserId')
         );
         $this->serializationEnabled = true;
 

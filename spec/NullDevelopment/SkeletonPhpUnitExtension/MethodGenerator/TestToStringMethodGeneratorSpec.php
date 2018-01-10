@@ -26,8 +26,7 @@ class TestToStringMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_test_to_string_method_for_object_properties(
-        TestToStringMethod $method,
-        Property $property
+        TestToStringMethod $method, Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('testToString');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));

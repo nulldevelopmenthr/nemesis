@@ -20,7 +20,9 @@ class ReadProjectorSourceFactoryTest extends TestCase
 
     public function setUp(): void
     {
-        $this->readProjectorSourceFactory = new ReadProjectorSourceFactory(new ClassSourceFactory(), new DefinitionFactory());
+        $this->readProjectorSourceFactory = new ReadProjectorSourceFactory(
+            new ClassSourceFactory(), new DefinitionFactory()
+        );
     }
 
     public function testNothing(): void

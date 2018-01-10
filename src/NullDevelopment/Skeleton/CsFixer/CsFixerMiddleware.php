@@ -60,15 +60,11 @@ class CsFixerMiddleware implements Middleware
 
                 if ($outputResource instanceof OutputResource) {
                     $fixed[] = new OutputResource(
-                        $outputResource->getFileName(),
-                        $outputResource->getClassSource(),
-                        $fixedOutput
+                        $outputResource->getFileName(), $outputResource->getClassSource(), $fixedOutput
                     );
                 } elseif ($outputResource instanceof OutputResource2) {
                     $fixed[] = new OutputResource2(
-                        $outputResource->getFileName(),
-                        $outputResource->getClassName(),
-                        $fixedOutput
+                        $outputResource->getFileName(), $outputResource->getClassName(), $fixedOutput
                     );
                 }
             } else {

@@ -32,8 +32,7 @@ class RootRepositoryClassNameTest extends TestCase
     public function testCreateFromFullyQualified()
     {
         self::assertEquals(
-            $this->className,
-            RootRepositoryClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
+            $this->className, RootRepositoryClassName::createFromFullyQualified($this->namespace.'\\'.$this->name)
         );
     }
 

@@ -14,11 +14,8 @@ use PhpSpec\ObjectBehavior;
 
 class TestDoctrineReadFactoryFactorySpec extends ObjectBehavior
 {
-    public function let(
-        SetUpMethodFactory $setUpMethodFactory,
-
-        TestGetterMethodFactory $testGetterMethodFactory
-    ) {
+    public function let(SetUpMethodFactory $setUpMethodFactory, TestGetterMethodFactory $testGetterMethodFactory)
+    {
         $this->beConstructedWith([$setUpMethodFactory, $testGetterMethodFactory]);
     }
 

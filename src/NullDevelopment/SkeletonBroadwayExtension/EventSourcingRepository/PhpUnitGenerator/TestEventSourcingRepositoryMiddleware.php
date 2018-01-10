@@ -21,8 +21,9 @@ class TestEventSourcingRepositoryMiddleware implements Middleware
     /** @var TestEventSourcingRepositoryNetteGenerator */
     private $generator;
 
-    public function __construct(TestEventSourcingRepositoryFactory $factory, TestEventSourcingRepositoryNetteGenerator $generator)
-    {
+    public function __construct(
+        TestEventSourcingRepositoryFactory $factory, TestEventSourcingRepositoryNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

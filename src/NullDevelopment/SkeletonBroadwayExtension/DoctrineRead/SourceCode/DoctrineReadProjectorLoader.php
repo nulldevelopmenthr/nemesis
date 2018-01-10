@@ -40,13 +40,7 @@ class DoctrineReadProjectorLoader extends BaseDefinitionLoader
         }
 
         return new DoctrineReadProjector(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
+            $className, $parent, $interfaces, $traits, $constants, $properties, $methods
         );
     }
 

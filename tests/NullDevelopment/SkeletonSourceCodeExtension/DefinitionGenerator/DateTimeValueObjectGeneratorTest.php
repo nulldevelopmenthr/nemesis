@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\DateTimeValueObjectGenerator
- * @group todo
+ * @group  todo
  */
 class DateTimeValueObjectGeneratorTest extends TestCase
 {

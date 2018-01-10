@@ -27,10 +27,7 @@ class SpecDeserializeMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_deserialize_spec_method_for_deserialize_in_source_code_definition(
-        ClassDefinition $definition,
-        DeserializeMethod $method,
-        ClassName $className,
-        Property $firstName
+        ClassDefinition $definition, DeserializeMethod $method, ClassName $className, Property $firstName
     ) {
         $definition->getMethods()->shouldBeCalled()->willReturn([$method]);
 
@@ -47,9 +44,7 @@ class SpecDeserializeMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_creates_deserialize_spec_method_from_given_deserialize_method(
-        DeserializeMethod $method,
-        ClassName $className,
-        Property $firstName
+        DeserializeMethod $method, ClassName $className, Property $firstName
     ) {
         $method->getClassName()->shouldBeCalled()->willReturn($className);
         $method->getProperties()->shouldBeCalled()->willReturn([$firstName]);

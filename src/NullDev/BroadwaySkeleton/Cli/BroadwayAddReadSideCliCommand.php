@@ -80,10 +80,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         }
 
         $newReadSide = $this->getService(ReadSideConfigFactory::class)->create(
-            $this->name,
-            $this->namespace,
-            $this->implementation,
-            $this->readEntityProperties
+            $this->name, $this->namespace, $this->implementation, $this->readEntityProperties
         );
 
         $config->addReadSide($newReadSide);

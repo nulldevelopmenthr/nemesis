@@ -21,8 +21,9 @@ class TestEventSourcedEntityMiddleware implements Middleware
     /** @var TestEventSourcedEntityNetteGenerator */
     private $generator;
 
-    public function __construct(TestEventSourcedEntityFactory $factory, TestEventSourcedEntityNetteGenerator $generator)
-    {
+    public function __construct(
+        TestEventSourcedEntityFactory $factory, TestEventSourcedEntityNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

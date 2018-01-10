@@ -33,11 +33,7 @@ class TraitDefinition implements SourceCode, Definition
     private $methods;
 
     public function __construct(
-        TraitName $name,
-        array $traits = [],
-        array $constants = [],
-        array $properties = [],
-        array $methods = []
+        TraitName $name, array $traits = [], array $constants = [], array $properties = [], array $methods = []
     ) {
         $this->name       = $name;
         $this->traits     = $traits;

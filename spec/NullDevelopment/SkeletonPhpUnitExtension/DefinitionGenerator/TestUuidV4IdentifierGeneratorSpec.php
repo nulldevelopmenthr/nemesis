@@ -12,8 +12,7 @@ use PhpSpec\ObjectBehavior;
 class TestUuidV4IdentifierGeneratorSpec extends ObjectBehavior
 {
     public function let(
-        SetUpMethodGenerator $setUpMethodGenerator,
-        TestGetterMethodGenerator $testGetterMethodGenerator
+        SetUpMethodGenerator $setUpMethodGenerator, TestGetterMethodGenerator $testGetterMethodGenerator
     ) {
         $setUpMethodGenerator->getMethodGeneratorPriority()->willReturn(10);
         $testGetterMethodGenerator->getMethodGeneratorPriority()->willReturn(50);

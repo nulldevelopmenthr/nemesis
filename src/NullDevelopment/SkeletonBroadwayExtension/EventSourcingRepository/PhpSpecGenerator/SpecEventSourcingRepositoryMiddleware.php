@@ -21,8 +21,9 @@ class SpecEventSourcingRepositoryMiddleware implements Middleware
     /** @var SpecEventSourcingRepositoryNetteGenerator */
     private $generator;
 
-    public function __construct(SpecEventSourcingRepositoryFactory $factory, SpecEventSourcingRepositoryNetteGenerator $generator)
-    {
+    public function __construct(
+        SpecEventSourcingRepositoryFactory $factory, SpecEventSourcingRepositoryNetteGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

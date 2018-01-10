@@ -51,9 +51,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_initializable_method_with_parent(
-        InitializableMethod $method,
-        ClassName $className,
-        ClassName $parentName
+        InitializableMethod $method, ClassName $className, ClassName $parentName
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_initializable');
 
@@ -82,9 +80,7 @@ class InitializableMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_initializable_method_with_interfaces(
-        InitializableMethod $method,
-        ClassName $className,
-        InterfaceName $interfaceName1
+        InitializableMethod $method, ClassName $className, InterfaceName $interfaceName1
     ) {
         $method->getName()->shouldBeCalled()->willReturn('it_is_initializable');
 

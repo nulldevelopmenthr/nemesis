@@ -52,15 +52,7 @@ class SimpleIdentifierLoader extends BaseDefinitionLoader
         $methods[] = new SerializeMethod($className, $properties);
         $methods[] = new DeserializeMethod($className, $properties);
 
-        return new SimpleIdentifier(
-            $className,
-            $parent,
-            $interfaces,
-            $traits,
-            $constants,
-            $properties,
-            $methods
-        );
+        return new SimpleIdentifier($className, $parent, $interfaces, $traits, $constants, $properties, $methods);
     }
 
     public function getDefaultValues(): array

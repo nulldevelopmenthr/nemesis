@@ -13,7 +13,9 @@ class MethodParameterSpec extends ObjectBehavior
 {
     public function let(ContractName $contractName)
     {
-        $this->beConstructedWith($name = 'param', $contractName, $nullable = false, $hasDefaultValue = false, $defaultValue = null);
+        $this->beConstructedWith(
+            $name = 'param', $contractName, $nullable = false, $hasDefaultValue = false, $defaultValue = null
+        );
     }
 
     public function it_is_initializable()

@@ -68,7 +68,9 @@ class SingleValueObjectLoaderTest extends SfTestCase
     public function provideInputs(): array
     {
         $nameProperty  = Fixtures::nameProperty();
-        $valueProperty = new Property('value', ClassName::create('string'), false, false, null, new Visibility('private'));
+        $valueProperty = new Property(
+            'value', ClassName::create('string'), false, false, null, new Visibility('private')
+        );
 
         return [
             [
@@ -132,12 +134,9 @@ class SingleValueObjectLoaderTest extends SfTestCase
             ],
             [
                 [
-                    'type'       => 'SingleValueObject',
-                    'instanceOf' => 'MyVendor\User\Username',
-                    'parent'     => [
-                        'instanceOf' => 'ThirdParty\User\Username',
-                        'alias'      => 'BaseUsername',
-                    ],
+                    'type'        => 'SingleValueObject',
+                    'instanceOf'  => 'MyVendor\User\Username',
+                    'parent'      => ['instanceOf' => 'ThirdParty\User\Username', 'alias' => 'BaseUsername'],
                     'interfaces'  => ['MyVendor\SomeInterface', 'AnotherInterface' => 'ThirdParty\SomeInterface'],
                     'constructor' => ['value' => ['instanceOf' => 'string']],
                 ],

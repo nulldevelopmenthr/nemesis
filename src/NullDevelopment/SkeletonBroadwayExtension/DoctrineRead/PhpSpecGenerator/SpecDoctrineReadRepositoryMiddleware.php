@@ -21,8 +21,9 @@ class SpecDoctrineReadRepositoryMiddleware implements Middleware
     /** @var SpecDoctrineReadRepositoryGenerator */
     private $generator;
 
-    public function __construct(SpecDoctrineReadRepositoryFactory $factory, SpecDoctrineReadRepositoryGenerator $generator)
-    {
+    public function __construct(
+        SpecDoctrineReadRepositoryFactory $factory, SpecDoctrineReadRepositoryGenerator $generator
+    ) {
         $this->factory   = $factory;
         $this->generator = $generator;
     }

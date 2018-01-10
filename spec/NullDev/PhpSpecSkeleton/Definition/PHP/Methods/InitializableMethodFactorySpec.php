@@ -24,8 +24,7 @@ class InitializableMethodFactorySpec extends ObjectBehavior
     }
 
     public function it_will_create_instance_of_initializable_method_without_parent_or_interfaces(
-        ImprovedClassSource $classSource,
-        ClassType $classType
+        ImprovedClassSource $classSource, ClassType $classType
     ) {
         $classSource->getClassType()->shouldBeCalled()->willReturn($classType);
         $classSource->hasParent()->shouldBeCalled()->willReturn(false);

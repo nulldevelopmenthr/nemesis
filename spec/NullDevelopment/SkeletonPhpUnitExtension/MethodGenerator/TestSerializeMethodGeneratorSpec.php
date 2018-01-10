@@ -26,8 +26,7 @@ class TestSerializeMethodGeneratorSpec extends ObjectBehavior
     }
 
     public function it_creates_test_serialize_method_for_object_properties(
-        TestSerializeMethod $method,
-        Property $property
+        TestSerializeMethod $method, Property $property
     ) {
         $method->getName()->shouldBeCalled()->willReturn('testSerialize');
         $method->getVisibility()->shouldBeCalled()->willReturn(new Visibility('public'));
