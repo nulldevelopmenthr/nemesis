@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\SerializeMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SerializeMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -36,7 +37,7 @@ class SerializeMethodGeneratorTest extends TestCase
     public function testGenerateAsString(SerializeMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($method);
+        $result   = $this->sut->generateAsString(new ClassType('zzzz'), $method);
 
         $this->assertOutputContentMatches($filePath, $result);
     }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\SetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\SetterMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -36,7 +37,7 @@ class SetterMethodGeneratorTest extends TestCase
     public function testGenerateAsString(SetterMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($method);
+        $result   = $this->sut->generateAsString(new ClassType('zzzz'), $method);
 
         $this->assertOutputContentMatches($filePath, $result);
     }

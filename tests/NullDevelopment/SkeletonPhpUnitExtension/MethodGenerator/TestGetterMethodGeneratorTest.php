@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpUnitExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Nette\PhpGenerator\ClassType;
 use NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
 use NullDevelopment\Skeleton\ExampleMaker\ReflectionFactory;
@@ -45,7 +46,7 @@ class TestGetterMethodGeneratorTest extends TestCase
     public function testGenerateAsString(TestGetterMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($method);
+        $result   = $this->sut->generateAsString(new ClassType('zzzz'), $method);
 
         $this->assertOutputContentMatches($filePath, $result);
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
+use Nette\PhpGenerator\ClassType;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\ExampleMaker\DefinitionExampleFactory;
 use NullDevelopment\Skeleton\ExampleMaker\ExampleMaker;
@@ -43,7 +44,7 @@ class SpecDateTimeDeserializeMethodGeneratorTest extends TestCase
     public function testGenerateAsString(SpecDateTimeDeserializeMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($method);
+        $result   = $this->sut->generateAsString(new ClassType('zzzz'), $method);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
