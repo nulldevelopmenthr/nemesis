@@ -37,11 +37,10 @@ class CreateUuidClassHandlerTest extends ContainerSupportedTestCase
 
         $result = $this->commandBus->handle($command);
 
-        self::assertCount(3, $result);
+        self::assertCount(2, $result);
 
         $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-src'), $result[0]);
         $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-test'), $result[1]);
-        $this->assertOutputResourceMatches($this->getExpectedOutputPath('uuid4-spec'), $result[2]);
     }
 
     protected function getExpectedOutputPath(string $fileName): string
