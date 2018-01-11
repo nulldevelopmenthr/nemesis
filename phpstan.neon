@@ -5,7 +5,6 @@ parameters:
 	    - '#Call to an undefined method Symfony\\Component\\Console\\Application::getContainer\(\)#'
 	    - '#Call to an undefined method Mockery\\MockInterface#'
 	    - '#Call to an undefined method Mockery\\ExpectationInterface#'
-	    - '#Argument of an invalid type array<PhpParser\\Node>|null supplied for foreach, only iterables are supported.#'
 	    - '#Method App\\Application\:\:getDefaultCommands\(\) should return array<Symfony\\Component\\Console\\Command\\Command> but returns array<object>.#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:getConstructor\(\).#'
 	    - '#Call to an undefined method Roave\\BetterReflection\\Reflection\\Reflection\:\:isInterface\(\).#'
