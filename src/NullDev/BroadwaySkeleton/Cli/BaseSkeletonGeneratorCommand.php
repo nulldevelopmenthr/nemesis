@@ -7,9 +7,6 @@ namespace NullDev\BroadwaySkeleton\Cli;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
-use NullDev\Skeleton\File\FileFactory;
-use NullDev\Skeleton\File\FileResource;
-use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\Config\TheaterConfig;
@@ -122,13 +119,6 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function askForParameterName(string $suggestedName)
     {
         return $this->io->ask('Enter parameter name', $suggestedName);
-    }
-
-    protected function getFileResource(ImprovedClassSource $classSource): FileResource
-    {
-        $factory = new FileFactory($this->getConfig());
-
-        return $factory->create($classSource);
     }
 
     protected function getExistingNamespaces(): array
