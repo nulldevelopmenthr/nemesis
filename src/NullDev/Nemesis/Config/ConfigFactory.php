@@ -109,7 +109,6 @@ class ConfigFactory
             'extensions' => [
                 'NullDev\Skeleton\SkeletonExtension'                                      => null,
                 'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension'                      => null,
-                'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'                        => null,
                 'NullDev\Theater\TheaterExtension'                                        => null,
                 'NullDevelopment\Skeleton\SkeletonExtension'                              => null,
                 'NullDevelopment\SkeletonSourceCodeExtension\SkeletonSourceCodeExtension' => null,
