@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use League\Tactician\CommandBus;
-use LogicException;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadEntity;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadFactory;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadProjector;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayDoctrineOrmReadRepository;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadEntity;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadProjector;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayElasticsearchReadRepository;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Theater\ReadSide\ReadSideConfig;
 use NullDev\Theater\ReadSide\ReadSideConfigFactory;
@@ -68,8 +59,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
     /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $commandBus = $this->getService(CommandBus::class);
-        $config     = $this->getTheaterConfig();
+        $config = $this->getTheaterConfig();
 
         if (true === $config->hasReadSideByName($this->name)) {
             $message = sprintf('Read side with that name already exists');
@@ -88,20 +78,6 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
 
         if ('DoctrineORM' === $this->implementation->getValue()) {
             $this->generateDefinition($newReadSide);
-        }
-
-        if ($this->io->confirm('Do you want to generate files now?')) {
-            $commands = $this->getCommands($newReadSide);
-
-            $outputResources = [];
-
-            foreach ($commands as $command) {
-                $outputResources = array_merge($outputResources, $commandBus->handle($command));
-            }
-
-            foreach ($outputResources as $outputResource) {
-                $this->handleGeneratingFile($outputResource);
-            }
         }
 
         $this->io->writeln('DoNE');
@@ -190,38 +166,6 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         $this->dumpFile($repositoryClassName, $repositoryDefinition);
         $this->dumpFile($factoryClassName, $factoryDefinition);
         $this->dumpFile($projectorClassName, $projectorDefinition);
-    }
-
-    protected function getCommands(ReadSideConfig $newReadSide): array
-    {
-        if ('DoctrineORM' === $this->implementation->getValue()) {
-            return [
-                new CreateBroadwayDoctrineOrmReadEntity($newReadSide->getReadEntity(), $newReadSide->getProperties()),
-                new CreateBroadwayDoctrineOrmReadFactory($newReadSide->getReadFactory()),
-                new CreateBroadwayDoctrineOrmReadProjector(
-                    $newReadSide->getReadProjector(),
-                    [
-                        new Parameter('repository', $newReadSide->getReadRepository()),
-                        new Parameter('factory', $newReadSide->getReadFactory()),
-                    ]
-                ),
-                new CreateBroadwayDoctrineOrmReadRepository($newReadSide->getReadRepository()),
-            ];
-        } elseif ('Elasticsearch' === $this->implementation->getValue()) {
-            return [
-                new CreateBroadwayElasticsearchReadEntity($newReadSide->getReadEntity(), $newReadSide->getProperties()),
-                new CreateBroadwayElasticsearchReadProjector(
-                    $newReadSide->getReadProjector(),
-                    [
-                        new Parameter('repository', $newReadSide->getReadRepository()),
-                        new Parameter('factory', $newReadSide->getReadFactory()),
-                    ]
-                ),
-                new CreateBroadwayElasticsearchReadRepository($newReadSide->getReadRepository()),
-            ];
-        }
-
-        throw new LogicException('Err 2324125090: Unsupported implementation');
     }
 
     protected function handleNameInput()
