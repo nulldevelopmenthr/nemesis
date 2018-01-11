@@ -1,6 +1,0 @@
-<?php
-
-public function testGetAmount()
-{
-    self::assertEquals($this->amount, $this->sut->getAmount());
-}

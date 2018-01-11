@@ -1,6 +1,0 @@
-<?php
-
-public function setUp()
-{
-    $this->sut = new Senior();
-}
