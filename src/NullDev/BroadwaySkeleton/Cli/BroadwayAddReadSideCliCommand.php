@@ -104,10 +104,13 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         }
 
         $entityDefinition = [
-            'type'        => 'DoctrineReadEntity',
-            'instanceOf'  => $entityClassName,
-            'parent'      => null,
-            'interfaces'  => [],
+            'type'       => 'DoctrineReadEntity',
+            'instanceOf' => $entityClassName,
+            'parent'     => null,
+            'interfaces' => [
+                'Broadway\ReadModel\Identifiable',
+                'Broadway\Serializer\Serializable',
+            ],
             'traits'      => [],
             'constants'   => [],
             'constructor' => $properties,
@@ -117,7 +120,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         $repositoryDefinition = [
             'type'        => 'DoctrineReadRepository',
             'instanceOf'  => $repositoryClassName,
-            'parent'      => 'Doctrine\ORM\EntityRepository',
+            'parent'      => 'Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository',
             'interfaces'  => [],
             'traits'      => [],
             'constants'   => [],
@@ -139,7 +142,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
         $projectorDefinition = [
             'type'        => 'DoctrineReadProjector',
             'instanceOf'  => $projectorClassName,
-            'parent'      => null,
+            'parent'      => 'Broadway\ReadModel\Projector',
             'interfaces'  => [],
             'traits'      => [],
             'constants'   => [],
