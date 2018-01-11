@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use League\Tactician\CommandBus;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayEvent;
 use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
@@ -62,7 +60,6 @@ class BroadwayAddEventCliCommand extends BaseSkeletonGeneratorCommand
         if (null === $this->context) {
             return;
         }
-        $commandBus = $this->getService(CommandBus::class);
 
         $name       = $this->askForEventName();
         $parameters = $this->getConstuctorParameters();
@@ -74,13 +71,7 @@ class BroadwayAddEventCliCommand extends BaseSkeletonGeneratorCommand
         $this->config->replaceContext($this->context);
         $this->writeTheaterConfig($this->config);
 
-        $outputResources = $commandBus->handle(new CreateBroadwayEvent($eventClassName, $parameters));
-
         $this->generateDefinition($eventClassName, $parameters);
-
-        foreach ($outputResources as $outputResource) {
-            $this->handleGeneratingFile($outputResource);
-        }
 
         $this->io->writeln('DoNE');
     }
