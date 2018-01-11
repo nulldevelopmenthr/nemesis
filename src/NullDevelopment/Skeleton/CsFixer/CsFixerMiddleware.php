@@ -6,7 +6,6 @@ namespace NullDevelopment\Skeleton\CsFixer;
 
 use Exception;
 use League\Tactician\Middleware;
-use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\File\OutputResource2;
 use PhpCsFixer\Config;
 use PhpCsFixer\Console\ConfigurationResolver;
@@ -58,11 +57,7 @@ class CsFixerMiddleware implements Middleware
             if (true === $changes) {
                 $fixedOutput = $tokens->generateCode();
 
-                if ($outputResource instanceof OutputResource) {
-                    $fixed[] = new OutputResource(
-                        $outputResource->getFileName(), $outputResource->getClassSource(), $fixedOutput
-                    );
-                } elseif ($outputResource instanceof OutputResource2) {
+                if ($outputResource instanceof OutputResource2) {
                     $fixed[] = new OutputResource2(
                         $outputResource->getFileName(), $outputResource->getClassName(), $fixedOutput
                     );

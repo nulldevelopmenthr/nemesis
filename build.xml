@@ -26,7 +26,7 @@
         <exec command="php -d memory_limit=-1 vendor/bin/phpunit" passthru="true" checkreturn="true"/>
     </target>
     <target name="behat" description="Run behat">
-        <exec command="vendor/bin/behat --strict" passthru="true" checkreturn="true"/>
+        <exec command="vendor/bin/behat" passthru="true" checkreturn="true"/>
     </target>
     <target name="phpstan" description="Run phpstan">
         <exec command="vendor/bin/phpstan analyse --memory-limit=-1 -l 7 -c phpstan.neon src tests" passthru="true" checkreturn="true"/>

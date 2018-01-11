@@ -6,7 +6,6 @@ namespace App;
 
 use App\CompilerPass\TacticianHandlerRegistrationCompilerPass;
 use App\CompilerPass\TacticianMiddlewareRegistrationCompilerPass;
-use NullDev\Skeleton\CodeGenerator\MethodGenerator;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Command\Command;
@@ -57,7 +56,6 @@ final class Application extends BaseApplication
         $this->container->addCompilerPass(new AutowirePass(true));
         $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
         $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
-        $this->container->registerForAutoconfiguration(MethodGenerator::class)->addTag('skeleton.method_generator');
 
         parent::__construct('Nemesis', self::VERSION);
 
@@ -88,7 +86,6 @@ final class Application extends BaseApplication
         return [
             'NullDev\Skeleton\SkeletonExtension'                                      => null,
             'NullDev\BroadwaySkeleton\BroadwaySkeletonExtension'                      => null,
-            'NullDev\PHPUnitSkeleton\PHPUnitSkeletonExtension'                        => null,
             'NullDev\Theater\TheaterExtension'                                        => null,
             'NullDevelopment\Skeleton\SkeletonExtension'                              => null,
             'NullDevelopment\SkeletonSourceCodeExtension\SkeletonSourceCodeExtension' => null,

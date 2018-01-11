@@ -4,16 +4,4 @@ default:
             verbose:  true
             paths:    false
             snippets: false
-    suites:
-        phpparser_source_parser:
-            contexts:
-                - NullDev\Nemesis\SourceParser\PhpParserSourceParserContext
-            filters:
-                tags: "@phpparser_source_parser"
-        reflection_source_parser:
-            contexts:
-                - NullDev\Nemesis\SourceParser\ReflectionSourceParserContext
-            filters:
-                tags: "@reflection_source_parser"
-
-
+    suites: ~

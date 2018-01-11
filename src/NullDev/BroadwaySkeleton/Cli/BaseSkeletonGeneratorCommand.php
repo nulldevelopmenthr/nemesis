@@ -9,7 +9,6 @@ use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Skeleton\Definition\PHP\Types\TypeFactory;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\FileResource;
-use NullDev\Skeleton\File\OutputResource;
 use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDev\Skeleton\Suggestions\ClassSuggestions;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
@@ -78,28 +77,6 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
         return $this->askForClassName();
     }
 
-    protected function handleGeneratingFile(OutputResource $outputResource): void
-    {
-        $fileName = $outputResource->getFileName();
-
-        if ($this->fileNotExistsOrShouldBeOwerwritten($fileName)) {
-            $this->getService(Filesystem::class)->dumpFile($fileName, $outputResource->getOutput());
-
-            $this->io->writeln("Created '$fileName' file.");
-        } else {
-            $this->io->writeln("Skipped '$fileName' file.");
-        }
-    }
-
-    private function fileNotExistsOrShouldBeOwerwritten(string $fileName): bool
-    {
-        if (false === file_exists($fileName)) {
-            return true;
-        }
-
-        return $this->askOverwriteConfirmationQuestion($fileName);
-    }
-
     protected function askForClassName(): string
     {
         $question = new Question('Enter class name', '');
@@ -145,11 +122,6 @@ abstract class BaseSkeletonGeneratorCommand extends Command implements Container
     protected function askForParameterName(string $suggestedName)
     {
         return $this->io->ask('Enter parameter name', $suggestedName);
-    }
-
-    private function askOverwriteConfirmationQuestion(string $fileName): bool
-    {
-        return $this->io->confirm("File '$fileName' exists, overwrite?", false);
     }
 
     protected function getFileResource(ImprovedClassSource $classSource): FileResource

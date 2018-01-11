@@ -17,7 +17,5 @@ final class SkeletonExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources/'));
         $loader->load('cli.yml');
         $loader->load('services.yml');
-
-        $container->addCompilerPass(new PHPParserMethodCompilerPass());
     }
 }

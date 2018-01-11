@@ -1,9 +1,0 @@
-<?php
-
-namespace Developer;
-
-use SomeTrait;
-class Senior
-{
-    use SomeTrait;
-}

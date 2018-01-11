@@ -12,7 +12,4 @@ services:
     factory: ['@NullDev\Nemesis\Config\ConfigFactory', create]
 
 
-  NullDev\Nemesis\SourceParser\PhpParserSourceParser: ~
-  NullDev\Nemesis\SourceParser\ReflectionSourceParser: ~
-
   Symfony\Component\Filesystem\Filesystem: ~

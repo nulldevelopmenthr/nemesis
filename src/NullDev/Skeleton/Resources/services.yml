@@ -5,13 +5,6 @@ services:
     public: true
 
   #NullDev\Skeleton services (not cleaned up)
-  NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\MethodGeneratorCollection: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
 
   NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
 
@@ -24,14 +17,6 @@ services:
   NullDev\Skeleton\Suggestions\TraitSuggestions: ~
   NullDev\Skeleton\Suggestions\ClassSuggestions: ~
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
-
-  NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
-  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler:
-    tags:
-      - { name: tactician.handler, command: 'NullDev\Skeleton\Uuid\Command\CreateUuidClass' }
-
-  NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
-
 
   NullDev\Skeleton\PHPParserGeneratorMiddleware:
     tags:
