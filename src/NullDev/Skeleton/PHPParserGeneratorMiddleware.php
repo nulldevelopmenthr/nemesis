@@ -7,25 +7,19 @@ namespace NullDev\Skeleton;
 use Exception;
 use League\Tactician\Middleware;
 use Nette\PhpGenerator\PhpNamespace;
-use NullDev\Skeleton\CodeGenerator\PhpParserGenerator;
 use NullDev\Skeleton\File\FileFactory;
 use NullDev\Skeleton\File\OutputResource2;
-use NullDev\Skeleton\Source\ImprovedClassSource;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\Skeleton\Core\Result;
 
 class PHPParserGeneratorMiddleware implements Middleware
 {
-    /** @var PhpParserGenerator */
-    private $codeGenerator;
-
     /** @var FileFactory */
     private $fileFactory;
 
-    public function __construct(PhpParserGenerator $codeGenerator, FileFactory $fileFactory)
+    public function __construct(FileFactory $fileFactory)
     {
-        $this->codeGenerator = $codeGenerator;
-        $this->fileFactory   = $fileFactory;
+        $this->fileFactory = $fileFactory;
     }
 
     public function execute($command, callable $next)
@@ -35,9 +29,7 @@ class PHPParserGeneratorMiddleware implements Middleware
         $outputs = [];
 
         foreach ($returnValue as $item) {
-            if ($item instanceof ImprovedClassSource) {
-                $outputs[] = $this->fileFactory->createOutputResource($item, $this->codeGenerator->getOutput($item));
-            } elseif ($item instanceof PhpNamespace) {
+            if ($item instanceof PhpNamespace) {
                 $namespaceName = $item->getName();
                 foreach (array_keys($item->getClasses()) as $className) {
                     $zz = '<?php'.PHP_EOL.PHP_EOL.'declare(strict_types=1);'.PHP_EOL.PHP_EOL.str_replace(
