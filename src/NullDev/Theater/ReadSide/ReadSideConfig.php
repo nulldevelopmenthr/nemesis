@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Theater\ReadSide;
 
 use Exception;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see ReadSideConfigSpec
@@ -22,16 +22,16 @@ class ReadSideConfig
     /** @var ReadSideImplementation */
     private $implementation;
 
-    /** @var ClassType */
+    /** @var ClassName */
     private $readEntity;
 
-    /** @var ClassType */
+    /** @var ClassName */
     private $readRepository;
 
-    /** @var ClassType */
+    /** @var ClassName */
     private $readProjector;
 
-    /** @var ClassType|null */
+    /** @var ClassName|null */
     private $readFactory;
 
     /** @var array */
@@ -41,10 +41,10 @@ class ReadSideConfig
         ReadSideName $name,
         ReadSideNamespace $namespace,
         ReadSideImplementation $implementation,
-        ClassType $readEntity,
-        ClassType $readRepository,
-        ClassType $readProjector,
-        ?ClassType $readFactory,
+        ClassName $readEntity,
+        ClassName $readRepository,
+        ClassName $readProjector,
+        ?ClassName $readFactory,
         array $properties
     ) {
         $this->name           = $name;
@@ -72,22 +72,22 @@ class ReadSideConfig
         return $this->implementation;
     }
 
-    public function getReadEntity(): ClassType
+    public function getReadEntity(): ClassName
     {
         return $this->readEntity;
     }
 
-    public function getReadRepository(): ClassType
+    public function getReadRepository(): ClassName
     {
         return $this->readRepository;
     }
 
-    public function getReadProjector(): ClassType
+    public function getReadProjector(): ClassName
     {
         return $this->readProjector;
     }
 
-    public function getReadFactory(): ClassType
+    public function getReadFactory(): ClassName
     {
         if (null === $this->readFactory) {
             throw new Exception('Err 98098351231: No read factory defined!');

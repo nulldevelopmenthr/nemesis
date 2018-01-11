@@ -7,11 +7,11 @@ namespace Tests\NullDev\Theater\ReadSide;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use Mockery\MockInterface;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\ReadSide\ReadSideConfig;
 use NullDev\Theater\ReadSide\ReadSideImplementation;
 use NullDev\Theater\ReadSide\ReadSideName;
 use NullDev\Theater\ReadSide\ReadSideNamespace;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,16 +31,16 @@ class ReadSideConfigTest extends TestCase
     /** @var MockInterface|ReadSideImplementation */
     private $implementation;
 
-    /** @var MockInterface|ClassType */
+    /** @var MockInterface|ClassName */
     private $readEntity;
 
-    /** @var MockInterface|ClassType */
+    /** @var MockInterface|ClassName */
     private $readRepository;
 
-    /** @var MockInterface|ClassType */
+    /** @var MockInterface|ClassName */
     private $readProjector;
 
-    /** @var MockInterface|ClassType */
+    /** @var MockInterface|ClassName */
     private $readFactory;
 
     /** @var array */
@@ -54,10 +54,10 @@ class ReadSideConfigTest extends TestCase
         $this->name           = Mockery::mock(ReadSideName::class);
         $this->namespace      = Mockery::mock(ReadSideNamespace::class);
         $this->implementation = Mockery::mock(ReadSideImplementation::class);
-        $this->readEntity     = Mockery::mock(ClassType::class);
-        $this->readRepository = Mockery::mock(ClassType::class);
-        $this->readProjector  = Mockery::mock(ClassType::class);
-        $this->readFactory    = Mockery::mock(ClassType::class);
+        $this->readEntity     = Mockery::mock(ClassName::class);
+        $this->readRepository = Mockery::mock(ClassName::class);
+        $this->readProjector  = Mockery::mock(ClassName::class);
+        $this->readFactory    = Mockery::mock(ClassName::class);
         $this->properties     = [];
         $this->sut            = new ReadSideConfig(
             $this->name,
