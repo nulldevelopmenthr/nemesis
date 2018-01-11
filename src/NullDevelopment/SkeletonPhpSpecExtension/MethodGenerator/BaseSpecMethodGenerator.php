@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\SkeletonPhpSpecExtension\MethodGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\Skeleton\Core\MethodGenerator;
@@ -21,16 +22,16 @@ abstract class BaseSpecMethodGenerator implements MethodGenerator
 
     abstract public function supports(Method $method): bool;
 
-    public function generateAsString(Method $method): string
+    public function generateAsString(ClassType $netteCode, Method $method): string
     {
-        $code = $this->generate($method);
+        $code = $this->generate($netteCode, $method);
 
         return $code->__toString();
     }
 
-    public function generate(Method $method): NetteMethod
+    public function generate(ClassType $netteCode, Method $method)
     {
-        $code = new NetteMethod($method->getName());
+        $code = $netteCode->addMethod($method->getName());
 
         $code->setVisibility((string) $method->getVisibility());
 
