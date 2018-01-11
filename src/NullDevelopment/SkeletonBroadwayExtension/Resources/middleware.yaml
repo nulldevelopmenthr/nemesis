@@ -60,10 +60,6 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
-  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadRepositoryMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpUnitGenerator\TestDoctrineReadRepositoryMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
