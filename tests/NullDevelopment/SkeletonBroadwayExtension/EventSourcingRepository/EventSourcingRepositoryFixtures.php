@@ -11,12 +11,8 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpSpec\SpecEventSourcingRepository;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnit\TestEventSourcingRepository;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\InitializableMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\LetMethod;
-use NullDevelopment\SkeletonPhpSpecExtension\Method\SpecGetterMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
 use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
@@ -126,28 +122,6 @@ class EventSourcingRepositoryFixtures
         $sutName = self::actorEntityName();
 
         return new TestEventSourcingRepository(
-            $className, $parentName, $interfaces, $traits, $constants, $properties, $methods, $sutName
-        );
-    }
-
-    public static function specActorEntity(): SpecEventSourcingRepository
-    {
-        $className  = self::specActorEntityName();
-        $parentName = ClassName::create('PhpSpec\ObjectBehavior');
-        $interfaces = [];
-        $traits     = [];
-        $constants  = [];
-        $properties = [
-        ];
-        $methods = [
-            new LetMethod([self::idProperty(), self::firstNameProperty()]),
-            new InitializableMethod(self::actorEntityName(), null, [InterfaceName::create('SomeInterface')]),
-            new SpecGetterMethod('it_exposes_id', 'getId', self::idProperty()),
-            new SpecGetterMethod('it_exposes_first_name', 'getFirstName', self::firstNameProperty()),
-        ];
-        $sutName = self::actorEntityName();
-
-        return new SpecEventSourcingRepository(
             $className, $parentName, $interfaces, $traits, $constants, $properties, $methods, $sutName
         );
     }

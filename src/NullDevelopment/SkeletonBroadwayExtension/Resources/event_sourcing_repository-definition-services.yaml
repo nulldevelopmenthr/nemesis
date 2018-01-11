@@ -10,19 +10,6 @@ services:
     tags:
       - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository' }
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpSpecGenerator\SpecEventSourcingRepositoryNetteGenerator: ~
-
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpSpec\SpecEventSourcingRepositoryFactory:
-    arguments:
-      $factories:
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\LetMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\InitializableMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecHasPropertyMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecGetterMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSetterMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecSerializeMethodFactory'
-        - '@NullDevelopment\SkeletonPhpSpecExtension\MethodFactory\SpecDeserializeMethodFactory'
-
   NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnitGenerator\TestEventSourcingRepositoryNetteGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnit\TestEventSourcingRepositoryFactory:
