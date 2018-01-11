@@ -1,6 +1,0 @@
-<?php
-
-public static function deserialize(array $data) : Lol
-{
-    return new self($data['id'], $data['name'], $data['price'], $data['smart'], $data['tags'], $data['randomValue']);
-}

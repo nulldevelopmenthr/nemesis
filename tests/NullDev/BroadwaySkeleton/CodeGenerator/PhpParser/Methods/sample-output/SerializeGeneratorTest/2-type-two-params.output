@@ -1,6 +1,0 @@
-<?php
-
-public function serialize() : array
-{
-    return ['firstName' => (string) $this->firstName, 'lastName' => (string) $this->lastName];
-}
