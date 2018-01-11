@@ -5,13 +5,6 @@ services:
     public: true
 
   #NullDev\Skeleton services (not cleaned up)
-  NullDev\Skeleton\CodeGenerator\PhpParser\ClassGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\MethodFactory: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\MethodGeneratorCollection: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ConstructorGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\GetterGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParser\Methods\ToStringGenerator: ~
-  NullDev\Skeleton\CodeGenerator\PhpParserGenerator: ~
 
   NullDev\Skeleton\Command\BaseSkeletonGeneratorCommand: ~
 
