@@ -11,10 +11,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\PhpUnit\TestEventSourcingRepository;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 
@@ -99,30 +96,6 @@ class EventSourcingRepositoryFixtures
             $properties,
             $methods,
             $entity
-        );
-    }
-
-    public static function testActorEntity(): TestEventSourcingRepository
-    {
-        $className  = self::testActorEntityName();
-        $parentName = self::defaultTestCaseName();
-        $interfaces = [];
-        $traits     = [];
-        $constants  = [];
-        $properties = [
-            self::idProperty(),
-            self::firstNameProperty(),
-            new Property('sut', self::actorEntityName(), false, false, null, new Visibility('private')),
-        ];
-        $methods = [
-            new SetUpMethod(self::actorEntityName(), [self::idProperty(), self::firstNameProperty()]),
-            new TestGetterMethod('testGetId', 'getId', self::idProperty()),
-            new TestGetterMethod('testGetFirstName', 'getFirstName', self::firstNameProperty()),
-        ];
-        $sutName = self::actorEntityName();
-
-        return new TestEventSourcingRepository(
-            $className, $parentName, $interfaces, $traits, $constants, $properties, $methods, $sutName
         );
     }
 }
