@@ -1,8 +1,0 @@
-<?php
-
-public function it_should_expose_constructor_arguments_via_getters()
-{
-    $this->getFirst()->shouldReturn('first');
-    $this->getSecond()->shouldReturn('second');
-    $this->getThird()->shouldReturn('third');
-}

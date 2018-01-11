@@ -1,6 +1,0 @@
-<?php
-
-public function let(FirstName $first, SecondName $second, LastName $last)
-{
-    $this->beConstructedWith($first, $second, $last);
-}
