@@ -25,14 +25,6 @@ services:
   NullDev\Skeleton\Suggestions\ClassSuggestions: ~
   NullDev\Skeleton\Suggestions\NamespaceSuggestions: ~
 
-  NullDev\Skeleton\Uuid\CodeGenerator\PhpParser\Methods\UuidCreateGenerator: ~
-  NullDev\Skeleton\Uuid\Handler\CreateUuidClassHandler:
-    tags:
-      - { name: tactician.handler, command: 'NullDev\Skeleton\Uuid\Command\CreateUuidClass' }
-
-  NullDev\Skeleton\Uuid\SourceFactory\Uuid4IdentitySourceFactory: ~
-
-
   NullDev\Skeleton\PHPParserGeneratorMiddleware:
     tags:
       - { name: tactician.middleware , priority: 100 }

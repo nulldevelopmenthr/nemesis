@@ -1,7 +1,0 @@
-<?php
-
-public static function create() : SomeId
-{
-    $id = Uuid::uuid4()->toString();
-    return new self($id);
-}
