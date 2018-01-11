@@ -40,11 +40,6 @@ class FileFactory
         return $this->getPathItBelongsTo($classSource)->getFileNameFor($classSource->getFullName());
     }
 
-    public function createOutputResource(ImprovedClassSource $classSource, string $output): OutputResource
-    {
-        return new OutputResource($this->getPath($classSource), $classSource, $output);
-    }
-
     protected function getPathItBelongsTo2(AbstractDataTypeName $className)
     {
         foreach ($this->config->getPaths() as $path) {
