@@ -128,13 +128,11 @@ abstract class BaseClassDefinitionGenerator implements AutowiredDefinitionGenera
 
     protected function processMethods(PhpNamespace $namespace, ClassType $netteCode, Definition $definition): void
     {
-        $methods = [];
-
         foreach ($this->methodGenerators as $methodGenerator) {
             /** @var Method $method */
             foreach ($definition->getMethods() as $method) {
                 if (true === $methodGenerator->supports($method)) {
-                    $methods[] = $methodGenerator->generate($method);
+                    $methodGenerator->generate($netteCode, $method);
                     /** @var AbstractDataTypeName $import */
                     foreach ($method->getImports() as $import) {
                         $namespace->addUse($import->getFullName(), $import->getAlias());
@@ -142,7 +140,5 @@ abstract class BaseClassDefinitionGenerator implements AutowiredDefinitionGenera
                 }
             }
         }
-
-        $netteCode->setMethods($methods);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Method as NetteMethod;
 use NullDevelopment\PhpStructure\Behaviour\Method;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\DeserializeMethod;
@@ -24,9 +25,9 @@ class DeserializeMethodGenerator extends BaseMethodGenerator
         return false;
     }
 
-    public function generate(Method $method): NetteMethod
+    public function generate(ClassType $netteCode, Method $method)
     {
-        $code = new NetteMethod($method->getName());
+        $code = $netteCode->addMethod($method->getName());
 
         $code->setVisibility((string) $method->getVisibility());
         $code->setStatic($method->isStatic());
