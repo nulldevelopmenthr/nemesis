@@ -9,11 +9,6 @@ services:
     tags:
       - {name: console.command }
 
-  cli.command.broadway.run:
-    class: NullDev\BroadwaySkeleton\Cli\BroadwayRunCliCommand
-    tags:
-      - {name: console.command }
-
   cli.command.broadway.command.add:
     class: NullDev\BroadwaySkeleton\Cli\BroadwayAddCommandCliCommand
     tags:
