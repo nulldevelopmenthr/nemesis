@@ -32,10 +32,6 @@ services:
     tags:
       - { name: tactician.middleware , priority: 50 }
 
-  NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpSpecGenerator\SpecEventSourcedAggregateRootMiddleware:
-    tags:
-      - { name: tactician.middleware , priority: 50 }
-
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnitGenerator\TestEventSourcedAggregateRootMiddleware:
     tags:
       - { name: tactician.middleware , priority: 50 }
