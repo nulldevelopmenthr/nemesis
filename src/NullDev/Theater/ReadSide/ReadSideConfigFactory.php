@@ -16,16 +16,14 @@ class ReadSideConfigFactory
     public function create(
         ReadSideName $name, ReadSideNamespace $namespace, ReadSideImplementation $implementation, array $properties
     ): ReadSideConfig {
-        $base = $namespace->getValue().'\\'.$name->getValue();
-
         return new ReadSideConfig(
             $name,
             $namespace,
             $implementation,
-            ClassName::create($base.'Entity'),
-            ClassName::create($base.'Repository'),
-            ClassName::create($base.'Projector'),
-            ClassName::create($base.'Factory'),
+            ClassName::create($namespace->getValue().'\\Entity\\'.$name->getValue().'Entity'),
+            ClassName::create($namespace->getValue().'\\Repository\\'.$name->getValue().'Repository'),
+            ClassName::create($namespace->getValue().'\\Projector\\'.$name->getValue().'Projector'),
+            ClassName::create($namespace->getValue().'\\Factory\\'.$name->getValue().'Factory'),
             $properties
         );
     }
