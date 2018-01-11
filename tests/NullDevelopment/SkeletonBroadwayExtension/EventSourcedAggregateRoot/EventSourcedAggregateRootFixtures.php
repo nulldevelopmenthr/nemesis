@@ -11,10 +11,7 @@ use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use NullDevelopment\PhpStructure\DataTypeName\InterfaceName;
 use NullDevelopment\PhpStructure\DataTypeName\TraitName;
 use NullDevelopment\Skeleton\ExampleMaker\SimpleExample;
-use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\PhpUnit\TestEventSourcedAggregateRoot;
 use NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRoot;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\SetUpMethod;
-use NullDevelopment\SkeletonPhpUnitExtension\Method\TestGetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\ConstructorMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 
@@ -96,30 +93,6 @@ class EventSourcedAggregateRootFixtures
             [Constant::create('SOME_CONSTANT', 22)],
             $properties,
             $methods
-        );
-    }
-
-    public static function testActorEntity(): TestEventSourcedAggregateRoot
-    {
-        $className  = self::testActorEntityName();
-        $parentName = self::defaultTestCaseName();
-        $interfaces = [];
-        $traits     = [];
-        $constants  = [];
-        $properties = [
-            self::idProperty(),
-            self::firstNameProperty(),
-            new Property('sut', self::actorEntityName(), false, false, null, new Visibility('private')),
-        ];
-        $methods = [
-            new SetUpMethod(self::actorEntityName(), [self::idProperty(), self::firstNameProperty()]),
-            new TestGetterMethod('testGetId', 'getId', self::idProperty()),
-            new TestGetterMethod('testGetFirstName', 'getFirstName', self::firstNameProperty()),
-        ];
-        $sutName = self::actorEntityName();
-
-        return new TestEventSourcedAggregateRoot(
-            $className, $parentName, $interfaces, $traits, $constants, $properties, $methods, $sutName
         );
     }
 }
