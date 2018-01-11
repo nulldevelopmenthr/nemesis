@@ -10,7 +10,7 @@ namespace NullDevelopment\PhpStructure\DataTypeName;
  */
 class ClassName extends AbstractDataTypeName implements ContractName, Importable
 {
-    public static function create(string $fullName, ?string $alias = null): self
+    public static function create(string $fullName, ?string $alias = null)
     {
         $parts = explode(self::NAMESPACE_SEPARATOR, $fullName);
         $name  = array_pop($parts);
