@@ -1,7 +1,0 @@
-<?php
-
-public function setUp()
-{
-    $this->firstName = 'firstName';
-    $this->sut = new Senior($this->firstName);
-}

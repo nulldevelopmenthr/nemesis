@@ -1,6 +1,0 @@
-<?php
-
-public function testGetCurrencyCode()
-{
-    self::assertEquals($this->currencyCode, $this->sut->getCurrencyCode());
-}

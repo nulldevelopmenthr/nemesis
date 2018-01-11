@@ -1,8 +1,0 @@
-<?php
-
-public function setUp()
-{
-    $this->firstName = Mockery::mock(FirstName::class);
-    $this->lastName = Mockery::mock(LastName::class);
-    $this->sut = new Senior($this->firstName, $this->lastName);
-}

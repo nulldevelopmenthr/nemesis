@@ -1,8 +1,0 @@
-<?php
-
-public function it_is_initializable()
-{
-    $this->shouldHaveType(FirstName::class);
-    $this->shouldHaveType(FirstName::class);
-    $this->shouldHaveType(Name::class);
-}
