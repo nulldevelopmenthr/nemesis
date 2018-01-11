@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator;
 
+use Nette\PhpGenerator\ClassType;
 use NullDevelopment\SkeletonSourceCodeExtension\Method\GetterMethod;
 use NullDevelopment\SkeletonSourceCodeExtension\MethodGenerator\GetterMethodGenerator;
 use PHPUnit\Framework\TestCase;
@@ -36,7 +37,7 @@ class GetterMethodGeneratorTest extends TestCase
     public function testGenerateAsString(GetterMethod $method, string $fileName)
     {
         $filePath = __DIR__.'/output/'.$fileName;
-        $result   = $this->sut->generateAsString($method);
+        $result   = $this->sut->generateAsString(new ClassType('zzzz'), $method);
 
         $this->assertOutputContentMatches($filePath, $result);
     }
