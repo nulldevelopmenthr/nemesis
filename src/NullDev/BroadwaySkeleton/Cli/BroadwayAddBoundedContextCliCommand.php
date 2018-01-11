@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use League\Tactician\CommandBus;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootId;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootModel;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayAggregateRootRepository;
-use NullDev\BroadwaySkeleton\Command\CreateBroadwayCommandHandler;
 use NullDev\Skeleton\Command\ContainerImplementingTrait;
 use NullDev\Skeleton\Suggestions\NamespaceSuggestions;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
@@ -78,8 +73,7 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
     /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $commandBus = $this->getService(CommandBus::class);
-        $config     = $this->getTheaterConfig();
+        $config = $this->getTheaterConfig();
 
         if (true === $config->hasContextByName($this->name)) {
             $message = sprintf('Bounded context with that name already exists');
@@ -96,25 +90,6 @@ class BroadwayAddBoundedContextCliCommand extends BaseSkeletonGeneratorCommand
 
         $config->addContext($newContext);
         $this->writeTheaterConfig($config);
-
-        if ($this->io->confirm('Do you want to generate files now?')) {
-            $commands = [
-                CreateBroadwayAggregateRootId::create($newContext),
-                CreateBroadwayAggregateRootModel::create($newContext),
-                CreateBroadwayAggregateRootRepository::create($newContext),
-                CreateBroadwayCommandHandler::create($newContext),
-            ];
-
-            $outputResources = [];
-
-            foreach ($commands as $command) {
-                $outputResources = array_merge($outputResources, $commandBus->handle($command));
-            }
-
-            foreach ($outputResources as $outputResource) {
-                $this->handleGeneratingFile($outputResource);
-            }
-        }
 
         $this->io->writeln('DoNE');
     }
