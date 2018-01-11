@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\Naming\Aggregate;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see RootModelClassNameSpec
  * @see RootModelClassNameTest
  */
-class RootModelClassName extends ClassType
+class RootModelClassName extends ClassName
 {
-    public static function create(string $fullName): self
-    {
-        return parent::createFromFullyQualified($fullName);
-    }
 }

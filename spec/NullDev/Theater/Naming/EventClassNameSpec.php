@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Theater\Naming;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\Naming\EventClassName;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use PhpSpec\ObjectBehavior;
 
 class EventClassNameSpec extends ObjectBehavior
@@ -18,6 +18,6 @@ class EventClassNameSpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(EventClassName::class);
-        $this->shouldHaveType(ClassType::class);
+        $this->shouldHaveType(ClassName::class);
     }
 }

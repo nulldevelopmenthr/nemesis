@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\BoundedContext\BoundedContextConfig;
 use NullDev\Theater\BoundedContext\CommandConfig;
 use NullDev\Theater\BoundedContext\ContextName;
 use NullDev\Theater\Config\TheaterConfig;
 use NullDev\Theater\Naming\CommandClassName;
+use NullDevelopment\PhpStructure\DataType\Property;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -75,16 +75,16 @@ class BroadwayAddCommandCliCommand extends BaseSkeletonGeneratorCommand
         $this->io->writeln('DoNE');
     }
 
-    private function generateDefinition(ClassType $commandClassName, array $parameters)
+    private function generateDefinition(ClassName $commandClassName, array $parameters)
     {
         $className = $commandClassName->getFullName();
 
         $properties = [];
 
-        /** @var Parameter $parameter */
+        /** @var Property $parameter */
         foreach ($parameters as $parameter) {
             $properties[$parameter->getName()] = [
-                'instanceOf' => $parameter->getTypeFullName(),
+                'instanceOf' => $parameter->getInstanceFullName(),
                 'nullable'   => false,
                 'hasDefault' => false,
                 'default'    => null,

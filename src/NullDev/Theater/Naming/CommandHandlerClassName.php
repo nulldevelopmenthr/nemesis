@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\Naming;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see CommandHandlerClassNameSpec
  * @see CommandHandlerClassNameTest
  */
-class CommandHandlerClassName extends ClassType
+class CommandHandlerClassName extends ClassName
 {
-    public static function create(string $fullName): self
-    {
-        return parent::createFromFullyQualified($fullName);
-    }
 }

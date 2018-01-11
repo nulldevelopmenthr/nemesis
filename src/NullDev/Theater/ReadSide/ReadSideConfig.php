@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NullDev\Theater\ReadSide;
 
 use Exception;
+use NullDevelopment\PhpStructure\DataType\Property;
 use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
@@ -105,8 +106,9 @@ class ReadSideConfig
     {
         $properties = [];
 
+        /** @var Property $property */
         foreach ($this->properties as $property) {
-            $properties[$property->getName()] = $property->getTypeFullName();
+            $properties[$property->getName()] = $property->getInstanceFullName();
         }
 
         $data = [

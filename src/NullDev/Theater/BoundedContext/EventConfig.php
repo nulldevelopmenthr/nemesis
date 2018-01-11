@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\BoundedContext;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Theater\Naming\EventClassName;
+use NullDevelopment\PhpStructure\DataType\Property;
 use Webmozart\Assert\Assert;
 
 /**
@@ -25,7 +25,7 @@ class EventConfig
 
     public function __construct(string $name, EventClassName $eventClassName, array $parameters)
     {
-        Assert::allIsInstanceOf($parameters, Parameter::class);
+        Assert::allIsInstanceOf($parameters, Property::class);
 
         $this->name           = $name;
         $this->eventClassName = $eventClassName;

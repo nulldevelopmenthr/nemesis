@@ -34,6 +34,15 @@ abstract class AbstractDataTypeName
         return $this->namespace;
     }
 
+    public function hasNamespace(): bool
+    {
+        if (null === $this->namespace) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function hasAlias(): bool
     {
         if (null === $this->alias) {

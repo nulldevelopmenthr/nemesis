@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\BoundedContext;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Theater\Naming\Aggregate\EntityClassName;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
@@ -13,6 +12,8 @@ use NullDev\Theater\Naming\CommandClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
 use NullDev\Theater\Naming\EventClassName;
 use NullDev\Theater\NamingStrategy\NamingStrategyFactory;
+use NullDevelopment\PhpStructure\DataType\Property;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see BoundedContextConfigFactorySpec
@@ -65,7 +66,7 @@ class BoundedContextConfigFactory
 
             $parameters = [];
             foreach ($command['parameters'] as $parameterName => $parameterType) {
-                $parameters[] = Parameter::create($parameterName, $parameterType);
+                $parameters[] = Property::private($parameterName, ClassName::create($parameterType));
             }
 
             $config->addCommand(new CommandConfig($commandName, CommandClassName::create($className), $parameters));
@@ -75,7 +76,7 @@ class BoundedContextConfigFactory
 
             $parameters = [];
             foreach ($event['parameters'] as $parameterName => $parameterType) {
-                $parameters[] = Parameter::create($parameterName, $parameterType);
+                $parameters[] = Property::private($parameterName, ClassName::create($parameterType));
             }
 
             $config->addEvent(new EventConfig($eventName, EventClassName::create($className), $parameters));

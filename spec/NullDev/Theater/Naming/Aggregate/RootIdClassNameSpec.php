@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Theater\Naming\Aggregate;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\Naming\Aggregate\RootIdClassName;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use PhpSpec\ObjectBehavior;
 
 class RootIdClassNameSpec extends ObjectBehavior
@@ -18,6 +18,6 @@ class RootIdClassNameSpec extends ObjectBehavior
     public function it_is_initializable()
     {
         $this->shouldHaveType(RootIdClassName::class);
-        $this->shouldHaveType(ClassType::class);
+        $this->shouldHaveType(ClassName::class);
     }
 }

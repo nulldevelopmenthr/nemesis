@@ -4,16 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\Theater\Naming;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 
 /**
  * @see EventClassNameSpec
  * @see EventClassNameTest
  */
-class EventClassName extends ClassType
+class EventClassName extends ClassName
 {
-    public static function create(string $fullName): self
-    {
-        return parent::createFromFullyQualified($fullName);
-    }
 }

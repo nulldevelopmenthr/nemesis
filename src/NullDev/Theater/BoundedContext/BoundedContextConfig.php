@@ -9,6 +9,7 @@ use NullDev\Theater\Naming\Aggregate\RootIdClassName;
 use NullDev\Theater\Naming\Aggregate\RootModelClassName;
 use NullDev\Theater\Naming\Aggregate\RootRepositoryClassName;
 use NullDev\Theater\Naming\CommandHandlerClassName;
+use NullDevelopment\PhpStructure\DataType\Property;
 
 /**
  * @see BoundedContextConfigSpec
@@ -129,8 +130,9 @@ class BoundedContextConfig
         foreach ($this->commands as $commandConfig) {
             $parameters = [];
 
+            /** @var Property $parameter */
             foreach ($commandConfig->getParameters() as $parameter) {
-                $parameters[$parameter->getName()] = $parameter->getTypeFullName();
+                $parameters[$parameter->getName()] = $parameter->getInstanceFullName();
             }
 
             $commands[$commandConfig->getName()] = [
@@ -142,8 +144,9 @@ class BoundedContextConfig
         foreach ($this->events as $eventConfig) {
             $parameters = [];
 
+            /** @var Property $parameter */
             foreach ($eventConfig->getParameters() as $parameter) {
-                $parameters[$parameter->getName()] = $parameter->getTypeFullName();
+                $parameters[$parameter->getName()] = $parameter->getInstanceFullName();
             }
 
             $events[$eventConfig->getName()] = [

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace NullDev\BroadwaySkeleton\Cli;
 
-use NullDev\Skeleton\Definition\PHP\Parameter;
 use NullDev\Theater\ReadSide\ReadSideConfig;
 use NullDev\Theater\ReadSide\ReadSideConfigFactory;
 use NullDev\Theater\ReadSide\ReadSideImplementation;
 use NullDev\Theater\ReadSide\ReadSideName;
 use NullDev\Theater\ReadSide\ReadSideNamespace;
+use NullDevelopment\PhpStructure\DataType\Property;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
@@ -33,7 +33,7 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
     /** @var ReadSideImplementation */
     private $implementation;
 
-    /** @var Parameter[]|array */
+    /** @var Property[]|array */
     private $readEntityProperties;
 
     protected function configure()
@@ -92,10 +92,10 @@ class BroadwayAddReadSideCliCommand extends BaseSkeletonGeneratorCommand
 
         $properties = [];
 
-        /** @var Parameter $parameter */
+        /** @var Property $parameter */
         foreach ($newReadSide->getProperties() as $parameter) {
             $properties[$parameter->getName()] = [
-                'instanceOf' => $parameter->getTypeFullName(),
+                'instanceOf' => $parameter->getInstanceFullName(),
                 'nullable'   => false,
                 'hasDefault' => false,
                 'default'    => null,

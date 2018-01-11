@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace spec\NullDev\Theater\ReadSide;
 
-use NullDev\Skeleton\Definition\PHP\Types\ClassType;
 use NullDev\Theater\ReadSide\ReadSideConfig;
 use NullDev\Theater\ReadSide\ReadSideImplementation;
 use NullDev\Theater\ReadSide\ReadSideName;
 use NullDev\Theater\ReadSide\ReadSideNamespace;
+use NullDevelopment\PhpStructure\DataTypeName\ClassName;
 use PhpSpec\ObjectBehavior;
 
 class ReadSideConfigSpec extends ObjectBehavior
@@ -17,10 +17,10 @@ class ReadSideConfigSpec extends ObjectBehavior
         ReadSideName $name,
         ReadSideNamespace $namespace,
         ReadSideImplementation $implementation,
-        ClassType $readEntity,
-        ClassType $readRepository,
-        ClassType $readProjector,
-        ClassType $readFactory
+        ClassName $readEntity,
+        ClassName $readRepository,
+        ClassName $readProjector,
+        ClassName $readFactory
     ) {
         $this->beConstructedWith(
             $name,
@@ -43,10 +43,10 @@ class ReadSideConfigSpec extends ObjectBehavior
         ReadSideName $name,
         ReadSideNamespace $namespace,
         ReadSideImplementation $implementation,
-        ClassType $readEntity,
-        ClassType $readRepository,
-        ClassType $readProjector,
-        ClassType $readFactory
+        ClassName $readEntity,
+        ClassName $readRepository,
+        ClassName $readProjector,
+        ClassName $readFactory
     ) {
         $this->getName()->shouldReturn($name);
         $this->getNamespace()->shouldReturn($namespace);
