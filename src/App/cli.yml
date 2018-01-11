@@ -3,9 +3,3 @@ services:
     autowire: true
     autoconfigure: true
     public: true
-
-  cli.command.nemesis.index:
-    class: NullDev\Nemesis\Command\GeneratePHPUnitTestsCliCommand
-    tags:
-      - {name: console.command }
-
