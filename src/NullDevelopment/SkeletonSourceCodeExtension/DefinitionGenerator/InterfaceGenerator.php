@@ -92,7 +92,7 @@ class InterfaceGenerator implements DefinitionGenerator
         return $namespace;
     }
 
-    public function handleInterfaceDefinition(InterfaceDefinition $definition): array
+    public function handle(InterfaceDefinition $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

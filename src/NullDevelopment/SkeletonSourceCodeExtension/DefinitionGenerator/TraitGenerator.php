@@ -67,7 +67,7 @@ class TraitGenerator implements DefinitionGenerator
         return $namespace;
     }
 
-    public function handleTraitDefinition(TraitDefinition $definition): array
+    public function handle(TraitDefinition $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

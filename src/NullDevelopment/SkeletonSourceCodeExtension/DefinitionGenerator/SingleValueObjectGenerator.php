@@ -23,7 +23,7 @@ class SingleValueObjectGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleSingleValueObject(SingleValueObject $definition): array
+    public function handle(SingleValueObject $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

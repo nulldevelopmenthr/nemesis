@@ -25,7 +25,7 @@ class EventSourcedAggregateRootNetteGenerator extends BaseSourceCodeDefinitionGe
         return false;
     }
 
-    public function handleEventSourcedAggregateRoot(EventSourcedAggregateRoot $definition): array
+    public function handle(EventSourcedAggregateRoot $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

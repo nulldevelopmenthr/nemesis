@@ -23,7 +23,7 @@ class UuidV4IdentifierGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleUuidV4Identifier(UuidV4Identifier $definition): array
+    public function handle(UuidV4Identifier $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

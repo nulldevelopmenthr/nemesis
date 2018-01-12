@@ -23,7 +23,7 @@ class SimpleIdentifierGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleSimpleIdentifier(SimpleIdentifier $definition): array
+    public function handle(SimpleIdentifier $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

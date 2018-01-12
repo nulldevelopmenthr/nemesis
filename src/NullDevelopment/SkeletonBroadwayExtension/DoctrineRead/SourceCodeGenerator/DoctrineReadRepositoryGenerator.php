@@ -24,7 +24,7 @@ class DoctrineReadRepositoryGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleDoctrineReadRepository(DoctrineReadRepository $definition): array
+    public function handle(DoctrineReadRepository $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

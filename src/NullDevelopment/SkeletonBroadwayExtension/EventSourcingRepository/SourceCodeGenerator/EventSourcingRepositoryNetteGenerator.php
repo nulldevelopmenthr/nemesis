@@ -27,7 +27,7 @@ class EventSourcingRepositoryNetteGenerator extends BaseSourceCodeDefinitionGene
         return false;
     }
 
-    public function handleEventSourcingRepository(EventSourcingRepository $definition): array
+    public function handle(EventSourcingRepository $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

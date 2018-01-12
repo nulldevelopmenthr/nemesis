@@ -24,7 +24,7 @@ class DoctrineReadFactoryGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleDoctrineReadFactory(DoctrineReadFactory $definition): array
+    public function handle(DoctrineReadFactory $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

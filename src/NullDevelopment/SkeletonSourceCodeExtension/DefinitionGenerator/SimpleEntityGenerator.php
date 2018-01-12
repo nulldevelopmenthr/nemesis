@@ -23,7 +23,7 @@ class SimpleEntityGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleSimpleEntity(SimpleEntity $definition): array
+    public function handle(SimpleEntity $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

@@ -25,7 +25,7 @@ class EventNetteGenerator extends BaseSourceCodeDefinitionGenerator implements D
         return false;
     }
 
-    public function handleEvent(Event $definition): array
+    public function handle(Event $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),
