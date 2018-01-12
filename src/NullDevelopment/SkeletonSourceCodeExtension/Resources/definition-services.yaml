@@ -10,23 +10,7 @@ services:
     tags:
       - { name: skeleton.definition_generator, priority: 1 }
 
-  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SingleValueObjectGenerator:
-    tags:
-      - { name: skeleton.definition_generator, priority: 20 }
-
-  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleIdentifierGenerator:
-    tags:
-      - { name: skeleton.definition_generator, priority: 20 }
-
-  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\UuidV4IdentifierGenerator:
-    tags:
-      - { name: skeleton.definition_generator, priority: 20 }
-
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\DateTimeValueObjectGenerator:
-    tags:
-      - { name: skeleton.definition_generator, priority: 20 }
-
-  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleEntityGenerator:
     tags:
       - { name: skeleton.definition_generator, priority: 20 }
 
