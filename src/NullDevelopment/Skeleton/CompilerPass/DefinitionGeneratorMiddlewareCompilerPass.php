@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NullDevelopment\Skeleton\CompilerPass;
 
+use Exception;
 use NullDevelopment\Skeleton\TacticianMiddleware\DefinitionGeneratorMiddleware;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -22,12 +23,19 @@ class DefinitionGeneratorMiddlewareCompilerPass implements CompilerPassInterface
 
         $definition = $container->findDefinition(DefinitionGeneratorMiddleware::class);
 
-        $taggedServices = $container->findTaggedServiceIds('skeleton.definition_generator');
-
         $references = [];
 
-        foreach (array_keys($taggedServices) as $id) {
-            $references[] = new Reference($id);
+        foreach ($container->findTaggedServiceIds('skeleton.definition_generator', true) as $serviceId => $attributes) {
+            if (false === isset($attributes[0]['priority'])) {
+                throw new Exception('Priority must me defined on definition generators'.$serviceId);
+            }
+
+            $priority                = $attributes[0]['priority'];
+            $references[$priority][] = new Reference($serviceId);
+        }
+        if ($references) {
+            krsort($references);
+            $references = call_user_func_array('array_merge', $references);
         }
 
         $definition->setArgument(0, $references);

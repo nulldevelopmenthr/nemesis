@@ -6,6 +6,10 @@ services:
     autoconfigure: true
     public: true
 
+  NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\GenericGenerator:
+    tags:
+      - { name: skeleton.definition_generator, priority: 1 }
+
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SingleValueObjectGenerator:
     tags:
       - { name: skeleton.definition_generator, priority: 20 }
