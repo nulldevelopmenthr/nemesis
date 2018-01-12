@@ -10,3 +10,8 @@ services:
   NullDevelopment\Skeleton\CsFixer\CsFixerMiddleware:
     tags:
       - { name: tactician.middleware , priority: 101 }
+
+
+  NullDevelopment\Skeleton\TacticianMiddleware\DefinitionGeneratorMiddleware:
+    tags:
+      - { name: tactician.middleware , priority: 1 }
