@@ -13,3 +13,7 @@ services:
 
 
   Symfony\Component\Filesystem\Filesystem: ~
+
+  League\Tactician\CommandBus:
+    arguments:
+      - []
