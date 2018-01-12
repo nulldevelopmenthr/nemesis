@@ -29,12 +29,17 @@ services:
     tags:
       - {name: console.command }
 
+  cli.command.simple.collection.add:
+    class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSimpleCollectionCliCommand
+    tags:
+      - {name: console.command }
+
   cli.command.single.value_object.add:
     class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddSingleValueObjectCliCommand
     tags:
       - {name: console.command }
 
-  cli.command.single.datetime.add:
+  cli.command.datetime.add:
     class: NullDevelopment\SkeletonSourceCodeExtension\Cli\AddDateTimeValueObjectCliCommand
     tags:
       - {name: console.command }
