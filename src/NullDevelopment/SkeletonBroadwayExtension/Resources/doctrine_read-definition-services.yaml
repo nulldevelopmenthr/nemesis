@@ -6,10 +6,6 @@ services:
     autoconfigure: true
     public: true
 
-  NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCodeGenerator\DoctrineReadEntityGenerator:
-    tags:
-      - { name: skeleton.definition_generator, priority: 20 }
-
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadEntityGenerator: ~
 
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpec\SpecDoctrineReadEntityFactory:
