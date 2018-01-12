@@ -25,7 +25,7 @@ class CommandNetteGenerator extends BaseSourceCodeDefinitionGenerator implements
         return false;
     }
 
-    public function handleCommand(Command $definition): array
+    public function handle(Command $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

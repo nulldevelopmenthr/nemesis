@@ -25,7 +25,7 @@ class CommandHandlerNetteGenerator extends BaseSourceCodeDefinitionGenerator imp
         return false;
     }
 
-    public function handleCommandHandler(CommandHandler $definition): array
+    public function handle(CommandHandler $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

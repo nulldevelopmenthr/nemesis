@@ -23,7 +23,7 @@ class DateTimeValueObjectGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleDateTimeValueObject(DateTimeValueObject $definition): array
+    public function handle(DateTimeValueObject $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

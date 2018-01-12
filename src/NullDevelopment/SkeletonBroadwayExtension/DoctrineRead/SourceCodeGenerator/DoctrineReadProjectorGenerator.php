@@ -24,7 +24,7 @@ class DoctrineReadProjectorGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleDoctrineReadProjector(DoctrineReadProjector $definition): array
+    public function handle(DoctrineReadProjector $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

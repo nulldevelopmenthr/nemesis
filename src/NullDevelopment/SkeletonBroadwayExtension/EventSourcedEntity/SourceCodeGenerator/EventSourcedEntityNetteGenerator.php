@@ -25,7 +25,7 @@ class EventSourcedEntityNetteGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleEventSourcedEntity(EventSourcedEntity $definition): array
+    public function handle(EventSourcedEntity $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),

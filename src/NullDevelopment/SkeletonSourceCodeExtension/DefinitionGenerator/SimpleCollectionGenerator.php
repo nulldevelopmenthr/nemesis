@@ -26,7 +26,7 @@ class SimpleCollectionGenerator extends BaseSourceCodeDefinitionGenerator
         return false;
     }
 
-    public function handleSimpleCollection(SimpleCollection $definition): array
+    public function handle(SimpleCollection $definition): array
     {
         return [
             new Result($definition, $this->generate($definition)),
