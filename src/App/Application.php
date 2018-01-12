@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\CompilerPass\TacticianHandlerRegistrationCompilerPass;
 use App\CompilerPass\TacticianMiddlewareRegistrationCompilerPass;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Console\Application as BaseApplication;
@@ -51,7 +50,6 @@ final class Application extends BaseApplication
         }
 
         $this->container->addCompilerPass(new AutowirePass(true));
-        $this->container->addCompilerPass(new TacticianHandlerRegistrationCompilerPass());
         $this->container->addCompilerPass(new TacticianMiddlewareRegistrationCompilerPass());
 
         parent::__construct('Nemesis', self::VERSION);
