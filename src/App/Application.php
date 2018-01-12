@@ -42,8 +42,6 @@ final class Application extends BaseApplication
         $loader->load('services.yml');
         $loader->load('cli.yml');
 
-        $loader->load('phpparser-services.yml');
-
         foreach ($extensions as $extensionClass => $extensionSettings) {
             if (null === $extensionSettings) {
                 $extensionSettings = [];
