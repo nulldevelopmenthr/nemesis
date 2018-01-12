@@ -8,5 +8,5 @@ services:
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCodeGenerator\EventSourcingRepositoryNetteGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcingRepository\SourceCode\EventSourcingRepository' }
+      - { name: skeleton.definition_generator, priority: 20 }
 

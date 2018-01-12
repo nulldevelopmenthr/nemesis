@@ -8,43 +8,43 @@ services:
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SingleValueObjectGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SingleValueObject' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleIdentifierGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleIdentifier' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\UuidV4IdentifierGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\UuidV4Identifier' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\DateTimeValueObjectGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\DateTimeValueObject' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleEntityGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleEntity' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\SimpleCollectionGenerator:
     arguments:
       $methodGenerators: []
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonSourceCodeExtension\Definition\SimpleCollection' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\TraitGenerator:
     arguments:
       $methodGenerators: []
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\TraitDefinition' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
 
   NullDevelopment\SkeletonSourceCodeExtension\DefinitionGenerator\InterfaceGenerator:
     arguments:
       $methodGenerators: []
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\PhpStructure\Type\InterfaceDefinition' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
 
 
