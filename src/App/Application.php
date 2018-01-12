@@ -43,7 +43,6 @@ final class Application extends BaseApplication
         $loader->load('cli.yml');
 
         $loader->load('phpparser-services.yml');
-        $loader->load('tactician-services.yml');
 
         foreach ($extensions as $extensionClass => $extensionSettings) {
             if (null === $extensionSettings) {
