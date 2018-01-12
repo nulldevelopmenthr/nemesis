@@ -8,7 +8,7 @@ services:
 
   NullDevelopment\SkeletonBroadwayExtension\Command\SourceCodeGenerator\CommandNetteGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\Command\SourceCode\Command' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonBroadwayExtension\Command\PhpSpecGenerator\SpecCommandNetteGenerator: ~
 

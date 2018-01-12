@@ -8,5 +8,5 @@ services:
 
   NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCodeGenerator\EventSourcedAggregateRootNetteGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\EventSourcedAggregateRoot\SourceCode\EventSourcedAggregateRoot' }
+      - { name: skeleton.definition_generator, priority: 20 }
 

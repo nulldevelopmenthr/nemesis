@@ -8,7 +8,7 @@ services:
 
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCodeGenerator\DoctrineReadEntityGenerator:
     tags:
-      - { name: tactician.handler, command: 'NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\SourceCode\DoctrineReadEntity' }
+      - { name: skeleton.definition_generator, priority: 20 }
 
   NullDevelopment\SkeletonBroadwayExtension\DoctrineRead\PhpSpecGenerator\SpecDoctrineReadEntityGenerator: ~
 
